@@ -265,7 +265,7 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
                                         <?php endif; ?>
                                     </div>
                                     <button type="button" data-open-project="<?= htmlspecialchars($value['slug']) ?>"
-                                        class="text-orange-500 hover:text-orange-600 font-semibold inline-flex items-center gap-1">
+                                        class="text-orange-600 hover:text-orange-600 font-semibold inline-flex items-center gap-1">
                                         Смотреть проект
                                         <i class="fas fa-arrow-right text-xs"></i>
                                     </button>

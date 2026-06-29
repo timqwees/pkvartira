@@ -1017,19 +1017,19 @@ if (is_readable($euroAbout)) {
                             <h3 class="text-xl font-bold text-gray-900">Почему 98% клиентов выбирают нас</h3>
                             <div class="mt-4 grid grid-cols-2 gap-4">
                                 <div class="rounded-xl border border-gray-200 p-4">
-                                    <div class="text-2xl font-bold text-orange-500">0 ₽</div>
+                                    <div class="text-2xl font-bold text-orange-600">0 ₽</div>
                                     <div class="text-sm text-gray-600 mt-1">выезд инженера</div>
                                 </div>
                                 <div class="rounded-xl border border-gray-200 p-4">
-                                    <div class="text-2xl font-bold text-orange-500">24 ч</div>
+                                    <div class="text-2xl font-bold text-orange-600">24 ч</div>
                                     <div class="text-sm text-gray-600 mt-1">подготовка сметы</div>
                                 </div>
                                 <div class="rounded-xl border border-gray-200 p-4">
-                                    <div class="text-2xl font-bold text-orange-500">3 года</div>
+                                    <div class="text-2xl font-bold text-orange-600">3 года</div>
                                     <div class="text-sm text-gray-600 mt-1">гарантия на работы</div>
                                 </div>
                                 <div class="rounded-xl border border-gray-200 p-4">
-                                    <div class="text-2xl font-bold text-orange-500">ГОСТ</div>
+                                    <div class="text-2xl font-bold text-orange-600">ГОСТ</div>
                                     <div class="text-sm text-gray-600 mt-1">соблюдаем нормативы</div>
                                 </div>
                             </div>

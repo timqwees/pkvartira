@@ -46,7 +46,7 @@
                 <ul class="space-y-2 text-gray-600 text-sm md:text-base">
                     <li><a href="tel:<?= $site['phone']; ?>"><i class="fas fa-phone mr-2"></i>+7 495 473-17-37</a>
                     </li>
-                    <li><a href="mailto:<?= $site['email']; ?>"><i
+                    <li><a href="mailto:<?= $site['email']; ?>" aria-label="Написать на <?= $site['email']; ?>"><i
                                 class="fas fa-envelope mr-2"></i><?= $site['email']; ?></li>
                     <li><a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="noopener"><i
                                 class="fas fa-map-marker-alt mr-2"></i><?= htmlspecialchars($site['address']['streetAddress']) ?> <i

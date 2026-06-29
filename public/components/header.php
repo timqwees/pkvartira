@@ -300,7 +300,7 @@
                     </div>
                     <label class="flex items-start gap-3 cursor-pointer text-sm text-gray-700 leading-snug select-none">
                         <input type="checkbox" name="согласие_персональные_данные" value="да" required aria-label="Согласие на обработку персональных данных"
-                            class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-orange-500 focus:ring-orange-500 accent-orange-500">
+                            class="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-orange-600 focus:ring-orange-500 accent-orange-500">
                         <span>
                             Нажимая «Отправить», я принимаю
                             <a href="/soglashenie" class="text-blue-600 hover:underline">соглашение</a>

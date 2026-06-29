@@ -283,7 +283,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         itemtype="https://schema.org/BreadcrumbList">
                         <li class="font-medium" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
-                            <a href="<?= $site['baseUrl'] ?>" class="hover:text-orange-500 transition" itemprop="item">
+                            <a href="<?= $site['baseUrl'] ?>" class="hover:text-orange-600 transition" itemprop="item">
                                 <span itemprop="name">Главная</span>
                             </a>
                             <meta itemprop="position" content="1">
@@ -291,7 +291,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <li>/</li>
                         <li class="font-medium" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
-                            <a href="<?= $site['baseUrl'] ?>/services" class="hover:text-orange-500 transition"
+                            <a href="<?= $site['baseUrl'] ?>/services" class="hover:text-orange-600 transition"
                                 itemprop="item">
                                 <span itemprop="name">Услуги</span>
                             </a>
@@ -300,7 +300,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <li>/</li>
                         <li class="font-medium" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
-                            <a href="<?= $site['canonicalUrl'] ?>" class="hover:text-orange-500 transition"
+                            <a href="<?= $site['canonicalUrl'] ?>" class="hover:text-orange-600 transition"
                                 itemprop="item">
                                 <span itemprop="name"><?= htmlspecialchars($title); ?></span>
                             </a>
@@ -335,14 +335,14 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             <div class="flex items-center gap-2">
                                 <span
                                     class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center">
-                                    <i class="fa-solid fa-phone text-orange-500"></i>
+                                    <i class="fa-solid fa-phone text-orange-600"></i>
                                 </span>
                                 <span>Ответим за 5 минут</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <span
                                     class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center">
-                                    <i class="fa-solid fa-location-dot text-orange-500"></i>
+                                    <i class="fa-solid fa-location-dot text-orange-600"></i>
                                 </span>
                                 <span>Работаем по Москве и области</span>
                             </div>
@@ -498,7 +498,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                 content="<?= htmlspecialchars($price['заголовок']); ?> ремонт коммерческого помещения">
                             <?php if (isset($price['бейдж'])): ?>
                                 <div
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-200">
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
                                     <?= htmlspecialchars($price['бейдж']); ?>
                                 </div>
                             <?php endif; ?>
@@ -537,47 +537,47 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-screwdriver-wrench"
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-screwdriver-wrench"
                                 aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Демонтаж</div>
                         <div class="text-sm text-gray-600 mt-1">Подготовительные работы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Электрика</div>
                         <div class="text-sm text-gray-600 mt-1">Проводка и щит</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Сантехника</div>
                         <div class="text-sm text-gray-600 mt-1">Разводка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Отделка</div>
                         <div class="text-sm text-gray-600 mt-1">Стены, пол, потолок</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Двери</div>
                         <div class="text-sm text-gray-600 mt-1">Монтаж и доборы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Освещение</div>
                         <div class="text-sm text-gray-600 mt-1">Светильники и выключатели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Мебель</div>
                         <div class="text-sm text-gray-600 mt-1">Сборка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-500 text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
+                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Уборка</div>
                         <div class="text-sm text-gray-600 mt-1">После работ</div>
                     </div>
@@ -590,7 +590,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Ваш путь кльному ремонту:<br><span class="text-orange-500">6 шагов</span> до новоселья
+                        Ваш путь кльному ремонту:<br><span class="text-orange-600">6 шагов</span> до новоселья
                     </h2>
                     <p class="text-xl text-gray-600">
                         Мы выстроили систему так, чтобы вы не тратили время на контроль и закупки

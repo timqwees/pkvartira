@@ -228,40 +228,40 @@
                             <div class="w-fit grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-500"></i>
+                                        <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Опыт <strong>5 лет</strong> профессиональной
                                         работы</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-500"></i>
+                                        <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Собственный склад материалов с выгодными
                                         ценами</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-500"></i>
+                                        <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Более <strong>40+</strong> специалистов в
                                         штате</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-500"></i>
+                                        <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Страхование объекта на время ремонта</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-500"></i>
+                                        <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Фиксированные цены</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-500"></i>
+                                        <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Без скрытых платежей</span>
                                 </div>
@@ -444,31 +444,31 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-500"></i>
+                                    <i class="fas fa-check-circle text-orange-600"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Честный текст договора</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-500"></i>
+                                    <i class="fas fa-check-circle text-orange-600"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Договор и смета</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-500"></i>
+                                    <i class="fas fa-check-circle text-orange-600"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Заявление об учете и актах</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-500"></i>
+                                    <i class="fas fa-check-circle text-orange-600"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">ИНН / ОГРН</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-500"></i>
+                                    <i class="fas fa-check-circle text-orange-600"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Гарантийные обязательства</span>
                             </div>
