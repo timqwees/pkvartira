@@ -186,7 +186,7 @@
 
         <!-- 1. hero section -->
         <section
-            class="bg-[url(/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg)] bg-center bg-cover bg-no-repeat relative overflow-hidden py-20">
+            class="reveal bg-[url(/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg)] bg-center bg-cover bg-no-repeat relative overflow-hidden py-20">
             <div class="absolute blur-xl z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-white/50">
             </div>
             <div class="relative z-10 container mx-auto px-4">
@@ -361,7 +361,7 @@
         </section>
 
         <!-- 2. Цена за м² по типам ремонта -->
-        <section class="py-12 md:py-16 bg-white">
+        <section class="reveal py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
                     Цены за м² по типам ремонта
@@ -401,7 +401,7 @@
         </section>
 
         <!-- 3. Цена по типам объектов: студия / 1к / 3к -->
-        <section class="py-12 md:py-16 bg-gray-50">
+        <section class="reveal py-12 md:py-16 bg-gray-50">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
                     Цена по типам объектов: студия / 1к / 2к / 3к
@@ -554,7 +554,7 @@
         </section> -->
 
         <!-- 6. Что входит в стоимость -->
-        <section class="bg-gray-50 py-10 md:py-14">
+        <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
                     Что входит в стоимость ремонта
@@ -611,7 +611,7 @@
         </section>
 
         <!-- 9. FAQ по цене -->
-        <section class="py-12 md:py-16 bg-gray-50">
+        <section class="reveal py-12 md:py-16 bg-gray-50">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
                     Отвечаем на важные вопросы о цене честно и без воды
@@ -677,7 +677,7 @@
         </section>
 
         <!-- 11. Финальный CTA -->
-        <section class="w-full py-12 md:py-16 bg-gray-50">
+        <section class="reveal w-full py-12 md:py-16 bg-gray-50">
             <div
                 class="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-800 to-blue-900 p-8 md:p-12 text-white text-center">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">
@@ -731,6 +731,7 @@
     <!-- Local Scripts -->
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
     <!-- FAQ Toggle Script -->
     <script>

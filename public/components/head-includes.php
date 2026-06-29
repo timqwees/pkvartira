@@ -74,6 +74,11 @@ $__ogAlt = htmlspecialchars(
 <!-- Tailwind CSS (deferred) -->
 <script src="https://cdn.tailwindcss.com" defer></script>
 
+<!-- Google Fonts - Inter + Unbounded -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <!-- Swiper JS - deferred -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 <script src="/public/assets/scripts/components/swiper.js" defer></script>

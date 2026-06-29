@@ -161,7 +161,7 @@
     <?php include_once './public/components/header.php'; ?>
 
     <main class="pt-20 bg-[#f3f4fb]">
-        <section class="py-10" id="calculator">
+        <section class="reveal py-10" id="calculator">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="bg-white rounded-2xl border border-[#e6e7ee] shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
                     <div class="px-6 pt-6 pb-4">
@@ -704,5 +704,6 @@
     </script>
     <script src="/public/assets/scripts/components/toggleWindow.js"></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
 </body>

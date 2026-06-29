@@ -197,7 +197,7 @@
     <!-- Main Content -->
     <main class="pt-20 flex flex-col gap-6">
         <!-- Hero Section -->
-        <section class="py-16 bg-gradient-to-r from-blue-50">
+        <section class="reveal py-16 bg-gradient-to-r from-blue-50">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                     Акции и специальные предложения
@@ -210,7 +210,7 @@
         </section>
 
         <!-- Stock Cards Section -->
-        <section class="py-10">
+        <section class="reveal py-10">
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap gap-6">
 
@@ -353,7 +353,7 @@
         </section>
 
         <!-- Terms and Conditions Section -->
-        <section class="py-16 bg-gray-50">
+        <section class="reveal py-16 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -410,7 +410,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <section class="reveal py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     Хотите рассчитать стоимость ремонта в вашей квартире?
@@ -449,6 +449,7 @@
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
     <script src="/public/assets/scripts/components/faq.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 </body>
 
 </html>

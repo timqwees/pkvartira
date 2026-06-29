@@ -147,7 +147,7 @@
     <main class="pt-20">
 
         <!-- Hero Section with Gallery -->
-        <section class="bg-white">
+        <section class="bg-white reveal">
             <div class="container mx-auto px-4 max-w-6xl py-12">
                 <!-- Title -->
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8">Современный интерьер в ЖК «Пример Парк»
@@ -343,6 +343,7 @@
     <!-- Local Scripts -->
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 </body>
 
 </html>

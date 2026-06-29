@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-комнатные', 3);
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -244,61 +244,49 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col gap-6">
+    <main class="pt-20 flex flex-col">
 
         <!-- Hero Content -->
         <section
             class="relative text-white py-12 md:py-32 bg-[url(<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp)] bg-center bg-cover bg-no-repeat">
             <div
-                class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-[white] via-[white] to-transparent">
+                class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-black/70 via-black/40 to-transparent">
             </div>
             <div class="relative z-10 container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
                     <div class="max-w-4xl">
-                        <h1 class="z-10 hero-title text-3xl md:text-5xl font-bold mb-6 text-black leading-tight">
+                        <h1 class="z-10 hero-title text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                             Ремонт в Москве без нервов:<br>
-                            <strong class="text-orange-600">фиксированная цена</strong>,<br>
-                            реальные сроки и <strong class="text-orange-600">компенсация</strong><br>
-                            если что-то пойдет не так
+                            - <strong class="text-orange-600">фиксированная</strong> цена,<br>
+                            - <strong class="text-orange-500">реальные</strong> сроки<br>
+                            - <strong class="text-orange-400">компенсация</strong>, если что-то пойдет не так
                         </h1>
-                        <p class="z-10 hero-subtitle text-2xl mb-8 text-gray-800 max-w-3xl">
-                            Приедем на замер в день обращения. Составим смету в <strong class="text-orange-600">3
-                                вариантах
+                        <p class="z-10 hero-subtitle text-2xl mb-8 text-white max-w-3xl">
+                            Приедем на замер в день обращения. Составим смету в <strong class="text-orange-500">3&nbsp;вариантах
                             </strong> под ваш бюджет. Начнем работу
-                            через <strong class="text-orange-600">2 дня</strong>.
+                            через <strong class="text-orange-500">2 дня</strong>
                         </p>
 
-                        <ul class="flex items-center flex-wrap gap-3 mb-6 md:mb-8 justify-start">
-                            <li
-                                class="flex items-center justify-center space-x-3 md:space-x-4 rounded-lg border-2 border-orange-500/30 bg-white/80 backdrop-blur-sm px-4 py-2 hover:border-orange-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <i class="fa-solid fa-ruler-combined text-orange-600 text-xl md:text-2xl"></i>
-                                <p class="text-black text-xs md:text-sm">Замер + смета бесплатно</p>
-                            </li>
-                            <li
-                                class="flex items-center justify-center space-x-3 md:space-x-4 rounded-lg border-2 border-orange-500/30 bg-white/80 backdrop-blur-sm px-4 py-2 hover:border-orange-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <i class="fa-solid fa-file-word text-orange-600 text-xl md:text-2xl"></i>
-                                <p class="text-black text-xs md:text-sm">3 варианта под ваш бюджет
-                                </p>
-                            </li>
-                            <li
-                                class="flex items-center justify-center space-x-3 md:space-x-4 rounded-lg border-2 border-orange-500/30 bg-white/80 backdrop-blur-sm px-4 py-2 hover:border-orange-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <i class="fa-solid fa-file-circle-check text-orange-600 text-xl md:text-2xl"></i>
-                                <p class="text-black text-xs md:text-sm">цена в договоре - без
-                                    сюрпризов
-                                </p>
-                            </li>
-                            <li
-                                class="flex items-center justify-center space-x-3 md:space-x-4 rounded-lg border-2 border-orange-500/30 bg-white/80 backdrop-blur-sm px-4 py-2 hover:border-orange-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <i class="fa-solid fa-file-shield text-orange-600 text-xl md:text-2xl"></i>
-                                <p class="text-black text-xs md:text-sm">Гарантия 3 года
-                                </p>
-                            </li>
-                        </ul>
+                        <div class="flex items-center flex-wrap gap-2 mb-6">
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 5.0 рейтинг на Яндекс</span>
+                            <span class="hero-stat"><i class="fa-solid fa-building"></i> 320+ объектов</span>
+                            <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
+                            <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
+                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
+                            <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
+                        </div>
+
+                        <!-- <div class="flex items-center flex-wrap gap-2 mb-3">
+                            <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
+                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
+                            <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
+                        </div> -->
 
                         <div class="relative">
                             <button data-button-dialog
-                                class="cta-button relative bg-orange-500 text-white px-6 md:px-8 py-3 rounded-xl text-[10px] md:text-lg w-full md:w-auto">
-                                <span class="drop-shadow-lg font-sans">Рассчитать стоимость ремонта за 60 секунд</span>
+                                class="ripple inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-7 md:px-9 py-3.5 md:py-4 rounded-xl text-sm md:text-lg font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300 w-full md:w-auto justify-center">
+                                <i class="fa-solid fa-calculator"></i>
+                                <span>Рассчитать ремонта за 60 секунд</span>
                             </button>
                         </div>
                     </div>
@@ -413,7 +401,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                     name="телефн" placeholder=" (___) ___-__-__" aria-label="Телефон" maxlength="15"
                                     class="border w-full rounded-xl p-4" required>
                                 <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
-                                        class="text-red-400">*</span></span>
+                                        class="text-red-500">*</span></span>
                             </div>
 
                             <button type="submit"
@@ -429,7 +417,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
         <!-- 2 -->
         <section
-            class="py-16 bg-gradient-to-r from-[#D1E4F2] from-[#DFEFFB] from-[#D1E4F2] border-solid border rounded-2xl">
+            class="py-16 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 reveal">
+            <span class="section-number">02</span>
             <div class="container mx-auto px-4">
                 <!-- title -->
                 <div class="text-center mb-12">
@@ -497,7 +486,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                     name="телефн" placeholder=" (___) ___-__-__" aria-label="Телефон" maxlength="15"
                                     class="border w-full rounded-xl p-4" required>
                                 <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
-                                        class="text-red-400">*</span></span>
+                                        class="text-red-500">*</span></span>
                             </div>
                         </div>
                         <button type="submit"
@@ -509,80 +498,51 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
             </div>
         </section>
 
-        <!-- 3 -->
-        <section class="py-6 md:py-10 rounded-2xl">
+        <!-- Trust Stats Section -->
+        <section class="py-16 md:py-24 bg-gray-50 counter-section" id="counters">
+            <span class="section-number">03</span>
             <div class="container mx-auto px-4">
-                <!-- title -->
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Почему <strong class="text-orange-600">9 из 10</strong> клиентов выбирают именно нас
+                <div class="text-center mb-14">
+                    <span class="label-tag">О компании</span>
+                    <h2 class="section-heading mb-4">
+                        Нам доверяют — <strong class="text-orange-600">10 лет</strong> безупречной репутации
                     </h2>
+                    <p class="section-subtitle mx-auto">
+                        Каждый объект — это чья-то история. Мы гордимся каждой из них.
+                    </p>
                 </div>
-                <div class="max-w-[80%] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 justify-center">
-                    <!-- Card 1 -->
-                    <div
-                        class="p-3 md:p-4 text-center border-2 border-dashed border-[#3F6A9B]/20 rounded-xl bg-white hover:border-[#3F6A9B] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        <div
-                            class="w-12 h-12 md:w-16 md:h-16 bg-[#E7F2F9] rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                            <i class="fas fa-home text-[#3F6A9B] text-lg md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-sm md:text-lg font-semibold text-gray-800 mb-1"><span
-                                class="text-[#3F6A9B]">Бесплатный выезд инженера</span> и смета в 3-х вариантах</h3>
-                        <p class="text-xs md:text-base">Приедем на объект в день обращения. Сделаем <strong>точные
-                                лазерные замеры</strong> и составим подробный расчет стоимости (<strong>Эконом</strong>,
-                            <strong>Стандарт</strong>, <strong>Бизнес</strong>) под ваш бюджет за 24 часа.
-                        </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
+                    <div class="stat-card reveal">
+                        <div class="stat-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="12" data-suffix="+"></span></div>
+                        <div class="stat-label">Лет на рынке ремонта</div>
                     </div>
-
-                    <!-- Card 2 -->
-                    <div
-                        class="p-3 md:p-4 border-dashed text-center border-2 border-[#3F6A9B]/20 rounded-xl bg-white hover:border-[#3F6A9B] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        <div
-                            class="w-12 h-12 md:w-16 md:h-16 bg-[#E7F2F9] rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                            <i class="fas fa-file-contract text-[#3F6A9B] text-lg md:text-2xl mb-1"><span
-                                    class="sr-only">Иконка с договором</span></i>
-                        </div>
-                        <h3 class="text-sm md:text-lg font-semibold text-gray-800 mb-1"><span
-                                class="text-[#3F6A9B]">Фиксация итоговой стоимости</span> в договоре</h3>
-                        <p class="text-xs md:text-base">Сумма, прописанная в смете, является
-                            <strong>окончательной</strong>. Мы гарантируем: <strong>никаких "непредвиденных
-                                расходов"</strong> и доплат в процессе. Если мы чего-то не учли — это станет нашей
-                            заботой, а не вашим расходом.
-                        </p>
+                    <div class="stat-card reveal reveal-delay-1">
+                        <div class="stat-icon"><i class="fa-regular fa-building"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="325" data-suffix=""></span></div>
+                        <div class="stat-label">Выполненных объектов</div>
                     </div>
-
-                    <!-- Card 3 -->
-                    <div
-                        class="p-3 md:p-4 border-dashed text-center border-2 border-[#3F6A9B]/20 rounded-xl bg-white hover:border-[#3F6A9B] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        <div
-                            class="w-12 h-12 md:w-16 md:h-16 bg-[#E7F2F9] rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                            <i class="fas fa-shield-alt text-[#3F6A9B] text-lg md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-sm md:text-lg font-semibold text-gray-800 mb-1"><span
-                                class="text-[#3F6A9B]">Поэтапная оплата</span> и гарантия 3 года</h3>
-                        <p class="text-xs md:text-base"><strong>Никаких 100% предоплат</strong>. Вы платите только за
-                            <strong>фактически выполненные</strong> и принятые вами этапы работ. Мы уверены в качестве,
-                            поэтому несем <strong>полную юридическую ответственность</strong> за ваш ремонт в течение
-                            <strong>36 месяцев</strong>.
-                        </p>
+                    <div class="stat-card reveal reveal-delay-2">
+                        <div class="stat-icon"><i class="fa-regular fa-heart"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="98" data-suffix="%"></span></div>
+                        <div class="stat-label">Довольных клиентов</div>
                     </div>
-
-                </div>
-                <div class="max-w-[100%] max-w-[80%] mx-auto text-center mt-8">
-                    <button data-button-dialog
-                        class="relative text-black border border-dashed border-orange-500 px-6 md:px-8 py-3 rounded-xl text-base md:text-xl hover:bg-orange-500 hover:border-white transition hover:text-white inline-block animate-bounce">
-                        <i class="fa fa-hand-pointer mr-4 cursor-pointer"></i> Получить расчет стоимости в 3-х вариантах
-                    </button>
+                    <div class="stat-card reveal reveal-delay-3">
+                        <div class="stat-icon"><i class="fa-regular fa-handshake"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="3" data-suffix=" года"></span></div>
+                        <div class="stat-label">Гарантии на работы</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 4 -->
-        <section class="max-w-[100%] md:max-w-[70%] mx-auto py-16 rounded-2xl">
+        <section class="max-w-[90%] mx-auto py-16 rounded-2xl reveal">
+            <span class="section-number">04</span>
             <div class="container mx-auto px-4">
-                <!-- title -->
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <div class="text-center mb-14">
+                    <span class="label-tag">Форматы ремонта</span>
+                    <h2 class="section-heading mb-4">
                         Выберите подходящий формат ремонта для вашей квартиры
                     </h2>
                     <p class="text-xl text-gray-600">
@@ -597,7 +557,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         <!-- Slide 1: Косметический ремонт -->
                         <div class="swiper-slide !h-auto">
                             <div
-                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-dashed border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
+                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
                                 <div class="relative">
                                     <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/cosmetic.png"
                                         alt="Косметический ремонт" title="Косметический ремонт — от 8 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
@@ -698,7 +658,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         <!-- Slide 3: Дизайнерский ремонт -->
                         <div class="swiper-slide !h-auto">
                             <div
-                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-dashed border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
+                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
                                 <div class="relative">
                                     <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
                                         alt="Дизайнерский ремонт" title="Дизайнерский ремонт — от 18 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
@@ -752,7 +712,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                 <!-- Footer: Trigger доверия -->
                 <div
-                    class="bg-gradient-to-r from-[#3F6A9B]/10 to-orange-500/10 rounded-xl p-6 md:p-8 border border-dashed border-[#3F6A9B]/30">
+                    class="bg-gradient-to-r from-[#3F6A9B]/10 to-orange-500/10 rounded-xl p-6 md:p-8 border border-[#3F6A9B]/30">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex-1">
                             <h4 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">
@@ -776,14 +736,17 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         </section>
 
         <!-- 5 -->
-        <section class="md:py-16">
+        <section class="md:py-16 reveal bg-gray-50">
+            <span class="section-number">05</span>
             <div class="container mx-auto px-4">
-                <!-- Header -->
                 <div
-                    class="portfolio-header relative mx-auto max-w-[75%] flex flex-col md:flex-row items-start md:items-center justify-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
-                        Наши последние работы
-                    </h2>
+                    class="relative mx-auto max-w-[90%] md:max-w-[75%] flex flex-col md:flex-row items-start md:items-center justify-center mb-12">
+                    <div class="text-center">
+                        <span class="label-tag">Портфолио</span>
+                        <h2 class="section-heading">
+                            Наши последние работы
+                        </h2>
+                    </div>
                     <a href="/portfolio"
                         class="view-all-link block md:absolute right-0 text-blue-600 hover:text-blue-700 transition font-semibold flex items-center gap-2">
                         Смотреть всё портфолио
@@ -797,8 +760,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         class="flex flex-wrap gap-3 md:gap-4 justify-center max-w-[95%] md:max-w-[90%] mx-auto text-sm md:text-xl">
                         <!-- Button 1 -->
                         <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center"
-                            style="width: fit-content;">
+                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-building text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт квартир в новостройке</span>
                             <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
@@ -806,8 +768,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                         <!-- Button 2 -->
                         <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center"
-                            style="width: fit-content;">
+                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-home text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт во вторичке</span>
                             <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
@@ -815,8 +776,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                         <!-- Button 3 -->
                         <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center"
-                            style="width: fit-content;">
+                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-couch text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт студии</span>
                             <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
@@ -824,8 +784,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                         <!-- Button 4 -->
                         <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center"
-                            style="width: fit-content;">
+                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-door-open text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт 1-комнатной</span>
                             <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
@@ -833,8 +792,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                         <!-- Button 5 -->
                         <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center"
-                            style="width: fit-content;">
+                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-bed text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт 2-комнатной</span>
                             <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
@@ -842,8 +800,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                         <!-- Button 6 -->
                         <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center"
-                            style="width: fit-content;">
+                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-house-user text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт 3-комнатной</span>
                             <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
@@ -871,7 +828,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 ?>
                                 <div class="swiper-slide">
                                     <div
-                                        class="border-2 border-dashed border-orange-500 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition h-full list-none">
+                                        class="border border-gray-100 shadow-sm bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition h-full list-none">
                                         <div class="relative">
                                             <?php if ($coverUrl): ?>
                                                 <img data-src="<?= $coverUrl ?>"
@@ -927,10 +884,12 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         </section>
 
         <!-- 7 -->
-        <section id="process" class="py-16 bg-blue-50">
+        <section id="process" class="py-16 md:py-24 bg-blue-50 reveal">
+            <span class="section-number">06</span>
             <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <div class="text-center mb-14">
+                    <span class="label-tag">Как мы работаем</span>
+                    <h2 class="section-heading mb-4">
                         Ваш путь к идеальному ремонту:<br><strong class="text-orange-600">6 шагов</strong> до новоселья
                     </h2>
                     <p class="text-xl text-gray-600">
@@ -941,9 +900,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                 <div class="relative grid md:grid-cols-3 lg:grid-cols-6 gap-6">
                     <div class="hidden md:block absolute w-full h-0.5 bg-gray-300 top-8 z-0"></div>
 
-                    <div class="text-center z-10">
+                    <div class="text-center z-10 lift-hover">
                         <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             01
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Ваша заявка</h3>
@@ -953,9 +912,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         </p>
                     </div>
 
-                    <div class="text-center z-10">
+                    <div class="text-center z-10 lift-hover">
                         <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             02
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Профессиональный замер</h3>
@@ -966,9 +925,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         </p>
                     </div>
 
-                    <div class="text-center z-10">
+                    <div class="text-center z-10 lift-hover">
                         <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             03
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Договор и фиксация цены</h3>
@@ -978,9 +937,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         </p>
                     </div>
 
-                    <div class="text-center z-10">
+                    <div class="text-center z-10 lift-hover">
                         <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             04
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
@@ -990,9 +949,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         </p>
                     </div>
 
-                    <div class="text-center z-10">
+                    <div class="text-center z-10 lift-hover">
                         <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             05
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Производство работ</h3>
@@ -1002,9 +961,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                         </p>
                     </div>
 
-                    <div class="text-center z-10">
+                    <div class="text-center z-10 lift-hover">
                         <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             06
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Сдача и гарантия</h3>
@@ -1019,13 +978,15 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         </section>
 
         <!-- 8 -->
-        <section id="prices" class="py-16 bg-white">
+        <section id="prices" class="py-16 md:py-24 bg-gray-50 reveal">
+            <span class="section-number">07</span>
             <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <div class="text-center mb-16">
+                    <span class="label-tag">Стоимость</span>
+                    <h2 class="section-heading mb-4">
                         Прозрачная стоимость работ:<br>фиксируем смету и не меняем её до конца ремонта
                     </h2>
-                    <p class="text-xl text-gray-600">
+                    <p class="section-subtitle mx-auto">
                         Выберите пакет услуг под ваши задачи. Итоговая сумма прописывается в договоре и не растет в
                         процессе.
                     </p>
@@ -1033,7 +994,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     <div
-                        class="flex flex-col justify-between items-center bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-600 transition">
+                        class="flex flex-col justify-between items-center bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-600 transition lift-hover">
                         <div class="block">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4">Эконом (Косметический)</h3>
                             <div class="text-3xl font-bold text-blue-600 mb-2">от 8 000 ₽/м²</div>
@@ -1057,7 +1018,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                     </div>
 
                     <div
-                        class="flex flex-col justify-between items-center bg-blue-600 text-white rounded-xl p-8 hover:scale-110 transition duration-500">
+                        class="flex flex-col justify-between items-center bg-blue-600 text-white rounded-xl p-8 hover:shadow-2xl transition-shadow duration-300 lift-hover">
                         <div class="block">
                             <div
                                 class="bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
@@ -1065,7 +1026,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             </div>
                             <h3 class="text-2xl font-bold mb-4">Стандарт (Капитальный)</h3>
                             <div class="text-3xl font-bold text-orange-300 mb-2">от 13 000 ₽/м²</div>
-                            <div class="text-sm text-blue-200 mb-4">Срок: от 30 дней · Гарантия: 3 года</div>
+                            <div class="text-sm text-blue-100 mb-4">Срок: от 30 дней · Гарантия: 3 года</div>
                             <p class="mb-4">Полное обновление инженерных систем и идеально ровные поверхности.</p>
                             <p class="text-sm font-semibold mb-2">Что входит:</p>
                             <ul class="space-y-2 mb-8 text-sm">
@@ -1085,7 +1046,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                     </div>
 
                     <div
-                        class="flex flex-col justify-between items-center bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-600 transition">
+                        class="flex flex-col justify-between items-center bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-600 transition lift-hover">
                         <div class="block">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4">Премиум (Дизайнерский)</h3>
                             <div class="text-3xl font-bold text-blue-600 mb-2">от 18 000 ₽/м²</div>
@@ -1113,19 +1074,15 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         </section>
 
         <!-- 9 -->
-        <section id="reviews" class="py-16 bg-white">
+        <section id="reviews" class="py-16 md:py-24 bg-white reveal">
+            <span class="section-number">08</span>
             <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <div class="text-center mb-14">
+                    <span class="label-tag">Отзывы</span>
+                    <h2 class="section-heading mb-4">
                         Что говорят о нас те, кто уже переехал в новую квартиру
                     </h2>
-                    <!-- <p class="text-xl text-gray-600">
-                        Что говорят о нас наши клиенты
-                    </p> -->
                 </div>
-
-                <!-- <review-lab data-widgetid="69d6a3731ab6330a0b879de7"></review-lab>
-                <script src="https://app.reviewlab.ru/widget/index-es2015.js" defer></script> -->
 
                 <!-- Ручные отзывы -->
                 <div class="max-w-6xl mx-auto">
@@ -1133,15 +1090,15 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Отзыв 1 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/01.jpeg"
                                         alt="Александр В." title="Александр В." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Александр В.</p>
-                                    <p class="text-xs text-gray-400">15 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">15 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -1158,19 +1115,19 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 ремонт в новостройке (64 м²). По срокам уложились день в день. Особенно порадовали
                                 ежедневные фото в MAX — не нужно было через всю Москву ездить проверять».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 2 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/02.jpeg" alt="Мария" title="Мария"
                                         class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Анатолий</p>
-                                    <p class="text-xs text-gray-400">12 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">12 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -1187,19 +1144,19 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 сразу, соседи ни разу не пожаловались. Качество отделки — на высоте, стены идеально
                                 ровные под покраску».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 3 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/03.jpeg" alt="Дмитрий" title="Дмитрий"
                                         class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Дмитрий</p>
-                                    <p class="text-xs text-gray-400">10 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">10 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -1215,19 +1172,19 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 замере сразу подсказал, где можно сэкономить на материалах, а где лучше взять подороже.
                                 Сэкономил около 40 тысяч на закупках через их скидки в Петровиче. Рекомендую».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 4 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/04.jpeg"
                                         alt="Елена и Игорь" title="Елена и Игорь" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Елена</p>
-                                    <p class="text-xs text-gray-400">8 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">8 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -1243,19 +1200,19 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 освещением и скрытыми дверями. Мастера справились на 5+. Гарантию дали на 3 года, но,
                                 судя по качеству, она нам не пригодится. Спасибо!»
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 5 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
 <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/05.jpeg" alt="Сергей К." title="Сергей К."
                                         class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Оля</p>
-                                    <p class="text-xs text-gray-400">5 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">5 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -1271,19 +1228,19 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 гвоздь прописан. Оплата была поэтапная — сделал этап, я проверил, заплатил. Для меня это
                                 было самым важным критерием доверия».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 6 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
 <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/06.jpeg" alt="Ольга Николаевна" title="Ольга Николаевна"
                                         class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Ольга Николаевна</p>
-                                    <p class="text-xs text-gray-400">2 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">2 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -1299,9 +1256,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 скрипит. Очень вежливые ребята, после себя оставили порядок. Приятно иметь дело с
                                 профессионалами».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
-
                     </div>
                     <div class="flex flex-col justify-center items-center mt-4">
                         <a href="<?= $site['baseUrl'] ?>/reviews"
@@ -1315,72 +1271,79 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         </section>
 
         <!-- FAQ Section -->
-        <section class="py-16 bg-white">
+        <section class="py-16 md:py-24 bg-gray-50 reveal" itemscope itemtype="https://schema.org/FAQPage">
+            <span class="section-number">09</span>
             <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <div class="text-center mb-14">
+                    <span class="label-tag">FAQ</span>
+                    <h2 class="section-heading mb-4">
                         Отвечаем на важные вопросы <strong class="text-orange-600">честно</strong> и <strong
                             class="text-orange-600">без воды</strong>
                     </h2>
-                    <p class="text-xl text-gray-600">
+                    <p class="section-subtitle mx-auto">
                         Разбираем технические и финансовые нюансы вашего будущего ремонта
                     </p>
                 </div>
 
-                <div class="max-w-3xl mx-auto">
-                    <div class="space-y-4">
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">1. Какой срок выполнения ремонта?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p class="mb-2"><strong>Ответ:</strong> Всё зависит от площади и сложности:</p>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Какой срок выполнения ремонта?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-2">Всё зависит от площади и сложности:</p>
                                 <ul class="list-disc ml-5 space-y-1 mb-3">
                                     <li>Косметический ремонт — от 14 дней.</li>
                                     <li>Капитальный в ремонт — от 30 дней.</li>
                                     <li>Дизайнерский ремонт — от 40 дней.</li>
                                 </ul>
-                                <p><strong>Важно:</strong> Мы фиксируем дату сдачи в договоре. Если мы опоздаем хотя бы
-                                    на день — мы выплачиваем вам неустойку за каждые сутки просрочки.</p>
+                                <p>Мы фиксируем дату сдачи в договоре. Если мы опоздаем хотя бы на день — мы выплачиваем вам неустойку за каждые сутки просрочки.</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">2. Какая гарантия на работы?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p><strong>Ответ:</strong> Мы даем полную гарантию 3 года на все виды отделочных и
-                                    инженерных работ. Если в течение этого срока у вас отклеится плинтус или возникнут
-                                    проблемы с электрикой — мы приедем и бесплатно устраним всё в течение 48 часов. Наша
-                                    ответственность прописана в договоре и закреплена юридически.</p>
-                            </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Какая гарантия на работы?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Мы даем полную гарантию 3 года на все виды отделочных и инженерных работ. Если в течение этого срока у вас отклеится плинтус или возникнут проблемы с электрикой — мы приедем и бесплатно устраним всё в течение 48 часов. Наша ответственность прописана в договоре и закреплена юридически.</span>
                         </div>
+                    </div>
 
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">3. Работаете ли вы с материалами
-                                    заказчика?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p><strong>Ответ:</strong> Да, конечно. Мы можем работать с вашими материалами, но
-                                    рекомендуем закупать их через нас. Благодаря собственному складу мы сможем поставить
-                                    материалы дешевле. Всю логистику, проверку качества и подъем на этаж мы берем на
-                                    себя.
-                                </p>
-                            </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы с материалами заказчика?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Да, конечно. Мы можем работать с вашими материалами, но рекомендуем закупать их через нас. Благодаря собственному складу мы сможем поставить материалы дешевле. Всю логистику, проверку качества и подъем на этаж мы берем на себя.</span>
                         </div>
+                    </div>
 
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">4. Как происходит оплата?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p class="mb-2"><strong>Ответ:</strong> Оплата происходит строго поэтапно:</p>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Как происходит оплата?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-2">Оплата происходит строго поэтапно:</p>
                                 <ol class="list-decimal ml-5 space-y-1 mb-2">
                                     <li>Мы выполняем определенный объем работ (например, черновую отделку).</li>
                                     <li>Вы принимаете этап по акту.</li>
@@ -1389,115 +1352,31 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                 <p>Вы всегда видите, за что платите, и контролируете бюджет.</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">5. Кто именно будет работать у меня в
-                                    квартире?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p><strong>Ответ:</strong> У нас работают только узкопрофильные специалисты со стажем от
-                                    5 лет. Электрику делает электрик, плитку кладет плиточник — никаких «универсалов».
-                                    Все мастера — граждане РФ и РБ с проверенной репутацией. Мы несем полную
-                                    ответственность за порядок на объекте и культуру поведения рабочих.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">6. Не будет ли проблем с соседями и
-                                    Управляющей Компанией?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p><strong>Ответ:</strong> Мы берем все коммуникации на себя. Работаем строго по «закону
-                                    о тишине» в Москве (шумные работы только с 9:00 до 13:00 и с 15:00 до 19:00). После
-                                    каждого этапа убираем мусор в подъезде и лифте. Если Управляющей Компании
-                                    понадобятся акты скрытых работ или допуски СРО — мы предоставим весь комплект
-                                    документов в течение дня.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <button class="w-full text-left flex justify-between items-center faq-toggle">
-                                <h3 class="text-lg font-semibold text-gray-800">7. Могу ли я контролировать ремонт, если
-                                    нахожусь в другом городе?</h3>
-                                <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                            </button>
-                            <div class="mt-4 text-gray-600 hidden faq-content">
-                                <p><strong>Ответ:</strong> Более 40% наших клиентов делают ремонт удаленно. Мы создаем
-                                    для вас персональный чат в Telegram, куда ежедневно присылаем фото- и
-                                    видеоотчеты о проделанной работе. Также мы можем установить на объекте камеру
-                                    видеонаблюдения, чтобы вы могли в любой момент проверить процесс через смартфон.</p>
-                            </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Кто именно будет работать у меня в квартире?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">У нас работают только узкопрофильные специалисты со стажем от 5 лет. Электрику делает электрик, плитку кладет плиточник — никаких «универсалов». Все мастера — граждане РФ и РБ с проверенной репутацией. Мы несем полную ответственность за порядок на объекте и культуру поведения рабочих.</span>
                         </div>
                     </div>
 
-                    <div class="mt-8 text-center">
-                        <p class="text-gray-600 mb-4">Не нашли ответ на свой вопрос? Задайте его нашему инженеру лично!
-                        </p>
-                        <button data-button-dialog
-                            class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                            Получить консультацию
+                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Не будет ли проблем с соседями и Управляющей Компанией?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEO FAQ Section -->
-        <section class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Ремонт квартир в Москве и Московской области</h2>
-                <div class="space-y-4">
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <button class="w-full text-left flex justify-between items-center faq-toggle">
-                            <h3 class="text-lg font-semibold text-gray-800">Компания «ПКвартира» выполняет полный ремонт квартир под ключ — что это значит?</h3>
-                            <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                        </button>
-                        <div class="mt-4 text-gray-600 hidden faq-content">
-                            <p>Мы берём на себя все этапы — от демонтажа старых покрытий до финальной уборки. Вам не нужно искать отдельных мастеров по электрике, сантехнике или отделке — все работы выполняет одна бригада под контролем прораба. Компания «ПКвартира» работает в Москве и Подмосковье с 2014 года.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <button class="w-full text-left flex justify-between items-center faq-toggle">
-                            <h3 class="text-lg font-semibold text-gray-800">Какие виды ремонта вы выполняете?</h3>
-                            <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                        </button>
-                        <div class="mt-4 text-gray-600 hidden faq-content">
-                            <p>Для квартир в новостройке мы делаем черновой ремонт — стяжку, штукатурку, разводку коммуникаций. Для вторичного жилья — полный цикл: демонтаж старых покрытий, замена проводки и труб, выравнивание стен, чистовая отделка. Также специализируемся на дизайнерском ремонте с авторским надзором архитектора, перепланировке с согласованием в Мосжилинспекции и ремонте коммерческих помещений.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <button class="w-full text-left flex justify-between items-center faq-toggle">
-                            <h3 class="text-lg font-semibold text-gray-800">Сколько стоит ремонт квартиры?</h3>
-                            <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                        </button>
-                        <div class="mt-4 text-gray-600 hidden faq-content">
-                            <p>Цена ремонта зависит от площади, состояния объекта и выбранного пакета. Косметический ремонт начинается от 8 000 ₽ за м², капитальный — от 13 000 ₽ за м², дизайнерский — от 18 000 ₽ за м². Точную стоимость мы рассчитываем после бесплатного выезда инженера на замер. Средний срок ремонта однокомнатной квартиры — 6–8 недель, двухкомнатной — 8–10 недель, трёхкомнатной — 10–14 недель.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <button class="w-full text-left flex justify-between items-center faq-toggle">
-                            <h3 class="text-lg font-semibold text-gray-800">Стоимость ремонта фиксируется в договоре?</h3>
-                            <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                        </button>
-                        <div class="mt-4 text-gray-600 hidden faq-content">
-                            <p>Да, стоимость фиксируется в договоре и не меняется в процессе. Мы работаем по прозрачной смете: каждый материал, каждая работа прописаны с точной ценой. Если вдруг что-то потребует дополнительных затрат — мы согласовываем это с вами заранее. Никаких «непредвиденных расходов» и доплат после начала работ.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <button class="w-full text-left flex justify-between items-center faq-toggle">
-                            <h3 class="text-lg font-semibold text-gray-800">Почему заказывают ремонт именно у вас?</h3>
-                            <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
-                        </button>
-                        <div class="mt-4 text-gray-600 hidden faq-content">
-                            <p>За 10 лет работы мы сделали более 500 объектов. Среди наших клиентов — владельцы квартир в новостройках, жители вторичного жилья, собственники коттеджей и коммерческих помещений. Мы предоставляем гарантию до 3 лет на все виды работ, работаем по официальному договору и ведём ежедневные фотоотчёты. Бесплатный выезд инженера, замер лазером и подготовка сметы — всё без предоплаты.</p>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Мы берем все коммуникации на себя. Работаем строго по «закону о тишине» в Москве (шумные работы только с 9:00 до 13:00 и с 15:00 до 19:00). После завершения работ проводим финальную уборку и вывозим мусор. Соседи и УК будут только благодарны, что вы выбрали профессионалов.</span>
                         </div>
                     </div>
                 </div>
@@ -1505,23 +1384,24 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         </section>
 
         <!-- CTA Section -->
-        <section class="py-20 gradient-primary text-white">
+        <section class="py-20 text-white reveal" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);">
+            <span class="section-number section-number-dark">10</span>
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     Начните ремонт, который не захочется переделывать
                 </h2>
-                <p class="text-xl mb-8 text-gray-100">
+                <p class="text-xl mb-8" style="color: #cbd5e1;">
                     Забронируйте бесплатный выезд инженера сегодня. Мы проведем замеры лазером, найдем все<br>«косяки»
                     застройщика и составим смету, которая не вырастет ни на рубль.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="tel:<?php echo $site['phone']; ?>"
-                        class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105">
+                        class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition">
                         <i class="fas fa-phone mr-2"></i>
                         Вызвать инженера на замер
                     </a>
                     <button data-button-dialog
-                        class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                        class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition">
                         <i class="fas fa-comments mr-2"></i>
                         Получить консультацию
                     </button>
@@ -1532,12 +1412,19 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
     <?php include_once './public/components/footer.php'; ?>
 
+    <!-- Floating CTA for mobile -->
+    <div class="floating-cta">
+        <a href="tel:<?php echo $site['phone']; ?>" class="cta-phone"><i class="fas fa-phone mr-2"></i>Позвонить</a>
+        <button data-button-dialog class="cta-calc"><i class="fas fa-calculator mr-2"></i>Расчёт сметы</button>
+    </div>
+
     <!-- Local Scripts -->
 
     <script src="/public/assets/scripts/components/swiper.js" defer></script>
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
     <script src="/public/assets/scripts/components/faq.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
     <!-- Google tag (gtag.js) GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9ZV484NQJ"></script>

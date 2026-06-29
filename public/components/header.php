@@ -52,8 +52,8 @@
     }
 
     .mobile-menu .submenu-services li a:hover {
-        background: #f8f9fa;
-        color: #007bff;
+        background: #f8fafc;
+        color: #0f172a;
         padding-left: 25px;
     }
 
@@ -63,8 +63,8 @@
         font-weight: 500;
         padding: 8px 12px;
         margin-right: 12px;
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
         border-radius: 6px;
         transition: all 0.2s ease;
         cursor: pointer;
@@ -72,7 +72,7 @@
 
     .mobile-menu .back-btn:hover {
         background: #e9ecef;
-        color: #007bff;
+        color: #0f172a;
         border-color: #adb5bd;
     }
 
@@ -86,7 +86,7 @@
     }
 </style>
 <!-- Header -->
-<header class="bg-white border-b-[1px] border-[#bab9bb80] fixed w-full top-0 z-[100]">
+<header class="bg-white border-b-[1px] border-[#bab9bb80] fixed w-full top-0 z-[100]" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.85);">
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="flex justify-between items-center">
             <!-- logo name --><a href="/" class="flex items-center space-x-2"><img class="h-[50px] translate-y-0.5"

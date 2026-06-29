@@ -82,7 +82,7 @@
     <?php include_once './public/components/header.php'; ?>
 
     <main class="pt-20 flex flex-col gap-8 pb-16">
-        <section class="py-12 bg-gradient-to-r from-blue-50 to-white">
+        <section class="py-12 bg-gradient-to-r from-blue-50 to-white reveal">
             <div class="container mx-auto px-4 max-w-3xl">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Соглашение и документы</h1>
                 <p class="text-gray-600 text-lg leading-relaxed">
@@ -92,7 +92,7 @@
             </div>
         </section>
 
-        <section class="container mx-auto px-4 max-w-3xl flex flex-col gap-6">
+        <section class="container mx-auto px-4 max-w-3xl flex flex-col gap-6 reveal">
             <article id="soglasie"
                 class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:border-orange-300 transition">
                 <h2 class="text-xl font-bold text-gray-900 mb-2">Согласие на обработку персональных данных</h2>
@@ -154,6 +154,7 @@
 
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 </body>
 
 </html>

@@ -274,7 +274,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
         <!-- 1. hero section -->
         <section
-            class="bg-[url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>)] bg-center bg-cover bg-no-repeat relative overflow-hidden">
+            class="reveal bg-[url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>)] bg-center bg-cover bg-no-repeat relative overflow-hidden">
             <div class="absolute blur-xl z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-black/50">
             </div>
             <div class="relative text-white z-10 max-w-7xl mx-auto px-4 py-10 md:py-14">
@@ -317,7 +317,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             реальные сроки и <span class="text-orange-400">компенсация</span> если что-то пойдет не так
                         </h1>
                         <p class="mt-4 max-w-xl">
-                            Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.
+                            С 2014 года делаем ремонт на вторичном рынке Москвы. Работаем со старым фондом, «хрущёвками» и сталинками. Заменяем всю электрику и сантехнику на новую. Отлично знаем нюансы старого жилья.
                         </p>
 
                         <div class="mt-6 flex flex-col sm:flex-row gap-3">
@@ -479,7 +479,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 2. price section -->
-        <section id="price" class="bg-white py-10 md:py-14">
+        <section id="price" class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
                     Сколько стоит
@@ -495,7 +495,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
                             itemscope itemtype="https://schema.org/Product">
                             <meta itemprop="name"
-                                content="<?= htmlspecialchars($price['заголовок']); ?> ремонт квартиры на вторичном рынке">
+                                content="<?= htmlspecialchars($price['заголовок']); ?> ремонт в новостройке">
                             <?php if (isset($price['бейдж'])): ?>
                                 <div
                                     class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
@@ -529,7 +529,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 3. Что входит в стоимость ремонта -->
-        <section class="bg-gray-50 py-10 md:py-14">
+        <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
                     Что входит в пакет
@@ -586,7 +586,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 4. Этапы работ -->
-        <section id="process" class="py-16 bg-blue-50">
+        <section id="process" class="reveal py-16 bg-blue-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -678,10 +678,10 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 5. Примеры -->
-        <section class="bg-white py-10 md:py-14">
+        <section class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">Реализованные проекты
-                    на вторичном рынке</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">Реализованные проекты на
+                    вторичном рынке</h2>
                 <!-- cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-6">
                     <?php $portfolioRepairLabels = ['Косметический', 'Капитальный', 'Дизайнерский']; ?>
@@ -690,7 +690,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             itemtype="https://schema.org/CreativeWork">
                             <meta itemprop="name" content="<?= htmlspecialchars($value['заголовок']); ?>">
                             <meta itemprop="description"
-                                content="Ремонт квартиры на вторичном рынке, срок: <?= htmlspecialchars($value['срок']); ?>, стоимость: <?= htmlspecialchars($value['цена']); ?>">
+                                content="Ремонт на вторичном рынке, срок: <?= htmlspecialchars($value['срок']); ?>, стоимость: <?= htmlspecialchars($value['цена']); ?>">
                             <div class="relative h-52">
                                 <div class="swiper swiper-type-one w-full h-full">
                                     <div class="swiper-wrapper">
@@ -772,7 +772,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 10. FAQ по этой услуге -->
-        <section class="py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
+        <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
                     Отвечаем на главные вопросы
@@ -783,74 +783,60 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в квартире во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Когда лучше начинать ремонт во вторичке?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время ремонта жить в квартире будет неудобно. Работы идут активно —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">Начинать можно в любое время. В отличие от новостройки, вторичный фонд не даёт усадку, поэтому нет ограничений по срокам начала работ.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Нужно ли полностью вывозить мебель?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
+                            <span itemprop="text">Для капитального ремонта — да, мебель мешает демонтажу и отделке. Мы можем помочь с упаковкой и временным хранением. Для косметического — частично освобождаем зоны работ.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Могут ли возникнуть скрытые проблемы?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
+                            <span itemprop="text">В старом фонде бывают сюрпризы: гнилые перекрытия, старая проводка, плесень. На бесплатном замере мы проверяем все скрытые зоны тепловизором и влагомером и предупреждаем о рисках.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли делать перепланировку во вторичке?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
+                            <span itemprop="text">Можно, но требуется согласование. Мы помогаем подготовить проект и документы для Мосжилинспекции. Сами не трогаем несущие стены без проекта.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по договору?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
+                            <span itemprop="text">Да, работаем только по официальному договору. В нём фиксируются сроки, стоимость каждого этапа и гарантийные обязательства. Никаких устных договорённостей.</span>
                         </div>
                     </div>
                 </div>
@@ -858,7 +844,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 11. Финальный CTA -->
-        <section class="w-full py-12 md:py-16 bg-gray-50">
+        <section class="reveal w-full py-12 md:py-16 bg-gray-50">
             <div
                 class="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-800 to-blue-900 p-8 md:p-12 text-white text-center">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">
@@ -910,6 +896,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <!-- Local Scripts -->
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

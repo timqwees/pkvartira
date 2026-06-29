@@ -2,7 +2,7 @@
 use Setting\Route\Function\Functions;
 $site = Functions::site();
 $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/3room/standard');
-$euroAbout = 'public/assets/images/portfolio-photos/cottage/2_euro_130sqm/about.json';
+$euroAbout = 'public/assets/images/portfolio-photos/cottage/2_euro_230sqm/about.json';
 if (is_readable($euroAbout)) {
     $euro = json_decode((string) file_get_contents($euroAbout), true);
     if (is_array($euro)) {
@@ -161,7 +161,7 @@ if (is_readable($euroAbout)) {
     <!-- Main Content -->
     <main class="pt-20 flex flex-col gap-6">
 
-        <section id="reviews" class="py-16 bg-white">
+        <section id="reviews" class="py-16 bg-white reveal">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -183,13 +183,13 @@ if (is_readable($euroAbout)) {
                         <!-- Отзыв 1 -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/01.jpeg"
                                         alt="Александр В." title="Александр В." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Александр В.</p>
-                                    <p class="text-xs text-gray-400">15 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">15 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -206,19 +206,19 @@ if (is_readable($euroAbout)) {
                                 ремонт в новостройке (64 м²). По срокам уложились день в день. Особенно порадовали
                                 ежедневные фото в MAX — не нужно было через всю Москву ездить проверять».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 2 -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/02.jpeg" alt="Анатолий"
                                         title="Анатолий" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Анатолий</p>
-                                    <p class="text-xs text-gray-400">12 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">12 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -235,19 +235,19 @@ if (is_readable($euroAbout)) {
                                 сразу, соседи ни разу не пожаловались. Качество отделки — на высоте, стены идеально
                                 ровные под покраску».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 3 -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/03.jpeg" alt="Дмитрий"
                                         title="Дмитрий" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Дмитрий</p>
-                                    <p class="text-xs text-gray-400">10 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">10 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -263,19 +263,19 @@ if (is_readable($euroAbout)) {
                                 замере сразу подсказал, где можно сэкономить на материалах, а где лучше взять подороже.
                                 Сэкономил около 40 тысяч на закупках через их скидки в Петровиче. Рекомендую».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 4 -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/04.jpeg"
                                         alt="Елена" title="Елена" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Елена</p>
-                                    <p class="text-xs text-gray-400">8 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">8 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -291,19 +291,19 @@ if (is_readable($euroAbout)) {
                                 освещением и скрытыми дверями. Мастера справились на 5+. Гарантию дали на 3 года, но,
                                 судя по качеству, она нам не пригодится. Спасибо!»
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 5 -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/05.jpeg"
                                         alt="Оля" title="Оля" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Оля</p>
-                                    <p class="text-xs text-gray-400">5 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">5 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -319,19 +319,19 @@ if (is_readable($euroAbout)) {
                                 гвоздь прописан. Оплата была поэтапная — сделал этап, я проверил, заплатил. Для меня это
                                 было самым важным критерием доверия».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Отзыв 6 -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/06.jpeg"
                                         alt="Ольга Николаевна" title="Ольга Николаевна" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Ольга Николаевна</p>
-                                    <p class="text-xs text-gray-400">2 апр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">2 апр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -347,7 +347,7 @@ if (is_readable($euroAbout)) {
                                 скрипит. Очень вежливые ребята, после себя оставили порядок. Приятно иметь дело с
                                 профессионалами».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                     </div>
@@ -357,13 +357,13 @@ if (is_readable($euroAbout)) {
                         <!-- Дополнительные отзывы (изначально скрыты) -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-red-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-red-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/023.jpeg"
                                         alt="Иван Петров" title="Иван Петров" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Иван Петров</p>
-                                    <p class="text-xs text-gray-400">30 мар. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">30 мар. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -379,18 +379,18 @@ if (is_readable($euroAbout)) {
                                 деталям — инженер сам предложил несколько вариантов планировки. Все коммуникации
                                 заменили, теперь у нас умный дом. Рекомендую!».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-indigo-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-indigo-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/027.jpg"
                                         alt="Анна Смирнова" title="Анна Смирнова" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Анна Смирнова</p>
-                                    <p class="text-xs text-gray-400">28 мар. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">28 мар. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -406,18 +406,18 @@ if (is_readable($euroAbout)) {
                                 была не самая низкая, но качество оправдало каждый рубль. Особенно порадовал
                                 дизайнер — помог подобрать цвета».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-yellow-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-yellow-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/028.jpg"
                                         alt="Михаил Козлов" title="Михаил Козлов" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Михаил Козлов</p>
-                                    <p class="text-xs text-gray-400">25 мар. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">25 мар. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -433,19 +433,19 @@ if (is_readable($euroAbout)) {
                                 выровняли идеально. Приемка у застройщика прошла без проблем. Спасибо за
                                 профессионализм!».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Анна С. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/07.jpeg" alt="Анна С."
                                         title="Анна С." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Анна С.</p>
-                                    <p class="text-xs text-gray-400">30 мар. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">30 мар. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -462,19 +462,19 @@ if (is_readable($euroAbout)) {
                                 как часы: каждое утро отчёт, вечером — что сделано. Ни одного скрытого платежа, всё
                                 по смете».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Михаил Р. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/08.jpeg"
                                         alt="Мария Р." title="Мария Р." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Мария Р.</p>
-                                    <p class="text-xs text-gray-400">19 мар. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">19 мар. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -491,19 +491,19 @@ if (is_readable($euroAbout)) {
                                 смету на 38 страницах. По факту вышло даже на 12 тысяч меньше, потому что не
                                 понадобилась часть штукатурки. Честность подкупает».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Татьяна и Павел -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/09.jpeg"
                                         alt="Павел" title="Павел" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Павел</p>
-                                    <p class="text-xs text-gray-400">4 мар. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">4 мар. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -520,19 +520,19 @@ if (is_readable($euroAbout)) {
                                 делается". Когда возник вопрос по тёплому полу, инженер сам связался с дизайнером и
                                 предложил решение. Профессионалы».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Игорь В. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/010.jpeg"
                                         alt="Игорь В." title="Игорь В." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Игорь В.</p>
-                                    <p class="text-xs text-gray-400">27 февр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">27 февр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -548,19 +548,19 @@ if (is_readable($euroAbout)) {
                                 вопросов, ещё и подсказали, как визуально расширить пространство за счёт ниш. Цена
                                 адекватная, никаких накруток за "сложность". Сдали за 6 недель».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Виктория К. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/011.jpeg"
                                         alt="Виктория К." title="Виктория К." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Виктория К.</p>
-                                    <p class="text-xs text-gray-400">8 февр. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">8 февр. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -577,19 +577,19 @@ if (is_readable($euroAbout)) {
                                 задержки с поставкой плитки от поставщика — но ребята тут не виноваты, честно
                                 предупреждали. В целом очень довольна».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Андрей П. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-indigo-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-indigo-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/012.jpeg"
                                         alt="Александра П." title="Александра П." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Александра П.</p>
-                                    <p class="text-xs text-gray-400">21 янв. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">21 янв. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -606,19 +606,19 @@ if (is_readable($euroAbout)) {
                                 насторожило, но качество оказалось на уровне. Стяжка идеально ровная, обои встык,
                                 плитка без перепадов».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Наталья Д. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-red-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-red-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/013.jpeg"
                                         alt="Игорь Д." title="Игорь Д." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Игорь Д.</p>
-                                    <p class="text-xs text-gray-400">11 янв. 2026 г.</p>
+                                    <p class="text-xs text-gray-500">11 янв. 2026 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -634,19 +634,19 @@ if (is_readable($euroAbout)) {
                                 жильцами. Покрасили стены, перетянули двери, обновили сантехнику. Уложились в 9
                                 дней. Жильцы заехали вовремя, я не потеряла месяц аренды. Спасибо за оперативность».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Кирилл и Ольга -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-teal-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-teal-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/014.jpeg"
                                         alt="Кирилл Е." title="Кирилл Е." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Кирилл Е.</p>
-                                    <p class="text-xs text-gray-400">17 дек. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">17 дек. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -663,19 +663,19 @@ if (is_readable($euroAbout)) {
                                 "извините, не успеваем". Жена была беременна — относились к ней максимально бережно,
                                 даже пыль выносили аккуратно, чтобы подъезд не пачкать».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Светлана М. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-cyan-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-cyan-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/015.jpg"
                                         alt="Светлана М." title="Сергей М." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Сергей М.</p>
-                                    <p class="text-xs text-gray-400">29 нояб. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">29 нояб. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -692,19 +692,19 @@ if (is_readable($euroAbout)) {
                                 нужно было выбирать материалы, дал ссылки на проверенные магазины со скидками. Ни
                                 разу не возникло ощущения, что меня дурят».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Роман Г. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-lime-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-lime-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/016.jpg"
                                         alt="Роман Г." title="Роман Г." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Роман Г.</p>
-                                    <p class="text-xs text-gray-400">8 нояб. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">8 нояб. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -721,19 +721,19 @@ if (is_readable($euroAbout)) {
                                 небольшой дефект на ламинате после приёмки — приехали через два дня и переложили
                                 доску бесплатно. Гарантия работает».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Юлия Ф. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-amber-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/017.jpg" alt="Юлия Ф."
                                         title="Юлия Ф." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Юлия Ф.</p>
-                                    <p class="text-xs text-gray-400">16 окт. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">16 окт. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -750,19 +750,19 @@ if (is_readable($euroAbout)) {
                                 расчёт, разрешение, монтаж усиления — всё под ключ. Без них я бы запуталась в
                                 инстанциях на полгода».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Денис К. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-emerald-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/018.jpg"
                                         alt="Денис К." title="Аля К." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Аля К.</p>
-                                    <p class="text-xs text-gray-400">2 окт. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">2 окт. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -778,19 +778,19 @@ if (is_readable($euroAbout)) {
                                 потолка. Проект Квартира сделал фиксированную смету с пунктом про материалы. По
                                 итогу вышли в смету копейка в копейку. Это редкость на рынке, поверьте».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Екатерина Б. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-violet-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-violet-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/019.jpeg"
                                         alt="Екатерина Б." title="Екатерина Б." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Екатерина Б.</p>
-                                    <p class="text-xs text-gray-400">11 сент. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">11 сент. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -807,19 +807,19 @@ if (is_readable($euroAbout)) {
                                 прорабом по графику, но решили. Финальный результат стоит того. Полбалла за
                                 коммуникацию на старте».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Артём Л. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-fuchsia-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-fuchsia-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/020.jpeg"
                                         alt="Артём Л." title="Артём Л." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Артём Л.</p>
-                                    <p class="text-xs text-gray-400">23 авг. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">23 авг. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -836,19 +836,19 @@ if (is_readable($euroAbout)) {
                                 потери в качестве. Окупаемость ремонта по моим расчётам — 14 месяцев. Деловой
                                 подход».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Владимир Т. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/022.jpeg"
                                         alt="Владимир Т." title="Владимир Т." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Владимир Т.</p>
-                                    <p class="text-xs text-gray-400">17 июля 2025 г.</p>
+                                    <p class="text-xs text-gray-500">17 июля 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -865,19 +865,19 @@ if (is_readable($euroAbout)) {
                                 недели поменяли разводку, плитку, технику. Жил всё это время в квартире, ребята пыль
                                 и грязь локализовали как могли».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Григорий О. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-zinc-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-zinc-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/024.jpeg"
                                         alt="Григорий О." title="Гульнара О." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Гульнара О.</p>
-                                    <p class="text-xs text-gray-400">6 июня 2025 г.</p>
+                                    <p class="text-xs text-gray-500">6 июня 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -894,19 +894,19 @@ if (is_readable($euroAbout)) {
                                 ни одного скола на плитке. Хранили всё в специальной комнате с климат-контролем.
                                 Видно опыт работы с премиумом».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Полина Р. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-stone-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-stone-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/025.jpeg"
                                         alt="Полина Р." title="Николай Р." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Николай Р.</p>
-                                    <p class="text-xs text-gray-400">19 мая 2025 г.</p>
+                                    <p class="text-xs text-gray-500">19 мая 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -923,19 +923,19 @@ if (is_readable($euroAbout)) {
                                 — визуально не отличить. Сэкономила около 80 тысяч на материалах за счёт их
                                 рекомендаций».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
 
                         <!-- Станислав Е. -->
                         <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-neutral-100 overflow-hidden flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-neutral-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/026.jpeg"
                                         alt="Станислав Е." title="Станислав Е." class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Станислав Е.</p>
-                                    <p class="text-xs text-gray-400">28 апр. 2025 г.</p>
+                                    <p class="text-xs text-gray-500">28 апр. 2025 г.</p>
                                 </div>
                                 <div class="ml-auto flex gap-0.5">
                                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -952,7 +952,7 @@ if (is_readable($euroAbout)) {
                                 пятницу присылали отчёт с фото. Никакого "забыли", "не успели", "придётся
                                 доплатить". Возьму их же на дачу следующим летом».
                             </p>
-                            <p class="text-xs text-gray-400">Проверенный отзыв</p>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
                         </div>
                     </div>
                 </div>
@@ -968,7 +968,7 @@ if (is_readable($euroAbout)) {
         </section>
 
         <!-- 5. Примеры -->
-        <section class="pb-12">
+        <section class="pb-12 reveal">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Реальные объекты наших клиентов</h2>
@@ -1075,6 +1075,7 @@ if (is_readable($euroAbout)) {
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
     <script src="/public/assets/scripts/components/faq.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
     <script src="https://myreviews.dev/widget/dist/index.js" defer></script>
 

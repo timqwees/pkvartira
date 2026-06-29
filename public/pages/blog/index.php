@@ -157,7 +157,7 @@
     <?php include_once './public/components/header.php'; ?>
 
     <main class="pt-20">
-        <section class="py-8">
+        <section class="py-8 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="mb-4">
                     <h1 class="text-[34px] leading-[40px] font-extrabold text-[#2a2e3b]">Блог / статьи</h1>
@@ -373,7 +373,7 @@
             </div>
         </section>
 
-        <section class="py-10">
+        <section class="py-10 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <h3 class="text-[22px] font-extrabold text-[#2a2e3b]">Наши услуги</h3>
                 <nav class="flex flex-col justify-between items-center mt-4 p-5">
@@ -427,7 +427,7 @@
             </div>
         </section>
         <hr>
-        <section class="py-14">
+        <section class="py-14 reveal">
             <div class="container text-center mx-auto px-4 max-w-6xl">
                 <h3 class="text-[24px] md:text-[26px] font-extrabold text-[#2a2e3b]">
                     Хотите рассчитать стоимость ремонта в вашей квартире?
@@ -633,6 +633,8 @@
             });
         });
     </script>
+
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
 </body>
 

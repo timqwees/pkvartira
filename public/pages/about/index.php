@@ -144,7 +144,7 @@
     <main class="pt-20">
 
         <!-- Section 1: Кто мы -->
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-white reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <!-- Section Header -->
                 <div class="flex items-center gap-3 mb-8">
@@ -284,7 +284,7 @@
         </section>
 
         <!-- Section 2: Наша команда -->
-        <section id="team-section" class="py-16 bg-gray-50">
+        <section id="team-section" class="py-16 bg-gray-50 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <!-- Section Header -->
                 <div class="flex items-center gap-3 mb-8">
@@ -372,7 +372,7 @@
         </section>
 
         <!-- Section 3: Как мы контролируем качество -->
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-white reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <!-- Section Header -->
                 <div class="flex items-center gap-3 mb-8">
@@ -427,7 +427,7 @@
         </section>
 
         <!-- Section 4: Документы и гарантии -->
-        <section class="py-16 bg-gray-50">
+        <section class="py-16 bg-gray-50 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <!-- Section Header -->
                 <div class="flex items-center gap-3 mb-8">
@@ -534,6 +534,7 @@
     <!-- Local Scripts -->
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 </body>
 
 </html>

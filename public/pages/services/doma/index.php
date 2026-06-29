@@ -273,7 +273,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
         <!-- 1. hero section -->
         <section
-            class="bg-[url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>)] bg-center bg-cover bg-no-repeat relative overflow-hidden">
+            class="reveal bg-[url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>)] bg-center bg-cover bg-no-repeat relative overflow-hidden">
             <div class="absolute blur-xl z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-black/50">
             </div>
             <div class="relative text-white z-10 max-w-7xl mx-auto px-4 py-10 md:py-14">
@@ -478,7 +478,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 2. price section -->
-        <section id="price" class="bg-white py-10 md:py-14">
+        <section id="price" class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
                     Сколько стоит
@@ -528,7 +528,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 3. Что входит в стоимость ремонта -->
-        <section class="bg-gray-50 py-10 md:py-14">
+        <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
                     Что входит в пакет
@@ -585,7 +585,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 4. Этапы работ -->
-        <section id="process" class="py-16 bg-blue-50">
+        <section id="process" class="reveal py-16 bg-blue-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -677,7 +677,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 5. Примеры -->
-        <section class="bg-white py-10 md:py-14">
+        <section class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">Реализованные дома и коттеджи
                     под ключ</h2>
@@ -771,7 +771,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 10. FAQ по этой услуге -->
-        <section class="py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
+        <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
                     Отвечаем на главные вопросы
@@ -858,7 +858,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 11. Финальный CTA -->
-        <section class="w-full py-12 md:py-16 bg-gray-50">
+        <section class="reveal w-full py-12 md:py-16 bg-gray-50">
             <div
                 class="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-800 to-blue-900 p-8 md:p-12 text-white text-center">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">
@@ -910,6 +910,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <!-- Local Scripts -->
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

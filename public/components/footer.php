@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer class="text-blue-600 py-8 md:py-12">
+<footer class="bg-[#0f172a] text-white py-12 md:py-16">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             <style>
                 @media (min-width: 375px) and (max-width: 768px) {
                     footer .grid {
@@ -9,73 +9,84 @@
                     }
                 }
             </style>
-            <div class="md:text-left space-y-4">
-                <div class="flex items-center space-x-2">
-                    <!-- logo name -->
-                    <a href="/" class="flex items-center space-x-2">
-                        <img class="h-14" src="/public/assets/images/logo/full.svg" alt="Logo Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
-                    </a>
-                </div>
-                <p class="text-gray-600 text-sm md:text-base">
-                    Профессиональный ремонт квартир и домов под ключ с гарантией качества.
+
+            <div class="space-y-4">
+                <a href="/" class="inline-block">
+                    <img class="h-12" src="/public/assets/images/logo/full_white.svg" alt="Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
                 </p>
-            </div>
-
-            <div class="md:text-left">
-                <h5 class="font-bold mb-4">Услуги</h5>
-                <ul class="space-y-2 text-gray-600 text-sm md:text-base">
-                    <li><a href="/services/pod-klyuch" class="hover:text-blue-600 transition">Ремонт квартир</a></li>
-                    <li><a href="/services/doma" class="hover:text-blue-600 transition">Ремонт домов</a></li>
-                    <li><a href="/services/studio" class="hover:text-blue-600 transition">Ремонт студий</a></li>
-                    <li><a href="/services/nowostroyka" class="hover:text-blue-600 transition">Ремонт в новостройке</a></li>
-                </ul>
-            </div>
-
-            <div class="md:text-left">
-                <h5 class="font-bold mb-4">Компания</h5>
-                <ul class="space-y-2 text-gray-600 text-sm md:text-base">
-                    <li><a href="/about" class="hover:text-blue-600 transition">О нас</a></li>
-                    <li><a href="/portfolio" class="hover:text-blue-600 transition">Портфолио</a></li>
-                    <li><a href="/reviews" class="hover:text-blue-600 transition">Отзывы</a></li>
-                    <li><a href="/contact" class="hover:text-blue-600 transition">Контакты</a></li>
-                </ul>
-            </div>
-
-            <div class="md:text-left">
-                <h5 class="font-bold mb-4">Контакты</h5>
-                <ul class="space-y-2 text-gray-600 text-sm md:text-base">
-                    <li><a href="tel:<?= $site['phone']; ?>"><i class="fas fa-phone mr-2"></i>+7 495 473-17-37</a>
-                    </li>
-                    <li><a href="mailto:<?= $site['email']; ?>" aria-label="Написать на <?= $site['email']; ?>"><i
-                                class="fas fa-envelope mr-2"></i><?= $site['email']; ?></li>
-                    <li><a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="noopener"><i
-                                class="fas fa-map-marker-alt mr-2"></i><?= htmlspecialchars($site['address']['streetAddress']) ?> <i
-                                class="ml-2 text-sm fa-solid fa-arrow-up-right-from-square"></i></a></li>
-                </ul>
-
-                <div class="flex justify-start md:justify-start space-x-4 mt-4">
-                    <a href="<?= $site['vk'] ?>" class="text-blue-600 hover:text-blue-600 transition" aria-label="Мы в VK">
-                        <i class="fab fa-vk text-xl"></i>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK">
+                        <i class="fab fa-vk text-sm"></i>
                     </a>
-                    <a href="<?= $site['telegram'] ?>" class="text-[#2AABEE] hover:text-blue-600 transition" aria-label="Мы в Telegram">
-                        <i class="fab fa-telegram text-xl"></i>
+                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в Telegram">
+                        <i class="fab fa-telegram-plane text-sm"></i>
                     </a>
-                    <a href="<?= $site['whatsapp'] ?>" class="text-[#25D366] hover:text-blue-600 transition" aria-label="Мы в WhatsApp">
-                        <i class="fab fa-whatsapp text-xl"></i>
+                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp">
+                        <i class="fab fa-whatsapp text-sm"></i>
                     </a>
-                    <a href="<?= $site['max'] ?>"
-                        class="flex items-center text-gray-600 hover:text-blue-600 transition" aria-label="Мы в MAX">
-                        <img class="h-5 w-5" src="/public/assets/images/icons/MAX.svg" alt="Logo Max" title="MAX — мессенджер">
+                    <a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в MAX">
+                        <img class="h-4 w-4 brightness-0 invert" src="/public/assets/images/icons/MAX.svg" alt="MAX">
                     </a>
                 </div>
+            </div>
+
+            <div>
+                <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Услуги</h5>
+                <ul class="space-y-2.5">
+                    <li><a href="/services/pod-klyuch" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт квартир под ключ</a></li>
+                    <li><a href="/services/doma" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт домов</a></li>
+                    <li><a href="/services/studio" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт студий</a></li>
+                    <li><a href="/services/nowostroyka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт в новостройке</a></li>
+                    <li><a href="/services/vtorichka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт вторичного жилья</a></li>
+                    <li><a href="/calculator" class="text-gray-400 hover:text-orange-500 transition text-sm">Калькулятор стоимости</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Компания</h5>
+                <ul class="space-y-2.5">
+                    <li><a href="/about" class="text-gray-400 hover:text-orange-500 transition text-sm">О нас</a></li>
+                    <li><a href="/portfolio" class="text-gray-400 hover:text-orange-500 transition text-sm">Портфолио</a></li>
+                    <li><a href="/reviews" class="text-gray-400 hover:text-orange-500 transition text-sm">Отзывы</a></li>
+                    <li><a href="/stocks" class="text-gray-400 hover:text-orange-500 transition text-sm">Акции</a></li>
+                    <li><a href="/blog" class="text-gray-400 hover:text-orange-500 transition text-sm">Блог</a></li>
+                    <li><a href="/contact" class="text-gray-400 hover:text-orange-500 transition text-sm">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Контакты</h5>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="tel:<?= $site['phone']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-xs"></i></span>
+                            <?= $site['phone']; ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:<?= $site['email']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm" aria-label="Написать на <?= $site['email']; ?>">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-xs"></i></span>
+                            <?= $site['email']; ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-xs"></i></span>
+                            <span><?= htmlspecialchars($site['address']['streetAddress']) ?></span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <div class="border-t border-gray-200 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-gray-600 space-y-2">
-            <p class="text-sm md:text-base">
-                <a href="/soglashenie" class="text-blue-600 hover:underline">Соглашение и обработка персональных данных</a>
-            </p>
-            <p class="text-sm md:text-base">&copy; 2026 Проект Квартира. Все права защищены.</p>
+        <div class="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-gray-500 text-xs">&copy; 2026 Проект Квартира. Все права защищены.</p>
+            <div class="flex items-center gap-6">
+                <a href="/soglashenie" class="text-gray-500 hover:text-orange-500 transition text-xs">Соглашение и обработка персональных данных</a>
+            </div>
         </div>
     </div>
 </footer>

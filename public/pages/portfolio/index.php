@@ -161,7 +161,7 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     <!-- Main Content -->
     <main class="pt-20">
 
-        <section class="bg-gray-50">
+        <section class="reveal bg-gray-50">
             <div class="container mx-auto px-4 max-w-6xl py-10">
                 <div class="relative bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
                     <div class="grid grid-cols-1 lg:grid-cols-12">
@@ -311,6 +311,7 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
     <script src="/public/assets/scripts/main/header.js" defer></script>
     <script src="/public/assets/scripts/components/portfolio-modal.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
     <!-- Portfolio Swiper & Filter Script -->
     <script>

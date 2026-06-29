@@ -156,7 +156,7 @@
     <main class="pt-24 flex flex-col gap-6">
 
         <!-- Contact Section -->
-        <section>
+        <section class="reveal">
             <div class="container mx-auto px-4">
                 <div class="text-start mb-12">
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -328,7 +328,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <section class="reveal py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     Остались вопросы?
@@ -360,6 +360,7 @@
     <script src="/public/assets/scripts/main/header.js" defer></script>
 
     <script src="/public/assets/scripts/components/faq.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.js" defer></script>
 
 </body>
 
