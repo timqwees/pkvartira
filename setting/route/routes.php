@@ -38,11 +38,18 @@ Routes::get('/calculator', 'on_Calculator');
 Routes::get('/soglashenie', 'on_Soglashenie');
 //==================================================================================================//Отправка письма
 Routes::post('/send/email', [Functions::class, 'sendMail']);
-//==================================================================================================//SITEMAP.XML (SEO)
-Routes::get('/sitemap.xml', function () {Setting\route\function\Sitemap::output();});
-//==================================================================================================//SITEMAP.XML YANDEX (SEO)
-Routes::get('/yandex-sitemap.xml', function () {
-    Setting\route\function\Sitemap::output();
+//==================================================================================================//SITEMAP INDEX + ПОД-КАРТЫ (SEO)
+Routes::get('/sitemap.xml', function () {
+    Setting\route\function\Sitemap::outputIndex();
+});
+Routes::get('/sitemap-pages.xml', function () {
+    Setting\route\function\Sitemap::outputPages();
+});
+Routes::get('/sitemap-services.xml', function () {
+    Setting\route\function\Sitemap::outputServices();
+});
+Routes::get('/sitemap-blog.xml', function () {
+    Setting\route\function\Sitemap::outputBlog();
 });
 //==================================================================================================//RSS FEED (SEO)
 Routes::get('/rss.xml', function () {

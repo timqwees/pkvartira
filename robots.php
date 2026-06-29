@@ -34,7 +34,6 @@ echo "Content-Signal: allow\n";
 echo "\n";
 echo "# Sitemaps\n";
 echo "Sitemap: {$baseUrl}/sitemap.xml\n";
-echo "Sitemap: {$baseUrl}/yandex-sitemap.xml\n";
 echo "\n";
 echo "Host: {$baseUrl}\n";
 echo "\n";

@@ -5,7 +5,7 @@ namespace Setting\route\function;
 use App\Models\Article\Article;
 
 /**
- * Генератор XML Sitemap для SEO
+ * Генератор SitemapIndex + под-карт сайта
  */
 class Sitemap
 {
@@ -13,46 +13,17 @@ class Sitemap
 
     public function __construct()
     {
-        // Динамический базовый URL из текущего запроса
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
         $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
         $this->baseUrl = $scheme . '://' . $host;
     }
 
-    /**
-     * Генерация sitemap.xml
-     * @param string $format 'yandex' или 'google'
-     */
-    public static function generate(string $format = 'yandex'): string
+    // ======================== SITEMAP INDEX ========================
+
+    public static function outputIndex(): void
     {
         $instance = new self();
-        return $instance->buildXml($format);
-    }
-
-    /**
-     * Сохранение sitemap в файл
-     */
-    public static function saveToFile(string $path, string $content): bool
-    {
-        // Не перезаписываем существующий файл
-        if (file_exists($path)) {
-            return true;
-        }
-
-        $dir = dirname($path);
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true);
-        }
-        return file_put_contents($path, $content) !== false;
-    }
-
-    /**
-     * Отдача XML — динамическая генерация без сохранения в файлы
-     */
-    public static function output(): void
-    {
-        $format = 'yandex';
-        $xml = self::generate($format);
+        $xml = $instance->buildIndexXml();
 
         $etag = md5($xml);
 
@@ -68,45 +39,55 @@ class Sitemap
         echo $xml;
     }
 
-    /**
-     * Построение XML
-     * @param string $format 'yandex' или 'google'
-     */
-    private function buildXml(string $format = 'yandex'): string
+    private function buildIndexXml(): string
     {
-        $urls = $this->collectUrls();
+        $today = date('Y-m-d');
+
+        $sitemaps = [
+            ['loc' => '/sitemap-pages.xml', 'lastmod' => $today],
+            ['loc' => '/sitemap-services.xml', 'lastmod' => $today],
+            ['loc' => '/sitemap-blog.xml', 'lastmod' => $today],
+        ];
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n";
-        $xml .= '        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' . "\n";
-        $xml .= '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9' . "\n";
-        $xml .= '        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">' . "\n";
-
-        foreach ($urls as $url) {
-            $xml .= $this->buildUrlEntry($url, $format);
+        foreach ($sitemaps as $s) {
+            $xml .= '  <sitemap>' . "\n";
+            $xml .= '    <loc>' . $this->escape($this->baseUrl . $s['loc']) . "</loc>\n";
+            $xml .= '    <lastmod>' . $s['lastmod'] . "</lastmod>\n";
+            $xml .= '  </sitemap>' . "\n";
         }
 
-        $xml .= '</urlset>' . "\n";
+        $xml .= '</sitemapindex>' . "\n";
         return $xml;
     }
 
-    /**
-     * Сбор всех URL
-     */
-    private function collectUrls(): array
+    // ======================== PAGES SITEMAP ========================
+
+    public static function outputPages(): void
     {
-        $urls = [];
+        $instance = new self();
+        $xml = $instance->buildPagesXml();
 
-        // Главная страница
-        $urls[] = [
-            'loc' => '/',
-            'priority' => '1.0',
-            'changefreq' => 'daily'
-        ];
+        $etag = md5($xml);
 
-        // Основные страницы
-        $mainPages = [
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+            http_response_code(304);
+            return;
+        }
+
+        header('Content-Type: application/xml; charset=utf-8');
+        header('ETag: ' . $etag);
+        header('Cache-Control: public, max-age=3600');
+        header('Content-Length: ' . strlen($xml));
+        echo $xml;
+    }
+
+    private function buildPagesXml(): string
+    {
+        $pages = [
+            ['/', '1.0', 'daily'],
             ['/about', '0.8', 'weekly'],
             ['/prices', '0.8', 'weekly'],
             ['/portfolio', '0.8', 'weekly'],
@@ -118,8 +99,40 @@ class Sitemap
             ['/blogs', '0.9', 'daily'],
         ];
 
-        // Страницы услуг
-        $servicePages = [
+        $xml = $this->openUrlset();
+
+        foreach ($pages as $p) {
+            $xml .= $this->buildEntry($p[0], $p[1], $p[2]);
+        }
+
+        $xml .= '</urlset>' . "\n";
+        return $xml;
+    }
+
+    // ======================== SERVICES SITEMAP ========================
+
+    public static function outputServices(): void
+    {
+        $instance = new self();
+        $xml = $instance->buildServicesXml();
+
+        $etag = md5($xml);
+
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+            http_response_code(304);
+            return;
+        }
+
+        header('Content-Type: application/xml; charset=utf-8');
+        header('ETag: ' . $etag);
+        header('Cache-Control: public, max-age=3600');
+        header('Content-Length: ' . strlen($xml));
+        echo $xml;
+    }
+
+    private function buildServicesXml(): string
+    {
+        $services = [
             ['/services/studio', '0.8', 'weekly'],
             ['/services/pod-klyuch', '0.9', 'weekly'],
             ['/services/nowostroyka', '0.8', 'weekly'],
@@ -132,58 +145,84 @@ class Sitemap
             ['/services/kommercheskie', '0.7', 'weekly'],
         ];
 
-        $allPages = array_merge($mainPages, $servicePages);
+        $xml = $this->openUrlset();
 
-        foreach ($allPages as $page) {
-            $urls[] = [
-                'loc' => $page[0],
-                'priority' => $page[1],
-                'changefreq' => $page[2]
-            ];
+        foreach ($services as $s) {
+            $xml .= $this->buildEntry($s[0], $s[1], $s[2]);
         }
 
-        // Получаем все статьи блога
+        $xml .= '</urlset>' . "\n";
+        return $xml;
+    }
+
+    // ======================== BLOG SITEMAP ========================
+
+    public static function outputBlog(): void
+    {
+        $instance = new self();
+        $xml = $instance->buildBlogXml();
+
+        $etag = md5($xml);
+
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+            http_response_code(304);
+            return;
+        }
+
+        header('Content-Type: application/xml; charset=utf-8');
+        header('ETag: ' . $etag);
+        header('Cache-Control: public, max-age=3600');
+        header('Content-Length: ' . strlen($xml));
+        echo $xml;
+    }
+
+    private function buildBlogXml(): string
+    {
+        $xml = $this->openUrlset();
+
         try {
             $article = new Article();
-            // Получаем все статьи (до 10000)
             $articles = $article->getPaginatedArticles(1, 10000) ?? [];
 
             foreach ($articles as $art) {
-                $urls[] = [
-                    'loc' => '/blog/article/' . ($art['id'] ?? ''),
-                    'priority' => '0.6',
-                    'changefreq' => 'weekly',
-                    'lastmod' => $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d')
-                ];
+                $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
+                $lastmod = date('Y-m-d', strtotime((string)$lastmod));
+                $xml .= $this->buildEntry('/blog/article/' . ($art['id'] ?? ''), '0.6', 'weekly', $lastmod);
             }
         } catch (\Exception $e) {
-            // Если нет таблицы статей — пропускаем
+            // Нет таблицы статей — пустая карта
         }
 
-        return $urls;
+        $xml .= '</urlset>' . "\n";
+        return $xml;
     }
 
-    /**
-     * Построение записи URL
-     * @param string $format 'yandex' или 'google'
-     */
-    private function buildUrlEntry(array $url, string $format = 'yandex'): string
+    // ======================== HELPERS ========================
+
+    private function openUrlset(): string
     {
-        $fullUrl = $this->baseUrl . $url['loc'];
-        $lastmod = $url['lastmod'] ?? date('Y-m-d');
+        return '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
+             . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n"
+             . '        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' . "\n"
+             . '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9' . "\n"
+             . '        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">' . "\n";
+    }
 
-        $xml = "  <url>\n";
-        $xml .= "    <loc>" . htmlspecialchars($fullUrl, ENT_XML1, 'UTF-8') . "</loc>\n";
-        $xml .= "    <lastmod>" . $lastmod . "</lastmod>\n";
+    private function buildEntry(string $loc, string $priority, string $changefreq, ?string $lastmod = null): string
+    {
+        $fullUrl = $this->baseUrl . $loc;
+        $lm = $lastmod ?? date('Y-m-d');
 
-        // Для Яндекса добавляем changefreq и priority
-        if ($format === 'yandex') {
-            $xml .= "    <changefreq>" . $url['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $url['priority'] . "</priority>\n";
-        }
+        return "  <url>\n"
+             . "    <loc>" . $this->escape($fullUrl) . "</loc>\n"
+             . "    <lastmod>" . $lm . "</lastmod>\n"
+             . "    <changefreq>" . $changefreq . "</changefreq>\n"
+             . "    <priority>" . $priority . "</priority>\n"
+             . "  </url>\n";
+    }
 
-        $xml .= "  </url>\n";
-
-        return $xml;
+    private function escape(string $str): string
+    {
+        return htmlspecialchars($str, ENT_XML1 | ENT_QUOTES, 'UTF-8');
     }
 }

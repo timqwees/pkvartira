@@ -4,9 +4,7 @@ RewriteBase /
 # Редирект robots.txt на динамический генератор
 RewriteRule ^robots\.txt$ robots.php [L]
 
-# Редирект sitemap на динамический генератор
-RewriteRule ^sitemap\.xml$ file/sitemap_google.php [L]
-RewriteRule ^yandex-sitemap\.xml$ file/sitemap_yandex.php [L]
+# Редирект sitemap на динамический генератор (все через PHP-роутер)
 
 # 0. Редирект с портом :443 на URL без порта (301)
 RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]
