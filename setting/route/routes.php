@@ -44,6 +44,10 @@ Routes::get('/sitemap.xml', function () {Setting\route\function\Sitemap::outputC
 Routes::get('/yandex-sitemap.xml', function () {
     Setting\route\function\Sitemap::outputCompressed('yandex', true);
 });
+//==================================================================================================//RSS FEED (SEO)
+Routes::get('/rss.xml', function () {
+    Setting\route\function\RssFeed::output();
+});
 //==================================================================================================//PAGES LIST
 Routes::get('/pages', function () {
     Setting\route\function\UrlList::output();
