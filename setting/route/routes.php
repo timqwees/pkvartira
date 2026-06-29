@@ -39,10 +39,10 @@ Routes::get('/soglashenie', 'on_Soglashenie');
 //==================================================================================================//Отправка письма
 Routes::post('/send/email', [Functions::class, 'sendMail']);
 //==================================================================================================//SITEMAP.XML (SEO)
-Routes::get('/sitemap.xml', function () {Setting\route\function\Sitemap::outputCompressed('google', true);});
+Routes::get('/sitemap.xml', function () {Setting\route\function\Sitemap::output();});
 //==================================================================================================//SITEMAP.XML YANDEX (SEO)
 Routes::get('/yandex-sitemap.xml', function () {
-    Setting\route\function\Sitemap::outputCompressed('yandex', true);
+    Setting\route\function\Sitemap::output();
 });
 //==================================================================================================//RSS FEED (SEO)
 Routes::get('/rss.xml', function () {

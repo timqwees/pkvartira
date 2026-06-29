@@ -47,38 +47,23 @@ class Sitemap
     }
 
     /**
-     * Отдача XML с gzip сжатием
-     * @param string $format 'yandex' или 'google'
-     * @param bool $createFile создать файл если его нет
+     * Отдача XML — динамическая генерация без сохранения в файлы
      */
-    public static function outputCompressed(string $format = 'yandex', bool $createFile = false): void
+    public static function output(): void
     {
-        $filePath = './file/sitemap_' . $format . '.xml';
+        $format = 'yandex';
+        $xml = self::generate($format);
 
-        // Если файл есть — отдаём с ETag для 304 кэширования
-        if (file_exists($filePath)) {
-            $etag = md5_file($filePath);
+        $etag = md5($xml);
 
-            if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
-                http_response_code(304);
-                return;
-            }
-
-            header('Content-Type: application/xml; charset=utf-8');
-            header('ETag: ' . $etag);
-            header('Cache-Control: public, max-age=3600');
-            readfile($filePath);
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+            http_response_code(304);
             return;
         }
 
-        // Если файла нет — генерируем
-        $xml = self::generate($format);
-
-        if ($createFile) {
-            self::saveToFile($filePath, $xml);
-        }
-
         header('Content-Type: application/xml; charset=utf-8');
+        header('ETag: ' . $etag);
+        header('Cache-Control: public, max-age=3600');
         header('Content-Length: ' . strlen($xml));
         echo $xml;
     }
