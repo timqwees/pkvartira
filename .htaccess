@@ -1,0 +1,32 @@
+RewriteEngine On
+RewriteBase /
+
+# Редирект robots.txt на динамический генератор
+RewriteRule ^robots\.txt$ robots.php [L]
+
+# Редирект sitemap на динамический генератор
+RewriteRule ^sitemap\.xml$ file/sitemap_google.php [L]
+RewriteRule ^yandex-sitemap\.xml$ file/sitemap_yandex.php [L]
+
+# 0. Редирект с портом :443 на URL без порта (301)
+RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]
+RewriteRule ^(.*)$ https://%1pkvartira.ru/$1 [R=301,L]
+
+# 0.1. Редирект www → без www (301)
+RewriteCond %{HTTP_HOST} ^www\.pkvartira\.ru$ [NC]
+RewriteRule ^(.*)$ https://pkvartira.ru/$1 [R=301,L]
+
+# 1. Редирект с двойного слэша на одинарный (301)
+RewriteCond %{REQUEST_URI} ^(.*)//(.*)$
+RewriteRule . %1/%2 [R=301,L]
+
+# 3. Редирект со слэша на без слэша для НЕ директорий (301)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Если файл или директория существуют, используем их напрямую
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Внутренне переписываем запрос на public/index.php с параметром route
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]

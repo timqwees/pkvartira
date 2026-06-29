@@ -1,0 +1,15 @@
+-- TABLE ARTICLE
+CREATE TABLE IF NOT EXISTS article (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    image VARCHAR(500) DEFAULT NULL,
+    category VARCHAR(50) DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    link VARCHAR(50) DEFAULT NULL
+);
+
+-- INDEX
+CREATE INDEX IF NOT EXISTS article_created_at ON article (created_at DESC),
+CREATE INDEX IF NOT EXISTS article_updated_at ON article (updated_at DESC)

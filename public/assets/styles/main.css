@@ -1,0 +1,554 @@
+/* Main Styles - Основные стили сайта */
+::-webkit-scrollbar-thumb {
+    background: #F2760A;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    scroll-behavior: smooth;
+}
+
+/* Custom gradient backgrounds */
+.gradient-primary {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+}
+
+.gradient-secondary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-menu-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Swiper custom styles */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #F2760A;
+}
+
+.swiper-pagination-bullet-active {
+    background: #F2760A;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Lazy loading styles */
+.lazy {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    min-height: 100px;
+}
+
+.lazy.loaded {
+    opacity: 1;
+    background: none;
+    animation: none;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Button click animation */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300%;
+    aspect-ratio: 1;
+}
+
+.cta-button:active {
+    transform: scale(0.96) translateZ(0);
+    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.5);
+}
+
+.cta-button span {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover span {
+    transform: translateY(-2px);
+}
+
+/* Custom select styles */
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: 98% center;
+    background-size: 20px;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-menu-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    backdrop-filter: blur(2px);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mobile animations */
+.mobile-menu-toggle {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.mobile-menu-close {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .feature-card {
+        min-height: auto;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .price-card {
+        transform: none !important;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Dropdown Menu */
+.drop {
+    position: relative;
+}
+
+/* пассивное состояние выпадающего меню */
+.drop ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    background: #fff;
+    border-width: 1px;
+    border-color: #bab9bb #bab9bb80 #bab9bb80;
+    border-style: none solid solid;
+    list-style: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+/* изменение состояния стрелки */
+
+.drop .arrow {
+    transition: all ease .3s;
+    transform: rotate(0deg);
+}
+
+.drop:hover .arrow {
+    transition: all ease .3s;
+    transform: rotate(180deg);
+}
+
+/* при наведении на drop */
+.drop:hover ul {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* при наведении на ссылку */
+.drop>a {
+    transition: all 0.25s ease;
+}
+
+.drop:hover>a {
+    color: #2563eb;
+    background: #f0f9ff;
+    border-radius: 6px;
+    padding: 4px 8px;
+    transition: all 0.25s ease;
+}
+
+/* пр наведении на ссылку в выпаадющем меню */
+.drop ul li a {
+    display: block;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.35s ease;
+}
+
+.drop ul li a:hover {
+    color: #2563eb;
+    /* background: #f0f9ff; */
+    border-radius: 6px;
+    transition: all 0.35s ease;
+}
+
+/* заголовок в выпадающем меню */
+.drop-title {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 5px;
+    padding: 10px 16px;
+    padding-left: 0px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+
+/* блоки внутри выпадающего меню */
+.drop ul div {
+    padding: 0.5vw 1.11vw;
+}
+
+/* отступ между блоками внутри выпадающего меню */
+.drop ul div>li>a {
+    display: flex;
+    place-content: start;
+    place-items: center;
+    gap: 10px;
+}
+
+/* иконки в выпадающем меню */
+.drop ul div>li>a i {
+    font-size: 14px;
+}
+
+/* ---------------submenu-------------------------- */
+
+/* аккордеон - контейнер подменю */
+.drop-submenu {
+    position: relative;
+}
+
+/* аккордеон - кнопка */
+.drop-submenu>a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* аккордеон - стрелка */
+.drop-submenu-arrow {
+    font-size: 8px;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+/* аккордеон - поворот стрелки при наведении */
+.drop-submenu:hover .drop-submenu-arrow {
+    transform: rotate(90deg);
+    opacity: 1;
+}
+
+/* аккордеон - список подменю */
+.drop-submenu ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    border: none;
+    left: 100%;
+    top: 0;
+}
+
+/* аккордеон - раскрытие списка при наведении */
+.drop-submenu:hover ul {
+    max-height: 500px;
+    border-width: 1px;
+    border-color: #bab9bb #bab9bb80 #bab9bb80;
+    border-style: solid;
+    padding: 10px;
+    background-color: white;
+    z-index: 50;
+}
+
+/* аккордеон - подсветка родительской ссылки при открытом подменю */
+.drop-submenu:hover>a {
+    color: #2563eb;
+    /* border: 1px solid #2563eb; */
+    border-radius: 4px;
+}
+
+/* аккордеон - ссылки в подменю */
+.drop-submenu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+/* аккордеон - hover эффект ссылок */
+.drop-submenu ul li a:hover {
+    color: #2563eb;
+    padding-left: 12px;
+    border: 1px solid #2563eb;
+    border-radius: 4px;
+}
+
+/* аккордеон - иконки в ссылках */
+.drop-submenu ul li a i {
+    margin-right: 6px;
+    font-size: 12px;
+    width: 14px;
+    text-align: center;
+}
+
+/* ============================================
+   FIXES FOR AUDIT ISSUES
+   ============================================ */
+
+/* Fix header spacing - remove white gap */
+main.pt-20 {
+    padding-top: 5rem;
+}
+
+/* Swiper arrows mobile fix - move arrows outside cards */
+@media (max-width: 768px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none !important;
+    }
+
+    /* Show pagination dots instead of arrows */
+    .swiper-pagination {
+        display: block !important;
+    }
+}
+
+@media (min-width: 769px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+/* Fix grid cards - 4→2 on <1024px */
+@media (max-width: 1024px) {
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Fix price text - prevent line breaks */
+.text-orange-500 {
+    white-space: nowrap;
+}
+
+/* Mobile menu submenu fix for touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .drop ul {
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        position: static;
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        padding-left: 1rem;
+    }
+
+    .drop.active ul {
+        display: block;
+    }
+
+    .drop .arrow {
+        transition: transform 0.3s ease;
+    }
+
+    .drop.active .arrow {
+        transform: rotate(180deg);
+    }
+}
+
+/* Fix "Смотреть все портфолио" overlapping on 1200px */
+@media (max-width: 1280px) {
+    .portfolio-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .portfolio-header .view-all-link {
+        margin-left: 0;
+    }
+}
+
+/* Fix swiper-type-5 (employee slider) - prevent empty spaces with repeated images */
+.swiper-type-5 {
+    overflow: hidden;
+}
+
+.swiper-type-5 .swiper-wrapper {
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+.swiper-type-5 .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swiper-type-5 .swiper-slide-shadow-left,
+.swiper-type-5 .swiper-slide-shadow-right {
+    /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%); */
+    background: transparent;
+}
+
+/* Ensure proper sizing for coverflow effect */
+.swiper-type-5.swiper-3d .swiper-slide-shadow {
+    background: transparent;
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* International Telephone Input - 100% width */
+.iti.iti--allow-dropdown.iti--show-flags.iti--inline-dropdown {
+    width: 100% !important;
+}
+
+/* Swiper pagination bullet - increase touch target size */
+.swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    margin: 0 4px !important;
+    opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
