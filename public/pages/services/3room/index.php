@@ -468,7 +468,7 @@ if (is_readable($euroAbout)) {
 
                                 <div class="mb-5 relative">
                                     <input data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
-                                        name="телефн" placeholder=" (___) ___-__-__" maxlength="15" aria-label="Телефон"
+                                        name="телефн" placeholder="(___) ___-__-__" maxlength="15" aria-label="Телефон"
                                         class="border w-full rounded-xl text-black p-4" required>
                                     <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон
                                         <span class="text-red-400">*</span></span>
@@ -879,7 +879,7 @@ if (is_readable($euroAbout)) {
                     class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto mb-8">
                     <div class="relative text-black">
                         <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone name="телефн"
-                            placeholder=" (___) ___-__-__" maxlength="15" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
+                            placeholder="(___) ___-__-__" maxlength="15" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
                         <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
                                 class="text-red-400">*</span></span>
                     </div><button

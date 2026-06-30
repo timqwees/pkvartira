@@ -96,6 +96,9 @@
 <noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@27.1.3/dist/css/intlTelInput.css">
 </noscript>
+<style>
+    [data-type-phone] { padding-left: 78px !important; }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@27.1.3/dist/js/intlTelInputWithUtils.min.js" defer></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

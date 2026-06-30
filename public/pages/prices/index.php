@@ -343,7 +343,7 @@
 
                             <div class="mb-5 relative text-black">
                                 <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone
-                                    name="телефн" placeholder=" (___) ___-__-__" aria-label="Телефон" maxlength="15"
+                                    name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон" maxlength="15"
                                     class="border w-full rounded-xl p-4" required>
                                 <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
                                         class="text-red-400">*</span></span>
@@ -692,7 +692,7 @@
 
                     <div class="relative text-black">
                         <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone name="телефн"
-                            placeholder=" (___) ___-__-__" aria-label="Телефон" maxlength="15" class="border w-full rounded-xl p-4" required>
+                            placeholder="(___) ___-__-__" aria-label="Телефон" maxlength="15" class="border w-full rounded-xl p-4" required>
                         <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
                                 class="text-red-400">*</span></span>
                     </div>
