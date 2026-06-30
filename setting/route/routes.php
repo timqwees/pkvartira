@@ -51,6 +51,10 @@ Routes::get('/sitemap-services.xml', function () {
 Routes::get('/sitemap-blog.xml', function () {
     Setting\route\function\Sitemap::outputBlog();
 });
+//==================================================================================================//YML FEED (Яндекс.Бизнес)
+Routes::get('/yml.xml', function () {
+    Setting\route\function\YmlFeed::output();
+});
 //==================================================================================================//RSS FEED (SEO)
 Routes::get('/rss.xml', function () {
     Setting\route\function\RssFeed::output();
