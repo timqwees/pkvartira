@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир в новостройке';
+$title = 'Ремонт квартир в новостройке — от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $prices = [
     [
@@ -42,11 +42,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт квартир в новостройке под ключ в Москве от 360 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года. Выезд инженера бесплатно.">
+        content="Ремонт новой квартиры в новостройке под ключ в Москве от 8 000 ₽/м². Учитываем усадку дома, готовим стены к трещинам. Чистовая отделка под ключ. Гарантия 3 года. Бесплатный замер.">
     <meta name="keywords"
         content="ремонт в новостройке, ремонт квартиры в новостройке, ремонт новостройки под ключ, ремонт квартиры в новостройке Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">

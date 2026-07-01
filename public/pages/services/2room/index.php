@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт двухкомнатной квартиры';
+$title = 'Ремонт двухкомнатной квартиры под ключ — от 400 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
 $prices = [
     [
@@ -45,11 +45,9 @@ $portfolio = array_merge(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Отделка двухкомнатных квартир под ключ в Москве от 400 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года. Выезд инженера бесплатно.">
+        content="Ремонт 2-комнатной квартиры под ключ в Москве от 400 000 ₽. Фиксированная цена в договоре. Отделка под ключ: от демонтажа до финальной уборки. Гарантия 3 года. Бесплатный замер.">
     <meta name="keywords"
         content="двухкомнатная квартира, 2-комнатная, отделка двушки, ремонт 2 комнатной">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">

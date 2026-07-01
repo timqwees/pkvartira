@@ -10,7 +10,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?></title>
+    <title><?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?> — блог о ремонте квартир | ПКвартира</title>
     <meta name="description"
         content="<?= htmlspecialchars($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.'); ?>">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?> — блог о ремонте квартир | ПКвартира">
     <meta property="og:description"
         content="<?= htmlspecialchars($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.'); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/blog/article/' . $id); ?>">

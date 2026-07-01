@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт коммерческих помещений';
+$title = 'Ремонт коммерческих помещений в Москве — офисы, магазины';
 $bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
 $prices = [
     [
@@ -42,11 +42,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт офисов, магазинов и коммерческих помещений в Москве. Смета в договоре, сроки, гарантия 3 года. Выезд инженера.">
+        content="Ремонт офисов, магазинов, кафе и коммерческих помещений в Москве. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд.">
     <meta name="keywords"
         content="ремонт офиса, ремонт магазина, отделка коммерческого помещения, ремонт под ключ Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">

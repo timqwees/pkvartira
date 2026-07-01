@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт однокомнатной квартиры';
+$title = 'Ремонт однокомнатной квартиры под ключ — от 296 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 $prices = [
     [
@@ -45,11 +45,9 @@ $portfolio = array_merge(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт однокомнатных квартир под ключ от 285 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года. Выезд инженера бесплатно.">
+        content="Ремонт 1-комнатной квартиры под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. Более 80 проектов под ключ. Замер и расчёт бесплатно.">
     <meta name="keywords"
         content="ремонт однокомнатной квартиры, ремонт 1 комнатной квартиры, ремонт квартиры под ключ, ремонт студии">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">

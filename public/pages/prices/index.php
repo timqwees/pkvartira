@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Цены на ремонт квартир — прозрачный прайс |
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Цены на ремонт квартир в Москве 2026 — стоимость ремонта за м² | ПКвартира</title>
     <meta name="description"
-        content="Актуальные цены на ремонт квартир. Полный прайс-лист: от чернового до премиального ремонта. Без скрытых платежей.">
+        content="Актуальные цены на ремонт квартир в Москве 2026. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², премиальный от 18 000 ₽/м². Прозрачный прайс без скрытых платежей.">
     <meta name="keywords" content="цены на ремонт, стоимость ремонта, прайс, расценки ремонт квартир">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
