@@ -246,7 +246,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
         <!-- Hero Content -->
         <section
-            class="relative text-white py-12 md:py-32 bg-[url(<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp)] bg-center bg-cover bg-no-repeat">
+        <section class="relative text-white py-12 md:py-32 bg-center bg-cover bg-no-repeat" style="background-image: url(<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp);">
             <div
                 class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-black/70 via-black/40 to-transparent">
             </div>
