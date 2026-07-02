@@ -793,7 +793,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     <?php
-                    $geo = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.'];
+                    $geo = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.', 'и другие...'];
                     foreach ($geo as $g): ?>
                     <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-orange-200 transition">
                         <span class="text-sm font-medium text-gray-700"><?= $g ?></span>

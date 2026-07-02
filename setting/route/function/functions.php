@@ -161,7 +161,7 @@ class Functions
      */
     private static function sendToBitrix24(object $data): void
     {
-        $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.lead.add.json';
+        define('CRM_BITRIX', 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.lead.add.json');
         $categoryId = 7;
 
         $name = $data->имя ?? $data->name ?? '';
@@ -170,6 +170,7 @@ class Functions
         $comment = $data->сообщение ?? $data->message ?? '';
 
         $source = '';
+        // проверяем на наличие источника
         foreach ($data as $key => $value) {
             if (stripos($key, 'источник') !== false && !empty($value)) {
                 $source = $value;
@@ -179,6 +180,7 @@ class Functions
 
         $comments = $source ? "Источник: {$source}\n{$comment}" : $comment;
 
+        // проверяем наличие полей
         foreach ($data as $key => $value) {
             if (in_array($key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'согласие_персональные_данные'])) {
                 continue;
@@ -188,6 +190,7 @@ class Functions
             }
         }
 
+        // составим поля для отправки
         $fields = [
             'TITLE' => 'Заявка с сайта pkvartira.ru',
             'NAME' => $name,
@@ -200,7 +203,8 @@ class Functions
             $fields['EMAIL'] = [['VALUE' => $email, 'VALUE_TYPE' => 'WORK']];
         }
 
-        $ch = curl_init($webhookUrl);
+        // отправка в bitrix24
+        $ch = curl_init(CRM_BITRIX);
         curl_setopt_array($ch, [
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => http_build_query(['fields' => $fields]),
