@@ -98,7 +98,8 @@
 </noscript>
 <style>
     [data-type-phone] { padding-left: 78px !important; }
-    .iti__dropdown-content { z-index: 9999 !important; }
+    .iti__dropdown-content { z-index: 9999 !important; max-height: 250px !important; }
+    .iti__country-list { max-height: 200px !important; overflow-y: auto !important; }
     .iti--container { z-index: 9999 !important; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@27.1.3/dist/js/intlTelInputWithUtils.min.js" defer></script>
