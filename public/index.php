@@ -1520,6 +1520,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
     </noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="IQF63+np/5nlOq39Ble4hg" async></script>
+
 </body>
 
 </html>
