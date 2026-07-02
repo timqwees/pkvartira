@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Акции и скидки на ремонт — выгодные предложения |
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Акции на ремонт квартир 2026 — скидки до 30% | ПКвартира</title>
     <meta name="description"
-        content="Акции и скидки на ремонт квартир. Бесплатный дизайн-проект, сезонные скидки, специальные предложения на комплексный ремонт.">
+        content="Акции на ремонт квартир в Москве: бесплатный дизайн-проект при заказе под ключ, скидки до 30% на комплексный ремонт, сезонные предложения. Успейте заказать по выгодной цене!">
     <meta name="keywords" content="акции ремонт, скидки ремонт, выгодные предложения, ремонт под ключ акция">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">

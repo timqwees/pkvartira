@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт трехкомнатной квартиры';
+$title = 'Ремонт трёхкомнатной квартиры под ключ — от 560 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp';
 $prices = [
     [
@@ -49,11 +49,9 @@ if (is_readable($euroAbout)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт трехкомнатных квартир под ключ в Москве от 560 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года. Выезд инженера бесплатно.">
+        content="Ремонт 3-комнатной квартиры под ключ в Москве от 560 000 ₽. Капитальный, косметический, дизайнерский — любой формат. Смета фиксируется в договоре, гарантия 3 года. Бесплатный выезд.">
     <meta name="keywords"
         content="ремонт трехкомнатной квартиры, ремонт 3 комнатной квартиры, ремонт трешки под ключ, ремонт квартиры под ключ Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">

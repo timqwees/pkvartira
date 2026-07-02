@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Соглашение и обработка персональных данных |
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Политика конфиденциальности и согласие на обработку данных | ПКвартира</title>
     <meta name="description"
-        content="Согласие на обработку персональных данных и политика конфиденциальности. Ознакомьтесь с документами и скачайте их в формате DOCX.">
+        content="Политика конфиденциальности, согласие на обработку персональных данных и пользовательское соглашение. Ознакомьтесь с документами перед заказом ремонта.">
     <meta name="robots" content="noindex, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

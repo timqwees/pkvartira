@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Блог / статьи —
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Блог о ремонте квартир — полезные статьи, советы, цены 2026 | ПКвартира</title>
     <meta name="description"
-        content="Полезные советы и лайфхаки для ремонта квартир под ключ. Практическая информация, руководства по отделке, выбору материалов и дизайну интерьера.">
+        content="Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта.">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

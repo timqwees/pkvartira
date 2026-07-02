@@ -28,11 +28,9 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Портфолио ремонтов — реальные проекты |
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Портфолио ремонтов квартир — 300+ проектов с фото до и после | ПКвартира</title>
     <meta name="description"
-        content="Наши выполненные проекты — фото «до» и «после», планировки, сроки и бюджеты реальных объектов.">
+        content="Реальные проекты ремонта квартир в Москве: 300+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома. Сроки, бюджеты, планировки. Закажите похожий проект.">
     <meta name="keywords" content="наши проекты, фото работ, примеры объектов, портфолио">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">

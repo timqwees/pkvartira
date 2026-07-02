@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>О компании
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — ремонт квартир под ключ
-    </title>
+    <title>Компания по ремонту квартир в Москве — 10 лет, 300+ проектов | ПКвартира</title>
     <meta name="description"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — профессиональный ремонт квартир и домов под ключ. Опыт работы более 10 лет, гарантия качества, прозрачные цены.">
+        content="ПКвартира — профессиональный ремонт квартир под ключ в Москве с 2016 года. 300+ реализованных проектов, штатные мастера, гарантия 3 года. Работаем официально по договору.">
     <meta name="keywords"
         content="о компании, ремонт квартир, <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>, ремонт под ключ, строительная компания">
     <meta name="robots" content="index, follow">

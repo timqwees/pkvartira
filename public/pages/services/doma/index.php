@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт домов';
+$title = 'Ремонт домов и коттеджей под ключ — цены и проекты';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
 $prices = [
     [
@@ -42,11 +42,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт домов и коттеджей под ключ в Москве и области. Фиксированная смета, сроки в договоре, гарантия 3 года. Бесплатный выезд инженера.">
+        content="Ремонт загородного дома или коттеджа под ключ в Москве и МО. От фундамента до кровли: утепление, фасад, инженерия, отделка. Смета в договоре, гарантия 3 года.">
     <meta name="keywords" content="ремонт дома под ключ, ремонт коттеджа, отделка дома, ремонт загородного дома Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">

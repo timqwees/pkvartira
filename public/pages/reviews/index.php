@@ -17,11 +17,9 @@ if (is_readable($euroAbout)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Отзывы клиентов — реальные мнения |
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Отзывы о ремонте квартир — рейтинг 5.0, реальные клиенты | ПКвартира</title>
     <meta name="description"
-        content="Отзывы клиентов о ремонте квартир. Рейтинг 5.0/5, реальные фото и видео отзывы, проверенные заказчики.">
+        content="Реальные отзывы клиентов о ремонте квартир в ПКвартира. Рейтинг 5.0 на Яндекс Картах, 90+ отзывов с фото. Видеоотзывы с объективным мнением.">
     <meta name="keywords" content="отзывы, отзывы о ремонте, рейтинг ремонт, мнения клиентов">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">

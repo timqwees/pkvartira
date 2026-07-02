@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Контакты — связаться с нами |
-        <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title>Контакты — заказать ремонт квартиры в Москве | ПКвартира</title>
     <meta name="description"
-        content="Контакты <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>. Телефон, адрес, WhatsApp, Telegram. Бесплатная консультация и выезд на объект.">
+        content="ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 30 минут.">
     <meta name="keywords" content="контакты, телефон, адрес, связаться, ремонт квартир">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -20,9 +18,9 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="Контакты — связаться с нами | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+        content="Контакты — заказать ремонт квартиры в Москве | ПКвартира">
     <meta property="og:description"
-        content="Контакты <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>. Телефон, адрес, WhatsApp, Telegram. Бесплатная консультация.">
+        content="ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Бесплатная консультация, выезд инженера на замер, смета за 30 минут.">
     <meta property="og:url"
         content="<?= htmlspecialchars((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? '') . '/contact'); ?>">
     <meta property="og:image"

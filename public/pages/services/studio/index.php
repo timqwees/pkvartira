@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир-студий';
+$title = 'Ремонт студии под ключ в Москве — от 200 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/studio/2_31sqm/01_gostinaya-kukhnya.jpg';
 $prices = [
     [
@@ -42,11 +42,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт квартир-студий под ключ в Москве от 200 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года. Выезд инженера бесплатно.">
+        content="Ремонт квартиры-студии под ключ в Москве от 200 000 ₽. Фиксированная смета в договоре, гарантия 3 года. Дизайн-проект в подарок. Бесплатный замер и расчёт.">
     <meta name="keywords"
         content="ремонт студии, ремонт квартиры студии, ремонт студии под ключ, ремонт квартиры под ключ Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">

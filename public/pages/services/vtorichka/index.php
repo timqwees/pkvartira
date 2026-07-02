@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир на вторичном рынке';
+$title = 'Ремонт вторичного жилья в Москве — от 640 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
 $prices = [
     [
@@ -42,11 +42,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        <?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>
-    </title>
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт квартир на вторичном рынке в Москве от 640 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года. Выезд инженера бесплатно.">
+        content="Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Фиксированная смета, гарантия 3 года. Выезд инженера — бесплатно.">
     <meta name="keywords"
         content="ремонт вторички, ремонт квартиры на вторичке, ремонт вторичного жилья, ремонт квартиры вторичка Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
