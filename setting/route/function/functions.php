@@ -157,70 +157,31 @@ class Functions
     }
 
     /**
-     * Отправка лида в Bitrix24 через CRM REST API
+     * Отправка сделки в Bitrix24 через CRM REST API
      */
     private static function sendToBitrix24(object $data): void
     {
-        define('CRM_BITRIX', 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json');
-        $category_id = 7;
-        $stade_id = 0;
-
         $name = $data->имя ?? $data->name ?? '';
         $phone = $data->телефн ?? $data->телефон ?? $data->phone ?? '';
         $email = $data->почта ?? $data->email ?? '';
         $comment = $data->сообщение ?? $data->message ?? '';
 
-        $source = '';
-        // проверяем на наличие источника
-        foreach ($data as $key => $value) {
-            if (stripos($key, 'источник') !== false && !empty($value)) {
-                $source = $value;
-                break;
-            }
-        }
+        $info = "Имя: {$name}\nТелефон: {$phone}";
+        if ($email) $info .= "\nEmail: {$email}";
+        if ($comment) $info .= "\n\n{$comment}";
 
-        $comments = $source ? "Источник: {$source}\n{$comment}" : $comment;
-
-        // проверяем наличие полей
-        foreach ($data as $key => $value) {
-            if (in_array($key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'согласие_персональные_данные'])) {
-                continue;
-            }
-            if (!empty($value) && !is_array($value)) {
-                $comments .= "\n{$key}: {$value}";
-            }
-        }
-
-        // составим поля для отправки
-        $fields = [
-            'TITLE' => 'Заявка с сайта pkvartira.ru',
-            'NAME' => $name,
-            'PHONE' => [['VALUE' => $phone, 'VALUE_TYPE' => 'WORK']],
-            'COMMENTS' => trim($comments),
-            'CATEGORY_ID' => $category_id,
-            'STAGE_ID' => $stade_id,
-        ];
-
-        if (!empty($email)) {
-            $fields['EMAIL'] = [['VALUE' => $email, 'VALUE_TYPE' => 'WORK']];
-        }
-
-        // отправка в bitrix24
-        $ch = curl_init(CRM_BITRIX);
+        $ch = curl_init('https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json');
         curl_setopt_array($ch, [
             CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => http_build_query(['fields' => $fields]),
+            CURLOPT_POSTFIELDS => http_build_query(['fields' => [
+                'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
+                'CATEGORY_ID' => 7,
+                'COMMENTS' => $info,
+            ]]),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_TIMEOUT => 10,
-            CURLOPT_SSL_VERIFYPEER => false,
         ]);
-        $response = curl_exec($ch);
-        if ($response) {
-            $result = json_decode($response, true);
-            if (isset($result['error'])) {
-                error_log('Bitrix24 Error: ' . ($result['error_description'] ?? $result['error']));
-            }
-        }
+        curl_exec($ch);
     }
 
     public function getPhotos(string $path): array
