@@ -161,8 +161,9 @@ class Functions
      */
     private static function sendToBitrix24(object $data): void
     {
-        define('CRM_BITRIX', 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.lead.add.json');
-        $categoryId = 7;
+        define('CRM_BITRIX', 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json');
+        $category_id = 7;
+        $stade_id = 0;
 
         $name = $data->имя ?? $data->name ?? '';
         $phone = $data->телефн ?? $data->телефон ?? $data->phone ?? '';
@@ -196,7 +197,8 @@ class Functions
             'NAME' => $name,
             'PHONE' => [['VALUE' => $phone, 'VALUE_TYPE' => 'WORK']],
             'COMMENTS' => trim($comments),
-            'CATEGORY_ID' => $categoryId,
+            'CATEGORY_ID' => $category_id,
+            'STAGE_ID' => $stade_id,
         ];
 
         if (!empty($email)) {
@@ -213,8 +215,6 @@ class Functions
             CURLOPT_SSL_VERIFYPEER => false,
         ]);
         $response = curl_exec($ch);
-        curl_close($ch);
-
         if ($response) {
             $result = json_decode($response, true);
             if (isset($result['error'])) {
