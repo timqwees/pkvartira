@@ -213,7 +213,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
     <?php include_once './public/components/header.php'; ?>
 
-    <main class="pt-20 flex flex-col gap-0">
+    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
 
         <!-- 1. Hero section -->
         <section class="relative text-white py-12 md:py-32 bg-cover bg-center bg-no-repeat" style="background-image: url(<?= htmlspecialchars($bg_url); ?>);">

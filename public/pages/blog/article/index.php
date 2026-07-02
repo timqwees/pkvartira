@@ -183,7 +183,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
 
     <?php include_once './public/components/header.php'; ?>
 
-    <main class="pt-20">
+    <main class="pt-20" style="padding-top:80px">
         <section class="py-8 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-4" itemscope

@@ -14,7 +14,11 @@ $__ogAlt = htmlspecialchars(
 );
 ?>
 <!-- CLS Prevention -->
-<style>body{background:#fff;margin:0}</style>
+<style>body{background:#fff;margin:0}
+@font-face{font-family:'Font Awesome 6 Free';font-display:swap;font-style:normal;font-weight:900;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-solid-900.woff2) format('woff2')}
+@font-face{font-family:'Font Awesome 6 Brands';font-display:swap;font-style:normal;font-weight:400;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-brands-400.woff2) format('woff2')}
+@font-face{font-family:'Font Awesome 6 Regular';font-display:swap;font-style:normal;font-weight:400;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-regular-400.woff2) format('woff2')}
+</style>
 
 <!-- Глобальные подсказки браузерам -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

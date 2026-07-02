@@ -268,7 +268,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col gap-0">
+    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
 
         <!-- 1. hero section -->
         <section

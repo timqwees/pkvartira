@@ -145,7 +145,7 @@
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20">
+    <main class="pt-20" style="padding-top:80px">
 
         <!-- Hero Section with Gallery -->
         <section class="bg-white reveal">

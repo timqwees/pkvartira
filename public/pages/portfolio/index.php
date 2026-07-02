@@ -157,7 +157,7 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20">
+    <main class="pt-20" style="padding-top:80px">
 
         <section class="reveal bg-gray-50">
             <div class="container mx-auto px-4 max-w-6xl py-10">

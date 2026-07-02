@@ -183,7 +183,7 @@ if (is_readable($euroAbout)) {
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/01.jpeg"
-                                        alt="Александр В." title="Александр В." class="w-full h-full object-cover">
+                                        alt="Александр В." title="Александр В." width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Александр В.</p>
@@ -212,7 +212,7 @@ if (is_readable($euroAbout)) {
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/02.jpeg" alt="Анатолий"
-                                        title="Анатолий" class="w-full h-full object-cover">
+                                        title="Анатолий" width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Анатолий</p>
@@ -241,7 +241,7 @@ if (is_readable($euroAbout)) {
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/03.jpeg" alt="Дмитрий"
-                                        title="Дмитрий" class="w-full h-full object-cover">
+                                        title="Дмитрий" width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Дмитрий</p>
@@ -269,7 +269,7 @@ if (is_readable($euroAbout)) {
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/04.jpeg"
-                                        alt="Елена" title="Елена" class="w-full h-full object-cover">
+                                        alt="Елена" title="Елена" width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Елена</p>
@@ -297,7 +297,7 @@ if (is_readable($euroAbout)) {
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/05.jpeg"
-                                        alt="Оля" title="Оля" class="w-full h-full object-cover">
+                                        alt="Оля" title="Оля" width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Оля</p>
@@ -325,7 +325,7 @@ if (is_readable($euroAbout)) {
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/06.jpeg"
-                                        alt="Ольга Николаевна" title="Ольга Николаевна" class="w-full h-full object-cover">
+                                        alt="Ольга Николаевна" title="Ольга Николаевна" width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Ольга Николаевна</p>

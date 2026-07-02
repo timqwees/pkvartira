@@ -12,7 +12,7 @@
 
             <div class="space-y-4">
                 <a href="/" class="inline-block">
-                    <img class="h-12" src="/public/assets/images/logo/full_white.svg" alt="Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
+                    <img width="145" height="48" class="h-12" src="/public/assets/images/logo/full_white.svg" alt="Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     Профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.

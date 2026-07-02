@@ -242,10 +242,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col">
+    <main class="pt-20 flex flex-col" style="padding-top:80px">
 
         <!-- Hero Content -->
-        <section
         <section class="relative text-white py-12 md:py-32 bg-center bg-cover bg-no-repeat" style="background-image: url(<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp);">
             <div
                 class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-black/70 via-black/40 to-transparent">
@@ -1165,7 +1164,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/01.jpeg"
-                                        alt="Александр В." title="Александр В." class="w-full h-full object-cover">
+                                        alt="Александр В." title="Александр В." width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Александр В.</p>
@@ -1194,7 +1193,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/02.jpeg" alt="Мария" title="Мария"
-                                        class="w-full h-full object-cover">
+                                        width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Анатолий</p>
@@ -1223,7 +1222,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/03.jpeg" alt="Дмитрий" title="Дмитрий"
-                                        class="w-full h-full object-cover">
+                                        width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Дмитрий</p>
@@ -1251,7 +1250,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
                                     <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/04.jpeg"
-                                        alt="Елена и Игорь" title="Елена и Игорь" class="w-full h-full object-cover">
+                                        alt="Елена и Игорь" title="Елена и Игорь" width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Елена</p>
@@ -1279,7 +1278,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
 <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/05.jpeg" alt="Сергей К." title="Сергей К."
-                                        class="w-full h-full object-cover">
+                                        width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Оля</p>
@@ -1307,7 +1306,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
 <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/06.jpeg" alt="Ольга Николаевна" title="Ольга Николаевна"
-                                        class="w-full h-full object-cover">
+                                        width="48" height="48" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-semibold text-gray-800 text-sm">Ольга Николаевна</p>

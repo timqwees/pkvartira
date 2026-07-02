@@ -139,7 +139,7 @@
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20">
+    <main class="pt-20" style="padding-top:80px">
 
         <!-- Section 1: Кто мы -->
         <section class="py-16 bg-white reveal">
