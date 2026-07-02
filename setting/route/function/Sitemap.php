@@ -137,6 +137,7 @@ class Sitemap
             ['/services/pod-klyuch', '0.9', 'weekly'],
             ['/services/nowostroyka', '0.8', 'weekly'],
             ['/services/vtorichka', '0.8', 'weekly'],
+            ['/services/dlya-sdachi', '0.7', 'weekly'],
             ['/services/1room', '0.7', 'weekly'],
             ['/services/2room', '0.7', 'weekly'],
             ['/services/3room', '0.7', 'weekly'],

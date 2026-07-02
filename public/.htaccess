@@ -6,7 +6,7 @@
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net cdnjs.cloudflare.com cdn.tailwindcss.com www.googletagmanager.com mc.yandex.ru mod.calltouch.ru app.reviewlab.ru myreviews.dev; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net cdnjs.cloudflare.com cdn.tailwindcss.com; img-src 'self' data:; font-src cdnjs.cloudflare.com; connect-src 'self' www.googletagmanager.com mc.yandex.ru mod.calltouch.ru api.calltouch.ru; frame-src www.googletagmanager.com mc.yandex.ru"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com mc.yandex.ru mod.calltouch.ru app.reviewlab.ru myreviews.dev; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net cdnjs.cloudflare.com fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com https://placehold.co https://i.pinimg.com; font-src cdnjs.cloudflare.com fonts.gstatic.com; connect-src 'self' www.googletagmanager.com mc.yandex.ru mod.calltouch.ru api.calltouch.ru; frame-src www.googletagmanager.com mc.yandex.ru"
     Header always set Cross-Origin-Opener-Policy "same-origin"
 </IfModule>
 
@@ -61,5 +61,5 @@
 
 # Preload key resources
 <IfModule mod_headers.c>
-    Header set Link "</public/assets/styles/main.css>; rel=preload; as=style"
+    Header set Link "</public/assets/styles/tailwind-built.css>; rel=preload; as=style, </public/assets/styles/main.min.css>; rel=preload; as=style"
 </IfModule>

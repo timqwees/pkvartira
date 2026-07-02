@@ -47,9 +47,9 @@ $portfolio = array_merge(
 
     <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт 1-комнатной квартиры под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. Более 80 проектов под ключ. Замер и расчёт бесплатно.">
+        content="Ремонт 1-комнатной квартиры и евротрёшки под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. Более 80 проектов под ключ. Замер и расчёт бесплатно.">
     <meta name="keywords"
-        content="ремонт однокомнатной квартиры, ремонт 1 комнатной квартиры, ремонт квартиры под ключ, ремонт студии">
+        content="ремонт однокомнатной квартиры, ремонт 1 комнатной квартиры, ремонт евротрешки, ремонт однушки под ключ">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -773,6 +773,16 @@ $portfolio = array_merge(
             </div>
         </section>
 
+        <?php
+        $priceRows = [
+            ['label' => 'Косметический', 'price' => '8000'],
+            ['label' => 'Капитальный', 'price' => '13000'],
+            ['label' => 'Дизайнерский', 'price' => '18000'],
+        ];
+        $priceTableTitle = 'Стоимость по метражу';
+        include '/Users/timqwees/Desktop/workspace/myworks/pkvartira/public/components/price-table.php';
+        ?>
+
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
@@ -910,9 +920,9 @@ $portfolio = array_merge(
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

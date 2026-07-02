@@ -30,10 +30,11 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="Современный интерьер в ЖК «Пример Парк» | Портфолио">
-    <meta name="twitter:description"
-        content="Пример выполненного ремонта квартиры в ЖК Пример Парк. Современный интерьер, фото до и после, список работ и использованные материалы.">
-    <meta name="twitter:image"
+    <meta name="twitter:description" content="Современный ремонт квартиры в ЖК «Пример Парк» — фото до и после, цена, сроки. Реальные примеры работ.">
+    <meta name="twitter:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <meta name="twitter:creator" content="@pkvartira">
         content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
     <!-- Дополнительные мета-теги -->
 
@@ -341,9 +342,9 @@
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 </body>
 
 </html>

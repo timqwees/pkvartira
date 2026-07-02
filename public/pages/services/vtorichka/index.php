@@ -44,9 +44,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
     <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Фиксированная смета, гарантия 3 года. Выезд инженера — бесплатно.">
+        content="Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Ремонт в хрущёвке, сталинке, панельном и кирпичном доме. Фиксированная смета, гарантия 3 года. Выезд инженера — бесплатно.">
     <meta name="keywords"
-        content="ремонт вторички, ремонт квартиры на вторичке, ремонт вторичного жилья, ремонт квартиры вторичка Москва">
+        content="ремонт вторички, ремонт квартиры на вторичке, ремонт в хрущёвке, ремонт в сталинке, ремонт в панельном доме, ремонт в кирпичном доме, ремонт квартиры вторичка Москва">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -56,9 +56,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta property="og:description"
-        content="Ремонт квартир на вторичном рынке в Москве от 640 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
+        content="Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Ремонт в хрущёвке, сталинке, панельном и кирпичном доме.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/vtorichka'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
 
@@ -769,6 +769,16 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             </div>
         </section>
 
+        <?php
+        $priceRows = [
+            ['label' => 'Косметический', 'price' => '8000'],
+            ['label' => 'Капитальный', 'price' => '13000'],
+            ['label' => 'Дизайнерский', 'price' => '18000'],
+        ];
+        $priceTableTitle = 'Стоимость по метражу';
+        include '/Users/timqwees/Desktop/workspace/myworks/pkvartira/public/components/price-table.php';
+        ?>
+
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
@@ -886,15 +896,56 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             </div>
         </section>
 
+        <!-- Типы домов на вторичном рынке -->
+        <section class="py-16 bg-gray-50 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт квартир в любом типе дома</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем со всеми типами жилья на вторичном рынке Москвы. Учитываем особенности конструкции, возраста дома и износа коммуникаций.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-building text-orange-600 text-xl"></i></div>
+                        <h3 class="text-lg font-heading font-bold mb-2">Ремонт в панельном доме</h3>
+                        <p class="text-gray-600 text-sm">Неровные стены и потолки требуют выравнивания штукатуркой. Швы между панелями нуждаются в усиленной звукоизоляции. Опыт — 100+ панельных проектов.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-home text-orange-600 text-xl"></i></div>
+                        <h3 class="text-lg font-heading font-bold mb-2">Ремонт в кирпичном доме</h3>
+                        <p class="text-gray-600 text-sm">Старый кирпич требует бережного штробления под проводку. Высокая несущая способность позволяет любые перепланировки. Плюс — отличная звукоизоляция стен.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-city text-orange-600 text-xl"></i></div>
+                        <h3 class="text-lg font-heading font-bold mb-2">Ремонт в монолитном доме</h3>
+                        <p class="text-gray-600 text-sm">Свободная планировка — главный плюс. Стены возводятся из газоблока или кирпича. Тёплые полы эффективны благодаря бетонным перекрытиям.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-clock text-orange-600 text-xl"></i></div>
+                        <h3 class="text-lg font-heading font-bold mb-2">Ремонт в хрущёвке</h3>
+                        <p class="text-gray-600 text-sm">Полная замена коммуникаций — обязательна. Небольшие метражи требуют эргономичных решений. Демонтаж встроенных шкафов и антресолей расширит пространство.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-crown text-orange-600 text-xl"></i></div>
+                        <h3 class="text-lg font-heading font-bold mb-2">Ремонт в сталинке</h3>
+                        <p class="text-gray-600 text-sm">Высокие потолки (до 3,5 м) позволяют двухуровневые решения. Паркет восстанавливаем, лепнину сохраняем. Большие комнаты — для дизайнерских проектов.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-layer-group text-orange-600 text-xl"></i></div>
+                        <h3 class="text-lg font-heading font-bold mb-2">Ремонт в брежневке</h3>
+                        <p class="text-gray-600 text-sm">Улучшенная планировка по сравнению с хрущёвками. Раздельные санузлы, изолированные комнаты. Замена проводки и труб — обязательный этап капремонта.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

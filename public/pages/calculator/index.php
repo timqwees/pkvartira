@@ -700,8 +700,8 @@
             });
         });
     </script>
-    <script src="/public/assets/scripts/components/toggleWindow.js"></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/toggleWindow.min.js"></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
 </body>

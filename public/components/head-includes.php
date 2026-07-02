@@ -13,7 +13,7 @@ $__ogAlt = htmlspecialchars(
     'UTF-8'
 );
 ?>
-<!-- CLS Prevention: set body background immediately before Tailwind loads -->
+<!-- CLS Prevention -->
 <style>body{background:#fff;margin:0}</style>
 
 <!-- Глобальные подсказки браузерам -->
@@ -56,7 +56,8 @@ $__ogAlt = htmlspecialchars(
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
-<link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Swiper CSS - Non-blocking -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
@@ -71,23 +72,33 @@ $__ogAlt = htmlspecialchars(
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </noscript>
 
-<!-- Tailwind CSS (deferred) -->
-<script src="https://cdn.tailwindcss.com" defer></script>
+<!-- Google Fonts - Non-blocking (preloaded, then swapped) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap">
+</noscript>
 
-<!-- Google Fonts - Inter + Unbounded -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Tailwind CSS (local, pre-built) -->
+<link rel="stylesheet" href="/public/assets/styles/tailwind-built.css" media="print" onload="this.media='all'">
+<noscript>
+    <link rel="stylesheet" href="/public/assets/styles/tailwind-built.css">
+</noscript>
+
+<!-- Custom utility classes (replaces Tailwind JIT arbitrary values) -->
+<link rel="stylesheet" href="/public/assets/styles/custom-utilities.min.css" media="print" onload="this.media='all'">
+<noscript>
+    <link rel="stylesheet" href="/public/assets/styles/custom-utilities.min.css">
+</noscript>
+
+<!-- Local Styles -->
+<link rel="stylesheet" href="/public/assets/styles/main.min.css" media="print" onload="this.media='all'">
+<noscript>
+    <link rel="stylesheet" href="/public/assets/styles/main.min.css">
+</noscript>
 
 <!-- Swiper JS - deferred -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<script src="/public/assets/scripts/components/swiper.js" defer></script>
-
-<!-- Local Styles - Non-blocking -->
-<link rel="stylesheet" href="/public/assets/styles/main.css" media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="/public/assets/styles/main.css">
-</noscript>
+<script src="/public/assets/scripts/components/swiper.min.js" defer></script>
 
 <!-- Phone formatting - deferred -->
-<script src="/public/assets/scripts/components/phoneFormat.js" defer></script>
+<script src="/public/assets/scripts/components/phoneFormat.min.js" defer></script>

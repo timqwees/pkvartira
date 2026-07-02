@@ -150,9 +150,9 @@
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 </body>
 
 </html>

@@ -306,10 +306,10 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/portfolio-modal.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/portfolio-modal.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
     <!-- Portfolio Swiper & Filter Script -->
     <script>

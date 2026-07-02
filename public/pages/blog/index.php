@@ -632,7 +632,7 @@
         });
     </script>
 
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
 </body>
 

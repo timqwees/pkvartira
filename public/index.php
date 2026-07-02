@@ -11,9 +11,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
     <title>Ремонт квартир под ключ в Москве — цена от 8 000 ₽/м² с гарантией 3 года | ПКвартира</title>
     <meta name="description"
-        content="Ремонт квартир под ключ в Москве от 8 000 ₽/м². Фиксированная смета без накруток, гарантия 3 года в договоре. Бесплатный замер за 30 минут. 300+ проектов. Закажите!">
+        content="Ремонт квартир под ключ в Москве от 8 000 ₽/м². Косметический, капитальный, дизайнерский, элитный ремонт. Для сдачи, продажи и проживания. С материалами, мебелью, техникой. Фиксированная смета, гарантия 3 года. Бесплатный замер и расчёт. Более 300 проектов.">
     <meta name="keywords"
-        content="ремонт квартир, ремонт под ключ, ремонт квартир Москва, отделка квартир, дизайн интерьера">
+        content="ремонт квартир, ремонт под ключ, ремонт квартир Москва, капитальный ремонт квартиры, дизайнерский ремонт, элитный ремонт квартир, премиальный ремонт, ремонт недорого, ремонт для сдачи, ремонт для продажи, ремонт с мебелью, ремонт с материалом, отделка квартир, комплексный ремонт квартир">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -702,6 +702,56 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             </div>
                         </div>
 
+                        <!-- Slide 4: Премиум и элитный ремонт -->
+                        <div class="swiper-slide !h-auto">
+                            <div
+                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
+                                <div class="relative">
+                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
+                                        alt="Премиум и элитный ремонт" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
+                                        width="640" height="360" decoding="async" loading="lazy">
+                                    <div
+                                        class="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                        от 25 000 ₽/м²
+                                    </div>
+                                    <div class="absolute top-2 left-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                                        PREMIUM
+                                    </div>
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow justify-between">
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-800 mb-2">Премиум и элитный ремонт</h3>
+
+                                        <div class="mb-3">
+                                            <span class="text-sm text-gray-500">Срок:</span>
+                                            <span class="text-sm font-semibold text-yellow-600">от 90 дней</span>
+                                        </div>
+
+                                        <p class="text-gray-600 text-sm mb-2">
+                                            <strong class="text-gray-800">Для кого:</strong> Для владельцев бизнес-класса
+                                            и премиум-недвижимости. Максимальное качество и эксклюзивность.
+                                        </p>
+
+                                        <p class="text-gray-600 text-sm mb-2">
+                                            <strong class="text-gray-800">Что входит:</strong> Итальянская плитка, паркет,
+                                            авторская мебель, умный дом, сложные архитектурные решения, полная
+                                            автоматизация.
+                                        </p>
+
+                                        <p class="text-gray-600 text-sm mb-4">
+                                            <strong class="text-green-600">Ваша выгода:</strong> Персональный архитектор,
+                                            комплектация премиальными материалами, гарантия 5 лет на все работы.
+                                        </p>
+                                    </div>
+
+                                    <a href="/calculator"
+                                        class="block w-full text-center bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-lg hover:from-yellow-600 hover:to-orange-600 transition text-sm font-semibold mt-auto shadow-md">
+                                        Рассчитать для моей площади
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="swiper-pagination mt-8"></div>
                     <div class="swiper-button-next" aria-label="Следующий формат ремонта"></div>
@@ -733,9 +783,32 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
             </div>
         </section>
 
-        <!-- 5 -->
+        <!-- GEO: Районы обслуживания -->
+        <section class="py-16 bg-gray-50 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <span class="section-number section-number-dark">05</span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт квартир в Москве и Московской области</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем по всей Москве и ближайшим городам Подмосковья. Бесплатный выезд инженера и точная смета в день обращения.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                    <?php
+                    $geo = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.'];
+                    foreach ($geo as $g): ?>
+                    <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-orange-200 transition">
+                        <span class="text-sm font-medium text-gray-700"><?= $g ?></span>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="/contact" class="text-orange-600 font-semibold hover:text-orange-700">Посмотреть контакты и схему проезда →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 -->
         <section class="md:py-16 reveal bg-gray-50">
-            <span class="section-number">05</span>
+            <span class="section-number">06</span>
             <div class="container mx-auto px-4">
                 <div
                     class="relative mx-auto max-w-[90%] md:max-w-[75%] flex flex-col md:flex-row items-start md:items-center justify-center mb-12">
@@ -881,9 +954,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
             </div>
         </section>
 
-        <!-- 7 -->
+        <!-- 8 -->
         <section id="process" class="py-16 md:py-24 bg-blue-50 reveal">
-            <span class="section-number">06</span>
+            <span class="section-number">07</span>
             <div class="container mx-auto px-4">
                 <div class="text-center mb-14">
                     <span class="label-tag">Как мы работаем</span>
@@ -975,9 +1048,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
             </div>
         </section>
 
-        <!-- 8 -->
+        <!-- 9 -->
         <section id="prices" class="py-16 md:py-24 bg-gray-50 reveal">
-            <span class="section-number">07</span>
+            <span class="section-number">08</span>
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <span class="label-tag">Стоимость</span>
@@ -1071,9 +1144,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
             </div>
         </section>
 
-        <!-- 9 -->
+        <!-- 10 -->
         <section id="reviews" class="py-16 md:py-24 bg-white reveal">
-            <span class="section-number">08</span>
+            <span class="section-number">09</span>
             <div class="container mx-auto px-4">
                 <div class="text-center mb-14">
                     <span class="label-tag">Отзывы</span>
@@ -1270,7 +1343,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
         <!-- FAQ Section -->
         <section class="py-16 md:py-24 bg-gray-50 reveal" itemscope itemtype="https://schema.org/FAQPage">
-            <span class="section-number">09</span>
+            <span class="section-number">10</span>
             <div class="container mx-auto px-4">
                 <div class="text-center mb-14">
                     <span class="label-tag">FAQ</span>
@@ -1383,7 +1456,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
         <!-- CTA Section -->
         <section class="py-20 text-white reveal" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);">
-            <span class="section-number section-number-dark">10</span>
+            <span class="section-number section-number-dark">11</span>
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     Начните ремонт, который не захочется переделывать
@@ -1418,11 +1491,10 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
     <!-- Local Scripts -->
 
-    <script src="/public/assets/scripts/components/swiper.js" defer></script>
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/faq.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/faq.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
     <!-- Google tag (gtag.js) GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9ZV484NQJ"></script>

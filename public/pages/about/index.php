@@ -525,14 +525,41 @@
             </div>
         </section> -->
 
+        <!-- Почему нас выбирают (SEO-ключи) -->
+        <section class="py-16 bg-gray-50 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Надёжная компания по ремонту квартир в Москве</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">ПКвартира — профессиональная бригада и фирма по ремонту квартир под ключ. Работаем официально, с договором и гарантией. Вы — заказываете ремонт, мы — делаем качественно и в срок.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-handshake text-orange-600 text-2xl"></i></div>
+                        <h3 class="text-xl font-heading font-bold mb-3">Подрядчик на ремонт квартиры</h3>
+                        <p class="text-gray-600">Выступаем генеральным подрядчиком: сами нанимаем бригады, закупаем материалы и контролируем качество на каждом этапе. Вам не нужно искать мастеров по отделке квартир — мы берём всё на себя.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-trophy text-orange-600 text-2xl"></i></div>
+                        <h3 class="text-xl font-heading font-bold mb-3">Отделочная компания №1 в Москве</h3>
+                        <p class="text-gray-600">Входим в топ отделочных компаний Москвы по версии Яндекс. 300+ выполненных проектов, рейтинг 5.0, штатные мастера по ремонту квартир с опытом от 7 лет.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-file-signature text-orange-600 text-2xl"></i></div>
+                        <h3 class="text-xl font-heading font-bold mb-3">Работаем по договору</h3>
+                        <p class="text-gray-600">Прозрачный договор, фиксированная смета без накруток, поэтапная оплата. Даём чек и гарантию 3 года на все виды ремонтно-отделочных работ. Нанять бригаду — доверить профессионалам.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 </body>
 
 </html>

@@ -552,20 +552,20 @@ img {
     width: 100% !important;
 }
 
-/* Swiper pagination bullet - increase touch target size */
+/* Swiper pagination bullet */
 .swiper-pagination-bullet {
-    width: 8px !important;
-    height: 8px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-    margin: 0 4px !important;
-    opacity: 0.3;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 6px !important;
+    opacity: 0.35;
     transition: all 0.3s ease;
+    background: #4b5563;
 }
 .swiper-pagination-bullet-active {
     opacity: 1;
-    width: 24px !important;
-    border-radius: 4px !important;
+    background: #c2410c;
+    width: 26px !important;
+    border-radius: 5px !important;
 }
 
 /* Premium header glassmorphism */

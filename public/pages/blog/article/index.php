@@ -680,7 +680,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
 </body>
 

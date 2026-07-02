@@ -44,9 +44,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
     <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт офисов, магазинов, кафе и коммерческих помещений в Москве. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд.">
+        content="Ремонт коммерческих помещений в Москве. Офисы, магазины, кафе, рестораны, салоны красоты, стоматологии, аптеки, фитнес-центры, детские центры. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд.">
     <meta name="keywords"
-        content="ремонт офиса, ремонт магазина, отделка коммерческого помещения, ремонт под ключ Москва">
+        content="ремонт офисов, ремонт коммерческих помещений, ремонт магазинов, ремонт кафе, ремонт ресторана, ремонт салона красоты, отделка офиса под ключ">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -677,6 +677,16 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
         <!-- 5. Примеры -->
 
+        <?php
+        $priceRows = [
+            ['label' => 'Косметический', 'price' => '8000'],
+            ['label' => 'Капитальный', 'price' => '13000'],
+            ['label' => 'Дизайнерский', 'price' => '18000'],
+        ];
+        $priceTableTitle = 'Стоимость по метражу';
+        include '/Users/timqwees/Desktop/workspace/myworks/pkvartira/public/components/price-table.php';
+        ?>
+
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
@@ -810,15 +820,34 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             </div>
         </section>
 
+        <!-- Типы коммерческих помещений -->
+        <section class="py-16 bg-gray-50 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт любых коммерческих помещений в Москве</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Специализируемся на отделке коммерческой недвижимости. Учитываем специфику бизнеса, нормы СНиП, пожарную безопасность и санэпидемтребования.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-briefcase text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Офисы под ключ</h3><p class="text-gray-500 text-xs">Open space, кабинеты, переговорные, ресепшн</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-store text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Магазины и бутики</h3><p class="text-gray-500 text-xs">Торговые залы, витрины, примерочные, склад</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-utensils text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Кафе и рестораны</h3><p class="text-gray-500 text-xs">Залы, барные стойки, кухня, санузлы для посетителей</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-dumbbell text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Фитнес-центры</h3><p class="text-gray-500 text-xs">Залы, раздевалки, душевые, сауны, зона ресепшн</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-spa text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Салоны красоты</h3><p class="text-gray-500 text-xs">Парикмахерские, косметология, маникюр, зона ожидания</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tooth text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Стоматологии</h3><p class="text-gray-500 text-xs">Кабинеты, рентген, стерилизация, санузлы, зона ожидания</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tablets text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Аптеки</h3><p class="text-gray-500 text-xs">Торговый зал, подсобные, хранение, зона приёма товара</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-child text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Детские центры</h3><p class="text-gray-500 text-xs">Игровые, учебные классы, санузлы, зона родителей</p></div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

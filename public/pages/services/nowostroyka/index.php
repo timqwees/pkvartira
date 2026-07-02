@@ -44,9 +44,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
     <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
     <meta name="description"
-        content="Ремонт новой квартиры в новостройке под ключ в Москве от 8 000 ₽/м². Учитываем усадку дома, готовим стены к трещинам. Чистовая отделка под ключ. Гарантия 3 года. Бесплатный замер.">
+        content="Ремонт новой квартиры в новостройке под ключ в Москве от 8 000 ₽/м². White box, черновая, предчистовая, чистовая отделка. Приёмка квартиры от застройщика. Учитываем усадку дома. Гарантия 3 года. Бесплатный замер.">
     <meta name="keywords"
-        content="ремонт в новостройке, ремонт квартиры в новостройке, ремонт новостройки под ключ, ремонт квартиры в новостройке Москва">
+        content="ремонт в новостройке, white box ремонт, предчистовая отделка, черновой ремонт, ремонт новостройки под ключ, приёмка квартиры новостройка">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -769,6 +769,16 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             </div>
         </section>
 
+        <?php
+        $priceRows = [
+            ['label' => 'Косметический', 'price' => '8000'],
+            ['label' => 'Капитальный', 'price' => '13000'],
+            ['label' => 'Дизайнерский', 'price' => '18000'],
+        ];
+        $priceTableTitle = 'Стоимость по метражу';
+        include '/Users/timqwees/Desktop/workspace/myworks/pkvartira/public/components/price-table.php';
+        ?>
+
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
@@ -886,15 +896,46 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             </div>
         </section>
 
+        <!-- Типы отделки новостроек -->
+        <section class="py-16 bg-gray-50 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт новостройки с любым типом отделки</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Независимо от того, что оставил застройщик — голые стены, стяжку или white box — мы доведём квартиру до идеала под ключ.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">1</span>Без отделки (черновая)</h3>
+                        <p class="text-gray-600 text-sm mb-3">Голые стены, стяжка, подведены коммуникации. Полный цикл: штукатурка, электрика, сантехника, чистовая отделка. Самый популярный формат.</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">2</span>White Box (предчистовая)</h3>
+                        <p class="text-gray-600 text-sm mb-3">Стены оштукатурены, стяжка залита, разведена электрика и сантехника. Остаётся чистовая отделка: финишные покрытия, двери, сантехника, освещение.</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">3</span>С чистовой отделкой от застройщика</h3>
+                        <p class="text-gray-600 text-sm mb-3">Косметический ремонт: замена напольных покрытий, переклейка обоев, обновление сантехники и фурнитуры. Бюджетное преображение без перепланировок.</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 5 000 ₽/м² с материалами</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">4</span>Приёмка квартиры в новостройке</h3>
+                        <p class="text-gray-600 text-sm mb-3">Выезд технического специалиста на приёмку квартиры от застройщика. Проверка качества отделки, замеры, фиксация дефектов. Поможем отстоять свои права.</p>
+                        <p class="text-orange-600 font-semibold text-sm">Бесплатно при заказе ремонта</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.js" defer></script>
-    <script src="/public/assets/scripts/main/header.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.js" defer></script>
+    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
+    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 
     <!-- Service Page Scripts -->
     <script>
