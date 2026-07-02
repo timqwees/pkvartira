@@ -98,6 +98,8 @@
 </noscript>
 <style>
     [data-type-phone] { padding-left: 78px !important; }
+    .iti__dropdown-content { z-index: 9999 !important; }
+    .iti--container { z-index: 9999 !important; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@27.1.3/dist/js/intlTelInputWithUtils.min.js" defer></script>
 <script>
@@ -107,7 +109,6 @@
             window.intlTelInput(input, {
                 initialCountry: "ru",
                 separateDialCode: true,
-                countryOrder: ["ru"],
                 formatAsYouType: true,
             });
         });
