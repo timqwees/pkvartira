@@ -69,12 +69,8 @@ $__ogAlt = htmlspecialchars(
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </noscript>
 
-<!-- Font Awesome - Non-blocking CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print"
-    onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</noscript>
+<!-- Font Awesome - Blocking CSS (prevents 0-width icons causing CLS) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <!-- Google Fonts - Non-blocking (preloaded, then swapped) -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
@@ -82,11 +78,8 @@ $__ogAlt = htmlspecialchars(
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap">
 </noscript>
 
-<!-- Tailwind CSS (local, pre-built) -->
-<link rel="stylesheet" href="/public/assets/styles/tailwind-built.css" media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="/public/assets/styles/tailwind-built.css">
-</noscript>
+<!-- Tailwind CSS (local, pre-built) - Blocking (prevents unstyled HTML causing CLS) -->
+<link rel="stylesheet" href="/public/assets/styles/tailwind-built.css">
 
 <!-- Custom utility classes (replaces Tailwind JIT arbitrary values) -->
 <link rel="stylesheet" href="/public/assets/styles/custom-utilities.min.css" media="print" onload="this.media='all'">
@@ -94,11 +87,8 @@ $__ogAlt = htmlspecialchars(
     <link rel="stylesheet" href="/public/assets/styles/custom-utilities.min.css">
 </noscript>
 
-<!-- Local Styles -->
-<link rel="stylesheet" href="/public/assets/styles/main.min.css" media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="/public/assets/styles/main.min.css">
-</noscript>
+<!-- Local Styles - Blocking -->
+<link rel="stylesheet" href="/public/assets/styles/main.min.css">
 
 <!-- Swiper JS - deferred -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
