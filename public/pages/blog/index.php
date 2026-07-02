@@ -205,7 +205,7 @@
                                     itemscope itemtype="https://schema.org/Article">
                                     <meta itemprop="inLanguage" content="ru-RU" />
                                     <div class="blog-card-grid">
-                                        <div class="bg-[url('<?php echo $article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'; ?>')] bg-center bg-cover"
+                                        <div class="bg-center bg-cover" style="background-image: url('<?php echo $article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'; ?>');"
                                             itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                                             <meta itemprop="url"
                                                 content="<?php echo htmlspecialchars($article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'); ?>">

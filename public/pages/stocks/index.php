@@ -214,7 +214,7 @@
 
                     <!-- Stock Card 1: Скидка 10% -->
                     <div
-                        class="w-full relative bg-[url('https://kuhni-kristall.ru/images/orderKitchenEasy_bg.png')] bg-center bg-content bg-no-repeat rounded-xl overflow-hidden border border-blue-200">
+                        class="w-full relative bg-center bg-content bg-no-repeat rounded-xl overflow-hidden border border-blue-200" style="background-image: url('https://kuhni-kristall.ru/images/orderKitchenEasy_bg.png');">
                         <!-- background layer -->
                         <div
                             class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-[#D2E0F99D] via-transparent to-transparent">
@@ -260,7 +260,7 @@
 
                     <!-- Stock Card 2: Бесплатный дизайн-проект -->
                     <div
-                        class="w-full relative bg-[url('https://kuhni-kristall.ru/images/orderKitchenEasy_bg.png')] bg-center bg-content bg-no-repeat rounded-xl overflow-hidden border border-blue-200">
+                        class="w-full relative bg-center bg-content bg-no-repeat rounded-xl overflow-hidden border border-blue-200" style="background-image: url('https://kuhni-kristall.ru/images/orderKitchenEasy_bg.png');">
                         <!-- background layer -->
                         <div
                             class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-[#D2E0F99D] via-transparent to-transparent">
@@ -304,7 +304,7 @@
 
                     <!-- Stock Card 2: Бесплатный дизайн-проект -->
                     <div
-                        class="w-full relative bg-[url('https://kuhni-kristall.ru/images/orderKitchenEasy_bg.png')] bg-center bg-content bg-no-repeat rounded-xl overflow-hidden border border-blue-200">
+                        class="w-full relative bg-center bg-content bg-no-repeat rounded-xl overflow-hidden border border-blue-200" style="background-image: url('https://kuhni-kristall.ru/images/orderKitchenEasy_bg.png');">
                         <!-- background layer -->
                         <div
                             class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-[#D2E0F99D] via-transparent to-transparent">

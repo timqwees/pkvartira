@@ -275,7 +275,7 @@ $portfolio = array_merge(
 
         <!-- 1. hero section -->
         <section
-            class="reveal bg-[url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>)] bg-center bg-cover bg-no-repeat relative overflow-hidden">
+            class="reveal bg-center bg-cover bg-no-repeat relative overflow-hidden" style="background-image: url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>);">
             <div class="absolute blur-xl z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-black/50">
             </div>
             <div class="relative text-white z-10 max-w-7xl mx-auto px-4 py-10 md:py-14">
@@ -779,7 +779,7 @@ $portfolio = array_merge(
             ['label' => 'Дизайнерский', 'price' => '18000'],
         ];
         $priceTableTitle = 'Стоимость по метражу';
-        include '/Users/timqwees/Desktop/workspace/myworks/pkvartira/public/components/price-table.php';
+        include './public/components/price-table.php';
         ?>
 
         <!-- 10. FAQ по этой услуге -->

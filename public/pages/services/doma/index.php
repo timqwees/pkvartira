@@ -775,7 +775,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             ['label' => 'Дизайнерский', 'price' => '18000'],
         ];
         $priceTableTitle = 'Стоимость по метражу';
-        include '/Users/timqwees/Desktop/workspace/myworks/pkvartira/public/components/price-table.php';
+        include './public/components/price-table.php';
         ?>
 
         <!-- 10. FAQ по этой услуге -->

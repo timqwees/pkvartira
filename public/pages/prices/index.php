@@ -184,7 +184,7 @@
 
         <!-- 1. hero section -->
         <section
-            class="reveal bg-[url(/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg)] bg-center bg-cover bg-no-repeat relative overflow-hidden py-20">
+            class="reveal bg-center bg-cover bg-no-repeat relative overflow-hidden py-20" style="background-image: url(/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg);">
             <div class="absolute blur-xl z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-white/50">
             </div>
             <div class="relative z-10 container mx-auto px-4">
