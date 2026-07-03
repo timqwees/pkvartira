@@ -215,7 +215,7 @@
                                                 <?php echo htmlspecialchars($article['title']); ?>
                                             </h2>
                                             <p class="blog-card-text" itemprop="description">
-                                                <?php echo htmlspecialchars(substr($article['content'], 0, 150)) . '...'; ?>
+                                                <?php echo htmlspecialchars(mb_substr($article['content'], 0, 150)) . '...'; ?>
                                             </p>
                                             <div class="blog-card-meta">
                                                 <span><time itemprop="datePublished"
