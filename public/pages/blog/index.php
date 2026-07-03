@@ -157,9 +157,9 @@
     <main class="pt-20" style="padding-top:80px">
         <section class="py-8 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
-                <div class="mb-4">
-                    <h1 class="text-[34px] leading-[40px] font-extrabold text-[#2a2e3b]">Блог / статьи</h1>
-                    <p class="mt-2 text-[14px] leading-[20px] text-[#7a7f8c] max-w-2xl">
+                <div class="mb-8">
+                    <h1 class="text-[32px] md:text-[40px] font-extrabold text-[#1f2937] leading-tight" style="font-family:var(--font-heading)">Блог / статьи</h1>
+                    <p class="mt-3 text-[15px] leading-[22px] text-[#6b7280] max-w-2xl">
                         Полезные советы и лайфхаки для ремонта квартир под ключ, практическая информация и наши
                         наработки.
                     </p>
@@ -181,13 +181,13 @@
                 $tops = $article->getTops();
                 ?>
 
-                <div class="flex flex-wrap gap-2 mb-6">
+                <div class="flex flex-wrap gap-2 mb-8">
                     <button data-filter="all"
-                        class="filter-btn h-10 px-4 rounded-md bg-blue-700 text-white text-sm font-semibold transition border border-blue-700">
+                        class="filter-btn active">
                         Все статьи</button>
                     <?php foreach ($categoriyes as $key): ?>
                         <button data-filter="<?php echo $key['category']; ?>"
-                            class="filter-btn h-10 px-4 rounded-md bg-white border border-gray-200 text-gray-700 text-sm font-semibold transition">
+                            class="filter-btn">
                             <?php echo $key['category']; ?></button>
                     <? endforeach; ?>
                 </div>
@@ -201,14 +201,19 @@
                             </div>
                         <?php else: ?>
                             <?php foreach ($articles as $article): ?>
-                                <article class="rounded-xl blog-card" data-category="<?php echo $article['category']; ?>"
+                                <article class="blog-card" data-category="<?php echo $article['category']; ?>"
                                     itemscope itemtype="https://schema.org/Article">
                                     <meta itemprop="inLanguage" content="ru-RU" />
                                     <div class="blog-card-grid">
-                                        <div class="bg-center bg-cover" style="background-image: url('<?php echo $article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'; ?>');"
-                                            itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                                            <meta itemprop="url"
-                                                content="<?php echo htmlspecialchars($article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'); ?>">
+                                        <div class="blog-card-img-wrap">
+                                            <div class="blog-card-bg" style="background-image: url('<?php echo $article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'; ?>');"
+                                                itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                                                <meta itemprop="url"
+                                                    content="<?php echo htmlspecialchars($article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'); ?>">
+                                            </div>
+                                            <?php if (!empty($article['category'])): ?>
+                                                <span class="blog-card-category"><?php echo $article['category']; ?></span>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="blog-card-body">
                                             <h2 class="blog-card-title" itemprop="headline">
@@ -218,14 +223,10 @@
                                                 <?php echo htmlspecialchars(mb_substr($article['content'], 0, 150)) . '...'; ?>
                                             </p>
                                             <div class="blog-card-meta">
-                                                <span><time itemprop="datePublished"
-                                                        datetime="<?php echo htmlspecialchars(date('c', strtotime($article['created_at']))); ?>"><?php echo date('d M Y', strtotime($article['created_at'])); ?></time></span>
-                                                <span class="flex items-center gap-1" itemprop="articleSection">
-                                                    <i class="fa-solid fa-tag"></i>
-                                                    <?php echo $article['category']; ?>
-                                                </span>
+                                                <span class="blog-card-date"><time itemprop="datePublished"
+                                                        datetime="<?php echo htmlspecialchars(date('c', strtotime($article['created_at']))); ?>"><?php echo date('d.m.Y', strtotime($article['created_at'])); ?></time></span>
                                                 <a href="/blog/article/<?php echo $article['id']; ?>" class="blog-btn-more"
-                                                    itemprop="url">Читать далее</a>
+                                                    itemprop="url">Читать далее <i class="fa-solid fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -258,114 +259,54 @@
                         <?php endif; ?>
                     </div>
 
-                    <aside class="lg:col-span-4 lg:sticky space-y-4">
-                        <nav
-                            class="bg-white rounded-xl border border-[#e6e7ee] shadow-[0_2px_10px_rgba(0,0,0,0.06)] overflow-hidden">
-                            <div class="px-4 py-3 bg-[#f2f3f8] border-b border-[#e6e7ee]">
-                                <div class="font-extrabold text-[#2a2e3b]">Популярные материалы</div>
-                            </div>
-                            <style>
-                                .custom-list {
-                                    list-style: none;
-                                    counter-reset: item;
-                                }
-
-                                .custom-list li {
-                                    counter-increment: item;
-                                }
-
-                                .custom-list li::before {
-                                    content: counter(item);
-                                    position: absolute;
-                                    display: inline-flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    padding: 1px 6px;
-                                    top: 0px;
-                                    background-color: #ff7a21;
-                                    color: white;
-                                    border-radius: 4px;
-                                    font-size: 12px;
-                                    font-weight: bold;
-                                    flex-shrink: 0;
-                                }
-                            </style>
-                            <ol class="p-4 space-y-3 custom-list">
+                    <aside class="lg:col-span-4 lg:sticky space-y-5">
+                        <nav class="sidebar-card">
+                            <div class="sidebar-card-header">Популярные материалы</div>
+                            <div class="sidebar-card-body">
                                 <?php if (empty($articles)): ?>
-                                    <div class="blog-card p-6 text-center">
-                                        <p class="text-[#7a7f8c]">Пока нет статей. Вернитесь позже!</p>
-                                    </div>
+                                    <p class="text-[#7a7f8c] text-center py-4">Пока нет статей. Вернитесь позже!</p>
                                 <?php else: ?>
-                                    <?php foreach ($tops as $key => $value): //key = number article ?>
-                                        <li
-                                            class="flex gap-3 relative cursor-pointer rounded-xl hover:bg-gray-100 transition-all">
-                                            <a class="flex gap-3" href="<?php echo $value['link'] ?>">
-                                                <div class="flex gap-3">
-                                                    <img class="w-[80px] object-cover rounded" alt="<?php echo htmlspecialchars($value['title']); ?>"
-                                                        src="<?php echo $value['image']; ?>">
-                                                    <div class="flex flex-col">
-                                                        <h3 class="text-[13px] font-bold text-[#2a2e3b] leading-[16px]">
-                                                            <?php echo $value['title']; ?>
-                                                        </h3>
-                                                        <p class="text-[11px] text-[#8a90a0] mt-1">
-                                                            <?php echo date('d M Y', strtotime($value['created_at'])); ?>
-                                                        </p>
-                                                        <span class="flex text-sm text-[#8a90a0] items-center gap-1">
-                                                            <i class="fa-solid fa-tag"></i>
-                                                            <?php echo $value['category']; ?>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <hr>
+                                    <?php foreach ($tops as $key => $value): ?>
+                                        <a class="popular-item" href="<?php echo $value['link'] ?>">
+                                            <span class="popular-item-num"><?php echo $key + 1; ?></span>
+                                            <img class="popular-item-img" alt="<?php echo htmlspecialchars($value['title']); ?>"
+                                                src="<?php echo $value['image']; ?>">
+                                            <div class="popular-item-body">
+                                                <div class="popular-item-title"><?php echo $value['title']; ?></div>
+                                                <div class="popular-item-meta"><?php echo date('d.m.Y', strtotime($value['created_at'])); ?></div>
+                                            </div>
+                                        </a>
                                     <?php endforeach; ?>
                                 <? endif; ?>
-                            </ol>
+                            </div>
+                        </nav>
 
-                            <div
-                                class="bg-white rounded-xl border border-[#e6e7ee] shadow-[0_2px_10px_rgba(0,0,0,0.06)] overflow-hidden">
-                                <div class="px-4 py-3 bg-[#f2f3f8] border-b border-[#e6e7ee]">
-                                    <div class="font-extrabold text-[#2a2e3b]">Наши услуги</div>
+                        <div class="sidebar-card">
+                            <div class="sidebar-card-header">Наши услуги</div>
+                            <div class="sidebar-card-body">
+                                <div class="service-widget-item">
+                                    <div class="service-widget-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                                    <div>
+                                        <div class="service-widget-title">Ремонт "под ключ"</div>
+                                        <div class="service-widget-desc">Полный комплекс работ с гарантией 3 года</div>
+                                    </div>
                                 </div>
-                                <div class="p-4 space-y-4">
-                                    <div class="flex gap-3">
-                                        <div
-                                            class="w-9 h-9 rounded-full bg-[#e9f1ff] text-[#1f5ea8] flex items-center justify-center">
-                                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                                        </div>
-                                        <div>
-                                            <div class="text-[13px] font-bold text-[#2a2e3b]">Ремонт "под ключ"</div>
-                                            <div class="text-[12px] text-[#7a7f8c]">Полный комплекс работ с гарантией 3
-                                                года
-                                            </div>
-                                        </div>
+                                <div class="service-widget-item">
+                                    <div class="service-widget-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                                    <div>
+                                        <div class="service-widget-title">Проектирование интерьера</div>
+                                        <div class="service-widget-desc">Дизайн интерьера любой сложности</div>
                                     </div>
-                                    <div class="flex gap-3">
-                                        <div
-                                            class="w-9 h-9 rounded-full bg-[#e9f1ff] text-[#1f5ea8] flex items-center justify-center">
-                                            <i class="fa-solid fa-pen-ruler"></i>
-                                        </div>
-                                        <div>
-                                            <div class="text-[13px] font-bold text-[#2a2e3b]">Проектирование интерьера
-                                            </div>
-                                            <div class="text-[12px] text-[#7a7f8c]">Дизайн интерьера любой сложности
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-3">
-                                        <div
-                                            class="w-9 h-9 rounded-full bg-[#e9f1ff] text-[#1f5ea8] flex items-center justify-center">
-                                            <i class="fa-solid fa-layer-group"></i>
-                                        </div>
-                                        <div>
-                                            <div class="text-[13px] font-bold text-[#2a2e3b]">Подбор материалов</div>
-                                            <div class="text-[12px] text-[#7a7f8c]">Выбор и комплектация материалов
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="service-widget-item">
+                                    <div class="service-widget-icon"><i class="fa-solid fa-layer-group"></i></div>
+                                    <div>
+                                        <div class="service-widget-title">Подбор материалов</div>
+                                        <div class="service-widget-desc">Выбор и комплектация материалов</div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </aside>
                 </div>
             </div>
@@ -425,42 +366,34 @@
             </div>
         </section>
         <hr>
-        <section class="py-14 reveal">
+        <section class="py-14 md:py-20 reveal bg-gradient-to-b from-white to-[#f9fafb]">
             <div class="container text-center mx-auto px-4 max-w-6xl">
-                <h3 class="text-[24px] md:text-[26px] font-extrabold text-[#2a2e3b]">
+                <h3 class="text-[28px] md:text-[32px] font-extrabold text-[#1f2937] leading-tight" style="font-family:var(--font-heading)">
                     Хотите рассчитать стоимость ремонта в вашей квартире?
                 </h3>
-                <p class="mt-2 text-xl text-[#7a7f8c]">
-                    Получите расчет и бесплатную консультацию без обязательств.
+                <p class="mt-3 text-[17px] text-[#6b7280]">
+                    Получите расчёт и бесплатную консультацию без обязательств.
                 </p>
 
-                <div class="mt-6">
+                <div class="mt-8">
                     <a href="#calculator"
-                        class="inline-flex items-center justify-center h-[46px] px-16 rounded-full bg-[#ff7a21] text-white text-[15px] font-extrabold shadow-[0_6px_0_rgba(0,0,0,0.12)]">
+                        class="inline-flex items-center justify-center h-[50px] px-10 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white text-[16px] font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300">
                         Рассчитать стоимость
                     </a>
                 </div>
 
-                <div class="mt-6 flex items-center justify-center mx-auto">
-                    <div class="flex gap-4 justify-center flex-wrap text-center gap-2">
-                        <div class="flex items-center gap-2 text-[13px] text-[#2a2e3b]">
-                            <span
-                                class="w-5 h-5 rounded-full bg-[#ffddb9] flex items-center justify-center text-[#ff7a21] text-[12px]"><i
-                                    class="fa-solid fa-check"></i></span>
-                            <span>Перезвоним через 15 минут</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-[13px] text-[#2a2e3b]">
-                            <span
-                                class="w-5 h-5 rounded-full bg-[#ffddb9] flex items-center justify-center text-[#ff7a21] text-[12px]"><i
-                                    class="fa-solid fa-check"></i></span>
-                            <span>Обсудим все пожелания</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-[13px] text-[#2a2e3b]">
-                            <span
-                                class="w-5 h-5 rounded-full bg-[#ffddb9] flex items-center justify-center text-[#ff7a21] text-[12px]"><i
-                                    class="fa-solid fa-check"></i></span>
-                            <span>Сориентируем по стоимости</span>
-                        </div>
+                <div class="mt-8 flex items-center justify-center gap-6 flex-wrap">
+                    <div class="flex items-center gap-2.5 text-[14px] text-[#4b5563]">
+                        <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-[11px]"><i class="fa-solid fa-check"></i></span>
+                        <span>Перезвоним через 15 минут</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 text-[14px] text-[#4b5563]">
+                        <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-[11px]"><i class="fa-solid fa-check"></i></span>
+                        <span>Обсудим все пожелания</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 text-[14px] text-[#4b5563]">
+                        <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-[11px]"><i class="fa-solid fa-check"></i></span>
+                        <span>Сориентируем по стоимости</span>
                     </div>
                 </div>
             </div>
@@ -470,139 +403,294 @@
     <?php include_once './public/components/footer.php'; ?>
 
     <style>
-        .blog-tab {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 32px;
-            padding: 0 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 800;
-            color: #2a2e3b;
-            background: linear-gradient(180deg, #ffffff 0%, #f4f5fb 100%);
-            border: 1px solid #d7d9e2;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        }
-
-        .blog-tab.active {
-            background: linear-gradient(180deg, #f7f8fe 0%, #eef0f8 45%, #f7f8fe 100%);
-            color: #fff;
-            border-color: rgba(0, 0, 0, 0.08);
-        }
-
         .blog-card {
+            border-radius: 16px;
             background: #fff;
-            border: 1px solid #e6e7ee;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
             overflow: hidden;
+        }
+        .blog-card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 12px 28px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
         }
 
         .blog-card-grid {
             display: grid;
-            grid-template-columns: 240px 1fr;
+            grid-template-columns: 260px 1fr;
+            min-height: 190px;
         }
-
         @media (max-width: 767px) {
             .blog-card-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .blog-card-img {
-            background: #f2f3f8;
-            height: 170px;
+        .blog-card-img-wrap {
+            position: relative;
             overflow: hidden;
+            min-height: 190px;
+            background: #f2f3f8;
         }
-
-        .blog-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .blog-card-img-wrap .blog-card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+        .blog-card:hover .blog-card-img-wrap .blog-card-bg {
+            transform: scale(1.05);
+        }
+        .blog-card-category {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(255,122,33,0.92);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            backdrop-filter: blur(4px);
+            letter-spacing: 0.02em;
         }
 
         .blog-card-body {
-            padding: 18px 18px 14px;
+            padding: 22px 24px 18px;
+            display: flex;
+            flex-direction: column;
         }
-
         .blog-card-title {
             font-size: 18px;
             line-height: 24px;
-            font-weight: 900;
-            color: #2a2e3b;
+            font-weight: 800;
+            color: #1f2937;
+            font-family: var(--font-heading);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-
         .blog-card-text {
-            margin-top: 8px;
-            font-size: 13px;
-            line-height: 18px;
-            color: #7a7f8c;
+            margin-top: 10px;
+            font-size: 13.5px;
+            line-height: 20px;
+            color: #6b7280;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-
         .blog-card-meta {
-            margin-top: 14px;
+            margin-top: 16px;
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             font-size: 12px;
-            color: #8a90a0;
+            color: #9ca3af;
+            flex-wrap: wrap;
         }
-
+        .blog-card-meta .blog-card-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .blog-card-meta .blog-card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: #f3f4f6;
+            color: #6b7280;
+            font-size: 11px;
+            font-weight: 600;
+        }
         .blog-btn-more {
             margin-left: auto;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            height: 30px;
-            padding: 0 16px;
+            gap: 6px;
+            height: 32px;
+            padding: 0 18px;
             border-radius: 8px;
             color: #fff;
-            font-size: 12px;
-            font-weight: 900;
-            background: linear-gradient(180deg, #ff943d 0%, #ff7a21 100%);
-            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.12);
+            font-size: 12.5px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff7a21, #c2410c);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+        }
+        .blog-btn-more:hover {
+            box-shadow: 0 4px 12px rgba(194,65,12,0.3);
+            transform: translateY(-1px);
+        }
+        .blog-btn-more i {
+            font-size: 10px;
+            transition: transform 0.2s ease;
+        }
+        .blog-btn-more:hover i {
+            transform: translateX(2px);
+        }
+
+        .filter-btn {
+            height: 36px;
+            padding: 0 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1.5px solid #e5e7eb;
+            background: #fff;
+            color: #4b5563;
+        }
+        .filter-btn:hover {
+            border-color: #c2410c;
+            color: #c2410c;
+            background: #fff7ed;
+        }
+        .filter-btn.active {
+            background: #c2410c;
+            color: #fff;
+            border-color: #c2410c;
         }
 
         .pagination-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 36px;
-            min-width: 36px;
-            padding: 0 12px;
-            border-radius: 8px;
+            height: 38px;
+            min-width: 38px;
+            padding: 0 14px;
+            border-radius: 10px;
             font-size: 13px;
-            font-weight: 700;
-            color: #2a2e3b;
-            background: linear-gradient(180deg, #ffffff 0%, #f4f5fb 100%);
-            border: 1px solid #d7d9e2;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 4px rgba(0, 0, 0, 0.04);
+            font-weight: 600;
+            color: #4b5563;
+            background: #fff;
+            border: 1.5px solid #e5e7eb;
             text-decoration: none;
             transition: all 0.2s ease;
         }
-
         .pagination-btn:hover {
-            background: linear-gradient(180deg, #f7f8fe 0%, #e8eaf5 100%);
-            border-color: #c5c8d8;
+            border-color: #c2410c;
+            color: #c2410c;
         }
-
         .pagination-btn.active {
-            background: linear-gradient(180deg, #2a75c8 0%, #1f5ea8 100%);
+            background: #c2410c;
             color: #fff;
-            border-color: rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 12px rgba(31, 94, 168, 0.25);
-            cursor: default;
+            border-color: #c2410c;
+            box-shadow: 0 4px 12px rgba(194,65,12,0.25);
         }
 
-        .pagination-btn.active:hover {
-            background: linear-gradient(180deg, #2a75c8 0%, #1f5ea8 100%);
-            color: #fff;
-            border-color: rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 12px rgba(31, 94, 168, 0.25);
-            cursor: default;
+        .sidebar-card {
+            border-radius: 14px;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        .sidebar-card-header {
+            padding: 14px 18px;
+            background: #f9fafb;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 15px;
+            font-weight: 800;
+            color: #1f2937;
+            font-family: var(--font-heading);
+        }
+        .sidebar-card-body {
+            padding: 14px 18px;
         }
 
-        .pagination-btn i {
+        .popular-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+            transition: all 0.2s ease;
+        }
+        .popular-item:last-child {
+            border-bottom: none;
+        }
+        .popular-item:hover {
+            opacity: 0.8;
+        }
+        .popular-item-num {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ff7a21, #c2410c);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .popular-item-img {
+            width: 72px;
+            height: 56px;
+            min-width: 72px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #f3f4f6;
+        }
+        .popular-item-body {
+            flex: 1;
+            min-width: 0;
+        }
+        .popular-item-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 17px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .popular-item-meta {
             font-size: 11px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+        .service-widget-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .service-widget-item:last-child {
+            border-bottom: none;
+        }
+        .service-widget-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .service-widget-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .service-widget-desc {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 2px;
         }
     </style>
 
@@ -614,11 +702,9 @@
                     var filter = this.dataset.filter;
 
                     document.querySelectorAll('[data-filter]').forEach(function (b) {
-                        b.classList.remove('bg-blue-700', 'text-white');
-                        b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+                        b.classList.remove('active');
                     });
-                    this.classList.add('bg-blue-700', 'text-white');
-                    this.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+                    this.classList.add('active');
 
                     document.querySelectorAll('.blog-card').forEach(function (card) {
                         if (filter === 'all' || card.dataset.category === filter) {
