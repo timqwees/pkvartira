@@ -183,7 +183,7 @@
 
                 <div class="flex flex-wrap gap-2 mb-6">
                     <button data-filter="all"
-                        class="filter-btn h-10 px-4 rounded-md bg-white border border-gray-200 text-gray-700 text-sm font-semibold transition <?= $current_page == 1 ? 'bg-blue-700 text-white' : ''; ?>">
+                        class="filter-btn h-10 px-4 rounded-md bg-blue-700 text-white text-sm font-semibold transition border border-blue-700">
                         Все статьи</button>
                     <?php foreach ($categoriyes as $key): ?>
                         <button data-filter="<?php echo $key['category']; ?>"
