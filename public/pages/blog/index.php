@@ -312,89 +312,87 @@
             </div>
         </section>
 
-        <section class="py-10 reveal">
+        <section class="py-10">
             <div class="container mx-auto px-4 max-w-6xl">
-                <h3 class="text-[22px] font-extrabold text-[#2a2e3b]">Наши услуги</h3>
-                <nav class="flex flex-col justify-between items-center mt-4 p-5">
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <li class="flex flex-1 items-start gap-3">
-                            <div class="w-14 h-11 rounded-lg bg-[#1f5ea8] text-white flex items-center justify-center">
+                <h3 class="text-xl font-bold text-[#111827]">Наши услуги</h3>
+                <nav class="mt-6">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        <li class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#eff6ff] text-[#2563eb] flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                             </div>
                             <div>
-                                <div class="font-bold text-[#2a2e3b] text-[13px]">Ремонт "под ключ"</div>
-                                <div class="text-[12px] text-[#7a7f8c]">Полный комплекс работ с гарантией 5 года</div>
+                                <div class="font-semibold text-[#111827] text-sm">Ремонт "под ключ"</div>
+                                <div class="text-xs text-[#6b7280] mt-0.5">Полный комплекс работ с гарантией 5 лет</div>
                             </div>
                         </li>
-                        <li class="flex flex-1 items-start gap-3">
-                            <div class="w-11 h-11 rounded-lg bg-[#1f5ea8] text-white flex items-center justify-center">
+                        <li class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#eff6ff] text-[#2563eb] flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-pen-ruler"></i>
                             </div>
                             <div>
-                                <div class="font-bold text-[#2a2e3b] text-[13px]">Дизайн интерьера</div>
-                                <div class="text-[12px] text-[#7a7f8c]">Дизайн интерьера любой сложности</div>
+                                <div class="font-semibold text-[#111827] text-sm">Дизайн интерьера</div>
+                                <div class="text-xs text-[#6b7280] mt-0.5">Любой сложности</div>
                             </div>
                         </li>
-                        <li class="flex flex-1 items-start gap-3">
-                            <div class="w-11 h-11 rounded-lg bg-[#1f5ea8] text-white flex items-center justify-center">
+                        <li class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#eff6ff] text-[#2563eb] flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
                             <div>
-                                <div class="font-bold text-[#2a2e3b] text-[13px]">Подбор материалов</div>
-                                <div class="text-[12px] text-[#7a7f8c]">Выбор и покупка материалов</div>
+                                <div class="font-semibold text-[#111827] text-sm">Подбор материалов</div>
+                                <div class="text-xs text-[#6b7280] mt-0.5">Выбор и покупка материалов</div>
                             </div>
                         </li>
-                        <li class="flex flex-1 items-start gap-3">
-                            <div class="w-11 h-11 rounded-lg bg-[#1f5ea8] text-white flex items-center justify-center">
+                        <li class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#eff6ff] text-[#2563eb] flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
                             <div>
-                                <div class="font-bold text-[#2a2e3b] text-[13px]">Управление проектом</div>
-                                <div class="text-[12px] text-[#7a7f8c]">Полный контроль объекта</div>
+                                <div class="font-semibold text-[#111827] text-sm">Управление проектом</div>
+                                <div class="text-xs text-[#6b7280] mt-0.5">Полный контроль объекта</div>
                             </div>
                         </li>
                     </ul>
 
-                    <div class="mt-5">
+                    <div class="mt-6">
                         <a href="/services"
-                            class="inline-flex items-center justify-center h-[36px] px-5 rounded-md bg-[#1f5ea8] text-white text-[13px] font-bold shadow-[0_2px_0_rgba(0,0,0,0.15)]">
-                            Посмотреть все услуги компании
-                            <i class="fa-solid fa-chevron-right ml-2 text-[11px]"></i>
+                            class="inline-flex items-center h-9 px-4 rounded-md bg-[#2563eb] text-white text-sm font-medium hover:bg-[#1d4ed8] transition-colors">
+                            Все услуги компании
+                            <i class="fa-solid fa-chevron-right ml-1.5 text-[10px]"></i>
                         </a>
                     </div>
                 </nav>
             </div>
         </section>
         <hr>
-        <section class="py-14 md:py-20 reveal bg-gradient-to-b from-white to-[#f9fafb]">
-            <div class="container text-center mx-auto px-4 max-w-6xl">
-                <h3 class="text-[28px] md:text-[32px] font-extrabold text-[#1f2937] leading-tight" style="font-family:var(--font-heading)">
-                    Хотите рассчитать стоимость ремонта в вашей квартире?
+        <section class="py-16 bg-[#f9fafb] border-t border-[#e5e7eb]">
+            <div class="container mx-auto px-4 max-w-6xl text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-[#111827]">
+                    Хотите рассчитать стоимость ремонта?
                 </h3>
-                <p class="mt-3 text-[17px] text-[#6b7280]">
+                <p class="mt-3 text-[#6b7280]">
                     Получите расчёт и бесплатную консультацию без обязательств.
                 </p>
 
-                <div class="mt-8">
-                    <a href="#calculator"
-                        class="inline-flex items-center justify-center h-[50px] px-10 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white text-[16px] font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300">
-                        Рассчитать стоимость
-                    </a>
-                </div>
+                <a href="#calculator"
+                    class="mt-8 inline-flex items-center h-12 px-8 rounded-lg bg-[#c2410c] text-white font-semibold hover:bg-[#9a3412] transition-colors">
+                    Рассчитать стоимость
+                </a>
 
-                <div class="mt-8 flex items-center justify-center gap-6 flex-wrap">
-                    <div class="flex items-center gap-2.5 text-[14px] text-[#4b5563]">
-                        <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-[11px]"><i class="fa-solid fa-check"></i></span>
-                        <span>Перезвоним через 15 минут</span>
-                    </div>
-                    <div class="flex items-center gap-2.5 text-[14px] text-[#4b5563]">
-                        <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-[11px]"><i class="fa-solid fa-check"></i></span>
-                        <span>Обсудим все пожелания</span>
-                    </div>
-                    <div class="flex items-center gap-2.5 text-[14px] text-[#4b5563]">
-                        <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-[11px]"><i class="fa-solid fa-check"></i></span>
-                        <span>Сориентируем по стоимости</span>
-                    </div>
+                <div class="mt-8 flex items-center justify-center gap-6 flex-wrap text-sm text-[#4b5563]">
+                    <span class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#c2410c] text-[10px]"><i class="fa-solid fa-check"></i></span>
+                        Перезвоним через 15 минут
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#c2410c] text-[10px]"><i class="fa-solid fa-check"></i></span>
+                        Обсудим все пожелания
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#c2410c] text-[10px]"><i class="fa-solid fa-check"></i></span>
+                        Сориентируем по стоимости
+                    </span>
                 </div>
             </div>
         </section>
@@ -404,22 +402,20 @@
 
     <style>
         .blog-card {
-            border-radius: 16px;
+            border-radius: 12px;
             background: #fff;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            border: 1px solid #e5e7eb;
+            transition: box-shadow .2s;
             overflow: hidden;
         }
         .blog-card:hover {
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 12px 28px rgba(0,0,0,0.08);
-            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .blog-card-grid {
             display: grid;
             grid-template-columns: 260px 1fr;
-            min-height: 190px;
+            min-height: 180px;
         }
         @media (max-width: 767px) {
             .blog-card-grid {
@@ -430,52 +426,49 @@
         .blog-card-img-wrap {
             position: relative;
             overflow: hidden;
-            min-height: 190px;
-            background: #f2f3f8;
+            min-height: 180px;
+            background: #f3f4f6;
         }
         .blog-card-img-wrap .blog-card-bg {
             position: absolute;
             inset: 0;
             background-size: cover;
             background-position: center;
-            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+            transition: transform .3s;
         }
         .blog-card:hover .blog-card-img-wrap .blog-card-bg {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .blog-card-category {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: rgba(255,122,33,0.92);
+            top: 10px;
+            left: 10px;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: #c2410c;
             color: #fff;
             font-size: 11px;
-            font-weight: 700;
-            backdrop-filter: blur(4px);
-            letter-spacing: 0.02em;
+            font-weight: 600;
         }
 
         .blog-card-body {
-            padding: 22px 24px 18px;
+            padding: 20px 22px 16px;
             display: flex;
             flex-direction: column;
         }
         .blog-card-title {
             font-size: 18px;
             line-height: 24px;
-            font-weight: 800;
-            color: #1f2937;
-            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #111827;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
         .blog-card-text {
-            margin-top: 10px;
-            font-size: 13.5px;
+            margin-top: 8px;
+            font-size: 14px;
             line-height: 20px;
             color: #6b7280;
             flex: 1;
@@ -485,74 +478,50 @@
             overflow: hidden;
         }
         .blog-card-meta {
-            margin-top: 16px;
+            margin-top: 14px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            font-size: 12px;
+            gap: 12px;
+            font-size: 13px;
             color: #9ca3af;
-            flex-wrap: wrap;
-        }
-        .blog-card-meta .blog-card-date {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .blog-card-meta .blog-card-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: #f3f4f6;
-            color: #6b7280;
-            font-size: 11px;
-            font-weight: 600;
         }
         .blog-btn-more {
             margin-left: auto;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            height: 32px;
-            padding: 0 18px;
-            border-radius: 8px;
+            gap: 4px;
+            height: 30px;
+            padding: 0 14px;
+            border-radius: 6px;
             color: #fff;
-            font-size: 12.5px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ff7a21, #c2410c);
-            transition: all 0.2s ease;
+            font-size: 12px;
+            font-weight: 600;
+            background: #c2410c;
             text-decoration: none;
-            letter-spacing: 0.01em;
+            transition: background .2s;
         }
         .blog-btn-more:hover {
-            box-shadow: 0 4px 12px rgba(194,65,12,0.3);
-            transform: translateY(-1px);
+            background: #9a3412;
         }
         .blog-btn-more i {
             font-size: 10px;
-            transition: transform 0.2s ease;
-        }
-        .blog-btn-more:hover i {
-            transform: translateX(2px);
         }
 
         .filter-btn {
-            height: 36px;
-            padding: 0 18px;
-            border-radius: 20px;
+            height: 34px;
+            padding: 0 16px;
+            border-radius: 6px;
             font-size: 13px;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            font-weight: 500;
             cursor: pointer;
-            border: 1.5px solid #e5e7eb;
+            border: 1px solid #d1d5db;
             background: #fff;
-            color: #4b5563;
+            color: #374151;
+            transition: background .15s, border-color .15s;
         }
         .filter-btn:hover {
-            border-color: #c2410c;
-            color: #c2410c;
-            background: #fff7ed;
+            border-color: #9ca3af;
+            background: #f9fafb;
         }
         .filter-btn.active {
             background: #c2410c;
@@ -564,47 +533,42 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 38px;
-            min-width: 38px;
-            padding: 0 14px;
-            border-radius: 10px;
+            height: 36px;
+            min-width: 36px;
+            padding: 0 12px;
+            border-radius: 6px;
             font-size: 13px;
-            font-weight: 600;
-            color: #4b5563;
+            font-weight: 500;
+            color: #374151;
             background: #fff;
-            border: 1.5px solid #e5e7eb;
+            border: 1px solid #d1d5db;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: background .15s;
         }
         .pagination-btn:hover {
-            border-color: #c2410c;
-            color: #c2410c;
+            background: #f9fafb;
         }
         .pagination-btn.active {
             background: #c2410c;
             color: #fff;
             border-color: #c2410c;
-            box-shadow: 0 4px 12px rgba(194,65,12,0.25);
         }
 
         .sidebar-card {
-            border-radius: 14px;
+            border-radius: 12px;
             background: #fff;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e5e7eb;
             overflow: hidden;
         }
         .sidebar-card-header {
             padding: 14px 18px;
-            background: #f9fafb;
-            border-bottom: 1px solid #f3f4f6;
+            border-bottom: 1px solid #e5e7eb;
             font-size: 15px;
-            font-weight: 800;
-            color: #1f2937;
-            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #111827;
         }
         .sidebar-card-body {
-            padding: 14px 18px;
+            padding: 12px 18px;
         }
 
         .popular-item {
@@ -612,32 +576,29 @@
             gap: 12px;
             padding: 10px 0;
             border-bottom: 1px solid #f3f4f6;
-            transition: all 0.2s ease;
+            text-decoration: none;
         }
         .popular-item:last-child {
             border-bottom: none;
         }
-        .popular-item:hover {
-            opacity: 0.8;
-        }
         .popular-item-num {
-            width: 28px;
-            height: 28px;
-            min-width: 28px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #ff7a21, #c2410c);
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border-radius: 4px;
+            background: #c2410c;
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 700;
         }
         .popular-item-img {
             width: 72px;
-            height: 56px;
+            height: 52px;
             min-width: 72px;
-            border-radius: 8px;
+            border-radius: 6px;
             object-fit: cover;
             background: #f3f4f6;
         }
@@ -647,8 +608,8 @@
         }
         .popular-item-title {
             font-size: 13px;
-            font-weight: 700;
-            color: #1f2937;
+            font-weight: 600;
+            color: #111827;
             line-height: 17px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -658,7 +619,7 @@
         .popular-item-meta {
             font-size: 11px;
             color: #9ca3af;
-            margin-top: 4px;
+            margin-top: 3px;
         }
 
         .service-widget-item {
@@ -671,26 +632,26 @@
             border-bottom: none;
         }
         .service-widget-icon {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
-            color: #fff;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 8px;
+            background: #eff6ff;
+            color: #2563eb;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 15px;
         }
         .service-widget-title {
             font-size: 13px;
-            font-weight: 700;
-            color: #1f2937;
+            font-weight: 600;
+            color: #111827;
         }
         .service-widget-desc {
             font-size: 12px;
             color: #6b7280;
-            margin-top: 2px;
+            margin-top: 1px;
         }
     </style>
 
