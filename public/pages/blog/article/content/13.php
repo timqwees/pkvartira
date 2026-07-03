@@ -18,7 +18,7 @@
 
 <!-- Главное фото -->
 <div data-type="image">
-    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=60" alt="Планирование бюджета ремонта — консультация, документы, смета">
+    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=60" alt="Планирование бюджета ремонта — документы, смета, калькулятор">
 </div>
 
 <!-- Секция: Структура бюджета -->
