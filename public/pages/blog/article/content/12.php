@@ -18,7 +18,7 @@
 
 <!-- Главное фото -->
 <div data-type="image">
-    <img src="https://images.unsplash.com/photo-1618220179428-22790b461b4f?auto=format&fit=crop&w=1600&q=60" alt="Современный интерьер с натуральными материалами — тренды дизайна 2026">
+    <img src="https://images.unsplash.com/photo-1524758870432-af57e54afa26?auto=format&fit=crop&w=1600&q=60" alt="Современный интерьер с натуральными материалами — тренды дизайна 2026">
 </div>
 
 <!-- Секция: Природные фактуры -->
