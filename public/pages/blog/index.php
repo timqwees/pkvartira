@@ -376,21 +376,21 @@
                 </p>
 
                 <a href="#calculator"
-                    class="mt-8 inline-flex items-center h-12 px-8 rounded-lg bg-[#c2410c] text-white font-semibold hover:bg-[#9a3412] transition-colors">
+                    class="mt-8 inline-flex items-center h-12 px-8 rounded-lg bg-[#f97316] text-white font-semibold hover:bg-[#ea580c] transition-colors">
                     Рассчитать стоимость
                 </a>
 
                 <div class="mt-8 flex items-center justify-center gap-6 flex-wrap text-sm text-[#4b5563]">
                     <span class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#c2410c] text-[10px]"><i class="fa-solid fa-check"></i></span>
+                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#f97316] text-[10px]"><i class="fa-solid fa-check"></i></span>
                         Перезвоним через 15 минут
                     </span>
                     <span class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#c2410c] text-[10px]"><i class="fa-solid fa-check"></i></span>
+                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#f97316] text-[10px]"><i class="fa-solid fa-check"></i></span>
                         Обсудим все пожелания
                     </span>
                     <span class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#c2410c] text-[10px]"><i class="fa-solid fa-check"></i></span>
+                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#f97316] text-[10px]"><i class="fa-solid fa-check"></i></span>
                         Сориентируем по стоимости
                     </span>
                 </div>
@@ -445,7 +445,7 @@
             left: 10px;
             padding: 3px 10px;
             border-radius: 4px;
-            background: #c2410c;
+            background: #f97316;
             color: #fff;
             font-size: 11px;
             font-weight: 600;
@@ -496,12 +496,12 @@
             color: #fff;
             font-size: 12px;
             font-weight: 600;
-            background: #c2410c;
+            background: #f97316;
             text-decoration: none;
             transition: background .2s;
         }
         .blog-btn-more:hover {
-            background: #9a3412;
+            background: #ea580c;
         }
         .blog-btn-more i {
             font-size: 10px;
@@ -524,9 +524,9 @@
             background: #f9fafb;
         }
         .filter-btn.active {
-            background: #c2410c;
+            background: #f97316;
             color: #fff;
-            border-color: #c2410c;
+            border-color: #f97316;
         }
 
         .pagination-btn {
@@ -549,9 +549,9 @@
             background: #f9fafb;
         }
         .pagination-btn.active {
-            background: #c2410c;
+            background: #f97316;
             color: #fff;
-            border-color: #c2410c;
+            border-color: #f97316;
         }
 
         .sidebar-card {
@@ -586,7 +586,7 @@
             height: 24px;
             min-width: 24px;
             border-radius: 4px;
-            background: #c2410c;
+            background: #f97316;
             color: #fff;
             display: flex;
             align-items: center;
