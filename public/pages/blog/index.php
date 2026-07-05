@@ -179,7 +179,7 @@
 
                 $__seenCats = [];
                 $categoriyes = [];
-                foreach ($$__blogJson as $__item) {
+                foreach ($__blogJson as $__item) {
                     if (!empty($__item['category']) && !in_array($__item['category'], $__seenCats)) {
                         $__seenCats[] = $__item['category'];
                         $categoriyes[] = ['category' => $__item['category']];
