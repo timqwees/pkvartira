@@ -4,7 +4,7 @@ $id = isset($id) ? (int) $id : 0;
 $__blogJson = json_decode(file_get_contents(__DIR__ . '/../data/articles.json'), true) ?: [];
 $articleData = null;
 if ($id > 0) {
-    foreach ($$__blogJson as $__item) {
+    foreach ($__blogJson as $__item) {
         if ((int) $__item['id'] === $id) {
             $articleData = $__item;
             break;
