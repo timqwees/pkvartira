@@ -166,19 +166,27 @@
                 </div>
 
                 <?php
-                $article = new App\Models\Article\Article;
+                $__blogJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
+                usort($__blogJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
+
                 $show_articles = 5;
                 $current_page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-                if ($current_page < 1)
-                    $current_page = 1;//защита от понижения страниц при 0 когда минимум 1 = стр будет снова 1
-                $max_pages = ceil($article->getCountArticles() / $show_articles);//округляем в большую сторону убирая не целые числа
-                if ($current_page > $max_pages)
-                    $current_page = $max_pages;//защита от превыщения страниц max=2 при стр 3 = будет стр 2
-                $articles = $article->getPaginatedArticles($current_page, $show_articles) ?: [];//object articles
-                //================================
-                $categoriyes = $article->getAllCategory();//получнеие всхе категорий
-                //================================
-                $tops = $article->getTops();
+                if ($current_page < 1) $current_page = 1;
+                $max_pages = ceil(count($__blogJson) / $show_articles);
+                if ($current_page > $max_pages) $current_page = $max_pages;
+                $offset = ($current_page - 1) * $show_articles;
+                $articles = array_slice($__blogJson, $offset, $show_articles);
+
+                $__seenCats = [];
+                $categoriyes = [];
+                foreach ($$__blogJson as $__item) {
+                    if (!empty($__item['category']) && !in_array($__item['category'], $__seenCats)) {
+                        $__seenCats[] = $__item['category'];
+                        $categoriyes[] = ['category' => $__item['category']];
+                    }
+                }
+
+                $tops = array_slice($__blogJson, 0, 5);
                 ?>
 
                 <div class="flex flex-wrap gap-2 mb-8">

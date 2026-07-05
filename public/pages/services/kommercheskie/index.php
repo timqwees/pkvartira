@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт коммерческих помещений в Москве — офисы, магазины';
+$title = 'Ремонт коммерческих помещений в Москве — офисы, магазины, кафе под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
 $prices = [
     [

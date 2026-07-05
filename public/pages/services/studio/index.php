@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт студии под ключ в Москве — от 200 000 ₽';
+$title = 'Ремонт квартиры-студии в Москве — цена от 200 000 ₽ под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/studio/2_31sqm/01_gostinaya-kukhnya.jpg';
 $prices = [
     [

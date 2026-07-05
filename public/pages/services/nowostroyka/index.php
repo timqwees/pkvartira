@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир в новостройке — от 8 000 ₽/м²';
+$title = 'Ремонт квартир в новостройке в Москве — цена от 8 000 ₽/м² под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $prices = [
     [

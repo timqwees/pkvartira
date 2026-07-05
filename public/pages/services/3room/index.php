@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт трёхкомнатной квартиры под ключ — от 560 000 ₽';
+$title = 'Ремонт трёхкомнатной квартиры в Москве — цена от 560 000 ₽ под ключ с гарантией 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp';
 $prices = [
     [

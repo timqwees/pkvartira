@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартиры под сдачу и для продажи в Москве — от 250 000 ₽';
+$title = 'Ремонт квартиры под сдачу в Москве — цена от 250 000 ₽, для аренды и продажи';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $prices = [
     [

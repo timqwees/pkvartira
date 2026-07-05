@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт вторичного жилья в Москве — от 640 000 ₽';
+$title = 'Ремонт вторичного жилья в Москве — цена от 640 000 ₽ под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
 $prices = [
     [

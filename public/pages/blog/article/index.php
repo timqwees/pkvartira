@@ -1,7 +1,16 @@
 <?php
 $site = Setting\Route\Function\Functions::site();
 $id = isset($id) ? (int) $id : 0;
-$articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id) : null;
+$__blogJson = json_decode(file_get_contents(__DIR__ . '/../data/articles.json'), true) ?: [];
+$articleData = null;
+if ($id > 0) {
+    foreach ($$__blogJson as $__item) {
+        if ((int) $__item['id'] === $id) {
+            $articleData = $__item;
+            break;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,7 +21,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
 
     <title><?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?> — блог о ремонте квартир | ПКвартира</title>
     <meta name="description"
-        content="<?= htmlspecialchars($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.'); ?>">
+        content="<?= htmlspecialchars($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -22,7 +31,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
     <meta property="og:type" content="article">
     <meta property="og:title" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?> — блог о ремонте квартир | ПКвартира">
     <meta property="og:description"
-        content="<?= htmlspecialchars($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.'); ?>">
+        content="<?= htmlspecialchars($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.'); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/blog/article/' . $id); ?>">
     <meta property="og:image"
         content="<?= htmlspecialchars($articleData['image'] ?? 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1400&q=60'); ?>">
@@ -45,7 +54,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?>">
     <meta name="twitter:description"
-        content="<?= htmlspecialchars($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.'); ?>">
+        content="<?= htmlspecialchars($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.'); ?>">
     <meta name="twitter:image"
         content="<?= htmlspecialchars($articleData['image'] ?? 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1400&q=60'); ?>">
     <meta name="twitter:image:alt"
@@ -118,7 +127,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
                 "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                 "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                 "name": <?= json_encode(($articleData['title'] ?? 'Статья не найдена') . ' — ' . $site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.', JSON_UNESCAPED_UNICODE); ?>,
+                "description": <?= json_encode($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.', JSON_UNESCAPED_UNICODE); ?>,
                 "isPartOf": {
                     "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
                 },
@@ -135,7 +144,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
                     "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
                 },
                 "headline": <?= json_encode($articleData['title'] ?? 'Статья не найдена', JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($articleData ? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160) : 'Запрошенная статья не найдена.', JSON_UNESCAPED_UNICODE); ?>,
+                "description": <?= json_encode($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.', JSON_UNESCAPED_UNICODE); ?>,
                 "image": <?= json_encode($articleData['image'] ?? $site['shareImageUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                 "datePublished": <?= json_encode(date('c', strtotime($articleData['created_at'] ?? date('c'))), JSON_UNESCAPED_UNICODE); ?>,
                 "dateModified": <?= json_encode(date('c', strtotime($articleData['updated_at'] ?? $articleData['created_at'] ?? date('c'))), JSON_UNESCAPED_UNICODE); ?>,
@@ -225,7 +234,7 @@ $articleData = $id > 0 ? (new App\Models\Article\Article())->getArticleById($id)
                     </div>
                 <?php else: ?>
                     <?php
-                    $tops = (new App\Models\Article\Article())->getTops() ?: [];
+                    $tops = array_slice($__blogJson, 0, 5);
                     ?>
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" itemscope itemtype="http://schema.org/Article">
                         <meta itemprop="inLanguage" content="ru-RU" />
