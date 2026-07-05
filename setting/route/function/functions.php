@@ -137,7 +137,8 @@ class Functions
     {
         $message = "<strong>Информация:</strong>";
         foreach ($data as $key => $value) {
-            $message .= "<hr>" . ucfirst($key) . ': ' . $value;
+            $val = is_array($value) ? implode(', ', $value) : (string) $value;
+            $message .= "<hr>" . ucfirst($key) . ': ' . $val;
         }
         $success = false;
         try {
@@ -168,20 +169,49 @@ class Functions
 
         $info = "Имя: {$name}\nТелефон: {$phone}";
         if ($email) $info .= "\nEmail: {$email}";
+
+        // Добавляем все остальные поля формы (Тип жилья, Комнат, Площадь, Ремонт и т.д.)
+        $extra = [];
+        foreach ($data as $key => $value) {
+            if (!in_array($key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both'])) {
+                if (is_string($value) && $value !== '') {
+                    $extra[] = "{$key}: {$value}";
+                }
+            }
+        }
+        if ($extra) $info .= "\n\n" . implode("\n", $extra);
         if ($comment) $info .= "\n\n{$comment}";
 
-        $ch = curl_init('https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json');
+        $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json';
+        $postData = http_build_query(['fields' => [
+            'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
+            'CATEGORY_ID' => 7,
+            'COMMENTS' => $info,
+        ]]);
+
+        $ch = curl_init($webhookUrl);
         curl_setopt_array($ch, [
             CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => http_build_query(['fields' => [
-                'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
-                'CATEGORY_ID' => 7,
-                'COMMENTS' => $info,
-            ]]),
+            CURLOPT_POSTFIELDS => $postData,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => 10,
+            CURLOPT_TIMEOUT => 15,
+            CURLOPT_CONNECTTIMEOUT => 5,
         ]);
-        curl_exec($ch);
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
+        curl_close($ch);
+
+        if ($curlError) {
+            error_log("Bitrix24 curl error: {$curlError}");
+        } elseif ($httpCode !== 200) {
+            error_log("Bitrix24 HTTP {$httpCode}: " . mb_substr($response, 0, 500));
+        } else {
+            $result = json_decode($response, true);
+            if (!empty($result['error'])) {
+                error_log("Bitrix24 API error: {$result['error']} — {$result['error_description']}");
+            }
+        }
     }
 
     public function getPhotos(string $path): array
