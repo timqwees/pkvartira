@@ -291,7 +291,7 @@
             <div class="flex flex-col gap-4 px-6 py-5">
                 <div class="flex flex-col gap-3">
                     <input name="имя" type="text" placeholder="Ваше имя" aria-label="Ваше имя"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500" required />
                     <div class="mb-5 relative text-black w-full">
                         <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone name="телефн"
                             placeholder="(___) ___-__-__" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
@@ -312,6 +312,7 @@
                                 class="text-blue-600 hover:underline" download>политике конфиденциальности</a>.
                         </span>
                     </label>
+                    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                     <button type="submit"
                         class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl text-base md:text-lg font-bold">
                         Отправить

@@ -135,6 +135,21 @@ class Functions
      */
     public static function sendMail(object $data): void
     {
+        // Серверная валидация телефона
+        $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
+        $phone = trim(preg_replace('/[^0-9+]/', '', $phone));
+        if ($phone === '') {
+            Network::onRedirect("/?message_status=error&message_msg=" . urlencode('Укажите номер телефона'));
+            return;
+        }
+
+        // Honeypot: боты заполняют скрытое поле «website»
+        if (!empty($_POST['website'])) {
+            error_log('Honeypot trap triggered: ' . ($_POST['website'] ?? ''));
+            Network::onRedirect("/?message_status=success&message_msg=" . urlencode('Спасибо, мы свяжемся с вами!'));
+            return;
+        }
+
         $message = "<strong>Информация:</strong>";
         foreach ($data as $key => $value) {
             $val = is_array($value) ? implode(', ', $value) : (string) $value;
@@ -163,11 +178,12 @@ class Functions
     private static function sendToBitrix24(object $data): void
     {
         $name = $data->имя ?? $data->name ?? '';
-        $phone = $data->телефн ?? $data->телефон ?? $data->phone ?? '';
+        $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
         $email = $data->почта ?? $data->email ?? '';
         $comment = $data->сообщение ?? $data->message ?? '';
 
-        $info = "Имя: {$name}\nТелефон: {$phone}";
+        $info = "Телефон: {$phone}";
+        if ($name) $info .= "\nИмя: {$name}";
         if ($email) $info .= "\nEmail: {$email}";
 
         // Добавляем все остальные поля формы (Тип жилья, Комнат, Площадь, Ремонт и т.д.)
@@ -186,6 +202,7 @@ class Functions
         $postData = http_build_query(['fields' => [
             'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
             'CATEGORY_ID' => 7,
+            'STAGE_ID' => 0,
             'COMMENTS' => $info,
         ]]);
 
@@ -252,7 +269,7 @@ class Functions
             return $items;
         }
 
-        require dirname(__DIR__, 3) . '/public/data/portfolio.php';
+        $portfolio = require dirname(__DIR__, 3) . '/public/data/portfolio.php';
         $instance = new self();
         $items = [];
 

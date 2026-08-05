@@ -2,7 +2,7 @@
 
 namespace Setting\route\function;
 
-use App\Models\Article\Article;
+
 
 /**
  * Генератор SitemapIndex + под-карт сайта
@@ -132,27 +132,46 @@ class Sitemap
 
     private function buildServicesXml(): string
     {
-        $services = [
-            ['/services/studio', '0.8', 'weekly'],
-            ['/services/pod-klyuch', '0.9', 'weekly'],
-            ['/services/nowostroyka', '0.8', 'weekly'],
-            ['/services/vtorichka', '0.8', 'weekly'],
-            ['/services/dlya-sdachi', '0.7', 'weekly'],
-            ['/services/1room', '0.7', 'weekly'],
-            ['/services/2room', '0.7', 'weekly'],
-            ['/services/3room', '0.7', 'weekly'],
-            ['/services/4room', '0.7', 'weekly'],
-            ['/services/doma', '0.7', 'weekly'],
-            ['/services/kommercheskie', '0.7', 'weekly'],
+        $priorityMap = [
+            'pod-klyuch' => ['0.9', 'weekly'],
+            'studio' => ['0.8', 'weekly'],
+            'nowostroyka' => ['0.8', 'weekly'],
+            'vtorichka' => ['0.8', 'weekly'],
+            '1room' => ['0.7', 'weekly'],
+            '2room' => ['0.7', 'weekly'],
+            '3room' => ['0.7', 'weekly'],
+            '4room' => ['0.7', 'weekly'],
+            'doma' => ['0.7', 'weekly'],
+            'kommercheskie' => ['0.7', 'weekly'],
+            'dlya-sdachi' => ['0.7', 'weekly'],
         ];
 
-        $xml = $this->openUrlset();
+        $dir = __DIR__ . '/../../../public/pages/services';
+        $entries = [];
 
-        foreach ($services as $s) {
-            $xml .= $this->buildEntry($s[0], $s[1], $s[2]);
+        if (is_dir($dir)) {
+            $items = scandir($dir);
+            foreach ($items as $item) {
+                if ($item === '.' || $item === '..') continue;
+                $indexFile = $dir . '/' . $item . '/index.php';
+                if (is_file($indexFile)) {
+                    if (isset($priorityMap[$item])) {
+                        $entries[] = ['/services/' . $item, $priorityMap[$item][0], $priorityMap[$item][1]];
+                    } else {
+                        $entries[] = ['/services/' . $item, '0.6', 'weekly'];
+                    }
+                }
+            }
         }
 
+        usort($entries, fn($a, $b) => $b[1] <=> $a[1]);
+
+        $xml = $this->openUrlset();
+        foreach ($entries as $e) {
+            $xml .= $this->buildEntry($e[0], $e[1], $e[2]);
+        }
         $xml .= '</urlset>' . "\n";
+
         return $xml;
     }
 
@@ -181,17 +200,17 @@ class Sitemap
     {
         $xml = $this->openUrlset();
 
-        try {
-            $article = new Article();
-            $articles = $article->getPaginatedArticles(1, 10000) ?? [];
-
-            foreach ($articles as $art) {
-                $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
-                $lastmod = date('Y-m-d', strtotime((string)$lastmod));
-                $xml .= $this->buildEntry('/blog/article/' . ($art['id'] ?? ''), '0.6', 'weekly', $lastmod);
+        $jsonPath = __DIR__ . '/../../../public/pages/blog/data/articles.json';
+        if (is_file($jsonPath)) {
+            $articles = json_decode(file_get_contents($jsonPath), true);
+            if (is_array($articles)) {
+                foreach ($articles as $art) {
+                    $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
+                    $lastmod = date('Y-m-d', strtotime((string)$lastmod));
+                    $slug = $art['id'] ?? '';
+                    $xml .= $this->buildEntry('/blog/article/' . $slug, '0.6', 'weekly', $lastmod);
+                }
             }
-        } catch (\Exception $e) {
-            // Нет таблицы статей — пустая карта
         }
 
         $xml .= '</urlset>' . "\n";

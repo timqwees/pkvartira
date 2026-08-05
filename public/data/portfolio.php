@@ -174,3 +174,5 @@ $portfolio = [
         'category' => 'Под ключ',
     ],
 ];
+
+return $portfolio;

@@ -155,9 +155,9 @@
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
-            'pretty_version' => 'v5.6.3',
-            'version' => '5.6.3.0',
-            'reference' => '955e7815d677a3eaa7075231212f2110983adecc',
+            'pretty_version' => 'v5.6.4',
+            'version' => '5.6.4.0',
+            'reference' => '416df702837983f8d5ff48c9c3fee4f5f57b980b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vlucas/phpdotenv',
             'aliases' => array(),

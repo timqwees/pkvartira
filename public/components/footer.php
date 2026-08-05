@@ -41,6 +41,8 @@
                     <li><a href="/services/studio" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт студий</a></li>
                     <li><a href="/services/nowostroyka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт в новостройке</a></li>
                     <li><a href="/services/vtorichka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт вторичного жилья</a></li>
+                    <li><a href="/services/ukladka-laminata" class="text-gray-400 hover:text-orange-500 transition text-sm">Укладка ламината</a></li>
+                    <li><a href="/services/keramogranit-nazarovo" class="text-gray-400 hover:text-orange-500 transition text-sm">Укладка керамогранита</a></li>
                     <li><a href="/calculator" class="text-gray-400 hover:text-orange-500 transition text-sm">Калькулятор стоимости</a></li>
                 </ul>
             </div>
@@ -82,7 +84,34 @@
             </div>
         </div>
 
-        <div class="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8">
+            <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-center md:text-left">Районы работ</h5>
+            <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1.5 text-sm text-gray-400">
+                <a href="/services/lyubertsy" class="hover:text-orange-500 transition">Люберцы</a>
+                <a href="/services/odintsovo" class="hover:text-orange-500 transition">Одинцово</a>
+                <a href="/services/mitino" class="hover:text-orange-500 transition">Митино</a>
+                <a href="/services/khimki" class="hover:text-orange-500 transition">Химки</a>
+                <a href="/services/balashikha" class="hover:text-orange-500 transition">Балашиха</a>
+                <a href="/services/krasnogorsk" class="hover:text-orange-500 transition">Красногорск</a>
+                <a href="/services/mytishchi" class="hover:text-orange-500 transition">Мытищи</a>
+                <a href="/services/podolsk" class="hover:text-orange-500 transition">Подольск</a>
+                <a href="/services/domodedovo" class="hover:text-orange-500 transition">Домодедово</a>
+                <a href="/services/shcherbinka" class="hover:text-orange-500 transition">Щербинка</a>
+                <a href="/services/zelenograd" class="hover:text-orange-500 transition">Зеленоград</a>
+                <a href="/services/ramenskoye" class="hover:text-orange-500 transition">Раменское</a>
+                <a href="/services/pushkino" class="hover:text-orange-500 transition">Пушкино</a>
+                <a href="/services/reutov" class="hover:text-orange-500 transition">Реутов</a>
+                <a href="/services/dolgoprudny" class="hover:text-orange-500 transition">Долгопрудный</a>
+                <a href="/services/lobnya" class="hover:text-orange-500 transition">Лобня</a>
+                <a href="/services/zvenigorod" class="hover:text-orange-500 transition">Звенигород</a>
+                <a href="/services/vidnoye" class="hover:text-orange-500 transition">Видное</a>
+                <a href="/services/solnechnogorsk" class="hover:text-orange-500 transition">Солнечногорск</a>
+                <a href="/services/kaluga" class="hover:text-orange-500 transition">Калуга</a>
+                <a href="/services/akademicheskaya" class="hover:text-orange-500 transition">м. Академическая</a>
+                <a href="/services/leninsky-prospekt" class="hover:text-orange-500 transition">Ленинский пр.</a>
+            </div>
+        </div>
+        <div class="border-t border-white/10 mt-6 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p class="text-gray-500 text-xs">&copy; 2026 Проект Квартира. Все права защищены.</p>
             <div class="flex items-center gap-6">
                 <a href="/soglashenie" class="text-gray-500 hover:text-orange-500 transition text-xs">Соглашение и обработка персональных данных</a>
@@ -141,32 +170,62 @@
 (function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)},m=typeof Array.prototype.find === 'function',n=m?"init-min.js":"init.js";s.async=true;s.src="https://mod.calltouch.ru/"+n+"?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","38sedkgm");
 </script>
 <!-- calltouch -->
-<script>
-    document.addEventListener('click', function (e) {
-        var submitBtn = e.target.closest('form [type="submit"]');
-        if (!submitBtn) return;
-        var form = submitBtn.closest('form');
-        var fio = (form.querySelector('input[name="имя"]') || {}).value || '';
-        var phoneInput = form.querySelector('input[name="телефн"], input[name="телефон"]');
-        var phoneNumber = phoneInput ? phoneInput.value : '';
-        var email = (form.querySelector('input[name="почта"]') || {}).value || '';
-        var ct_site_id = 82739;
-        var subject = 'Заявка с ' + location.hostname;
+<!-- calltouch requsest -->    
+<script type="text/javascript">
+(function() {
+    var ct_get_val = function(form, selector) {
+        var el = form.querySelector(selector);
+        return el ? el.value.trim() : '';
+    };
 
-        var ct_data = {
-            fio: fio,
-            phoneNumber: phoneNumber,
-            email: email,
-            subject: subject,
-            requestUrl: location.href,
-            sessionId: window.call_value
-        };
-        if ((!!phoneNumber) && !window.ct_snd_flag) {
-            window.ct_snd_flag = 1; setTimeout(function () { window.ct_snd_flag = 0; }, 40000);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://api.calltouch.ru/calls-service/RestAPI/requests/' + ct_site_id + '/register/', false);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify(ct_data));
+    document.addEventListener('click', function(e) {
+        var t_el = e.target;
+        if (!t_el.closest('form [type="submit"], form button[type="submit"]')) return;
+
+        try {
+            var f = t_el.closest('form');
+            if (!f) return;
+            var fio = ct_get_val(f, 'input[name="имя"]');
+            var phone = ct_get_val(f, 'input[name="телефн"], input[name="телефон"]');
+            var email = ct_get_val(f, 'input[name="почта"]');
+            var site_id = '82739';
+            var sub = 'Заявка с ' + location.hostname;
+
+            var ct_data = {
+                subject: sub,
+                fio: fio,
+                phoneNumber: phone,
+                email: email,
+                requestUrl: location.href,
+                sessionId: window.call_value
+            };
+
+
+            var ct_check = !!phone && !window.ct_snd_flag;
+
+            if (ct_check) {
+
+                window.ct_snd_flag = 1;
+                setTimeout(function() { window.ct_snd_flag = 0; }, 10000);
+
+                var post_data = Object.keys(ct_data)
+                    .filter(function(k) { return !!ct_data[k]; })
+                    .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(ct_data[k]); })
+                    .join('&');
+
+                var CT_URL = 'https://api.calltouch.ru/calls-service/RestAPI/requests/' + site_id + '/register/';
+
+                var request = new XMLHttpRequest();
+                request.open('POST', CT_URL, true);
+                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                request.send(post_data);
+
+                console.log('Calltouch request sent:', ct_data);
+            }
+        } catch (err) {
+            console.error('Calltouch script error:', err);
         }
     }, true);
+})();
 </script>
+<!-- calltouch requsest -->    

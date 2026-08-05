@@ -401,6 +401,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                         class="text-red-500">*</span></span>
                             </div>
 
+                            <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                             <button type="submit"
                                 class="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl text-base md:text-xl font-bold">
                                 Рассчитать стоимость
@@ -486,6 +488,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                                         class="text-red-500">*</span></span>
                             </div>
                         </div>
+                        <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                        <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                         <button type="submit"
                             class="cta-button relative bg-orange-500 text-white px-6 md:px-8 py-3 rounded-xl text-base md:text-xl w-full md:w-auto">
                             Получить расчет стоимости
@@ -792,10 +796,37 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     <?php
-                    $geo = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.', 'и другие...'];
-                    foreach ($geo as $g): ?>
+                    $geoCities = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.', 'и другие...'];
+                    $geoLinks = [
+                        'Люберцы' => '/services/lyubertsy',
+                        'Одинцово' => '/services/odintsovo',
+                        'Подольск' => '/services/podolsk',
+                        'Мытищи' => '/services/mytishchi',
+                        'Химки' => '/services/khimki',
+                        'Лобня' => '/services/lobnya',
+                        'Солнечногорск' => '/services/solnechnogorsk',
+                        'Реутов' => '/services/reutov',
+                        'Зеленоград' => '/services/zelenograd',
+                        'Раменское' => '/services/ramenskoye',
+                        'Пушкино' => '/services/pushkino',
+                        'Видное' => '/services/vidnoye',
+                        'Балашиха' => '/services/balashikha',
+                        'Домодедово' => '/services/domodedovo',
+                        'Долгопрудный' => '/services/dolgoprudny',
+                        'Щербинка' => '/services/shcherbinka',
+                        'Звенигород' => '/services/zvenigorod',
+                        'Красногорск' => '/services/krasnogorsk',
+                        'Митино' => '/services/mitino',
+                    ];
+                    foreach ($geoCities as $g):
+                        $link = $geoLinks[$g] ?? null;
+                    ?>
                     <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-orange-200 transition">
-                        <span class="text-sm font-medium text-gray-700"><?= $g ?></span>
+                        <?php if ($link): ?>
+                            <a href="<?= $link ?>" class="text-sm font-medium text-gray-700 hover:text-orange-500"><?= $g ?></a>
+                        <?php else: ?>
+                            <span class="text-sm font-medium text-gray-700"><?= $g ?></span>
+                        <?php endif; ?>
                     </div>
                     <?php endforeach; ?>
                 </div>
@@ -949,6 +980,25 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                     <!-- Navigation buttons -->
                     <div class="swiper-button-prev" aria-label="Предыдущий слайд"></div>
                     <div class="swiper-button-next" aria-label="Следующий слайд"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-white reveal">
+            <div class="container mx-auto px-4 text-center">
+                <span class="label-tag">Направления</span>
+                <h2 class="section-heading mb-6">Популярные виды работ и районы</h2>
+                <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+                    <a href="/services/ukladka-laminata" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Укладка ламината</a>
+                    <a href="/services/keramogranit-nazarovo" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Укладка керамогранита</a>
+                    <a href="/services/ontario" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">ЖК Онтарио</a>
+                    <a href="/services/solnechnogorsk" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Солнечногорске</a>
+                    <a href="/services/kaluga" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Калуге</a>
+                    <a href="/services/lyubertsy" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Люберцах</a>
+                    <a href="/services/odintsovo" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Одинцово</a>
+                    <a href="/services/mitino" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Митино</a>
+                    <a href="/services/khimki" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Химках</a>
+                    <a href="/services/balashikha" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Балашихе</a>
                 </div>
             </div>
         </section>

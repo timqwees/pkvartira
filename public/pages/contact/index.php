@@ -293,6 +293,8 @@
                                             конфиденциальности</a>
                                     </label>
                                 </div>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <button type="submit"
                                     class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
                                     Отправить заявку

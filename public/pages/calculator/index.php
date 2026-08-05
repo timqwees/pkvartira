@@ -390,13 +390,11 @@
                                                 pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
                                                 placeholder="(___) ___-__-__" required aria-label="Телефон"
                                                 class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
-                                            <input name="телефон" data-type-phone type="tel"
-                                                pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
-                                                placeholder="(___) ___-__-__" required
-                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                                         </div>
                                     </div>
                                 </div>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <!-- Кнопка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 pt-2">
                                     <div></div>
@@ -596,13 +594,11 @@
                                                 pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
                                                 placeholder="(___) ___-__-__" required aria-label="Телефон"
                                                 class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
-                                            <input name="телефон" data-type-phone type="tel"
-                                                pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
-                                                placeholder="(___) ___-__-__" required aria-label="Телефон"
-                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                                         </div>
                                     </div>
                                 </div>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <!-- Кнопка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 pt-2">
                                     <div></div>
@@ -625,6 +621,8 @@
                             <input name="телефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+"
                                 maxlength="15" placeholder="(___) ___-__-__" required aria-label="Телефон"
                                 class="w-full text-black px-3 py-2.5 rounded-md border border-[#e6e7ee] text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                            <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                             <button
                                 class="py-3 px-6 rounded-md bg-[#ff7a21] text-white text-[13px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] whitespace-nowrap">Получить
                                 смету</button>

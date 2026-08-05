@@ -627,7 +627,7 @@ if ($id > 0) {
                                 </a>
                                 <a href="/blogs"
                                     class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-800 font-semibold hover:bg-gray-50 transition">
-                                    Ко списокам блогов
+                                    К спискам блогов
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                             </div>

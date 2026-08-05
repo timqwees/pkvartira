@@ -341,6 +341,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
                         <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span class="text-red-400">*</span></span>
                     </div>
+                    <label class="flex items-start gap-2 text-xs text-white cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                     <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition">Получить расчёт</button>
                 </form>
                 <div class="flex flex-wrap justify-center gap-4 text-sm text-blue-200"><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Бесплатный выезд</span><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Смета за 30 минут</span><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Фиксированная цена</span><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Гарантия 3 года</span></div>

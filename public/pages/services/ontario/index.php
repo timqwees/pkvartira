@@ -1,0 +1,146 @@
+<?php
+use Setting\Route\Function\Functions;
+$site = Functions::site();
+$title = 'Ремонт квартир в ЖК Онтарио — официальный сайт, цены под ключ | ПКвартира';
+$bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/newbuilds');
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="Ремонт квартир в ЖК Онтарио под ключ — официальный сайт ПКвартира. Цены от 8 000 ₽/м², гарантия 3 года, фиксированная смета. Бесплатный замер и расчёт. Более 300 проектов.">
+    <meta name="keywords" content="жк онтарио ремонт квартир, онтарио ремонт официальный сайт, жк онтарио отделка, ремонт в онтарио москва">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/ontario'); ?>">
+    <?php include_once './public/components/head-includes.php'; ?>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
+                    {"@type": "ListItem","position": 2,"name": "Ремонт в ЖК Онтарио","item": "<?= $site['baseUrl']; ?>/services/ontario"}
+                ]
+            },
+            {
+                "@type": "Service",
+                "name": "Ремонт квартир в ЖК Онтарио",
+                "provider": {"@type": "Organization","name": "ПКвартира"},
+                "areaServed": {"@type": "City","name": "Москва"},
+                "description": "Ремонт квартир в жилом комплексе Онтарио под ключ. Цены от 8 000 ₽/м²."
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white">
+<?php include_once './public/components/header.php'; ?>
+<main class="pt-20" style="padding-top:80px">
+    <section class="relative bg-[#1f2937] text-white">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
+        <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
+            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Ремонт квартир в ЖК Онтарио</h1>
+            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Официальный сайт — ремонт под ключ в жилом комплексе Онтарио. Фиксированная смета, гарантия 3 года, бесплатный замер.</p>
+            <div class="mt-6 flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> от 8 000 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Замер бесплатно</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Ремонт в ЖК Онтарио под ключ</h2>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Жилой комплекс Онтарио — современный проект с продуманными планировками. Мы выполняем ремонт квартир в ЖК Онтарио под ключ: от черновой отделки до чистовой. Работаем с новостройками и вторичным жильём. Составляем прозрачную смету и фиксируем сроки в договоре.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Приёмка квартиры от застройщика</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Черновой, чистовой, дизайнерский ремонт</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Учитываем усадку дома</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> С материалами и без</li>
+                    </ul>
+                </div>
+                <div class="bg-[#f9fafb] rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-[#111827]">Цены на ремонт в ЖК Онтарио</h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Дизайнерский</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Элитный</span><span class="font-bold text-[#111827]">от 25 000 ₽/м²</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#f9fafb]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Как мы работаем</h2>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Заявка</h3><p class="mt-1 text-sm text-[#6b7280]">Оставьте заявку на сайте или позвоните</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Замер</h3><p class="mt-1 text-sm text-[#6b7280]">Инженер выезжает на объект бесплатно</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Смета</h3><p class="mt-1 text-sm text-[#6b7280]">Фиксированная смета без скрытых платежей</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Ремонт</h3><p class="mt-1 text-sm text-[#6b7280]">Выполняем работы в срок с гарантией</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="max-w-lg mx-auto">
+                <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Рассчитайте стоимость ремонта в ЖК Онтарио</h2>
+                <form action="/send/email" method="POST" class="mt-6 space-y-4">
+                    <input name="имя" type="text" placeholder="Ваше имя" required class="w-full px-4 py-3 border border-gray-300 rounded-xl text-[#111827]">
+                    <div class="relative">
+                        <input name="телефн" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" placeholder="(___) ___-__-__" required class="w-full px-4 py-3 border border-gray-300 rounded-xl text-[#111827]">
+                    </div>
+                    <input type="hidden" name="Источник" value="ЖК Онтарио">
+                    <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-[#f97316] text-white font-bold hover:bg-[#ea580c] transition-colors">Рассчитать стоимость</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#f9fafb]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
+            <div class="mt-6 max-w-3xl mx-auto space-y-3">
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие сроки ремонта в ЖК Онтарио?</summary><p class="mt-2 text-sm text-[#6b7280]">От 2 недель для косметического до 3 месяцев для дизайнерского ремонта.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли согласовывать перепланировку?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, если планируете изменение стен. Мы помогаем с согласованием.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать ремонт с материалами?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем с материалами заказчика и с полным обеспечением. Все варианты обсуждаются индивидуально.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 text-center">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
+            <div class="mt-4 flex flex-wrap justify-center gap-3">
+                <a href="/services/solnechnogorsk" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Солнечногорске</a>
+                <a href="/services/kaluga" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Калуге</a>
+                <a href="/services/mitino" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Митино</a>
+                <a href="/services/krasnogorsk" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Красногорске</a>
+                <a href="/services/lyubertsy" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Люберцах</a>
+                <a href="/services/ukladka-laminata" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Укладка ламината</a>
+                <a href="/services/keramogranit-nazarovo" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Укладка керамогранита</a>
+                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт под ключ</a>
+                <a href="/services/nowostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт новостроек</a>
+                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Калькулятор</a>
+            </div>
+        </div>
+    </section>
+</main>
+<?php include_once './public/components/footer.php'; ?>
+<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+</body>
+</html>

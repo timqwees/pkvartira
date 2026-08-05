@@ -280,9 +280,11 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
                         <form action="/send/email" method="POST" class="md:col-span-7">
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <input type="hidden" name="Источник: Портфолио" id="">
-                                <input name="теефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+"
+                                <input name="телефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+"
                                     maxlength="15" placeholder="+7 ___ ___-__-__" aria-label="Телефон"
-                                    class="w-full px-4 py-3 rounded-lg text-gray-900 outline-none">
+                                    class="w-full px-4 py-3 rounded-lg text-gray-900 outline-none" required>
+                                <label class="flex items-start gap-2 text-xs text-blue-100 cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <button
                                     class="w-full sm:w-auto px-6 py-3 rounded-lg bg-orange-500 font-semibold hover:bg-orange-600 transition whitespace-nowrap">Рассчитать
                                     стоимость</button>
