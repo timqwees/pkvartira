@@ -256,7 +256,7 @@
                                 </div>
                                 <div>
                                     <label class="block text-gray-700 font-semibold mb-2">Телефон *</label>
-                                    <input name="телефон" type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
+                                    <input name="телефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
                                         required
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
                                 </div>

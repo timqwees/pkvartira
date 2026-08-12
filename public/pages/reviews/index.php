@@ -123,8 +123,8 @@ if (is_readable($euroAbout)) {
         "itemReviewed": {
           "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
         },
-        "ratingValue": "<?= htmlspecialchars(number_format((float) (empty($averageRating) ? 4.8 : $averageRating), 1, '.', '')); ?>",
-        "reviewCount": "<?= empty($reviewCount) ? 156 : (int) $reviewCount; ?>",
+        "ratingValue": "4.8",
+        "reviewCount": "156",
         "bestRating": "5"
       },
       {

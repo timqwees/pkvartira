@@ -27,9 +27,9 @@
                     <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp">
                         <i class="fab fa-whatsapp text-sm"></i>
                     </a>
-                    <a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в MAX">
+                    <!--<a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в MAX">
                         <img class="h-4 w-4 brightness-0 invert" src="/public/assets/images/icons/MAX.svg" alt="MAX">
-                    </a>
+                    </a>-->
                 </div>
             </div>
 
@@ -126,10 +126,108 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@27.1.3/dist/css/intlTelInput.css">
 </noscript>
 <style>
-    [data-type-phone] { padding-left: 78px !important; }
+    .iti { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+    .iti__country-container { margin-top: 0 !important; }
+    .iti__selected-dial-code, .iti__selected-country, .iti__selected-country-primary {
+        color: #111827 !important;
+    }
     .iti__dropdown-content { z-index: 9999 !important; max-height: 250px !important; }
     .iti__country-list { max-height: 200px !important; overflow-y: auto !important; }
     .iti--container { z-index: 9999 !important; }
+    select { max-width: 100% !important; box-sizing: border-box !important; }
+    input[type="tel"], input[type="text"], input[type="number"], input[type="email"], textarea {
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+    }
+    /* Phone input:足够的左内边距 для флага + кода страны (+7) */
+    [data-type-phone] {
+        padding-left: 90px !important;
+        color: #111827 !important;
+    }
+    [data-type-phone]::placeholder {
+        color: #9ca3af !important;
+    }
+    form .relative { min-width: 0 !important; }
+    form [data-form-id] .relative { min-width: 0 !important; }
+
+    /* UX: Smooth focus transitions */
+    form input:focus, form select:focus, form textarea:focus {
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* UX: Smooth expand/collapse for form details */
+    .form-expandable {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+        transform-origin: top center;
+        pointer-events: none;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.3s ease;
+    }
+    .form-expandable.expanded {
+        max-height: 900px;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    /* Hero: details drop as an overlay panel so the hero background does not grow */
+    .hero-expandable-panel {
+        position: absolute;
+        top: calc(100% - 16px);
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        box-shadow: 0 24px 48px rgba(15, 23, 42, 0.18);
+        padding: 16px;
+    }
+    @media (min-width: 768px) {
+        .hero-expandable-panel {
+            left: -48px;
+            right: -48px;
+        }
+    }
+    @media (max-width: 767px) {
+        .hero-expandable-panel {
+            z-index: 100;
+        }
+    }
+
+    /* Selection state for detail options (works without prebuilt tailwind peer classes) */
+    .form-option, .form-pill {
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .form-option.active {
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        color: #111827;
+    }
+    .form-pill.active {
+        background: #f97316;
+        border-color: #f97316;
+        color: #fff;
+    }
+
+    /* UX: Submit button loading state */
+    form button[type="submit"] { position: relative; transition: all 0.2s ease; }
+    form button[type="submit"].loading { pointer-events: none; opacity: 0.7; }
+    form button[type="submit"].loading::after {
+        content: '';
+        position: absolute; top: 50%; left: 50%;
+        width: 20px; height: 20px; margin: -10px 0 0 -10px;
+        border: 2px solid #fff; border-top-color: transparent;
+        border-radius: 50%;
+        animation: btnSpin 0.6s linear infinite;
+    }
+    @keyframes btnSpin { to { transform: rotate(360deg); } }
+
+    /* UX: Smooth scroll */
+    html { scroll-behavior: smooth; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@27.1.3/dist/js/intlTelInputWithUtils.min.js" defer></script>
 <script>
@@ -170,6 +268,62 @@
 (function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)},m=typeof Array.prototype.find === 'function',n=m?"init-min.js":"init.js";s.async=true;s.src="https://mod.calltouch.ru/"+n+"?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","38sedkgm");
 </script>
 <!-- calltouch -->
+<!-- Source Tracking + Anti-Bot + Goal Tracking -->
+<script>
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var page = location.pathname.replace(/\/+$/, '') || '/';
+        var labels = {
+            '/': 'Главная', '/contact': 'Контакты', '/calculator': 'Калькулятор',
+            '/prices': 'Цены', '/portfolio': 'Портфолио', '/reviews': 'Отзывы',
+            '/about': 'О нас', '/blog': 'Блог', '/stocks': 'Акции'
+        };
+        var pageName = labels[page] || (page.startsWith('/services/') ? 'Услуги: ' + page.split('/').pop() : page);
+
+        document.querySelectorAll('form[action*="/send/email"]').forEach(function(form, idx) {
+            if (form.querySelector('input[name="источник_заявки"]')) return;
+
+            var formId = form.getAttribute('data-form-id') || ('форма_' + (idx + 1));
+
+            var sourceInput = document.createElement('input');
+            sourceInput.type = 'hidden';
+            sourceInput.name = 'источник_заявки';
+            sourceInput.value = pageName + ' (' + page + ')';
+            form.appendChild(sourceInput);
+
+            var formInput = document.createElement('input');
+            formInput.type = 'hidden';
+            formInput.name = 'форма';
+            formInput.value = formId;
+            form.appendChild(formInput);
+
+            // Anti-bot: timestamp
+            var ts = document.createElement('input');
+            ts.type = 'hidden';
+            ts.name = '_ts';
+            ts.value = Date.now().toString();
+            form.appendChild(ts);
+
+            // UX: loading state + goal tracking
+            form.addEventListener('submit', function(e) {
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) btn.classList.add('loading');
+            });
+        });
+    });
+
+    // Goal tracking on redirect (after form submit)
+    window.addEventListener('pageshow', function() {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('message_status') === 'success') {
+            if (typeof ym === 'function') {
+                ym(108587554, 'reachGoal', 'SENDFORM');
+            }
+            window.dispatchEvent(new Event('form-sent'));
+        }
+    });
+})();
+</script>
 <!-- calltouch requsest -->    
 <script type="text/javascript">
 (function() {

@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир в Люберцах — цены под ключ, гарантия 3 года | ПКвартира';
+$title = 'Ремонт квартир в Люберцах — цены под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -83,18 +83,16 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <section class="py-12">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="max-w-lg mx-auto">
-                <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Рассчитать стоимость ремонта в Люберцах</h2>
-                <form action="/send/email" method="POST" class="mt-6 space-y-4">
-                    <input name="имя" type="text" placeholder="Ваше имя" required class="w-full px-4 py-3 border border-gray-300 rounded-xl text-[#111827]">
-                    <div class="relative">
-                        <input name="телефн" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" placeholder="(___) ___-__-__" required class="w-full px-4 py-3 border border-gray-300 rounded-xl text-[#111827]">
-                    </div>
-                    <input type="hidden" name="Город" value="Люберцы">
-                    <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
-                    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-
-                    <button type="submit" class="w-full py-4 rounded-xl bg-[#f97316] text-white font-bold hover:bg-[#ea580c] transition-colors">Рассчитать</button>
-                </form>
+                <?php
+$ctaFormId = 'lyubertsy_cta';
+$ctaFormTitle = 'Рассчитать стоимость ремонта в Люберцах';
+$ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
+$ctaButtonText = 'Рассчитать';
+$ctaShowName = true;
+$ctaHiddenCity = 'Люберцы';
+$ctaExpandable = false;
+include './public/components/cta-form.php';
+?>
             </div>
         </div>
     </section>
@@ -109,7 +107,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
             </div>
         </div>
     </section>
-</main>
+
     <section class="py-12 text-center bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
@@ -132,6 +130,20 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
             </div>
         </div>
     </section>
+
+        <!-- Финальный CTA -->
+        <?php
+        $ctaFormId = 'lyubertsy_bottom_cta';
+        $ctaFormTitle = 'Рассчитать стоимость ремонта';
+        $ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
+        $ctaButtonText = 'Получить расчёт бесплатно';
+        $ctaExpandable = false;
+        $ctaSectionBadge = 'Бесплатный расчёт';
+        $ctaSectionHeading = 'Готовы рассчитать стоимость: ремонт квартир в Люберцах';
+        $ctaSectionText = 'Оставьте заявку — бесплатно приедем на замер и составим точную смету с фиксированной ценой.';
+        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 30 минут', 'Фиксированная цена', 'Гарантия 3 года'];
+        include './public/components/cta-section.php';
+        ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
 <script src="/public/assets/scripts/components/reveal.min.js" defer></script>

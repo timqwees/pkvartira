@@ -332,22 +332,18 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         </section>
 
         <!-- 6. CTA -->
-        <section class="reveal w-full py-12 md:py-16 bg-gray-50">
-            <div class="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-800 to-blue-900 p-8 md:p-12 text-white text-center max-w-6xl rounded-2xl">
-                <h2 class="text-2xl md:text-3xl font-heading font-bold mb-4">Готовы подготовить квартиру к сдаче или продаже?</h2>
-                <p class="text-blue-100 mb-8">Оставьте заявку на бесплатный расчёт стоимости ремонта под вашу цель</p>
-                <form action="/send/email" method="POST" class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto mb-8">
-                    <div class="relative text-black">
-                        <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
-                        <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span class="text-red-400">*</span></span>
-                    </div>
-                    <label class="flex items-start gap-2 text-xs text-white cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
-                    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition">Получить расчёт</button>
-                </form>
-                <div class="flex flex-wrap justify-center gap-4 text-sm text-blue-200"><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Бесплатный выезд</span><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Смета за 30 минут</span><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Фиксированная цена</span><span><i class="fas fa-check-circle text-green-400 mr-1"></i>Гарантия 3 года</span></div>
-            </div>
-        </section>
+        <?php
+        $ctaFormId = 'dlya_sdachi_cta';
+        $ctaFormTitle = 'Рассчитать стоимость ремонта';
+        $ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
+        $ctaButtonText = 'Получить расчёт бесплатно';
+        $ctaExpandable = false;
+        $ctaSectionBadge = 'Сдать или продать';
+        $ctaSectionHeading = 'Готовы рассчитать стоимость: ремонт квартиры под сдачу в Москве';
+        $ctaSectionText = 'Оставьте заявку на бесплатный расчёт стоимости ремонта под вашу цель';
+        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 30 минут', 'Фиксированная цена', 'Гарантия 3 года'];
+        include './public/components/cta-section.php';
+        ?>
 
     </main>
 

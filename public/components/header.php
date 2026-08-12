@@ -286,8 +286,8 @@
         </button>
     </div>
     <div class="flex flex-col md:flex-row md:w-max md:items-stretch gap-4 md:gap-5">
-        <form action="/send/email" method="POST"
-            class="bg-white rounded-2xl overflow-hidden w-full max-w-sm shrink-0 md:mx-0 mx-auto">
+        <form action="/send/email" method="POST" data-form-id="header_dialog"
+            class="bg-white rounded-2xl overflow-visible w-full max-w-sm shrink-0 md:mx-0 mx-auto">
             <div class="flex flex-col gap-4 px-6 py-5">
                 <div class="flex flex-col gap-3">
                     <input name="имя" type="text" placeholder="Ваше имя" aria-label="Ваше имя"

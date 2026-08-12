@@ -445,9 +445,9 @@
                                             <span class="text-[12px] text-gray-600">от <span class="font-bold">20</span>
                                                 до <span class="font-bold">300</span> м²</span>
                                             <span class="text-[16px] font-extrabold text-[#1f5ea8]"><span
-                                                    id="value_range_2">60</span> м²</span>
+                                                    id="value_range_2_v">60</span> м²</span>
                                         </div>
-                                        <input required id="RangeSize2" name="Какая площадь квартиры?" type="range"
+                                        <input required id="RangeSize2V" name="Какая площадь квартиры?" type="range"
                                             min="20" max="300" value="60" aria-label="Площадь квартиры (вторичка)"
                                             class="w-full accent-orange-500 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                                     </div>
@@ -695,6 +695,11 @@
             document.getElementById('value_range_2').textContent = '60';
             document.getElementById('RangeSize2').addEventListener('input', (event) => {
                 document.getElementById('value_range_2').textContent = event.target.value;
+            });
+
+            document.getElementById('value_range_2_v').textContent = '60';
+            document.getElementById('RangeSize2V').addEventListener('input', (event) => {
+                document.getElementById('value_range_2_v').textContent = event.target.value;
             });
         });
     </script>

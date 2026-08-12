@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\Route\Function;
+namespace Setting\route\function;
 
 use App\Models\Router\Routes;
 use App\Config\Database;
@@ -12,10 +12,9 @@ use App\Models\Article\Article;
 use App\Models\Network\Message;
 use App\Models\User\User;
 use Exception;
-use LDAP\ResultEntry;
 use App\Controllers\API\API;
 
-class Functions
+class functions
 {
     //======СПИСОК ФУНКЦИЙ / LIST FUNCTIONS===========//
 
@@ -150,10 +149,28 @@ class Functions
             return;
         }
 
-        $message = "<strong>Информация:</strong>";
+        // Антибот: time-check — форма отправлена太快 (менее 3 секунд)
+        $ts = (int) ($_POST['_ts'] ?? 0);
+        if ($ts > 0) {
+            $elapsed = (int) ((microtime(true) * 1000 - $ts) / 1000);
+            if ($elapsed < 3) {
+                error_log("Anti-bot: form submitted in {$elapsed}s — likely bot");
+                Network::onRedirect("/?message_status=success&message_msg=" . urlencode('Спасибо, мы свяжемся с вами!'));
+                return;
+            }
+        }
+
+        $source = $data->источник_заявки ?? '';
+        $formId = $data->форма ?? '';
+
+        $message = "<strong>Заявка с сайта</strong>";
+        if ($source) $message .= "<br><strong>Источник:</strong> " . htmlspecialchars($source);
+        if ($formId) $message .= "<br><strong>Форма:</strong> " . htmlspecialchars($formId);
+        $message .= "<hr><strong>Данные:</strong>";
         foreach ($data as $key => $value) {
+            if (in_array($key, ['источник_заявки', 'форма', 'website', '_ts'])) continue;
             $val = is_array($value) ? implode(', ', $value) : (string) $value;
-            $message .= "<hr>" . ucfirst($key) . ': ' . $val;
+            $message .= "<br>" . ucfirst($key) . ': ' . htmlspecialchars($val);
         }
         $success = false;
         try {
@@ -181,15 +198,19 @@ class Functions
         $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
         $email = $data->почта ?? $data->email ?? '';
         $comment = $data->сообщение ?? $data->message ?? '';
+        $source = $data->источник_заявки ?? '';
+        $formId = $data->форма ?? '';
 
         $info = "Телефон: {$phone}";
         if ($name) $info .= "\nИмя: {$name}";
         if ($email) $info .= "\nEmail: {$email}";
+        if ($source) $info .= "\nИсточник: {$source}";
+        if ($formId) $info .= "\nФорма: {$formId}";
 
         // Добавляем все остальные поля формы (Тип жилья, Комнат, Площадь, Ремонт и т.д.)
         $extra = [];
         foreach ($data as $key => $value) {
-            if (!in_array($key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both'])) {
+            if (!in_array($key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both', 'источник_заявки', 'форма', 'website', '_ts'])) {
                 if (is_string($value) && $value !== '') {
                     $extra[] = "{$key}: {$value}";
                 }
@@ -202,7 +223,7 @@ class Functions
         $postData = http_build_query(['fields' => [
             'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
             'CATEGORY_ID' => 7,
-            'STAGE_ID' => 0,
+            'STAGE_ID' => 'DT7_1:NEW',
             'COMMENTS' => $info,
         ]]);
 

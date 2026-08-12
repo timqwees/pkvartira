@@ -667,6 +667,11 @@ footer a:hover {
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .stat-card:hover {
     transform: translateY(-4px);
@@ -678,19 +683,16 @@ footer a:hover {
     margin-bottom: 0.75rem;
     opacity: 0.8;
 }
-.stat-number {
-    font-size: 2.75rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #c2410c, #ea580c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    letter-spacing: -0.04em;
-}
-@media (min-width: 768px) {
-    .stat-number { font-size: 3.5rem; }
-}
+    .stat-number {
+        font-size: 2.75rem;
+        font-weight: 800;
+        color: #c2410c;
+        line-height: 1;
+        letter-spacing: -0.04em;
+    }
+    @media (min-width: 768px) {
+        .stat-number { font-size: 3.5rem; }
+    }
 .stat-label {
     font-size: 0.875rem;
     color: #64748b;
@@ -838,19 +840,32 @@ footer a:hover {
     font-weight: 700;
 }
 
-/* Hero stat badge */
+/* Hero stat badge — minimalist */
 .hero-stat {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.813rem;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.12);
+    gap: 7px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.92);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+}
+.hero-stat:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #fff;
+}
+.hero-stat i {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95em;
 }
 
 /* Gradient text accent */
@@ -907,6 +922,20 @@ footer a:hover {
 }
 .btn-pulse {
     animation: btn-pulse 2s infinite;
+}
+
+/* Hero overlay (background darkening) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Hero glow effect */

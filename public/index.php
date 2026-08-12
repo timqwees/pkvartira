@@ -166,8 +166,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
         "itemReviewed": {
           "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
         },
-        "ratingValue": "<?= htmlspecialchars(number_format((float) (empty($averageRating) ? 4.8 : $averageRating), 1, '.', '')); ?>",
-        "reviewCount": "<?= empty($reviewCount) ? 156 : (int) $reviewCount; ?>",
+        "ratingValue": "4.8",
+        "reviewCount": "156",
         "bestRating": "5"
       },
       {
@@ -246,17 +246,15 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
         <!-- Hero Content -->
         <section class="relative text-white py-12 md:py-32 bg-center bg-cover bg-no-repeat" style="background-image: url(<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp);">
-            <div
-                class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-black/70 via-black/40 to-transparent">
-            </div>
+            <div class="hero-overlay"></div>
             <div class="relative z-10 container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
                     <div class="max-w-4xl">
                         <h1 class="z-10 hero-title text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                             Ремонт в Москве без нервов:<br>
-                            - <strong class="text-orange-600">фиксированная</strong> цена,<br>
-                            - <strong class="text-orange-500">реальные</strong> сроки<br>
-                            - <strong class="text-orange-400">компенсация</strong>, если что-то пойдет не так
+                            - <strong class="text-orange-500">фиксированная</strong> цена,<br>
+                            - <strong class="text-orange-400">реальные</strong> сроки<br>
+                            - <strong class="text-orange-300">компенсация</strong>, если что-то пойдет не так
                         </h1>
                         <p class="z-10 hero-subtitle text-2xl mb-8 text-white max-w-3xl">
                             Приедем на замер в день обращения. Составим смету в <strong class="text-orange-500">3&nbsp;вариантах
@@ -264,7 +262,12 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             через <strong class="text-orange-500">2 дня</strong>
                         </p>
 
-                        <div class="flex items-center flex-wrap gap-2 mb-6">
+                        <div class="flex items-center flex-wrap gap-3 mb-6">
+                            <button data-button-dialog
+                                class="ripple inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-black/25 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-0.5 hover:scale-[1.03] transition-all duration-300 cursor-pointer">
+                                <i class="fa-solid fa-calculator"></i>
+                                <span>Рассчитать ремонта за <span class="text-orange-500"> 60 секунд</span></span>
+                            </button>
                             <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 5.0 рейтинг на Яндекс</span>
                             <span class="hero-stat"><i class="fa-solid fa-building"></i> 320+ объектов</span>
                             <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
@@ -278,137 +281,14 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                             <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
                         </div> -->
-
-                        <div class="relative">
-                            <button data-button-dialog
-                                class="ripple inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-7 md:px-9 py-3.5 md:py-4 rounded-xl text-sm md:text-lg font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300 w-full md:w-auto justify-center">
-                                <i class="fa-solid fa-calculator"></i>
-                                <span>Рассчитать ремонта за 60 секунд</span>
-                            </button>
-                        </div>
                     </div>
 
-                    <form action="/send/email" method="POST"
-                        class="w-full md:max-w-[560px] md:ml-auto -translate-y-10 mt-4 md:mt-0">
-                        <div
-                            class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-xl p-5 md:p-6">
-                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">Рассчитать стоимость</h2>
+                    <?php
+                    $ctaFormId = 'hero_glavnaya';
+                    $ctaExpandable = true;
+                    include './public/components/cta-form.php';
+                    ?>
 
-                            <div class="grid grid-cols-2 gap-2 bg-gray-100 p-1 rounded-xl mb-4" role="radiogroup"
-                                aria-label="Тип жилья">
-                                <input id="heroHousingNew" type="radio" name="Тип жилья" value="Новостройка" checked
-                                    class="sr-only peer/heroHousingNew">
-                                <label for="heroHousingNew"
-                                    class="w-full cursor-pointer py-2 rounded-lg text-sm md:text-base font-semibold text-gray-700 text-center peer-checked/heroHousingNew:bg-white peer-checked/heroHousingNew:shadow peer-checked/heroHousingNew:text-gray-900">Новостройка</label>
-
-                                <input id="heroHousingOld" type="radio" name="Тип жилья" value="Вторичка"
-                                    class="sr-only peer/heroHousingOld">
-                                <label for="heroHousingOld"
-                                    class="w-full cursor-pointer py-2 rounded-lg text-sm md:text-base font-semibold text-gray-700 text-center peer-checked/heroHousingOld:bg-white peer-checked/heroHousingOld:shadow peer-checked/heroHousingOld:text-gray-900">Вторичка</label>
-                            </div>
-
-                            <div class="mb-4">
-                                <div class="text-sm text-gray-700 mb-2">Комнат</div>
-                                <div class="grid grid-cols-4 gap-2">
-                                    <input id="heroRooms1" type="radio" name="Комнат" value="1" checked
-                                        class="sr-only peer/heroRooms1">
-                                    <label for="heroRooms1"
-                                        class="cursor-pointer py-2 rounded-lg border border-gray-200 bg-gray-100 font-semibold text-gray-800 text-center peer-checked/heroRooms1:bg-white peer-checked/heroRooms1:text-gray-900">1</label>
-
-                                    <input id="heroRooms2" type="radio" name="Комнат" value="2"
-                                        class="sr-only peer/heroRooms2">
-                                    <label for="heroRooms2"
-                                        class="cursor-pointer py-2 rounded-lg border border-gray-200 bg-gray-100 font-semibold text-gray-800 text-center peer-checked/heroRooms2:bg-white peer-checked/heroRooms2:text-gray-900">2</label>
-
-                                    <input id="heroRooms3" type="radio" name="Комнат" value="3"
-                                        class="sr-only peer/heroRooms3">
-                                    <label for="heroRooms3"
-                                        class="cursor-pointer py-2 rounded-lg border border-gray-200 bg-gray-100 font-semibold text-gray-800 text-center peer-checked/heroRooms3:bg-white peer-checked/heroRooms3:text-gray-900">3</label>
-
-                                    <input id="heroRooms4" type="radio" name="Комнат" value="4+"
-                                        class="sr-only peer/heroRooms4">
-                                    <label for="heroRooms4"
-                                        class="cursor-pointer py-2 rounded-lg border border-gray-200 bg-gray-100 font-semibold text-gray-800 text-center peer-checked/heroRooms4:bg-white peer-checked/heroRooms4:text-gray-900">4+</label>
-
-                                    <input id="studio" type="radio" name="Комнат" value="студия"
-                                        class="sr-only peer/studio">
-                                    <label for="studio"
-                                        class="cursor-pointer py-2 rounded-lg border border-gray-200 bg-gray-100 font-semibold text-gray-800 text-center peer-checked/studio:bg-white peer-checked/studio:text-gray-900">студия</label>
-
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <div class="flex items-center justify-between mb-2">
-                                    <div class="text-sm text-gray-700">Площадь</div>
-                                    <div class="text-sm font-semibold text-gray-900"><span id="value_range"></span> м²
-                                    </div>
-                                </div>
-                                <input id="RangeSize" name="Площадь" type="range" min="20" max="300" value="20"
-                                    aria-label="Площадь в квадратных метрах"
-                                    class="w-full accent-orange-500">
-                            </div>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    document.getElementById('value_range').textContent = '20';
-                                    document.getElementById('RangeSize').addEventListener('input', (event) => {
-                                        document.getElementById('value_range').textContent = event.target.value;
-                                    });
-                                });
-                            </script>
-
-                            <div class="mb-4">
-                                <div class="text-sm text-gray-700 mb-2">Ремонт</div>
-                                <select name="Ремонт"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-black"
-                                    aria-label="Тип ремонта">
-                                    <option value="Черновой ремонт">Черновой ремонт</option>
-                                    <option value="Чистовой ремонт">Чистовой ремонт</option>
-                                    <option value="Дизайнерский ремонт">Дизайнерский ремонт</option>
-                                    <option value="Косметических ремонт">Косметических ремонт</option>
-                                    <option value="Капитальный ремонт">Капитальный ремонт</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-5">
-                                <div class="text-sm text-gray-700 mb-2">Включить в расчёт</div>
-                                <div class="flex flex-wrap gap-2">
-                                    <input id="heroExtraDraft" type="checkbox" name="Включить в расчёт"
-                                        value="Черновой материал" class="sr-only peer/heroExtraDraft">
-                                    <label for="heroExtraDraft"
-                                        class="cursor-pointer px-4 py-2 rounded-lg border border-gray-200 bg-gray-100 text-sm font-semibold text-gray-800 peer-checked/heroExtraDraft:bg-orange-500 peer-checked/heroExtraDraft:text-white peer-checked/heroExtraDraft:border-orange-500">Черновой
-                                        материал</label>
-
-                                    <input id="heroExtraFinish" type="checkbox" name="Включить в расчёт2"
-                                        value="Чистовой материал" class="sr-only peer/heroExtraFinish">
-                                    <label for="heroExtraFinish"
-                                        class="cursor-pointer px-4 py-2 rounded-lg border border-gray-200 bg-gray-100 text-sm font-semibold text-gray-800 peer-checked/heroExtraFinish:bg-orange-500 peer-checked/heroExtraFinish:text-white peer-checked/heroExtraFinish:border-orange-500">Чистовой
-                                        материал</label>
-
-                                    <input id="heroExtraDesign" type="checkbox" name="Включить в расчёт3"
-                                        value="Дизайн-проект" class="sr-only peer/heroExtraDesign">
-                                    <label for="heroExtraDesign"
-                                        class="cursor-pointer px-4 py-2 rounded-lg border border-gray-200 bg-gray-100 text-sm font-semibold text-gray-800 peer-checked/heroExtraDesign:bg-orange-500 peer-checked/heroExtraDesign:text-white peer-checked/heroExtraDesign:border-orange-500">Дизайн-проект</label>
-                                </div>
-                            </div>
-
-                            <div class="mb-5 relative text-black">
-                                <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone
-                                    name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон" maxlength="15"
-                                    class="border w-full rounded-xl p-4" required>
-                                <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
-                                        class="text-red-500">*</span></span>
-                            </div>
-
-                            <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
-                            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-                            <button type="submit"
-                                class="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl text-base md:text-xl font-bold">
-                                Рассчитать стоимость
-                            </button>
-                        </div>
-                    </form>
                 </div>
 
             </div>
@@ -430,70 +310,69 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                     </p>
                 </div>
 
-                <form action="/send/email" method="POST" class="max-w-[95%] md:max-w-[80%] mx-auto">
-                    <div class="flex flex-col justify-center items-center gap-4">
-                        <div class="flex flex-col flex-wrap md:flex-row gap-3 md:gap-4 justify-center items-center">
+                <form action="/send/email" method="POST" data-form-id="quiz_glavnaya" class="max-w-5xl mx-auto">
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             <select name="тип жилья"
-                                class="w-full max-w-[350px] px-4 pr-8 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 custom-select text-sm md:text-base"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
                                 aria-label="Тип жилья">
-                                <option value="" selected disabled>Какой у вас тип жилья?</option>
-                                <option value="Новостройка (бетонные стены)">Новостройка (бетонные стены)</option>
-                                <option value="Новостройка (с предчистовой отделкой / White Box)">Новостройка (с
-                                    предчистовой
-                                    отделкой / White Box)</option>
-                                <option value="Вторичное жилье (старый фонд)">Вторичное жилье (старый фонд)</option>
-                                <option value="Коттедж / Загородный дом">Коттедж / Загородный дом</option>
+                                <option value="" selected disabled>Тип жилья?</option>
+                                <option value="Новостройка">Новостройка</option>
+                                <option value="Вторичка">Вторичка</option>
+                                <option value="Коттедж">Коттедж / Загородный дом</option>
                             </select>
                             <select name="площадь обьекта"
-                                class="w-full max-w-[350px] px-4 pr-8 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 custom-select text-sm md:text-base"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
                                 aria-label="Площадь объекта">
-                                <option value="" selected disabled>Какая площадь объекта?</option>
-                                <!-- range 20-150 -->
+                                <option value="" selected disabled>Площадь?</option>
                                 <?php for ($i = 20; $i <= 150; $i++) { ?>
                                     <option value="<?php echo $i; ?>"><?php echo $i; ?> м²</option>
                                 <?php } ?>
                             </select>
                             <select name="Стиль ремонта"
-                                class="w-full max-w-[350px] px-4 pr-8 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 custom-select text-sm md:text-base"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
                                 aria-label="Стиль ремонта">
-                                <option value="" selected disabled>В каком стиле планируете ремонт?</option>
-                                <option value="Современный / Минимализм">Современный / Минимализм</option>
-                                <option value="Классический / Неоклассика">Классический / Неоклассика</option>
+                                <option value="" selected disabled>Стиль?</option>
+                                <option value="Современный">Современный</option>
+                                <option value="Классический">Классический</option>
                                 <option value="Лофт">Лофт</option>
                                 <option value="Скандинавский">Скандинавский</option>
-                                <option value="Еще не определился(-ась)">Еще не определился(-ась)</option>
+                                <option value="Не определился">Ещё не определился</option>
                             </select>
                             <select name="Дата планировки"
-                                class="w-full max-w-[350px] px-4 pr-8 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 custom-select text-sm md:text-base"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
                                 aria-label="Когда планируете начинать работы">
-                                <option value="" selected disabled>Когда планируете начинать работы?</option>
-                                <option value="В ближайшее время (нужен замер)">В ближайшее время (нужен замер)</option>
-                                <option value="Через 1–2 месяца">Через 1–2 месяца</option>
-                                <option value="Просто прицениваюсь на будущее">Просто прицениваюсь на будущее</option>
-                                <option value="Еще не определился(-ась)">Еще не определился(-ась)</option>
+                                <option value="" selected disabled>Когда начать?</option>
+                                <option value="Сейчас">В ближайшее время</option>
+                                <option value="Через 1–2 мес">Через 1–2 месяца</option>
+                                <option value="На будущее">Просто прицениваюсь</option>
                             </select>
                             <select name="Куда прислать расчет?"
-                                class="w-full max-w-[350px] px-4 pr-8 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 custom-select text-sm md:text-base"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
                                 aria-label="Куда прислать расчет">
-                                <option value="" selected disabled>Куда прислать расчет?</option>
+                                <option value="" selected disabled>Куда прислать?</option>
                                 <option value="WhatsApp">WhatsApp</option>
                                 <option value="Telegram">Telegram</option>
                                 <option value="MAX">MAX</option>
                             </select>
-                            <div class="relative text-blackw-full">
+                            <div class="relative">
                                 <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone
-                                    name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон" maxlength="15"
-                                    class="border w-full rounded-xl p-4" required>
-                                <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-black">Телефон <span
-                                        class="text-red-500">*</span></span>
+                                    name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition" required>
                             </div>
                         </div>
-                        <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
-                        <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-                        <button type="submit"
-                            class="cta-button relative bg-orange-500 text-white px-6 md:px-8 py-3 rounded-xl text-base md:text-xl w-full md:w-auto">
-                            Получить расчет стоимости
-                        </button>
+                        <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
+                                <input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0">
+                                <span>Согласен на обработку персональных данных</span>
+                            </label>
+                            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
+                            <button type="submit"
+                                class="cta-button bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl text-base font-bold shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all whitespace-nowrap">
+                                Получить расчёт бесплатно
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 text-center mt-3">Ответим за 5 минут</p>
                     </div>
                 </form>
             </div>
@@ -551,9 +430,9 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                     </p>
                 </div>
 
-                <!-- swiper -->
-                <div class="swiper swiper-type-2 py-8 md:py-14 mx-auto">
-                    <div class="swiper-wrapper flex items-stretch">
+                <!-- Desktop: all 4 cards in grid | Mobile: swiper -->
+                <div class="swiper swiper-type-2 md:hidden">
+                    <div class="swiper-wrapper">
 
                         <!-- Slide 1: Косметический ремонт -->
                         <div class="swiper-slide !h-auto">
@@ -635,7 +514,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
                                         <p class="text-gray-600 text-sm mb-2">
                                             <strong class="text-gray-800">Что входит:</strong> Полная замена электрики и
-                                            сантехники, возведение перегородок, выравнивание стен по маякам, стяжка
+                                            сантехники, возведение перегородек, выравнивание стен по маякам, стяжка
                                             пола,
                                             чистовая отделка.
                                         </p>
@@ -759,6 +638,210 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
                     <div class="swiper-pagination mt-8"></div>
                     <div class="swiper-button-next" aria-label="Следующий формат ремонта"></div>
                     <div class="swiper-button-prev" aria-label="Предыдущий формат ремонта"></div>
+                </div>
+
+                <!-- Desktop grid: все 4 карты сразу видны -->
+                <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+
+                    <!-- Card 1: Косметический ремонт -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
+                        <div class="relative">
+                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/cosmetic.png"
+                                alt="Косметический ремонт — быстрый ремонт квартиры по цене | ПКвартира" title="Косметический ремонт — от 8 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                width="640" height="360" decoding="async" loading="lazy">
+                            <div
+                                class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
+                                от 8 000 ₽/м²
+                            </div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Косметический ремонт</h3>
+
+                                <div class="mb-3">
+                                    <span class="text-sm text-gray-500">Срок:</span>
+                                    <span class="text-sm font-semibold text-[#3F6A9B]">от 14 дней</span>
+                                </div>
+
+                                <p class="text-gray-600 text-sm mb-2">
+                                    <strong class="text-gray-800">Для кого:</strong> Если нужно обновить интерьер
+                                    перед заездом или для сдачи в аренду.
+                                </p>
+
+                                <p class="text-gray-600 text-sm mb-2">
+                                    <strong class="text-gray-800">Что входит:</strong> Демонтаж старых покрытий,
+                                    переклейка обоев, укладка ламината, покраска потолков, замена розеток.
+                                </p>
+
+                                <p class="text-gray-600 text-sm mb-4">
+                                    <strong class="text-green-600">Ваша выгода:</strong> Самый быстрый способ
+                                    превратить «бабушкин ремонт» в современное жилье без огромных вложений.
+                                </p>
+                            </div>
+
+                            <a href="/calculator"
+                                class="block w-full text-center bg-[#3F6A9B] text-white px-4 py-2 rounded-lg hover:bg-[#2d527a] transition text-sm font-semibold mt-auto">
+                                Рассчитать для моей площади
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Капитальный ремонт (Популярный) -->
+                    <div class="relative">
+                        <div
+                            class="absolute -top-8 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-t-lg text-xs font-bold z-20 shadow-md">
+                            Самый популярный
+                        </div>
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col pt-4">
+                            <div class="relative">
+                                <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/capital.png"
+                                    alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | ПКвартира" title="Капитальный ремонт — от 13 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                    width="640" height="360" decoding="async" loading="lazy">
+                                <div
+                                    class="absolute top-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                    от 13 000 ₽/м²
+                                </div>
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-800 mb-2">Капитальный ремонт</h3>
+
+                                    <div class="mb-3">
+                                        <span class="text-sm text-gray-500">Срок:</span>
+                                        <span class="text-sm font-semibold text-orange-600">от 45 дней</span>
+                                    </div>
+
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        <strong class="text-gray-800">Для кого:</strong> Для новостроек в бетоне или
+                                        «вторички» с изношенными коммуникациями.
+                                    </p>
+
+                                    <p class="text-gray-600 text-sm mb-2">
+                                        <strong class="text-gray-800">Что входит:</strong> Полная замена электрики и
+                                        сантехники, возведение перегородек, выравнивание стен по маякам, стяжка
+                                        пола,
+                                        чистовая отделка.
+                                    </p>
+
+                                    <p class="text-gray-600 text-sm mb-4">
+                                        <strong class="text-green-600">Ваша выгода:</strong> Полное обновление всех
+                                        инженерных систем. Забудете о проблемах с проводкой или трубами на ближайшие
+                                        20
+                                        лет.
+                                    </p>
+                                </div>
+
+                                <a href="/calculator"
+                                    class="block w-full text-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition text-sm font-semibold mt-auto">
+                                    Рассчитать для моей площади
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Дизайнерский ремонт -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
+                        <div class="relative">
+                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
+                                alt="Дизайнерский ремонт — авторский ремонт с дизайн-проектом | ПКвартира" title="Дизайнерский ремонт — от 18 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                width="640" height="360" decoding="async" loading="lazy">
+                            <div
+                                class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
+                                от 18 000 ₽/м²
+                            </div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Дизайнерский ремонт</h3>
+
+                                <div class="mb-3">
+                                    <span class="text-sm text-gray-500">Срок:</span>
+                                    <span class="text-sm font-semibold text-[#3F6A9B]">от 60 дней</span>
+                                </div>
+
+                                <p class="text-gray-600 text-sm mb-2">
+                                    <strong class="text-gray-800">Для кого:</strong> Для тех, кому важна уникальная
+                                    эстетика, перепланировка и сложные решения.
+                                </p>
+
+                                <p class="text-gray-600 text-sm mb-2">
+                                    <strong class="text-gray-800">Что входит:</strong> Работа по индивидуальному
+                                    дизайн-проекту, многоуровневое освещение, скрытые двери, теневые профили,
+                                    декоративная штукатурка.
+                                </p>
+
+                                <p class="text-gray-600 text-sm mb-4">
+                                    <strong class="text-green-600">Ваша выгода:</strong> Мы воплощаем в жизнь самые
+                                    сложные идеи. Авторский надзор и комплектация объекта материалами — на нас.
+                                </p>
+                            </div>
+
+                            <a href="/calculator"
+                                class="block w-full text-center bg-[#3F6A9B] text-white px-4 py-2 rounded-lg hover:bg-[#2d527a] transition text-sm font-semibold mt-auto">
+                                Рассчитать для моей площади
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Премиум и элитный ремонт -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
+                        <div class="relative">
+                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
+                                alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | ПКвартира" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                width="640" height="360" decoding="async" loading="lazy">
+                            <div
+                                class="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                от 25 000 ₽/м²
+                            </div>
+                            <div class="absolute top-2 left-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                                PREMIUM
+                            </div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Премиум и элитный ремонт</h3>
+
+                                <div class="mb-3">
+                                    <span class="text-sm text-gray-500">Срок:</span>
+                                    <span class="text-sm font-semibold text-yellow-600">от 90 дней</span>
+                                </div>
+
+                                <p class="text-gray-600 text-sm mb-2">
+                                    <strong class="text-gray-800">Для кого:</strong> Для владельцев бизнес-класса
+                                    и премиум-недвижимости. Максимальное качество и эксклюзивность.
+                                </p>
+
+                                <p class="text-gray-600 text-sm mb-2">
+                                    <strong class="text-gray-800">Что входит:</strong> Итальянская плитка, паркет,
+                                    авторская мебель, умный дом, сложные архитектурные решения, полная
+                                    автоматизация.
+                                </p>
+
+                                <p class="text-gray-600 text-sm mb-4">
+                                    <strong class="text-green-600">Ваша выгода:</strong> Персональный архитектор,
+                                    комплектация премиальными материалами, гарантия 5 лет на все работы.
+                                </p>
+                            </div>
+
+                            <a href="/calculator"
+                                class="block w-full text-center bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-lg hover:from-yellow-600 hover:to-orange-600 transition text-sm font-semibold mt-auto shadow-md">
+                                Рассчитать для моей площади
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA: Все форматы -->
+                <div class="text-center mt-10">
+                    <a href="/services/pod-klyuch"
+                        class="inline-flex items-center gap-2 bg-[#0F172A] text-white px-6 py-3 rounded-lg hover:bg-[#1e293b] transition text-sm font-semibold shadow-md">
+                        <i class="fas fa-th-large"></i>
+                        Все форматы и виды ремонта (71 услуга)
+                    </a>
                 </div>
 
                 <!-- Footer: Trigger доверия -->
