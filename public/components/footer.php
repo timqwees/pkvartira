@@ -237,21 +237,16 @@
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof window.intlTelInput !== 'function') return;
         document.querySelectorAll("[data-type-phone]").forEach(function(input) {
-            input.setAttribute('autocomplete', 'tel');
+            // input.setAttribute('autocomplete', 'tel');
             input.setAttribute('inputmode', 'tel');
             // Выбор региона (флаг страны). Автоформат библиотеки отключён —
             // форматирование выполняет наш обработчик ниже.
-            input._iti = window.intlTelInput(input, {
-                initialCountry: "ru",
-                separateDialCode: false,
-                formatAsYouType: false,
-                autoPlaceholder: "off",
-            });
-
-            // Форматирование: +7 +7 (999) 123-45-67
-            input.addEventListener('focus', function() {
-                if (!this.value) this.value = '+7 ';
-            });
+            // input._iti = window.intlTelInput(input, {
+            //     initialCountry: "ru",
+            //     separateDialCode: false,
+            //     formatAsYouType: false,
+            //     autoPlaceholder: "off",
+            // });
 
             input.addEventListener('input', function() {
                 var x = this.value.replace(/\D/g, '');
