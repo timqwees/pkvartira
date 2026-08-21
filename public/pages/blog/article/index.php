@@ -12,6 +12,11 @@ if ($id > 0) {
     }
 }
 
+// SEO: несуществующая статья = настоящий 404 (защита от soft-404)
+if (!$articleData) {
+    http_response_code(404);
+}
+
 $seo = Setting\Route\Function\Functions::seo([
     'title' => $articleData['title'] ?? 'Статья не найдена',
     'description' => $articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.',
@@ -34,9 +39,9 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> — блог о ремонте квартир | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="<?= $articleData ? 'index, follow' : 'noindex, nofollow'; ?>">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -73,115 +78,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <?= $seo['jsonLd']; ?>
     </script>
 
-    <?php include_once './public/components/head-includes.php'; ?>
-                    "width": 300,
-                    "height": 300
-                },
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-                    "contactType": "customer service",
-                    "availableLanguage": ["Russian"],
-                    "areaServed": "RU"
-                },
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-                    "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-                    "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-                    "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-                    "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-                },
-                "sameAs": [
-                    <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                ],
-                "image": <?= json_encode($site['shareImageUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-            },
-            {
-                "@type": "WebSite",
-                "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-                "publisher": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU",
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": <?= json_encode($site['baseUrl'] . '/search?q={search_term_string}', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    "query": "required name=search_term_string"
-                }
-            },
-            {
-                "@type": "WebPage",
-                "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode(($articleData['title'] ?? 'Статья не найдена') . ' — ' . $site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.', JSON_UNESCAPED_UNICODE); ?>,
-                "isPartOf": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "about": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "BlogPosting",
-                "@id": <?= json_encode($site['canonicalUrl'] . '#article', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "mainEntityOfPage": {
-                    "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "headline": <?= json_encode($articleData['title'] ?? 'Статья не найдена', JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.', JSON_UNESCAPED_UNICODE); ?>,
-                "image": <?= json_encode($articleData['image'] ?? $site['shareImageUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "datePublished": <?= json_encode(date('c', strtotime($articleData['created_at'] ?? date('c'))), JSON_UNESCAPED_UNICODE); ?>,
-                "dateModified": <?= json_encode(date('c', strtotime($articleData['updated_at'] ?? $articleData['created_at'] ?? date('c'))), JSON_UNESCAPED_UNICODE); ?>,
-                "author": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "publisher": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "articleSection": <?= json_encode($articleData['category'] ?? 'Ремонт', JSON_UNESCAPED_UNICODE); ?>,
-                "keywords": <?= json_encode($articleData['tags'] ?? 'ремонт квартиры, дизайн интерьера', JSON_UNESCAPED_UNICODE); ?>,
-                "wordCount": <?= (int) str_word_count(strip_tags($articleData['content'] ?? '')); ?>,
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "BreadcrumbList",
-                "@id": <?= json_encode($site['canonicalUrl'] . '#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Блог",
-                        "item": <?= json_encode($site['baseUrl'] . '/blogs', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": <?= json_encode($articleData['title'] ?? 'Статья', JSON_UNESCAPED_UNICODE); ?>,
-                        "item": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            }
-        ]
-    }
-    </script>
 </head>
 
 <body class="bg-white">

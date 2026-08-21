@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Акции на ремонт квартир 2026 — скидки до 30%',
-    'description' => 'Акции на ремонт квартир в Москве 2026: бесплатный дизайн-проект при заказе под ключ, скидки до 30% на комплексный ремонт, сезонные предложения. Успейте заказать ремонт по выгодной цене!',
+    'description' => 'Акции на ремонт квартир в Москве 2026: дизайн-проект в подарок при заказе под ключ, скидки до 30%, бесплатный замер. Закажите ремонт по выгодной цене!',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/stocks',
     'type' => 'website',
@@ -112,7 +112,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <i class="fas fa-gift text-2xl text-orange-500"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Бесплатный дизайн-проект</h3>
+                            <h2 class="text-xl font-bold text-gray-900 mb-2">Бесплатный дизайн-проект</h2>
                             <p class="text-gray-600 mb-4">При заказе ремонта под ключ — полный дизайн-проект с 3D-визуализацией в подарок (ценность до 50 000 ₽).</p>
                             <a href="/contact" class="text-orange-600 font-semibold hover:underline">Узнать условия <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
@@ -125,7 +125,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <i class="fas fa-percent text-2xl text-green-500"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Скидка до 30% на ремонт</h3>
+                            <h2 class="text-xl font-bold text-gray-900 mb-2">Скидка до 30% на ремонт</h2>
                             <p class="text-gray-600 mb-4">Сезонные скидки на комплексный ремонт под ключ. Чем больше объём работ — тем больше скидка.</p>
                             <a href="/contact" class="text-green-600 font-semibold hover:underline">Рассчитать скидку <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
@@ -138,7 +138,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <i class="fas fa-ruler-combined text-2xl text-blue-500"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Бесплатный замер и расчёт</h3>
+                            <h2 class="text-xl font-bold text-gray-900 mb-2">Бесплатный замер и расчёт</h2>
                             <p class="text-gray-600 mb-4">Инженер приедет в день обращения, замерит объект и подготовит 3 варианта сметы под ваш бюджет. Бесплатно.</p>
                             <a href="/calculator" class="text-blue-600 font-semibold hover:underline">Заказать замер <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
@@ -151,7 +151,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <i class="fas fa-shield-alt text-2xl text-purple-500"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Гарантия 3 года</h3>
+                            <h2 class="text-xl font-bold text-gray-900 mb-2">Гарантия 3 года</h2>
                             <p class="text-gray-600 mb-4">Официальная гарантия на все выполненные работы. На скрытые дефекты ответственность не ограничена сроком.</p>
                             <a href="/dogovor-obrazec" class="text-purple-600 font-semibold hover:underline">Смотреть договор <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>

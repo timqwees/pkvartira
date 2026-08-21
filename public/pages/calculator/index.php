@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Калькулятор ремонта квартиры — рассчитать стоимость под ключ онлайн | ПКвартира</title>
+    <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | ПКвартира</title>
     <meta name="description"
-        content="Онлайн-калькулятор ремонта квартиры: рассчитайте точную стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы, сложность работ. Мгновенный результат бесплатно.">
+        content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно.">
     <meta name="keywords"
         content="калькулятор ремонта квартиры, расчёт стоимости ремонта, сколько стоит ремонт, ремонт под ключ цена">
     <meta name="robots" content="index, follow">
@@ -167,6 +167,12 @@
                             квартиры</h1>
                         <p class="mt-1 text-[13px] text-[#7a7f8c]">Рассчитайте стоимость ремонта квартиры за <span
                                 class="font-bold">1 минуту</span></p>
+                        <p class="mt-3 flex items-center gap-2 text-[13px] text-[#4b5563] bg-[#fff7ed] border border-[#fed7aa] rounded-lg px-3 py-2">
+                            <i class="fa-solid fa-ruler-combined text-[#f97316]"></i>
+                            <span>Не знаете площадь квартиры? Посчитайте её за 10 секунд в нашем
+                                <a href="/kalkulyator-ploshchadi" class="font-extrabold text-[#ea580c] hover:underline">калькуляторе площади онлайн&nbsp;→</a>
+                            </span>
+                        </p>
                     </div>
 
                     <div class="px-6 pb-6">
@@ -611,6 +617,29 @@
                         </div>
 
                     </div>
+                </div>
+
+                <!-- Калькулятор площади: перелинковка -->
+                <div
+                    class="mt-6 bg-white rounded-2xl border border-[#e6e7ee] shadow-[0_10px_30px_rgba(0,0,0,0.08)] p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-[#fff7ed] border border-[#fed7aa] flex items-center justify-center text-[#f97316] text-2xl shrink-0">
+                        <i class="fa-solid fa-vector-square"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-[17px] md:text-[19px] font-extrabold text-[#2a2e3b]">
+                            Калькулятор площади комнаты онлайн
+                        </h2>
+                        <p class="mt-1 text-[13px] text-[#7a7f8c] leading-relaxed">
+                            Введите длину и ширину — мгновенно узнаете площадь комнаты, стен, пола и потолка в м².
+                            Формулы для прямоугольных и сложных помещений + перевод площади в стоимость ремонта.
+                        </p>
+                    </div>
+                    <a href="/kalkulyator-ploshchadi"
+                        class="shrink-0 inline-flex items-center justify-center gap-2 h-[46px] px-6 rounded-lg bg-[#f97316] hover:bg-[#ea580c] text-white text-[13px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] transition whitespace-nowrap">
+                        Посчитать площадь
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div

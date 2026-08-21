@@ -295,6 +295,9 @@ class Routes extends Network
     public static function auto_element(string $path, array $params = [])
     {
         if (file_exists($path)) {
+            // SEO: Last-Modified по времени изменения шаблона страницы
+            $mtime = filemtime($path);
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
             if (!empty($params)) {
                 extract($params, EXTR_SKIP);
             }

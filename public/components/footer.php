@@ -34,7 +34,7 @@
             </div>
 
             <div>
-                <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Услуги</h5>
+                <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Услуги</div>
                 <ul class="space-y-2.5">
                     <li><a href="/services/pod-klyuch" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт квартир под ключ</a></li>
                     <li><a href="/services/doma" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт домов</a></li>
@@ -48,13 +48,13 @@
             </div>
 
             <div>
-                <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Компания</h5>
+                <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Компания</div>
                 <ul class="space-y-2.5">
                     <li><a href="/about" class="text-gray-400 hover:text-orange-500 transition text-sm">О нас</a></li>
                     <li><a href="/portfolio" class="text-gray-400 hover:text-orange-500 transition text-sm">Портфолио</a></li>
                     <li><a href="/reviews" class="text-gray-400 hover:text-orange-500 transition text-sm">Отзывы</a></li>
                     <li><a href="/stocks" class="text-gray-400 hover:text-orange-500 transition text-sm">Акции</a></li>
-                    <li><a href="/blog" class="text-gray-400 hover:text-orange-500 transition text-sm">Блог</a></li>
+                    <li><a href="/blogs" class="text-gray-400 hover:text-orange-500 transition text-sm">Блог</a></li>
                     <li><a href="/contact" class="text-gray-400 hover:text-orange-500 transition text-sm">Контакты</a></li>
                     <li><a href="/smeta-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm">Смета на ремонт: образец</a></li>
                     <li><a href="/dogovor-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm">Договор на ремонт: шаблон</a></li>
@@ -63,7 +63,7 @@
             </div>
 
             <div>
-                <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Контакты</h5>
+                <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Контакты</div>
                 <ul class="space-y-3">
                     <li>
                         <a href="tel:<?= $site['phone']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
@@ -88,7 +88,7 @@
         </div>
 
         <div class="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8">
-            <h5 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-center md:text-left">Районы работ</h5>
+            <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-center md:text-left">Районы работ</div>
             <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1.5 text-sm text-gray-400">
                 <a href="/services/lyubertsy" class="hover:text-orange-500 transition">Люберцы</a>
                 <a href="/services/odintsovo" class="hover:text-orange-500 transition">Одинцово</a>

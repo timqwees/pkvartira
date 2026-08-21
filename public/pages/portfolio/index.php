@@ -46,7 +46,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         'image' => $item['photos'][0] ?? $site['shareImageUrl'],
                     ],
                 ];
-            }, $portfolio),
+            }, $portfolio, array_keys($portfolio)),
         ],
     ],
 ]);
@@ -87,78 +87,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
     <?= $seo['jsonLd']; ?>
-    </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
-                        "@type": "ImageObject",
-                        "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                        "width": 300,
-                        "height": 300
-                    },
-                    "contactPoint": {
-                        "@type": "ContactPoint",
-                        "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-                        "contactType": "customer service",
-                        "availableLanguage": ["Russian"]
-                    },
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-                        "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-                        "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-                        "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-                        "addressCountry": "RU"
-                    },
-                    "sameAs": [
-                        <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                        <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                        <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    ]
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                    "description": "Выполненные проекты для клиентов",
-                    "publisher": {
-                        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    "inLanguage": "ru-RU"
-                },
-                {
-                    "@type": "WebPage",
-                    "@id": <?= json_encode($site['baseUrl'] . '/portfolio/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "url": <?= json_encode($site['baseUrl'] . '/portfolio/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "name": "Наши проекты",
-                    "description": "Примеры выполненных объектов: фото, планировки и сроки.",
-                    "isPartOf": {
-                        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    "about": {
-                        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    "inLanguage": "ru-RU"
-                },
-                {
-                    "@type": "BreadcrumbList",
-                    "@id": <?= json_encode($site['baseUrl'] . '/portfolio/#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "itemListElement": [{
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Главная",
-                            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "Портфолио",
-                            "item": <?= json_encode($site['baseUrl'] . '/portfolio/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                        }
-                    ]
-                }
-            ]
-        }
     </script>
 
     <?php include_once './public/components/head-includes.php'; ?>

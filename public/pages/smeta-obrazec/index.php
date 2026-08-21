@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Смета на ремонт квартиры: образец, скачать бесплатно',
-    'description' => 'Смета на ремонт квартиры — образец с ценами 2026 года. Скачайте готовую смету в DOCX бесплатно, посмотрите структуру и расценки по этапам. Бесплатный расчёт с выездом на замер в Москве.',
+    'description' => 'Смета на ремонт квартиры — образец с ценами 2026. Скачайте готовую смету в DOCX бесплатно. Структура и расценки по этапам. Расчёт с выездом на замер в Москве.',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/renovation-format/cosmetic.png',
     'url' => $site['baseUrl'] . '/smeta-obrazec',
     'type' => 'article',
@@ -80,50 +80,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
     <?= $seo['jsonLd']; ?>
-    </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
-                            "@type": "Answer",
-                            "text": "У нас составление сметы — бесплатно: приедем на замер в день обращения и посчитаем работы и материалы. Образец сметы можно скачать в формате DOCX и заполнить самостоятельно."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Что входит в смету на ремонт квартиры?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Смета включает демонтажные работы, черновую отделку (стяжка, штукатурка, шпаклёвка), электромонтаж, сантехнику и чистовые работы с количеством, ценой за единицу и итоговой суммой по каждому этапу."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Можно ли скачать образец сметы на ремонт бесплатно?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Да, образец сметы на ремонт квартиры с ценами можно скачать бесплатно в формате DOCX на этой странице. Он подходит как основа для вашего расчёта."
-                        }
-                    }
-                ]
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Смета на ремонт квартиры: образец",
-                        "item": <?= json_encode($site['baseUrl'] . '/smeta-obrazec', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            }
-        ]
-    }
     </script>
 
     <?php include_once './public/components/head-includes.php'; ?>

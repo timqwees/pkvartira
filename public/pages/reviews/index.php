@@ -24,18 +24,15 @@ $seo = Setting\Route\Function\Functions::seo([
     ],
     'schema' => [
         [
-            '@type' => 'ReviewPage',
-            'review' => [
-                '@type' => 'AggregateRating',
-                'itemReviewed' => [
-                    '@type' => 'LocalBusiness',
-                    'name' => $site['name'],
-                ],
-                'ratingValue' => '5.0',
-                'reviewCount' => '90',
-                'bestRating' => '5',
-                'worstRating' => '1',
+            '@type' => 'AggregateRating',
+            'itemReviewed' => [
+                '@type' => 'LocalBusiness',
+                'name' => $site['name'],
             ],
+            'ratingValue' => '4.8',
+            'reviewCount' => '156',
+            'bestRating' => '5',
+            'worstRating' => '1',
         ],
     ],
 ]);
@@ -77,78 +74,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <script type="application/ld+json">
     <?= $seo['jsonLd']; ?>
     </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-          "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-        },
-        "sameAs": [
-          <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "publisher": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "WebPage",
-        "@id": <?= json_encode($site['baseUrl'] . '/reviews/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'] . '/reviews', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": "Отзывы клиентов — <?= htmlspecialchars($site['name']); ?>",
-        "description": "Отзывы клиентов о ремонте квартир и домов под ключ от <?= htmlspecialchars($site['name']); ?>. Реальные мнения и оценки.",
-        "isPartOf": {
-          "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "about": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "AggregateRating",
-        "@id": <?= json_encode($site['baseUrl'] . '/reviews/#rating', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "itemReviewed": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "ratingValue": "4.8",
-        "reviewCount": "156",
-        "bestRating": "5"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": <?= json_encode($site['baseUrl'] . '/reviews/#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Отзывы",
-            "item": <?= json_encode($site['baseUrl'] . '/reviews', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
 </head>

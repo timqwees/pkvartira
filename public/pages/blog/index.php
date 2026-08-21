@@ -290,7 +290,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     </ul>
 
                     <div class="mt-6">
-                        <a href="/services"
+                        <a href="/services/pod-klyuch"
                             class="inline-flex items-center h-9 px-4 rounded-md bg-[#2563eb] text-white text-sm font-medium hover:bg-[#1d4ed8] transition-colors">
                             Все услуги компании
                             <i class="fa-solid fa-chevron-right ml-1.5 text-[10px]"></i>

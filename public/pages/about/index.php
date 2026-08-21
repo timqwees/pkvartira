@@ -2,8 +2,8 @@
 $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
-    'title' => 'Ремонт квартир в Москве — компания с 10-летним опытом, 300+ проектов',
-    'description' => 'ПКвартира — профессиональный ремонт квартир под ключ в Москве с 2016 года. 300+ проектов, штатные мастера, фиксированная смета, гарантия 3 года. Работаем официально по договору. Бесплатный замер и расчёт.',
+    'title' => 'Ремонт квартир в Москве — 10 лет опыта, 300+ проектов',
+    'description' => 'ПКвартира — ремонт квартир под ключ в Москве с 2016 года. 300+ проектов, штатные мастера, фиксированная смета, гарантия 3 года. Работаем по договору. Замер бесплатно.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/about',
     'type' => 'website',
@@ -52,60 +52,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <script type="application/ld+json">
     <?= $seo['jsonLd']; ?>
     </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
-                "sameAs": [
-                    <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                ]
-            },
-            {
-                "@type": "WebSite",
-                "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-                "publisher": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "AboutPage",
-                "@id": <?= json_encode($site['baseUrl'] . '/about/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'] . '/about', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": "О компании <?= htmlspecialchars($site['name']); ?> — ремонт квартир под ключ",
-                "description": "<?= htmlspecialchars($site['name']); ?> — профессиональный ремонт квартир и домов под ключ. Опыт работы более 10 лет, гарантия качества, прозрачные цены.",
-                "isPartOf": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "about": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "BreadcrumbList",
-                "@id": <?= json_encode($site['baseUrl'] . '/about/#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "О компании",
-                        "item": <?= json_encode($site['baseUrl'] . '/about', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            }
-        ]
-    }
-  </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
 </head>

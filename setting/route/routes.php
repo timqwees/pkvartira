@@ -78,7 +78,7 @@ Routes::get('/llms-full.txt', function () {
     readfile(dirname(__DIR__, 2) . '/public/llms-full.txt');
 });
 
-Routes::get('/robots', function() {
+Routes::get('/robots.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	include_once 'public/robots.php';
 });

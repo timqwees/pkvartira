@@ -2,7 +2,7 @@
 $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
-    'title' => 'Контакты — заказать ремонт квартиры в Москве, телефон +7 495 473-17-37',
+    'title' => 'Контакты — заказать ремонт квартиры в Москве',
     'description' => 'ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 30 минут. Работаем ежедневно.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/contact',
@@ -51,52 +51,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <script type="application/ld+json">
     <?= $seo['jsonLd']; ?>
     </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
-        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "publisher": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "WebPage",
-        "@id": <?= json_encode($site['baseUrl'] . '/contact/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'] . '/contact', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": "Контакты — <?= htmlspecialchars($site['name']); ?>",
-        "description": "Контактная информация <?= htmlspecialchars($site['name']); ?>. Телефон, адрес, WhatsApp, Telegram. Бесплатная консультация и выезд на объект.",
-        "isPartOf": {
-          "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "about": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": <?= json_encode($site['baseUrl'] . '/contact/#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Контакты",
-            "item": <?= json_encode($site['baseUrl'] . '/contact', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
 </head>

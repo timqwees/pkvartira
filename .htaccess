@@ -39,12 +39,10 @@ RewriteBase /
 
 # Редирект sitemap на динамический генератор (все через PHP-роутер)
 
-# 0. Редирект с портом :443 на URL без порта (301)
-RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]
-RewriteRule ^(.*)$ https://%1pkvartira.ru/$1 [R=301,L]
-
-# 0.1. Редирект www → без www (301)
-RewriteCond %{HTTP_HOST} ^www\.pkvartira\.ru$ [NC]
+# 0. Редирект на главное зеркало ОДНИМ шагом (301):
+# http→https, www→без www, порт→без порта — любое несовпадение с зеркалом
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^pkvartira\.ru$ [NC]
 RewriteRule ^(.*)$ https://pkvartira.ru/$1 [R=301,L]
 
 # 1. Редирект с двойного слэша на одинарный (301)

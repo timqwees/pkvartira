@@ -83,50 +83,6 @@ $seo = Setting\Route\Function\Functions::seo([
     </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
-                            "@type": "Answer",
-                            "text": "В договоре подряда на ремонт должны быть: предмет договора со ссылкой на смету, стоимость и порядок оплаты, сроки работ, обязанности сторон, порядок приёмки, гарантийные обязательства и ответственность за просрочку."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Можно ли скачать шаблон договора на ремонт бесплатно?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Да, шаблон договора на ремонт квартиры можно скачать бесплатно в формате DOCX на этой странице. Он включает все ключевые разделы и может быть заполнен в любом текстовом редакторе."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Какую гарантию даёт компания на ремонт квартиры?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Мы даём гарантию 36 месяцев на все выполненные работы — она фиксируется в договоре. На скрытые дефекты ответственность также несёт подрядчик в течение гарантийного срока."
-                        }
-                    }
-                ]
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Договор на ремонт квартиры: шаблон",
-                        "item": <?= json_encode($site['baseUrl'] . '/dogovor-obrazec', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            }
-        ]
-    }
-    </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
 </head>
 
 <body class="bg-white">
@@ -225,8 +181,8 @@ $seo = Setting\Route\Function\Functions::seo([
                 <li>гарантия 36 месяцев на все работы — устранение недостатков за наш счёт.</li>
             </ul>
             <p class="text-gray-600 leading-relaxed">
-                Подробнее о том, сколько времени занимает ремонт по такому договору, читайте в статье
-                <a href="/blog/article/15" class="text-blue-600 font-semibold hover:underline">«Сколько по времени ремонтируют комнату»</a>.
+                Подробнее о том, сколько времени занимает ремонт по такому договору, читайте в разделе
+                <a href="/blogs" class="text-blue-600 font-semibold hover:underline">блога о ремонте</a>.
             </p>
         </section>
 

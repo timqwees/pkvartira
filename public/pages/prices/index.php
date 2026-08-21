@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Цены на ремонт квартир в Москве 2026 — стоимость ремонта за м²',
-    'description' => 'Актуальные цены на ремонт квартир в Москве 2026. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², премиальный от 18 000 ₽/м². Прозрачный прайс-лист без скрытых платежей, фиксированная смета в договоре.',
+    'description' => 'Цены на ремонт квартир в Москве 2026: косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², премиум от 18 000 ₽/м². Прайс без скрытых платежей, смета в договоре.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/prices',
     'type' => 'website',
@@ -20,6 +20,51 @@ $seo = Setting\Route\Function\Functions::seo([
             'minPrice' => 8000,
             'maxPrice' => 25000,
             'valueAddedTaxIncluded' => true,
+        ],
+        [
+            '@type' => 'FAQPage',
+            'mainEntity' => [
+                [
+                    '@type' => 'Question',
+                    'name' => 'Как формируется итоговая цена?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Цена зависит от площади, типа ремонта, состояния помещения и выбранных материалов. Мы делаем прозрачную смету без скрытых платежей.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Отличается ли цена на ремонт в новостройке и вторичке?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Ремонт в новостройке обычно дешевле на 15-20%, так как не требуется демонтаж и выравнивание. Вторичка требует больше подготовительных работ.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Как получить смету?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'После замера инженер составляет смету в 3-х вариантах. Вы получаете детальный расчет с разбивкой по видам работ.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Есть ли скрытые платежи?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Нет, в нашей смете нет скрытых платежей. Все работы и материалы указаны заранее. Дополнительные работы согласовываются отдельно.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Какие есть способы оплаты?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Мы принимаем наличные, банковские переводы, карты.',
+                    ],
+                ],
+            ],
         ],
     ],
 ]);
@@ -60,101 +105,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
     <?= $seo['jsonLd']; ?>
-    </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
-            },
-            {
-                "@type": "WebSite",
-                "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "description": "Профессиональный ремонт квартир и домов под ключ",
-                "publisher": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "WebPage",
-                "@id": <?= json_encode($site['baseUrl'] . '/prices/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'] . '/prices/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": "Цены на ремонт - Ремонт квартир и домов под ключ",
-                "description": "Актуальные цены на ремонт квартир в Москве. Стоимость от 6 500 ₽/м². Прозрачная смета без скрытых платежей.",
-                "isPartOf": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "about": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "BreadcrumbList",
-                "@id": <?= json_encode($site['baseUrl'] . '/prices/#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Цены",
-                        "item": <?= json_encode($site['baseUrl'] . '/prices/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            },
-            {
-                "@type": "FAQPage",
-                "@id": <?= json_encode($site['canonicalUrl'] . '#faq', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "Как формируется итоговая цена?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Цена зависит от площади, типа ремонта, состояния помещения и выбранных материалов. Мы делаем прозрачную смету без скрытых платежей."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Отличается ли цена на ремонт в новостройке и вторичке?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Ремонт в новостройке обычно дешевле на 15-20%, так как не требуется демонтаж и выравнивание. Вторичка требует больше подготовительных работ."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Как получить смету?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "После замера инженер составляет смету в 3-х вариантах. Вы получаете детальный расчет с разбивкой по видам работ."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Есть ли скрытые платежи?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Нет, в нашей смете нет скрытых платежей. Все работы и материалы указаны заранее. Дополнительные работы согласовываются отдельно."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Какие есть способы оплаты?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Мы принимаем наличные, банковские переводы, карты."
-                        }
-                    }
-                ]
-            }
-        ]
-    }
     </script>
 
     <?php include_once './public/components/head-includes.php'; ?>

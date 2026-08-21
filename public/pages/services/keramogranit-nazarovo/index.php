@@ -1,158 +1,144 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
-
-$seo = Setting\Route\Function\Functions::seo([
-    'title' => 'Укладка керамогранита — цена за м², работа в Москве и Назарово',
-    'description' => 'Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области.',
-    'image' => $site['shareImageUrl'],
-    'url' => $site['baseUrl'] . '/services/keramogranit-nazarovo',
-    'type' => 'website',
-    'pageType' => 'Service',
-    'breadcrumbs' => [
-        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
-        ['name' => 'Услуги', 'url' => $site['baseUrl'] . '/services/pod-klyuch'],
-        ['name' => 'Укладка керамогранита — цена за м², работа в Москве и Назарово', 'url' => $site['baseUrl'] . '/services/keramogranit-nazarovo'],
-    ],
-    'schema' => [
-        Setting\Route\Function\Functions::serviceSchema([
-            'slug' => 'keramogranit-nazarovo',
-            'title' => 'Укладка керамогранита — цена за м², работа в Москве и Назарово',
-            'description' => 'Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области.',
-        ]),
-    ],
-]);
+use Setting\Route\Function\Functions;
+$site = Functions::site();
+$title = 'Укладка керамогранита — цена за м², работа в Москве и Назарово | ПКвартира';
+$bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="keywords" content="Укладка керамогранита — цена за м², работа в Москве и Назарово, keramogranit-nazarovo, ремонт под ключ, ПКвартира, ремонт под ключ, ПКвартира">
+    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области.">
+    <meta name="keywords" content="укладка керамогранита цена, цена поклеить керамогранит, керамогранит укладка стоимость, сколько стоит уложить керамогранит, цена керамогранита за м2">
     <meta name="robots" content="index, follow">
-    <meta name="referrer" content="origin-when-crossorigin">
-    <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
-    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
-    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
-    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
-    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
-    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
-    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
-    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
-    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
-    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
-    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
-
-    <!-- Структурированные данные (JSON-LD) -->
-    <script type="application/ld+json">
-    <?= $seo['jsonLd']; ?>
-    </script>
-
+    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/keramogranit-nazarovo'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "BreadcrumbList","itemListElement": [
+                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
+                {"@type": "ListItem","position": 2,"name": "Укладка керамогранита","item": "<?= $site['baseUrl']; ?>/services/keramogranit-nazarovo"}
+            ]},
+            {"@type": "Service","name": "Укладка керамогранита","provider": {"@type": "Organization","name": "ПКвартира"}}
+        ]
+    }
+    </script>
 </head>
-
 <body class="bg-white">
-
-    <?php include_once './public/components/header.php'; ?>
-
-    <main class="pt-20 flex flex-col gap-8 pb-16">
-        <section class="py-12 bg-gradient-to-r from-blue-50 to-white reveal">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-4">
-                    <ol class="flex flex-wrap items-center gap-2">
-                        <li><a href="/" class="hover:text-blue-600 transition">Главная</a></li>
-                        <li class="text-gray-400">/</li>
-                        <li><a href="/services/pod-klyuch" class="hover:text-blue-600 transition">Услуги</a></li>
-                        <li class="text-gray-400">/</li>
-                        <li class="text-gray-900 font-medium">Укладка керамогранита — цена за м², работа в Москве и Назарово</li>
-                    </ol>
-                </nav>
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Укладка керамогранита — цена за м², работа в Москве и Назарово</h1>
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области.
-                </p>
+<?php include_once './public/components/header.php'; ?>
+<main class="pt-20" style="padding-top:80px">
+    <section class="relative bg-[#1f2937] text-white">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
+        <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
+            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Укладка керамогранита — цена за м²</h1>
+            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Профессиональная укладка керамогранита на пол и стены. Стоимость работы от 1 200 ₽/м². Фиксированная смета, гарантия 3 года.</p>
+            <div class="mt-6 flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> Работа от 1 200 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> С материалом от 2 500 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="container mx-auto px-4 max-w-4xl reveal">
-            <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Что входит в Укладка керамогранита — цена за м², работа в Москве и Назарово</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Полный комплекс работ по укладка керамогранита — цена за м², работа в москве и назарово под ключ. Вы получаете готовый результат без скрытых платежей и с гарантией 3 года.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                        <h4 class="font-semibold text-gray-900 mb-2">Что включено</h4>
-                        <ul class="space-y-1 text-gray-600 text-sm">
-                            <li>• Замер и консультация — бесплатно</li>
-                            <li>• Подготовка детальной сметы — 3 варианта</li>
-                            <li>• Демонтаж старых покрытий</li>
-                            <li>• Черновые работы (электрика, сантехника, стяжка, штукатурка)</li>
-                            <li>• Чистовая отделка под ключ</li>
-                            <li>• Финальная уборка и приёмка</li>
-                        </ul>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                        <h4 class="font-semibold text-gray-900 mb-2">Гарантии</h4>
-                        <ul class="space-y-1 text-gray-600 text-sm">
-                            <li>• Фиксированная цена в договоре</li>
-                            <li>• Гарантия 3 года на все работы</li>
-                            <li>• Ежедневные фотоотчёты</li>
-                            <li>• Комплектация материалами под ключ</li>
-                            <li>• Авторский надзор (по желанию)</li>
-                        </ul>
+    <section class="py-12">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Цена укладки керамогранита</h2>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Стоимость укладки керамогранита зависит от формата плитки, сложности узора и подготовки основания. Выполняем работы любой сложности: от стандартной укладки до художественного панно. Используем профессиональные инструменты и качественные смеси.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Подготовка и выравнивание основания</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Укладка керамогранита на пол и стены</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Резка, подрезка, сверление отверстий</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Затирка швов, финишная обработка</li>
+                    </ul>
+                </div>
+                <div class="bg-[#f9fafb] rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-[#111827]">Стоимость работ</h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Укладка керамогранита на пол</span><span class="font-bold text-[#111827]">от 1 200 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Укладка на стены</span><span class="font-bold text-[#111827]">от 1 400 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Крупноформатный (от 60×60)</span><span class="font-bold text-[#111827]">от 1 600 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Под ключ (с материалом)</span><span class="font-bold text-[#111827]">от 2 500 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Демонтаж старой плитки</span><span class="font-bold text-[#111827]">от 300 ₽/м²</span></div>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="/calculator"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
-                        Рассчитать стоимость
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="/contact"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 font-semibold hover:bg-gray-50 transition">
-                        Получить консультацию
-                    </a>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="container mx-auto px-4 max-w-4xl reveal">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Похожие услуги</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="/services/pod-klyuch" class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition">
-                    <h3 class="font-bold text-gray-900 mb-2">Ремонт под ключ</h3>
-                    <p class="text-gray-600 text-sm">Полный цикл работ от дизайна до уборки</p>
-                </a>
-                <a href="/services/nowostroyka" class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition">
-                    <h3 class="font-bold text-gray-900 mb-2">Ремонт в новостройке</h3>
-                    <p class="text-gray-600 text-sm">С чернового состояния до заезда</p>
-                </a>
-                <a href="/services/vtorichka" class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition">
-                    <h3 class="font-bold text-gray-900 mb-2">Ремонт вторички</h3>
-                    <p class="text-gray-600 text-sm">С заменой коммуникаций и перепланировкой</p>
-                </a>
+    <section class="py-12 bg-[#f9fafb]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Этапы укладки керамогранита</h2>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Подготовка</h3><p class="mt-1 text-sm text-[#6b7280]">Выравниваем пол/стены, грунтуем</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Разметка</h3><p class="mt-1 text-sm text-[#6b7280]">Делаем раскладку с учётом рисунка</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Укладка</h3><p class="mt-1 text-sm text-[#6b7280]">Монтируем керамогранит на клей</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Затирка</h3><p class="mt-1 text-sm text-[#6b7280]">Затираем швы, очищаем поверхность</p></div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <?php include_once './public/components/footer.php'; ?>
+    <section class="py-12">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="max-w-lg mx-auto">
+                <?php
+$ctaFormId = 'keramogranit-nazarovo_cta';
+$ctaFormTitle = 'Заказать укладку керамогранита';
+$ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
+$ctaButtonText = 'Заказать';
+$ctaShowName = true;
+$ctaExpandable = false;
+include './public/components/cta-form.php';
+?>
+            </div>
+        </div>
+    </section>
 
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <section class="py-12 bg-[#f9fafb]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Вопросы об укладке керамогранита</h2>
+            <div class="mt-6 max-w-3xl mx-auto space-y-3">
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит укладка керамогранита за квадратный метр?</summary><p class="mt-2 text-sm text-[#6b7280]">Цена работы от 1 200 ₽/м² на пол, от 1 400 ₽/м² на стены. С материалом от 2 500 ₽/м².</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой керамогранит лучше для пола?</summary><p class="mt-2 text-sm text-[#6b7280]">Для пола рекомендуем керамогранит толщиной от 8 мм, класс износостойкости PEI 4-5.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько сохнет керамогранит после укладки?</summary><p class="mt-2 text-sm text-[#6b7280]">Ходить можно через 24 часа, полная нагрузка через 5-7 дней.</p></details>
+            </div>
+        </div>
+    </section>
+    <section class="py-12 text-center bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
+            <div class="mt-4 flex flex-wrap justify-center gap-3">
+                <a href="/services/ukladka-laminata" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Укладка ламината</a>
+                <a href="/services/solnechnogorsk" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Солнечногорске</a>
+                <a href="/services/mytishchi" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Мытищах</a>
+                <a href="/services/balashikha" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Балашихе</a>
+                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт под ключ</a>
+                <a href="/services/nowostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт новостроек</a>
+                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Калькулятор</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Финальный CTA -->
+        <?php
+        $ctaFormId = 'keramogranit-nazarovo_bottom_cta';
+        $ctaFormTitle = 'Рассчитать стоимость ремонта';
+        $ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
+        $ctaButtonText = 'Получить расчёт бесплатно';
+        $ctaExpandable = false;
+        $ctaSectionBadge = 'Бесплатный расчёт';
+        $ctaSectionHeading = 'Готовы рассчитать стоимость: укладка керамогранита';
+        $ctaSectionText = 'Оставьте заявку — бесплатно приедем на замер и составим точную смету с фиксированной ценой.';
+        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 30 минут', 'Фиксированная цена', 'Гарантия 3 года'];
+        include './public/components/cta-section.php';
+        ?>
+</main>
+<?php include_once './public/components/footer.php'; ?>
+<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
 </body>
-
 </html>
