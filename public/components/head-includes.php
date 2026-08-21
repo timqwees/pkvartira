@@ -95,4 +95,4 @@ $__ogAlt = htmlspecialchars(
 <script src="/public/assets/scripts/components/swiper.min.js" defer></script>
 
 <!-- Phone formatting - deferred -->
-<!-- Автомаска телефона отключена по запросу: поле ввода свободное, валидация на стороне формы -->
+<script src="/public/assets/scripts/components/phoneFormat.min.js" defer></script>

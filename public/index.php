@@ -184,7 +184,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             </select>
                             <div class="relative">
                                 <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone
-                                    name="телефн" placeholder="+7 (999) 123-45-67" aria-label="Телефон"
+                                    name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон"
                                     class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition" required>
                             </div>
                         </div>
