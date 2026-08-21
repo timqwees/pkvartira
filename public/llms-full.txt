@@ -642,21 +642,20 @@
 6. Долгопрудный — https://pkvartira.ru/services/dolgoprudny
 7. Зеленоград — https://pkvartira.ru/services/zelenograd
 8. Звенигород — https://pkvartira.ru/services/zvenigorod
-9. Калуга — https://pkvartira.ru/services/kaluga
-10. Красногорск — https://pkvartira.ru/services/krasnogorsk
-11. Лобня — https://pkvartira.ru/services/lobnya
-12. Люберцы — https://pkvartira.ru/services/lyubertsy
-13. Митино — https://pkvartira.ru/services/mitino
-14. Мытищи — https://pkvartira.ru/services/mytishchi
-15. Одинцово — https://pkvartira.ru/services/odintsovo
-16. Подольск — https://pkvartira.ru/services/podolsk
-17. Пушкино — https://pkvartira.ru/services/pushkino
-18. Раменское — https://pkvartira.ru/services/ramenskoye
-19. Реутов — https://pkvartira.ru/services/reutov
-20. Солнечногорск — https://pkvartira.ru/services/solnechnogorsk
-21. Химки — https://pkvartira.ru/services/khimki
-22. Щербинка — https://pkvartira.ru/services/shcherbinka
-23. Видное — https://pkvartira.ru/services/vidnoye
+9. Красногорск — https://pkvartira.ru/services/krasnogorsk
+10. Лобня — https://pkvartira.ru/services/lobnya
+11. Люберцы — https://pkvartira.ru/services/lyubertsy
+12. Митино — https://pkvartira.ru/services/mitino
+13. Мытищи — https://pkvartira.ru/services/mytishchi
+14. Одинцово — https://pkvartira.ru/services/odintsovo
+15. Подольск — https://pkvartira.ru/services/podolsk
+16. Пушкино — https://pkvartira.ru/services/pushkino
+17. Раменское — https://pkvartira.ru/services/ramenskoye
+18. Реутов — https://pkvartira.ru/services/reutov
+19. Солнечногорск — https://pkvartira.ru/services/solnechnogorsk
+20. Химки — https://pkvartira.ru/services/khimki
+21. Щербинка — https://pkvartira.ru/services/shcherbinka
+22. Видное — https://pkvartira.ru/services/vidnoye
 
 ### Отделочные работы (отдельные услуги)
 1. Укладка ламината — https://pkvartira.ru/services/ukladka-laminata

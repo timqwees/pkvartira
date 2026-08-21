@@ -151,7 +151,6 @@
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zvenigorod"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Звенигород</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vidnoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Видное</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/solnechnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Солнечногорск</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kaluga"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Калуга</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
                         </div>

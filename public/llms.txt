@@ -68,7 +68,6 @@
 - [Долгопрудный](https://pkvartira.ru/services/dolgoprudny): Ремонт квартир в Долгопрудном
 - [Зеленоград](https://pkvartira.ru/services/zelenograd): Ремонт квартир в Зеленограде
 - [Звенигород](https://pkvartira.ru/services/zvenigorod): Ремонт квартир в Звенигороде
-- [Калуга](https://pkvartira.ru/services/kaluga): Ремонт квартир в Калуге
 - [Красногорск](https://pkvartira.ru/services/krasnogorsk): Ремонт квартир в Красногорске
 - [Лобня](https://pkvartira.ru/services/lobnya): Ремонт квартир в Лобне
 - [Люберцы](https://pkvartira.ru/services/lyubertsy): Ремонт квартир в Люберцах

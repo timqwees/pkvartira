@@ -16,9 +16,28 @@ class RssFeed
 
     public function __construct()
     {
-        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-        $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
-        $this->baseUrl = $scheme . '://' . $host;
+        // Предпочитаем канонический baseUrl из конфига сайта, чтобы избежать Host header injection
+        $configuredBaseUrl = null;
+        if (class_exists(\Setting\route\function\Functions::class) && method_exists(\Setting\route\function\Functions::class, 'site')) {
+            try {
+                $site = \Setting\route\function\Functions::site();
+                if (is_array($site) && isset($site['baseUrl']) && is_string($site['baseUrl'])) {
+                    $configuredBaseUrl = $site['baseUrl'];
+                }
+            } catch (\Throwable $e) {
+                $configuredBaseUrl = null;
+            }
+        }
+        if (!empty($configuredBaseUrl) && filter_var($configuredBaseUrl, FILTER_VALIDATE_URL)) {
+            $this->baseUrl = rtrim($configuredBaseUrl, '/');
+        } else {
+            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+            // Белый список символов хоста
+            $host = preg_replace('/[^a-zA-Z0-9\.\-:]/', '', $host);
+            if (empty($host)) $host = 'pkvartira.ru';
+            $this->baseUrl = $scheme . '://' . $host;
+        }
         $this->siteName = 'ПКвартира';
         $this->siteEmail = 'info@pkvartira.ru';
         $this->sitePhone = '+7 495 473-17-37';
@@ -66,14 +85,15 @@ class RssFeed
         $xml .= '    <managingEditor>' . $this->escape($this->siteEmail) . ' ('.$this->siteName.')</managingEditor>' . "\n";
         $xml .= '    <webMaster>' . $this->escape($this->siteEmail) . ' ('.$this->siteName.')</webMaster>' . "\n";
 
-        // Channel image
+        // Channel image — размеры по спецификации RSS 2.0: max 144x400
         $xml .= '    <image>' . "\n";
         $xml .= '      <url>' . $this->escape($this->baseUrl . '/public/assets/images/logo/favicon/web-app-manifest-512x512.png') . "</url>\n";
         $xml .= '      <title>' . $this->escape($this->siteName) . "</title>\n";
         $xml .= '      <link>' . $this->escape($this->baseUrl . '/blogs') . "</link>\n";
-        $xml .= '      <width>512</width>' . "\n";
-        $xml .= '      <height>512</height>' . "\n";
+        $xml .= '      <width>144</width>' . "\n";
+        $xml .= '      <height>144</height>' . "\n";
         $xml .= '    </image>' . "\n";
+        $xml .= '    <generator>PKvartira RssFeed 1.0</generator>' . "\n";
 
         // Items
         foreach ($articles as $art) {
@@ -86,8 +106,10 @@ class RssFeed
                 $xml .= '      <category>' . $this->escape($art['category']) . "</category>\n";
             }
             if (!empty($art['image'])) {
-                $xml .= '      <enclosure url="' . $this->escape($art['image']) . '" type="image/jpeg" length="0"/>' . "\n";
-                $xml .= '      <media:content url="' . $this->escape($art['image']) . '" medium="image">' . "\n";
+                $imgUrl = $this->normalizeImageUrl($art['image']);
+                $mime = $this->detectMimeFromUrl($imgUrl);
+                $xml .= '      <enclosure url="' . $this->escape($imgUrl) . '" type="' . $mime . '" length="0"/>' . "\n";
+                $xml .= '      <media:content url="' . $this->escape($imgUrl) . '" medium="image" type="' . $mime . '">' . "\n";
                 $xml .= '        <media:title>' . $this->escape($art['title'] ?? '') . "</media:title>\n";
                 $xml .= '      </media:content>' . "\n";
             }
@@ -111,12 +133,61 @@ class RssFeed
 
     private function getArticles(): array
     {
+        // 1) Пытаемся из БД
         try {
             $article = new Article();
-            return $article->getPaginatedArticles(1, 1000) ?: [];
+            $rows = $article->getPaginatedArticles(1, 1000);
+            if (!empty($rows) && is_array($rows)) {
+                // Фильтруем битые даты (напр. 2026-06-31)
+                return array_values(array_filter($rows, fn($r) => !empty($r['id']) && !empty($r['title'])));
+            }
         } catch (\Exception $e) {
-            return [];
+            // fallthrough to file fallback
         }
+
+        // 2) Фолбэк — читаем JSON напрямую (актуально когда DATABASE не настроена)
+        $jsonPath = dirname(__DIR__, 3) . '/public/pages/blog/data/articles.json';
+        if (is_file($jsonPath)) {
+            $raw = @file_get_contents($jsonPath);
+            $data = json_decode($raw, true);
+            if (is_array($data) && $data !== []) {
+                // Сортировка по created_at DESC (как в БД)
+                usort($data, function($a, $b) {
+                    $ta = strtotime($a['created_at'] ?? '') ?: 0;
+                    $tb = strtotime($b['created_at'] ?? '') ?: 0;
+                    return $tb <=> $ta;
+                });
+                return array_slice($data, 0, 1000);
+            }
+        }
+        return [];
+    }
+
+    private function normalizeImageUrl(string $url): string
+    {
+        $url = trim($url);
+        if ($url === '') return $url;
+        // уже абсолютный
+        if (preg_match('#^https?://#i', $url)) return $url;
+        // относительный — делаем абсолютным
+        if (str_starts_with($url, '/')) return $this->baseUrl . $url;
+        return $this->baseUrl . '/' . $url;
+    }
+
+    private function detectMimeFromUrl(string $url): string
+    {
+        $path = parse_url($url, PHP_URL_PATH) ?: $url;
+        $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        // Убираем query-параметры типа ?auto=format
+        $ext = explode('?', $ext)[0];
+        return match($ext) {
+            'png' => 'image/png',
+            'webp' => 'image/webp',
+            'gif' => 'image/gif',
+            'avif' => 'image/avif',
+            'svg' => 'image/svg+xml',
+            default => 'image/jpeg',
+        };
     }
 
     private function loadFullContent(int $id): string
@@ -141,6 +212,28 @@ class RssFeed
 
     private function formatDate(string $date): string
     {
+        $date = trim($date);
+        if ($date === '') return date('r');
+        // Валидируем календарную дату: 2026-06-31 -> невалидна, корректируем к последнему дню месяца
+        // Пробуем DateTime с проверкой ошибок
+        $dt = \DateTime::createFromFormat('Y-m-d H:i:s', $date);
+        $errors = \DateTime::getLastErrors();
+        if ($dt !== false && is_array($errors) && ($errors['warning_count'] ?? 0) === 0 && ($errors['error_count'] ?? 0) === 0) {
+            return $dt->format('r');
+        }
+        if ($dt !== false && is_array($errors) && ($errors['warning_count'] ?? 0) > 0) {
+            // некорректная дата вроде 2026-06-31 — попытаемся исправить день
+            if (preg_match('/^(\d{4})-(\d{2})-(\d{2})/', $date, $m)) {
+                $y = (int)$m[1]; $mo = (int)$m[2]; $d = (int)$m[3];
+                $lastDay = cal_days_in_month(CAL_GREGORIAN, $mo, $y);
+                if ($d > $lastDay) {
+                    $fixed = sprintf('%04d-%02d-%02d', $y, $mo, $lastDay) . substr($date, 10);
+                    $dt2 = \DateTime::createFromFormat('Y-m-d H:i:s', $fixed);
+                    if ($dt2 !== false) return $dt2->format('r');
+                }
+            }
+        }
+        // Fallback: strtotime
         $timestamp = strtotime($date);
         if ($timestamp === false) {
             return date('r');

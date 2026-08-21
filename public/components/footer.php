@@ -109,7 +109,6 @@
                 <a href="/services/zvenigorod" class="hover:text-orange-500 transition">Звенигород</a>
                 <a href="/services/vidnoye" class="hover:text-orange-500 transition">Видное</a>
                 <a href="/services/solnechnogorsk" class="hover:text-orange-500 transition">Солнечногорск</a>
-                <a href="/services/kaluga" class="hover:text-orange-500 transition">Калуга</a>
                 <a href="/services/akademicheskaya" class="hover:text-orange-500 transition">м. Академическая</a>
                 <a href="/services/leninsky-prospekt" class="hover:text-orange-500 transition">Ленинский пр.</a>
             </div>
