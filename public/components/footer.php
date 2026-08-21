@@ -240,7 +240,8 @@
             window.intlTelInput(input, {
                 initialCountry: "ru",
                 separateDialCode: true,
-                formatAsYouType: true,
+                formatAsYouType: false,
+                autoPlaceholder: "off",
             });
         });
     });
