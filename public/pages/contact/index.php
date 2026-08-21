@@ -1,4 +1,19 @@
-<?php $site = Setting\Route\Function\Functions::site(); ?>
+<?php
+$site = Setting\Route\Function\Functions::site();
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => 'Контакты — заказать ремонт квартиры в Москве, телефон +7 495 473-17-37',
+    'description' => 'ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 30 минут. Работаем ежедневно.',
+    'image' => $site['shareImageUrl'],
+    'url' => $site['baseUrl'] . '/contact',
+    'type' => 'website',
+    'pageType' => 'ContactPage',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+        ['name' => 'Контакты', 'url' => $site['baseUrl'] . '/contact'],
+    ],
+]);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -6,98 +21,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Контакты — заказать ремонт квартиры в Москве, телефон +7 495 473-17-37 | ПКвартира</title>
-    <meta name="description"
-        content="ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 30 минут. Работаем ежедневно.">
+    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="keywords" content="контакты, телефон, адрес, связаться, ремонт квартир">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/contact'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="Контакты — заказать ремонт квартиры в Москве | ПКвартира">
-    <meta property="og:description"
-        content="ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Бесплатная консультация, выезд инженера на замер, смета за 30 минут.">
-    <meta property="og:url"
-        content="<?= htmlspecialchars((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? '') . '/contact'); ?>">
-    <meta property="og:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title"
-        content="Контакты — связаться с нами | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta name="twitter:description"
-        content="Контакты <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>. Телефон, адрес, WhatsApp, Telegram. Бесплатная консультация.">
-    <meta name="twitter:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain"
-        content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-
-    <!-- Дополнительные мета-теги -->
-
+    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "logo": {
-          "@type": "ImageObject",
-          "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          "width": 300,
-          "height": 300
-        },
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-            "contactType": "customer service",
-            "contactOption": "TollFree",
-            "availableLanguage": ["Russian"],
-            "areaServed": "RU"
-          },
-          {
-            "@type": "ContactPoint",
-            "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-            "contactType": "sales",
-            "availableLanguage": ["Russian"],
-            "areaServed": {
-              "@type": "City",
-              "name": "Москва"
-            }
-          }
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-          "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-        },
-        "sameAs": [
-          <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        ]
-      },
-      {
-        "@type": "WebSite",
+    <?= $seo['jsonLd']; ?>
+    </script>
+
+    <?php include_once './public/components/head-includes.php'; ?>
         "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
         "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
         "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,

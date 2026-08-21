@@ -1,4 +1,40 @@
-<?php $site = Setting\Route\Function\Functions::site(); ?>
+<?php
+$site = Setting\Route\Function\Functions::site();
+
+// Кэширование списка статей (ускорение повторных загрузок)
+$cacheFile = __DIR__ . '/data/articles.cache';
+$cacheTtl = 3600; // 1 час
+$articlesJsonPath = __DIR__ . '/data/articles.json';
+
+$__blogJson = [];
+if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $cacheTtl)
+    && file_exists($articlesJsonPath)) {
+    // Используем кэш, если он свежее, чем источник
+    $__blogJson = json_decode(file_get_contents($cacheFile), true) ?: [];
+} else {
+    // Обновляем кэш из источника
+    $__blogJson = json_decode(file_get_contents($articlesJsonPath), true) ?: [];
+    // Сохраняем в кэш с меткой времени modificaton
+    if (file_exists($articlesJsonPath)) {
+        file_put_contents($cacheFile, json_encode($__blogJson));
+    }
+}
+
+usort($__blogJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => 'Блог о ремонте квартир — полезные статьи, советы, цены 2026',
+    'description' => 'Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта.',
+    'image' => $site['shareImageUrl'],
+    'url' => $site['baseUrl'] . '/blogs',
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+        ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
+    ],
+]);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -6,148 +42,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Блог о ремонте квартир — полезные статьи, советы, цены 2026 | ПКвартира</title>
-    <meta name="description"
-        content="Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта.">
+    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <?php
-    $__blogCanon = $site['baseUrl'] . '/blog';
-    if (!empty($_GET['page']) && (int) $_GET['page'] > 1) {
-        $__blogCanon .= '?page=' . (int) $_GET['page'];
-    }
-    ?>
-    <link rel="canonical" href="<?= htmlspecialchars($__blogCanon); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Блог / статьи — <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta property="og:description"
-        content="Полезные советы и лайфхаки для ремонта квартир под ключ. Практическая информация, руководства по отделке, выбору материалов и дизайну интерьера.">
-    <meta property="og:url" content="<?= htmlspecialchars($__blogCanon); ?>">
-    <meta property="og:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="Блог / статьи — <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta name="twitter:description"
-        content="Полезные советы и лайфхаки для ремонта квартир под ключ. Практическая информация, руководства по отделке, выбору материалов и дизайну интерьера.">
-    <meta name="twitter:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-
+    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "width": 300,
-                    "height": 300
-                },
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-                    "contactType": "customer service",
-                    "availableLanguage": ["Russian"],
-                    "areaServed": "RU"
-                },
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-                    "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-                    "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-                    "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-                    "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-                },
-                "sameAs": [
-                    <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                ]
-            },
-            {
-                "@type": "WebSite",
-                "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-                "publisher": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU",
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": <?= json_encode($site['baseUrl'] . '/search?q={search_term_string}', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    "query": "required name=search_term_string"
-                }
-            },
-            {
-                "@type": "WebPage",
-                "@id": <?= json_encode($site['baseUrl'] . '/blog/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'] . '/blog', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": "Блог / статьи — <?= htmlspecialchars($site['name']); ?>",
-                "description": "Полезные советы и лайфхаки для ремонта квартир под ключ. Практическая информация, руководства по отделке, выбору материалов и дизайну интерьера.",
-                "isPartOf": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "about": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                },
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "Blog",
-                "@id": <?= json_encode($site['baseUrl'] . '/blog/#blog', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'] . '/blog', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": "Блог — <?= htmlspecialchars($site['name']); ?>",
-                "description": "Полезные советы и лайфхаки для ремонта квартир под ключ",
-                "publisher": {
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                }
-            },
-            {
-                "@type": "BreadcrumbList",
-                "@id": <?= json_encode($site['baseUrl'] . '/blog/#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Блог",
-                        "item": <?= json_encode($site['baseUrl'] . '/blog', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            }
-        ]
-    }
+    <?= $seo['jsonLd']; ?>
     </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
+</head>
 </head>
 
 <body class="bg-white">

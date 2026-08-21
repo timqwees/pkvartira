@@ -10,12 +10,56 @@ namespace Setting\route\function;
 class Sitemap
 {
     private string $baseUrl;
+    private string $cacheDir;
 
     public function __construct()
     {
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
         $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
         $this->baseUrl = $scheme . '://' . $host;
+        $this->cacheDir = sys_get_temp_dir() . '/pkvartira-sitemap/';
+    }
+
+    private function ensureCacheDirectory(): void
+    {
+        if (!is_dir($this->cacheDir)) {
+            @mkdir($this->cacheDir, 0755, true);
+        }
+    }
+
+    private function getCacheFilePath(string $type): ?string
+    {
+        $map = [
+            'index' => 'index.xml',
+            'pages' => 'pages.xml',
+            'services' => 'services.xml',
+            'blog' => 'blog.xml',
+        ];
+        return $this->cacheDir . ($map[$type] ?? null);
+    }
+
+    private function isCacheFresh(string $cacheFile, float $sourceMtime): bool
+    {
+        if (!file_exists($cacheFile)) return false;
+        return filemtime($cacheFile) >= $sourceMtime;
+    }
+
+    private function writeCache(string $type, string $xml): void
+    {
+        $this->ensureCacheDirectory();
+        $path = $this->getCacheFilePath($type);
+        if ($path) {
+            file_put_contents($path, $xml);
+        }
+    }
+
+    private function readCache(string $type): ?string
+    {
+        $path = $this->getCacheFilePath($type);
+        if ($path && file_exists($path)) {
+            return file_get_contents($path);
+        }
+        return null;
     }
 
     // ======================== SITEMAP INDEX ========================
@@ -68,8 +112,39 @@ class Sitemap
     public static function outputPages(): void
     {
         $instance = new self();
-        $xml = $instance->buildPagesXml();
 
+        // Попытка servir кэшированную версию
+        $cacheFile = $instance->getCacheFilePath('pages');
+        $sourceMtime = 0;
+        // Время модификации основного файла маршрутизации (routes.php)
+        $routesFile = __DIR__ . '/../../../routes.php';
+        if (file_exists($routesFile)) {
+            $sourceMtime = max($sourceMtime, filemtime($routesFile));
+        }
+        // Время модификации статьи id 14 (последняя добавленная)
+        $articlesFile = __DIR__ . '/../../../public/pages/blog/data/articles.json';
+        if (file_exists($articlesFile)) {
+            $sourceMtime = max($sourceMtime, filemtime($articlesFile));
+        }
+
+        if ($cacheFile && $instance->isCacheFresh($cacheFile, $sourceMtime)) {
+            $xml = $instance->readCache('pages');
+            if ($xml) {
+                $etag = md5($xml);
+                if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+                    http_response_code(304);
+                    return;
+                }
+                header('Content-Type: application/xml; charset=utf-8');
+                header('ETag: ' . $etag);
+                header('Cache-Control: public, max-age=3600');
+                header('Content-Length: ' . strlen($xml));
+                echo $xml;
+                return;
+            }
+        }
+
+        $xml = $instance->buildPagesXml();
         $etag = md5($xml);
 
         if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
@@ -82,6 +157,9 @@ class Sitemap
         header('Cache-Control: public, max-age=3600');
         header('Content-Length: ' . strlen($xml));
         echo $xml;
+
+        // Сохраняем в кэш
+        $instance->writeCache('pages', $xml);
     }
 
     private function buildPagesXml(): string
@@ -96,7 +174,10 @@ class Sitemap
             ['/contact', '0.6', 'monthly'],
             ['/soglashenie', '0.4', 'yearly'],
             ['/calculator', '0.8', 'weekly'],
+            ['/kalkulyator-ploshchadi', '0.8', 'weekly'],
             ['/blogs', '0.9', 'daily'],
+            ['/smeta-obrazec', '0.8', 'weekly'],
+            ['/dogovor-obrazec', '0.8', 'weekly'],
         ];
 
         $xml = $this->openUrlset();
@@ -114,8 +195,45 @@ class Sitemap
     public static function outputServices(): void
     {
         $instance = new self();
-        $xml = $instance->buildServicesXml();
 
+        // Попытка servir кэшированную версию
+        $cacheFile = $instance->getCacheFilePath('services');
+        $sourceMtime = 0;
+        // Время модификации директории services
+        $servicesDir = __DIR__ . '/../../../public/pages/services';
+        if (is_dir($servicesDir)) {
+            $sourceMtime = max($sourceMtime, filemtime($servicesDir));
+            // Также учитываем время модификации любых index.php в поддиректориях
+            $items = @scandir($servicesDir);
+            if ($items) {
+                foreach ($items as $item) {
+                    if ($item === '.' || $item === '..') continue;
+                    $indexFile = $servicesDir . '/' . $item . '/index.php';
+                    if (is_file($indexFile)) {
+                        $sourceMtime = max($sourceMtime, filemtime($indexFile));
+                    }
+                }
+            }
+        }
+
+        if ($cacheFile && $instance->isCacheFresh($cacheFile, $sourceMtime)) {
+            $xml = $instance->readCache('services');
+            if ($xml) {
+                $etag = md5($xml);
+                if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+                    http_response_code(304);
+                    return;
+                }
+                header('Content-Type: application/xml; charset=utf-8');
+                header('ETag: ' . $etag);
+                header('Cache-Control: public, max-age=3600');
+                header('Content-Length: ' . strlen($xml));
+                echo $xml;
+                return;
+            }
+        }
+
+        $xml = $instance->buildServicesXml();
         $etag = md5($xml);
 
         if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
@@ -128,6 +246,9 @@ class Sitemap
         header('Cache-Control: public, max-age=3600');
         header('Content-Length: ' . strlen($xml));
         echo $xml;
+
+        // Сохраняем в кэш
+        $instance->writeCache('services', $xml);
     }
 
     private function buildServicesXml(): string
@@ -180,8 +301,45 @@ class Sitemap
     public static function outputBlog(): void
     {
         $instance = new self();
-        $xml = $instance->buildBlogXml();
 
+        // Попытка servir кэшированную версию
+        $cacheFile = $instance->getCacheFilePath('blog');
+        $sourceMtime = 0;
+        // Время модификации articles.json
+        $articlesFile = __DIR__ . '/../../../public/pages/blog/data/articles.json';
+        if (file_exists($articlesFile)) {
+            $sourceMtime = max($sourceMtime, filemtime($articlesFile));
+            // Также учитываем время модификации самой статьи id 15 (последняя добавленная)
+            // ищем самый новый updated_at
+            $articles = json_decode(file_get_contents($articlesFile), true ?? []);
+            if (is_array($articles)) {
+                foreach ($articles as $art) {
+                    $artMtime = strtotime($art['updated_at'] ?? $art['created_at'] ?? '');
+                    if ($artMtime) {
+                        $sourceMtime = max($sourceMtime, $artMtime);
+                    }
+                }
+            }
+        }
+
+        if ($cacheFile && $instance->isCacheFresh($cacheFile, $sourceMtime)) {
+            $xml = $instance->readCache('blog');
+            if ($xml) {
+                $etag = md5($xml);
+                if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+                    http_response_code(304);
+                    return;
+                }
+                header('Content-Type: application/xml; charset=utf-8');
+                header('ETag: ' . $etag);
+                header('Cache-Control: public, max-age=3600');
+                header('Content-Length: ' . strlen($xml));
+                echo $xml;
+                return;
+            }
+        }
+
+        $xml = $instance->buildBlogXml();
         $etag = md5($xml);
 
         if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
@@ -194,6 +352,9 @@ class Sitemap
         header('Cache-Control: public, max-age=3600');
         header('Content-Length: ' . strlen($xml));
         echo $xml;
+
+        // Сохраняем в кэш
+        $instance->writeCache('blog', $xml);
     }
 
     private function buildBlogXml(): string

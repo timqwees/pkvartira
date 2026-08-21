@@ -1,4 +1,19 @@
-<?php $site = Setting\Route\Function\Functions::site(); ?>
+<?php
+$site = Setting\Route\Function\Functions::site();
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => 'Политика конфиденциальности и согласие на обработку данных',
+    'description' => 'Политика конфиденциальности, согласие на обработку персональных данных и пользовательское соглашение. Ознакомьтесь с документами перед заказом ремонта.',
+    'image' => $site['shareImageUrl'],
+    'url' => $site['baseUrl'] . '/soglashenie',
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+        ['name' => 'Соглашение', 'url' => $site['baseUrl'] . '/soglashenie'],
+    ],
+]);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -6,70 +21,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Политика конфиденциальности и согласие на обработку данных | ПКвартира</title>
-    <meta name="description"
-        content="Политика конфиденциальности, согласие на обработку персональных данных и пользовательское соглашение. Ознакомьтесь с документами перед заказом ремонта.">
+    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="noindex, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/soglashenie'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="Соглашение и обработка персональных данных | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta property="og:description"
-        content="Согласие на обработку персональных данных и политика конфиденциальности в формате DOCX.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/soglashenie'); ?>">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <!-- Open Graph -->
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title"
-        content="Соглашение и обработка персональных данных | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta name="twitter:description"
-        content="Согласие на обработку персональных данных и политика конфиденциальности в формате DOCX.">
-    <meta name="twitter:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-
-
+    <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebPage",
-                "@id": <?= json_encode($site['baseUrl'] . '/soglashenie#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'] . '/soglashenie', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": "Соглашение и обработка персональных данных",
-                "description": "Согласие на обработку персональных данных и политика конфиденциальности.",
-                "inLanguage": "ru-RU"
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Главная",
-                        "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Соглашение",
-                        "item": <?= json_encode($site['baseUrl'] . '/soglashenie', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                    }
-                ]
-            }
-        ]
-    }
+    <?= $seo['jsonLd']; ?>
     </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
@@ -82,6 +61,13 @@
     <main class="pt-20 flex flex-col gap-8 pb-16">
         <section class="py-12 bg-gradient-to-r from-blue-50 to-white reveal">
             <div class="container mx-auto px-4 max-w-3xl">
+                <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-4">
+                    <ol class="flex flex-wrap items-center gap-2">
+                        <li><a href="/" class="hover:text-blue-600 transition">Главная</a></li>
+                        <li class="text-gray-400">/</li>
+                        <li class="text-gray-900 font-medium">Соглашение</li>
+                    </ol>
+                </nav>
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Соглашение и документы</h1>
                 <p class="text-gray-600 text-lg leading-relaxed">
                     На этой странице собраны документы по обработке персональных данных и конфиденциальности.

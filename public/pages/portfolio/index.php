@@ -1,5 +1,4 @@
 <?php
-
 use Setting\Route\Function\Functions;
 
 $site = Functions::site();
@@ -20,6 +19,37 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
         ),
     ];
 }, $portfolio);
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => 'Портфолио ремонтов квартир — 300+ проектов с фото до и после',
+    'description' => 'Реальные проекты ремонта квартир в Москве 2026: 300+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект.',
+    'image' => $site['shareImageUrl'],
+    'url' => $site['baseUrl'] . '/portfolio',
+    'type' => 'website',
+    'pageType' => 'ItemList',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+        ['name' => 'Портфолио', 'url' => $site['baseUrl'] . '/portfolio'],
+    ],
+    'schema' => [
+        [
+            '@type' => 'ItemList',
+            'itemListElement' => array_map(function ($item, $index) use ($site) {
+                return [
+                    '@type' => 'ListItem',
+                    'position' => $index + 1,
+                    'item' => [
+                        '@type' => 'CreativeWork',
+                        'name' => $item['title'],
+                        'url' => $site['baseUrl'] . '/portfolio?project=' . urlencode($item['slug']),
+                        'description' => $item['subtitle'] ?? '',
+                        'image' => $item['photos'][0] ?? $site['shareImageUrl'],
+                    ],
+                ];
+            }, $portfolio),
+        ],
+    ],
+]);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -28,56 +58,38 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Портфолио ремонтов квартир — 300+ проектов с фото до и после | ПКвартира</title>
-    <meta name="description"
-        content="Реальные проекты ремонта квартир в Москве 2026: 300+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект.">
+    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="keywords" content="наши проекты, фото работ, примеры объектов, портфолио">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/portfolio'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="Наши проекты — фото «до» и «после» | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta property="og:description"
-        content="Выполненные проекты — фото «до» и «после», планировки, сроки и бюджеты.">
-    <meta property="og:url"
-        content="<?= htmlspecialchars((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? '') . '/portfolio'); ?>">
-    <meta property="og:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title"
-        content="Наши проекты — фото «до» и «после» | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta name="twitter:description"
-        content="Выполненные проекты — фото «до» и «после», планировки, сроки.">
-    <meta name="twitter:image"
-        content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain"
-        content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-
-    <!-- Дополнительные мета-теги -->
-
+    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@graph": [{
-                    "@type": "Organization",
-                    "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                    "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    "logo": {
+    <?= $seo['jsonLd']; ?>
+    </script>
+
+    <?php include_once './public/components/head-includes.php'; ?>
                         "@type": "ImageObject",
                         "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                         "width": 300,

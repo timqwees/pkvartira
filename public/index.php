@@ -1,6 +1,18 @@
 <?php
 $site = Setting\Route\Function\Functions::site();
 $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-комнатные', 3);
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => 'Заказать ремонт квартир под ключ в Москве — цена от 8 000 ₽/м² с гарантией 3 года, 2026',
+    'description' => 'Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Косметический, капитальный, дизайнерский, элитный ремонт. Для сдачи, продажи и проживания. С материалами, мебелью, техникой. Фиксированная смета, гарантия 3 года. Бесплатный замер и расчёт. Более 300 проектов.',
+    'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
+    'url' => $site['canonicalUrl'],
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+    ],
+]);
 ?>
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
@@ -9,55 +21,44 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ремонт квартир под ключ в Москве — цена от 8 000 ₽/м² с гарантией 3 года, 2026 | ПКвартира</title>
-    <meta name="description"
-        content="Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Косметический, капитальный, дизайнерский, элитный ремонт. Для сдачи, продажи и проживания. С материалами, мебелью, техникой. Фиксированная смета, гарантия 3 года. Бесплатный замер и расчёт. Более 300 проектов.">
+    <title><?= htmlspecialchars($seo['title']); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="keywords"
-        content="ремонт квартир, ремонт под ключ, ремонт квартир Москва, капитальный ремонт квартиры, дизайнерский ремонт, элитный ремонт квартир, премиальный ремонт, ремонт недорого, ремонт для сдачи, ремонт для продажи, ремонт с мебелью, ремонт с материалом, отделка квартир, комплексный ремонт квартир">
+        content="заказать ремонт квартиры, ремонт квартир, ремонт квартир под ключ, ремонт дачи, ремонт котеджа, ремонт квартир Москва, капитальный ремонт квартиры, дизайнерский ремонт, элитный ремонт квартир, премиальный ремонт, ремонт недорого, ремонт для сдачи, ремонт для продажи, ремонт с мебелью, ремонт с материалом, отделка квартир, комплексный ремонт квартир">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['canonicalUrl']); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
+    <!--Verefy-->
     <meta name="google-site-verification" content="jLp0P98pT6xSVSJnELONG18GuBE5WAoL6q3o8P9UxwA" />
     <meta name="yandex-verification" content="bf2ddc27f35803d2" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — ремонт квартир под ключ в Москве">
-    <meta property="og:description"
-        content="Профессиональный ремонт квартир и домов под ключ. Гарантия 3 года, прозрачные цены, бесплатный выезд и смета.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['canonicalUrl']); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
 
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — ремонт квартир под ключ в Москве">
-    <meta name="twitter:description"
-        content="Профессиональный ремонт квартир и домов под ключ. Гарантия 3 года, прозрачные цены.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain"
-        content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
+    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+    <?= $seo['jsonLd']; ?>
+    </script>
+
+    <script type="application/ld+json">
         "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
         "email": <?= json_encode($site['email'], JSON_UNESCAPED_UNICODE); ?>,
         "address": {
@@ -223,7 +224,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
             "name": "Почему заказывают ремонт именно у вас?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "За 10 лет работы мы сделали более 500 объектов. Мы предоставляем гарантию до 3 лет на все виды работ, работаем по официальному договору и ведём ежедневные фотоотчёты. Бесплатный выезд инженера, замер лазером и подготовка сметы — всё без предоплаты."
+              "text": "За 1 год мы делаем более 100 объектов. Мы предоставляем гарантию до 3 лет на все виды работ, работаем по официальному договору и ведём ежедневные фотоотчёты. Бесплатный выезд инженера, замер лазером и подготовка сметы — всё без предоплаты."
             }
           }
         ]
@@ -1648,7 +1649,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
         ym(108587554, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
     </script>
-    <noscript>
+<noscript>
         <div><img src="https://mc.yandex.ru/watch/108587554" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
@@ -1662,6 +1663,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
   document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
 </script>
 
-</body>
+<?php include_once './public/components/cta-modal.php'; ?>
 
+</body>
 </html>

@@ -56,6 +56,9 @@
                     <li><a href="/stocks" class="text-gray-400 hover:text-orange-500 transition text-sm">Акции</a></li>
                     <li><a href="/blog" class="text-gray-400 hover:text-orange-500 transition text-sm">Блог</a></li>
                     <li><a href="/contact" class="text-gray-400 hover:text-orange-500 transition text-sm">Контакты</a></li>
+                    <li><a href="/smeta-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm">Смета на ремонт: образец</a></li>
+                    <li><a href="/dogovor-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm">Договор на ремонт: шаблон</a></li>
+                    <li><a href="/kalkulyator-ploshchadi" class="text-gray-400 hover:text-orange-500 transition text-sm">Калькулятор площади м²</a></li>
                 </ul>
             </div>
 
@@ -304,10 +307,85 @@
             ts.value = Date.now().toString();
             form.appendChild(ts);
 
+            // Anti-bot: JS-токен (заполняется только браузером с включённым JS)
+            var jsToken = document.createElement('input');
+            jsToken.type = 'hidden';
+            jsToken.name = '_js_token';
+            jsToken.value = Date.now().toString();
+            form.appendChild(jsToken);
+
             // UX: loading state + goal tracking
             form.addEventListener('submit', function(e) {
                 var btn = form.querySelector('button[type="submit"]');
                 if (btn) btn.classList.add('loading');
+            });
+
+            // === ВОРОНКА: маска телефона +7 (___) ___-__-__ ===
+            form.querySelectorAll('input[type="tel"]').forEach(function(tel) {
+                tel.addEventListener('input', function() {
+                    var d = this.value.replace(/\D/g, '');
+                    if (d.startsWith('8')) d = '7' + d.slice(1);
+                    if (d && !d.startsWith('7')) d = '7' + d;
+                    d = d.slice(0, 11);
+                    var out = '';
+                    if (d.length > 0) out = '+7';
+                    if (d.length > 1) out += ' (' + d.slice(1, 4);
+                    if (d.length >= 4) out += ')';
+                    if (d.length > 4) out += ' ' + d.slice(4, 7);
+                    if (d.length > 7) out += '-' + d.slice(7, 9);
+                    if (d.length > 9) out += '-' + d.slice(9, 11);
+                    this.value = out;
+                });
+                // Валидация при потере фокуса — подсветка незаполненного
+                tel.addEventListener('blur', function() {
+                    var digits = this.value.replace(/\D/g, '');
+                    if (digits.length > 0 && digits.length < 11) {
+                        this.classList.add('border-red-400', 'ring-2', 'ring-red-100');
+                        this.classList.remove('border-gray-200');
+                    } else {
+                        this.classList.remove('border-red-400', 'ring-2', 'ring-red-100');
+                        this.classList.add('border-gray-200');
+                    }
+                });
+            });
+
+            // === ВОРОНКА: inline-валидация обязательных полей перед отправкой ===
+            form.addEventListener('submit', function(e) {
+                var valid = true;
+                form.querySelectorAll('[required]').forEach(function(field) {
+                    if (field.type === 'checkbox') {
+                        if (!field.checked) valid = false;
+                        return;
+                    }
+                    if (field.type === 'tel') {
+                        var digits = field.value.replace(/\D/g, '');
+                        if (digits.length < 11) { valid = false; field.focus(); }
+                        return;
+                    }
+                    if (!field.value.trim()) { valid = false; }
+                });
+                if (!valid) {
+                    e.preventDefault();
+                    var btn = form.querySelector('button[type="submit"]');
+                    if (btn) btn.classList.remove('loading');
+                    // Мягкая тряска формы как сигнал ошибки
+                    form.style.transition = 'transform .1s';
+                    form.style.transform = 'translateX(-6px)';
+                    setTimeout(function() { form.style.transform = 'translateX(6px)'; }, 100);
+                    setTimeout(function() { form.style.transform = ''; }, 200);
+                }
+            });
+
+            // === ВОРОНКА: микро-конверсия — начало заполнения формы (Я.Метрика) ===
+            var firstTouchTracked = false;
+            form.querySelectorAll('input, select, textarea').forEach(function(field) {
+                field.addEventListener('focus', function once() {
+                    if (!firstTouchTracked && typeof ym === 'function') {
+                        ym(108587554, 'reachGoal', 'FORM_START');
+                        firstTouchTracked = true;
+                    }
+                    field.removeEventListener('focus', once);
+                });
             });
         });
     });
@@ -382,4 +460,6 @@
     }, true);
 })();
 </script>
-<!-- calltouch requsest -->    
+<!-- calltouch requsest -->
+
+<?php include_once './public/components/cta-modal.php'; ?>    

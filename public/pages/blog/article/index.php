@@ -11,6 +11,21 @@ if ($id > 0) {
         }
     }
 }
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => $articleData['title'] ?? 'Статья не найдена',
+    'description' => $articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.',
+    'image' => $articleData['image'] ?? $site['shareImageUrl'],
+    'url' => $site['baseUrl'] . '/blog/article/' . $id,
+    'type' => 'article',
+    'pageType' => 'BlogPosting',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+        ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
+        ['name' => $articleData['title'] ?? 'Статья', 'url' => $site['baseUrl'] . '/blog/article/' . $id],
+    ],
+    'schema' => [Setting\Route\Function\Functions::articleSchema($articleData ?? [])],
+]);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -19,65 +34,46 @@ if ($id > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?> — блог о ремонте квартир | ПКвартира</title>
-    <meta name="description"
-        content="<?= htmlspecialchars($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> — блог о ремонте квартир | ПКвартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/blog/article/' . $id); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?> — блог о ремонте квартир | ПКвартира">
-    <meta property="og:description"
-        content="<?= htmlspecialchars($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.'); ?>">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/blog/article/' . $id); ?>">
-    <meta property="og:image"
-        content="<?= htmlspecialchars($articleData['image'] ?? 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1400&q=60'); ?>">
-    <meta property="og:image:alt"
-        content="<?= htmlspecialchars($articleData['title'] ?? 'Статья блога — ' . ($site['name'] ?? 'ПКвартира')); ?>">
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="article:published_time"
-        content="<?= htmlspecialchars(date('c', strtotime($articleData['created_at'] ?? date('c')))); ?>">
-    <meta property="article:modified_time"
-        content="<?= htmlspecialchars(date('c', strtotime($articleData['updated_at'] ?? $articleData['created_at'] ?? date('c')))); ?>">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:image:alt" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья блога — ' . ($site['name'] ?? 'ПКвартира')); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
+    <meta property="article:published_time" content="<?= htmlspecialchars(date('c', strtotime($articleData['created_at'] ?? date('c')))); ?>">
+    <meta property="article:modified_time" content="<?= htmlspecialchars(date('c', strtotime($articleData['updated_at'] ?? $articleData['created_at'] ?? date('c')))); ?>">
     <meta property="article:author" content="<?= htmlspecialchars($articleData['author'] ?? 'ПКвартира'); ?>">
     <meta property="article:section" content="<?= htmlspecialchars($articleData['category'] ?? 'Ремонт'); ?>">
-    <meta property="article:tag"
-        content="<?= htmlspecialchars($articleData['tags'] ?? 'ремонт квартиры, дизайн интерьера'); ?>">
+    <meta property="article:tag" content="<?= htmlspecialchars($articleData['tags'] ?? 'ремонт квартиры, дизайн интерьера'); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?>">
-    <meta name="twitter:description"
-        content="<?= htmlspecialchars($articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.'); ?>">
-    <meta name="twitter:image"
-        content="<?= htmlspecialchars($articleData['image'] ?? 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1400&q=60'); ?>">
-    <meta name="twitter:image:alt"
-        content="<?= htmlspecialchars($articleData['title'] ?? 'Статья блога'); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($articleData['image'] ?? $site['shareImageUrl']); ?>">
+    <meta name="twitter:image:alt" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья блога'); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-
 
     <?php include_once './public/components/head-includes.php'; ?>
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-                "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+    <?= $seo['jsonLd']; ?>
+    </script>
+
+    <?php include_once './public/components/head-includes.php'; ?>
                     "width": 300,
                     "height": 300
                 },

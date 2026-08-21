@@ -266,12 +266,11 @@ class Routes extends Network
      * @param string $path URI или путь, по которому не найден маршрут
      * @return void
      */
-    public static function error_404(
-        string $path
-    ) {
+    public static function error_404(string $path) {
         $link = dirname(__DIR__, 2) . '/Models/Router/view/404/404.html';
         if (file_exists($link)) {
-            include_once $link;
+        	http_response_code(404);//устанавливаем код страницы
+        	include_once $link;
         }
     }
 

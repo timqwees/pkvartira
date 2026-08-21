@@ -96,52 +96,69 @@
                 <!-- Главная --><a href="/" class="py-6 text-gray-600 hover:text-blue-600 transition">Главная</a>
                 <!-- Услуги -->
                 <div class="drop py-6"><a href="/">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
-                    <ul class="flex p-4 py-0">
-                        <!-- section 1 -->
-                        <!-- TODO: border-r border-[#bab9bb80] при section 1+-->
-                        <div class="flex flex-col pr-4"><span class="drop-title">Виды
-                                ремонта</span>
-                            <!-- <li class="drop-submenu"><a href="/"><i
-                                                                class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                                            квартир под ключ </a>
-                                                        <ul>
-                                                            <li><a href="/">Покраска стен</a></li>
-                                                            <li><a href="/">Замена плитки</a></li>
-                                                            <li><a href="/">Электрика</a></li>
-                                                            <li><a href="/">Сантехника</a></li>
-                                                            <li><a href="/">Двери и окна</a></li>
-                                                        </ul>
-                                                        </li>-->
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                    <ul class="flex p-4 py-0">     
+                        <div class="flex flex-col pr-4"><span class="drop-title">Виды ремонта</span>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     квартир студии </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     квартир под ключ </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     в новостройке </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     во вторичке </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     1-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     2-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     3-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     4-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     домов </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie"><i
-                                        class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     коммерческих помещений </a></li>
+                            <!-- <li class="drop-submenu"><a href="/"><i
+                                    class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                                квартир под ключ </a>
+                            <ul>
+                                <li><a href="/">Покраска стен</a></li>
+                                <li><a href="/">Замена плитки</a></li>
+                                <li><a href="/">Электрика</a></li>
+                                <li><a href="/">Сантехника</a></li>
+                                <li><a href="/">Двери и окна</a></li>
+                            </ul>
+                            </li>-->
+                        </div>
+                        <!-- Районы работ -->
+                        <div class="grid grid-cols-2 gap-y-2 gap-x-4 pr-4"><span class="drop-title col-span-2">Популярные районы</span>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lyubertsy"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Люберцы</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/odintsovo"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Одинцово</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mitino"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Митино</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/khimki"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Химки</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/balashikha"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Балашиха</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/krasnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Красногорск</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/podolsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Подольск</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/domodedovo"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Домодедово</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/shcherbinka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Щербинка</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zelenograd"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Зеленоград</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/ramenskoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Раменское</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pushkino"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Пушкино</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/reutov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Реутов</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dolgoprudny"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Долгопрудный</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lobnya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Лобня</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zvenigorod"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Звенигород</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vidnoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Видное</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/solnechnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Солнечногорск</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kaluga"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Калуга</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
+                        </div>
+                        <!-- Документы -->
+                        <div class="flex flex-col pr-4"><span class="drop-title">Образцы документов</span>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/smeta-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Смета на ремонт: образец</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/dogovor-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Договор на ремонт: шаблон</a></li>
                         </div>
                     </ul>
                 </div>

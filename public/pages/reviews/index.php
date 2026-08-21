@@ -1,5 +1,6 @@
 <?php
 use Setting\Route\Function\Functions;
+
 $site = Functions::site();
 $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/3room/standard');
 $euroAbout = 'public/assets/images/portfolio-photos/cottage/2_euro_230sqm/about.json';
@@ -9,6 +10,35 @@ if (is_readable($euroAbout)) {
         $portfolio[] = $euro;
     }
 }
+
+$seo = Setting\Route\Function\Functions::seo([
+    'title' => 'Отзывы о ремонте квартир — рейтинг 5.0, реальные клиенты',
+    'description' => 'Реальные отзывы клиентов о ремонте квартир в ПКвартира. Рейтинг 5.0 на Яндекс Картах, 90+ отзывов с фото объектов. Видеоотзывы с объективным мнением. Гарантия качества 3 года.',
+    'image' => $site['shareImageUrl'],
+    'url' => $site['baseUrl'] . '/reviews',
+    'type' => 'website',
+    'pageType' => 'ReviewPage',
+    'breadcrumbs' => [
+        ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
+        ['name' => 'Отзывы', 'url' => $site['baseUrl'] . '/reviews'],
+    ],
+    'schema' => [
+        [
+            '@type' => 'ReviewPage',
+            'review' => [
+                '@type' => 'AggregateRating',
+                'itemReviewed' => [
+                    '@type' => 'LocalBusiness',
+                    'name' => $site['name'],
+                ],
+                'ratingValue' => '5.0',
+                'reviewCount' => '90',
+                'bestRating' => '5',
+                'worstRating' => '1',
+            ],
+        ],
+    ],
+]);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -17,67 +47,38 @@ if (is_readable($euroAbout)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Отзывы о ремонте квартир — рейтинг 5.0, реальные клиенты | ПКвартира</title>
-    <meta name="description"
-        content="Реальные отзывы клиентов о ремонте квартир в ПКвартира. Рейтинг 5.0 на Яндекс Картах, 90+ отзывов с фото объектов. Видеоотзывы с объективным мнением. Гарантия качества 3 года.">
+    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="keywords" content="отзывы, отзывы о ремонте, рейтинг ремонт, мнения клиентов">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/reviews'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="Отзывы клиентов — реальные мнения | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta property="og:description"
-        content="Отзывы клиентов о ремонте квартир. Рейтинг 5.0/5, реальные фото и видео отзывы.">
-    <meta property="og:url"
-        content="<?= htmlspecialchars((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? '') . '/reviews'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title"
-        content="Отзывы клиентов — реальные мнения | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
-    <meta name="twitter:description"
-        content="Отзывы клиентов о ремонте квартир. Рейтинг 5.0/5, реальные фото и видео отзывы.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain"
-        content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-
-    <!-- Дополнительные мета-теги -->
-
+    <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter']['card']); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "logo": {
-          "@type": "ImageObject",
-          "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          "width": 300,
-          "height": 300
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-          "contactType": "customer service",
-          "availableLanguage": ["Russian"],
-          "areaServed": "RU"
-        },
+    <?= $seo['jsonLd']; ?>
+    </script>
+
+    <?php include_once './public/components/head-includes.php'; ?>
         "address": {
           "@type": "PostalAddress",
           "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,

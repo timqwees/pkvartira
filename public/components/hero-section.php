@@ -19,6 +19,7 @@ $heroRest = trim(preg_replace('/^\s*,/', '', $heroRest));
 ?>
 <section class="relative bg-black text-white">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>);"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-16 lg:py-20">
         <nav aria-label="breadcrumb" class="mb-8">
