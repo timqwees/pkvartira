@@ -325,7 +325,7 @@ class functions
         // Добавляем все остальные поля формы (Тип жилья, Комнат, Площадь, Ремонт и т.д.)
         $extra = [];
         foreach ($data as $key => $value) {
-            if (!in_array($key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both', 'источник_заявки', 'форма', 'website', '_ts'])) {
+            if (!in_array((string) $key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token'], true)) {
                 if (is_string($value) && $value !== '') {
                     $extra[] = "{$key}: {$value}";
                 }
@@ -337,9 +337,12 @@ class functions
         $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json';
         $postData = http_build_query(['fields' => [
             'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
+            // Воронка 7 «Заявки ремонт квартир»: стадия указана явно с префиксом C7,
+            // иначе Битрикс при невалидной стадии сбрасывает сделку в первую воронку
             'CATEGORY_ID' => 7,
-            'STAGE_ID' => 0,
+            'STAGE_ID' => 'C7:NEW',
             'COMMENTS' => $info,
+            'SOURCE_DESCRIPTION' => 'Заявка с сайта pkvartira.ru',
         ]]);
 
         $ch = curl_init($webhookUrl);
@@ -354,6 +357,11 @@ class functions
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curlError = curl_error($ch);
         curl_close($ch);
+
+        if (!is_string($response)) {
+            error_log("Bitrix24: пустой ответ (curl_exec вернул false)");
+            return;
+        }
 
         if ($curlError) {
             error_log("Bitrix24 curl error: {$curlError}");
@@ -376,7 +384,9 @@ class functions
     {
         $array = [];//тут будут данные портфолио
         foreach (array_diff(scandir($path, SCANDIR_SORT_ASCENDING), ['.', '..']) as $key => $value) {//список директорий
-            $информация = (array) json_decode(file_get_contents($path . '/' . $value . '/' . 'about.json', true));//получаем информацию
+            $content = @file_get_contents($path . '/' . $value . '/' . 'about.json');
+            if ($content === false) continue;//файл недоступен — пропускаем
+            $информация = (array) json_decode($content);//получаем информацию
             $array[] = isset($информация) ? $информация : Null;
         }
         return $array;
