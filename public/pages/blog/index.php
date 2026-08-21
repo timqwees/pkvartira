@@ -7,16 +7,19 @@ $cacheTtl = 3600; // 1 час
 $articlesJsonPath = __DIR__ . '/data/articles.json';
 
 $__blogJson = [];
+$cached = false;
 if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $cacheTtl)
     && file_exists($articlesJsonPath)) {
     // Используем кэш, если он свежее, чем источник
-    $__blogJson = json_decode(file_get_contents($cacheFile), true) ?: [];
-} else {
+    $__blogJson = json_decode((string) @file_get_contents($cacheFile), true) ?: [];
+    $cached = $__blogJson !== [];
+}
+if (!$cached) {
     // Обновляем кэш из источника
-    $__blogJson = json_decode(file_get_contents($articlesJsonPath), true) ?: [];
-    // Сохраняем в кэш с меткой времени modificaton
-    if (file_exists($articlesJsonPath)) {
-        file_put_contents($cacheFile, json_encode($__blogJson));
+    $__blogJson = json_decode((string) @file_get_contents($articlesJsonPath), true) ?: [];
+    // Запись кэша не обязательна: на хостинге без прав на запись просто работаем без него
+    if (@file_put_contents($cacheFile, json_encode($__blogJson)) === false) {
+        @unlink($cacheFile);
     }
 }
 

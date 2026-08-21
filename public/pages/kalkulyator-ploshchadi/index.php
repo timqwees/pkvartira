@@ -137,6 +137,48 @@ $seo = Setting\Route\Function\Functions::seo([
             border-color: #f97316;
             color: #fff;
         }
+        /* Строки «Вся квартира»: название / площадь / удалить */
+        .apt-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .apt-name {
+            flex: 1 1 200px;
+            width: auto;
+            min-width: 0;
+        }
+        .apt-area {
+            flex: 0 0 120px;
+            width: 120px;
+        }
+        .apt-del {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 480px) {
+            .apt-name { flex-basis: 100%; }
+        }
+        /* Кнопки: вертикальный отступ (класс py-3.5 отсутствует в собранном tailwind) */
+        .btn-pad {
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+        /* Классы, отсутствующие в собранном tailwind-built.css */
+        .grad-hero { background: linear-gradient(to right, #fff7ed, #ffffff); }
+        .tabs-bar { background: #f9fafb; }
+        .dash { border-style: dashed; }
+        .price-card { min-width: 0; }
+        @media (min-width: 768px) {
+            .price-card { min-width: 280px; }
+        }
+        details.faq[open] { border-color: #fed7aa; background: rgba(255,247,237,.35); }
+        details.faq[open] .chev { transform: rotate(180deg); }
     </style>
 </head>
 
@@ -146,7 +188,7 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <main class="pt-20 flex flex-col gap-8 pb-16">
         <!-- Hero -->
-        <section class="py-12 bg-gradient-to-r from-orange-50 to-white reveal">
+        <section class="py-12 grad-hero reveal">
             <div class="container mx-auto px-4 max-w-5xl">
                 <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-4">
                     <ol class="flex flex-wrap items-center gap-2">
@@ -169,7 +211,7 @@ $seo = Setting\Route\Function\Functions::seo([
         <section class="container mx-auto px-4 max-w-5xl reveal">
             <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                 <!-- Tabs -->
-                <div class="flex flex-wrap gap-2 p-5 md:p-6 border-b border-gray-100 bg-gray-50/60">
+                <div class="flex flex-wrap gap-2 p-5 md:p-6 border-b border-gray-100 tabs-bar">
                     <button type="button" class="area-tab-btn active" data-area-tab="room">Комната / пол / потолок</button>
                     <button type="button" class="area-tab-btn" data-area-tab="walls">Стены (обои, покраска)</button>
                     <button type="button" class="area-tab-btn" data-area-tab="apartment">Вся квартира</button>
@@ -240,29 +282,29 @@ $seo = Setting\Route\Function\Functions::seo([
                     <div data-area-panel="apartment" class="hidden">
                         <p class="text-gray-600 mb-4 text-sm">Введите площадь каждой комнаты — калькулятор сложит общую площадь квартиры.</p>
                         <div id="aptRooms" class="space-y-3 mb-4">
-                            <div class="flex items-center gap-3">
-                                <input type="text" class="area-calc-input flex-1" placeholder="Название (Гостиная)" value="Гостиная" data-apt-name>
-                                <input type="number" step="0.1" min="0" class="area-calc-input w-32" placeholder="м²" value="18.5" data-apt-area>
-                                <button type="button" class="w-10 h-10 rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition flex-shrink-0" data-apt-remove aria-label="Удалить">
+                            <div class="apt-row">
+                                <input type="text" class="area-calc-input apt-name" placeholder="Название (Гостиная)" value="Гостиная" aria-label="Название помещения">
+                                <input type="number" step="0.1" min="0" class="area-calc-input apt-area" placeholder="м²" value="18.5" data-apt-area aria-label="Площадь, м²">
+                                <button type="button" class="apt-del rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition" data-apt-remove aria-label="Удалить">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <input type="text" class="area-calc-input flex-1" placeholder="Название (Спальня)" value="Спальня" data-apt-name>
-                                <input type="number" step="0.1" min="0" class="area-calc-input w-32" placeholder="м²" value="13.2" data-apt-area>
-                                <button type="button" class="w-10 h-10 rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition flex-shrink-0" data-apt-remove aria-label="Удалить">
+                            <div class="apt-row">
+                                <input type="text" class="area-calc-input apt-name" placeholder="Название (Спальня)" value="Спальня" aria-label="Название помещения">
+                                <input type="number" step="0.1" min="0" class="area-calc-input apt-area" placeholder="м²" value="13.2" data-apt-area aria-label="Площадь, м²">
+                                <button type="button" class="apt-del rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition" data-apt-remove aria-label="Удалить">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <input type="text" class="area-calc-input flex-1" placeholder="Название (Кухня)" value="Кухня" data-apt-name>
-                                <input type="number" step="0.1" min="0" class="area-calc-input w-32" placeholder="м²" value="11.0" data-apt-area>
-                                <button type="button" class="w-10 h-10 rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition flex-shrink-0" data-apt-remove aria-label="Удалить">
+                            <div class="apt-row">
+                                <input type="text" class="area-calc-input apt-name" placeholder="Название (Кухня)" value="Кухня" aria-label="Название помещения">
+                                <input type="number" step="0.1" min="0" class="area-calc-input apt-area" placeholder="м²" value="11.0" data-apt-area aria-label="Площадь, м²">
+                                <button type="button" class="apt-del rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition" data-apt-remove aria-label="Удалить">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
                         </div>
-                        <button type="button" id="aptAddRoom" class="mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-dashed border-gray-300 text-gray-500 hover:border-orange-300 hover:text-orange-500 transition text-sm font-semibold">
+                        <button type="button" id="aptAddRoom" class="mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 dash border-gray-300 text-gray-500 hover:border-orange-300 hover:text-orange-500 transition text-sm font-semibold">
                             <i class="fas fa-plus"></i> Добавить помещение
                         </button>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -290,13 +332,13 @@ $seo = Setting\Route\Function\Functions::seo([
                                     <option value="25000">Премиум — от 25 000 ₽/м²</option>
                                 </select>
                             </div>
-                            <div class="area-result-card md:min-w-[280px]">
+                            <div class="area-result-card price-card">
                                 <div class="text-sm text-gray-500 mb-1">Ориентировочная стоимость работ</div>
                                 <div class="area-result-value" id="resPrice">от 187 200 ₽</div>
                             </div>
                         </div>
                         <a href="/calculator"
-                            class="mt-5 inline-flex items-center justify-center w-full sm:w-auto px-6 py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold transition shadow-lg shadow-orange-500/25">
+                            class="mt-5 inline-flex items-center justify-center w-full sm:w-auto px-6 btn-pad rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold transition shadow-lg shadow-orange-500/25">
                             <i class="fas fa-calculator mr-2"></i>
                             Получить точную смету бесплатно
                         </a>
@@ -348,40 +390,40 @@ $seo = Setting\Route\Function\Functions::seo([
         <section class="container mx-auto px-4 max-w-5xl reveal">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Частые вопросы</h2>
             <div class="space-y-4">
-                <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-orange-200 open:bg-orange-50/30">
+                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Как посчитать площадь комнаты в квадратных метрах?
-                        <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
                     </summary>
                     <p class="text-gray-600 text-sm mt-3 leading-relaxed">
                         Умножьте длину комнаты на ширину: S = длина × ширина. Например, комната 4 м × 5 м = 20 м².
                         Для сложной формы разбейте помещение на прямоугольники и сложите их площади.
                     </p>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-orange-200 open:bg-orange-50/30">
+                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Как рассчитать площадь стен для обоев?
-                        <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
                     </summary>
                     <p class="text-gray-600 text-sm mt-3 leading-relaxed">
                         Периметр умножьте на высоту потолка и вычтите площадь окон и дверей:
                         S = (длина + ширина) × 2 × высота − окна − двери. Калькулятор выше делает этот расчёт автоматически.
                     </p>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-orange-200 open:bg-orange-50/30">
+                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Сколько стоит ремонт одного квадратного метра?
-                        <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
                     </summary>
                     <p class="text-gray-600 text-sm mt-3 leading-relaxed">
                         В Москве в 2026 году косметический ремонт — от 8 000 ₽/м², капитальный — от 13 000 ₽/м²,
                         дизайнерский — от 18 000 ₽/м². Точную смету с выездом на замер мы составляем бесплатно.
                     </p>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-orange-200 open:bg-orange-50/30">
+                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Зачем знать точную площадь перед ремонтом?
-                        <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
                     </summary>
                     <p class="text-gray-600 text-sm mt-3 leading-relaxed">
                         От площади зависит количество материалов (обои, ламинат, краска, плитка) и итоговая смета.
@@ -401,12 +443,12 @@ $seo = Setting\Route\Function\Functions::seo([
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
                     <a href="/calculator"
-                        class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-white text-blue-800 font-extrabold hover:bg-blue-50 transition">
+                        class="inline-flex items-center justify-center px-6 btn-pad rounded-lg bg-white text-blue-800 font-extrabold hover:bg-blue-50 transition">
                         Рассчитать стоимость ремонта
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                     <a href="/blog/article/14"
-                        class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-white/10 border border-white/30 text-white font-semibold hover:bg-white/20 transition">
+                        class="inline-flex items-center justify-center px-6 btn-pad rounded-lg bg-white/10 border border-white/30 text-white font-semibold hover:bg-white/20 transition">
                         Как считать м² вручную — гайд
                     </a>
                 </div>
@@ -519,20 +561,21 @@ $seo = Setting\Route\Function\Functions::seo([
 
         document.getElementById('aptAddRoom').addEventListener('click', function () {
             var row = document.createElement('div');
-            row.className = 'flex items-center gap-3';
+            row.className = 'apt-row';
             row.innerHTML =
-                '<input type="text" class="area-calc-input flex-1" placeholder="Название помещения">' +
-                '<input type="number" step="0.1" min="0" class="area-calc-input w-32" placeholder="м²" data-apt-area>' +
-                '<button type="button" class="w-10 h-10 rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition flex-shrink-0" data-apt-remove aria-label="Удалить"><i class="fas fa-times"></i></button>';
+                '<input type="text" class="area-calc-input apt-name" placeholder="Название помещения" aria-label="Название помещения">' +
+                '<input type="number" step="0.1" min="0" class="area-calc-input apt-area" placeholder="м²" data-apt-area aria-label="Площадь, м²">' +
+                '<button type="button" class="apt-del rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 transition" data-apt-remove aria-label="Удалить"><i class="fas fa-times"></i></button>';
             document.getElementById('aptRooms').appendChild(row);
+            row.querySelector('.apt-name').focus();
         });
 
         document.addEventListener('click', function (e) {
             var removeBtn = e.target.closest('[data-apt-remove]');
             if (removeBtn) {
-                var rows = document.querySelectorAll('#aptRooms > div');
+                var rows = document.querySelectorAll('#aptRooms .apt-row');
                 if (rows.length > 1) {
-                    removeBtn.closest('div.flex').remove();
+                    removeBtn.closest('.apt-row').remove();
                     recalcAll();
                 }
             }

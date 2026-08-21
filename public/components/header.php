@@ -155,10 +155,20 @@
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
                         </div>
-                        <!-- Документы -->
-                        <div class="flex flex-col pr-4"><span class="drop-title">Образцы документов</span>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/smeta-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Смета на ремонт: образец</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/dogovor-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Договор на ремонт: шаблон</a></li>
+                        <!-- Дополнительное -->
+                        <div class="flex flex-col pr-4">
+                          <div class="flex flex-col">
+                            <span class="drop-title">Образцы документов</span>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/smeta-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Смета на ремонт: образец</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/dogovor-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Договор на ремонт: шаблон</a></li>
+                          </div>
+                          <div class="flex flex-col">
+                            <span class="drop-title">Другое</span>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/kalkulyator-ploshchadi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Калькулятор площади (м²)</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/stocks"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Акции и скидки</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/article/14"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blogs"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Все статьи о ремонте</a></li>
+                          </div>
                         </div>
                     </ul>
                 </div>
