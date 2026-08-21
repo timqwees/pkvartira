@@ -203,7 +203,7 @@ class functions
     private static function antiBotPhoneCheck(string $phone): bool
     {
         // Слишком короткий или слишком длинный
-        $digits = preg_replace('/[^0-9]/', '', $phone);
+        $digits = (string) preg_replace('/[^0-9]/', '', $phone);
         if (strlen($digits) < 10 || strlen($digits) > 15) {
             return false;
         }
@@ -215,6 +215,17 @@ class functions
             return false;
         }
         return true;
+    }
+
+    /**
+     * Приведение значения формы к строке (массив/null → строка)
+     */
+    private static function toStr(mixed $value): string
+    {
+        if (is_array($value)) {
+            return implode(', ', array_map(static fn($v): string => (string) $v, $value));
+        }
+        return (string) ($value ?? '');
     }
 
     /**
@@ -254,8 +265,8 @@ class functions
         }
 
         // Серверная валидация телефона
-        $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
-        $phone = trim(preg_replace('/[^0-9+]/', '', $phone));
+        $phoneRaw = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
+        $phone = trim((string) preg_replace('/[^0-9+]/', '', self::toStr($phoneRaw)));
 
         // === АНТИ-БОТ: уровень 5 — проверка качества телефона ===
         if ($phone === '' || !self::antiBotPhoneCheck($phone)) {
@@ -268,13 +279,13 @@ class functions
         $formId = $data->форма ?? '';
 
         $message = "<strong>Заявка с сайта</strong>";
-        if ($source) $message .= "<br><strong>Источник:</strong> " . htmlspecialchars($source);
-        if ($formId) $message .= "<br><strong>Форма:</strong> " . htmlspecialchars($formId);
+        if ($source) $message .= "<br><strong>Источник:</strong> " . htmlspecialchars(self::toStr($source), ENT_QUOTES, 'UTF-8');
+        if ($formId) $message .= "<br><strong>Форма:</strong> " . htmlspecialchars(self::toStr($formId), ENT_QUOTES, 'UTF-8');
         $message .= "<hr><strong>Данные:</strong>";
         foreach ($data as $key => $value) {
-            if (in_array($key, ['источник_заявки', 'форма', 'website', '_ts'])) continue;
-            $val = is_array($value) ? implode(', ', $value) : (string) $value;
-            $message .= "<br>" . ucfirst($key) . ': ' . htmlspecialchars($val);
+            if (in_array((string) $key, ['источник_заявки', 'форма', 'website', '_ts', '_js_token'], true)) continue;
+            $val = self::toStr($value);
+            $message .= "<br>" . ucfirst((string) $key) . ': ' . htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
         }
         $success = false;
         try {
@@ -733,25 +744,29 @@ class functions
     public static function articleSchema(array $article): array
     {
         $site = self::site();
+        $id = (string) ($article['id'] ?? '');
+        $tsCreated = strtotime((string) ($article['created_at'] ?? '')) ?: time();
+        $tsModified = strtotime((string) ($article['updated_at'] ?? '')) ?: $tsCreated;
+
         return [
             '@type' => 'BlogPosting',
-            '@id' => $site['baseUrl'] . '/blog/article/' . $article['id'] . '#article',
-            'url' => $site['baseUrl'] . '/blog/article/' . $article['id'],
-            'headline' => $article['title'],
-            'description' => $article['meta_description'] ?? '',
+            '@id' => $site['baseUrl'] . '/blog/article/' . $id . '#article',
+            'url' => $site['baseUrl'] . '/blog/article/' . $id,
+            'headline' => (string) ($article['title'] ?? ''),
+            'description' => (string) ($article['meta_description'] ?? ''),
             'image' => [
                 '@type' => 'ImageObject',
-                'url' => $article['image'] ?? $site['shareImageUrl'],
+                'url' => (string) ($article['image'] ?? $site['shareImageUrl']),
                 'width' => 1200,
                 'height' => 630,
             ],
-            'datePublished' => date('c', strtotime($article['created_at'] ?? date('c'))),
-            'dateModified' => date('c', strtotime($article['updated_at'] ?? $article['created_at'] ?? date('c'))),
+            'datePublished' => date('c', $tsCreated),
+            'dateModified' => date('c', $tsModified),
             'author' => ['@id' => $site['baseUrl'] . '#organization'],
             'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
-            'articleSection' => $article['category'] ?? 'Ремонт',
-            'keywords' => $article['tags'] ?? 'ремонт квартиры, дизайн интерьера',
-            'wordCount' => (int) str_word_count(strip_tags($article['content'] ?? '')),
+            'articleSection' => (string) ($article['category'] ?? 'Ремонт'),
+            'keywords' => (string) ($article['tags'] ?? 'ремонт квартиры, дизайн интерьера'),
+            'wordCount' => (int) str_word_count(strip_tags((string) ($article['content'] ?? ''))),
             'inLanguage' => 'ru-RU',
         ];
     }

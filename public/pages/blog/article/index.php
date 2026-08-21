@@ -23,7 +23,7 @@ $seo = Setting\Route\Function\Functions::seo([
     'image' => $articleData['image'] ?? $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/blog/article/' . $id,
     'type' => 'article',
-    'pageType' => 'BlogPosting',
+    'pageType' => 'WebPage',
     'breadcrumbs' => [
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
         ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
