@@ -237,11 +237,35 @@
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof window.intlTelInput !== 'function') return;
         document.querySelectorAll("[data-type-phone]").forEach(function(input) {
-            window.intlTelInput(input, {
+            input.setAttribute('autocomplete', 'tel');
+            input.setAttribute('inputmode', 'tel');
+            // Выбор региона (флаг страны). Автоформат библиотеки отключён —
+            // форматирование выполняет наш обработчик ниже.
+            input._iti = window.intlTelInput(input, {
                 initialCountry: "ru",
-                separateDialCode: true,
+                separateDialCode: false,
                 formatAsYouType: false,
                 autoPlaceholder: "off",
+            });
+
+            // Форматирование: +7 +7 (999) 123-45-67
+            input.addEventListener('focus', function() {
+                if (!this.value) this.value = '+7 ';
+            });
+
+            input.addEventListener('input', function() {
+                var x = this.value.replace(/\D/g, '');
+                // Вставка номера, начинающегося с 7/8: убираем первую цифру кода
+                if (x.length === 11 && (x[0] === '7' || x[0] === '8')) x = x.substring(1);
+                x = x.substring(0, 10);
+                if (x.length === 0) { this.value = ''; return; }
+                var f = '+7';
+                if (x.length > 0) f += ' (' + x.substring(0, 3);
+                if (x.length >= 3) f += ')';
+                if (x.length > 3) f += ' ' + x.substring(3, 6);
+                if (x.length > 6) f += '-' + x.substring(6, 8);
+                if (x.length > 8) f += '-' + x.substring(8, 10);
+                this.value = f;
             });
         });
     });
@@ -324,9 +348,14 @@
             // Валидация телефона при потере фокуса (поле свободного ввода)
             form.querySelectorAll('input[type="tel"]').forEach(function(tel) {
                 tel.addEventListener('blur', function() {
-                    var digits = this.value.replace(/\D/g, '');
-                    // 10 цифр (без кода страны) или 11 (с 7/8 в начале) — оба варианта корректны
-                    var valid = digits.length === 0 || digits.length === 10 || digits.length === 11;
+                    if (this.value.trim() === '') return; // пустоту ловит required
+                    var valid;
+                    if (this._iti && typeof this._iti.isValidNumber === 'function') {
+                        valid = this._iti.isValidNumber(); // полная проверка по libphonenumber
+                    } else {
+                        var d = this.value.replace(/\D/g, '');
+                        valid = d.length === 10 || d.length === 11;
+                    }
                     this.classList.toggle('border-red-400', !valid);
                     this.classList.toggle('ring-2', !valid);
                     this.classList.toggle('ring-red-100', !valid);
@@ -342,8 +371,15 @@
                         return;
                     }
                     if (field.type === 'tel') {
-                        var digits = field.value.replace(/\D/g, '');
-                        if (digits.length !== 10 && digits.length !== 11) { valid = false; }
+                        if (field._iti && typeof field._iti.isValidNumber === 'function') {
+                            // Некорректный номер — блокируем отправку
+                            if (!field._iti.isValidNumber()) { valid = false; return; }
+                            // Корректный — нормализуем в международный формат +7XXXXXXXXXX
+                            field.value = field._iti.getNumber();
+                        } else {
+                            var d = field.value.replace(/\D/g, '');
+                            if (d.length !== 10 && d.length !== 11) { valid = false; }
+                        }
                         return;
                     }
                     if (!field.value.trim()) { valid = false; }

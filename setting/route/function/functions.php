@@ -275,6 +275,16 @@ class functions
             return;
         }
 
+        // Нормализация номера: всегда приводим к формату +7XXXXXXXXXX
+        $digits = preg_replace('/[^0-9]/', '', $phone) ?? '';
+        if (strlen($digits) === 10) {
+            $phone = '+7' . $digits;          // 9991234567 → +79991234567
+        } elseif (strlen($digits) === 11 && $digits[0] === '8') {
+            $phone = '+7' . substr($digits, 1); // 89991234567 → +79991234567
+        } else {
+            $phone = '+' . ltrim($digits, '+'); // уже с кодом страны
+        }
+
         $source = $data->источник_заявки ?? '';
         $formId = $data->форма ?? '';
 

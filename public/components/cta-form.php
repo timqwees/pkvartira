@@ -30,7 +30,7 @@ $p = $ctaFormId;
 
         <div class="mb-4 relative">
             <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone name="телефн"
-                placeholder="(___) ___-__-__" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
+                placeholder="+7 (999) 123-45-67" aria-label="Телефон" class="border w-full rounded-xl p-4" required>
             <span class="bg-white rounded-lg px-2 absolute -top-3 left-4 text-gray-900">Телефон <span class="text-red-500">*</span></span>
         </div>
 

@@ -394,7 +394,7 @@
                                                 class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                                             <input name="телефон" data-type-phone type="tel"
                                                 pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
-                                                placeholder="(___) ___-__-__" required aria-label="Телефон"
+                                                placeholder="+7 (999) 123-45-67" required aria-label="Телефон"
                                                 class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                                         </div>
                                     </div>
@@ -598,7 +598,7 @@
                                                 class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                                             <input name="телефон" data-type-phone type="tel"
                                                 pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
-                                                placeholder="(___) ___-__-__" required aria-label="Телефон"
+                                                placeholder="+7 (999) 123-45-67" required aria-label="Телефон"
                                                 class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                                         </div>
                                     </div>
@@ -648,7 +648,7 @@
                         <form method="POST" action="/send/email"
                             class="mt-3 flex flex-col sm:flex-row gap-3 sm:items-center text-black">
                             <input name="телефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+"
-                                maxlength="15" placeholder="(___) ___-__-__" required aria-label="Телефон"
+                                maxlength="15" placeholder="+7 (999) 123-45-67" required aria-label="Телефон"
                                 class="w-full text-black px-3 py-2.5 rounded-md border border-[#e6e7ee] text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
                             <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
                             <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
