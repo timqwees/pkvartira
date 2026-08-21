@@ -134,6 +134,7 @@
     .iti__selected-dial-code, .iti__selected-country, .iti__selected-country-primary {
         color: #111827 !important;
     }
+    .iti__country-name { color: #111827 !important; }
     .iti__dropdown-content { z-index: 9999 !important; max-height: 250px !important; }
     .iti__country-list { max-height: 200px !important; overflow-y: auto !important; }
     .iti--container { z-index: 9999 !important; }
