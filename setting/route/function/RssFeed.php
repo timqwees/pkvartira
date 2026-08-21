@@ -50,7 +50,7 @@ class RssFeed
 
         $etag = md5($xml);
 
-        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
+        if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && trim($_SERVER['HTTP_IF_NONE_MATCH']) === $etag) {
             http_response_code(304);
             return;
         }
@@ -58,7 +58,7 @@ class RssFeed
         header('Content-Type: application/rss+xml; charset=utf-8');
         header('ETag: ' . $etag);
         header('Cache-Control: public, max-age=1800');
-        header('Content-Length: ' . strlen($xml));
+        // Content-Length intentionally not sent to avoid truncation with gzip
         echo $xml;
     }
 
@@ -133,32 +133,51 @@ class RssFeed
 
     private function getArticles(): array
     {
-        // 1) Пытаемся из БД
+        // 1) Пытаемся из БД (может быть пусто, если статьи в JSON)
         try {
             $article = new Article();
             $rows = $article->getPaginatedArticles(1, 1000);
             if (!empty($rows) && is_array($rows)) {
-                // Фильтруем битые даты (напр. 2026-06-31)
-                return array_values(array_filter($rows, fn($r) => !empty($r['id']) && !empty($r['title'])));
+                $filtered = array_values(array_filter($rows, fn($r) => !empty($r['id']) && !empty($r['title'])));
+                if ($filtered !== []) {
+                    return $filtered;
+                }
             }
-        } catch (\Exception $e) {
-            // fallthrough to file fallback
+        } catch (\Throwable $e) {
+            error_log('RssFeed DB fallback: '.$e->getMessage());
         }
 
-        // 2) Фолбэк — читаем JSON напрямую (актуально когда DATABASE не настроена)
-        $jsonPath = dirname(__DIR__, 3) . '/public/pages/blog/data/articles.json';
-        if (is_file($jsonPath)) {
-            $raw = @file_get_contents($jsonPath);
-            $data = json_decode($raw, true);
-            if (is_array($data) && $data !== []) {
-                // Сортировка по created_at DESC (как в БД)
-                usort($data, function($a, $b) {
-                    $ta = strtotime($a['created_at'] ?? '') ?: 0;
-                    $tb = strtotime($b['created_at'] ?? '') ?: 0;
-                    return $tb <=> $ta;
-                });
-                return array_slice($data, 0, 1000);
+        // 2) Фолбэк — читаем JSON напрямую (актуально когда DATABASE не настроена или таблица пуста)
+        $candidates = [
+            dirname(__DIR__, 3) . '/public/pages/blog/data/articles.json',
+            __DIR__ . '/../../../public/pages/blog/data/articles.json',
+            ($_SERVER['DOCUMENT_ROOT'] ?? '') . '/public/pages/blog/data/articles.json',
+            getcwd() . '/public/pages/blog/data/articles.json',
+        ];
+        $jsonPath = null;
+        foreach ($candidates as $cand) {
+            if ($cand && is_file($cand) && is_readable($cand)) {
+                $jsonPath = $cand;
+                break;
             }
+        }
+        if ($jsonPath) {
+            $raw = @file_get_contents($jsonPath);
+            if ($raw !== false && $raw !== '') {
+                $data = json_decode($raw, true);
+                if (is_array($data) && $data !== []) {
+                    usort($data, function($a, $b) {
+                        $ta = strtotime($a['created_at'] ?? '') ?: 0;
+                        $tb = strtotime($b['created_at'] ?? '') ?: 0;
+                        return $tb <=> $ta;
+                    });
+                    return array_slice($data, 0, 1000);
+                } else {
+                    error_log('RssFeed JSON decode failed for '.$jsonPath.': '.json_last_error_msg());
+                }
+            }
+        } else {
+            error_log('RssFeed JSON not found in candidates: '.implode(', ', $candidates));
         }
         return [];
     }
