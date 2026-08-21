@@ -320,7 +320,7 @@
                 if (btn) btn.classList.add('loading');
             });
 
-            // Валидация телефона при потере фокуса (формат задаёт phoneFormat.min.js)
+            // Валидация телефона при потере фокуса (поле свободного ввода)
             form.querySelectorAll('input[type="tel"]').forEach(function(tel) {
                 tel.addEventListener('blur', function() {
                     var digits = this.value.replace(/\D/g, '');
