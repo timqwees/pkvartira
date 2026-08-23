@@ -73,12 +73,12 @@
                             <?= $site['phone']; ?>
                         </a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="tel:88003021737" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone-volume text-xs"></i></span>
                             <?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> <span class="text-xs text-gray-500 ml-1">бесплатно по РФ</span>
                         </a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="mailto:<?= $site['email']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm" aria-label="Написать на <?= $site['email']; ?>">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-xs"></i></span>

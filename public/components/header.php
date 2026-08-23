@@ -190,7 +190,7 @@
                 <div class="flex flex-col justify-center items-center lg:hidden xl:flex"><a
                         href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800">+7 495
                         473-17-37</a>
-                    <a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>
+                    <!--<a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>-->
                     <p class="text-sm text-gray-600">Ежедневно с 9:00 до 22:00</p>
                 </div><button data-button-dialog
                     class="flex items-center bg-orange-500 text-white px-6 rounded-lg hover:bg-orange-600 transition py-2">Получить

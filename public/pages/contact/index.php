@@ -176,7 +176,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-xs text-gray-500 mt-2">Звоните напрямую — ответим за 5 минут. Бесплатная линия <a href="tel:88003021737" class="text-blue-600 hover:underline">8 800 302-17-37</a></p>
+                            <!--<p class="text-xs text-gray-500 mt-2">Звоните напрямую — ответим за 5 минут. Бесплатная линия <a href="tel:88003021737" class="text-blue-600 hover:underline">8 800 302-17-37</a></p>-->
                         </div>
                     </div>
 
