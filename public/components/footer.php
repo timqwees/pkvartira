@@ -125,6 +125,10 @@
             <p class="text-gray-500 text-xs">&copy; 2026 Проект Квартира. Все права защищены.</p>
             <div class="flex items-center gap-6">
                 <a href="/soglashenie" class="text-gray-500 hover:text-orange-500 transition text-xs">Соглашение и обработка персональных данных</a>
+                <div class="flex items-center justify-center gap-2 text-xs text-gray-400">
+                  <img src="https://avatars.githubusercontent.com/u/88802215?v=4" alt="TimQwees" class="h-4 w-auto opacity-60 grayscale" width="16" height="16" loading="lazy">
+                  <span>By TimQwees</span>
+                </div>
             </div>
         </div>
     </div>
