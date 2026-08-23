@@ -17,12 +17,15 @@ Routes::get('/other', 'on_Other');
 Routes::get('/reviews', 'on_Reviews');
 //==================================================================================================//REVIEWS
 Routes::get('/portfolio', 'on_Portfolio');
+//==================================================================================================//SERVICE INDEX
+Routes::get('/services', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/index.php", get_defined_vars()); });
 //==================================================================================================//SERVICE
 Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php", get_defined_vars()); });
 //==================================================================================================//PRICES
 Routes::get('/prices', 'on_Prices');
 //==================================================================================================//BLOG
 Routes::get('/blogs', 'on_Blog');
+Routes::get('/blog', 'on_Blog');
 //==================================================================================================//BLOG ARTICLE (SEO URL)
 Routes::get('/blog/article', function () {//для ненайденных
     Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/blog/article/index.php', get_defined_vars());

@@ -20,7 +20,7 @@
 
 <!-- Главное фото -->
 <div data-type="image">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=60" alt="Замер площади комнаты — рулетка, план квартиры, расчёт квадратных метров">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=60" alt="Замер площади комнаты — рулетка, план квартиры, расчёт квадратных метров" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <!-- Секция 1: Прямоугольная комната -->

@@ -77,9 +77,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="keywords" content="цены на ремонт, стоимость ремонта, прайс, расценки ремонт квартир, капитальный ремонт цена, косметический ремонт стоимость, премиальный ремонт">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -149,7 +147,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 class="cta-button relative bg-orange-500 text-white px-6 md:px-8 py-3 rounded-xl text-lg w-full max-w-xs md:w-auto">
                                 <span class="drop-shadow-lg font-sans">Расчитать Стоимость</span>
                             </a>
-                            <a href="/public/assets/files/price-list.pdf" download
+                            <a href="<?= \Setting\Route\Function\Functions::asset('/public/assets/files/price-list.pdf') ?>" download
                                 class="bg-white text-gray-700 px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-100 transition border border-gray-300 inline-flex items-center gap-2">
                                 <i class="fas fa-download text-orange-600"></i>
                                 <span>Скачать прайс-лист</span>
@@ -519,9 +517,9 @@ include './public/components/cta-form.php';
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- FAQ Toggle Script -->
     <script>

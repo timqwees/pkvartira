@@ -62,10 +62,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="keywords"
-        content="калькулятор площади, посчитать квадратные метры, площадь комнаты, расчет площади стен, м2 калькулятор, площадь квартиры онлайн">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -458,9 +455,9 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <script>
     (function () {

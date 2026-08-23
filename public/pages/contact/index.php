@@ -22,9 +22,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="keywords" content="контакты, телефон, адрес, связаться, ремонт квартир">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -121,15 +119,17 @@ $seo = Setting\Route\Function\Functions::seo([
                             </h2>
                             <div class="flex space-x-4 mb-3">
                                 <a href="<?= $site['telegram']; ?>"
-                                    class="text-blue-500 hover:text-blue-700 text-4xl" aria-label="Написать в Telegram"><i
+                                    class="text-blue-500 hover:text-blue-700 text-4xl" aria-label="Написать в Telegram" rel="nofollow noopener noreferrer" target="_blank"><i
                                         class="fab fa-telegram"></i></a>
                                 <a href="<?= $site['whatsapp']; ?>"
-                                    class="text-green-500 hover:text-green-700 text-4xl" aria-label="Написать в WhatsApp"><i
+                                    class="text-green-500 hover:text-green-700 text-4xl" aria-label="Написать в WhatsApp" rel="nofollow noopener noreferrer" target="_blank"><i
                                         class="fab fa-whatsapp"></i></a>
+                                <?php if (!empty($site['max'])): ?>
                                 <a href="<?= $site['max'] ?>"
                                     class="flex items-center text-gray-600 hover:text-blue-600 transition" aria-label="Написать в MAX">
-                                    <img class="h-9 w-9" src="/public/assets/images/icons/MAX.svg" alt="Logo Max" title="MAX — мессенджер">
+                                    <img class="h-9 w-9" src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/icons/MAX.svg') ?>" alt="Logo Max" title="MAX — мессенджер">
                                 </a>
+                                <?php endif; ?>
                             </div>
                             <a href="mailto:<?php echo $site['email']; ?>"
                                 class="text-blue-600 hover:underline">Написать нам</a>
@@ -149,6 +149,34 @@ $seo = Setting\Route\Function\Functions::seo([
                                         . ', ' . $site['address']['streetAddress'] ?>
                                 </p>
                             </div>
+                        </div>
+
+                        <!-- Менеджеры (требование чек-листа: отдельные контакты менеджеров) -->
+                        <div class="mt-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-users text-blue-600 mr-3"></i>Менеджеры проектов
+                            </h2>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
+                                    <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев — руководитель проектов" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
+                                    <div class="min-w-0">
+                                        <div class="font-semibold text-gray-900 text-sm">Владимир Соболев</div>
+                                        <div class="text-xs text-gray-500">Руководитель проектов</div>
+                                        <a href="tel:+74954731737" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-37 доб. 1</a><br>
+                                        <a href="mailto:m1@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m1@pkvartira.ru</a>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
+                                    <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников — сметчик" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
+                                    <div class="min-w-0">
+                                        <div class="font-semibold text-gray-900 text-sm">Семён Серебренников</div>
+                                        <div class="text-xs text-gray-500">Сметчик / замер</div>
+                                        <a href="tel:+74954731738" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-38</a><br>
+                                        <a href="mailto:m2@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m2@pkvartira.ru</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">Звоните напрямую — ответим за 5 минут. Бесплатная линия <a href="tel:88003021737" class="text-blue-600 hover:underline">8 800 302-17-37</a></p>
                         </div>
                     </div>
 
@@ -265,11 +293,11 @@ $seo = Setting\Route\Function\Functions::seo([
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
 
-    <script src="/public/assets/scripts/components/faq.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/faq.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>
 

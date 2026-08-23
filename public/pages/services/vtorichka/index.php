@@ -42,12 +42,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description"
-        content="Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Ремонт в хрущёвке, сталинке, панельном и кирпичном доме. Фиксированная смета, гарантия 3 года. Выезд инженера — бесплатно.">
-    <meta name="keywords"
-        content="ремонт вторички, ремонт квартиры на вторичке, ремонт в хрущёвке, ремонт в сталинке, ремонт в панельном доме, ремонт в кирпичном доме, ремонт квартиры вторичка Москва">
-    <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Ремонт в хрущёвке, сталинке, панельном и кирпичном доме. Фиксированная смета, гарантия 3 года. Выезд инженера — бесплатно.',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -60,7 +56,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta property="og:description"
         content="Ремонт квартиры на вторичном рынке в Москве от 640 000 ₽. Демонтаж, замена коммуникаций, отделка под ключ. Ремонт в хрущёвке, сталинке, панельном и кирпичном доме.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/vtorichka'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
 
     <meta property="og:site_name"
         content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
@@ -73,7 +69,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="twitter:description"
         content="Ремонт квартир на вторичном рынке под ключ от 640 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
 
@@ -111,11 +107,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
           "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
           "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
         },
-        "sameAs": [
-          <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        ]
+        "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
       },
       {
         "@type": "WebSite",
@@ -710,9 +702,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

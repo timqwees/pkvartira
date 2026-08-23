@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=60"
-        alt="Команда профессионалов за работой — ремонт под ключ">
+        alt="Команда профессионалов за работой — ремонт под ключ" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="trend">

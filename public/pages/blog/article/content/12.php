@@ -18,7 +18,7 @@
 
 <!-- Главное фото -->
 <div data-type="image">
-    <img src="https://images.unsplash.com/photo-1524758870432-af57e54afa26?auto=format&fit=crop&w=1600&q=60" alt="Современный интерьер с натуральными материалами — тренды дизайна 2026">
+    <img src="https://images.unsplash.com/photo-1524758870432-af57e54afa26?auto=format&fit=crop&w=1600&q=60" alt="Современный интерьер с натуральными материалами — тренды дизайна 2026" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <!-- Секция: Природные фактуры -->
@@ -57,7 +57,7 @@
     <p>Технологии перестали быть игрушкой. В 2026 году умный дом — это практичные решения, которые экономят время и деньги. Датчики протечки воды, умные замки и системы автоматического освещения стали стандартом для нового ремонта.</p>
 
     <div data-type="image">
-        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1600&q=60" alt="Умный дом — датчики и автоматизация">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1600&q=60" alt="Умный дом — датчики и автоматизация" width="1600" height="900" loading="lazy" decoding="async">
     </div>
 
     <ul>

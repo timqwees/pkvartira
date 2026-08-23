@@ -9,10 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title); ?></title>
-    <meta name="description" content="Ремонт дома из бревна под ключ в Москве — цены от 10 000 ₽/м². Реставрация, обработка, утепление, отделка. Фиксированная смета, гарантия 3 года.">
-    <meta name="keywords" content="ремонт дома из бревна, реставрация бревенчатого дома, отделка сруба, ремонт сруба Москва">
-    <meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?></title>
+    <meta name="description" content="Ремонт дома из бревна под ключ в Москве — цены от 10 000 ₽/м². Реставрация, обработка, утепление, отделка. Фиксированная смета, гарантия 3 года."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/iz-breven'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -139,6 +137,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

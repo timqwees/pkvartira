@@ -161,10 +161,10 @@ $seo = Setting\Route\Function\Functions::seo([
 
                                 <div
                                     class="flex flex-wrap justify-start sm:justify-end gap-x-3 gap-y-1 text-[12px] font-bold text-blue-700">
-                                    <a class="hover:text-blue-800 transition" href="/blog?tag=ремонт">#ремонтподключ</a>
-                                    <a class="hover:text-blue-800 transition" href="/blog?tag=дизайн">#дизайнинтерьера</a>
-                                    <a class="hover:text-blue-800 transition" href="/blog?tag=отделка">#отделкастен</a>
-                                    <a class="hover:text-blue-800 transition" href="/blog?tag=полы">#напольныепокрытия</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#ремонтподключ</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#дизайнинтерьера</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#отделкастен</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#напольныепокрытия</a>
                                 </div>
                             </div>
 
@@ -581,7 +581,7 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>
 

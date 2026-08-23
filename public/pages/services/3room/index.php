@@ -48,12 +48,8 @@ if (is_readable($euroAbout)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description"
-        content="Ремонт 3-комнатной квартиры под ключ в Москве от 560 000 ₽. Капитальный, косметический, дизайнерский — любой формат. Смета фиксируется в договоре, гарантия 3 года. Бесплатный выезд.">
-    <meta name="keywords"
-        content="ремонт трехкомнатной квартиры, ремонт 3 комнатной квартиры, ремонт трешки под ключ, ремонт квартиры под ключ Москва">
-    <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт 3-комнатной квартиры под ключ в Москве от 560 000 ₽. Капитальный, косметический, дизайнерский — любой формат. Смета фиксируется в договоре, гарантия 3 года. Бесплатный выезд.',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -66,7 +62,7 @@ if (is_readable($euroAbout)) {
     <meta property="og:description"
         content="Ремонт трехкомнатных квартир под ключ в Москве от 560 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/3room'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
 
     <meta property="og:site_name"
         content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
@@ -79,7 +75,7 @@ if (is_readable($euroAbout)) {
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="twitter:description"
         content="Ремонт трехкомнатных квартир под ключ от 560 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
 
@@ -117,11 +113,7 @@ if (is_readable($euroAbout)) {
           "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
           "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
         },
-        "sameAs": [
-          <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        ]
+        "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
       },
       {
         "@type": "WebSite",
@@ -595,9 +587,9 @@ if (is_readable($euroAbout)) {
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

@@ -9,10 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/studio/1_24sqm/1.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description" content="Ремонт квартир в Щербинке под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. Замер и смета в Щербинке бесплатно.">
-    <meta name="keywords" content="ремонт квартир Щербинка, ремонт под ключ в Щербинке, отделка квартир в Щербинке, ремонт квартир в Щербинка цены">
-    <meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир в Щербинке под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. Замер и смета в Щербинке бесплатно.',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/shcherbinka'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -145,6 +143,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

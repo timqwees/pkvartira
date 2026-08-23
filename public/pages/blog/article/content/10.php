@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=60"
-        alt="Дизайнерский интерьер премиум-класса">
+        alt="Дизайнерский интерьер премиум-класса" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="concept">

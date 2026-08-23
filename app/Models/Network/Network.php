@@ -554,7 +554,7 @@ class Network extends Session
 
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-                        <img src="/public/assets/images/logo/full.svg" alt="logo">
+                        <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full.svg') ?>" alt="logo">
                     </div>
                     <span class="text-black text-2xl font-bold">QweesCore</span>
                 </div>

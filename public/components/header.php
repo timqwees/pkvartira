@@ -90,7 +90,7 @@
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="flex justify-between items-center">
             <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
-                    src="/public/assets/images/logo/full.svg" alt="ПКвартира — ремонт квартир под ключ"></a>
+                    src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full.svg') ?>" alt="ПКвартира — ремонт квартир под ключ"></a>
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-8">
                 <!-- Главная --><a href="/" class="py-6 text-gray-600 hover:text-blue-600 transition">Главная</a>
@@ -190,6 +190,7 @@
                 <div class="flex flex-col justify-center items-center lg:hidden xl:flex"><a
                         href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800">+7 495
                         473-17-37</a>
+                    <a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>
                     <p class="text-sm text-gray-600">Ежедневно с 9:00 до 22:00</p>
                 </div><button data-button-dialog
                     class="flex items-center bg-orange-500 text-white px-6 rounded-lg hover:bg-orange-600 transition py-2">Получить
@@ -216,7 +217,7 @@
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
                 <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="145" height="48" class="h-12"
-                        src="/public/assets/images/logo/full.svg" alt="ПКвартира — ремонт квартир под ключ"></a>
+                        src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full.svg') ?>" alt="ПКвартира — ремонт квартир под ключ"></a>
             </div><button class="mobile-menu-close p-2" aria-label="Закрыть меню"><i
                     class="fas fa-times text-2xl text-gray-800"></i></button>
         </div>

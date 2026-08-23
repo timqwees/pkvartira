@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=60"
-        alt="Вид на строящийся дом — ремонт в новостройке">
+        alt="Вид на строящийся дом — ремонт в новостройке" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="wait">

@@ -9,10 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description" content="Укладка ламината в Москве — цена за квадратный метр вместе с укладкой фанеры. Стоимость работы от 350 ₽/м², с материалом от 800 ₽/м². Гарантия 3 года, выезд мастера бесплатно.">
-    <meta name="keywords" content="укладка ламината цена, сколько стоит укладка ламината, укладка ламината с фанерой, цена укладки ламината за м2, укладка ламината москва">
-    <meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Укладка ламината в Москве — цена за квадратный метр вместе с укладкой фанеры. Стоимость работы от 350 ₽/м², с материалом от 800 ₽/м². Гарантия 3 года, выезд мастера бесплатно.',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/ukladka-laminata'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -139,6 +137,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

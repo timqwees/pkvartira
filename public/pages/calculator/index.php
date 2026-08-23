@@ -8,10 +8,7 @@
 
     <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | ПКвартира</title>
     <meta name="description"
-        content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно.">
-    <meta name="keywords"
-        content="калькулятор ремонта квартиры, расчёт стоимости ремонта, сколько стоит ремонт, ремонт под ключ цена">
-    <meta name="robots" content="index, follow">
+        content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно."><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/calculator'); ?>">
@@ -72,11 +69,7 @@
                     "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
                     "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
                 },
-                "sameAs": [
-                    <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                ]
+                "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
             },
             {
                 "@type": "WebSite",
@@ -732,8 +725,8 @@
             });
         });
     </script>
-    <script src="/public/assets/scripts/components/toggleWindow.min.js"></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/toggleWindow.min.js') ?>"></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>

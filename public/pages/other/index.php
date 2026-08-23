@@ -9,10 +9,7 @@
     <!-- SEO Meta Tags -->
     <title>Ремонт квартиры в ЖК «Пример Парк» — фото до и после, цена | ПКвартира</title>
     <meta name="description"
-        content="Пример ремонта квартиры в ЖК «Пример Парк»: современный интерьер, фото до и после, полный список работ, сроки и бюджет проекта. Закажите похожий ремонт.">
-    <meta name="keywords"
-        content="ремонт квартир, портфолио, ЖК Пример Парк, современный интерьер, ремонт под ключ, Москва">
-    <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+        content="Пример ремонта квартиры в ЖК «Пример Парк»: современный интерьер, фото до и после, полный список работ, сроки и бюджет проекта. Закажите похожий ремонт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/other'); ?>">
 
@@ -70,11 +67,7 @@
                     "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
                     "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
                 },
-                "sameAs": [
-                    <?= json_encode($site['vk'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['telegram'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-                    <?= json_encode($site['whatsapp'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-                ]
+                "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
             },
             {
                 "@type": "WebSite",
@@ -342,9 +335,9 @@
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 
 </html>

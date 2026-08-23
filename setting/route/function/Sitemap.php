@@ -175,6 +175,7 @@ class Sitemap
             ['/soglashenie', '0.4', 'yearly'],
             ['/calculator', '0.8', 'weekly'],
             ['/kalkulyator-ploshchadi', '0.8', 'weekly'],
+            ['/services', '0.9', 'weekly'],
             ['/blogs', '0.9', 'daily'],
             ['/smeta-obrazec', '0.8', 'weekly'],
             ['/dogovor-obrazec', '0.8', 'weekly'],

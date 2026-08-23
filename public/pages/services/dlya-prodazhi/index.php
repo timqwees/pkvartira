@@ -9,10 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title); ?></title>
-    <meta name="description" content="Ремонт квартиры для продажи в Москве — цены от 5 000 ₽/м². Быстрый ремонт за 2-3 недели, повышение ликвидности. Фиксированная смета, гарантия.">
-    <meta name="keywords" content="ремонт для продажи, ремонт квартиры перед продажей, косметический ремонт для продажи, повысить ликвидность квартиры">
-    <meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?></title>
+    <meta name="description" content="Ремонт квартиры для продажи в Москве — цены от 5 000 ₽/м². Быстрый ремонт за 2-3 недели, повышение ликвидности. Фиксированная смета, гарантия."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dlya-prodazhi'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -139,6 +137,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

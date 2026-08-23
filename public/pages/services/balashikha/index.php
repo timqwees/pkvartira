@@ -9,10 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description" content="Ремонт квартир в Балашихе под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, реальные сроки, гарантия 3 года.">
-    <meta name="keywords" content="ремонт квартир Балашиха, ремонт под ключ в Балашихе, отделка квартир в Балашихе, ремонт квартир в Балашиха цены">
-    <meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир в Балашихе под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, реальные сроки, гарантия 3 года.',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/balashikha'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -145,6 +143,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

@@ -21,93 +21,119 @@ class functions
     # Главная страница || Main page (В маршрутных функциях писать, только маршрут в path болье ничего не нужно)
     public function on_Main($path = '/public/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница контактов || Contact page
     public function on_Contact($path = '/public/pages/contact/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница акций || Stocks page
     public function on_Stocks($path = '/public/pages/stocks/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница о компании || About page
     public function on_About($path = '/public/pages/about/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница другие || Other page
     public function on_Other($path = '/public/pages/other/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница отзывы || Reviews page
     public function on_Reviews($path = '/public/pages/reviews/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница портфолио || Portfolio page
     public function on_Portfolio($path = '/public/pages/portfolio/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница цены || Prices page
     public function on_Prices($path = '/public/pages/prices/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница блог || Blog page
     public function on_Blog($path = '/public/pages/blog/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница калькулятор || Calculator page
     public function on_Calculator($path = '/public/pages/calculator/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница калькулятор площади || Area calculator page
     public function on_AreaCalculator($path = '/public/pages/kalkulyator-ploshchadi/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Соглашение и документы (ПДн) || Legal / consent page
     public function on_Soglashenie($path = '/public/pages/soglashenie/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница образец сметы || Smeta sample page
     public function on_Smeta($path = '/public/pages/smeta-obrazec/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница шаблон договора || Dogovor template page
     public function on_Dogovor($path = '/public/pages/dogovor-obrazec/index.php')
     {
+    header('Cache-Control: no-cache');
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
-    // siteInfo
+    // siteInfo — главное зеркало https://pkvartira.ru (301 на него в .htaccess)
     public static function site(): array
     {
-        // Динамический базовый URL из текущего запроса
-        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-        $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+        $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost);
+        $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
+        if ($isProd) {
+            // Продакшн: всегда https и без www (каноникал)
+            $scheme = 'https';
+            $host = 'pkvartira.ru';
+        } else {
+            // Локалка / дев: как пришло (http для 127.0.0.1, localhost)
+            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+                $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
+            }
+            $host = $rawHost ?: 'pkvartira.ru';
+        }
         $baseUrl = $scheme . '://' . $host;
         $pathOnly = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         if (!is_string($pathOnly) || $pathOnly === '') {
@@ -141,9 +167,49 @@ class functions
             'kartaAdress' => 'https://yandex.ru/maps/213/moscow/house/varshavskoye_shosse_28a/Z04YcAZnQEEGQFtvfXp5c3RjZw==/?indoorLevel=1&ll=37.617940%2C55.682803&source=serp_navig&z=16.99',
             'telegram' => 'https://t.me/pkvartira',
             'whatsapp' => 'https://wa.me/74951234567',
-            'vk' => 'https://vk.com/pkvartira',
-            'max' => ''
+            'vk' => '', // VK сообщество pkvartira не найдено (404) — скрываем ссылку до появления валидного URL; укажите реальный адрес вида https://vk.com/clubXXXX или https://vk.com/pkvartira_ru
+            'max' => '',
+            'phone8800' => '8 800 302-17-37',
         ];
+    }
+
+    /**
+     * Cache-busting для статики: /path/file.css?v=filemtime
+     * Использование: <?= \Setting\Route\Function\Functions::asset('/public/assets/styles/main.min.css') ?>
+     */
+    public static function asset(string $path): string
+    {
+        // $path ожидается с ведущим /
+        if ($path === '' || $path[0] !== '/') $path = '/' . $path;
+        $full = dirname(__DIR__, 3) . $path;
+        // Для файлов вне public (напр. /public/assets/...) — проверяем
+        if (is_file($full)) {
+            $v = filemtime($full);
+            return $path . '?v=' . $v;
+        }
+        // Пробуем с DOCUMENT_ROOT для совместимости с dev
+        $docRoot = $_SERVER['DOCUMENT_ROOT'] ?? dirname(__DIR__, 3);
+        $alt = rtrim($docRoot, '/') . $path;
+        if (is_file($alt)) {
+            $v = filemtime($alt);
+            return $path . '?v=' . $v;
+        }
+        return $path;
+    }
+
+    /**
+     * Трим для SEO: обрезает title/description без разрыва слов, до $max символов
+     */
+    public static function truncateSeo(string $text, int $max): string
+    {
+        $text = trim(preg_replace('/\s+/', ' ', $text));
+        if (mb_strlen($text) <= $max) return $text;
+        $cut = mb_substr($text, 0, $max);
+        $lastSpace = mb_strrpos($cut, ' ');
+        if ($lastSpace !== false && $lastSpace > $max * 0.7) {
+            $cut = mb_substr($cut, 0, $lastSpace);
+        }
+        return rtrim($cut, " ,.—:") . '…';
     }
 
     /**
@@ -495,12 +561,17 @@ class functions
             'keywords' => null,
         ];
         $opts = array_merge($defaults, $options);
+        // SEO лимиты: title ≤55 (финал + " | ПКвартира" ≤67), description ≤155 (сниппет 160)
+        $opts['title'] = self::truncateSeo((string)$opts['title'], 48);
+        $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
 
         $ogImage = $opts['image'];
         $ogType = $opts['type'];
         $pageUrl = $opts['url'];
         $pageTitle = $opts['title'];
         $pageDescription = $opts['description'];
+        // Фильтруем пустые соцсети (например VK если не задан — не попадает в sameAs, чтобы не плодить битую ссылку)
+        $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']], fn($v) => is_string($v) && $v !== ''));
 
         $jsonLd = [
             '@context' => 'https://schema.org',
@@ -531,11 +602,7 @@ class functions
                         'postalCode' => $site['address']['postalCode'],
                         'addressCountry' => $site['address']['addressCountry'],
                     ],
-                    'sameAs' => [
-                        $site['vk'],
-                        $site['telegram'],
-                        $site['whatsapp'],
-                    ],
+                    'sameAs' => $sameAs,
                     'image' => $site['shareImageUrl'],
                 ],
                 [
@@ -583,11 +650,7 @@ class functions
                         'height' => 300,
                     ],
                     'image' => $site['shareImageUrl'],
-                    'sameAs' => [
-                        $site['vk'],
-                        $site['telegram'],
-                        $site['whatsapp'],
-                    ],
+                    'sameAs' => $sameAs,
                     'priceRange' => $site['priceRange'] ?? '₽₽',
                 ],
                 [

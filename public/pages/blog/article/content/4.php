@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1600&q=60"
-        alt="Интерфейс управления умным домом на планшете">
+        alt="Интерфейс управления умным домом на планшете" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="musthave">

@@ -22,10 +22,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?></title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="keywords"
-        content="заказать ремонт квартиры, ремонт квартир, ремонт квартир под ключ, ремонт дачи, ремонт котеджа, ремонт квартир Москва, капитальный ремонт квартиры, дизайнерский ремонт, элитный ремонт квартир, премиальный ремонт, ремонт недорого, ремонт для сдачи, ремонт для продажи, ремонт с мебелью, ремонт с материалом, отделка квартир, комплексный ремонт квартир">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -1449,10 +1446,10 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <!-- Local Scripts -->
 
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/faq.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/faq.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Google tag (gtag.js) GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9ZV484NQJ"></script>

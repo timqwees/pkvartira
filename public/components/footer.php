@@ -12,23 +12,25 @@
 
             <div class="space-y-4">
                 <a href="/" class="inline-block">
-                    <img width="145" height="48" class="h-12" src="/public/assets/images/logo/full_white.svg" alt="Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
+                    <img width="145" height="48" class="h-12" src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     Профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
                 </p>
                 <div class="flex items-center gap-3 pt-2">
-                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK">
+                    <?php if (!empty($site['vk'])): ?>
+                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-vk text-sm"></i>
                     </a>
-                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в Telegram">
+                    <?php endif; ?>
+                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в Telegram" rel="nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-telegram-plane text-sm"></i>
                     </a>
-                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp">
+                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp" rel="nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-whatsapp text-sm"></i>
                     </a>
                     <!--<a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в MAX">
-                        <img class="h-4 w-4 brightness-0 invert" src="/public/assets/images/icons/MAX.svg" alt="MAX">
+                        <img class="h-4 w-4 brightness-0 invert" src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/icons/MAX.svg') ?>" alt="MAX">
                     </a>-->
                 </div>
             </div>
@@ -72,13 +74,19 @@
                         </a>
                     </li>
                     <li>
+                        <a href="tel:88003021737" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone-volume text-xs"></i></span>
+                            <?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> <span class="text-xs text-gray-500 ml-1">бесплатно по РФ</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="mailto:<?= $site['email']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm" aria-label="Написать на <?= $site['email']; ?>">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-xs"></i></span>
                             <?= $site['email']; ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
+                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="nofollow noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-xs"></i></span>
                             <span><?= htmlspecialchars($site['address']['streetAddress']) ?></span>
                         </a>
@@ -456,4 +464,18 @@
 </script>
 <!-- calltouch requsest -->
 
+<script>
+// Внешние ссылки — закрываем от передачи веса (nofollow) для SEO
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href^="http"]').forEach(function(a){
+    try{
+      var host = new URL(a.href).hostname;
+      if(host && !host.includes('pkvartira.ru') && !host.includes(window.location.hostname)){
+        if(!a.rel.includes('nofollow')) a.rel = (a.rel ? a.rel+' ' : '') + 'nofollow noopener noreferrer';
+        if(!a.target) a.target = '_blank';
+      }
+    }catch(e){}
+  });
+});
+</script>
 <?php include_once './public/components/cta-modal.php'; ?>    

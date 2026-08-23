@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?auto=format&fit=crop&w=1600&q=60"
-        alt="Современная кухня 2026 с натуральными материалами">
+        alt="Современная кухня 2026 с натуральными материалами" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="layout">

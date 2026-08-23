@@ -22,9 +22,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="keywords"
-        content="о компании, ремонт квартир, <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>, ремонт под ключ, строительная компания">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">, ремонт под ключ, строительная компания">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -81,7 +79,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     <div class="flex flex-col md:flex-row gap-8 items-stretch justify-stretch">
                         <!-- Left: Image -->
                         <div class="relative flex-1">
-                            <img src="/public/assets/images/about/team.jpg" alt="Наша команда"
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team.jpg') ?>" alt="Наша команда"
                                 class="rounded-lg object-cover w-full h-full">
                         </div>
 
@@ -221,7 +219,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         <!-- Team Member 1 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="/public/assets/images/about/team/1.jpg" alt="Владимир Соболев"
+                                <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Владимир Соболев</h3>
@@ -231,7 +229,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         <!-- Team Member 3 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="/public/assets/images/about/team/2.jpg" alt="Семён Серебренников"
+                                <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Семён Серебренников</h3>
@@ -241,7 +239,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         <!-- Team Member 4 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="/public/assets/images/about/team/3.jpg" alt="Илья Архипов"
+                                <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/3.jpg') ?>" alt="Илья Архипов"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Илья Архипов</h3>
@@ -251,7 +249,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         <!-- Team Member 5 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="/public/assets/images/about/team/4.jpg" alt="Роман Сайферт"
+                                <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/4.jpg') ?>" alt="Роман Сайферт"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Роман Сайферт</h3>
@@ -261,7 +259,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         <!-- Team Member 5 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="/public/assets/images/about/team/5.jpg" alt="Николай Сучков"
+                                <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/5.jpg') ?>" alt="Николай Сучков"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Николай Сучков</h3>
@@ -271,7 +269,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         <!-- Team Member 5 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="/public/assets/images/about/team/6.jpg" alt="Иван Филиппов"
+                                <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/6.jpg') ?>" alt="Иван Филиппов"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Иван Филиппов</h3>
@@ -307,7 +305,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     <!-- Showroom Card 1 -->
                     <div class="bg-gray-50 rounded-xl overflow-hidden">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="/public/assets/images/pages/about/quality-control/img.jpg"
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/pages/about/quality-control/img.jpg') ?>"
                                 alt="Шоурум и офис ПКвартира" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
@@ -326,7 +324,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     <!-- Showroom Card 2 -->
                     <!-- <div class="bg-gray-50 rounded-xl overflow-hidden">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="/public/assets/images/pages/about/quality-control/img.jpg"
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/pages/about/quality-control/img.jpg') ?>"
                                 alt="Шоурум" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
@@ -403,7 +401,7 @@ $seo = Setting\Route\Function\Functions::seo([
 
                     <!-- Documents Images -->
                     <div class="flex justify-center items-center">
-                        <img src="/public/assets/images/pages/about/contract.jpg" alt="Документы и договор"
+                        <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/pages/about/contract.jpg') ?>" alt="Документы и договор"
                             class="w-full max-w-md rounded-lg shadow-lg">
                     </div>
                 </div>
@@ -416,31 +414,31 @@ $seo = Setting\Route\Function\Functions::seo([
                 <div class="swiper swiper-type-6">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/mail.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/mail.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/rus24.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/rus24.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/2gis.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="2gis">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/2gis.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="2gis">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/mail.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/mail.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/rus24.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/rus24.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/2gis.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="2gis">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/2gis.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="2gis">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/mail.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/mail.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/rus24.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/rus24.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="russia 24">
                         </div>
                         <div class="swiper-slide flex items-center justify-center">
-                            <img src="/public/assets/images/partners/2gis.svg" class="h-16 md:h-20 lg:h-24 object-contain" alt="2gis">
+                            <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/partners/2gis.svg') ?>" class="h-16 md:h-20 lg:h-24 object-contain" alt="2gis">
                         </div>
                     </div>
                 </div>
@@ -479,9 +477,9 @@ $seo = Setting\Route\Function\Functions::seo([
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="/public/assets/scripts/components/lazyIMG.min.js" defer></script>
-    <script src="/public/assets/scripts/main/header.min.js" defer></script>
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 
 </html>

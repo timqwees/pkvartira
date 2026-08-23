@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?auto=format&fit=crop&w=1600&q=60"
-        alt="Современное домашнее рабочее место с эргономичной мебелью">
+        alt="Современное домашнее рабочее место с эргономичной мебелью" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="layout">

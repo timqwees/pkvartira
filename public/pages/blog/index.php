@@ -616,7 +616,7 @@ $seo = Setting\Route\Function\Functions::seo([
         });
     </script>
 
-    <script src="/public/assets/scripts/components/reveal.min.js" defer></script>
+    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>
 

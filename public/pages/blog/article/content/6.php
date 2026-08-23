@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=60"
-        alt="Интерьер в тёплых нейтральных тонах — тренд 2026">
+        alt="Интерьер в тёплых нейтральных тонах — тренд 2026" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="palette">

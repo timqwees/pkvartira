@@ -39,6 +39,12 @@
 	*/
 
 require_once __DIR__ . '/vendor/autoload.php';
+# Output buffering + gzip fallback (если mod_deflate недоступен, сжимаем через PHP)
+if (!ob_get_level() && extension_loaded('zlib') && !ini_get('zlib.output_compression')) {
+    ob_start('ob_gzhandler');
+} elseif (!ob_get_level()) {
+    ob_start();
+}
 ## env connect
 if (file_exists(__DIR__ . '/.env')) {
 	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);

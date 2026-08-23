@@ -26,7 +26,7 @@
 <!-- Главная фото — планирование ремонта -->
 <div data-type="image">
     <img src="https://remplanner.ru/images/planner/layout/homepage_intro.jpg"
-        alt="Планирование ремонта квартиры — чертежи и инструменты">
+        alt="Планирование ремонта квартиры — чертежи и инструменты" width="800" height="600" loading="lazy" decoding="async">
 </div>
 
 <!-- Секция: Этап 1 — Демонтаж -->
@@ -126,7 +126,7 @@
     <!-- Фото внутри секции -->
     <div data-type="image">
         <img src="https://i.pinimg.com/originals/95/20/74/9520741df8308fb7253d2eae078afb3c.jpg?nii=t"
-            alt="Готовый интерьер после ремонта">
+            alt="Готовый интерьер после ремонта" width="800" height="600" loading="lazy" decoding="async">
     </div>
 </section>
 

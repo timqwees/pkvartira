@@ -16,7 +16,7 @@
 
 <div data-type="image">
     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=60"
-        alt="Интерьер кухни-гостиной после перепланировки">
+        alt="Интерьер кухни-гостиной после перепланировки" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="kitchen">

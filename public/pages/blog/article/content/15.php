@@ -20,7 +20,7 @@
 
 <!-- Главное фото -->
 <div data-type="image">
-    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=60" alt="Ремонт комнаты — сроки выполнения работ по этапам">
+    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=60" alt="Ремонт комнаты — сроки выполнения работ по этапам" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <!-- Секция: От чего зависит срок -->
@@ -117,7 +117,7 @@
     </ul>
 
     <div data-type="image">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=60" alt="График ремонта комнаты — планирование сроков работ">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=60" alt="График ремонта комнаты — планирование сроков работ" width="1600" height="900" loading="lazy" decoding="async">
     </div>
 </section>
 

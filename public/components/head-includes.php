@@ -79,20 +79,20 @@ $__ogAlt = htmlspecialchars(
 </noscript>
 
 <!-- Tailwind CSS (local, pre-built) - Blocking (prevents unstyled HTML causing CLS) -->
-<link rel="stylesheet" href="/public/assets/styles/tailwind-built.css">
+<link rel="stylesheet" href="<?= \Setting\Route\Function\Functions::asset('/public/assets/styles/tailwind-built.css') ?>">
 
 <!-- Custom utility classes (replaces Tailwind JIT arbitrary values) -->
-<link rel="stylesheet" href="/public/assets/styles/custom-utilities.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="<?= \Setting\Route\Function\Functions::asset('/public/assets/styles/custom-utilities.min.css') ?>" media="print" onload="this.media='all'">
 <noscript>
-    <link rel="stylesheet" href="/public/assets/styles/custom-utilities.min.css">
+    <link rel="stylesheet" href="<?= \Setting\Route\Function\Functions::asset('/public/assets/styles/custom-utilities.min.css') ?>">
 </noscript>
 
 <!-- Local Styles - Blocking -->
-<link rel="stylesheet" href="/public/assets/styles/main.min.css">
+<link rel="stylesheet" href="<?= \Setting\Route\Function\Functions::asset('/public/assets/styles/main.min.css') ?>">
 
 <!-- Swiper JS - deferred -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<script src="/public/assets/scripts/components/swiper.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/swiper.min.js') ?>" defer></script>
 
 <!-- Phone formatting - deferred -->
-<script src="/public/assets/scripts/components/phoneFormat.min.js" defer></script>
+<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/phoneFormat.min.js') ?>" defer></script>
