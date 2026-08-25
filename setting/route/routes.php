@@ -25,7 +25,11 @@ Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(_
 Routes::get('/prices', 'on_Prices');
 //==================================================================================================//BLOG
 Routes::get('/blogs', 'on_Blog');
-Routes::get('/blog', 'on_Blog');
+Routes::get('/blog', function() {
+    // Дубль /blog → каноникал /blogs, делаем 301 чтобы не плодить дубликат
+    header('Location: /blogs', true, 301);
+    exit;
+});
 //==================================================================================================//BLOG ARTICLE (SEO URL)
 Routes::get('/blog/article', function () {//для ненайденных
     Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/blog/article/index.php', get_defined_vars());

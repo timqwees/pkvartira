@@ -12,6 +12,9 @@ $__ogAlt = htmlspecialchars(
     ENT_QUOTES,
     'UTF-8'
 );
+// hreflang должен указывать на каноникал текущей страницы, а не на главную
+$__canonicalForHreflang = isset($seo['canonical']) ? $seo['canonical'] : ($site['canonicalUrl'] ?? $site['baseUrl'] ?? 'https://pkvartira.ru');
+$__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES, 'UTF-8');
 ?>
 <!-- CLS Prevention -->
 <style>body{background:#fff;margin:0}
@@ -34,8 +37,8 @@ $__ogAlt = htmlspecialchars(
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:alt" content="<?= $__ogAlt; ?>" />
 <meta name="twitter:image:alt" content="<?= $__ogAlt; ?>" />
-<link rel="alternate" hreflang="ru" href="<?= $__headBase; ?>" />
-<link rel="alternate" hreflang="x-default" href="<?= $__headBase; ?>" />
+<link rel="alternate" hreflang="ru" href="<?= $__hreflangHref; ?>" />
+<link rel="alternate" hreflang="x-default" href="<?= $__hreflangHref; ?>" />
 
 <!-- Фавиконы и иконки -->
 <link rel="icon" type="image/png"

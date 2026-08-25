@@ -14,8 +14,20 @@ class Sitemap
 
     public function __construct()
     {
-        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-        $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+        // Унифицировано с Functions::site() — главное зеркало https://pkvartira.ru
+        $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost);
+        $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
+        if ($isProd) {
+            $scheme = 'https';
+            $host = 'pkvartira.ru';
+        } else {
+            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+                $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
+            }
+            $host = $rawHost ?: 'pkvartira.ru';
+        }
         $this->baseUrl = $scheme . '://' . $host;
         $this->cacheDir = sys_get_temp_dir() . '/pkvartira-sitemap/';
     }
@@ -164,6 +176,7 @@ class Sitemap
 
     private function buildPagesXml(): string
     {
+        // /soglashenie имеет noindex,follow — не должен быть в sitemap (Submitted URL marked 'noindex')
         $pages = [
             ['/', '1.0', 'daily'],
             ['/about', '0.8', 'weekly'],
@@ -172,7 +185,6 @@ class Sitemap
             ['/reviews', '0.7', 'weekly'],
             ['/stocks', '0.7', 'weekly'],
             ['/contact', '0.6', 'monthly'],
-            ['/soglashenie', '0.4', 'yearly'],
             ['/calculator', '0.8', 'weekly'],
             ['/kalkulyator-ploshchadi', '0.8', 'weekly'],
             ['/services', '0.9', 'weekly'],
