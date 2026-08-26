@@ -551,6 +551,45 @@
 
     window.__showCtaModal = showModal;
     window.__hideCtaModal = hideModal;
-    setTimeout(showModal, 5000);
+
+    /* ── Scroll-down trigger: показ через 45с после скролла вниз ── */
+    var scrollTimer = null;
+    var lastScrollY = 0;
+    var scrollThreshold = 80;
+    var SHOW_DELAY = 45000;
+
+    function onScroll() {
+        if (isOpen) return;
+        var y = window.scrollY || window.pageYOffset;
+        var scrolledDown = y - lastScrollY > scrollThreshold;
+
+        if (scrolledDown) {
+            lastScrollY = y;
+            if (!scrollTimer) {
+                scrollTimer = setTimeout(function() {
+                    scrollTimer = null;
+                    showModal();
+                }, SHOW_DELAY);
+            }
+        } else if (y < lastScrollY) {
+            lastScrollY = y;
+            if (scrollTimer) {
+                clearTimeout(scrollTimer);
+                scrollTimer = null;
+            }
+        }
+    }
+
+    function resetScrollTrigger() {
+        lastScrollY = window.scrollY || window.pageYOffset;
+        if (scrollTimer) { clearTimeout(scrollTimer); scrollTimer = null; }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', resetScrollTrigger, { passive: true });
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) { if (scrollTimer) { clearTimeout(scrollTimer); scrollTimer = null; } }
+        else { resetScrollTrigger(); }
+    });
 })();
 </script>
