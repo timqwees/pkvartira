@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | ПКвартира</title>
+    <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | Проект Квартира</title>
     <meta name="description"
         content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно."><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -23,7 +23,7 @@
         content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
 
     <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
+        content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
     <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Cards -->

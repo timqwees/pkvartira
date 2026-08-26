@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир в кирпичном доме под ключ — цены 2026 | ПКвартира';
+$title = 'Ремонт квартир в кирпичном доме под ключ — цены 2026 | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир в кирпичном доме под ключ в Москве. Толстые стены, хорошая звукоизоляция, теплоизоляция. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года.',155)); ?>"><meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир в кирпичном доме под ключ в Москве. Толстые стены, хорошая звукоизоляция, теплоизоляция. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (ПКвартира).',155)); ?> От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/kirpich'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в кирпичном доме","item": "<?= $site['baseUrl']; ?>/services/kirpich"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в кирпичном доме","provider": {"@type": "Organization","name": "ПКвартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Ремонт квартир в кирпичном доме","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

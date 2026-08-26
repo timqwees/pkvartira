@@ -42,8 +42,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир под ключ в Москве — цена от 15 000 ₽/м² с гарантией 3 года, 2026',48)); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 15 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно.',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир под ключ в Москве — цена от 15 000 ₽/м² с гарантией 3 года, 2026',48)); ?> | Проект Квартира</title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 15 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -52,21 +52,21 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="Ремонт квартир под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+        content="Ремонт квартир под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
         content="Ремонт квартир под ключ в Москве от 360 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/pod-klyuch'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
 
     <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?> — Ремонт квартир под ключ">
+        content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
     <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title"
-        content="Ремонт квартир под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+        content="Ремонт квартир под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="twitter:description"
         content="Ремонт квартир под ключ от 360 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
@@ -124,7 +124,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         "@type": "WebPage",
         "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
         "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($title . ' — ' . ($site['name'] ?? 'ПКвартира'), JSON_UNESCAPED_UNICODE); ?>,
+        "name": <?= json_encode($title . ' — ' . ($site['name'] ?? 'Проект Квартира'), JSON_UNESCAPED_UNICODE); ?>,
         "description": "Ремонт квартир под ключ в Москве. Фиксированные цены от 360 000 ₽, реальные сроки, гарантия 3 года.",
         "isPartOf": {
           "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>

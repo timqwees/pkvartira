@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Цены на ремонт квартир в Москве 2026 — стоимость ремонта за м²',
-    'description' => 'Цены на ремонт квартир в Москве 2026: косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², премиум от 18 000 ₽/м². Прайс без скрытых платежей, смета в договоре.',
+    'description' => 'Цены на ремонт квартир в Москве 2026: косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², премиум от 18 000 ₽/м². Прайс без скрытых платежей, смета в договоре. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/prices',
     'type' => 'website',
@@ -76,7 +76,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

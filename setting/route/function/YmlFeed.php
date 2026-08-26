@@ -9,6 +9,7 @@ class YmlFeed
 {
     private string $baseUrl;
     private string $siteName;
+    private string $shortName;
     private string $sitePhone;
     private string $siteEmail;
 
@@ -19,7 +20,8 @@ class YmlFeed
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
         $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
         $this->baseUrl = $scheme . '://' . $host;
-        $this->siteName = 'ПКвартира';
+        $this->siteName = 'Проект Квартира';
+        $this->shortName = 'ПКвартира';
         $this->sitePhone = '+7 495 473-17-37';
         $this->siteEmail = 'info@pkvartira.ru';
 
@@ -144,8 +146,8 @@ class YmlFeed
             $imageUrl = $this->baseUrl . $svc['image'];
 
             $xml .= '      <offer id="' . $idx . '" available="true">' . "\n";
-            $xml .= '        <name>Ремонт ' . $this->escape($svc['name']) . "</name>\n";
-            $xml .= '        <vendor>' . $this->escape($this->siteName) . "</vendor>\n";
+            $xml .= '        <name>Ремонт ' . $this->escape($svc['name']) . ' — ' . $this->escape($this->siteName) . ' (ПКвартира)</name>' . "\n";
+            $xml .= '        <vendor>' . $this->escape($this->siteName) . ' (ПКвартира)</vendor>' . "\n";
             $xml .= '        <price>' . $svc['price'] . "</price>\n";
             $xml .= '        <currencyId>RUR</currencyId>' . "\n";
             $xml .= '        <categoryId>1</categoryId>' . "\n";

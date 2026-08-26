@@ -147,8 +147,15 @@ class functions
             'path' => $pathOnly,
             'canonicalUrl' => $canonicalUrl,
             'shareImageUrl' => $shareImageUrl,
-            'name' => 'ПКвартира',
-            'description' => 'Профессиональный ремонт квартир и домов под ключ в Москве',
+            'name' => 'Проект Квартира',
+            // Брендовые названия для SEO: «Проект Квартира» — основное, «ПКвартира» — сокращённое/домен
+            'shortName' => 'ПКвартира',
+            'brand' => 'Проект Квартира',
+            'shortBrand' => 'ПКвартира',
+            'legalName' => 'ООО "Проект Квартира"',
+            'alternateName' => ['Проект Квартира', 'ПКвартира', 'Proekt Kvartira', 'pkvartira.ru', 'ООО Проект Квартира'],
+            'slogan' => 'Ремонт квартир под ключ в Москве',
+            'description' => 'Проект Квартира (ПКвартира) — профессиональный ремонт квартир и домов под ключ в Москве',
             'phone' => '+7 495 473-17-37',
             'email' => 'info@pkvartira.ru',
             'address' => [
@@ -546,7 +553,7 @@ class functions
     {
         $site = self::site();
         $defaults = [
-            'title' => $site['name'] . ' — ремонт квартир под ключ в Москве',
+            'title' => $site['name'] . ' — ' . ($site['slogan'] ?? 'ремонт квартир под ключ в Москве'),
             'description' => $site['description'],
             'image' => $site['shareImageUrl'],
             'url' => $site['canonicalUrl'],
@@ -561,9 +568,21 @@ class functions
             'keywords' => null,
         ];
         $opts = array_merge($defaults, $options);
-        // SEO лимиты: title ≤55 (финал + " | ПКвартира" ≤67), description ≤155 (сниппет 160)
+        // SEO лимиты: title ≤48 (финал + " | Проект Квартира" =19 → ≤67), description ≤155 (сниппет 160)
         $opts['title'] = self::truncateSeo((string)$opts['title'], 48);
         $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
+        // Брендовые keywords: если не заданы — генерируем из бренда + заголовка
+        if (empty($opts['keywords'])) {
+            $brandKw = implode(', ', array_unique(array_filter([
+                $site['brand'] ?? 'Проект Квартира',
+                $site['shortBrand'] ?? 'ПКвартира',
+                'pkvartira.ru',
+                'pkvartira',
+                $site['legalName'] ?? null,
+            ])));
+            // Добавляем заголовок как ключевую фразу + базовые ключи ремонта
+            $opts['keywords'] = $brandKw . ', ' . $opts['title'] . ', ремонт квартир в Москве, ремонт под ключ';
+        }
 
         $ogImage = $opts['image'];
         $ogType = $opts['type'];
@@ -572,6 +591,9 @@ class functions
         $pageDescription = $opts['description'];
         // Фильтруем пустые соцсети (например VK если не задан — не попадает в sameAs, чтобы не плодить битую ссылку)
         $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']], fn($v) => is_string($v) && $v !== ''));
+        $brand = $site['brand'] ?? $site['name'];
+        $shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'ПКвартира';
+        $alternateName = $site['alternateName'] ?? [$brand, $shortBrand, 'pkvartira.ru'];
 
         $jsonLd = [
             '@context' => 'https://schema.org',
@@ -579,7 +601,14 @@ class functions
                 [
                     '@type' => 'Organization',
                     '@id' => $site['baseUrl'] . '#organization',
-                    'name' => $site['name'],
+                    'name' => $brand,
+                    'alternateName' => $alternateName,
+                    'legalName' => $site['legalName'] ?? $brand,
+                    'brand' => [
+                        '@type' => 'Brand',
+                        'name' => $brand,
+                        'alternateName' => $shortBrand,
+                    ],
                     'url' => $site['baseUrl'],
                     'logo' => [
                         '@type' => 'ImageObject',
@@ -608,7 +637,8 @@ class functions
                 [
                     '@type' => 'LocalBusiness',
                     '@id' => $site['baseUrl'] . '#localbusiness',
-                    'name' => $site['name'],
+                    'name' => $brand,
+                    'alternateName' => $shortBrand,
                     'url' => $site['baseUrl'],
                     'description' => $site['description'],
                     'telephone' => $site['phone'],
@@ -657,7 +687,8 @@ class functions
                     '@type' => 'WebSite',
                     '@id' => $site['baseUrl'] . '#website',
                     'url' => $site['baseUrl'],
-                    'name' => $site['name'],
+                    'name' => $brand . ' — ' . $shortBrand,
+                    'alternateName' => $alternateName,
                     'description' => $site['description'],
                     'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
                     'inLanguage' => 'ru-RU',
@@ -674,7 +705,7 @@ class functions
                     '@type' => $opts['pageType'],
                     '@id' => $pageUrl . '#webpage',
                     'url' => $pageUrl,
-                    'name' => $pageTitle,
+                    'name' => $pageTitle . ' — ' . $brand,
                     'description' => $pageDescription,
                     'isPartOf' => ['@id' => $site['baseUrl'] . '#website'],
                     'about' => ['@id' => $site['baseUrl'] . '#organization'],
@@ -802,19 +833,20 @@ class functions
             'title' => $opts['title'],
             'description' => $opts['description'],
             'canonical' => $pageUrl,
+            'keywords' => $opts['keywords'],
             'og' => [
                 'type' => $opts['type'],
-                'title' => $opts['title'] . ' — ' . $site['name'],
+                'title' => $opts['title'] . ' — ' . $brand,
                 'description' => $opts['description'],
                 'url' => $pageUrl,
                 'image' => $opts['image'],
-                'site_name' => $site['name'] . ' — Ремонт квартир под ключ',
+                'site_name' => $brand . ' (' . $shortBrand . ') — Ремонт квартир под ключ',
                 'locale' => 'ru_RU',
             ],
             'twitter' => [
                 'card' => 'summary_large_image',
                 'site' => '@pkvartira',
-                'title' => $opts['title'],
+                'title' => $opts['title'] . ' — ' . $brand,
                 'description' => $opts['description'],
                 'image' => $opts['image'],
                 'creator' => '@pkvartira',

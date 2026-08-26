@@ -12,11 +12,12 @@
 
             <div class="space-y-4">
                 <a href="/" class="inline-block">
-                    <img width="145" height="48" class="h-12" src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира" title="Проект Квартира — ремонт квартир под ключ">
+                    <img width="145" height="48" class="h-12" src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира (ПКвартира) — pkvartira.ru" title="Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве">
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    Профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
+                    <strong class="text-white font-semibold">Проект Квартира</strong> (ПКвартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
                 </p>
+                <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, ООО Проект Квартира</p>
                 <div class="flex items-center gap-3 pt-2">
                     <?php if (!empty($site['vk'])): ?>
                     <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="nofollow noopener noreferrer" target="_blank">

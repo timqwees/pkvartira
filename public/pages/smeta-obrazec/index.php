@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Смета на ремонт квартиры: образец, скачать бесплатно',
-    'description' => 'Смета на ремонт квартиры — образец с ценами 2026. Скачайте готовую смету в DOCX бесплатно. Структура и расценки по этапам. Расчёт с выездом на замер в Москве.',
+    'description' => 'Смета на ремонт квартиры — образец с ценами 2026. Скачайте готовую смету в DOCX бесплатно. Структура и расценки по этапам. Расчёт с выездом на замер в Москве. От компании Проект Квартира (ПКвартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/renovation-format/cosmetic.png',
     'url' => $site['baseUrl'] . '/smeta-obrazec',
     'type' => 'article',
@@ -52,7 +52,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">

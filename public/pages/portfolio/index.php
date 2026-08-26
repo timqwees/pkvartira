@@ -22,7 +22,7 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Портфолио ремонтов квартир — 300+ проектов с фото до и после',
-    'description' => 'Реальные проекты ремонта квартир в Москве 2026: 300+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект.',
+    'description' => 'Реальные проекты ремонта квартир в Москве 2026: 300+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/portfolio',
     'type' => 'website',
@@ -58,7 +58,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

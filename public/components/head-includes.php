@@ -7,14 +7,17 @@
  * CDN используется как резервный источник через JavaScript проверку.
  */
 $__headBase = htmlspecialchars((string) $site['baseUrl'], ENT_QUOTES, 'UTF-8');
+$__brandName = $site['brand'] ?? $site['name'] ?? 'Проект Квартира';
+$__shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'ПКвартира';
 $__ogAlt = htmlspecialchars(
-    ($site['name'] ?? 'ПКвартира') . ' — ремонт квартир под ключ в Москве',
+    $__brandName . ' (' . $__shortBrand . ') — ремонт квартир под ключ в Москве',
     ENT_QUOTES,
     'UTF-8'
 );
 // hreflang должен указывать на каноникал текущей страницы, а не на главную
 $__canonicalForHreflang = isset($seo['canonical']) ? $seo['canonical'] : ($site['canonicalUrl'] ?? $site['baseUrl'] ?? 'https://pkvartira.ru');
 $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES, 'UTF-8');
+$__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars($__brandName . ', ' . $__shortBrand . ', pkvartira.ru, ремонт квартир, ремонт под ключ', ENT_QUOTES, 'UTF-8');
 ?>
 <!-- CLS Prevention -->
 <style>body{background:#fff;margin:0}
@@ -50,9 +53,54 @@ $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES,
     href="<?= $__headBase; ?>/public/assets/images/logo/favicon/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180"
     href="<?= $__headBase; ?>/public/assets/images/logo/favicon/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="ПКвартира" />
+<meta name="apple-mobile-web-app-title" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
+<meta name="application-name" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
+<meta name="author" content="<?= htmlspecialchars($__brandName . ' (' . $__shortBrand . ')', ENT_QUOTES, 'UTF-8'); ?>" />
+<meta name="keywords" content="<?= htmlspecialchars($__brandKeywords, ENT_QUOTES, 'UTF-8'); ?>" />
 <link rel="manifest"
     href="<?= $__headBase; ?>/public/assets/images/logo/favicon/site.webmanifest" />
+
+<!-- Брендовые сигналы для поиска -->
+<meta name="brand" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
+<meta property="og:brand" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
+<?php if (!isset($seo) || !isset($seo['jsonLd'])): /* Глобальная микроразметка бренда для страниц без seo() — чтобы бренд «Проект Квартира» индексировался везде */ ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "<?= $__headBase; ?>#organization",
+      "name": <?= json_encode($__brandName, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>,
+      "alternateName": ["Проект Квартира","ПКвартира","pkvartira.ru","Proekt Kvartira","ООО Проект Квартира"],
+      "legalName": "ООО \"Проект Квартира\"",
+      "url": "<?= $__headBase; ?>",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "<?= $__headBase; ?>/public/assets/images/logo/favicon/favicon.svg",
+        "width": 300,
+        "height": 300
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "Проект Квартира",
+        "alternateName": "ПКвартира"
+      },
+      "sameAs": ["https://t.me/pkvartira","https://wa.me/74951234567"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "<?= $__headBase; ?>#website",
+      "url": "<?= $__headBase; ?>",
+      "name": "Проект Квартира — ПКвартира",
+      "alternateName": ["Проект Квартира","ПКвартира","pkvartira.ru"],
+      "publisher": {"@id": "<?= $__headBase; ?>#organization"},
+      "inLanguage": "ru-RU"
+    }
+  ]
+}
+</script>
+<?php endif; ?>
 
 <!-- LLM Discovery -->
 <meta name="llms:website" content="<?= $__headBase; ?>/llms.txt">

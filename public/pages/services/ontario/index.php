@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир в ЖК Онтарио — официальный сайт, цены под ключ | ПКвартира';
+$title = 'Ремонт квартир в ЖК Онтарио — официальный сайт, цены под ключ | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/newbuilds');
 ?>
@@ -10,7 +10,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир в ЖК Онтарио под ключ — официальный сайт ПКвартира. Цены от 8 000 ₽/м², гарантия 3 года, фиксированная смета. Бесплатный замер и расчёт. Более 300 проектов.',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/ontario'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
@@ -28,7 +28,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             {
                 "@type": "Service",
                 "name": "Ремонт квартир в ЖК Онтарио",
-                "provider": {"@type": "Organization","name": "ПКвартира"},
+                "provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},
                 "areaServed": {"@type": "City","name": "Москва"},
                 "description": "Ремонт квартир в жилом комплексе Онтарио под ключ. Цены от 8 000 ₽/м²."
             }

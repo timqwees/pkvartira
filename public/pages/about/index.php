@@ -3,7 +3,8 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Ремонт квартир в Москве — 10 лет опыта, 300+ проектов',
-    'description' => 'ПКвартира — ремонт квартир под ключ в Москве с 2016 года. 300+ проектов, штатные мастера, фиксированная смета, гарантия 3 года. Работаем по договору. Замер бесплатно.',
+    'description' => 'Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве с 2016 года. 300+ проектов, штатные мастера, фиксированная смета, гарантия 3 года. Работаем по договору. Замер бесплатно.',
+    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, ООО Проект Квартира, ремонт квартир Москва',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/about',
     'type' => 'website',
@@ -21,8 +22,8 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">, ремонт под ключ, строительная компания">
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

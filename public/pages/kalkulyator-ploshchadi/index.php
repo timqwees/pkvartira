@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Калькулятор площади комнаты онлайн — расчёт м² стен и пола',
-    'description' => 'Калькулятор площади квартиры онлайн: расчёт м² комнаты, стен, пола и потолка за 10 секунд. Формулы для любых помещений + перевод площади в стоимость ремонта.',
+    'description' => 'Калькулятор площади квартиры онлайн: расчёт м² комнаты, стен, пола и потолка за 10 секунд. Формулы для любых помещений + перевод площади в стоимость ремонта. От компании Проект Квартира (ПКвартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
     'url' => $site['baseUrl'] . '/kalkulyator-ploshchadi',
     'type' => 'website',
@@ -16,7 +16,7 @@ $seo = Setting\Route\Function\Functions::seo([
         [
             '@type' => 'WebApplication',
             'name' => 'Калькулятор площади квартиры',
-            'description' => 'Онлайн-расчёт площади комнаты, стен, пола и потолка в квадратных метрах',
+            'description' => 'Онлайн-расчёт площади комнаты, стен, пола и потолка в квадратных метрах От компании Проект Квартира (ПКвартира).',
             'url' => $site['baseUrl'] . '/kalkulyator-ploshchadi',
             'applicationCategory' => 'UtilitiesApplication',
             'operatingSystem' => 'Web',
@@ -61,7 +61,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

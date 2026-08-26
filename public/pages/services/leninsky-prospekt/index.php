@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартир на Ленинском проспекте — цены под ключ, гарантия 3 года | ПКвартира';
+$title = 'Ремонт квартир на Ленинском проспекте — цены под ключ, гарантия 3 года | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
 ?>
 <!DOCTYPE html>
@@ -9,8 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description" content="Ремонт квартир на Ленинском проспекте под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года."><meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="Ремонт квартир на Ленинском проспекте под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/leninsky-prospekt'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт на Ленинском проспекте","item": "<?= $site['baseUrl']; ?>/services/leninsky-prospekt"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир на Ленинском проспекте","provider": {"@type": "Organization","name": "ПКвартира"},"areaServed": {"@type": "City","name": "Москва"},"serviceLocation": {"@type": "Place","name": "м. Ленинский проспект"}}
+            {"@type": "Service","name": "Ремонт квартир на Ленинском проспекте","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"},"serviceLocation": {"@type": "Place","name": "м. Ленинский проспект"}}
         ]
     }
     </script>

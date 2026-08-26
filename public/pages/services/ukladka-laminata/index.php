@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Укладка ламината в Москве — цена за м² с работой и фанерой | ПКвартира';
+$title = 'Укладка ламината в Москве — цена за м² с работой и фанерой | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 ?>
 <!DOCTYPE html>
@@ -9,8 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Укладка ламината в Москве — цена за квадратный метр вместе с укладкой фанеры. Стоимость работы от 350 ₽/м², с материалом от 800 ₽/м². Гарантия 3 года, выезд мастера бесплатно.',155)); ?>"><meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Укладка ламината в Москве — цена за квадратный метр вместе с укладкой фанеры. Стоимость работы от 350 ₽/м², с материалом от 800 ₽/м². Гарантия 3 года, выезд мастера бесплатно. — Проект Квартира (ПКвартира).',155)); ?> От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/ukladka-laminata'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Укладка ламината","item": "<?= $site['baseUrl']; ?>/services/ukladka-laminata"}
             ]},
-            {"@type": "Service","name": "Укладка ламината в Москве","provider": {"@type": "Organization","name": "ПКвартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Укладка ламината в Москве","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Ремонт квартиры для продажи — цены 2026 | ПКвартира';
+$title = 'Ремонт квартиры для продажи — цены 2026 | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?></title>
-    <meta name="description" content="Ремонт квартиры для продажи в Москве — цены от 5 000 ₽/м². Быстрый ремонт за 2-3 недели, повышение ликвидности. Фиксированная смета, гарантия."><meta name="robots" content="index, follow">
+    <meta name="description" content="Ремонт квартиры для продажи в Москве — цены от 5 000 ₽/м². Быстрый ремонт за 2-3 недели, повышение ликвидности. Фиксированная смета, гарантия. От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dlya-prodazhi'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт для продажи","item": "<?= $site['baseUrl']; ?>/services/dlya-prodazhi"}
             ]},
-            {"@type": "Service","name": "Ремонт квартиры для продажи","provider": {"@type": "Organization","name": "ПКвартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Ремонт квартиры для продажи","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

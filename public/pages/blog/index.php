@@ -27,7 +27,7 @@ usort($__blogJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['cre
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Блог о ремонте квартир — полезные статьи, советы, цены 2026',
-    'description' => 'Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта.',
+    'description' => 'Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/blogs',
     'type' => 'website',
@@ -45,7 +45,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">

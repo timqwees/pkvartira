@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Политика конфиденциальности и согласие на обработку данных',
-    'description' => 'Политика конфиденциальности, согласие на обработку персональных данных и пользовательское соглашение. Ознакомьтесь с документами перед заказом ремонта.',
+    'description' => 'Политика конфиденциальности, согласие на обработку персональных данных и пользовательское соглашение. Ознакомьтесь с документами перед заказом ремонта. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/soglashenie',
     'type' => 'website',
@@ -21,7 +21,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="noindex, follow">
     <meta name="referrer" content="origin-when-crossorigin">

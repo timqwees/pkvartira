@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Ремонт квартиры в ЖК «Пример Парк» — фото до и после, цена | ПКвартира</title>
+    <title>Ремонт квартиры в ЖК «Пример Парк» — фото до и после, цена | Проект Квартира</title>
     <meta name="description"
-        content="Пример ремонта квартиры в ЖК «Пример Парк»: современный интерьер, фото до и после, полный список работ, сроки и бюджет проекта. Закажите похожий ремонт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+        content="Пример ремонта квартиры в ЖК «Пример Парк»: современный интерьер, фото до и после, полный список работ, сроки и бюджет проекта. Закажите похожий ремонт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/other'); ?>">
 
@@ -22,7 +22,7 @@
     <meta property="og:image"
         content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
 
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'ПКвартира'); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Card -->

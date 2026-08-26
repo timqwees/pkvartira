@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Акции на ремонт квартир 2026 — скидки до 30%',
-    'description' => 'Акции на ремонт квартир в Москве 2026: дизайн-проект в подарок при заказе под ключ, скидки до 30%, бесплатный замер. Закажите ремонт по выгодной цене!',
+    'description' => 'Акции на ремонт квартир в Москве 2026: дизайн-проект в подарок при заказе под ключ, скидки до 30%, бесплатный замер. Закажите ремонт по выгодной цене! От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/stocks',
     'type' => 'website',
@@ -23,7 +23,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     'item' => [
                         '@type' => 'Offer',
                         'name' => 'Бесплатный дизайн-проект',
-                        'description' => 'При заказе ремонта под ключ — дизайн-проект в подарок',
+                        'description' => 'При заказе ремонта под ключ — дизайн-проект в подарок От компании Проект Квартира (ПКвартира).',
                         'availability' => 'https://schema.org/InStock',
                     ],
                 ],
@@ -33,7 +33,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     'item' => [
                         '@type' => 'Offer',
                         'name' => 'Скидка до 30%',
-                        'description' => 'Сезонные скидки на комплексный ремонт под ключ',
+                        'description' => 'Сезонные скидки на комплексный ремонт под ключ От компании Проект Квартира (ПКвартира).',
                         'availability' => 'https://schema.org/InStock',
                     ],
                 ],
@@ -49,7 +49,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

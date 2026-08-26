@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Function\Functions;
 $site = Functions::site();
-$title = 'Смета на ремонт квартиры — рассчитать онлайн бесплатно | ПКвартира';
+$title = 'Смета на ремонт квартиры — рассчитать онлайн бесплатно | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?></title>
-    <meta name="description" content="Смета на ремонт квартиры — рассчитать онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера. Калькулятор ремонта онлайн."><meta name="robots" content="index, follow">
+    <meta name="description" content="Смета на ремонт квартиры — рассчитать онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера. Калькулятор ремонта онлайн. От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/smeta'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Смета на ремонт","item": "<?= $site['baseUrl']; ?>/services/smeta"}
             ]},
-            {"@type": "Service","name": "Смета на ремонт квартиры","provider": {"@type": "Organization","name": "ПКвартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Смета на ремонт квартиры","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

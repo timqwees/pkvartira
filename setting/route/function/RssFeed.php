@@ -11,6 +11,7 @@ class RssFeed
 {
     private string $baseUrl;
     private string $siteName;
+    private string $shortName;
     private string $siteEmail;
     private string $sitePhone;
 
@@ -38,7 +39,8 @@ class RssFeed
             if (empty($host)) $host = 'pkvartira.ru';
             $this->baseUrl = $scheme . '://' . $host;
         }
-        $this->siteName = 'ПКвартира';
+        $this->siteName = 'Проект Квартира';
+        $this->shortName = 'ПКвартира';
         $this->siteEmail = 'info@pkvartira.ru';
         $this->sitePhone = '+7 495 473-17-37';
     }
@@ -93,7 +95,7 @@ class RssFeed
         $xml .= '      <width>144</width>' . "\n";
         $xml .= '      <height>144</height>' . "\n";
         $xml .= '    </image>' . "\n";
-        $xml .= '    <generator>PKvartira RssFeed 1.0</generator>' . "\n";
+        $xml .= '    <generator>Проект Квартира (PKvartira) RssFeed 1.0</generator>' . "\n";
 
         // Items
         foreach ($articles as $art) {

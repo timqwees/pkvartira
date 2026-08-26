@@ -3,8 +3,9 @@ $site = Setting\Route\Function\Functions::site();
 $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-комнатные', 3);
 
 $seo = Setting\Route\Function\Functions::seo([
-    'title' => 'Ремонт квартир под ключ в Москве — от 8 000 ₽/м², гарантия 3 года',
-    'description' => 'Ремонт квартир и домов под ключ в Москве: косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
+    'title' => 'Ремонт квартир под ключ в Москве — от 8 000 ₽/м²',
+    'description' => 'Проект Квартира (ПКвартира) — ремонт квартир и домов под ключ в Москве: косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
+    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
     'url' => $site['canonicalUrl'],
     'type' => 'website',
@@ -21,7 +22,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?></title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -85,6 +86,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             </strong> под ваш бюджет. Начнем работу
                             через <strong class="text-orange-500">2 дня</strong>
                         </p>
+                        <p class="text-sm text-white/80 mb-4">Ремонт от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • 12 лет на рынке</p>
 
                         <div class="flex items-center flex-wrap gap-3 mb-6">
                             <button data-button-dialog
@@ -264,7 +266,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
                                 <div class="relative">
                                     <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/cosmetic.png"
-                                        alt="Косметический ремонт" title="Косметический ремонт — от 8 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
+                                        alt="Косметический ремонт — быстрый ремонт квартиры по цене | Проект Квартира — ПКвартира" title="Косметический ремонт — от 8 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
                                         width="640" height="360" decoding="async" loading="lazy">
                                     <div
                                         class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -315,7 +317,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col relative">
                                 <div class="relative">
                                     <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/capital.png"
-                                        alt="Капитальный ремонт" title="Капитальный ремонт — от 13 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
+                                        alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | Проект Квартира — ПКвартира" title="Капитальный ремонт — от 13 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
                                         width="640" height="360" decoding="async" loading="lazy">
                                     <div
                                         class="absolute top-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -365,7 +367,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
                                 <div class="relative">
                                     <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
-                                        alt="Дизайнерский ремонт" title="Дизайнерский ремонт — от 18 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
+                                        alt="Дизайнерский ремонт — авторский ремонт с дизайн-проектом | Проект Квартира — ПКвартира" title="Дизайнерский ремонт — от 18 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
                                         width="640" height="360" decoding="async" loading="lazy">
                                     <div
                                         class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -414,7 +416,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
                                 <div class="relative">
                                     <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
-                                        alt="Премиум и элитный ремонт" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="lazy w-full h-36 md:h-40 object-cover"
+                                        alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира — ПКвартира" title="Премиум и элитный ремонт — от 25 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
                                         width="640" height="360" decoding="async" loading="lazy">
                                     <div
                                         class="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -472,7 +474,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
                         <div class="relative">
                             <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/cosmetic.png"
-                                alt="Косметический ремонт — быстрый ремонт квартиры по цене | ПКвартира" title="Косметический ремонт — от 8 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                alt="Косметический ремонт — быстрый ремонт квартиры по цене | Проект Квартира" title="Косметический ремонт — от 8 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
                                 width="640" height="360" decoding="async" loading="lazy">
                             <div
                                 class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -521,7 +523,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col pt-4">
                             <div class="relative">
                                 <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/capital.png"
-                                    alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | ПКвартира" title="Капитальный ремонт — от 13 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                    alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | Проект Квартира" title="Капитальный ремонт — от 13 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
                                     width="640" height="360" decoding="async" loading="lazy">
                                 <div
                                     class="absolute top-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -570,7 +572,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
                         <div class="relative">
                             <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
-                                alt="Дизайнерский ремонт — авторский ремонт с дизайн-проектом | ПКвартира" title="Дизайнерский ремонт — от 18 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                alt="Дизайнерский ремонт — авторский ремонт с дизайн-проектом | Проект Квартира" title="Дизайнерский ремонт — от 18 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
                                 width="640" height="360" decoding="async" loading="lazy">
                             <div
                                 class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -615,7 +617,7 @@ $seo = Setting\Route\Function\Functions::seo([
                         class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
                         <div class="relative">
                             <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
-                                alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | ПКвартира" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
+                                alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
                                 width="640" height="360" decoding="async" loading="lazy">
                             <div
                                 class="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -1406,6 +1408,26 @@ $seo = Setting\Route\Function\Functions::seo([
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
+        <section class="py-10 bg-white border-t border-gray-100" aria-label="О бренде Проект Квартира">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center">Проект Квартира — ПКвартира (pkvartira.ru)</h2>
+                <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                    <strong>Проект Квартира</strong> — официальное название компании, <strong>ПКвартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong>.
+                    Нас находят по запросам: <em>Проект Квартира ремонт, ПКвартира, pkvartira, Проект Квартира Москва, pkvartira.ru ремонт квартир, ООО Проект Квартира</em>.
+                    Мы — одна компания: делаем ремонт квартир и домов под ключ в Москве и Подмосковье с 2014 года, гарантия 3 года, фиксированная смета.
+                    Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
+                </p>
+                <p class="mt-3 text-xs text-gray-400 text-center">
+                    <span itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                        <span itemprop="name">Проект Квартира</span> |
+                        <span itemprop="alternateName">ПКвартира</span>
+                    </span>
+                    — ИНН 9719013990, ОГРН 1217700135058, адрес: Москва, Варшавское ш., д. 28А • Тел. <a href="tel:+74954731737" class="text-gray-500 underline hover:text-orange-600">+7 495 473-17-37</a>
+                </p>
             </div>
         </section>
 

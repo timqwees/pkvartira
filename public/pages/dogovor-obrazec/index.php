@@ -3,7 +3,7 @@ $site = Setting\Route\Function\Functions::site();
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Договор на ремонт квартиры: шаблон, скачать бесплатно',
-    'description' => 'Шаблон договора на ремонт квартиры и отделочные работы — скачайте бесплатно в DOCX. Структура договора подряда: предмет, сроки, оплата, гарантия, ответственность сторон.',
+    'description' => 'Шаблон договора на ремонт квартиры и отделочные работы — скачайте бесплатно в DOCX. Структура договора подряда: предмет, сроки, оплата, гарантия, ответственность сторон. От компании Проект Квартира (ПКвартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/renovation-format/capital.png',
     'url' => $site['baseUrl'] . '/dogovor-obrazec',
     'type' => 'article',
@@ -52,7 +52,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">

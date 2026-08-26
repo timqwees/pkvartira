@@ -39,7 +39,7 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seo['title']); ?> | ПКвартира</title>
+    <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="<?= $articleData ? 'index, follow' : 'noindex, nofollow'; ?>">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -52,12 +52,12 @@ $seo = Setting\Route\Function\Functions::seo([
     <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
-    <meta property="og:image:alt" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья блога — ' . ($site['name'] ?? 'ПКвартира')); ?>">
+    <meta property="og:image:alt" content="<?= htmlspecialchars($articleData['title'] ?? 'Статья блога — ' . ($site['name'] ?? 'Проект Квартира')); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
     <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
     <meta property="article:published_time" content="<?= htmlspecialchars(date('c', strtotime($articleData['created_at'] ?? date('c')))); ?>">
     <meta property="article:modified_time" content="<?= htmlspecialchars(date('c', strtotime($articleData['updated_at'] ?? $articleData['created_at'] ?? date('c')))); ?>">
-    <meta property="article:author" content="<?= htmlspecialchars($articleData['author'] ?? 'ПКвартира'); ?>">
+    <meta property="article:author" content="<?= htmlspecialchars($articleData['author'] ?? 'Проект Квартира'); ?>">
     <meta property="article:section" content="<?= htmlspecialchars($articleData['category'] ?? 'Ремонт'); ?>">
     <meta property="article:tag" content="<?= htmlspecialchars($articleData['tags'] ?? 'ремонт квартиры, дизайн интерьера'); ?>">
 
@@ -136,7 +136,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <meta itemprop="dateModified"
                                 content="<?= htmlspecialchars(date('c', strtotime($articleData['updated_at'] ?? $articleData['created_at'] ?? date('c')))); ?>">
                             <meta itemprop="author"
-                                content="<?= htmlspecialchars($articleData['author'] ?? 'ПКвартира'); ?>">
+                                content="<?= htmlspecialchars($articleData['author'] ?? 'Проект Квартира'); ?>">
                             <meta itemprop="articleSection"
                                 content="<?= htmlspecialchars($articleData['category'] ?? 'Ремонт'); ?>">
                             <link itemprop="publisher"
