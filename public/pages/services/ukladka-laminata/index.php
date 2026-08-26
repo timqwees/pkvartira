@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Укладка ламината в Москве — цена за квадратный метр вместе с укладкой фанеры. Стоимость работы от 350 ₽/м², с материалом от 800 ₽/м². Гарантия 3 года, выезд мастера бесплатно. — Проект Квартира (ПКвартира).',155)); ?> От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Укладка ламината в Москве — цена за квадратный метр вместе с укладкой фанеры. Стоимость работы от 350 ₽/м², с материалом от 800 ₽/м². Гарантия 3 года, выезд мастера бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/ukladka-laminata'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">

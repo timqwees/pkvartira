@@ -1,19 +1,25 @@
 {
+  "id": "/",
   "name": "Проект Квартира — ПКвартира",
   "short_name": "ПКвартира",
-  "description": "Проект Квартира (ПКвартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве",
+  "description": "Проект Квартира (ПКвартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве. Официальный сайт",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "lang": "ru",
+  "dir": "ltr",
+  "orientation": "any",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#FF6B35",

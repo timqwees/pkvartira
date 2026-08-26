@@ -49,7 +49,7 @@ if (is_readable($euroAbout)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт 3-комнатной квартиры под ключ в Москве от 560 000 ₽. Капитальный, косметический, дизайнерский — любой формат. Смета фиксируется в договоре, гарантия 3 года. Бесплатный выезд. — Проект Квартира (ПКвартира).',155)); ?> От компании Проект Квартира (ПКвартира)."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт 3-комнатной квартиры под ключ в Москве от 560 000 ₽. Капитальный, косметический, дизайнерский — любой формат. Смета фиксируется в договоре, гарантия 3 года. Бесплатный выезд. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">

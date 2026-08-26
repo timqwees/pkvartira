@@ -48,6 +48,6 @@ echo "\n";
 echo "# Sitemaps\n";
 echo "Sitemap: {$baseUrl}/sitemap.xml\n";
 echo "\n";
-echo "Host: {$baseUrl}\n";
+echo "Host: {$host}\n";
 echo "\n";
 echo "LLM-friendly content: {$baseUrl}/llms-full.txt\n";
