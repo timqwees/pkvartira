@@ -4,8 +4,8 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8 000 ₽/м²',
-    'description' => 'Проект Квартира (ПКвартира) — ремонт квартир и домов под ключ в Москве: косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
-    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира',
+    'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт: ремонт квартир и домов под ключ в Москве. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
+    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, ПКвартира отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проет квартира, пквартира',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
     'url' => $site['canonicalUrl'],
     'type' => 'website',
@@ -1412,24 +1412,62 @@ $seo = Setting\Route\Function\Functions::seo([
         </section>
 
         <!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
-        <section class="py-10 bg-white border-t border-gray-100" aria-label="О бренде Проект Квартира">
+        <section class="py-10 bg-white border-t border-gray-100" aria-label="О бренде Проект Квартира — официальный сайт pkvartira.ru" itemscope itemtype="https://schema.org/Organization">
             <div class="container mx-auto px-4 max-w-5xl">
-                <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center">Проект Квартира — ПКвартира (pkvartira.ru)</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center" itemprop="name">Проект Квартира — ПКвартира (pkvartira.ru) — официальный сайт</h2>
+                <meta itemprop="alternateName" content="ПКвартира">
+                <meta itemprop="alternateName" content="pkvartira.ru">
+                <meta itemprop="alternateName" content="pkvartira">
+                <meta itemprop="alternateName" content="ООО Проект Квартира">
+                <meta itemprop="url" content="<?= htmlspecialchars($site['baseUrl']) ?>">
+                <link itemprop="logo" href="<?= htmlspecialchars($site['baseUrl']) ?>/public/assets/images/logo/favicon/favicon.svg">
                 <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
-                    <strong>Проект Квартира</strong> — официальное название компании, <strong>ПКвартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong>.
-                    Нас находят по запросам: <em>Проект Квартира ремонт, ПКвартира, pkvartira, Проект Квартира Москва, pkvartira.ru ремонт квартир, ООО Проект Квартира</em>.
+                    <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>ПКвартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
+                    Нас находят по запросам: <em>Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, ПКвартира отзывы, pkvartira отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
                     Мы — одна компания: делаем ремонт квартир и домов под ключ в Москве и Подмосковье с 2014 года, гарантия 3 года, фиксированная смета.
                     Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
                 </p>
+                <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • Ищите нас: <strong>Проект Квартира</strong> | <strong>ПКвартира</strong> | <strong>pkvartira.ru</strong> | <strong>pkvartira</strong> | <strong>ООО Проект Квартира</strong></p>
                 <p class="mt-3 text-xs text-gray-400 text-center">
                     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand">
                         <span itemprop="name">Проект Квартира</span> |
-                        <span itemprop="alternateName">ПКвартира</span>
+                        <span itemprop="alternateName">ПКвартира</span> |
+                        <span itemprop="alternateName">pkvartira.ru</span> |
+                        <span itemprop="alternateName">ООО Проект Квартира</span>
                     </span>
-                    — ИНН 9719013990, ОГРН 1217700135058, адрес: Москва, Варшавское ш., д. 28А • Тел. <a href="tel:+74954731737" class="text-gray-500 underline hover:text-orange-600">+7 495 473-17-37</a>
+                    — ИНН 9719013990, ОГРН 1217700135058, адрес: <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">Москва, Варшавское ш., д. 28А</span></span> • Тел. <a href="tel:+74954731737" class="text-gray-500 underline hover:text-orange-600" itemprop="telephone">+7 495 473-17-37</a>
                 </p>
             </div>
         </section>
+        <!-- Brand FAQ для сниппетов по брендовым запросам -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Где официальный сайт Проект Квартира?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира (ПКвартира) — https://pkvartira.ru. Единственное официальное зеркало — pkvartira.ru. Проверяйте домен, чтобы не попасть к мошенникам. Ищите нас по запросам: Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru."}
+            },
+            {
+              "@type": "Question",
+              "name": "Как правильно называется компания: Проект Квартира или ПКвартира?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Официальное название — Проект Квартира (ООО «Проект Квартира»). Сокращённо — ПКвартира, латиницей — pkvartira, домен — pkvartira.ru, транслитом — Proekt Kvartira. Все варианты относятся к одной компании."}
+            },
+            {
+              "@type": "Question",
+              "name": "Что такое ПКвартира (pkvartira.ru)?",
+              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира. Компания с 2014 года делает ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета, 325+ выполненных объектов."}
+            },
+            {
+              "@type": "Question",
+              "name": "Как найти отзывы о Проект Квартира?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира (ПКвартира) — на странице https://pkvartira.ru/reviews, а также на Яндекс Картах и 2ГИС. Ищите по запросам: Проект Квартира отзывы, ПКвартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
+            }
+          ]
+        }
+        </script>
 
         <!-- CTA Section -->
         <section class="py-20 text-white reveal" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);">
@@ -1499,13 +1537,6 @@ $seo = Setting\Route\Function\Functions::seo([
     <!-- /Yandex.Metrika counter -->
 
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="IQF63+np/5nlOq39Ble4hg" async></script>
-<script async>
-  var ahrefs_analytics_script = document.createElement('script');
-  ahrefs_analytics_script.async = true;
-  ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
-  ahrefs_analytics_script.setAttribute('data-key', 'IQF63+np/5nlOq39Ble4hg');
-  document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-</script>
 
 <?php include_once './public/components/cta-modal.php'; ?>
 

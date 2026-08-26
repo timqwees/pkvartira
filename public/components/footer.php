@@ -17,7 +17,7 @@
                 <p class="text-gray-400 text-sm leading-relaxed">
                     <strong class="text-white font-semibold">Проект Квартира</strong> (ПКвартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
                 </p>
-                <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, ООО Проект Квартира</p>
+                <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, <strong class="text-gray-400 font-medium">ПКвартира</strong> официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ПКвартира отзывы, pkvartira отзывы, ООО Проект Квартира</p>
                 <div class="flex items-center gap-3 pt-2">
                     <?php if (!empty($site['vk'])): ?>
                     <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="nofollow noopener noreferrer" target="_blank">

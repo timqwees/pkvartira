@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Проект Квартира</ShortName>
+  <LongName>Проект Квартира — ПКвартира (pkvartira.ru) поиск</LongName>
+  <Description>Официальный сайт Проект Квартира (ПКвартира, pkvartira.ru) — поиск по ремонту квартир под ключ в Москве. Ищите: Проект Квартира, ПКвартира, pkvartira</Description>
+  <Tags>Проект Квартира ПКвартира pkvartira pkvartira.ru ремонт квартир</Tags>
+  <Contact>info@pkvartira.ru</Contact>
+  <Url type="text/html" method="get" template="https://pkvartira.ru/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://pkvartira.ru/opensearch.xml"/>
+  <Image height="16" width="16" type="image/x-icon">https://pkvartira.ru/public/assets/images/logo/favicon/favicon.ico</Image>
+  <Image height="64" width="64" type="image/png">https://pkvartira.ru/public/assets/images/logo/favicon/favicon-96x96.png</Image>
+  <Query role="example" searchTerms="ремонт квартир"/>
+  <Developer>Проект Квартира (ООО Проект Квартира, pkvartira.ru)</Developer>
+  <Attribution>Copyright © 2026 Проект Квартира — ПКвартира. Все права защищены.</Attribution>
+  <Language>ru</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+</OpenSearchDescription>

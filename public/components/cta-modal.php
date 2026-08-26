@@ -77,6 +77,7 @@
 
 <!-- Minimal scripts -->
 <script>
+(function(){
     'use strict';
     const dontShowKey = 'ctaModalDontShow';
     const shownKey = 'ctaModalShown';
@@ -86,7 +87,9 @@
     }
 
     const modal = document.getElementById('ctaModal');
+    if (!modal) return;
     const closeBtn = document.getElementById('ctaModalClose');
+    const backdrop = modal.querySelector('.cta-modal-backdrop');
     const dontShowCheckbox = document.getElementById('ctaModalDontShow');
 
     function showModal() {
@@ -108,15 +111,17 @@
         hideModal();
     }
 
-    closeBtn.addEventListener('click', handleClose);
-    backdrop.addEventListener('click', handleClose);
-    dontShowCheckbox.addEventListener('change', function() {
-        if (this.checked) {
-            localStorage.setItem(dontShowKey, 'true');
-        } else {
-            localStorage.removeItem(dontShowKey);
-        }
-    });
+    if (closeBtn) closeBtn.addEventListener('click', handleClose);
+    if (backdrop) backdrop.addEventListener('click', handleClose);
+    if (dontShowCheckbox) {
+        dontShowCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                localStorage.setItem(dontShowKey, 'true');
+            } else {
+                localStorage.removeItem(dontShowKey);
+            }
+        });
+    }
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
@@ -126,4 +131,5 @@
 
     // 20 second timer
     setTimeout(showModal, 20000);
+})();
 </script>
