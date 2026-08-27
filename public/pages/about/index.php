@@ -149,7 +149,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                     <div class="check-icon-small">
                                         <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
-                                    <span class="text-sm text-gray-700">Опыт <strong>5 лет</strong> профессиональной
+                                    <span class="text-sm text-gray-700">Опыт <strong>10 лет</strong> профессиональной
                                         работы</span>
                                 </div>
                                 <div class="flex items-center gap-2">

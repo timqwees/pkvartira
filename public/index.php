@@ -86,7 +86,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             </strong> под ваш бюджет. Начнем работу
                             через <strong class="text-orange-500">2 дня</strong>
                         </p>
-                        <p class="text-sm text-white/80 mb-4">Ремонт от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • 12 лет на рынке</p>
+                        <p class="text-sm text-white/80 mb-4">Ремонт от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • 10 лет на рынке</p>
 
                         <div class="flex items-center flex-wrap gap-3 mb-6">
                             <button data-button-dialog
@@ -220,7 +220,7 @@ $seo = Setting\Route\Function\Functions::seo([
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
                     <div class="stat-card reveal">
                         <div class="stat-icon"><i class="fa-regular fa-calendar-check"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="12" data-suffix="+"></span></div>
+                        <div class="stat-number"><span class="counter" data-target="10" data-suffix="+"></span></div>
                         <div class="stat-label">Лет на рынке ремонта</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-1">
@@ -415,7 +415,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <div
                                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
                                 <div class="relative">
-                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
+                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg"
                                         alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира — ПКвартира" title="Премиум и элитный ремонт — от 25 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
                                         width="640" height="360" decoding="async" loading="lazy">
                                     <div
@@ -520,7 +520,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             Самый популярный
                         </div>
                         <div
-                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col pt-4">
+                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col">
                             <div class="relative">
                                 <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/capital.png"
                                     alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | Проект Квартира" title="Капитальный ремонт — от 13 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
@@ -616,7 +616,7 @@ $seo = Setting\Route\Function\Functions::seo([
                     <div
                         class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
                         <div class="relative">
-                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
+                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg"
                                 alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
                                 width="640" height="360" decoding="async" loading="lazy">
                             <div
@@ -1424,7 +1424,7 @@ $seo = Setting\Route\Function\Functions::seo([
                 <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
                     <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>ПКвартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
                     Нас находят по запросам: <em>Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, ПКвартира отзывы, pkvartira отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
-                    Мы — одна компания: делаем ремонт квартир и домов под ключ в Москве и Подмосковье с 2014 года, гарантия 3 года, фиксированная смета.
+                    Мы — одна компания: делаем ремонт квартир и домов под ключ в Москве и Подмосковье с 2016 года, гарантия 3 года, фиксированная смета.
                     Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
                 </p>
                 <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • Ищите нас: <strong>Проект Квартира</strong> | <strong>ПКвартира</strong> | <strong>pkvartira.ru</strong> | <strong>pkvartira</strong> | <strong>ООО Проект Квартира</strong></p>
@@ -1458,7 +1458,7 @@ $seo = Setting\Route\Function\Functions::seo([
             {
               "@type": "Question",
               "name": "Что такое ПКвартира (pkvartira.ru)?",
-              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира. Компания с 2014 года делает ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета, 325+ выполненных объектов."}
+              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира. Компания с 2016 года делает ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета, 325+ выполненных объектов."}
             },
             {
               "@type": "Question",

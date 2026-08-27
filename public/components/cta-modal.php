@@ -20,7 +20,7 @@
             </label>
             <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
             <button type="submit" class="cta-modal__submit">Перезвоните мне</button>
-            <p class="cta-modal__note">Без спама — только по делу</p>
+            <!--<p class="cta-modal__note">Без спама — только по делу</p>-->
             <button type="button" id="modal_ctaToggleDetails" class="cta-modal__details-toggle">
                 <span id="modal_ctaToggleText">Указать детали ремонта</span>
                 <svg id="modal_ctaToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
