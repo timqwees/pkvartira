@@ -361,6 +361,16 @@ class functions
 
         $source = $data->источник_заявки ?? '';
         $formId = $data->форма ?? '';
+        // Комментарий для письма (аналогично Битриксу)
+        $commentMail = '';
+        foreach ($data as $ck => $cv) {
+            $lk = mb_strtolower((string)$ck, 'UTF-8');
+            if (in_array($lk, ['сообщение', 'message', 'комментарий', 'comment'], true)) {
+                $commentMail = trim(self::toStr($cv));
+                if ($commentMail !== '') break;
+            }
+        }
+        if ($commentMail === '') $commentMail = trim(self::toStr($data->сообщение ?? $data->message ?? ''));
         // UTM для письма — всегда явно
         $utmSource   = trim(self::toStr($data->utm_source ?? ''));
         $utmMedium   = trim(self::toStr($data->utm_medium ?? ''));
@@ -411,10 +421,10 @@ class functions
         $message .= '</div>';
 
         $message .= '<div style="margin-top:12px"><div style="font-weight:700;margin-bottom:6px">📋 Детали</div><div style="font-size:14px;line-height:1.6">';
-        $excludeMail = ['источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
+        $excludeMail = ['источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer', 'сообщение', 'message', 'комментарий', 'comment'];
         $hasDetails = false;
         foreach ($data as $key => $value) {
-            if (in_array((string) $key, $excludeMail, true)) continue;
+            if (in_array(mb_strtolower((string)$key, 'UTF-8'), $excludeMail, true)) continue;
             $val = trim(self::toStr($value));
             if ($val === '') continue;
             $niceKey = str_replace('_', ' ', (string)$key);
@@ -425,6 +435,7 @@ class functions
         }
         if (!$hasDetails) $message .= '<span style="color:#94a3b8">— нет доп. полей —</span>';
         $message .= '</div></div>';
+        if ($commentMail !== '') $message .= '<div style="margin-top:10px;padding:10px 12px;background:#fff7ed;border-left:3px solid #f97316;font-size:13px"><b>Комментарий:</b> ' . nl2br(htmlspecialchars($commentMail, ENT_QUOTES, 'UTF-8')) . '</div>';
         $message .= '</div></div>';
         $success = false;
         try {
@@ -451,7 +462,16 @@ class functions
         $name = $data->имя ?? $data->name ?? '';
         $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
         $email = $data->почта ?? $data->email ?? '';
-        $comment = $data->сообщение ?? $data->message ?? '';
+        // Комментарий — ищем без учета регистра/языка (сообщение/message/комментарий/comment)
+        $comment = '';
+        foreach ($data as $ck => $cv) {
+            $lk = mb_strtolower((string)$ck, 'UTF-8');
+            if (in_array($lk, ['сообщение', 'message', 'комментарий', 'comment', 'комментарий_'], true)) {
+                $comment = trim(self::toStr($cv));
+                if ($comment !== '') break;
+            }
+        }
+        if ($comment === '') $comment = trim(self::toStr($data->сообщение ?? $data->message ?? ''));
         $source = $data->источник_заявки ?? '';
         $formId = $data->форма ?? '';
 
@@ -482,70 +502,77 @@ class functions
             }
             $pathOnly = ($lp['path'] ?? '/') . (isset($lp['query']) && $lp['query'] !== '' ? '?' . $lp['query'] : '');
             $landingShort = $pathOnly !== '' ? $pathOnly : '/';
-            if (mb_strlen($landingDisplay) > 90) $landingDisplay = mb_substr($landingDisplay, 0, 87) . '...';
+            if (mb_strlen($landingDisplay) > 120) $landingDisplay = mb_substr($landingDisplay, 0, 117) . '...';
         }
         $referrerHost = $referrer !== '' ? (parse_url($referrer, PHP_URL_HOST) ?: $referrer) : '';
         if ($referrerHost !== '' && mb_strlen($referrerHost) > 40) $referrerHost = mb_substr($referrerHost, 0, 37) . '...';
 
-        // Компактный, сканируемый вид: эмодзи + короткие строки, без стены текста
+        // Компактный, сканируемый вид — без эмодзи (Bitrix может резать 4-байт UTF-8)
         $hasPaid = $utmSource !== '' || $yclid !== '' || $gclid !== '';
+        $landingHostForBadge = $landingDisplay !== '' ? (parse_url($landingDisplay, PHP_URL_HOST) ?: '') : '';
+        $isInternalRef = $referrerHost !== '' && $landingHostForBadge !== '' && $referrerHost === $landingHostForBadge;
         if ($hasPaid) {
-            $trafficBadge = '🔴 РЕКЛАМА';
-        } elseif ($referrer !== '') {
-            $trafficBadge = '🟢 ОРГАНИКА / РЕФЕРАЛ';
+            $trafficBadge = 'РЕКЛАМА';
+        } elseif ($referrer !== '' && !$isInternalRef) {
+            $trafficBadge = 'ОРГАНИКА / РЕФЕРАЛ';
         } else {
-            $trafficBadge = '⚪ ПРЯМОЙ / ОРГАНИКА';
+            $trafficBadge = 'ПРЯМОЙ / ОРГАНИКА';
         }
 
-        $info = "📞 {$phone}";
-        if ($name) $info .= "  •  👤 {$name}";
-        if ($email) $info .= "  •  ✉️ {$email}";
-        $info .= "\n📍 {$source}" . ($formId ? "  •  📋 {$formId}" : "");
-
-        $info .= "\n━━━━━━━━━━━━━━━━━━━━";
-        $info .= "\n📊 ТРАФИК → {$trafficBadge}";
+        // Дизайн для Bitrix: plain-text с \n (Bitrix режет HTML -> пропадают переносы), но визуально структурирован
+        $info = "Новая заявка — pkvartira.ru [" . $trafficBadge . "]";
+        $info .= "\nТелефон: " . $phone;
+        if ($name) $info .= " | Имя: " . $name;
+        if ($email) $info .= " | Email: " . $email;
+        $info .= "\nИсточник: " . ($source ?: "-") . " | Форма: " . ($formId ?: "-");
+        $info .= "\n\n--- Трафик / UTM метки ---";
+        $info .= "\nТип трафика: {$trafficBadge}";
         if ($hasPaid) {
-            // Реклама — показываем все метки коротко, каждая с подсказкой в скобках
-            $info .= "\n• Источник [utm_source — откуда: yandex/google/vk]: " . ($utmSource !== '' ? $utmSource : ($yclid ? 'yandex (yclid)' : ($gclid ? 'google (gclid)' : '—')));
-            $info .= "\n• Канал [utm_medium — как: cpc/organic]: " . ($utmMedium !== '' ? $utmMedium : '—');
-            $info .= "\n• Кампания [utm_campaign]: " . ($utmCampaign !== '' ? $utmCampaign : '—');
-            $info .= "\n• Ключ [utm_term — что искал]: " . ($utmTerm !== '' ? $utmTerm : '—');
-            if ($utmContent !== '') $info .= "\n• Объявление [utm_content]: {$utmContent}";
-            if ($yclid !== '' || $gclid !== '') $info .= "\n• Клик ID: " . ($yclid !== '' ? "yclid={$yclid}" : '') . ($yclid !== '' && $gclid !== '' ? ' / ' : '') . ($gclid !== '' ? "gclid={$gclid}" : '');
+            $info .= "\n- Источник [utm_source — откуда: yandex/google/vk]: " . ($utmSource !== '' ? $utmSource : ($yclid ? 'yandex (yclid)' : ($gclid ? 'google (gclid)' : '-')));
+            $info .= "\n- Канал [utm_medium — как: cpc/organic]: " . ($utmMedium !== '' ? $utmMedium : '-');
+            $info .= "\n- Кампания [utm_campaign]: " . ($utmCampaign !== '' ? $utmCampaign : '-');
+            $info .= "\n- Ключ [utm_term — что искал]: " . ($utmTerm !== '' ? $utmTerm : '-');
+            if ($utmContent !== '') $info .= "\n- Объявление [utm_content]: " . $utmContent;
+            if ($yclid !== '' || $gclid !== '') $info .= "\n- Клик ID: " . ($yclid !== '' ? "yclid={$yclid}" : '') . ($yclid !== '' && $gclid !== '' ? ' / ' : '') . ($gclid !== '' ? "gclid={$gclid}" : '');
         } else {
-            // Органика/прямой — не засоряем 7 строк "— нет", одна строка
-            $info .= "\n• Метки: нет (пришел без рекламы)";
+            $info .= "\n- Метки: нет (пришел без рекламы)";
         }
-        $info .= "\n• Стр.: " . ($landingShort !== '' ? rawurldecode($landingShort) : '—') . ($landingDisplay !== $landingShort && $landingDisplay !== '' ? " (" . rawurldecode($landingDisplay) . ")" : "");
-        $info .= "\n• Откуда: " . ($referrerHost !== '' ? $referrerHost : 'прямой заход');
-
-        // Данные формы — bullets, без подчеркиваний, красиво
-        $excludeExtra = ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
+        $info .= "\n- Стр.: " . ($landingShort !== '' ? rawurldecode($landingShort) : '-') . ($landingDisplay !== $landingShort && $landingDisplay !== '' ? " (" . rawurldecode($landingDisplay) . ")" : "");
+        $info .= "\n- Откуда: " . ($referrerHost !== '' && !$isInternalRef ? $referrerHost : 'прямой заход' . ($isInternalRef ? ' (внутренний переход)' : ''));
+        // Данные формы
+        $excludeExtra = ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'комментарий', 'comment', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
         $extra = [];
         foreach ($data as $key => $value) {
             $val = trim(self::toStr($value));
-            if ($val === '' || in_array((string) $key, $excludeExtra, true)) continue;
+            if ($val === '' || in_array(mb_strtolower((string)$key, 'UTF-8'), $excludeExtra, true)) continue;
             $niceKey = str_replace('_', ' ', (string)$key);
             $niceKey = mb_convert_case($niceKey, MB_CASE_TITLE, 'UTF-8');
-            // Площадь — добавляем м² если число
-            if (mb_strtolower($niceKey) === 'Площадь' && is_numeric($val)) $val .= ' м²';
-            $extra[] = "• {$niceKey}: {$val}";
+            if (mb_strtolower($niceKey, 'UTF-8') === 'площадь' && is_numeric($val)) $val .= ' м²';
+            $extra[] = "- " . $niceKey . ": " . $val;
         }
         if ($extra) {
-            $info .= "\n━━━━━━━━━━━━━━━━━━━━";
-            $info .= "\n📋 ДЕТАЛИ";
+            $info .= "\n\n--- Данные формы ---";
             $info .= "\n" . implode("\n", $extra);
         }
-        if ($comment) $info .= "\n━━━━━━━━━━━━━━━━━━━━\n💬 {$comment}";
+        if ($comment) $info .= "\n\n--- Комментарий ---\n" . $comment;
 
-        // Человекочитаемый SOURCE_DESCRIPTION — сразу видно в списке сделок, с рекламы или нет
+        // UTM_SOURCE fallback для аналитики: если yclid/gclid есть, а utm_source пустой — подставляем
+        $utmSourceForApi  = $utmSource !== '' ? $utmSource : ($yclid !== '' ? 'yandex' : ($gclid !== '' ? 'google' : ''));
+        $utmMediumForApi  = $utmMedium !== '' ? $utmMedium : ($hasPaid ? 'cpc' : '');
+        // Человекочитаемый SOURCE_DESCRIPTION — сразу видно в списке сделок, с рекламы или нет (чистим landing от message_status)
         if ($hasPaid) {
-            $sourceDesc = 'Реклама: ' . ($utmSource ?: ($yclid ? 'yandex' : 'google')) . ($utmMedium ? " / {$utmMedium}" : '') . ($utmCampaign ? " / {$utmCampaign}" : '') . ($utmTerm ? " | ключ: {$utmTerm}" : '');
+            $sourceDesc = 'Реклама: ' . ($utmSourceForApi) . ($utmMediumForApi ? " / {$utmMediumForApi}" : '') . ($utmCampaign ? " / {$utmCampaign}" : '') . ($utmTerm ? " | ключ: {$utmTerm}" : '');
         } elseif ($referrer !== '') {
             $refHost = parse_url($referrer, PHP_URL_HOST) ?: $referrer;
-            $sourceDesc = 'Органика/Реферал: ' . $refHost . ' | ' . ($landing ?: $source);
+            // внутренний переход с того же хоста — считаем прямым, не рефералом
+            $landingHost = $landingDisplay !== '' ? (parse_url($landingDisplay, PHP_URL_HOST) ?: '') : '';
+            if ($landingHost !== '' && $refHost === $landingHost) {
+                $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landingDisplay ?: $source ?: 'pkvartira.ru');
+            } else {
+                $sourceDesc = 'Органика/Реферал: ' . $refHost . ' | ' . ($landingDisplay ?: $source);
+            }
         } else {
-            $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landing ?: $source ?: 'pkvartira.ru');
+            $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landingDisplay ?: $source ?: 'pkvartira.ru');
         }
 
         $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json';
@@ -558,8 +585,8 @@ class functions
             'COMMENTS' => $info,
             'SOURCE_DESCRIPTION' => $sourceDesc,
             // Дубль в штатные UTM-поля Битрикс (если включены в воронке — появятся в аналитике)
-            'UTM_SOURCE' => $utmSource,
-            'UTM_MEDIUM' => $utmMedium,
+            'UTM_SOURCE' => $utmSourceForApi,
+            'UTM_MEDIUM' => $utmMediumForApi,
             'UTM_CAMPAIGN' => $utmCampaign,
             'UTM_TERM' => $utmTerm,
             'UTM_CONTENT' => $utmContent,
