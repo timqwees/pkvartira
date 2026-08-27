@@ -361,16 +361,71 @@ class functions
 
         $source = $data->источник_заявки ?? '';
         $formId = $data->форма ?? '';
+        // UTM для письма — всегда явно
+        $utmSource   = trim(self::toStr($data->utm_source ?? ''));
+        $utmMedium   = trim(self::toStr($data->utm_medium ?? ''));
+        $utmCampaign = trim(self::toStr($data->utm_campaign ?? ''));
+        $utmTerm     = trim(self::toStr($data->utm_term ?? ''));
+        $utmContent  = trim(self::toStr($data->utm_content ?? ''));
+        $yclid       = trim(self::toStr($data->yclid ?? ''));
+        $gclid       = trim(self::toStr($data->gclid ?? ''));
+        $landing     = trim(self::toStr($data->landing_page ?? ''));
+        $referrer    = trim(self::toStr($data->referrer ?? ''));
+        $hasPaid     = $utmSource !== '' || $yclid !== '' || $gclid !== '';
 
-        $message = "<strong>Заявка с сайта</strong>";
-        if ($source) $message .= "<br><strong>Источник:</strong> " . htmlspecialchars(self::toStr($source), ENT_QUOTES, 'UTF-8');
-        if ($formId) $message .= "<br><strong>Форма:</strong> " . htmlspecialchars(self::toStr($formId), ENT_QUOTES, 'UTF-8');
-        $message .= "<hr><strong>Данные:</strong>";
-        foreach ($data as $key => $value) {
-            if (in_array((string) $key, ['источник_заявки', 'форма', 'website', '_ts', '_js_token'], true)) continue;
-            $val = self::toStr($value);
-            $message .= "<br>" . ucfirst((string) $key) . ': ' . htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
+        // Чистим landing для письма
+        $landingMail = $landing;
+        if ($landingMail !== '') {
+            $lp = parse_url($landingMail);
+            if (!empty($lp['query'])) {
+                parse_str($lp['query'], $lq);
+                unset($lq['message_status'], $lq['message_msg']);
+                $lp['query'] = http_build_query($lq);
+                if ($lp['query'] === '') unset($lp['query']);
+                $landingMail = (isset($lp['scheme']) ? $lp['scheme'] . '://' : '') . ($lp['host'] ?? '') . ($lp['path'] ?? '/') . (isset($lp['query']) ? '?' . $lp['query'] : '');
+            }
         }
+        $referrerHostMail = $referrer !== '' ? (parse_url($referrer, PHP_URL_HOST) ?: $referrer) : '';
+
+        $message = '<div style="font-family:Arial,sans-serif;max-width:640px;color:#0f172a">';
+        $message .= '<div style="background:#0f172a;color:#fff;padding:14px 16px;border-radius:10px 10px 0 0;font-weight:700">📞 Новая заявка — pkvartira.ru ' . ($hasPaid ? '<span style="background:#ef4444;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">РЕКЛАМА</span>' : '<span style="background:#22c55e;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">ОРГАНИКА</span>') . '</div>';
+        $message .= '<div style="border:1px solid #e2e8f0;border-top:0;padding:14px 16px;border-radius:0 0 10px 10px;background:#fff">';
+        $message .= '<div style="margin-bottom:12px"><span style="color:#64748b">📍</span> <strong>' . htmlspecialchars(self::toStr($source) ?: '—', ENT_QUOTES, 'UTF-8') . '</strong> <span style="color:#94a3b8">•</span> <span style="color:#64748b">Форма:</span> ' . htmlspecialchars(self::toStr($formId) ?: '—', ENT_QUOTES, 'UTF-8') . '</div>';
+
+        // Трафик — компактно, с подсказками в скобках для рабочих
+        $message .= '<div style="background:#f0f9ff;border:1px solid #e0f2fe;border-radius:8px;padding:10px 12px;margin:10px 0">';
+        $message .= '<div style="font-weight:700;color:#0369a1;margin-bottom:6px">📊 Трафик → ' . ($hasPaid ? '🔴 РЕКЛАМА (платный)' : ($referrer !== '' ? '🟢 ОРГАНИКА / РЕФЕРАЛ' : '⚪ ПРЯМОЙ ЗАХОД')) . '</div>';
+        if ($hasPaid) {
+            $message .= '<div style="font-size:13px;line-height:1.5;color:#334155">';
+            $message .= '• <b>Источник</b> <span style="color:#64748b">[utm_source — откуда: yandex/google/vk]</span>: ' . htmlspecialchars($utmSource !== '' ? $utmSource : ($yclid ? 'yandex (yclid)' : 'google'), ENT_QUOTES, 'UTF-8') . '<br>';
+            $message .= '• <b>Канал</b> <span style="color:#64748b">[utm_medium — как: cpc/organic]</span>: ' . htmlspecialchars($utmMedium ?: '—', ENT_QUOTES, 'UTF-8') . '<br>';
+            $message .= '• <b>Кампания</b> <span style="color:#64748b">[utm_campaign]</span>: ' . htmlspecialchars($utmCampaign ?: '—', ENT_QUOTES, 'UTF-8') . '<br>';
+            $message .= '• <b>Ключ</b> <span style="color:#64748b">[utm_term — что искал клиент]</span>: ' . htmlspecialchars($utmTerm ?: '—', ENT_QUOTES, 'UTF-8') . '<br>';
+            if ($utmContent !== '') $message .= '• <b>Объявление</b> <span style="color:#64748b">[utm_content]</span>: ' . htmlspecialchars($utmContent, ENT_QUOTES, 'UTF-8') . '<br>';
+            if ($yclid !== '' || $gclid !== '') $message .= '• <b>Клик ID</b>: ' . htmlspecialchars(trim(($yclid ? "yclid={$yclid}" : '') . ($yclid && $gclid ? ' / ' : '') . ($gclid ? "gclid={$gclid}" : '')), ENT_QUOTES, 'UTF-8') . '<br>';
+            $message .= '</div>';
+        } else {
+            $message .= '<div style="font-size:13px;color:#475569">• Метки: <b>нет</b> (пришел без рекламы)</div>';
+        }
+        $message .= '<div style="font-size:13px;color:#334155;margin-top:6px">• <b>Стр.:</b> ' . htmlspecialchars($landingMail ?: '—', ENT_QUOTES, 'UTF-8') . '<br>• <b>Откуда:</b> ' . htmlspecialchars($referrerHostMail !== '' ? $referrerHostMail . ' — ' . $referrer : 'прямой заход', ENT_QUOTES, 'UTF-8') . '</div>';
+        $message .= '</div>';
+
+        $message .= '<div style="margin-top:12px"><div style="font-weight:700;margin-bottom:6px">📋 Детали</div><div style="font-size:14px;line-height:1.6">';
+        $excludeMail = ['источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
+        $hasDetails = false;
+        foreach ($data as $key => $value) {
+            if (in_array((string) $key, $excludeMail, true)) continue;
+            $val = trim(self::toStr($value));
+            if ($val === '') continue;
+            $niceKey = str_replace('_', ' ', (string)$key);
+            $niceKey = mb_convert_case($niceKey, MB_CASE_TITLE, 'UTF-8');
+            if (mb_strtolower($niceKey) === 'Площадь' && is_numeric($val)) $val .= ' м²';
+            $message .= '• <b>' . htmlspecialchars($niceKey, ENT_QUOTES, 'UTF-8') . ':</b> ' . htmlspecialchars($val, ENT_QUOTES, 'UTF-8') . '<br>';
+            $hasDetails = true;
+        }
+        if (!$hasDetails) $message .= '<span style="color:#94a3b8">— нет доп. полей —</span>';
+        $message .= '</div></div>';
+        $message .= '</div></div>';
         $success = false;
         try {
             $result = (new MailController())->onMail('info@pkvartira.ru', 'Заявление с сайта', $message);
@@ -400,33 +455,114 @@ class functions
         $source = $data->источник_заявки ?? '';
         $formId = $data->форма ?? '';
 
-        $info = "Телефон: {$phone}";
-        if ($name) $info .= "\nИмя: {$name}";
-        if ($email) $info .= "\nEmail: {$email}";
-        if ($source) $info .= "\nИсточник: {$source}";
-        if ($formId) $info .= "\nФорма: {$formId}";
+        // --- UTM / трафик (всегда показываем, даже если пусто) ---
+        $utmSource   = trim(self::toStr($data->utm_source ?? ''));
+        $utmMedium   = trim(self::toStr($data->utm_medium ?? ''));
+        $utmCampaign = trim(self::toStr($data->utm_campaign ?? ''));
+        $utmTerm     = trim(self::toStr($data->utm_term ?? ''));
+        $utmContent  = trim(self::toStr($data->utm_content ?? ''));
+        $yclid       = trim(self::toStr($data->yclid ?? ''));
+        $gclid       = trim(self::toStr($data->gclid ?? ''));
+        $landing     = trim(self::toStr($data->landing_page ?? ''));
+        $referrer    = trim(self::toStr($data->referrer ?? ''));
 
-        // Добавляем все остальные поля формы (Тип жилья, Комнат, Площадь, Ремонт и т.д.)
+        // Чистим landing_page: убираем служебный ?message_status=... и обрезаем длинный URL
+        $landingDisplay = $landing;
+        $landingShort = $landing;
+        if ($landing !== '') {
+            $lp = parse_url($landing);
+            if (!empty($lp['query'])) {
+                parse_str($lp['query'], $lq);
+                unset($lq['message_status'], $lq['message_msg']);
+                $lp['query'] = http_build_query($lq);
+                if ($lp['query'] === '') unset($lp['query']);
+                $landingDisplay = (isset($lp['scheme']) ? $lp['scheme'] . '://' : '') . ($lp['host'] ?? '') . ($lp['path'] ?? '/') . (isset($lp['query']) ? '?' . $lp['query'] : '');
+            } else {
+                $landingDisplay = $landing;
+            }
+            $pathOnly = ($lp['path'] ?? '/') . (isset($lp['query']) && $lp['query'] !== '' ? '?' . $lp['query'] : '');
+            $landingShort = $pathOnly !== '' ? $pathOnly : '/';
+            if (mb_strlen($landingDisplay) > 90) $landingDisplay = mb_substr($landingDisplay, 0, 87) . '...';
+        }
+        $referrerHost = $referrer !== '' ? (parse_url($referrer, PHP_URL_HOST) ?: $referrer) : '';
+        if ($referrerHost !== '' && mb_strlen($referrerHost) > 40) $referrerHost = mb_substr($referrerHost, 0, 37) . '...';
+
+        // Компактный, сканируемый вид: эмодзи + короткие строки, без стены текста
+        $hasPaid = $utmSource !== '' || $yclid !== '' || $gclid !== '';
+        if ($hasPaid) {
+            $trafficBadge = '🔴 РЕКЛАМА';
+        } elseif ($referrer !== '') {
+            $trafficBadge = '🟢 ОРГАНИКА / РЕФЕРАЛ';
+        } else {
+            $trafficBadge = '⚪ ПРЯМОЙ / ОРГАНИКА';
+        }
+
+        $info = "📞 {$phone}";
+        if ($name) $info .= "  •  👤 {$name}";
+        if ($email) $info .= "  •  ✉️ {$email}";
+        $info .= "\n📍 {$source}" . ($formId ? "  •  📋 {$formId}" : "");
+
+        $info .= "\n━━━━━━━━━━━━━━━━━━━━";
+        $info .= "\n📊 ТРАФИК → {$trafficBadge}";
+        if ($hasPaid) {
+            // Реклама — показываем все метки коротко, каждая с подсказкой в скобках
+            $info .= "\n• Источник [utm_source — откуда: yandex/google/vk]: " . ($utmSource !== '' ? $utmSource : ($yclid ? 'yandex (yclid)' : ($gclid ? 'google (gclid)' : '—')));
+            $info .= "\n• Канал [utm_medium — как: cpc/organic]: " . ($utmMedium !== '' ? $utmMedium : '—');
+            $info .= "\n• Кампания [utm_campaign]: " . ($utmCampaign !== '' ? $utmCampaign : '—');
+            $info .= "\n• Ключ [utm_term — что искал]: " . ($utmTerm !== '' ? $utmTerm : '—');
+            if ($utmContent !== '') $info .= "\n• Объявление [utm_content]: {$utmContent}";
+            if ($yclid !== '' || $gclid !== '') $info .= "\n• Клик ID: " . ($yclid !== '' ? "yclid={$yclid}" : '') . ($yclid !== '' && $gclid !== '' ? ' / ' : '') . ($gclid !== '' ? "gclid={$gclid}" : '');
+        } else {
+            // Органика/прямой — не засоряем 7 строк "— нет", одна строка
+            $info .= "\n• Метки: нет (пришел без рекламы)";
+        }
+        $info .= "\n• Стр.: " . ($landingShort !== '' ? rawurldecode($landingShort) : '—') . ($landingDisplay !== $landingShort && $landingDisplay !== '' ? " (" . rawurldecode($landingDisplay) . ")" : "");
+        $info .= "\n• Откуда: " . ($referrerHost !== '' ? $referrerHost : 'прямой заход');
+
+        // Данные формы — bullets, без подчеркиваний, красиво
+        $excludeExtra = ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
         $extra = [];
         foreach ($data as $key => $value) {
-            if (!in_array((string) $key, ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token'], true)) {
-                if (is_string($value) && $value !== '') {
-                    $extra[] = "{$key}: {$value}";
-                }
-            }
+            $val = trim(self::toStr($value));
+            if ($val === '' || in_array((string) $key, $excludeExtra, true)) continue;
+            $niceKey = str_replace('_', ' ', (string)$key);
+            $niceKey = mb_convert_case($niceKey, MB_CASE_TITLE, 'UTF-8');
+            // Площадь — добавляем м² если число
+            if (mb_strtolower($niceKey) === 'Площадь' && is_numeric($val)) $val .= ' м²';
+            $extra[] = "• {$niceKey}: {$val}";
         }
-        if ($extra) $info .= "\n\n" . implode("\n", $extra);
-        if ($comment) $info .= "\n\n{$comment}";
+        if ($extra) {
+            $info .= "\n━━━━━━━━━━━━━━━━━━━━";
+            $info .= "\n📋 ДЕТАЛИ";
+            $info .= "\n" . implode("\n", $extra);
+        }
+        if ($comment) $info .= "\n━━━━━━━━━━━━━━━━━━━━\n💬 {$comment}";
+
+        // Человекочитаемый SOURCE_DESCRIPTION — сразу видно в списке сделок, с рекламы или нет
+        if ($hasPaid) {
+            $sourceDesc = 'Реклама: ' . ($utmSource ?: ($yclid ? 'yandex' : 'google')) . ($utmMedium ? " / {$utmMedium}" : '') . ($utmCampaign ? " / {$utmCampaign}" : '') . ($utmTerm ? " | ключ: {$utmTerm}" : '');
+        } elseif ($referrer !== '') {
+            $refHost = parse_url($referrer, PHP_URL_HOST) ?: $referrer;
+            $sourceDesc = 'Органика/Реферал: ' . $refHost . ' | ' . ($landing ?: $source);
+        } else {
+            $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landing ?: $source ?: 'pkvartira.ru');
+        }
 
         $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json';
         $postData = http_build_query(['fields' => [
-            'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? ''),
+            'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? '') . ($hasPaid ? ' [РЕКЛАМА]' : ' [ОРГАНИКА]'),
             // Воронка 7 «Заявки ремонт квартир»: стадия указана явно с префиксом C7,
             // иначе Битрикс при невалидной стадии сбрасывает сделку в первую воронку
             'CATEGORY_ID' => 7,
             'STAGE_ID' => 'C7:NEW',
             'COMMENTS' => $info,
-            'SOURCE_DESCRIPTION' => 'Заявка с сайта pkvartira.ru',
+            'SOURCE_DESCRIPTION' => $sourceDesc,
+            // Дубль в штатные UTM-поля Битрикс (если включены в воронке — появятся в аналитике)
+            'UTM_SOURCE' => $utmSource,
+            'UTM_MEDIUM' => $utmMedium,
+            'UTM_CAMPAIGN' => $utmCampaign,
+            'UTM_TERM' => $utmTerm,
+            'UTM_CONTENT' => $utmContent,
         ]]);
 
         $ch = curl_init($webhookUrl);

@@ -170,6 +170,14 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
     var STORE_KEY = 'pkv_utm';
     var stored = {};
 
+    function cleanLanding(url){
+        try {
+            var u = new URL(url, window.location.origin);
+            u.searchParams.delete('message_status');
+            u.searchParams.delete('message_msg');
+            return u.toString();
+        } catch(e) { return url; }
+    }
     // 1. Read from URL
     var url = new URLSearchParams(window.location.search);
     var hasAny = false;
@@ -178,7 +186,7 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
         stored[p] = v;
         if (v) hasAny = true;
     });
-    stored['landing_page'] = window.location.href;
+    stored['landing_page'] = cleanLanding(window.location.href);
     stored['referrer'] = document.referrer || '';
 
     // 2. Merge with localStorage (URL params override, but keep old if no new UTM)
@@ -191,8 +199,8 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
             // No UTM in URL and no saved UTM — fresh visit
             localStorage.setItem(STORE_KEY, JSON.stringify(stored));
         } else {
-            // No UTM in URL but we have saved — keep saved, update landing_page
-            prev['landing_page'] = stored['landing_page'];
+            // No UTM in URL but we have saved — keep saved, update landing_page (чистим от message_status)
+            prev['landing_page'] = cleanLanding(stored['landing_page']);
             prev['referrer'] = stored['referrer'];
             stored = prev;
         }
@@ -200,7 +208,7 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
         try { localStorage.setItem(STORE_KEY, JSON.stringify(stored)); } catch(e2){}
     }
 
-    // 3. Inject hidden fields into all forms that POST to /send/email
+    // 3. Inject hidden fields into all forms that POST to /send/email — ВСЕГДА, даже если меток нет (тогда value='')
     function injectUtm(){
         var forms = document.querySelectorAll('form[action="/send/email"]');
         forms.forEach(function(form){
@@ -213,7 +221,29 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
                 input.type = 'hidden';
                 input.name = name;
                 input.value = stored[name] || '';
+                // Для отладки видно в DOM что поле есть даже без меток
+                input.setAttribute('data-utm-field', name);
                 form.appendChild(input);
+            });
+            // Перед отправкой обновляем значения из localStorage + текущий URL/referrer — гарантия актуальности
+            form.addEventListener('submit', function(){
+                try {
+                    var fresh = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+                    var cur = new URLSearchParams(window.location.search);
+                    fields.forEach(function(name){
+                        var el = form.querySelector('input[name="'+name+'"]');
+                        if (!el) return;
+                        if (name === 'landing_page') {
+                            el.value = cleanLanding(window.location.href);
+                        } else if (name === 'referrer') {
+                            el.value = document.referrer || fresh['referrer'] || stored['referrer'] || '';
+                        } else {
+                            // приоритет: URL (самый свежий) -> localStorage -> stored
+                            var fromUrl = cur.get(name) || '';
+                            el.value = fromUrl || fresh[name] || stored[name] || '';
+                        }
+                    });
+                } catch(e) {}
             });
         });
     }
