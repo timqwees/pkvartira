@@ -161,3 +161,77 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
 
 <!-- Phone formatting - deferred -->
 <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/phoneFormat.min.js') ?>" defer></script>
+
+<!-- UTM / conversion tracking — auto-injects hidden fields into all forms -->
+<script>
+(function(){
+    'use strict';
+    var PARAMS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid','gclid'];
+    var STORE_KEY = 'pkv_utm';
+    var stored = {};
+
+    // 1. Read from URL
+    var url = new URLSearchParams(window.location.search);
+    var hasAny = false;
+    PARAMS.forEach(function(p){
+        var v = url.get(p) || '';
+        stored[p] = v;
+        if (v) hasAny = true;
+    });
+    stored['landing_page'] = window.location.href;
+    stored['referrer'] = document.referrer || '';
+
+    // 2. Merge with localStorage (URL params override, but keep old if no new UTM)
+    try {
+        var prev = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+        if (hasAny) {
+            // New UTM — update everything
+            localStorage.setItem(STORE_KEY, JSON.stringify(stored));
+        } else if (!prev.utm_source && !prev.yclid) {
+            // No UTM in URL and no saved UTM — fresh visit
+            localStorage.setItem(STORE_KEY, JSON.stringify(stored));
+        } else {
+            // No UTM in URL but we have saved — keep saved, update landing_page
+            prev['landing_page'] = stored['landing_page'];
+            prev['referrer'] = stored['referrer'];
+            stored = prev;
+        }
+    } catch(e) {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(stored)); } catch(e2){}
+    }
+
+    // 3. Inject hidden fields into all forms that POST to /send/email
+    function injectUtm(){
+        var forms = document.querySelectorAll('form[action="/send/email"]');
+        forms.forEach(function(form){
+            // Skip if already injected
+            if (form.dataset.utmInjected) return;
+            form.dataset.utmInjected = '1';
+            var fields = PARAMS.concat(['landing_page','referrer']);
+            fields.forEach(function(name){
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                input.value = stored[name] || '';
+                form.appendChild(input);
+            });
+        });
+    }
+
+    // Run when DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', injectUtm);
+    } else {
+        injectUtm();
+    }
+
+    // Re-inject when new forms appear (SPA, dynamic forms)
+    if (typeof MutationObserver !== 'undefined') {
+        var observer = new MutationObserver(function(){
+            var forms = document.querySelectorAll('form[action="/send/email"]:not([data-utm-injected])');
+            if (forms.length) injectUtm();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+})();
+</script>
