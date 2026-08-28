@@ -1,8 +1,8 @@
 RewriteEngine On
 RewriteBase /
 
-# Редирект robots.txt на динамический генератор
-RewriteRule ^robots\.txt$ robots.php [L]
+# Редирект robots.txt на динамический генератор (файл в public/)
+RewriteRule ^robots\.txt$ public/robots.php [L]
 
 # 0. Редирект с портом :443 на URL без порта (301)
 RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]

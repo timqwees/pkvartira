@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/plain; charset=utf-8');
 $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
 $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost);
 $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
