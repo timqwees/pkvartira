@@ -284,7 +284,7 @@ $prices = [
                     <?php foreach ($prices as $price): ?>
                         <article
                             class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
-                            itemscope itemtype="https://schema.org/Product">
+                            itemscope itemtype="https://schema.org/Service">
                             <meta itemprop="name"
                                 content="<?= htmlspecialchars($price['заголовок']); ?> ремонт квартиры-студии">
                             <?php if (isset($price['бейдж'])): ?>
