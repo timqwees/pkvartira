@@ -519,36 +519,35 @@ class functions
             $trafficBadge = 'ПРЯМОЙ / ОРГАНИКА';
         }
 
-        // Дизайн для Bitrix: plain-text с \n (Bitrix режет HTML -> пропадают переносы), но визуально структурирован
-        $info = "Новая заявка — pkvartira.ru [" . $trafficBadge . "]";
-        $info .= "\nТелефон: " . $phone;
-        if ($name) $info .= " | Имя: " . $name;
-        if ($email) $info .= " | Email: " . $email;
-        $info .= "\nИсточник: " . ($source ?: "-") . " | Форма: " . ($formId ?: "-");
+        // Дизайн по ТЗ пользователя: точь-в-точь как пример
+        $info = "Телефон: " . $phone;
+        if ($name !== '') $info .= "\nИмя: " . $name;
+        if ($email !== '') $info .= "\nEmail: " . $email;
+        $info .= "\nИсточник: " . ($source ?: "-");
+        $info .= "\nФорма: " . ($formId ?: "-");
         $info .= "\n\n--- Трафик / UTM метки ---";
-        $info .= "\nТип трафика: {$trafficBadge}";
-        if ($hasPaid) {
-            $info .= "\n- Источник [utm_source — откуда: yandex/google/vk]: " . ($utmSource !== '' ? $utmSource : ($yclid ? 'yandex (yclid)' : ($gclid ? 'google (gclid)' : '-')));
-            $info .= "\n- Канал [utm_medium — как: cpc/organic]: " . ($utmMedium !== '' ? $utmMedium : '-');
-            $info .= "\n- Кампания [utm_campaign]: " . ($utmCampaign !== '' ? $utmCampaign : '-');
-            $info .= "\n- Ключ [utm_term — что искал]: " . ($utmTerm !== '' ? $utmTerm : '-');
-            if ($utmContent !== '') $info .= "\n- Объявление [utm_content]: " . $utmContent;
-            if ($yclid !== '' || $gclid !== '') $info .= "\n- Клик ID: " . ($yclid !== '' ? "yclid={$yclid}" : '') . ($yclid !== '' && $gclid !== '' ? ' / ' : '') . ($gclid !== '' ? "gclid={$gclid}" : '');
-        } else {
-            $info .= "\n- Метки: нет (пришел без рекламы)";
-        }
-        $info .= "\n- Стр.: " . ($landingShort !== '' ? rawurldecode($landingShort) : '-') . ($landingDisplay !== $landingShort && $landingDisplay !== '' ? " (" . rawurldecode($landingDisplay) . ")" : "");
-        $info .= "\n- Откуда: " . ($referrerHost !== '' && !$isInternalRef ? $referrerHost : 'прямой заход' . ($isInternalRef ? ' (внутренний переход)' : ''));
-        // Данные формы
+        // Тип трафика — как в примере: ПРЯМОЙ ЗАХОД / ОРГАНИКА (без меток) или РЕКЛАМА
+        $trafficExample = $hasPaid ? 'РЕКЛАМА' : 'ПРЯМОЙ ЗАХОД / ОРГАНИКА (без меток)';
+        // Если есть реферер и не внутренний — показываем ОРГАНИКА / РЕФЕРАЛ, иначе как в примере
+        if (!$hasPaid && $referrer !== '' && !$isInternalRef) $trafficExample = 'ОРГАНИКА / РЕФЕРАЛ (без utm)';
+        $info .= "\nТип трафика: " . $trafficExample;
+        $info .= "\nutm_source: " . ($utmSource !== '' ? $utmSource : '— нет');
+        $info .= "\nutm_medium: " . ($utmMedium !== '' ? $utmMedium : '— нет');
+        $info .= "\nutm_campaign: " . ($utmCampaign !== '' ? $utmCampaign : '— нет');
+        $info .= "\nutm_term (ключевая фраза): " . ($utmTerm !== '' ? $utmTerm : '— нет');
+        $info .= "\nutm_content: " . ($utmContent !== '' ? $utmContent : '— нет');
+        $info .= "\nyclid (Яндекс.Директ): " . ($yclid !== '' ? $yclid : '— нет');
+        $info .= "\ngclid (Google Ads): " . ($gclid !== '' ? $gclid : '— нет');
+        $info .= "\nlanding_page: " . ($landingDisplay !== '' ? $landingDisplay : '— нет');
+        $info .= "\nreferrer: " . ($referrer !== '' && !$isInternalRef ? $referrer : '— нет (прямой заход)' . ($isInternalRef ? ' (внутренний переход)' : ''));
+        // Данные формы — как в примере, без замены _ и без м², ключ как пришел
         $excludeExtra = ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'комментарий', 'comment', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
         $extra = [];
         foreach ($data as $key => $value) {
             $val = trim(self::toStr($value));
             if ($val === '' || in_array(mb_strtolower((string)$key, 'UTF-8'), $excludeExtra, true)) continue;
-            $niceKey = str_replace('_', ' ', (string)$key);
-            $niceKey = mb_convert_case($niceKey, MB_CASE_TITLE, 'UTF-8');
-            if (mb_strtolower($niceKey, 'UTF-8') === 'площадь' && is_numeric($val)) $val .= ' м²';
-            $extra[] = "- " . $niceKey . ": " . $val;
+            // Оставляем ключ как есть (Тип_жилья, а не Тип Жилья) — как в примере
+            $extra[] = (string)$key . ": " . $val;
         }
         if ($extra) {
             $info .= "\n\n--- Данные формы ---";
