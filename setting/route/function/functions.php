@@ -18,7 +18,7 @@ class functions
 {
     //======СПИСОК ФУНКЦИЙ / LIST FUNCTIONS===========//
 
-    # Главная страница || Main page (В маршрутных функциях писать, только маршрут в path болье ничего не нужно)
+    # Главная страница || Main page (В маршрутных функциях писать, только маршрут в path больше ничего не нужно)
     public function on_Main($path = '/public/index.php')
     {
     header('Cache-Control: no-cache');

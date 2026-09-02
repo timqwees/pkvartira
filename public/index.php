@@ -5,7 +5,7 @@ $featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-ко�
 $seo = Setting\Route\Function\Functions::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8 000 ₽/м²',
     'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт: ремонт квартир и домов под ключ в Москве. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
-    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, ПКвартира отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проет квартира, пквартира',
+    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, ПКвартира отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проект квартира, пквартира',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
     'url' => $site['canonicalUrl'],
     'type' => 'website',
@@ -92,7 +92,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             <button data-button-dialog
                                 class="ripple inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-black/25 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-0.5 hover:scale-[1.03] transition-all duration-300 cursor-pointer">
                                 <i class="fa-solid fa-calculator"></i>
-                                <span>Рассчитать ремонта за <span class="text-orange-500"> 60 секунд</span></span>
+                                <span>Рассчитать ремонт за <span class="text-orange-500"> 60 секунд</span></span>
                             </button>
                             <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 5.0 рейтинг на Яндекс</span>
                             <span class="hero-stat"><i class="fa-solid fa-building"></i> 320+ объектов</span>
@@ -132,7 +132,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             варианта</span> сметы под ваш бюджет
                     </h2>
                     <p class="text-gray-600 text-sm md:text-base">
-                        Ответьте на 5 простых вопроса, чтобы мы подготовили для вас 3 варианта сметы под ваш бюджет
+                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы под ваш бюджет
                     </p>
                 </div>
 
@@ -147,7 +147,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 <option value="Вторичка">Вторичка</option>
                                 <option value="Коттедж">Коттедж / Загородный дом</option>
                             </select>
-                            <select name="площадь обьекта"
+                            <select name="площадь объекта"
                                 class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
                                 aria-label="Площадь объекта">
                                 <option value="" selected disabled>Площадь?</option>
@@ -340,7 +340,7 @@ $seo = Setting\Route\Function\Functions::seo([
 
                                         <p class="text-gray-600 text-sm mb-2">
                                             <strong class="text-gray-800">Что входит:</strong> Полная замена электрики и
-                                            сантехники, возведения перегородок, выравнивание стен по маякам, стяжка
+                                            сантехники, возведение перегородок, выравнивание стен по маякам, стяжка
                                             пола,
                                             чистовая отделка.
                                         </p>
@@ -546,7 +546,7 @@ $seo = Setting\Route\Function\Functions::seo([
 
                                     <p class="text-gray-600 text-sm mb-2">
                                         <strong class="text-gray-800">Что входит:</strong> Полная замена электрики и
-                                        сантехники, возведения перегородек, выравнивание стен по маякам, стяжка
+                                        сантехники, возведение перегородек, выравнивание стен по маякам, стяжка
                                         пола,
                                         чистовая отделка.
                                     </p>
