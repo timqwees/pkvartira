@@ -519,16 +519,52 @@ class functions
             $trafficBadge = 'ПРЯМОЙ / ОРГАНИКА';
         }
 
-        // Дизайн по ТЗ пользователя: точь-в-точь как пример
+        // Дизайн по ТЗ: Форма с расшифровкой в скобках, Данные формы ДО Трафика, показываем только заполненное
+        $formLabels = [
+            'hero_glavnaya'    => 'Главная, hero-блок',
+            'hero'             => 'Главная, hero-блок',
+            'quiz_glavnaya'    => 'Квиз на главной',
+            'quiz'             => 'Квиз',
+            'header_dialog'    => 'Шапка, модалка «Получить расчет»',
+            'header'           => 'Шапка',
+            'modal_cta'        => 'Модальное окно',
+            'cta'              => 'CTA-блок',
+            'cta_form'         => 'CTA-форма',
+            'pod_klyuch_hero'  => 'Услуга Под ключ, hero',
+            'pod_klyuch_cta'   => 'Услуга Под ключ, CTA',
+            'contact'          => 'Контакты',
+            'calculator'       => 'Калькулятор',
+            'price_table'      => 'Таблица цен',
+            'portfolio'        => 'Портфолио',
+            'reviews'          => 'Отзывы',
+        ];
+        $formDesc = '';
+        if ($formId !== '' && $formId !== '-') {
+            $fl = mb_strtolower($formId, 'UTF-8');
+            $formDesc = $formLabels[$fl] ?? $formLabels[$formId] ?? '';
+        }
         $info = "Телефон: " . $phone;
         if ($name !== '') $info .= "\nИмя: " . $name;
         if ($email !== '') $info .= "\nEmail: " . $email;
         $info .= "\nИсточник: " . ($source ?: "-");
-        $info .= "\nФорма: " . ($formId ?: "-");
+        $info .= "\nФорма: " . ($formId ?: "-") . ($formDesc !== '' ? " (" . $formDesc . ")" : "");
+        // --- Данные формы ДО Трафика ---
+        $excludeExtra = ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'комментарий', 'comment', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
+        $extra = [];
+        foreach ($data as $key => $value) {
+            $val = trim(self::toStr($value));
+            if ($val === '' || in_array(mb_strtolower((string)$key, 'UTF-8'), $excludeExtra, true)) continue;
+            // Мини-помощник: показываем только то что есть, пустые не выводим. Ключ как пришел (Тип_жилья)
+            $extra[] = (string)$key . ": " . $val;
+        }
+        if ($extra) {
+            $info .= "\n\n--- Данные формы ---";
+            $info .= "\n" . implode("\n", $extra);
+        }
+        // Если доп. полей нет — не выводим блок вообще (только то что имеем)
+        if ($comment) $info .= "\n\n--- Комментарий ---\n" . $comment;
         $info .= "\n\n--- Трафик / UTM метки ---";
-        // Тип трафика — как в примере: ПРЯМОЙ ЗАХОД / ОРГАНИКА (без меток) или РЕКЛАМА
         $trafficExample = $hasPaid ? 'РЕКЛАМА' : 'ПРЯМОЙ ЗАХОД / ОРГАНИКА (без меток)';
-        // Если есть реферер и не внутренний — показываем ОРГАНИКА / РЕФЕРАЛ, иначе как в примере
         if (!$hasPaid && $referrer !== '' && !$isInternalRef) $trafficExample = 'ОРГАНИКА / РЕФЕРАЛ (без utm)';
         $info .= "\nТип трафика: " . $trafficExample;
         $info .= "\nutm_source: " . ($utmSource !== '' ? $utmSource : '— нет');
@@ -540,20 +576,6 @@ class functions
         $info .= "\ngclid (Google Ads): " . ($gclid !== '' ? $gclid : '— нет');
         $info .= "\nlanding_page: " . ($landingDisplay !== '' ? $landingDisplay : '— нет');
         $info .= "\nreferrer: " . ($referrer !== '' && !$isInternalRef ? $referrer : '— нет (прямой заход)' . ($isInternalRef ? ' (внутренний переход)' : ''));
-        // Данные формы — как в примере, без замены _ и без м², ключ как пришел
-        $excludeExtra = ['имя', 'name', 'телефн', 'телефон', 'phone', 'почта', 'email', 'сообщение', 'message', 'комментарий', 'comment', 'both', 'источник_заявки', 'форма', 'website', '_ts', '_js_token', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'landing_page', 'referrer'];
-        $extra = [];
-        foreach ($data as $key => $value) {
-            $val = trim(self::toStr($value));
-            if ($val === '' || in_array(mb_strtolower((string)$key, 'UTF-8'), $excludeExtra, true)) continue;
-            // Оставляем ключ как есть (Тип_жилья, а не Тип Жилья) — как в примере
-            $extra[] = (string)$key . ": " . $val;
-        }
-        if ($extra) {
-            $info .= "\n\n--- Данные формы ---";
-            $info .= "\n" . implode("\n", $extra);
-        }
-        if ($comment) $info .= "\n\n--- Комментарий ---\n" . $comment;
 
         // UTM_SOURCE fallback для аналитики: если yclid/gclid есть, а utm_source пустой — подставляем
         $utmSourceForApi  = $utmSource !== '' ? $utmSource : ($yclid !== '' ? 'yandex' : ($gclid !== '' ? 'google' : ''));
