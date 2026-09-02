@@ -567,15 +567,15 @@ class functions
         $trafficExample = $hasPaid ? 'РЕКЛАМА' : 'ПРЯМОЙ ЗАХОД / ОРГАНИКА (без меток)';
         if (!$hasPaid && $referrer !== '' && !$isInternalRef) $trafficExample = 'ОРГАНИКА / РЕФЕРАЛ (без utm)';
         $info .= "\nТип трафика: " . $trafficExample;
-        $info .= "\nutm_source: " . ($utmSource !== '' ? $utmSource : '— нет');
-        $info .= "\nutm_medium: " . ($utmMedium !== '' ? $utmMedium : '— нет');
-        $info .= "\nutm_campaign: " . ($utmCampaign !== '' ? $utmCampaign : '— нет');
-        $info .= "\nutm_term (ключевая фраза): " . ($utmTerm !== '' ? $utmTerm : '— нет');
-        $info .= "\nutm_content: " . ($utmContent !== '' ? $utmContent : '— нет');
-        $info .= "\nyclid (Яндекс.Директ): " . ($yclid !== '' ? $yclid : '— нет');
-        $info .= "\ngclid (Google Ads): " . ($gclid !== '' ? $gclid : '— нет');
-        $info .= "\nlanding_page: " . ($landingDisplay !== '' ? $landingDisplay : '— нет');
-        $info .= "\nreferrer: " . ($referrer !== '' && !$isInternalRef ? $referrer : '— нет (прямой заход)' . ($isInternalRef ? ' (внутренний переход)' : ''));
+        $info .= "\nutm_source (откуда пришел — источник рекламы: yandex, google, vk, direct): " . ($utmSource !== '' ? $utmSource : '— нет');
+        $info .= "\nutm_medium (канал — как пришел: cpc-реклама, organic-органика): " . ($utmMedium !== '' ? $utmMedium : '— нет');
+        $info .= "\nutm_campaign (название рекламной кампании): " . ($utmCampaign !== '' ? $utmCampaign : '— нет');
+        $info .= "\nutm_term (ключевая фраза — что искал клиент): " . ($utmTerm !== '' ? $utmTerm : '— нет');
+        $info .= "\nutm_content (какое объявление сработало): " . ($utmContent !== '' ? $utmContent : '— нет');
+        $info .= "\nyclid (ID клика Яндекс.Директ — если с Яндекса): " . ($yclid !== '' ? $yclid : '— нет');
+        $info .= "\ngclid (ID клика Google Ads — если с Google): " . ($gclid !== '' ? $gclid : '— нет');
+        $info .= "\nlanding_page (страница заявки — куда пришел): " . ($landingDisplay !== '' ? $landingDisplay : '— нет');
+        $info .= "\nreferrer (откуда перешел — сайт до нас): " . ($referrer !== '' && !$isInternalRef ? $referrer : '— нет (прямой заход)' . ($isInternalRef ? ' (внутренний переход)' : ''));
 
         // UTM_SOURCE fallback для аналитики: если yclid/gclid есть, а utm_source пустой — подставляем
         $utmSourceForApi  = $utmSource !== '' ? $utmSource : ($yclid !== '' ? 'yandex' : ($gclid !== '' ? 'google' : ''));
