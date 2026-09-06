@@ -309,10 +309,10 @@ class TheFunction
     public static function sendMail(object $data): void
     {
         // === АНТИ-БОТ: уровень 1 — rate limit по IP ===
-        // if (!self::antiBotRateLimit()) {
-        //     Network::onRedirect("/?message_status=error&message_msg=" . urlencode('Слишком много заявок. Попробуйте позже или позвоните нам.'));
-        //     return;
-        // }
+        if (!self::antiBotRateLimit()) {
+            Network::onRedirect("/?message_status=error&message_msg=" . urlencode('Слишком много заявок. Попробуйте позже или позвоните нам.'));
+            return;
+        }
 
         // === АНТИ-БОТ: уровень 2 — honeypot ===
         if (!empty($_POST['website'])) {
@@ -446,7 +446,7 @@ class TheFunction
         }
 
         // ОТПРАВКА =====================================================
-        if(isset($_POST["Вакансия"])) self::sendToBitrix24($data);
+        self::sendToBitrix24($data);
 
         if (!isset($data->both)) {
             $status = $success ? 'success' : 'error';
