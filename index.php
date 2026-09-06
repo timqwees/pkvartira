@@ -57,6 +57,6 @@ use App\Config\Database;
 // Инициализируем подключение к БД и структуру таблиц перед запуском роутинга
 Database::getConnection();
 Network::onTableAllExists();
-include_once __DIR__ . '/setting/route/routes.php';
+include_once __DIR__ . '/setting/Route/routes.php';
 Network::onRoute();
 ?>
