@@ -640,7 +640,7 @@ html { scroll-behavior: smooth; }
           <span style="width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block;animation:pulse 2s infinite"></span>
           Откликнуться
         </a>
-        <a href="tel:<?= htmlspecialchars($site['phone']); ?>" class="vd-btn vd-btn-outline"><i class="fa-solid fa-phone"></i> Связаться</a>
+        <a href="tel:79380909272" class="vd-btn vd-btn-outline"><i class="fa-solid fa-phone"></i> Связаться</a>
       </div>
     </div>
   </div>
@@ -911,7 +911,7 @@ html { scroll-behavior: smooth; }
 
 <!-- Mobile Sticky Bar -->
 <div class="vd-sticky-bar">
-  <a href="tel:<?= htmlspecialchars($site['phone']); ?>" class="vd-btn vd-btn-outline flex-1"><i class="fa-solid fa-phone"></i><span>Позвонить</span></a>
+  <a href="tel:79380909272" class="vd-btn vd-btn-outline flex-1"><i class="fa-solid fa-phone"></i><span>Позвонить</span></a>
   <a href="#apply" class="vd-btn vd-btn-red flex-1"><i class="fa-solid fa-paper-plane"></i><span>Откликнуться</span></a>
 </div>
 
