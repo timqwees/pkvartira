@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\route\function;
+namespace Setting\Route\Function;
 
 
 
@@ -138,6 +138,10 @@ class Sitemap
         if (file_exists($articlesFile)) {
             $sourceMtime = max($sourceMtime, filemtime($articlesFile));
         }
+        $vacanciesFile = __DIR__ . '/../../../public/pages/vakansii/vacancies.json';
+        if (file_exists($vacanciesFile)) {
+            $sourceMtime = max($sourceMtime, filemtime($vacanciesFile));
+        }
 
         if ($cacheFile && $instance->isCacheFresh($cacheFile, $sourceMtime)) {
             $xml = $instance->readCache('pages');
@@ -191,12 +195,17 @@ class Sitemap
             ['/blogs', '0.9', 'daily'],
             ['/smeta-obrazec', '0.8', 'weekly'],
             ['/dogovor-obrazec', '0.8', 'weekly'],
+            ['/vakansii', '0.8', 'weekly'],
         ];
 
         $xml = $this->openUrlset();
 
         foreach ($pages as $p) {
             $xml .= $this->buildEntry($p[0], $p[1], $p[2]);
+        }
+
+        foreach (Vacancy::slugs() as $slug) {
+            $xml .= $this->buildEntry('/vakansii/' . $slug, '0.7', 'weekly');
         }
 
         $xml .= '</urlset>' . "\n";

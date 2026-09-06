@@ -681,4 +681,5 @@
 3. Калькулятор ремонта — https://pkvartira.ru/calculator
 4. Портфолио работ — https://pkvartira.ru/portfolio
 5. Отзывы клиентов — https://pkvartira.ru/reviews
-6. Контакты — https://pkvartira.ru/contact
+6. Вакансии — https://pkvartira.ru/vakansii
+7. Контакты — https://pkvartira.ru/contact

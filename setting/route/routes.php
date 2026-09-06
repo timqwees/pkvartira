@@ -19,6 +19,15 @@ Routes::get('/reviews', 'on_Reviews');
 Routes::get('/portfolio', 'on_Portfolio');
 //==================================================================================================//SERVICE INDEX
 Routes::get('/services', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/index.php", get_defined_vars()); });
+//==================================================================================================//VACANCIES (раньше /services/{name}, иначе /services/vakansii уйдёт в несуществующую услугу)
+Routes::get('/services/vakansii', function () {
+    header('Location: /vakansii', true, 301);
+    exit;
+});
+Routes::get('/services/vakansii/{slug}', function ($slug) {
+    header('Location: /vakansii/' . rawurlencode((string) $slug), true, 301);
+    exit;
+});
 //==================================================================================================//SERVICE
 Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php", get_defined_vars()); });
 //==================================================================================================//PRICES
@@ -51,28 +60,28 @@ Routes::get('/dogovor-obrazec', 'on_Dogovor');
 Routes::post('/send/email', [Functions::class, 'sendMail']);
 //==================================================================================================//SITEMAP INDEX + ПОД-КАРТЫ (SEO)
 Routes::get('/sitemap.xml', function () {
-    Setting\route\function\Sitemap::outputIndex();
+    Setting\Route\Function\Sitemap::outputIndex();
 });
 Routes::get('/sitemap-pages.xml', function () {
-    Setting\route\function\Sitemap::outputPages();
+    Setting\Route\Function\Sitemap::outputPages();
 });
 Routes::get('/sitemap-services.xml', function () {
-    Setting\route\function\Sitemap::outputServices();
+    Setting\Route\Function\Sitemap::outputServices();
 });
 Routes::get('/sitemap-blog.xml', function () {
-    Setting\route\function\Sitemap::outputBlog();
+    Setting\Route\Function\Sitemap::outputBlog();
 });
 //==================================================================================================//YML FEED (Яндекс.Бизнес)
 Routes::get('/yml.xml', function () {
-    Setting\route\function\YmlFeed::output();
+    Setting\Route\Function\YmlFeed::output();
 });
 //==================================================================================================//RSS FEED (SEO)
 Routes::get('/rss.xml', function () {
-    Setting\route\function\RssFeed::output();
+    Setting\Route\Function\RssFeed::output();
 });
 //==================================================================================================//PAGES LIST
 Routes::get('/pages', function () {
-    Setting\route\function\UrlList::output();
+    Setting\Route\Function\UrlList::output();
 });
 //==================================================================================================//LLMS.TXT (AI)
 Routes::get('/llms.txt', function () {
@@ -94,3 +103,6 @@ Routes::get('/robots.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	include_once 'public/robots.php';
 });
+//==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
+Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
+Routes::get('/vakansii/{slug}', function($slug) { $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });

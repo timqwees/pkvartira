@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\route\function;
+namespace Setting\Route\Function;
 
 /**
  * Генератор YML-фида для Яндекс.Бизнес / Яндекс.Услуги

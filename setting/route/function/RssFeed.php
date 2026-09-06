@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\route\function;
+namespace Setting\Route\Function;
 
 use App\Models\Article\Article;
 
@@ -19,9 +19,9 @@ class RssFeed
     {
         // Предпочитаем канонический baseUrl из конфига сайта, чтобы избежать Host header injection
         $configuredBaseUrl = null;
-        if (class_exists(\Setting\route\function\Functions::class) && method_exists(\Setting\route\function\Functions::class, 'site')) {
+        if (class_exists(\Setting\Route\Function\Functions::class) && method_exists(\Setting\Route\Function\Functions::class, 'site')) {
             try {
-                $site = \Setting\route\function\Functions::site();
+                $site = \Setting\Route\Function\Functions::site();
                 if (is_array($site) && isset($site['baseUrl']) && is_string($site['baseUrl'])) {
                     $configuredBaseUrl = $site['baseUrl'];
                 }

@@ -168,22 +168,27 @@
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/article/14"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blogs"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Все статьи о ремонте</a></li>
                           </div>
+                          <div class="flex flex-col mt-3">
+                            <span class="drop-title">Вакансии — найти работу</span>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/vakansii"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Открытые вакансии компании</a></li>
+                          </div>
                         </div>
                     </ul>
                 </div>
-                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-blue-600 transition">Цена</a>
+                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-blue-600 transition hidden md:block">Цена</a>
                 <!-- Калькулятор --><a href="/calculator"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">Калькулятор</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden lg:block">Калькулятор</a>
                 <!-- Портфолио --><a href="/portfolio"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">Портфолио</a>
-                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-blue-600 transition">Отзывы</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden lg:block">Портфолио</a>
+                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-blue-600 transition hidden xl:block">Отзывы</a>
+                <!-- Вакансии --><a href="/vakansii" class="py-6 text-gray-600 hover:text-blue-600 transition hidden md:block">Вакансии</a>
                 <!-- О компании --><a href="/about"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition lg:hidden xl:block">О
+                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden xl:block">О
                     компании</a>
                 <!-- Контакты --><a href="/contact"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition lg:hidden xl:block">Контакты</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden xl:block">Контакты</a>
                 <!-- Блоги --><a href="/blogs"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition lg:hidden xl:block">Блоги</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden 2xl:block">Блоги</a>
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">
@@ -267,6 +272,9 @@
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/reviews"
                 class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Отзывы
+                <i class="fa fa-arrow-right"></i></a>
+            <hr><a href="/vakansii"
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Вакансии
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/about"
                 class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">О
@@ -353,7 +361,7 @@
                     консультация
                 </li>
                 <li><i class="fas fa-people-arrows px-2"></i> Запланируем выезд: инженера-замерщика<br> (при
-                    необходимсти)
+                    необходимости)
                 </li>
                 <li><i class="fas fa-comment-slash px-2"></i> Без навязчивых звонков</li>
             </ul>

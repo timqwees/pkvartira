@@ -17,7 +17,7 @@
 </div>
 
 <div data-type="image">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=60" alt="Таблица цен на ремонт квартиры в Москве 2026 — стоимость за м2 по площадям" width="1600" height="900" loading="lazy" decoding="async">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=60" alt="Таблица цен на ремонт квартиры в Москве 2026 — стоимость за м² по площадям" width="1600" height="900" loading="lazy" decoding="async">
 </div>
 
 <section id="price-m2">

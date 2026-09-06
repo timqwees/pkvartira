@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'graham-campbell/result-type' => array(
-            'pretty_version' => 'v1.1.4',
-            'version' => '1.1.4.0',
-            'reference' => 'e01f4a821471308ba86aa202fed6698b6b695e3b',
+            'pretty_version' => 'v1.2.0',
+            'version' => '1.2.0.0',
+            'reference' => 'adccca3324eece92ca35463648c12b9e6293c05b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../graham-campbell/result-type',
             'aliases' => array(),
@@ -74,9 +74,9 @@
             'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(
-            'pretty_version' => '1.9.5',
-            'version' => '1.9.5.0',
-            'reference' => '75365b91986c2405cf5e1e012c5595cd487a98be',
+            'pretty_version' => '1.10.0',
+            'version' => '1.10.0.0',
+            'reference' => '67b192b6a42ec03944b972d6e633ddec78ad2c6d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoption/phpoption',
             'aliases' => array(),
@@ -155,9 +155,9 @@
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
-            'pretty_version' => 'v5.6.4',
-            'version' => '5.6.4.0',
-            'reference' => '416df702837983f8d5ff48c9c3fee4f5f57b980b',
+            'pretty_version' => 'v5.7.0',
+            'version' => '5.7.0.0',
+            'reference' => '301c07936b16d88628b126b01d082ba153cf4c40',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vlucas/phpdotenv',
             'aliases' => array(),

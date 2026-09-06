@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\route\function;
+namespace Setting\Route\Function;
 
 /**
  * ReviewsParser — парсит отзывы.yml и отдаёт JSON/массив для foreach на странице

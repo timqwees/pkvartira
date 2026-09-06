@@ -1,6 +1,6 @@
 <?php
 use Setting\Route\Function\Functions;
-use Setting\route\function\ReviewsParser;
+use Setting\Route\Function\ReviewsParser;
 require_once dirname(__DIR__, 3) . '/setting/route/function/ReviewsParser.php';
 
 $site = Functions::site();

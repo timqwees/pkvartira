@@ -1,4 +1,4 @@
-<?php if (!isset($priceRows)) $priceRows = []; if (!isset($priceTableTitle)) $priceTableTitle = 'Цены за м2 по типам ремонта'; if (!isset($priceTableNote)) $priceTableNote = 'Точная стоимость зависит от состояния помещения, сложности работ и выбранных материалов. Бесплатный замер и смета в день обращения.'; ?>
+<?php if (!isset($priceRows)) $priceRows = []; if (!isset($priceTableTitle)) $priceTableTitle = 'Цены за м² по типам ремонта'; if (!isset($priceTableNote)) $priceTableNote = 'Точная стоимость зависит от состояния помещения, сложности работ и выбранных материалов. Бесплатный замер и смета в день обращения.'; ?>
 <section class="reveal py-12 md:py-16 bg-gray-50">
     <div class="container mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">

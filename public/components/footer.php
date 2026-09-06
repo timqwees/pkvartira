@@ -56,6 +56,7 @@
                     <li><a href="/about" class="text-gray-400 hover:text-orange-500 transition text-sm">О нас</a></li>
                     <li><a href="/portfolio" class="text-gray-400 hover:text-orange-500 transition text-sm">Портфолио</a></li>
                     <li><a href="/reviews" class="text-gray-400 hover:text-orange-500 transition text-sm">Отзывы</a></li>
+                    <li><a href="/vakansii" class="text-gray-400 hover:text-orange-500 transition text-sm">Вакансии</a></li>
                     <li><a href="/stocks" class="text-gray-400 hover:text-orange-500 transition text-sm">Акции</a></li>
                     <li><a href="/blogs" class="text-gray-400 hover:text-orange-500 transition text-sm">Блог</a></li>
                     <li><a href="/contact" class="text-gray-400 hover:text-orange-500 transition text-sm">Контакты</a></li>
@@ -292,9 +293,12 @@
         var labels = {
             '/': 'Главная', '/contact': 'Контакты', '/calculator': 'Калькулятор',
             '/prices': 'Цены', '/portfolio': 'Портфолио', '/reviews': 'Отзывы',
-            '/about': 'О нас', '/blog': 'Блог', '/stocks': 'Акции'
+            '/about': 'О нас', '/blog': 'Блог', '/stocks': 'Акции',
+            '/vakansii': 'Вакансии'
         };
-        var pageName = labels[page] || (page.startsWith('/services/') ? 'Услуги: ' + page.split('/').pop() : page);
+        var pageName = labels[page]
+            || (page.startsWith('/vakansii/') ? 'Вакансия: ' + page.split('/').pop() : null)
+            || (page.startsWith('/services/') ? 'Услуги: ' + page.split('/').pop() : page);
 
         document.querySelectorAll('form[action*="/send/email"]').forEach(function(form, idx) {
             if (form.querySelector('input[name="источник_заявки"]')) return;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\route\function;
+namespace Setting\Route\Function;
 
 use App\Models\Router\Routes;
 use App\Config\Database;
@@ -14,11 +14,11 @@ use App\Models\User\User;
 use Exception;
 use App\Controllers\API\API;
 
-class functions
+class Functions
 {
     //======СПИСОК ФУНКЦИЙ / LIST FUNCTIONS===========//
 
-    # Главная страница || Main page (В маршрутных функциях писать, только маршрут в path болье ничего не нужно)
+    # Главная страница || Main page (В маршрутных функциях писать, только маршрут в path больше ничего не нужно)
     public function on_Main($path = '/public/index.php')
     {
     header('Cache-Control: no-cache');

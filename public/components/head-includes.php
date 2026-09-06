@@ -256,12 +256,19 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
     }
 
     // Re-inject when new forms appear (SPA, dynamic forms)
-    if (typeof MutationObserver !== 'undefined') {
-        var observer = new MutationObserver(function(){
-            var forms = document.querySelectorAll('form[action="/send/email"]:not([data-utm-injected])');
-            if (forms.length) injectUtm();
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
+    function startObserver(){
+        if (typeof MutationObserver !== 'undefined' && document.body) {
+            var observer = new MutationObserver(function(){
+                var forms = document.querySelectorAll('form[action="/send/email"]:not([data-utm-injected])');
+                if (forms.length) injectUtm();
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startObserver);
+    } else {
+        startObserver();
     }
 })();
 </script>
