@@ -175,20 +175,18 @@
                         </div>
                     </ul>
                 </div>
-                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-blue-600 transition hidden md:block">Цена</a>
+                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-blue-600 transition">Цены</a>
                 <!-- Калькулятор --><a href="/calculator"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden lg:block">Калькулятор</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition">Калькулятор</a>
                 <!-- Портфолио --><a href="/portfolio"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden lg:block">Портфолио</a>
-                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-blue-600 transition hidden xl:block">Отзывы</a>
-                <!-- Вакансии --><a href="/vakansii" class="py-6 text-gray-600 hover:text-blue-600 transition hidden md:block">Вакансии</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition">Портфолио</a>
+                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-blue-600 transition">Отзывы</a>
                 <!-- О компании --><a href="/about"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden xl:block">О
-                    компании</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition">О компании</a>
                 <!-- Контакты --><a href="/contact"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden xl:block">Контакты</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition">Контакты</a>
                 <!-- Блоги --><a href="/blogs"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition hidden 2xl:block">Блоги</a>
+                    class="py-6 text-gray-600 hover:text-blue-600 transition">Блоги</a>
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">

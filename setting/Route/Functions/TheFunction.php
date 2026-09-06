@@ -812,12 +812,6 @@ class TheFunction
                         'alternateName' => $shortBrand,
                     ],
                     'url' => $site['baseUrl'],
-                    'logo' => [
-                        '@type' => 'ImageObject',
-                        'url' => $site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg',
-                        'width' => 300,
-                        'height' => 300,
-                    ],
                     'contactPoint' => [
                         '@type' => 'ContactPoint',
                         'telephone' => $site['phone'],
@@ -876,7 +870,6 @@ class TheFunction
                         'name' => 'Услуги по ремонту',
                     ],
                     'logo' => [
-                        '@type' => 'ImageObject',
                         'url' => $site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg',
                         'width' => 300,
                         'height' => 300,
@@ -1135,7 +1128,6 @@ class TheFunction
                 'priceCurrency' => 'RUB',
                 'price' => $product['price'] ?? 0,
                 'priceValidUntil' => $product['priceValidUntil'] ?? '',
-                'availability' => $product['availability'] ?? 'https://schema.org/InStock',
                 'seller' => [
                     '@type' => 'Organization',
                     '@id' => $site['baseUrl'] . '#organization',

@@ -35,7 +35,7 @@ $seo = TheFunction::seo([
 
 $benefits = Vacancy::benefits();
 $datePosted = date('Y-m-d');
-$validThrough = date('Y-m-d', strtotime('+60 days'));
+$validThrough = date('Y-m-d', strtotime('+60 days') ?: time());
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -571,8 +571,6 @@ $validThrough = date('Y-m-d', strtotime('+60 days'));
 .vd-page select:focus-visible {
   outline: 2px solid var(--alfa-red); outline-offset: 3px; border-radius: 6px;
 }
-
-.hidden { display: none !important; }
 
 /* ---------- SMOOTH SCROLL ---------- */
 html { scroll-behavior: smooth; }
