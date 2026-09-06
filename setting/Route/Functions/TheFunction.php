@@ -309,10 +309,10 @@ class TheFunction
     public static function sendMail(object $data): void
     {
         // === АНТИ-БОТ: уровень 1 — rate limit по IP ===
-        if (!self::antiBotRateLimit()) {
-            Network::onRedirect("/?message_status=error&message_msg=" . urlencode('Слишком много заявок. Попробуйте позже или позвоните нам.'));
-            return;
-        }
+        // if (!self::antiBotRateLimit()) {
+        //     Network::onRedirect("/?message_status=error&message_msg=" . urlencode('Слишком много заявок. Попробуйте позже или позвоните нам.'));
+        //     return;
+        // }
 
         // === АНТИ-БОТ: уровень 2 — honeypot ===
         if (!empty($_POST['website'])) {
@@ -445,7 +445,8 @@ class TheFunction
             error_log('Mail Error: ' . $e->getMessage());
         }
 
-        self::sendToBitrix24($data);
+        // ОТПРАВКА =====================================================
+        if(isset($_POST["Вакансия"])) self::sendToBitrix24($data);
 
         if (!isset($data->both)) {
             $status = $success ? 'success' : 'error';
@@ -462,6 +463,9 @@ class TheFunction
         $name = $data->имя ?? $data->name ?? '';
         $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
         $email = $data->почта ?? $data->email ?? '';
+        (string) $CATEGORY_ID = isset($data->Вакансия) ? '11' : '7';//воронка
+        (string) $STAGE_ID = isset($data->Вакансия) ? 'C11:NEW' : 'C7:NEW';//стадия
+        
         // Комментарий — ищем без учета регистра/языка (сообщение/message/комментарий/comment)
         $comment = '';
         foreach ($data as $ck => $cv) {
@@ -488,7 +492,6 @@ class TheFunction
 
         // Чистим landing_page: убираем служебный ?message_status=... и обрезаем длинный URL
         $landingDisplay = $landing;
-        $landingShort = $landing;
         if ($landing !== '') {
             $lp = parse_url($landing);
             if (!empty($lp['query'])) {
@@ -599,13 +602,10 @@ class TheFunction
         $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json';
         $postData = http_build_query(['fields' => [
             'TITLE' => 'Заявка с сайта ' . ($_SERVER['SERVER_NAME'] ?? '') . ($hasPaid ? ' [РЕКЛАМА]' : ' [ОРГАНИКА]'),
-            // Воронка 7 «Заявки ремонт квартир»: стадия указана явно с префиксом C7,
-            // иначе Битрикс при невалидной стадии сбрасывает сделку в первую воронку
-            'CATEGORY_ID' => 7,
-            'STAGE_ID' => 'C7:NEW',
+            'CATEGORY_ID' => $CATEGORY_ID,
+            'STAGE_ID' => $STAGE_ID,
             'COMMENTS' => $info,
             'SOURCE_DESCRIPTION' => $sourceDesc,
-            // Дубль в штатные UTM-поля Битрикс (если включены в воронке — появятся в аналитике)
             'UTM_SOURCE' => $utmSourceForApi,
             'UTM_MEDIUM' => $utmMediumForApi,
             'UTM_CAMPAIGN' => $utmCampaign,
