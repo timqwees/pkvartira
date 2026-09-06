@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Setting\Route\Function;
+namespace Setting\Route\Functions;
 
-use Setting\Route\Function\Sitemap;
+use Setting\Route\Functions\Sitemap;
 
 class UrlList
 {

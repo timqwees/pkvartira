@@ -1,7 +1,7 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
+$site = Setting\Route\Functions\TheFunction::site();
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Контакты — заказать ремонт квартиры в Москве',
     'description' => 'ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 30 минут. Работаем ежедневно.',
     'image' => $site['shareImageUrl'],
@@ -127,7 +127,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                 <?php if (!empty($site['max'])): ?>
                                 <a href="<?= $site['max'] ?>"
                                     class="flex items-center text-gray-600 hover:text-blue-600 transition" aria-label="Написать в MAX">
-                                    <img class="h-9 w-9" src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/icons/MAX.svg') ?>" alt="Logo Max" title="MAX — мессенджер">
+                                    <img class="h-9 w-9" src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/icons/MAX.svg') ?>" alt="Logo Max" title="MAX — мессенджер">
                                 </a>
                                 <?php endif; ?>
                             </div>
@@ -158,7 +158,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             </h2>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-                                    <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев — руководитель проектов" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
+                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев — руководитель проектов" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
                                     <div class="min-w-0">
                                         <div class="font-semibold text-gray-900 text-sm">Владимир Соболев</div>
                                         <div class="text-xs text-gray-500">Руководитель проектов</div>
@@ -167,7 +167,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                     </div>
                                 </div>
                                 <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-                                    <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников — сметчик" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
+                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников — сметчик" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
                                     <div class="min-w-0">
                                         <div class="font-semibold text-gray-900 text-sm">Семён Серебренников</div>
                                         <div class="text-xs text-gray-500">Сметчик / замер</div>
@@ -293,11 +293,11 @@ $seo = Setting\Route\Function\Functions::seo([
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/faq.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/faq.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>
 

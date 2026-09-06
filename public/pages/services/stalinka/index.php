@@ -1,6 +1,6 @@
 <?php
-use Setting\Route\Function\Functions;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+$site = TheFunction::site();
 $title = 'Ремонт квартир в сталинке под ключ — цены в Москве 2026 | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
@@ -9,8 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт квартир в сталинке под ключ в Москве. Высокие потолки 2.7-3м, толстые стены. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в сталинке под ключ в Москве. Высокие потолки 2.7-3м, толстые стены. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/stalinka'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -141,6 +141,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+<script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

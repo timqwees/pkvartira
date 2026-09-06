@@ -46,7 +46,7 @@ use App\Models\Network\Message;
 
 class User extends Network
 {
-  public $table_name;
+  public string $table_name;
 
   public function __construct()
   {
@@ -230,7 +230,7 @@ class User extends Network
       // Формируем имя файла
       if ($customName !== null) {
         // Очищаем пользовательское имя от небезопасных символов
-        $customName = preg_replace('/[^a-zA-Z0-9_-]/', '', $customName);
+        $customName = preg_replace('/[^a-zA-Z0-9_-]/', '', $customName) ?? '';
         $fileName = $customName . ".$ext";
       } else {
         $fileName = $prefix . '_' . time() . ".$ext";

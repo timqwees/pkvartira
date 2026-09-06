@@ -1,6 +1,6 @@
 <?php
-use Setting\Route\Function\Functions;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+$site = TheFunction::site();
 
 // Список всех услуг — читаем директории
 $servicesDir = __DIR__;
@@ -16,7 +16,7 @@ if (is_dir($servicesDir)) {
             if (preg_match('/\$title\s*=\s*[\'"]([^\'"]+)[\'"]/', $content, $m)) {
                 $title = $m[1];
                 // Убираем цену из заголовка для краткости
-                $title = preg_replace('/\s*—\s*цена.*$/u', '', $title);
+                $title = preg_replace('/\s*—\s*цена.*$/u', '', $title) ?? $title;
                 $title = trim(explode('—', $title)[0]);
             }
             $all[] = ['slug' => $item, 'title' => $title];
@@ -25,7 +25,7 @@ if (is_dir($servicesDir)) {
     usort($all, fn($a,$b) => strcmp($a['slug'], $b['slug']));
 }
 
-$seo = Functions::seo([
+$seo = TheFunction::seo([
     'title' => 'Услуги по ремонту квартир и домов под ключ в Москве — цены от 8 000 ₽/м²',
     'description' => 'Все виды ремонта от ПКвартира: квартиры под ключ, студии, новостройки, вторичка, дома, коттеджи, коммерческие помещения, ремонт по районам Москвы и МО. Фиксированная смета, гарантия 3 года.',
     'image' => $site['shareImageUrl'],
@@ -140,6 +140,6 @@ $seo = Functions::seo([
     </section>
 </main>
 <?php include_once dirname(__DIR__, 3) . '/public/components/footer.php'; ?>
-<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+<script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

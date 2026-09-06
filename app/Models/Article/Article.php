@@ -48,7 +48,7 @@ use PDO;
 
 class Article extends Network
 {
-    public $table_name;
+    public string $table_name;
 
     public function __construct()
     {

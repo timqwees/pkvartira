@@ -1,7 +1,7 @@
 <?php
-use Setting\Route\Function\Functions;
-use Setting\Route\Function\Vacancy;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+use Setting\Route\Functions\Vacancy;
+$site = TheFunction::site();
 $title = 'Вакансии — работа в ПКвартира — от 110 000 ₽';
 $vacancies = Vacancy::all();
 $vacCount = count($vacancies);
@@ -17,7 +17,7 @@ $catOf = function(array $vv): string {
 $catCount = ['all' => count($vacancies), 'otdelka' => 0, 'engineering' => 0, 'stroika' => 0, 'universal' => 0];
 foreach ($vacancies as $vv) { $catCount[$catOf($vv)]++; }
 
-$seo = Functions::seo([
+$seo = TheFunction::seo([
     'title' => 'Работа в ПКвартира — ' . $vacCount . ' вакансий от 110 000 ₽',
     'description' => 'Работа в Проект Квартира (ПКвартира) — ' . $vacCount . ' вакансий: маляр, плиточник, сантехник, электрик, штукатур, плотник, каменщик, мастер-универсал. Выплаты каждую неделю без задержек, жильё на объекте, +5% бонус и аванс.',
     'keywords' => 'работа Проект Квартира, ПКвартира вакансии, работа маляр плиточник сантехник электрик штукатур плотник каменщик мастер универсал Москва, вакансии с еженедельной оплатой, работа с проживанием Москва',
@@ -475,9 +475,9 @@ body.alv-page a:focus-visible,body.alv-page button:focus-visible,body.alv-page i
 
 </main>
 <?php include_once dirname(__DIR__, 2) . '/components/footer.php'; ?>
-<script src="<?= Functions::asset('/public/assets/scripts/components/lazyIMG.min.js'); ?>" defer></script>
-<script src="<?= Functions::asset('/public/assets/scripts/main/header.min.js'); ?>" defer></script>
-<script src="<?= Functions::asset('/public/assets/scripts/components/reveal.min.js'); ?>" defer></script>
+<script src="<?= TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js'); ?>" defer></script>
+<script src="<?= TheFunction::asset('/public/assets/scripts/main/header.min.js'); ?>" defer></script>
+<script src="<?= TheFunction::asset('/public/assets/scripts/components/reveal.min.js'); ?>" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   // FAQ — аккордеон, только один открыт, smooth grid animation + :has()

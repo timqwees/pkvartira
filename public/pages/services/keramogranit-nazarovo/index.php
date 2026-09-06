@@ -1,6 +1,6 @@
 <?php
-use Setting\Route\Function\Functions;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+$site = TheFunction::site();
 $title = 'Укладка керамогранита — цена за м², работа в Москве и Назарово | Проект Квартира';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp';
 ?>
@@ -9,8 +9,8 @@ $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/keramogranit-nazarovo'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
@@ -137,6 +137,6 @@ include './public/components/cta-form.php';
         ?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
-<script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+<script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

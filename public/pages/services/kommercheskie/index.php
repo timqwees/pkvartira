@@ -1,6 +1,6 @@
 <?php
-use Setting\Route\Function\Functions;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+$site = TheFunction::site();
 $title = 'Ремонт коммерческих помещений в Москве — офисы, магазины, кафе под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
 $prices = [
@@ -42,8 +42,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo('Ремонт коммерческих помещений в Москве. Офисы, магазины, кафе, рестораны, салоны красоты, стоматологии, аптеки, фитнес-центры, детские центры. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт коммерческих помещений в Москве. Офисы, магазины, кафе, рестораны, салоны красоты, стоматологии, аптеки, фитнес-центры, детские центры. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
@@ -604,9 +604,9 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

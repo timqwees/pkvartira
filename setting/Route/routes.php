@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Router\Routes;
-use Setting\Route\Function\Functions;
+use Setting\Route\Functions\TheFunction;
 
 //==================================================================================================//MAIN
 Routes::get('/', 'on_Main');
@@ -57,31 +57,31 @@ Routes::get('/smeta-obrazec', 'on_Smeta');
 //==================================================================================================//DOGOVOR TEMPLATE (SEO)
 Routes::get('/dogovor-obrazec', 'on_Dogovor');
 //==================================================================================================//Отправка письма
-Routes::post('/send/email', [Functions::class, 'sendMail']);
+Routes::post('/send/email', [TheFunction::class, 'sendMail']);
 //==================================================================================================//SITEMAP INDEX + ПОД-КАРТЫ (SEO)
 Routes::get('/sitemap.xml', function () {
-    Setting\Route\Function\Sitemap::outputIndex();
+    Setting\Route\Functions\Sitemap::outputIndex();
 });
 Routes::get('/sitemap-pages.xml', function () {
-    Setting\Route\Function\Sitemap::outputPages();
+    Setting\Route\Functions\Sitemap::outputPages();
 });
 Routes::get('/sitemap-services.xml', function () {
-    Setting\Route\Function\Sitemap::outputServices();
+    Setting\Route\Functions\Sitemap::outputServices();
 });
 Routes::get('/sitemap-blog.xml', function () {
-    Setting\Route\Function\Sitemap::outputBlog();
+    Setting\Route\Functions\Sitemap::outputBlog();
 });
 //==================================================================================================//YML FEED (Яндекс.Бизнес)
 Routes::get('/yml.xml', function () {
-    Setting\Route\Function\YmlFeed::output();
+    Setting\Route\Functions\YmlFeed::output();
 });
 //==================================================================================================//RSS FEED (SEO)
 Routes::get('/rss.xml', function () {
-    Setting\Route\Function\RssFeed::output();
+    Setting\Route\Functions\RssFeed::output();
 });
 //==================================================================================================//PAGES LIST
 Routes::get('/pages', function () {
-    Setting\Route\Function\UrlList::output();
+    Setting\Route\Functions\UrlList::output();
 });
 //==================================================================================================//LLMS.TXT (AI)
 Routes::get('/llms.txt', function () {

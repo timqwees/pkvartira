@@ -13,9 +13,9 @@ $heroPrice = '';
 if (preg_match('/от\s+[\d\s]+₽(?:\/м²)?/u', $heroTail, $pm)) {
     $heroPrice = $pm[0];
 }
-$heroRest = trim(preg_replace('/^цена\s*/u', '', $heroTail));
-$heroRest = trim(preg_replace('/^от\s+[\d\s]+₽(?:\/м²)?/u', '', $heroRest));
-$heroRest = trim(preg_replace('/^\s*,/', '', $heroRest));
+$heroRest = trim(preg_replace('/^цена\s*/u', '', $heroTail) ?? '');
+$heroRest = trim(preg_replace('/^от\s+[\d\s]+₽(?:\/м²)?/u', '', $heroRest) ?? '');
+$heroRest = trim(preg_replace('/^\s*,/', '', $heroRest) ?? '');
 ?>
 <section class="relative bg-black text-white">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>);"></div>

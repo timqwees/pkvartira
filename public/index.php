@@ -1,8 +1,8 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
-$featuredProjects = Setting\Route\Function\Functions::featuredPortfolio('3-комнатные', 3);
+$site = Setting\Route\Functions\TheFunction::site();
+$featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio('3-комнатные', 3);
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8 000 ₽/м²',
     'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт: ремонт квартир и домов под ключ в Москве. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
     'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, ПКвартира отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проект квартира, пквартира',
@@ -873,7 +873,7 @@ $seo = Setting\Route\Function\Functions::seo([
                                                     <?php endif; ?>
                                                 </div>
 
-                                                <a href="<?= htmlspecialchars(Setting\Route\Function\Functions::portfolioProjectUrl($project['slug'])) ?>"
+                                                <a href="<?= htmlspecialchars(Setting\Route\Functions\TheFunction::portfolioProjectUrl($project['slug'])) ?>"
                                                     class="text-orange-600 hover:text-orange-600 transition font-semibold flex items-center gap-1">
                                                     Смотреть проект
                                                     <i class="fas fa-arrow-right text-sm"></i>
@@ -1506,10 +1506,10 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <!-- Local Scripts -->
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/faq.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/faq.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Google tag (gtag.js) GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9ZV484NQJ"></script>

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\Route\Function;
+namespace Setting\Route\Functions;
 
 use App\Models\Article\Article;
 
@@ -19,9 +19,9 @@ class RssFeed
     {
         // Предпочитаем канонический baseUrl из конфига сайта, чтобы избежать Host header injection
         $configuredBaseUrl = null;
-        if (class_exists(\Setting\Route\Function\Functions::class) && method_exists(\Setting\Route\Function\Functions::class, 'site')) {
+        if (class_exists(\Setting\Route\Functions\TheFunction::class) && method_exists(\Setting\Route\Functions\TheFunction::class, 'site')) {
             try {
-                $site = \Setting\Route\Function\Functions::site();
+                $site = \Setting\Route\Functions\TheFunction::site();
                 if (is_array($site) && isset($site['baseUrl']) && is_string($site['baseUrl'])) {
                     $configuredBaseUrl = $site['baseUrl'];
                 }
@@ -35,7 +35,7 @@ class RssFeed
             $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
             $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
             // Белый список символов хоста
-            $host = preg_replace('/[^a-zA-Z0-9\.\-:]/', '', $host);
+            $host = preg_replace('/[^a-zA-Z0-9\.\-:]/', '', $host) ?? '';
             if (empty($host)) $host = 'pkvartira.ru';
             $this->baseUrl = $scheme . '://' . $host;
         }
@@ -222,7 +222,7 @@ class RssFeed
         $content = ob_get_clean();
 
         // Strip PHP tags if any (shouldn't be, but safety)
-        $content = preg_replace('/<\?.*?\?>/s', '', $content);
+        $content = preg_replace('/<\?.*?\?>/s', '', $content) ?? $content;
 
         // Convert relative image URLs to absolute
         $content = str_replace('src="/', 'src="' . $this->baseUrl . '/', $content);

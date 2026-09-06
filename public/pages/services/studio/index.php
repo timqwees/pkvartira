@@ -1,6 +1,6 @@
 <?php
-use Setting\Route\Function\Functions;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+$site = TheFunction::site();
 $title = 'Ремонт квартиры-студии в Москве — цена от 200 000 ₽ под ключ, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/studio/2_31sqm/01_gostinaya-kukhnya.jpg';
 $prices = [
@@ -41,7 +41,7 @@ $prices = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Function\Functions::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description"
         content="Ремонт квартиры-студии под ключ в Москве от 200 000 ₽. Фиксированная смета в договоре, гарантия 3 года. Дизайн-проект в подарок. Бесплатный замер и расчёт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
@@ -581,9 +581,9 @@ $prices = [
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Service Page Scripts -->
     <script>

@@ -1,9 +1,9 @@
 <?php
-use Setting\Route\Function\Functions;
-use Setting\Route\Function\ReviewsParser;
-require_once dirname(__DIR__, 3) . '/setting/route/function/ReviewsParser.php';
+use Setting\Route\Functions\TheFunction;
+use Setting\Route\Functions\ReviewsParser;
+require_once dirname(__DIR__, 3) . '/setting/Route/Functions/ReviewsParser.php';
 
-$site = Functions::site();
+$site = TheFunction::site();
 $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/3room/standard');
 $euroAbout = 'public/assets/images/portfolio-photos/cottage/2_euro_230sqm/about.json';
 if (is_readable($euroAbout)) {
@@ -60,7 +60,7 @@ $filterParam = $_GET['filter'] ?? 'all';
 $validFilters = array_merge(['all'], array_keys($orderedSources));
 if (!in_array($filterParam, $validFilters, true)) $filterParam = 'all';
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Отзывы — ' . $totalReviews . ' реальных отзывов, рейтинг 5.0',
     'description' => 'Все отзывы о Проект Квартира (ПКвартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo и Авито. Рейтинг 5.0. Фото объектов, ссылки на источники.',
     'image' => $site['shareImageUrl'],
@@ -385,9 +385,9 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {

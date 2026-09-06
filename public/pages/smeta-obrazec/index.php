@@ -1,7 +1,7 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
+$site = Setting\Route\Functions\TheFunction::site();
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Смета на ремонт квартиры: образец, скачать бесплатно',
     'description' => 'Смета на ремонт квартиры — образец с ценами 2026. Скачайте готовую смету в DOCX бесплатно. Структура и расценки по этапам. Расчёт с выездом на замер в Москве. От компании Проект Квартира (ПКвартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/renovation-format/cosmetic.png',
@@ -307,9 +307,9 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 
 </html>

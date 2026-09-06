@@ -1,8 +1,8 @@
 <?php
-use Setting\Route\Function\Functions;
+use Setting\Route\Functions\TheFunction;
 
-$site = Functions::site();
-$portfolio = Functions::portfolioItems();
+$site = TheFunction::site();
+$portfolio = TheFunction::portfolioItems();
 $types = array_column($portfolio, 'type');
 $portfolioJson = array_map(static function (array $item) use ($site): array {
     return [
@@ -20,7 +20,7 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
     ];
 }, $portfolio);
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Портфолио ремонтов квартир — 300+ проектов с фото до и после',
     'description' => 'Реальные проекты ремонта квартир в Москве 2026: 300+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
@@ -246,10 +246,10 @@ $seo = Setting\Route\Function\Functions::seo([
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/portfolio-modal.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/portfolio-modal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Portfolio Swiper & Filter Script -->
     <script>

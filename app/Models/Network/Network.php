@@ -110,7 +110,7 @@ class Network extends Session
                             // Преобразуем SQLite синтаксис в MySQL синтаксис для MySQL
                             $db_selection = $_ENV['DATABASE'] ?? getenv('DATABASE') ?? 'mysql';
                             if ($db_selection === 'mysql') {
-                                $createSql = preg_replace('/INTEGER\s+PRIMARY\s+KEY\s+AUTOINCREMENT/i', 'INT NOT NULL AUTO_INCREMENT PRIMARY KEY', $createSql);
+                                $createSql = preg_replace('/INTEGER\s+PRIMARY\s+KEY\s+AUTOINCREMENT/i', 'INT NOT NULL AUTO_INCREMENT PRIMARY KEY', $createSql) ?? $createSql;
                             }
 
                             Database::send($createSql);
@@ -268,8 +268,8 @@ class Network extends Session
             }
 
             // Убираем дублирование search в пути
-            $path = preg_replace('#^/search/search/#', '/search/', $path);
-            $path = preg_replace('#^search/search/#', 'search/', $path);
+            $path = preg_replace('#^/search/search/#', '/search/', $path) ?? $path;
+            $path = preg_replace('#^search/search/#', 'search/', $path) ?? $path;
 
             // Проверяем на бесконечные редиректы (только для GET запросов)
             // После POST запроса редирект на ту же страницу допустим
@@ -355,16 +355,16 @@ class Network extends Session
         } else {
             $route = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
             // Убираем дублирующиеся слэши (например, // -> /)
-            $route = preg_replace('#/+#', '/', $route);
+        $route = preg_replace('#/+#', '/', $route) ?? $route;
+
+        $findRoute = false;
             if ($route === '') {
                 $route = '/';
             }
         }
 
         // Убираем дублирующиеся слэши в любом случае (например, // -> /)
-        $route = preg_replace('#/+#', '/', $route);
-
-        $findRoute = false;
+        $route = preg_replace('#/+#', '/', $route) ?? $route;
 
         // Порядок методов для поиска маршрута: текущий, затем безопасные фолбэки
         $candidateMethods = [$method];
@@ -554,7 +554,7 @@ class Network extends Session
 
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-                        <img src="<?= \Setting\Route\Function\Functions::asset('/public/assets/images/logo/full.svg') ?>" alt="logo">
+                        <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="logo">
                     </div>
                     <span class="text-black text-2xl font-bold">QweesCore</span>
                 </div>

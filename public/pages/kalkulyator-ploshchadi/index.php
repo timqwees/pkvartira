@@ -1,7 +1,7 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
+$site = Setting\Route\Functions\TheFunction::site();
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Калькулятор площади комнаты онлайн — расчёт м² стен и пола',
     'description' => 'Калькулятор площади квартиры онлайн: расчёт м² комнаты, стен, пола и потолка за 10 секунд. Формулы для любых помещений + перевод площади в стоимость ремонта. От компании Проект Квартира (ПКвартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
@@ -455,9 +455,9 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <script>
     (function () {

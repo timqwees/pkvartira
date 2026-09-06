@@ -1,7 +1,7 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
+$site = Setting\Route\Functions\TheFunction::site();
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Политика конфиденциальности и согласие на обработку данных',
     'description' => 'Политика конфиденциальности, согласие на обработку персональных данных и пользовательское соглашение. Ознакомьтесь с документами перед заказом ремонта. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
@@ -136,9 +136,9 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 
 </html>

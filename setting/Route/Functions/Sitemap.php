@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\Route\Function;
+namespace Setting\Route\Functions;
 
 
 
@@ -14,9 +14,9 @@ class Sitemap
 
     public function __construct()
     {
-        // Унифицировано с Functions::site() — главное зеркало https://pkvartira.ru
+        // Унифицировано с TheFunction::site() — главное зеркало https://pkvartira.ru
         $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
-        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost);
+        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
         $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
         if ($isProd) {
             $scheme = 'https';

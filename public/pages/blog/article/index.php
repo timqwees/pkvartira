@@ -1,5 +1,5 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
+$site = Setting\Route\Functions\TheFunction::site();
 $id = isset($id) ? (int) $id : 0;
 $__blogJson = json_decode(file_get_contents(__DIR__ . '/../data/articles.json'), true) ?: [];
 $articleData = null;
@@ -17,9 +17,9 @@ if (!$articleData) {
     http_response_code(404);
 }
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => $articleData['title'] ?? 'Статья не найдена',
-    'description' => $articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))), 0, 160)) : 'Запрошенная статья не найдена.',
+    'description' => $articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? '')) ?? ''), 0, 160)) : 'Запрошенная статья не найдена.',
     'image' => $articleData['image'] ?? $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/blog/article/' . $id,
     'type' => 'article',
@@ -29,7 +29,7 @@ $seo = Setting\Route\Function\Functions::seo([
         ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
         ['name' => $articleData['title'] ?? 'Статья', 'url' => $site['baseUrl'] . '/blog/article/' . $id],
     ],
-    'schema' => [Setting\Route\Function\Functions::articleSchema($articleData ?? [])],
+    'schema' => [Setting\Route\Functions\TheFunction::articleSchema($articleData ?? [])],
 ]);
 ?>
 <!DOCTYPE html>
@@ -174,7 +174,7 @@ $seo = Setting\Route\Function\Functions::seo([
                             </h1>
 
                             <p itemprop="description" class="mt-3 text-[15px] leading-[22px] text-[#7a7f8c] max-w-3xl">
-                                <?= htmlspecialchars($articleData ? trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? ''))) : 'Запрошенная статья не найдена.'); ?>
+                                <?= htmlspecialchars($articleData ? trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? '')) ?? '') : 'Запрошенная статья не найдена.'); ?>
                             </p>
 
                             <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -581,7 +581,7 @@ $seo = Setting\Route\Function\Functions::seo([
 
     <?php include_once './public/components/footer.php'; ?>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>
 

@@ -1,7 +1,7 @@
 <?php
-use Setting\Route\Function\Functions;
-use Setting\Route\Function\Vacancy;
-$site = Functions::site();
+use Setting\Route\Functions\TheFunction;
+use Setting\Route\Functions\Vacancy;
+$site = TheFunction::site();
 $slug = $vacancySlug ?? ($name ?? '');
 $all = Vacancy::all();
 $vacancy = $all[$slug] ?? null;
@@ -11,7 +11,7 @@ $related = array_values(array_filter($all, fn($v)=>$v['slug']!==$slug));
 shuffle($related);
 $related = array_slice($related, 0, 3);
 
-$seo = Functions::seo([
+$seo = TheFunction::seo([
     'title' => $vacancy['seoTitle'],
     'description' => $vacancy['seoDescription'],
     'keywords' => $vacancy['keywords'],
@@ -918,9 +918,9 @@ html { scroll-behavior: smooth; }
 </div>
 
 <?php include_once dirname(__DIR__, 2) . '/components/footer.php'; ?>
-<script src="<?= Functions::asset('/public/assets/scripts/components/lazyIMG.min.js'); ?>" defer></script>
-<script src="<?= Functions::asset('/public/assets/scripts/main/header.min.js'); ?>" defer></script>
-<script src="<?= Functions::asset('/public/assets/scripts/components/reveal.min.js'); ?>" defer></script>
+<script src="<?= TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js'); ?>" defer></script>
+<script src="<?= TheFunction::asset('/public/assets/scripts/main/header.min.js'); ?>" defer></script>
+<script src="<?= TheFunction::asset('/public/assets/scripts/components/reveal.min.js'); ?>" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.vd-faq-toggle').forEach(function(btn){

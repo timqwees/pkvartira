@@ -1,5 +1,5 @@
 <?php
-$site = Setting\Route\Function\Functions::site();
+$site = Setting\Route\Functions\TheFunction::site();
 
 // Кэширование списка статей (ускорение повторных загрузок)
 $cacheFile = __DIR__ . '/data/articles.cache';
@@ -25,7 +25,7 @@ if (!$cached) {
 
 usort($__blogJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
 
-$seo = Setting\Route\Function\Functions::seo([
+$seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Блог о ремонте квартир — полезные статьи, советы, цены 2026',
     'description' => 'Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
@@ -616,7 +616,7 @@ $seo = Setting\Route\Function\Functions::seo([
         });
     </script>
 
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>
 

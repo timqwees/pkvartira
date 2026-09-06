@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Setting\Route\Function;
+namespace Setting\Route\Functions;
 
 use App\Models\Router\Routes;
 use App\Config\Database;
@@ -14,7 +14,7 @@ use App\Models\User\User;
 use Exception;
 use App\Controllers\API\API;
 
-class Functions
+class TheFunction
 {
     //======СПИСОК ФУНКЦИЙ / LIST FUNCTIONS===========//
 
@@ -120,7 +120,7 @@ class Functions
     public static function site(): array
     {
         $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
-        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost);
+        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
         $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
         if ($isProd) {
             // Продакшн: всегда https и без www (каноникал)
@@ -183,7 +183,7 @@ class Functions
 
     /**
      * Cache-busting для статики: /path/file.css?v=filemtime
-     * Использование: <?= \Setting\Route\Function\Functions::asset('/public/assets/styles/main.min.css') ?>
+     * Использование: <?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/main.min.css') ?>
      */
     public static function asset(string $path): string
     {
@@ -210,7 +210,7 @@ class Functions
      */
     public static function truncateSeo(string $text, int $max): string
     {
-        $text = trim(preg_replace('/\s+/', ' ', $text));
+        $text = trim(preg_replace('/\s+/', ' ', $text) ?? '');
         if (mb_strlen($text) <= $max) return $text;
         $cut = mb_substr($text, 0, $max);
         $lastSpace = mb_strrpos($cut, ' ');
@@ -395,7 +395,7 @@ class Functions
                 $landingMail = (isset($lp['scheme']) ? $lp['scheme'] . '://' : '') . ($lp['host'] ?? '') . ($lp['path'] ?? '/') . (isset($lp['query']) ? '?' . $lp['query'] : '');
             }
         }
-        $referrerHostMail = $referrer !== '' ? (parse_url($referrer, PHP_URL_HOST) ?: $referrer) : '';
+        $referrerHostMail = $referrer !== '' ? ((string)(parse_url($referrer, PHP_URL_HOST) ?: $referrer)) : '';
 
         $message = '<div style="font-family:Arial,sans-serif;max-width:640px;color:#0f172a">';
         $message .= '<div style="background:#0f172a;color:#fff;padding:14px 16px;border-radius:10px 10px 0 0;font-weight:700">📞 Новая заявка — pkvartira.ru ' . ($hasPaid ? '<span style="background:#ef4444;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">РЕКЛАМА</span>' : '<span style="background:#22c55e;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">ОРГАНИКА</span>') . '</div>';
@@ -504,7 +504,7 @@ class Functions
             $landingShort = $pathOnly !== '' ? $pathOnly : '/';
             if (mb_strlen($landingDisplay) > 120) $landingDisplay = mb_substr($landingDisplay, 0, 117) . '...';
         }
-        $referrerHost = $referrer !== '' ? (parse_url($referrer, PHP_URL_HOST) ?: $referrer) : '';
+        $referrerHost = $referrer !== '' ? ((string)(parse_url($referrer, PHP_URL_HOST) ?: $referrer)) : '';
         if ($referrerHost !== '' && mb_strlen($referrerHost) > 40) $referrerHost = mb_substr($referrerHost, 0, 37) . '...';
 
         // Компактный, сканируемый вид — без эмодзи (Bitrix может резать 4-байт UTF-8)
@@ -883,7 +883,6 @@ class Functions
                     ],
                     'image' => $site['shareImageUrl'],
                     'sameAs' => $sameAs,
-                    'priceRange' => $site['priceRange'] ?? '₽₽',
                 ],
                 [
                     '@type' => 'WebSite',
@@ -1142,7 +1141,6 @@ class Functions
                     '@id' => $site['baseUrl'] . '#organization',
                     'name' => $site['name'],
                 ],
-                'priceValidUntil' => $product['priceValidUntil'] ?? '',
                 'priceSpecification' => [
                     '@type' => 'PriceSpecification',
                     'priceCurrency' => 'RUB',
@@ -1217,3 +1215,5 @@ class Functions
         ];
     }
 }
+
+class_alias(TheFunction::class, 'Functions');

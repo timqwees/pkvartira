@@ -1,4 +1,4 @@
-<?php $site = Setting\Route\Function\Functions::site(); ?>
+<?php $site = Setting\Route\Functions\TheFunction::site(); ?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -725,8 +725,8 @@
             });
         });
     </script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/toggleWindow.min.js') ?>"></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Function\Functions::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/toggleWindow.min.js') ?>"></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
 </body>

@@ -2,7 +2,7 @@
 namespace App\Models\Router;
 
 use App\Models\Network\Network;
-use Setting\Route\Function\Functions;
+use Setting\Route\Functions\TheFunction;
 
 class Routes extends Network
 {
@@ -43,14 +43,14 @@ class Routes extends Network
         // "/item={sku}/view"   => "~^/item=(?P<sku>[^/&?]+)/view$~"
 
         // Сначала ищем ключ=значение с плейсхолдером: параметр в виде "item={sku}"
-        $path = preg_replace('~([a-zA-Z0-9_-]+)=\{([a-zA-Z0-9_]+)\}~', '$1=(?P<$2>[^/&?]+)', $path);
-        $pattern = preg_replace('~\{([a-zA-Z0-9_]+)\}~', '(?P<$1>[^/]+)', $path);
+        $path = preg_replace('~([a-zA-Z0-9_-]+)=\{([a-zA-Z0-9_]+)\}~', '$1=(?P<$2>[^/&?]+)', $path) ?? $path;
+        $pattern = preg_replace('~\{([a-zA-Z0-9_]+)\}~', '(?P<$1>[^/]+)', $path) ?? $path;
         // Начало и конец строки, общая регулярка
         $pattern = "~^" . $pattern . "$~";
 
         // вызов встроенных функций
-        if (is_string($callback) && method_exists(Functions::class, $callback)) {
-            Network::$patterns[$method][$pattern] = [Functions::class, $callback];
+        if (is_string($callback) && method_exists(TheFunction::class, $callback)) {
+            Network::$patterns[$method][$pattern] = [TheFunction::class, $callback];
             //вызов ручных функций
         } elseif (is_callable($callback)) {
             Network::$patterns[$method][$pattern] = $callback;
@@ -308,4 +308,4 @@ class Routes extends Network
     }
 
 }
-include_once dirname(__DIR__, 3) . '/setting/route/function/functions.php';
+include_once dirname(__DIR__, 3) . '/setting/Route/Functions/TheFunction.php';
