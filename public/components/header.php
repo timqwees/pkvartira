@@ -86,14 +86,14 @@
     }
 </style>
 <!-- Header -->
-<header class="bg-white border-b-[1px] border-[#bab9bb80] fixed w-full top-0 z-[100]" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.85);">
+<header class="bg-white border-b border-gray-100 fixed w-full top-0 z-[100]" style="backdrop-filter: blur(16px) saturate(180%); background: rgba(255,255,255,0.88);">
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="flex justify-between items-center">
             <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
                     src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-8">
-                <!-- Главная --><a href="/" class="py-6 text-gray-600 hover:text-blue-600 transition">Главная</a>
+                <!-- Главная --><a href="/" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Главная</a>
                 <!-- Услуги -->
                 <div class="drop py-6"><a href="/">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
                     <ul class="flex p-4 py-0">     
@@ -177,28 +177,28 @@
                         </div>
                     </ul>
                 </div>
-                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-blue-600 transition">Цены</a>
+                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Цены</a>
                 <!-- Калькулятор --><a href="/calculator"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">Калькулятор</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Калькулятор</a>
                 <!-- Портфолио --><a href="/portfolio"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">Портфолио</a>
-                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-blue-600 transition">Отзывы</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Портфолио</a>
+                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Отзывы</a>
                 <!-- О компании --><a href="/about"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">О компании</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">О компании</a>
                 <!-- Контакты --><a href="/contact"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">Контакты</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Контакты</a>
                 <!-- Блоги --><a href="/blogs"
-                    class="py-6 text-gray-600 hover:text-blue-600 transition">Блоги</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Блоги</a>
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">
                 <div class="flex flex-col justify-center items-center lg:hidden xl:flex"><a
-                        href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800">+7 495
+                        href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-orange-500 transition">+7 495
                         473-17-37</a>
                     <!--<a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>-->
-                    <p class="text-sm text-gray-600">Ежедневно с 9:00 до 22:00</p>
+                    <p class="text-sm text-gray-500">Ежедневно с 9:00 до 22:00</p>
                 </div><button data-button-dialog
-                    class="flex items-center bg-orange-500 text-white px-6 rounded-lg hover:bg-orange-600 transition py-2">Получить
+                    class="flex items-center bg-orange-500 text-white px-6 py-2.5 rounded-lg hover:bg-orange-600 transition font-semibold shadow-sm hover:shadow-md">Получить
                     расчет </button>
             </div>
             <div class="lg:hidden flex justify-between items-center gap-4">
@@ -264,28 +264,28 @@
                 </ul>
             </div>
             <hr><a href="/prices"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Цены
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Цены
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/calculator"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Калькулятор
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Калькулятор
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/portfolio"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Портфолио
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Портфолио
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/reviews"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Отзывы
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Отзывы
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/vakansii"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Вакансии
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Вакансии
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/about"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">О
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">О
                 компании <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/contact"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Контакты
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Контакты
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/blogs"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Блоги
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Блоги
                 <i class="fa fa-arrow-right"></i></a>
         </nav>
         <div class="border-t pt-6">

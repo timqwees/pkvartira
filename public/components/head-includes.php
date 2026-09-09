@@ -28,12 +28,12 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
 
 <!-- Глобальные подсказки браузерам -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="theme-color" content="#FF6B35">
+<meta name="theme-color" content="#f97316">
 <meta name="format-detection" content="telephone=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="msapplication-TileColor" content="#FF6B35">
+<meta name="msapplication-TileColor" content="#f97316">
 
 <meta property="og:image:width" content="512" />
 <meta property="og:image:height" content="512" />
