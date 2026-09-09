@@ -645,7 +645,25 @@ class TheFunction
 
     public function getPhotos(string $path): array
     {
-        return is_dir($path) ? array_diff(scandir($path, SCANDIR_SORT_ASCENDING), ['.', '..', 'about.json']) : [];
+        if (!is_dir($path)) {
+            return [];
+        }
+        $all = array_diff(scandir($path, SCANDIR_SORT_ASCENDING), ['.', '..', 'about.json']);
+        $preferred = ['webp', 'png', 'jpg', 'jpeg'];
+        $seen = [];
+        $result = [];
+        foreach ($all as $file) {
+            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+            $base = pathinfo($file, PATHINFO_FILENAME);
+            if (in_array($ext, $preferred, true)) {
+                $key = $base;
+                if (!isset($seen[$key])) {
+                    $seen[$key] = true;
+                    $result[] = $file;
+                }
+            }
+        }
+        return $result;
     }
 
     public function getPortfolio(string $path): array

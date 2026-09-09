@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир под ключ в Москве — цена от 15 000 ₽/м², гарантия 3 года';
+$title = 'Ремонт квартир под ключ в Москве — цена от 8 000 ₽/м², гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $prices = [
     [
@@ -42,8 +42,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве — цена от 15 000 ₽/м² с гарантией 3 года, 2026',48)); ?> | Проект Квартира</title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 15 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве — цена от 8 000 ₽/м² с гарантией 3 года, 2026',48)); ?> | Проект Квартира</title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
