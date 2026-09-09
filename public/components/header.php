@@ -118,6 +118,8 @@
                                     домов </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     коммерческих помещений </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
+                                    интерьера </a></li>
                             <!-- <li class="drop-submenu"><a href="/"><i
                                     class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                 квартир под ключ </a>
@@ -257,6 +259,8 @@
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma">Ремонт домов</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie">Ремонт коммерческих
                             помещений</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera">Дизайн
+                            интерьера</a></li>
                 </ul>
             </div>
             <hr><a href="/prices"
