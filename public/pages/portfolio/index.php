@@ -97,7 +97,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <!-- Main Content -->
     <main class="pt-20" style="padding-top:80px">
 
-        <section class="reveal bg-gray-50">
+        <section class="bg-gray-50">
             <div class="container mx-auto px-4 max-w-6xl py-10">
                 <div class="relative bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
                     <div class="grid grid-cols-1 lg:grid-cols-12">
