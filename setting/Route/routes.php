@@ -104,5 +104,5 @@ Routes::get('/robots.txt', function() {
 	include_once 'public/robots.php';
 });
 //==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
-Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
-Routes::get('/vakansii/{slug}', function($slug) { $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });
+Routes::get('/vakansii', function() { header('Cache-Control: no-cache'); Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
+Routes::get('/vakansii/{slug}', function($slug) { header('Cache-Control: no-cache'); $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });
