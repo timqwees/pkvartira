@@ -98,39 +98,37 @@
                 <div class="drop py-6"><a href="/">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
                     <ul class="flex p-4 py-0">     
                         <div class="flex flex-col pr-4"><span class="drop-title">Виды ремонта</span>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    квартир студии </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     квартир под ключ </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайнерский
+                                    ремонт </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Чистовая
+                                    отделка </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Черновая
+                                    отделка </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box"><i class="fas fa-chevron-right drop-submenu-arrow"></i>White
+                                    Box </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
+                                    интерьера </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     в новостройке </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     во вторичке </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    1-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    2-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    3-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    4-комнатных квартир </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    домов </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                    коммерческих помещений </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
-                                    интерьера </a></li>
-                            <!-- <li class="drop-submenu"><a href="/"><i
-                                    class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
-                                квартир под ключ </a>
-                            <ul>
-                                <li><a href="/">Покраска стен</a></li>
-                                <li><a href="/">Замена плитки</a></li>
-                                <li><a href="/">Электрика</a></li>
-                                <li><a href="/">Сантехника</a></li>
-                                <li><a href="/">Двери и окна</a></li>
-                            </ul>
-                            </li>-->
+                        </div>
+                        <div class="flex flex-col pr-4"><span class="drop-title">По типу помещения</span>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Квартиры-студии</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>1-комнатные
+                                    квартиры </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>2-комнатные
+                                    квартиры </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>3-комнатные
+                                    квартиры </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>4-комнатные
+                                    квартиры </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дома
+                                    и коттеджи </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Коммерческие
+                                    помещения </a></li>
                         </div>
                         <!-- Районы работ -->
                         <div class="grid grid-cols-2 gap-y-2 gap-x-4 pr-4"><span class="drop-title col-span-2">Популярные районы</span>
@@ -240,27 +238,25 @@
                     <button class="back-btn">← Назад</button>
                 </div>
                 <ul class="submenu-services">
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio">Ремонт квартир-студий</a>
-                    </li>
+                    <li class="text-xs font-bold text-gray-400 uppercase tracking-wider px-4 py-2">Виды ремонта</li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch">Ремонт квартир под
                             ключ</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium">Дизайнерский ремонт</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya">Чистовая отделка</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya">Черновая отделка</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box">White Box</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera">Дизайн интерьера</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka">Ремонт в
                             новостройке</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka">Ремонт во вторичке</a>
-                    </li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room">Ремонт 1-комнатных
-                            квартир</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room">Ремонт 2-комнатных
-                            квартир</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room">Ремонт 3-комнатных
-                            квартир</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room">Ремонт 4-комнатных
-                            квартир</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma">Ремонт домов</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie">Ремонт коммерческих
-                            помещений</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera">Дизайн
-                            интерьера</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka">Ремонт во вторичке</a></li>
+                    <li class="text-xs font-bold text-gray-400 uppercase tracking-wider px-4 py-2 mt-2">По типу помещения</li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio">Квартиры-студии</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room">1-комнатные квартиры</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room">2-комнатные квартиры</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room">3-комнатные квартиры</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room">4-комнатные квартиры</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma">Дома и коттеджи</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie">Коммерческие помещения</a></li>
                 </ul>
             </div>
             <hr><a href="/prices"
