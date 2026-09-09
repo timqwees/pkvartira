@@ -110,6 +110,16 @@ $seo = TheFunction::seo([
                         <li><a href="/services/kommercheskie" class="text-blue-700 hover:underline">Коммерческие</a></li>
                     </ul>
                 </div>
+                <div class="bg-purple-50 border border-purple-100 rounded-xl p-6">
+                    <div class="font-bold text-gray-900">Дизайн и проектирование</div>
+                    <ul class="mt-3 space-y-1 text-sm">
+                        <li><a href="/services/dizajn-interierov" class="text-purple-700 hover:underline">Дизайн интерьеров</a></li>
+                        <li><a href="/services/premium" class="text-purple-700 hover:underline">Дизайнерский ремонт</a></li>
+                        <li><a href="/services/white-box" class="text-purple-700 hover:underline">White Box</a></li>
+                        <li><a href="/services/chistovaya" class="text-purple-700 hover:underline">Чистовая отделка</a></li>
+                        <li><a href="/services/chernovaya" class="text-purple-700 hover:underline">Черновая отделка</a></li>
+                    </ul>
+                </div>
                 <div class="bg-orange-50 border border-orange-100 rounded-xl p-6">
                     <div class="font-bold text-gray-900">По площади и типу</div>
                     <ul class="mt-3 space-y-1 text-sm">
