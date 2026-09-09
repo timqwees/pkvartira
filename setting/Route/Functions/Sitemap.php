@@ -287,7 +287,7 @@ class Sitemap
             'doma' => ['0.7', 'weekly'],
             'kommercheskie' => ['0.7', 'weekly'],
             'dlya-sdachi' => ['0.7', 'weekly'],
-            'dizajn-interera' => ['0.8', 'weekly'],
+            'dizajn-interierov' => ['0.8', 'weekly'],
         ];
 
         $dir = __DIR__ . '/../../../public/pages/services';

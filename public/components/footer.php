@@ -46,7 +46,7 @@
                     <li><a href="/services/vtorichka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт вторичного жилья</a></li>
                     <li><a href="/services/ukladka-laminata" class="text-gray-400 hover:text-orange-500 transition text-sm">Укладка ламината</a></li>
                     <li><a href="/services/keramogranit-nazarovo" class="text-gray-400 hover:text-orange-500 transition text-sm">Укладка керамогранита</a></li>
-                    <li><a href="/services/dizajn-interera" class="text-gray-400 hover:text-orange-500 transition text-sm">Дизайн интерьера</a></li>
+                    <li><a href="/services/dizajn-interierov" class="text-gray-400 hover:text-orange-500 transition text-sm">Дизайн интерьеров</a></li>
                     <li><a href="/calculator" class="text-gray-400 hover:text-orange-500 transition text-sm">Калькулятор стоимости</a></li>
                 </ul>
             </div>

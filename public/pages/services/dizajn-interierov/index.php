@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Дизайн интерьера в Москве — от 2 500 ₽/м², авторский надзор, гарантия';
+$title = 'Дизайн интерьеров в Москве — от 2 500 ₽/м², авторский надзор, гарантия';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg';
 $prices = [
     [
@@ -42,18 +42,18 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьера в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов. Авторский надзор. Гарантия результата. — Проект Квартира (ПКвартира).', 155)); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьеров в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов. Авторский надзор. Гарантия результата. — Проект Квартира (ПКвартира).', 155)); ?>">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interera'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interierov'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars($title); ?>">
-    <meta property="og:description" content="Дизайн интерьера в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов. Авторский надзор.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interera'); ?>">
+    <meta property="og:description" content="Дизайн интерьеров в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов. Авторский надзор.">
+    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interierov'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
     <meta property="og:locale" content="ru_RU">
@@ -99,8 +99,8 @@ $prices = [
       },
       {
         "@type": "WebPage",
-        "@id": <?= json_encode($site['baseUrl'] . '/services/dizajn-interera#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'] . '/services/dizajn-interera', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+        "@id": <?= json_encode($site['baseUrl'] . '/services/dizajn-interierov#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+        "url": <?= json_encode($site['baseUrl'] . '/services/dizajn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
         "name": <?= json_encode($title, JSON_UNESCAPED_UNICODE); ?>,
         "isPartOf": {"@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
         "primaryImageOfPage": {"@id": <?= json_encode($site['baseUrl'] . $bg_url, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
@@ -109,7 +109,7 @@ $prices = [
       },
       {
         "@type": "Service",
-        "name": "Дизайн интерьера в Москве",
+        "name": "Дизайн интерьеров в Москве",
         "description": "Разработка дизайн-проекта интерьера квартир и домов в Москве. Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов.",
         "provider": {"@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
         "areaServed": {"@type": "City", "name": "Москва"},
@@ -126,7 +126,7 @@ $prices = [
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "item": {"@id": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Главная"}},
           {"@type": "ListItem", "position": 2, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Услуги"}},
-          {"@type": "ListItem", "position": 3, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services/dizajn-interera', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Дизайн интерьера"}}
+          {"@type": "ListItem", "position": 3, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services/dizajn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Дизайн интерьеров"}}
         ]
       },
       {
@@ -373,8 +373,8 @@ $prices = [
         <!-- 6. FAQ -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
-                    Частые вопросы о дизайне интерьера
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
+                    Частые вопросы о дизайне интерьеров
                 </h2>
 
                 <div class="max-w-3xl mx-auto space-y-4">

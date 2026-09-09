@@ -108,8 +108,8 @@
                                     отделка </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box"><i class="fas fa-chevron-right drop-submenu-arrow"></i>White
                                     Box </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
-                                    интерьера </a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interierov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
+                                    интерьеров </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     в новостройке </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
@@ -245,7 +245,7 @@
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya">Чистовая отделка</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya">Черновая отделка</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box">White Box</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interera">Дизайн интерьера</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interierov">Дизайн интерьеров</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka">Ремонт в
                             новостройке</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka">Ремонт во вторичке</a></li>
