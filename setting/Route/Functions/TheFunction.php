@@ -465,6 +465,9 @@ class TheFunction
         $email = $data->почта ?? $data->email ?? '';
         (string) $CATEGORY_ID = isset($data->Вакансия) ? '11' : '7';//воронка
         (string) $STAGE_ID = isset($data->Вакансия) ? 'C11:NEW' : 'C7:NEW';//стадия
+
+        (string) $CATEGORY_ID = isset($data->Вакансия) && strpos($data->Вакансия, 'Прораб') !== false ? '13' : $CATEGORY_ID;//воронка
+        (string) $STAGE_ID = isset($data->Вакансия) && strpos($data->Вакансия, 'Прораб') !== false ? 'C13:NEW' : $STAGE_ID;//стадия
         
         // Комментарий — ищем без учета регистра/языка (сообщение/message/комментарий/comment)
         $comment = '';
