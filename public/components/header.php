@@ -273,9 +273,9 @@
             <hr><a href="/reviews"
                 class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Отзывы
                 <i class="fa fa-arrow-right"></i></a>
-            <hr><a href="/vakansii"
+            <!--<hr><a href="/vakansii"
                 class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Вакансии
-                <i class="fa fa-arrow-right"></i></a>
+                <i class="fa fa-arrow-right"></i></a>-->
             <hr><a href="/about"
                 class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">О
                 компании <i class="fa fa-arrow-right"></i></a>
