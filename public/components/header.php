@@ -168,10 +168,12 @@
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/article/14"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blogs"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Все статьи о ремонте</a></li>
                           </div>
+                          <!-- Вакансии в меню Услуги — временно скрыто
                           <div class="flex flex-col mt-3">
                             <span class="drop-title">Вакансии — найти работу</span>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/vakansii"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Открытые вакансии компании</a></li>
                           </div>
+                          -->
                         </div>
                     </ul>
                 </div>

@@ -34,6 +34,7 @@ $seo = TheFunction::seo([
 ]);
 
 $benefits = Vacancy::benefits();
+$isProrab = ($slug === 'prorab');
 $datePosted = date('Y-m-d');
 $validThrough = date('Y-m-d', strtotime('+60 days') ?: time());
 ?>
@@ -623,9 +624,15 @@ html { scroll-behavior: smooth; }
       </div>
 
       <div class="flex flex-wrap gap-2 mt-4">
+        <?php if ($isProrab): ?>
+        <span class="vd-badge vd-badge-green">Выплаты раз в месяц, по актам</span>
+        <span class="vd-badge vd-badge-blue">Крупный инструмент — наш</span>
+        <span class="vd-badge vd-badge-orange">5–7 объектов рядом с домом</span>
+        <?php else: ?>
         <span class="vd-badge vd-badge-green">Выплаты каждую неделю</span>
         <span class="vd-badge vd-badge-blue">Жильё на объекте</span>
         <span class="vd-badge vd-badge-orange">Аванс сразу</span>
+        <?php endif; ?>
       </div>
 
       <div class="vd-facts">
@@ -677,14 +684,22 @@ html { scroll-behavior: smooth; }
           <h2 class="mt-2">Честно и по делу</h2>
           <div class="vd-conditions">
             <?php
-            $conditions = [
-              ['title'=>'Выплаты каждую неделю','desc'=>'Без задержек, по закрытому этапу. Деньги — на карту.'],
-              ['title'=>'Можно жить на объекте','desc'=>'Бытовка/комната с душем и кухней — экономия на жилье.'],
-              ['title'=>'+5 % при переходе','desc'=>'Сдали объект — получили бонус со сметы старого.'],
-              ['title'=>'Крупный инструмент наш','desc'=>'Станции, станки, торцовки, леса, пресс — выдаём.'],
-              ['title'=>'Аванс на питание','desc'=>'Даём в первый день, без «подожди до пятницы».'],
-              ['title'=>'Стабильные объекты','desc'=>'Квартиры 40–120 м² и дома — без простоев круглый год.'],
-            ];
+            if ($isProrab) {
+              $conditions = [
+                ['title'=>'Выплаты раз в месяц','desc'=>'По закрытым актам, без задержек. Деньги — на карту.'],
+                ['title'=>'Крупный инструмент наш','desc'=>'Всё необходимое для бригад — выдаём со склада.'],
+                ['title'=>'Стабильные объекты','desc'=>'5–7 квартир 40–120 м² и домов — без простоев круглый год.'],
+              ];
+            } else {
+              $conditions = [
+                ['title'=>'Выплаты каждую неделю','desc'=>'Без задержек, по закрытому этапу. Деньги — на карту.'],
+                ['title'=>'Можно жить на объекте','desc'=>'Бытовка/комната с душем и кухней — экономия на жилье.'],
+                ['title'=>'+5 % при переходе','desc'=>'Сдали объект — получили бонус со сметы старого.'],
+                ['title'=>'Крупный инструмент наш','desc'=>'Станции, станки, торцовки, леса, пресс — выдаём.'],
+                ['title'=>'Аванс на питание','desc'=>'Даём в первый день, без «подожди до пятницы».'],
+                ['title'=>'Стабильные объекты','desc'=>'Квартиры 40–120 м² и дома — без простоев круглый год.'],
+              ];
+            }
             foreach ($vacancy['conditionsExtra'] as $extra) $conditions[] = ['title'=>$extra,'desc'=>''];
             foreach ($conditions as $c): ?>
             <div class="vd-condition">
@@ -787,7 +802,7 @@ html { scroll-behavior: smooth; }
         <div class="vd-earnings">
           <div class="vd-eyebrow vd-earnings-eyebrow">Доход</div>
           <h3 class="mt-2 text-xl font-bold vd-earnings-title">Сколько можно заработать</h3>
-          <p class="vd-earnings-desc">Пример для <?= htmlspecialchars($vacancy['shortTitle']); ?>а на объекте 65 м² — закрытие за 3–4 недели.</p>
+          <p class="vd-earnings-desc"><?php if ($isProrab): ?>Пример для прораба на 5–7 объектах — доход складывается из % от смет, черновых и допработ.<?php else: ?>Пример для <?= htmlspecialchars($vacancy['shortTitle']); ?>а на объекте 65 м² — закрытие за 3–4 недели.<?php endif; ?></p>
           <div class="vd-earnings-grid">
             <div class="vd-earnings-card">
               <div class="vd-earnings-label">Ставка</div>
@@ -805,7 +820,7 @@ html { scroll-behavior: smooth; }
               <div class="vd-earnings-sub">при переходе</div>
             </div>
           </div>
-          <p class="vd-earnings-disclaimer">Расчёт примерный. Точные расценки — на созвоне с прорабом.</p>
+          <p class="vd-earnings-disclaimer"><?php if ($isProrab): ?>Расчёт примерный. Точную схему % — обсудим на собеседовании с руководителем.<?php else: ?>Расчёт примерный. Точные расценки — на созвоне с прорабом.<?php endif; ?></p>
         </div>
 
         <div class="vd-panel">
@@ -859,7 +874,7 @@ html { scroll-behavior: smooth; }
               <label class="vd-form-checkbox-label"><input type="checkbox" required class="vd-form-checkbox"> <span>Согласен на обработку ПДн и <a href="/soglashenie" class="vd-form-agreement">соглашение</a></span></label>
               <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
               <button type="submit" class="vd-btn vd-btn-red vd-btn-block"><span>Откликнуться</span></button>
-              <p class="vd-form-footer">Отвечаем 9:00–22:00 · аванс в первый день</p>
+              <p class="vd-form-footer"><?php if ($isProrab): ?>Отвечаем 9:00–22:00 · выплаты раз в месяц по актам<?php else: ?>Отвечаем 9:00–22:00 · аванс в первый день<?php endif; ?></p>
             </form>
           </div>
 
@@ -873,7 +888,7 @@ html { scroll-behavior: smooth; }
                 <div class="vd-employer-name">Проект Квартира</div>
               </div>
             </div>
-            <p class="vd-sidebar-employer">Прямой работодатель. 10 лет на рынке, 325+ сданных объектов. Фиксированные расценки, снабжение — с нас. Иногородним можно жить на объекте.</p>
+            <p class="vd-sidebar-employer"><?php if ($isProrab): ?>Прямой работодатель. 10 лет на рынке, 325+ сданных объектов. Готовые бригады, свой склад, прозрачный % от сметы.<?php else: ?>Прямой работодатель. 10 лет на рынке, 325+ сданных объектов. Фиксированные расценки, снабжение — с нас. Иногородним можно жить на объекте.<?php endif; ?></p>
             <div class="vd-divider"></div>
             <div class="vd-employer-stats">
               <div class="vd-employer-stat">
