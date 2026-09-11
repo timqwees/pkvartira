@@ -314,39 +314,39 @@ $prices = [
                     </p>
                 </div>
 
-                <div class="relative grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <div class="hidden md:block absolute w-full h-0.5 bg-gray-300 top-8 z-0"></div>
+                <ol class="relative grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 list-none m-0 p-0">
+                    <div class="hidden lg:block absolute w-full h-0.5 bg-gray-300 top-8 left-0 z-0" aria-hidden="true"></div>
 
-                    <div class="text-center z-10">
+                    <li class="text-center z-10">
                         <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">01</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Знакомство и замер</h3>
                         <p class="text-sm text-gray-600">Обсуждаем ваши пожелания, стиль, бюджет. Выезжаем на замер, фиксируем все размеры и особенности помещения.</p>
-                    </div>
+                    </li>
 
-                    <div class="text-center z-10">
+                    <li class="text-center z-10">
                         <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">02</div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Планировка и эскизы</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Планировка и эскизы</h3>
                         <p class="text-sm text-gray-600">Разрабатываем варианты планировки, подбираем стиль, цветовую палитру. Согласовываем с вами каждый элемент.</p>
-                    </div>
+                    </li>
 
-                    <div class="text-center z-10">
+                    <li class="text-center z-10">
                         <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">03</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">3D-визуализация</h3>
                         <p class="text-sm text-gray-600">Создаём фотореалистичные картинки вашего будущего интерьера. Вы видите результат до начала ремонта.</p>
-                    </div>
+                    </li>
 
-                    <div class="text-center z-10">
+                    <li class="text-center z-10">
                         <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">04</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Чертежи и комплектация</h3>
                         <p class="text-sm text-gray-600">Готовим полный комплект чертежей для бригады. Подбираем все материалы, мебель, освещение.</p>
-                    </div>
+                    </li>
 
-                    <div class="text-center z-10">
+                    <li class="text-center z-10">
                         <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">05</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Авторский надзор</h3>
-                        <p class="text-sm text-gray-600">Дизайнер контролирует соответствие проекта на всех этапах ремонта. Гарантируем результат как на картинке.</p>
-                    </div>
-                </div>
+                        <p class="text-sm text-gray-600">По желанию дизайнер сопровождает ремонт: следит за соответствием проекту и помогает бригаде с решениями.</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
