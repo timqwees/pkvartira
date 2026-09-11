@@ -1,36 +1,40 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Дизайн интерьеров в Москве — от 2 500 ₽/м², авторский надзор, гарантия';
+$title = 'Дизайн интерьеров в Москве — от 1 200 ₽/м², консультация от 20 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg';
 $prices = [
     [
-        'заголовок' => 'Эскизный проект',
-        'цена' => 'от 2 500 ₽',
-        'цена_число' => '2500',
-        'подзаголовок' => 'Итого для 50 м² — от 125 000 Р',
-        'услуги' => ['Планировочное решение', 'Эскизы основных зон', 'Подбор цветовой палитры', 'Визуализация 2–3 помещений', 'Смета на материалы'],
+        'заголовок' => 'Пакет 1 — Консультация перед покупкой квартиры',
+        'цена' => '20 000 ₽',
+        'цена_число' => '20000',
+        'per_m2' => false,
+        'подзаголовок' => 'Фиксированная стоимость',
+        'услуги' => ['2 часа консультации', 'Эскиз вариантов планировки (2-3 планировки, без замеров)', 'Рекомендации по стилям и отделочным материалам'],
+        'кнопка' => 'Заказать консультацию',
+        'стиль' => 'classic'
+    ],
+    [
+        'заголовок' => 'Пакет 2 — Эскизный дизайн проект',
+        'цена' => 'от 1 200 ₽',
+        'цена_число' => '1200',
+        'per_m2' => true,
+        'подзаголовок' => 'Итого для 50 м² — от 60 000 ₽',
+        'услуги' => ['Обмерный план', 'Планировочное решение', 'План демонтажа', 'План монтажа', 'План расстановки мебели', 'Концепт-борд и коллажи по стилям'],
         'кнопка' => 'Заказать проект',
         'стиль' => 'classic'
     ],
     [
-        'заголовок' => 'Стандарт',
-        'цена' => 'от 4 500 ₽',
-        'цена_число' => '4500',
-        'подзаголовок' => 'Итого для 50 м² — от 225 000 Р',
-        'услуги' => ['Полная планировка', '3D-визуализация всех комнат', 'Чертежи для бригад', 'Подбор мебели и материалов', 'Авторский надзор на объекте', 'Эксклюзивные решения'],
+        'заголовок' => 'Пакет 3 — Стандартный дизайн проект',
+        'цена' => 'от 2 100 ₽',
+        'цена_число' => '2100',
+        'per_m2' => true,
+        'подзаголовок' => 'Итого для 50 м² — от 105 000 ₽',
+        'услуги' => ['Обмерный план', 'Планировочное решение', 'План демонтажа', 'План монтажа', 'План раскладки напольных покрытий', 'Схема укладки теплого пола', 'План потолков', 'План расстановки светильников', 'План расстановки выключателей и схема включения', 'План расстановки розеток', 'План открывания дверей со спецификацией', 'Схема привязки сантехнического оборудования', 'Схема отделки помещений', 'Развертки стен помещений', 'Чертежи и эскизы предметов индивидуального изготовления (при необходимости)', 'Ведомости с указанием предметов мебели и декора'],
+        'примечание' => 'Фотореалистичная 3D визуализация — +400 ₽/кв м',
         'кнопка' => 'Получить расчет',
         'стиль' => 'рекомендуем',
         'бейдж' => 'Рекомендуем'
-    ],
-    [
-        'заголовок' => 'Премиум',
-        'цена' => 'от 7 000 ₽',
-        'цена_число' => '7000',
-        'подзаголовок' => 'Итого для 50 м² — от 350 000 Р',
-        'услуги' => ['Индивидуальный дизайн', 'Фотореалистичная 3D-визуализация', 'Полный комплект чертежей', 'Подбор эксклюзивных материалов', 'Комплектация объекта под ключ', 'Авторский надзор до сдачи'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'classic'
     ]
 ];
 ?>
@@ -42,7 +46,7 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьеров в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов. Авторский надзор. Гарантия результата. — Проект Квартира (ПКвартира).', 155)); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьеров в Москве от 1 200 ₽/м². Консультация перед покупкой квартиры — 20 000 ₽, эскизный проект, стандартный дизайн-проект, чертежи, подбор мебели и материалов. — Проект Квартира (ПКвартира).', 155)); ?>">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="origin-when-crossorigin">
@@ -52,7 +56,7 @@ $prices = [
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars($title); ?>">
-    <meta property="og:description" content="Дизайн интерьеров в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов. Авторский надзор.">
+    <meta property="og:description" content="Дизайн интерьеров в Москве от 1 200 ₽/м². Консультация перед покупкой — 20 000 ₽. Эскизный и стандартный дизайн-проекты, чертежи, подбор мебели.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interierov'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
@@ -62,7 +66,7 @@ $prices = [
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars($title); ?>">
-    <meta name="twitter:description" content="Дизайн интерьера в Москве от 2 500 ₽/м². Эскизный проект, 3D-визуализация, чертежи, авторский надзор.">
+    <meta name="twitter:description" content="Дизайн интерьера в Москве от 1 200 ₽/м². Консультация перед покупкой — 20 000 ₽. Эскизный и стандартный проекты, чертежи.">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
@@ -110,13 +114,13 @@ $prices = [
       {
         "@type": "Service",
         "name": "Дизайн интерьеров в Москве",
-        "description": "Разработка дизайн-проекта интерьера квартир и домов в Москве. Эскизный проект, 3D-визуализация, чертежи, подбор мебели и материалов.",
+        "description": "Разработка дизайн-проекта интерьера квартир и домов в Москве. Консультация перед покупкой квартиры, эскизный и стандартный дизайн-проекты, чертежи, подбор мебели и материалов.",
         "provider": {"@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
         "areaServed": {"@type": "City", "name": "Москва"},
         "offers": {
           "@type": "AggregateOffer",
-          "lowPrice": "2500",
-          "highPrice": "7000",
+          "lowPrice": "1200",
+          "highPrice": "2100",
           "priceCurrency": "RUB",
           "offerCount": "3"
         }
@@ -137,7 +141,7 @@ $prices = [
             "name": "Сколько стоит дизайн интерьера?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Стоимость зависит от площади и сложности проекта. Эскизный проект — от 2 500 ₽/м², стандарт — от 4 500 ₽/м², премиум — от 7 000 ₽/м². Точный расчёт после консультации."
+              "text": "Консультация перед покупкой квартиры — 20 000 ₽. Эскизный дизайн-проект — от 1 200 ₽/м², стандартный дизайн-проект — от 2 100 ₽/м². Фотореалистичная 3D-визуализация — +400 ₽/м²."
             }
           },
           {
@@ -145,7 +149,7 @@ $prices = [
             "name": "Сколько времени занимает разработка дизайн-проекта?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Эскизный проект — 5–7 рабочих дней. Стандарт — 10–15 рабочих дней. Премиум — 20–30 рабочих дней. Сроки фиксируются в договоре."
+              "text": "Эскизный дизайн-проект — 5–7 рабочих дней. Стандартный дизайн-проект — 10–15 рабочих дней. Сроки фиксируются в договоре."
             }
           },
           {
@@ -153,7 +157,7 @@ $prices = [
             "name": "Входит ли авторский надзор в стоимость?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Авторский надзор входит в пакеты «Стандарт» и «Премиум». Дизайнер контролирует соответствие проекта на всех этапах ремонта и помогает бригаде с решениями."
+              "text": "Авторский надзор обсуждается отдельно. Дизайнер контролирует соответствие проекта на всех этапах ремонта и помогает бригаде с решениями."
             }
           },
           {
@@ -223,7 +227,7 @@ $prices = [
                             <div class="mt-2 text-3xl font-bold text-gray-900" itemprop="offers" itemscope
                                 itemtype="https://schema.org/Offer">
                                 <span itemprop="price"
-                                    content="<?= htmlspecialchars($price['цена_число']); ?>"><?= htmlspecialchars($price['цена']); ?></span>/м²
+                                    content="<?= htmlspecialchars($price['цена_число']); ?>"><?= htmlspecialchars($price['цена']); ?></span><?= (!isset($price['per_m2']) || $price['per_m2']) ? '/м²' : '' ?>
                                 <meta itemprop="priceCurrency" content="RUB">
                                 <meta itemprop="priceValidUntil" content="2026-12-31">
                             </div>
@@ -235,6 +239,9 @@ $prices = [
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
+                            <?php if (isset($price['примечание'])): ?>
+                                <div class="mt-3 text-sm font-semibold text-gray-900"><?= htmlspecialchars($price['примечание']); ?></div>
+                            <?php endif; ?>
                             <a href="tel:<?= $site['phone'] ?>"
                                 class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
                         </article>
@@ -386,7 +393,7 @@ $prices = [
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Стоимость зависит от площади и пакета услуг. Эскизный проект — от 2 500 ₽/м², стандарт — от 4 500 ₽/м², премиум — от 7 000 ₽/м². Точный расчёт делаем после бесплатной консультации.</span>
+                            <span itemprop="text">Стоимость: консультация перед покупкой квартиры — 20 000 ₽. Эскизный дизайн-проект — от 1 200 ₽/м², стандартный дизайн-проект — от 2 100 ₽/м², фотореалистичная 3D-визуализация — +400 ₽/м². Точный расчёт делаем после бесплатной консультации.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
@@ -397,7 +404,7 @@ $prices = [
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Эскизный проект — 5–7 рабочих дней. Стандарт — 10–15 рабочих дней. Премиум — 20–30 рабочих дней. Сроки фиксируются в договоре и мы их не срываем.</span>
+                            <span itemprop="text">Эскизный дизайн-проект — 5–7 рабочих дней. Стандартный дизайн-проект — 10–15 рабочих дней. Сроки фиксируются в договоре и мы их не срываем.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
@@ -408,7 +415,7 @@ $prices = [
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Авторский надзор входит в пакеты «Стандарт» и «Премиум». Дизайнер контролирует соответствие проекта на всех этапах ремонта, помогает бригаде с решениями и следит за качеством.</span>
+                            <span itemprop="text">Авторский надзор обсуждается отдельно. Дизайнер контролирует соответствие проекта на всех этапах ремонта, помогает бригаде с решениями и следит за качеством.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
