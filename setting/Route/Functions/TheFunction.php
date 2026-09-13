@@ -851,6 +851,12 @@ class TheFunction
                     ],
                     'sameAs' => $sameAs,
                     'image' => $site['shareImageUrl'],
+                    'logo' => [
+                        '@type' => 'ImageObject',
+                        'url' => $site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg',
+                        'width' => 300,
+                        'height' => 300,
+                    ],
                 ],
                 [
                     '@type' => 'HomeAndConstructionBusiness',

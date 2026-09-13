@@ -52,6 +52,7 @@ Routes::get('/calculator', 'on_Calculator');
 Routes::get('/kalkulyator-ploshchadi', 'on_AreaCalculator');
 //==================================================================================================//LEGAL / CONSENT
 Routes::get('/soglashenie', 'on_Soglashenie');
+Routes::get('/privacy-policy', 'on_Soglashenie');
 //==================================================================================================//SMETA SAMPLE (SEO)
 Routes::get('/smeta-obrazec', 'on_Smeta');
 //==================================================================================================//DOGOVOR TEMPLATE (SEO)
@@ -97,6 +98,11 @@ Routes::get('/llms-full.txt', function () {
 Routes::get('/opensearch.xml', function() {
 	header('Content-Type: application/opensearchdescription+xml; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/opensearch.xml');
+});
+//==================================================================================================//AGENTS.JSON (AI-агенты)
+Routes::get('/.well-known/agents.json', function() {
+	header('Content-Type: application/json; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/agents.json');
 });
 
 Routes::get('/robots.txt', function() {

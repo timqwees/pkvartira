@@ -53,6 +53,14 @@ RewriteRule ^(.+)/$ /$1 [R=301,L]
   </FilesMatch>
 </IfModule>
 
+# Заголовки безопасности (SEO-аудит: HSTS, CSP, X-Frame-Options) — только если mod_headers доступен
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Content-Security-Policy "upgrade-insecure-requests"
+</IfModule>
+
 # Если файл или директория существуют, используем их напрямую
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
