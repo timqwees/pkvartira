@@ -813,7 +813,8 @@ class TheFunction
         $pageTitle = $opts['title'];
         $pageDescription = $opts['description'];
         // Фильтруем пустые соцсети (например VK если не задан — не попадает в sameAs, чтобы не плодить битую ссылку)
-        $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']], fn($v) => is_string($v) && $v !== ''));
+        // GEO: sameAs связывает сущность компании везде — сайт, мессенджеры, Яндекс Карты (один и тот же бренд для AI-поиска)
+        $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp'], $site['kartaAdress'] ?? '', 'https://yandex.ru/maps/org/proyekt_kvartira/'], fn($v) => is_string($v) && $v !== ''));
         $brand = $site['brand'] ?? $site['name'];
         $shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'ПКвартира';
         $alternateName = $site['alternateName'] ?? [$brand, $shortBrand, 'pkvartira.ru'];
@@ -852,7 +853,7 @@ class TheFunction
                     'image' => $site['shareImageUrl'],
                 ],
                 [
-                    '@type' => 'LocalBusiness',
+                    '@type' => 'HomeAndConstructionBusiness',
                     '@id' => $site['baseUrl'] . '#localbusiness',
                     'name' => $brand,
                     'alternateName' => [$shortBrand, 'pkvartira.ru', 'pkvartira', 'Проект Квартира официальный сайт'],
