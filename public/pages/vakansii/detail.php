@@ -686,7 +686,7 @@ html { scroll-behavior: smooth; }
             <?php
             if ($isProrab) {
               $conditions = [
-                ['title'=>'Выплаты раз в месяц','desc'=>'По закрытым актам, без задержек. Деньги — на карту.'],
+                ['title'=>'Выплаты раз в месяц','desc'=>'По закрытым актам, без задержек.'],
                 ['title'=>'Крупный инструмент наш','desc'=>'Всё необходимое для бригад — выдаём со склада.'],
                 ['title'=>'Стабильные объекты','desc'=>'5–7 квартир 40–120 м² и домов — без простоев круглый год.'],
               ];
@@ -799,6 +799,7 @@ html { scroll-behavior: smooth; }
           </div>
         </div>
 
+        <?php if (!$isProrab): ?>
         <div class="vd-earnings">
           <div class="vd-eyebrow vd-earnings-eyebrow">Доход</div>
           <h3 class="mt-2 text-xl font-bold vd-earnings-title">Сколько можно заработать</h3>
@@ -822,6 +823,7 @@ html { scroll-behavior: smooth; }
           </div>
           <p class="vd-earnings-disclaimer"><?php if ($isProrab): ?>Расчёт примерный. Точную схему % — обсудим на собеседовании с руководителем.<?php else: ?>Расчёт примерный. Точные расценки — на созвоне с прорабом.<?php endif; ?></p>
         </div>
+        <?php endif; ?>
 
         <div class="vd-panel">
           <div class="vd-eyebrow">Вопросы</div>
