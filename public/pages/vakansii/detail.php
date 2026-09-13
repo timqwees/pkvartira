@@ -799,32 +799,6 @@ html { scroll-behavior: smooth; }
           </div>
         </div>
 
-        <?php if (!$isProrab): ?>
-        <div class="vd-earnings">
-          <div class="vd-eyebrow vd-earnings-eyebrow">Доход</div>
-          <h3 class="mt-2 text-xl font-bold vd-earnings-title">Сколько можно заработать</h3>
-          <p class="vd-earnings-desc"><?php if ($isProrab): ?>Пример для прораба на 5–7 объектах — доход складывается из % от смет, черновых и допработ.<?php else: ?>Пример для <?= htmlspecialchars($vacancy['shortTitle']); ?>а на объекте 65 м² — закрытие за 3–4 недели.<?php endif; ?></p>
-          <div class="vd-earnings-grid">
-            <div class="vd-earnings-card">
-              <div class="vd-earnings-label">Ставка</div>
-              <div class="vd-earnings-value"><?= number_format($vacancy['salaryFrom'],0,' ',' '); ?> ₽</div>
-              <div class="vd-earnings-sub">минимум в месяц</div>
-            </div>
-            <div class="vd-earnings-card">
-              <div class="vd-earnings-label">На объекте 65 м²</div>
-              <div class="vd-earnings-value">~<?= number_format((int)($vacancy['salaryFrom']*1.15),0,' ',' '); ?> ₽</div>
-              <div class="vd-earnings-sub">за 3–4 недели</div>
-            </div>
-            <div class="vd-earnings-card accent">
-              <div class="vd-earnings-label">С бонусом +5%</div>
-              <div class="vd-earnings-value">+<?= number_format((int)($vacancy['salaryFrom']*0.05),0,' ',' '); ?> ₽</div>
-              <div class="vd-earnings-sub">при переходе</div>
-            </div>
-          </div>
-          <p class="vd-earnings-disclaimer"><?php if ($isProrab): ?>Расчёт примерный. Точную схему % — обсудим на собеседовании с руководителем.<?php else: ?>Расчёт примерный. Точные расценки — на созвоне с прорабом.<?php endif; ?></p>
-        </div>
-        <?php endif; ?>
-
         <div class="vd-panel">
           <div class="vd-eyebrow">Вопросы</div>
           <h2 class="mt-2">Частые вопросы</h2>
