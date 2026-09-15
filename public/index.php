@@ -4,7 +4,7 @@ $featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio('3-к
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8000 ₽/м²',
-    'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт: ремонт квартир и домов под ключ в Москве. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
+    'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт. Ремонт под ключ в Москве: цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.',
     'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, ПКвартира отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проект квартира, пквартира',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/og-home-1200x630.jpg',
     'url' => $site['canonicalUrl'],
@@ -89,7 +89,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </strong> под ваш бюджет. Начнем работу
                             через <strong class="text-orange-500">2 дня</strong>
                         </p>
-                        <p class="text-sm text-white/80 mb-4">Ремонт от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • 10 лет на рынке</p>
+                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • 10 лет на рынке</p>
 
                         <div class="flex items-center flex-wrap gap-3 mb-6">
                             <button data-button-dialog
@@ -1111,7 +1111,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="text-center mb-14">
                     <span class="label-tag">Отзывы</span>
                     <h2 class="section-heading mb-4">
-                        Что говорят о нас те, кто уже переехал в новую квартиру
+                        Отзывы тех, кто уже переехал в новую квартиру
                     </h2>
                 </div>
 
