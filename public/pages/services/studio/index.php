@@ -45,7 +45,7 @@ $prices = [
     <meta name="description"
         content="Ремонт квартиры-студии под ключ в Москве от 200 000 ₽. Фиксированная смета в договоре, гарантия 3 года. Дизайн-проект в подарок. Бесплатный замер и расчёт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
-    <meta name="referrer" content="origin-when-crossorigin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/studio'); ?>">
 

@@ -127,6 +127,7 @@ class Routes extends Network
                 self::errorOutput("QweesCrash [404]: Файл не найден по пути: {$path}");
                 exit(1);
             }
+            \Setting\Route\Functions\SecurityHeaders::sendStaticCache($file);
             header('Content-Type: ' . mime_content_type($file));
             readfile($file);
         });
@@ -270,6 +271,7 @@ class Routes extends Network
         $link = dirname(__DIR__, 2) . '/Models/Router/view/404/404.html';
         if (file_exists($link)) {
         	http_response_code(404);//устанавливаем код страницы
+        	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
         	include_once $link;
         }
     }
@@ -295,9 +297,9 @@ class Routes extends Network
     public static function auto_element(string $path, array $params = [])
     {
         if (file_exists($path)) {
-            // SEO: Last-Modified по времени изменения шаблона страницы
-            $mtime = filemtime($path);
-            header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
+            // Единый набор заголовков: безопасность (HSTS/Referrer/Permissions/COOP-COEP-CORP/CSP)
+            // + ОДИН Cache-Control + ETag/Last-Modified/304. Убирает дубль Cache-Control из отчёта enterno.
+            \Setting\Route\Functions\SecurityHeaders::sendForHtml($path);
             if (!empty($params)) {
                 extract($params, EXTR_SKIP);
             }

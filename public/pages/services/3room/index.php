@@ -51,7 +51,7 @@ if (is_readable($euroAbout)) {
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 3-комнатной квартиры под ключ в Москве от 560 000 ₽. Капитальный, косметический, дизайнерский — любой формат. Смета фиксируется в договоре, гарантия 3 года. Бесплатный выезд. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
-    <meta name="referrer" content="origin-when-crossorigin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/3room'); ?>">
 

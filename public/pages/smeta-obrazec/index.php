@@ -55,7 +55,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="robots" content="index, follow">
-    <meta name="referrer" content="origin-when-crossorigin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 

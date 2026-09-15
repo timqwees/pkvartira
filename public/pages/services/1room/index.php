@@ -45,7 +45,7 @@ $prices = [
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 1-комнатной квартиры и евротрёшки под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. Более 80 проектов под ключ. Замер и расчёт бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
-    <meta name="referrer" content="origin-when-crossorigin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/1room'); ?>">
 

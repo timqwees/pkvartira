@@ -61,54 +61,66 @@ Routes::get('/dogovor-obrazec', 'on_Dogovor');
 Routes::post('/send/email', [TheFunction::class, 'sendMail']);
 //==================================================================================================//SITEMAP INDEX + ПОД-КАРТЫ (SEO)
 Routes::get('/sitemap.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\Sitemap::outputIndex();
 });
 Routes::get('/sitemap-pages.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\Sitemap::outputPages();
 });
 Routes::get('/sitemap-services.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\Sitemap::outputServices();
 });
 Routes::get('/sitemap-blog.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\Sitemap::outputBlog();
 });
 //==================================================================================================//YML FEED (Яндекс.Бизнес)
 Routes::get('/yml.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\YmlFeed::output();
 });
 //==================================================================================================//RSS FEED (SEO)
 Routes::get('/rss.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\RssFeed::output();
 });
 //==================================================================================================//PAGES LIST
 Routes::get('/pages', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\UrlList::output();
 });
 //==================================================================================================//LLMS.TXT (AI)
 Routes::get('/llms.txt', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     header('Content-Type: text/plain; charset=utf-8');
     readfile(dirname(__DIR__, 2) . '/public/llms.txt');
 });
 //==================================================================================================//LLMS-FULL.TXT (AI)
 Routes::get('/llms-full.txt', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     header('Content-Type: text/plain; charset=utf-8');
     readfile(dirname(__DIR__, 2) . '/public/llms-full.txt');
 });
 
 Routes::get('/opensearch.xml', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
 	header('Content-Type: application/opensearchdescription+xml; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/opensearch.xml');
 });
 //==================================================================================================//AGENTS.JSON (AI-агенты)
 Routes::get('/.well-known/agents.json', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
 	header('Content-Type: application/json; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/.well-known/agents.json');
 });
 
 Routes::get('/robots.txt', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
 	header('Content-Type: text/plain; charset=utf-8');
 	include_once 'public/robots.php';
 });
 //==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
-Routes::get('/vakansii', function() { header('Cache-Control: no-cache'); Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
-Routes::get('/vakansii/{slug}', function($slug) { header('Cache-Control: no-cache'); $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });
+Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
+Routes::get('/vakansii/{slug}', function($slug) { $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });

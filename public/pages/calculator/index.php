@@ -9,7 +9,7 @@
     <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | Проект Квартира</title>
     <meta name="description"
         content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно."><meta name="robots" content="index, follow">
-    <meta name="referrer" content="origin-when-crossorigin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/calculator'); ?>">
 

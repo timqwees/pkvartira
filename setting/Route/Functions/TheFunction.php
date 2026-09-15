@@ -21,98 +21,98 @@ class TheFunction
     # Главная страница || Main page (В маршрутных функциях писать, только маршрут в path больше ничего не нужно)
     public function on_Main($path = '/public/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница контактов || Contact page
     public function on_Contact($path = '/public/pages/contact/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница акций || Stocks page
     public function on_Stocks($path = '/public/pages/stocks/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница о компании || About page
     public function on_About($path = '/public/pages/about/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница другие || Other page
     public function on_Other($path = '/public/pages/other/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница отзывы || Reviews page
     public function on_Reviews($path = '/public/pages/reviews/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница портфолио || Portfolio page
     public function on_Portfolio($path = '/public/pages/portfolio/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница цены || Prices page
     public function on_Prices($path = '/public/pages/prices/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница блог || Blog page
     public function on_Blog($path = '/public/pages/blog/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница калькулятор || Calculator page
     public function on_Calculator($path = '/public/pages/calculator/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница калькулятор площади || Area calculator page
     public function on_AreaCalculator($path = '/public/pages/kalkulyator-ploshchadi/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Соглашение и документы (ПДн) || Legal / consent page
     public function on_Soglashenie($path = '/public/pages/soglashenie/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница образец сметы || Smeta sample page
     public function on_Smeta($path = '/public/pages/smeta-obrazec/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
     # Страница шаблон договора || Dogovor template page
     public function on_Dogovor($path = '/public/pages/dogovor-obrazec/index.php')
     {
-    header('Cache-Control: no-cache');
+
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 

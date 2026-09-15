@@ -1,0 +1,194 @@
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu-links">
+  <!-- Command-palette mobile menu (redesign 2026-07-16, Magnific variant C).
+       Terminal/DevOps-console tone: mono command search, «Популярные»
+       quick rows, compact category accordion with icon + [n] mono badge,
+       all-tools row + trust chips. Search keeps id=mobileMenuSearch —
+       the live filter in global.js works on .mobile-menu-section / a
+       unchanged. Sections are native <details> (keyboard + SR a11y). -->
+  <div class="mobile-menu-cmd">
+    <span class="mobile-menu-cmd__prompt" aria-hidden="true">&gt;</span>
+    <input type="search" class="mobile-menu-search" id="mobileMenuSearch" placeholder="найти инструмент…" aria-label="Поиск инструментов">
+  </div>
+    <div class="mobile-menu-section mobile-menu-popular">
+    <div class="mobile-menu-eyebrow"><span class="mobile-menu-eyebrow__dot" aria-hidden="true"></span>Популярные</div>
+    <div class="mobile-menu-popular__strip">
+              <a href="/" class="mobile-menu-popular__item is-active">
+          <svg class="nav-icon" aria-hidden="true"><use href="#icon-file-text"></use></svg>
+          <span class="mobile-menu-popular__name">HTTP заголовки</span>
+        </a>
+              <a href="/ssl" class="mobile-menu-popular__item">
+          <svg class="nav-icon" aria-hidden="true"><use href="#icon-lock"></use></svg>
+          <span class="mobile-menu-popular__name">SSL</span>
+        </a>
+              <a href="/speed" class="mobile-menu-popular__item">
+          <svg class="nav-icon" aria-hidden="true"><use href="#icon-gauge"></use></svg>
+          <span class="mobile-menu-popular__name">PageSpeed</span>
+        </a>
+          </div>
+  </div>
+
+  <div class="mobile-menu-eyebrow"><span class="mobile-menu-eyebrow__dot" aria-hidden="true"></span>Категории</div>
+  <div class="mobile-menu-empty" id="mobileMenuEmpty" role="status" hidden="">
+    <span class="mobile-menu-empty__glyph" aria-hidden="true">&gt;_</span>
+    Ничего не найдено — Esc сбросит запрос  </div>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-shield-check"></use></svg></span>
+        <div class="mobile-menu-summary__label">Анализ сайта</div>
+        <span class="mobile-menu-count">[12]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/" class="is-active"><svg class="nav-icon" aria-hidden="true"><use href="#icon-file-text"></use></svg>HTTP заголовки</a>
+                  <a href="/extended"><svg class="nav-icon" aria-hidden="true"><use href="#icon-settings"></use></svg>Расширенный</a>
+                  <a href="/health"><svg class="nav-icon" aria-hidden="true"><use href="#icon-activity"></use></svg>Health Score</a>
+                  <a href="/speed"><svg class="nav-icon" aria-hidden="true"><use href="#icon-gauge"></use></svg>PageSpeed</a>
+                  <a href="/security"><svg class="nav-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg>Безопасность</a>
+                  <a href="/seo-audit"><svg class="nav-icon" aria-hidden="true"><use href="#icon-bar-chart-2"></use></svg>SEO-аудит</a>
+                  <a href="/redirects"><svg class="nav-icon" aria-hidden="true"><use href="#icon-arrow-right-from-line"></use></svg>Цепочки редиректов</a>
+                  <a href="/broken-links"><svg class="nav-icon" aria-hidden="true"><use href="#icon-link-2-off"></use></svg>Битые ссылки</a>
+                  <a href="/protocol-test"><svg class="nav-icon" aria-hidden="true"><use href="#icon-zap"></use></svg>HTTP/2 &amp; HTTP/3</a>
+                  <a href="/har"><svg class="nav-icon" aria-hidden="true"><use href="#icon-bar-chart-2"></use></svg>HAR Analyzer</a>
+                  <a href="/http-status"><svg class="nav-icon" aria-hidden="true"><use href="#icon-list"></use></svg>Проверка HTTP статус-кода</a>
+                  <a href="/http-compare"><svg class="nav-icon" aria-hidden="true"><use href="#icon-arrow-right-from-line"></use></svg>HTTP-сравнение</a>
+              </div>
+    </details>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-globe"></use></svg></span>
+        <div class="mobile-menu-summary__label">Домен и DNS</div>
+        <span class="mobile-menu-count">[9]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/dns"><svg class="nav-icon" aria-hidden="true"><use href="#icon-globe"></use></svg>DNS</a>
+                  <a href="/propagation"><svg class="nav-icon" aria-hidden="true"><use href="#icon-refresh-cw"></use></svg>DNS Propagation</a>
+                  <a href="/mx-lookup"><svg class="nav-icon" aria-hidden="true"><use href="#icon-mail"></use></svg>Проверка MX-записей</a>
+                  <a href="/whois"><svg class="nav-icon" aria-hidden="true"><use href="#icon-search"></use></svg>WHOIS</a>
+                  <a href="/subdomain-enum"><svg class="nav-icon" aria-hidden="true"><use href="#icon-globe-2"></use></svg>Поддомены</a>
+                  <a href="/reverse-ip"><svg class="nav-icon" aria-hidden="true"><use href="#icon-search"></use></svg>Reverse IP</a>
+                  <a href="/cms"><svg class="nav-icon" aria-hidden="true"><use href="#icon-layout-dashboard"></use></svg>Определитель CMS</a>
+                  <a href="/tech-detect"><svg class="nav-icon" aria-hidden="true"><use href="#icon-cpu"></use></svg>Определитель технологий</a>
+                  <a href="/screenshot"><svg class="nav-icon" aria-hidden="true"><use href="#icon-camera"></use></svg>Скриншот сайта</a>
+              </div>
+    </details>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-signal"></use></svg></span>
+        <div class="mobile-menu-summary__label">Сеть</div>
+        <span class="mobile-menu-count">[6]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/ping"><svg class="nav-icon" aria-hidden="true"><use href="#icon-signal"></use></svg>Ping</a>
+                  <a href="/traceroute"><svg class="nav-icon" aria-hidden="true"><use href="#icon-route"></use></svg>Traceroute</a>
+                  <a href="/ip"><svg class="nav-icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>IP</a>
+                  <a href="/asn"><svg class="nav-icon" aria-hidden="true"><use href="#icon-building-2"></use></svg>ASN Lookup</a>
+                  <a href="/port-scanner"><svg class="nav-icon" aria-hidden="true"><use href="#icon-scan-line"></use></svg>Сканер портов онлайн</a>
+                  <a href="/api-latency"><svg class="nav-icon" aria-hidden="true"><use href="#icon-timer"></use></svg>API Latency</a>
+              </div>
+    </details>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-lock"></use></svg></span>
+        <div class="mobile-menu-summary__label">Безопасность</div>
+        <span class="mobile-menu-count">[11]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/ssl"><svg class="nav-icon" aria-hidden="true"><use href="#icon-lock"></use></svg>SSL</a>
+                  <a href="/csp"><svg class="nav-icon" aria-hidden="true"><use href="#icon-code-2"></use></svg>CSP</a>
+                  <a href="/cors"><svg class="nav-icon" aria-hidden="true"><use href="#icon-arrow-left-right"></use></svg>CORS</a>
+                  <a href="/cookie"><svg class="nav-icon" aria-hidden="true"><use href="#icon-fingerprint"></use></svg>Cookie</a>
+                  <a href="/password-generator"><svg class="nav-icon" aria-hidden="true"><use href="#icon-key-round"></use></svg>Генератор паролей</a>
+                  <a href="/mixed-content"><svg class="nav-icon" aria-hidden="true"><use href="#icon-alert-circle"></use></svg>Mixed Content</a>
+                  <a href="/malware"><svg class="nav-icon" aria-hidden="true"><use href="#icon-shield-x"></use></svg>Антивирус</a>
+                  <a href="/spam"><svg class="nav-icon" aria-hidden="true"><use href="#icon-ban"></use></svg>Спам-листы</a>
+                  <a href="/abuse"><svg class="nav-icon" aria-hidden="true"><use href="#icon-alert-triangle"></use></svg>Проверка IP (AbuseIPDB)</a>
+                  <a href="/rkn"><svg class="nav-icon" aria-hidden="true"><use href="#icon-octagon-x"></use></svg>Проверка РКН</a>
+                  <a href="/compliance"><svg class="nav-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg>Соответствие 152-ФЗ</a>
+              </div>
+    </details>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-mail"></use></svg></span>
+        <div class="mobile-menu-summary__label">Email</div>
+        <span class="mobile-menu-count">[4]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/email-check"><svg class="nav-icon" aria-hidden="true"><use href="#icon-mail-check"></use></svg>Email доставляемость</a>
+                  <a href="/email-header"><svg class="nav-icon" aria-hidden="true"><use href="#icon-mail"></use></svg>Заголовки Email</a>
+                  <a href="/smtp-test"><svg class="nav-icon" aria-hidden="true"><use href="#icon-mail-x"></use></svg>SMTP Relay Test</a>
+                  <a href="/dkim"><svg class="nav-icon" aria-hidden="true"><use href="#icon-key"></use></svg>DKIM Генератор</a>
+              </div>
+    </details>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-sparkles"></use></svg></span>
+        <div class="mobile-menu-summary__label">SEO и AI</div>
+        <span class="mobile-menu-count">[16]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/schema-checker"><svg class="nav-icon" aria-hidden="true"><use href="#icon-code-2"></use></svg>Schema-разметка</a>
+                  <a href="/og-preview"><svg class="nav-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>OG Preview</a>
+                  <a href="/keywords"><svg class="nav-icon" aria-hidden="true"><use href="#icon-tag"></use></svg>Ключевые слова</a>
+                  <a href="/robots-checker"><svg class="nav-icon" aria-hidden="true"><use href="#icon-bot"></use></svg>Robots.txt</a>
+                  <a href="/compare-sites"><svg class="nav-icon" aria-hidden="true"><use href="#icon-columns-2"></use></svg>Сравнение сайтов</a>
+                  <a href="/ai-check"><svg class="nav-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>AI Readiness</a>
+                  <a href="/ai-visibility"><svg class="nav-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>AI Visibility</a>
+                  <a href="/seo-guard"><svg class="nav-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg>Контроль SEO-регрессий</a>
+                  <a href="/radar"><svg class="nav-icon" aria-hidden="true"><use href="#icon-scan-line"></use></svg>Радар конкурентов</a>
+                  <a href="/agency-leads"><svg class="nav-icon" aria-hidden="true"><use href="#icon-search"></use></svg>Agency Leads</a>
+                  <a href="/accessibility"><svg class="nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg>Доступность</a>
+                  <a href="/brand-protect"><svg class="nav-icon" aria-hidden="true"><use href="#icon-shield"></use></svg>Защита бренда</a>
+                  <a href="/attack-surface"><svg class="nav-icon" aria-hidden="true"><use href="#icon-scan-line"></use></svg>Внешняя поверхность</a>
+                  <a href="/agent-commerce"><svg class="nav-icon" aria-hidden="true"><use href="#icon-shopping-cart"></use></svg>Агентная торговля</a>
+                  <a href="/llms-txt"><svg class="nav-icon" aria-hidden="true"><use href="#icon-file-code"></use></svg>llms.txt</a>
+                  <a href="/carbon"><svg class="nav-icon" aria-hidden="true"><use href="#icon-leaf"></use></svg>Углеродный след</a>
+              </div>
+    </details>
+          <details class="mobile-menu-section" data-open-default="0">
+      <summary class="mobile-menu-summary">
+        <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-settings"></use></svg></span>
+        <div class="mobile-menu-summary__label">Утилиты</div>
+        <span class="mobile-menu-count">[9]</span>
+      </summary>
+      <div class="mobile-menu-section__body">
+                  <a href="/formatter"><svg class="nav-icon" aria-hidden="true"><use href="#icon-braces"></use></svg>Форматтер</a>
+                  <a href="/jwt"><svg class="nav-icon" aria-hidden="true"><use href="#icon-key-round"></use></svg>JWT Decoder</a>
+                  <a href="/cron-tester"><svg class="nav-icon" aria-hidden="true"><use href="#icon-clock"></use></svg>Cron Tester</a>
+                  <a href="/ttl-calc"><svg class="nav-icon" aria-hidden="true"><use href="#icon-timer"></use></svg>TTL Calculator</a>
+                  <a href="/ip-calc"><svg class="nav-icon" aria-hidden="true"><use href="#icon-calculator"></use></svg>IP/CIDR Калькулятор</a>
+                  <a href="/uptime-calc"><svg class="nav-icon" aria-hidden="true"><use href="#icon-percent"></use></svg>Калькулятор Uptime / SLA</a>
+                  <a href="/downtime-calc"><svg class="nav-icon" aria-hidden="true"><use href="#icon-trending-down"></use></svg>Стоимость простоя</a>
+                  <a href="/batch"><svg class="nav-icon" aria-hidden="true"><use href="#icon-list-checks"></use></svg>Массовая</a>
+                  <a href="/heartbeat"><svg class="nav-icon" aria-hidden="true"><use href="#icon-heart-pulse"></use></svg>Heartbeat</a>
+              </div>
+    </details>
+  
+  <details class="mobile-menu-section" data-open-default="0">
+  <summary class="mobile-menu-summary">
+    <span class="mobile-menu-summary__icon" aria-hidden="true"><svg class="nav-icon"><use href="#icon-circle-help"></use></svg></span>
+    <div class="mobile-menu-summary__label">Информация</div>
+    <span class="mobile-menu-count">[7]</span>
+  </summary>
+  <div class="mobile-menu-section__body">
+    <a href="/api/docs"><svg class="nav-icon" aria-hidden="true"><use href="#icon-file-code"></use></svg>API документация</a>
+    <a href="/articles"><svg class="nav-icon" aria-hidden="true"><use href="#icon-book-open"></use></svg>Статьи</a>
+    <a href="/pricing"><svg class="nav-icon" aria-hidden="true"><use href="#icon-credit-card"></use></svg>Тарифы</a>
+    <a href="/help"><svg class="nav-icon" aria-hidden="true"><use href="#icon-circle-help"></use></svg>Справка</a>
+    <a href="/contact"><svg class="nav-icon" aria-hidden="true"><use href="#icon-mail"></use></svg>Контакты</a>
+          <a href="/login"><svg class="nav-icon" aria-hidden="true"><use href="#icon-key-round"></use></svg>Войти</a>
+      <a href="/register?utm_source=nav&amp;utm_medium=internal&amp;utm_campaign=ambient_cta"><svg class="nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg>Регистрация</a>
+    </div>
+</details>
+
+  <a href="/tools" class="mobile-menu-alltools">
+    <svg class="nav-icon" aria-hidden="true"><use href="#icon-layout-dashboard"></use></svg>
+    Все 67+ инструментов    <span class="mobile-menu-alltools__arrow" aria-hidden="true">→</span>
+  </a>
+
+  <div class="mobile-menu-chips">
+    <span class="mobile-menu-chip"><svg class="nav-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>AI-диагноз</span>
+    <span class="mobile-menu-chip"><svg class="nav-icon" aria-hidden="true"><use href="#icon-credit-card"></use></svg>Без карты</span>
+    <span class="mobile-menu-chip"><svg class="nav-icon" aria-hidden="true"><use href="#icon-activity"></use></svg>Мониторинг 24/7</span>
+  </div>
+</nav>
+</div>

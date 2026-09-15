@@ -148,6 +148,7 @@ class API
     }
 
     http_response_code($httpCode);
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     header('Content-Type: application/json; charset=utf-8');
     header('Cache-Control: no-store, no-cache, must-revalidate');
 

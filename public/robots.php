@@ -1,5 +1,23 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
+// Отдаётся напрямую через RewriteRule в обход роутера, поэтому security-заголовки
+// ставим здесь же через header() (те же значения, что в SecurityHeaders::sendSecurity()).
+// .htaccess на reg.ru держим без директив Header — только rewrite/сжатие/Expires.
+if (!headers_sent()) {
+    if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https')) {
+        header('Strict-Transport-Security: max-age=63072000; includeSubDomains; preload');
+    }
+    header('X-Frame-Options: SAMEORIGIN');
+    header('X-Content-Type-Options: nosniff');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()');
+    header('Cross-Origin-Opener-Policy: same-origin-allow-popups');
+    header('Cross-Origin-Resource-Policy: same-origin');
+    header('Cross-Origin-Embedder-Policy: unsafe-none');
+    header("Content-Security-Policy: upgrade-insecure-requests; frame-ancestors 'self'");
+    header('Cache-Control: public, max-age=3600, must-revalidate');
+}
 $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
 $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
 $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
