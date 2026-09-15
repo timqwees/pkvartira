@@ -834,6 +834,7 @@ class TheFunction
                         'alternateName' => $shortBrand,
                     ],
                     'url' => $site['baseUrl'],
+                    'description' => $site['description'],
                     'contactPoint' => [
                         '@type' => 'ContactPoint',
                         'telephone' => $site['phone'],
@@ -920,7 +921,7 @@ class TheFunction
                             '@type' => 'EntryPoint',
                             'urlTemplate' => $site['baseUrl'] . '/search?q={search_term_string}',
                         ],
-                        'query' => 'required name=search_term_string',
+                        'query-input' => 'required name=search_term_string',
                     ],
                 ],
                 [
@@ -1042,6 +1043,17 @@ class TheFunction
                 '@id' => $pageUrl . '#breadcrumb',
                 'itemListElement' => $items,
             ];
+        }
+
+        // Связка основной ноды страницы ↔ BreadcrumbList.
+        // Убирает warn enterno «WebPage: отсутствует breadcrumb».
+        if (!empty($opts['breadcrumbs'])) {
+            foreach ($jsonLd['@graph'] as $gi => $gn) {
+                if (($gn['@type'] ?? '') === $opts['pageType'] && ($gn['@id'] ?? '') === $pageUrl . '#webpage') {
+                    $jsonLd['@graph'][$gi]['breadcrumb'] = ['@id' => $pageUrl . '#breadcrumb'];
+                    break;
+                }
+            }
         }
 
         // Custom schema from options
@@ -1214,6 +1226,147 @@ class TheFunction
                 'unitCode' => 'CMT',
             ],
         ];
+    }
+
+    /**
+     * Простой поиск по сайту (для /search — закрывает 404, на который
+     * ссылаются SearchAction в schema и opensearch.xml).
+     * Источники: статьи блога, услуги, вакансии, основные страницы.
+     * Возвращает список ['title','url','snippet','section'], отсортированный по релевантности.
+     */
+    public static function siteSearch(string $query, int $limit = 30): array
+    {
+        $root = dirname(__DIR__, 3);
+        $site = self::site();
+        $base = $site['baseUrl'];
+
+        $words = preg_split('~[^\p{L}\p{N}]+~u', mb_strtolower($query), -1, PREG_SPLIT_NO_EMPTY) ?? [];
+        // Отбрасываем короткие слова (предлоги/частицы/одна буква — иначе матчится весь сайт),
+        // цифры оставляем (площадь, цены). Если значимых слов нет — пустой результат.
+        $words = array_values(array_filter($words, fn($w) => mb_strlen($w) >= 3 || is_numeric($w)));
+        if ($words === []) {
+            return [];
+        }
+
+        $pool = [];
+
+        // --- Статьи блога ---
+        $articlesFile = $root . '/public/pages/blog/data/articles.json';
+        if (is_file($articlesFile)) {
+            $articles = json_decode((string) file_get_contents($articlesFile), true);
+            if (is_array($articles)) {
+                foreach ($articles as $a) {
+                    if (!is_array($a)) {
+                        continue;
+                    }
+                    $id = (string) ($a['id'] ?? '');
+                    if ($id === '') {
+                        continue;
+                    }
+                    $pool[] = [
+                        'title' => (string) ($a['title'] ?? ''),
+                        'url' => $base . (string) ($a['link'] ?? ('/blog/article/' . $id)),
+                        'snippet' => (string) ($a['meta_description'] ?? ''),
+                        'section' => 'Блог',
+                        'tags' => (string) ($a['tags'] ?? '') . ' ' . (string) ($a['category'] ?? ''),
+                    ];
+                }
+            }
+        }
+
+        // --- Услуги (сканируем директории как в public/pages/services/index.php) ---
+        $servicesDir = $root . '/public/pages/services';
+        if (is_dir($servicesDir)) {
+            foreach (scandir($servicesDir) as $item) {
+                if ($item === '.' || $item === '..' || $item === 'index.php') {
+                    continue;
+                }
+                $indexFile = $servicesDir . '/' . $item . '/index.php';
+                if (!is_file($indexFile)) {
+                    continue;
+                }
+                $title = $item;
+                $content = (string) file_get_contents($indexFile);
+                if (preg_match('/\$title\s*=\s*[\'"]([^\'"]+)[\'"]/', $content, $m)) {
+                    $title = trim(explode('—', (string) preg_replace('/\s*—\s*цена.*$/u', '', $m[1]))[0]);
+                }
+                $pool[] = [
+                    'title' => $title,
+                    'url' => $base . '/services/' . $item,
+                    'snippet' => 'Услуга: ' . $title . ' — фиксированная смета, гарантия 3 года.',
+                    'section' => 'Услуги',
+                    'tags' => 'ремонт услуга ' . $item,
+                ];
+            }
+        }
+
+        // --- Вакансии ---
+        $vacFile = $root . '/public/pages/vakansii/vacancies.json';
+        if (is_file($vacFile)) {
+            $vacancies = json_decode((string) file_get_contents($vacFile), true);
+            if (is_array($vacancies)) {
+                foreach ($vacancies as $slug => $v) {
+                    if (!is_array($v)) {
+                        continue;
+                    }
+                    $vSlug = (string) ($v['slug'] ?? $slug);
+                    if ($vSlug === '') {
+                        continue;
+                    }
+                    $pool[] = [
+                        'title' => (string) ($v['title'] ?? $vSlug),
+                        'url' => $base . '/vakansii/' . $vSlug,
+                        'snippet' => (string) ($v['seoDescription'] ?? $v['subtitle'] ?? ''),
+                        'section' => 'Вакансии',
+                        'tags' => 'работа вакансия ' . (string) ($v['keywords'] ?? ''),
+                    ];
+                }
+            }
+        }
+
+        // --- Основные страницы ---
+        foreach ([
+            ['Главная', '/', 'Ремонт квартир и домов под ключ в Москве.'],
+            ['Услуги', '/services', 'Все виды ремонта: под ключ, дизайнерский, White Box.'],
+            ['Цены', '/prices', 'Цены на ремонт квартир за м².'],
+            ['Портфолио', '/portfolio', 'Выполненные объекты: фото ремонтов.'],
+            ['Отзывы', '/reviews', 'Отзывы клиентов о ремонте.'],
+            ['Блог', '/blogs', 'Статьи о ремонте квартир.'],
+            ['Калькулятор', '/calculator', 'Рассчитайте стоимость ремонта за 60 секунд.'],
+            ['Контакты', '/contact', 'Телефон, адрес, как связаться.'],
+            ['Акции', '/stocks', 'Скидки и акции на ремонт.'],
+            ['О компании', '/about', 'Проект Квартира — 10 лет на рынке.'],
+            ['Вакансии', '/vakansii', 'Работа в ремонте: мастера, прорабы.'],
+        ] as [$pTitle, $pUrl, $pSnippet]) {
+            $pool[] = ['title' => $pTitle, 'url' => $base . $pUrl, 'snippet' => $pSnippet, 'section' => 'Страницы', 'tags' => ''];
+        }
+
+        // --- Скоринг: совпадение в заголовке весит 3, в сниппете/тегах — 1 ---
+        $results = [];
+        foreach ($pool as $doc) {
+            $score = 0;
+            $title = mb_strtolower($doc['title']);
+            $rest = mb_strtolower($doc['snippet'] . ' ' . ($doc['tags'] ?? ''));
+            foreach ($words as $w) {
+                if ($w !== '' && mb_strpos($title, $w) !== false) {
+                    $score += 3;
+                } elseif ($w !== '' && mb_strpos($rest, $w) !== false) {
+                    $score += 1;
+                }
+            }
+            if ($score > 0) {
+                $doc['score'] = $score;
+                unset($doc['tags']);
+                $results[] = $doc;
+            }
+        }
+        usort($results, fn($a, $b) => $b['score'] <=> $a['score'] ?: strcmp($a['section'], $b['section']));
+        foreach ($results as &$r) {
+            unset($r['score']);
+        }
+        unset($r);
+
+        return array_slice($results, 0, $limit);
     }
 
     public static function faqSchema(array $faqs): array

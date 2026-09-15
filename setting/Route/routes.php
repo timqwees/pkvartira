@@ -50,6 +50,8 @@ Routes::get('/blog/article/{id}', function ($id = null) {
 Routes::get('/calculator', 'on_Calculator');
 //==================================================================================================//AREA CALCULATOR (SEO)
 Routes::get('/kalkulyator-ploshchadi', 'on_AreaCalculator');
+//==================================================================================================//SEARCH (поиск по сайту: закрывает SearchAction в schema и opensearch.xml — раньше был 404)
+Routes::get('/search', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/search/index.php", get_defined_vars()); });
 //==================================================================================================//LEGAL / CONSENT
 Routes::get('/soglashenie', 'on_Soglashenie');
 Routes::get('/privacy-policy', 'on_Soglashenie');
