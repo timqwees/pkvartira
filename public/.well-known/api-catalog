@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://pkvartira.ru/",
+      "service-desc": [
+        { "href": "https://pkvartira.ru/openapi.yaml", "type": "application/yaml" }
+      ],
+      "service-doc": [
+        { "href": "https://pkvartira.ru/llms-full.txt", "type": "text/plain" }
+      ]
+    }
+  ]
+}

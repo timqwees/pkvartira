@@ -125,6 +125,7 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
 <!-- LLM Discovery -->
 <meta name="llms:website" content="<?= $__headBase; ?>/llms.txt">
 <meta name="llms:full" content="<?= $__headBase; ?>/llms-full.txt">
+<link rel="ai-content" href="<?= $__headBase; ?>/llms.txt" type="text/plain" title="LLMs.txt — AI-readable site index">
 
 <!-- Performance Hints (max 4 preconnects) -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>

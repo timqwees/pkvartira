@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "pkvartira",
+  "name_for_human": "Проект Квартира (ПКвартира)",
+  "description_for_model": "Проект Квартира (ПКвартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве. Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.",
+  "description_for_human": "Ремонт квартир под ключ в Москве — цены, калькулятор, портфолио.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://pkvartira.ru/openapi.yaml"
+  },
+  "llms_txt": "https://pkvartira.ru/llms.txt",
+  "llms_full": "https://pkvartira.ru/llms-full.txt",
+  "logo_url": "https://pkvartira.ru/public/assets/images/logo/favicon/favicon-96x96.png",
+  "contact_email": "info@pkvartira.ru",
+  "legal_info_url": "https://pkvartira.ru/soglashenie"
+}

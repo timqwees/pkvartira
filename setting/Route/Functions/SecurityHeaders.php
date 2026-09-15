@@ -40,6 +40,10 @@ final class SecurityHeaders
         // Permissive CSP: сайт использует инлайн-скрипты/стили, строгий CSP всё сломает.
         // frame-ancestors усиливает X-Frame-Options.
         header("Content-Security-Policy: upgrade-insecure-requests; frame-ancestors 'self'", true);
+        // AI-readiness (enterno ai-check): явное разрешение индексации + машиночитаемые связи.
+        // Без noai/noimageai — политика сайта «разрешить всех» (см. robots.php).
+        header('X-Robots-Tag: index, follow', true);
+        header('Link: </llms.txt>; rel="llms", </sitemap.xml>; rel="sitemap", </openapi.yaml>; rel="service-desc"', true);
     }
 
     /**

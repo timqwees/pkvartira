@@ -1,0 +1,26 @@
+openapi: 3.0.3
+info:
+  title: pkvartira.ru — поиск по сайту
+  description: Read-only поиск по сайту Проект Квартира (ПКвартира) — услуги, статьи блога, цены, вакансии.
+  version: "1.0"
+servers:
+  - url: https://pkvartira.ru
+paths:
+  /search:
+    get:
+      operationId: search
+      summary: Поиск по сайту
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          example: дизайнерский ремонт
+      responses:
+        '200':
+          description: HTML-страница с результатами поиска
+          content:
+            text/html:
+              schema:
+                type: string

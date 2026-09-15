@@ -124,13 +124,14 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
 
-        <!-- Краткий ответ-блок (AI-citations / featured snippets): 2–3 предложения сути -->
-        <section class="bg-white border-b border-gray-100" aria-label="Коротко о компании">
+        <!-- Краткий ответ-блок (AI-citations / featured snippets): суть страницы в 2–3 предложениях -->
+        <section class="tldr bg-white border-b border-gray-100" aria-label="Коротко о компании">
             <div class="container mx-auto px-4 py-4 max-w-4xl">
-                <p id="ai-short-answer" class="text-sm md:text-base text-gray-700 text-center">
+                <p id="ai-short-answer" class="tldr-text text-sm md:text-base text-gray-700 text-center">
                     <strong class="text-gray-900">Коротко:</strong>
                     Проект Квартира (ПКвартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве.
                     Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.
+                    Замер в день обращения, старт работ через 2 дня.
                 </p>
             </div>
         </section>

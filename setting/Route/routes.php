@@ -123,6 +123,37 @@ Routes::get('/.well-known/security.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/.well-known/security.txt');
 });
+//==================================================================================================//AI DISCOVERY (ai-check: ai-plugin, openapi, api-catalog, agent-skills)
+Routes::get('/ai-plugin.json', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: application/json; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/ai-plugin.json');
+});
+Routes::get('/openapi.yaml', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: text/yaml; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/openapi.yaml');
+});
+Routes::get('/.well-known/api-catalog', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: application/linkset+json');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/api-catalog');
+});
+Routes::get('/.well-known/agent-skills/index.json', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: application/json; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/agent-skills/index.json');
+});
+Routes::get('/.well-known/agent-skills/site-search/SKILL.md', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: text/markdown; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/agent-skills/site-search/SKILL.md');
+});
+Routes::get('/.well-known/agent-skills/price-lookup/SKILL.md', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: text/markdown; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/agent-skills/price-lookup/SKILL.md');
+});
 
 Routes::get('/robots.txt', function() {
 	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
