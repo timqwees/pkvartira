@@ -79,7 +79,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
                     <div class="max-w-4xl">
                         <h1 class="z-10 hero-title text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-                            Ремонт в Москве без нервов:<br>
+                            Ремонт квартир под ключ в Москве без нервов:<br>
                             - <strong class="text-orange-500">фиксированная</strong> цена,<br>
                             - <strong class="text-orange-400">реальные</strong> сроки<br>
                             - <strong class="text-orange-300">компенсация</strong>, если что-то пойдет не так
@@ -135,7 +135,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             варианта</span> сметы под ваш бюджет
                     </h2>
                     <p class="text-gray-600 text-sm md:text-base">
-                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы под ваш бюджет
+                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы с точной стоимостью под ваш бюджет
                     </p>
                 </div>
 
@@ -217,7 +217,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         Нам доверяют — <strong class="text-orange-600">10 лет</strong> безупречной репутации
                     </h2>
                     <p class="section-subtitle mx-auto">
-                        Каждый объект — это чья-то история. Мы гордимся каждой из них.
+                        Каждый объект — это чья-то история: честная цена, фиксированная смета и гарантия 3 года.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
