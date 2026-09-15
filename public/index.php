@@ -6,7 +6,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8000 ₽/м²',
     'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт: ремонт квартир и домов под ключ в Москве. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽, дизайнерский от 18 000 ₽. Фиксированная смета, гарантия 3 года, бесплатный замер.',
     'keywords' => 'Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, ПКвартира отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проект квартира, пквартира',
-    'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
+    'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/og-home-1200x630.jpg',
     'url' => $site['canonicalUrl'],
     'type' => 'website',
     'pageType' => 'WebPage',
@@ -38,6 +38,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
 
     <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
     <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">

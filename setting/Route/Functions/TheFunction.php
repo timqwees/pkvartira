@@ -1063,6 +1063,11 @@ class TheFunction
             }
         }
 
+        // OG/Twitter-заголовок: чекеры режут >116 (считают байты — 65 кириллических
+        // символов ≈ 116 байт). Держим ≤60 символов: бренд уже есть в og:site_name.
+        $ogTitleFull = $opts['title'] . ' — ' . $brand;
+        $ogTitle = mb_strlen($ogTitleFull) <= 60 ? $ogTitleFull : self::truncateSeo($opts['title'], 60);
+
         return [
             'title' => $opts['title'],
             'description' => $opts['description'],
@@ -1070,7 +1075,7 @@ class TheFunction
             'keywords' => $opts['keywords'],
             'og' => [
                 'type' => $opts['type'],
-                'title' => $opts['title'] . ' — ' . $brand,
+                'title' => $ogTitle,
                 'description' => $opts['description'],
                 'url' => $pageUrl,
                 'image' => $opts['image'],
@@ -1080,7 +1085,7 @@ class TheFunction
             'twitter' => [
                 'card' => 'summary_large_image',
                 'site' => '@pkvartira',
-                'title' => $opts['title'] . ' — ' . $brand,
+                'title' => $ogTitle,
                 'description' => $opts['description'],
                 'image' => $opts['image'],
                 'creator' => '@pkvartira',

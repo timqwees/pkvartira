@@ -35,9 +35,8 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="msapplication-TileColor" content="#f97316">
 
-<meta property="og:image:width" content="512" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:type" content="image/png" />
+<!-- Размеры/тип og:image задаёт сама страница (у главной 1200×630):
+     глобальные 512/png от фавиконки здесь врали бы скраперам на каждой странице. -->
 <meta property="og:image:alt" content="<?= $__ogAlt; ?>" />
 <meta name="twitter:image:alt" content="<?= $__ogAlt; ?>" />
 <link rel="alternate" hreflang="ru" href="<?= $__hreflangHref; ?>" />
