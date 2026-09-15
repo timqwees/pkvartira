@@ -50,22 +50,14 @@ echo "Disallow: /*?*\n";
 echo "Allow: /*?page=\n";
 echo "\n";
 echo "User-agent: OAI-SearchBot\n";
-echo "Disallow: /api/\n";
+echo "Allow: /\n";
 echo "\n";
-echo "User-agent: GPTBot\n";
-echo "Disallow: /api/\n";
-echo "\n";
-echo "User-agent: ClaudeBot\n";
-echo "Disallow: /api/\n";
-echo "\n";
-echo "User-agent: PerplexityBot\n";
-echo "Disallow: /api/\n";
-echo "\n";
-// Явный допуск AI-краулеров (enterno: «не упомянут» → правило wildcard).
-// Политика «разрешить всех»: ассистенты и обучение видят сайт, закрыт только /api/.
-foreach (['ChatGPT-User', 'anthropic-ai', 'Google-Extended', 'CCBot', 'Applebot-Extended', 'Bytespider', 'cohere-ai', 'Diffbot'] as $aiBot) {
+// AI-краулеры: ПОЛНЫЙ допуск (Allow: / без единого Disallow) — enterno показывает «Разрешено».
+// /api/ в приложении не существует (такие URL и так отдают 404), закрывать ботам нечего.
+// Поисковым (*, Yandex, Googlebot) правила не трогаем.
+foreach (['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'anthropic-ai', 'PerplexityBot', 'Google-Extended', 'CCBot', 'Applebot-Extended', 'Bytespider', 'cohere-ai', 'Diffbot'] as $aiBot) {
     echo "User-agent: {$aiBot}\n";
-    echo "Disallow: /api/\n";
+    echo "Allow: /\n";
     echo "\n";
 }
 echo "Sitemap: {$baseUrl}/sitemap.xml\n";
