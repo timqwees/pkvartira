@@ -33,6 +33,13 @@ if ($isProd) {
 }
 $baseUrl = $scheme . '://' . $host;
 
+// Content-Signal (IETF draft draft-romm-aipref-contentsignals): предпочтения
+// использования контента AI-системами. Политика сайта — полный допуск:
+// search=yes (поиск), ai-train=yes (обучение), ai-input=yes (ответы).
+// Неизвестная директива игнорируется обычными краулерами.
+echo "# Content-Signal: search=yes, ai-train=yes, ai-input=yes\n";
+echo "Content-Signal: search=yes, ai-train=yes, ai-input=yes\n";
+echo "\n";
 echo "User-agent: *\n";
 echo "Disallow: /api/\n";
 echo "Disallow: /*?*\n";

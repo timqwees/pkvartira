@@ -1,0 +1,14 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
+  "name": "pkvartira",
+  "version": "1.0.0",
+  "transports": {
+    "streamable-http": {
+      "url": "https://pkvartira.ru/mcp"
+    }
+  },
+  "capabilities": {
+    "tools": {}
+  },
+  "description": "Поиск по сайту и цены Проект Квартира (ПКвартира): site-search, price-lookup. Только чтение, без авторизации."
+}

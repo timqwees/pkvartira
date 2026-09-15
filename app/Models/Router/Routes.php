@@ -303,6 +303,20 @@ class Routes extends Network
             if (!empty($params)) {
                 extract($params, EXTR_SKIP);
             }
+            // Markdown Negotiation (AI-readiness): клиент просит text/markdown —
+            // отдаём текстовую версию той же страницы вместо HTML.
+            if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET'
+                && stripos($_SERVER['HTTP_ACCEPT'] ?? '', 'text/markdown') !== false) {
+                header('Content-Type: text/markdown; charset=utf-8', true);
+                ob_start();
+                include_once $path;
+                $html = (string) ob_get_clean();
+                echo \Setting\Route\Functions\Markdown::toMarkdown(
+                    $html,
+                    \Setting\Route\Functions\TheFunction::site()['baseUrl']
+                );
+                return;
+            }
             include_once $path;
         } else {
             self::error_404(__METHOD__);

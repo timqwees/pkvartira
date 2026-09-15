@@ -154,6 +154,19 @@ Routes::get('/.well-known/agent-skills/price-lookup/SKILL.md', function() {
 	header('Content-Type: text/markdown; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/.well-known/agent-skills/price-lookup/SKILL.md');
 });
+//==================================================================================================//MCP (Model Context Protocol: server-card + JSON-RPC endpoint)
+Routes::get('/.well-known/mcp/server-card.json', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: application/json; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/mcp/server-card.json');
+});
+Routes::post('/mcp', [\Setting\Route\Functions\McpServer::class, 'handle']);
+Routes::get('/mcp', function() {
+	http_response_code(405);
+	header('Allow: POST');
+	header('Content-Type: application/json; charset=utf-8');
+	echo json_encode(['error' => 'Use POST with JSON-RPC 2.0'], JSON_UNESCAPED_UNICODE);
+});
 
 Routes::get('/robots.txt', function() {
 	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
