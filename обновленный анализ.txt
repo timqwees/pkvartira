@@ -1,129 +1,232 @@
 <main id="main-content" tabindex="-1">
-<section class="tool-hero tool-hero--robots-checker reveal visible">
+<section class="tool-hero tool-hero--llms-txt reveal visible">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="card">
     <h1 class="tool-title">
-      <span class="tool-icon" aria-hidden="true"><svg width="22" height="22" class="icon icon--bot" aria-hidden="true" focusable="false"><use href="#icon-bot"></use></svg></span>
-      Проверка robots.txt: валидатор и тестер URL    </h1>
-    <p class="tool-desc">Синтаксис, правила обхода, карты сайта — и проверка, закрыт ли конкретный URL для конкретного бота. На любом сайте, без подтверждения прав.</p>
-<div class="tldr"><strong>Коротко:</strong> <p>Проверка robots.txt — парсер читает файл, показывает, какие User-agent разрешены/запрещены, выделяет типичные ошибки (неправильный синтаксис, блокировка важных путей, CSS/JS в Disallow). Проверяет правильность sitemap-ссылок и Clean-param директивы для Яндекса.</p></div>
+      <span class="tool-icon" aria-hidden="true"><svg width="22" height="22" class="icon icon--file-code" aria-hidden="true" focusable="false"><use href="#icon-file-code"></use></svg></span>
+      llms.txt Валидатор и Генератор    </h1>
+    <p class="tool-desc">Проверьте существующий <code>llms.txt</code> или сгенерируйте его автоматически из sitemap. По спецификации <a href="https://llmstxt.org" target="_blank" rel="noopener nofollow">llmstxt.org</a>.</p>
+<div class="tldr"><strong>Коротко:</strong> <p>llms.txt — стандартизированный файл (llmstxt.org), который помогает LLM-краулерам быстро понять структуру сайта, ключевые разделы и важные ссылки. Валидатор проверяет правильность формата (H1, blockquote summary, sections), размер (≤30KB рекомендуется), наличие ключевых секций.</p></div>
 
-    <div id="quota-data" hidden="" data-limit="50" data-remaining="45" data-used="5" data-upgrade="/pricing"></div>
-        <form id="robotsForm" class="robots-form" method="post" autocomplete="off" data-no-progress="1">
+    <form id="llmsForm" class="llms-form" autocomplete="off">
       <input type="hidden" name="_token" value="c149c13aaebce716e4e3de31b5854a63e07b4135523766726312ec182cde5898">
-      <div class="form-row">
-        <div class="input-wrap input-wrap--domain">
-          <label for="robotsHost" class="sr-only">Domain</label>
-          <input type="text" id="robotsHost" name="domain" class="input" placeholder="example.com" inputmode="url" required="" autofocus="">
+
+      <!-- Mode tabs -->
+      <div class="llms-mode-tabs" role="tablist">
+        <button type="button" class="llms-mode-tab llms-mode-tab--active" data-mode="validate" role="tab" aria-selected="true">
+          <span class="llms-mode-icon">✓</span>
+          Проверить        </button>
+        <button type="button" class="llms-mode-tab" data-mode="generate" role="tab" aria-selected="false">
+          <span class="llms-mode-icon">⚡</span>
+          Сгенерировать        </button>
+        <button type="button" class="llms-mode-tab" data-mode="paste" role="tab" aria-selected="false">
+          <span class="llms-mode-icon">📋</span>
+          Вставить        </button>
+        <button type="button" class="llms-mode-tab" data-mode="custom" role="tab" aria-selected="false">
+          <span class="llms-mode-icon">🔧</span>
+          Свой список        </button>
+      </div>
+
+      <input type="hidden" name="action" id="llmsAction" value="validate">
+
+      <div class="llms-mode-desc" id="llmsModeDesc">
+        <span id="llmsModeDescVal">Загружает <code>/llms.txt</code> домена и проверяет по спецификации</span>
+        <span id="llmsModeDescGen" class="hidden">Парсит sitemap, берёт до <strong>100 страниц</strong>, извлекает заголовки и строит корректный <code>llms.txt</code></span>
+        <span id="llmsModeDescPaste" class="hidden">Вставьте содержимое <code>llms.txt</code> или <code>llms-full.txt</code> напрямую и проверьте по спецификации</span>
+        <span id="llmsModeDescCustom" class="hidden">Введите список URL, которые должны попасть в файл — мы получим заголовки страниц и соберём готовый <code>llms.txt</code></span>
+      </div>
+
+      <div class="form-row" id="llmsDomainRow">
+        <div class="input-wrap llms-input-wrap">
+          <input type="text" id="llmsDomain" name="url" class="input" placeholder="example.com" autocomplete="off" spellcheck="false" inputmode="url" autofocus="">
+          <label class="input-label sr-only" for="llmsDomain">Домен или URL</label>
         </div>
-        <button type="submit" class="btn btn-primary" id="robotsBtn">
-          <span class="btn-text">Проверить</span>
-          <span class="btn-spinner spinner hidden"></span>
+        <button type="submit" class="btn btn-primary" id="llmsSubmit">
+          <span class="btn-text" id="llmsBtnText">Проверить</span>
+          <span class="btn-spinner hidden">⌛</span>
         </button>
+      </div><div class="saved-checks"><button type="button" class="saved-checks__save">Сохранить пресет</button><div class="saved-checks__list hidden" id="savedChecksList"></div></div>
+
+      <!-- Generate options: Pro toggle / upgrade strip -->
+      <div id="llmsGenOptions" class="hidden">
+        <div class="llms-gen-upsell">
+          <span class="llms-gen-upsell-icon">⚡</span>
+          <span>Бесплатно: до 100 страниц. Pro: до 1 000 с фоновой обработкой.</span>
+          <a href="/upgrade" class="llms-upsell-link">Тарифы →</a>
+        </div>
+      </div>
+
+      <div class="llms-paste-section hidden" id="llmsPasteSection">
+        <!-- File type selector (Phase 20 -- LLMS-04) -->
+        <div class="llms-file-type-toggle" role="group" aria-label="Тип файла">
+          <button type="button" class="llms-file-type-btn llms-file-type-btn--active" data-type="auto">
+            Авто          </button>
+          <button type="button" class="llms-file-type-btn" data-type="llms">
+            llms.txt
+          </button>
+          <button type="button" class="llms-file-type-btn" data-type="llms-full">
+            llms-full.txt
+          </button>
+        </div>
+        <input type="hidden" name="file_type" id="llmsFileType" value="auto">
+        <textarea id="llmsPasteContent" name="content" class="llms-paste-textarea" placeholder="# Мой Проект
+&gt; Краткое описание...
+
+## Страницы
+- [Главная](https://example.com)" spellcheck="false" rows="10"></textarea>
+        <div class="llms-paste-footer">
+          <button type="submit" class="btn btn-primary" id="llmsPasteSubmit">
+            <span class="btn-text" id="llmsPasteBtnText">Проверить</span>
+            <span class="btn-spinner hidden">⌛</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Custom URL list section -->
+      <div class="llms-custom-section hidden" id="llmsCustomSection">
+        <div class="llms-custom-fields">
+          <div class="llms-custom-row">
+            <div class="input-wrap llms-input-wrap flex-1">
+              <input type="text" id="llmsCustomName" name="site_name" class="input" placeholder="Мой сайт" autocomplete="off">
+              <label class="input-label" for="llmsCustomName">Название сайта (необязательно)</label>
+            </div>
+          </div>
+          <div class="llms-custom-row">
+            <div class="input-wrap llms-input-wrap flex-1">
+              <input type="text" id="llmsCustomDesc" name="site_desc" class="input" placeholder="Краткое описание сайта для AI" autocomplete="off">
+              <label class="input-label" for="llmsCustomDesc">Описание (необязательно)</label>
+            </div>
+          </div>
+        </div>
+        <textarea id="llmsCustomUrls" name="urls" class="llms-paste-textarea llms-custom-urls" placeholder="https://example.com/
+https://example.com/about
+https://example.com/pricing
+https://example.com/blog
+
+# По одному URL на строку. Можно добавить заголовок через пробел:
+# https://example.com/docs  Руководство разработчика" spellcheck="false" rows="10"></textarea>
+        <div class="llms-custom-footer">
+          <div class="llms-custom-hint">
+            <span>💡 Максимум 500 URL. Заголовки страниц загружаются автоматически.</span>
+          </div>
+          <button type="submit" class="btn btn-primary" id="llmsCustomSubmit">
+            <span class="btn-text" id="llmsCustomBtnText">Сгенерировать</span>
+            <span class="btn-spinner hidden">⌛</span>
+          </button>
+        </div>
       </div>
     </form>
-  </div>
+
+    <div id="llmsError" class="tool-error hidden"></div>
+  </div><section id="toolProgress" class="tool-progress hidden" aria-live="polite"><div class="card"><div class="tool-progress-bar"><div class="tool-progress-fill"></div></div><p class="tool-progress-text">Подключаемся…</p></div></section>
 </section>
 
-<!-- Results -->
-<section class="robots-results" id="robotsResults"><div class="export-bar"><button class="export-btn" id="robotsExportJson">JSON</button><button class="export-btn share-btn" id="shareResult" title="Поделиться результатом"><svg width="15" height="15" class="icon icon--link-2" aria-hidden="true" focusable="false"><use href="#icon-link-2"></use></svg> Поделиться</button></div>
-  <div class="card">
-    <h2 class="result-title" id="robotsDomain">pkvartira.ru</h2>
-
-    <!-- Status -->
-    <div id="robotsStatus"><div class="robots-status status-found"><span class="status-icon">✓</span><span>robots.txt найден</span><span class="status-size">766 байт</span><span class="status-host">Директива Host: pkvartira.ru</span></div></div>
-
-    <!-- AI bot policy first-class verdict (S6 spec H1, 2026-05-25) -->
-    <div id="robotsAiBotPolicy"><h3 class="section-label">Политика AI-ботов</h3><p class="ai-bot-policy-summary">Разрешено: 12 · Заблокировано: 0 · Не упомянуто: 0 (из 12)</p><div class="ai-bot-policy-grid"><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">GPTBot<span class="ai-bot-card__vendor">OpenAI</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">OAI-SearchBot<span class="ai-bot-card__vendor">OpenAI</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">ChatGPT-User<span class="ai-bot-card__vendor">OpenAI</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">ClaudeBot<span class="ai-bot-card__vendor">Anthropic</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">anthropic-ai<span class="ai-bot-card__vendor">Anthropic</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Google-Extended<span class="ai-bot-card__vendor">Google</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">PerplexityBot<span class="ai-bot-card__vendor">Perplexity</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">CCBot<span class="ai-bot-card__vendor">Common Crawl</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Applebot-Extended<span class="ai-bot-card__vendor">Apple</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Bytespider<span class="ai-bot-card__vendor">Bytedance</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">cohere-ai<span class="ai-bot-card__vendor">Cohere</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div><div class="ai-bot-card ai-bot-card--partial"><div class="ai-bot-card__icon" aria-hidden="true">◐</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Diffbot<span class="ai-bot-card__vendor">Diffbot</span></div><div class="ai-bot-card__status">Частично</div><div class="ai-bot-card__why">1 path(s) disallowed: /api/</div></div></div></div></div>
-
-    <!-- Parsed rules per user-agent -->
-    <div id="robotsBotCoverage" class="robots-bots-panel"><h3 class="section-label bots-section-label">Покрытие ботов<span class="bots-legend"><span class="legend-item legend-explicit"><span class="legend-dot"></span>Прописан</span><span class="legend-item legend-wildcard"><span class="legend-dot"></span>Через *</span><span class="legend-item legend-none"><span class="legend-dot"></span>Не задан</span></span></h3><div class="bots-group"><div class="bots-group-lbl">Поисковые системы</div><div class="bots-grid"><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#4285F4;font-size:9px">G</span><span class="bot-label">Google</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="Googlebot" title="Googlebot" aria-label="How to configure Googlebot">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#CC0000;font-size:9px">Y</span><span class="bot-label">Yandex</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="YandexBot" title="YandexBot" aria-label="How to configure YandexBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#0078D4;font-size:9px">B</span><span class="bot-label">Bing</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="bingbot" title="bingbot" aria-label="How to configure bingbot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#DE5833;font-size:9px">D</span><span class="bot-label">DuckDuckGo</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="DuckDuckBot" title="DuckDuckBot" aria-label="How to configure DuckDuckBot">?</button></div></div></div><div class="bots-group"><div class="bots-group-lbl">AI и SEO-боты</div><div class="bots-grid"><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#10A37F;font-size:7px">GP</span><span class="bot-label">ChatGPT</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="GPTBot" title="GPTBot" aria-label="How to configure GPTBot">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#D97756;font-size:7px">Cl</span><span class="bot-label">Claude</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="ClaudeBot" title="ClaudeBot" aria-label="How to configure ClaudeBot">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#C87040;font-size:7px">An</span><span class="bot-label">Anthropic</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="anthropic-ai" title="anthropic-ai" aria-label="How to configure anthropic-ai">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#0FA570;font-size:7px">GU</span><span class="bot-label">ChatGPT Browse</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="ChatGPT-User" title="ChatGPT-User" aria-label="How to configure ChatGPT-User">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#8B5CF6;font-size:7px">GA</span><span class="bot-label">Google AI</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="Google-Extended" title="Google-Extended" aria-label="How to configure Google-Extended">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#1FB8CD;font-size:7px">Px</span><span class="bot-label">Perplexity</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="PerplexityBot" title="PerplexityBot" aria-label="How to configure PerplexityBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#1877F2;font-size:7px">Me</span><span class="bot-label">Meta AI</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="Meta-ExternalAgent" title="Meta-ExternalAgent" aria-label="How to configure Meta-ExternalAgent">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#2D2D2D;font-size:7px">Bt</span><span class="bot-label">ByteDance</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="Bytespider" title="Bytespider" aria-label="How to configure Bytespider">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#FF6220;font-size:7px">Se</span><span class="bot-label">SEMrush</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="SemrushBot" title="SemrushBot" aria-label="How to configure SemrushBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#0F6FFF;font-size:7px">Ah</span><span class="bot-label">Ahrefs</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="AhrefsBot" title="AhrefsBot" aria-label="How to configure AhrefsBot">?</button></div></div></div></div><div id="robotsRules"><h3 class="section-label">Разобранные правила</h3><div class="ua-block"><div class="ua-header"><span class="ua-name">*</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/*?*</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*?page=</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Yandex</span><span class="ua-crawl-delay">Crawl-delay: 0.8s</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/*?*</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*?page=</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Googlebot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/*?*</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*?page=</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">OAI-SearchBot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">GPTBot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">ClaudeBot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">PerplexityBot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">ChatGPT-User</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">anthropic-ai</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Google-Extended</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">CCBot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Applebot-Extended</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Bytespider</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">cohere-ai</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Diffbot</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/api/</td></tr></tbody></table></div></div>
-
-    <!-- Sitemaps -->
-    <div id="robotsSitemaps"><h3 class="section-label">Карты сайта</h3><div class="sitemap-health-summary" aria-label="Состояние карт сайта"><span class="sm-chip sm-chip-total">Состояние карт сайта: 1</span></div><div class="sitemap-cards"><div class="sitemap-card sitemap-ok"><div class="sitemap-url">https://pkvartira.ru/sitemap.xml</div><div class="sitemap-meta"><span class="sitemap-status-icon">✓</span><span>Доступен</span> <span class="sitemap-http">HTTP 200</span> <span class="sitemap-ct">application/xml; charset=utf-8</span></div><div class="sitemap-freshness"><span class="sitemap-size">Размер: 0.5 KB</span></div></div></div></div>
-
-    <!-- Warnings & Errors -->
-    <div id="robotsWarnings"></div>
-    <div id="robotsErrors"></div>
-
-    <!-- URL Tester -->
-    <div class="url-tester" id="urlTester">
-      <h3 class="section-label">Проверка URL</h3>
-      <div class="url-tester-form">
-        <select id="urlTesterUa" class="input input--select"><option value="*">Все боты (*)</option><option value="Yandex">Yandex</option><option value="Googlebot">Googlebot</option><option value="OAI-SearchBot">OAI-SearchBot</option><option value="GPTBot">GPTBot</option><option value="ClaudeBot">ClaudeBot</option><option value="PerplexityBot">PerplexityBot</option><option value="ChatGPT-User">ChatGPT-User</option><option value="anthropic-ai">anthropic-ai</option><option value="Google-Extended">Google-Extended</option><option value="CCBot">CCBot</option><option value="Applebot-Extended">Applebot-Extended</option><option value="Bytespider">Bytespider</option><option value="cohere-ai">cohere-ai</option><option value="Diffbot">Diffbot</option></select>
-        <input type="text" id="urlTesterPath" class="input" placeholder="/admin/page.html">
-        <button type="button" class="btn btn-secondary" id="urlTesterBtn">Проверить</button>
+<!-- What is llms.txt info strip -->
+<section class="tool-section">
+  <div class="llms-spec-strip">
+    <div class="llms-spec-item">
+      <div class="llms-spec-icon">#</div>
+      <div>
+        <strong>Заголовок H1</strong>
+        <span>Название сайта — обязательно</span>
       </div>
-      <div id="urlTesterResult"></div>
     </div>
-
-    <!-- Raw robots.txt -->
-    <details class="robots-raw-wrap">
-      <summary>Показать robots.txt</summary><div id="robotsRawActions" class="robots-raw-actions"><button type="button" class="btn-raw-action btn-raw-copy" id="robotsCopyBtn">Копировать</button><button type="button" class="btn-raw-action btn-raw-edit" id="robotsEditBtn">Редактировать</button></div>
-      <pre class="robots-raw" id="robotsRaw"><span class="hl-useragent">User-agent</span>:<span class="hl-value"> *</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /*?*</span>
-<span class="hl-allow">Allow</span>:<span class="hl-value"> /*?page=</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Yandex</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /*?*</span>
-<span class="hl-allow">Allow</span>:<span class="hl-value"> /*?page=</span>
-<span class="hl-meta">Crawl-delay</span>:<span class="hl-value"> 0.8</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Googlebot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /*?*</span>
-<span class="hl-allow">Allow</span>:<span class="hl-value"> /*?page=</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> OAI-SearchBot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> GPTBot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> ClaudeBot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> PerplexityBot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> ChatGPT-User</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> anthropic-ai</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Google-Extended</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> CCBot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Applebot-Extended</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Bytespider</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> cohere-ai</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Diffbot</span>
-<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /api/</span>
-<span class="hl-comment"></span>
-<span class="hl-sitemap">Sitemap</span>:<span class="hl-value"> https://pkvartira.ru/sitemap.xml</span>
-<span class="hl-comment"></span>
-<span class="hl-meta">Host</span>:<span class="hl-value"> pkvartira.ru</span>
-<span class="hl-comment"></span>
-</pre>
-    </details>
+    <div class="llms-spec-item">
+      <div class="llms-spec-icon">&gt;</div>
+      <div>
+        <strong>Блок-цитата</strong>
+        <span>Краткое описание — рекомендуется</span>
+      </div>
+    </div>
+    <div class="llms-spec-item">
+      <div class="llms-spec-icon">##</div>
+      <div>
+        <strong>Разделы H2</strong>
+        <span>Группировка ссылок по теме</span>
+      </div>
+    </div>
+    <div class="llms-spec-item">
+      <div class="llms-spec-icon">🔗</div>
+      <div>
+        <strong>Ссылки на файлы</strong>
+        <span>[Заголовок](url): описание</span>
+      </div>
+    </div>
   </div>
-</section>
 
-<div id="aiRobotsCheckerSummary" class="" aria-live="polite"><div class="ai-summary ai-summary--quota"><span class="ai-summary__nudge">Лимит AI-резюме исчерпан (10/день). <a href="/register?utm_source=ai_quota&amp;utm_medium=internal&amp;utm_campaign=ambient_cta">Регистрация</a> поднимает его до 50 в день.</span></div></div>
+  <!-- Results -->
+  <div id="llmsResults" class=""><div class="llms-result-tabs" id="llmsResultTabs"><button class="llms-result-tab llms-result-tab--active" data-idx="0">llms.txt <span class="llms-tab-grade grade-a">A</span></button><button class="llms-result-tab" data-idx="1">llms-full.txt <span class="llms-tab-grade grade-a">A</span></button></div><div id="llmsFileContent"><div class="llms-score-hero"><div class="llms-circle-wrap"><svg class="llms-circle-svg" viewBox="0 0 124 124"><circle class="llms-circle-bg" cx="62" cy="62" r="54"></circle><circle class="llms-circle-fg" cx="62" cy="62" r="54" stroke="var(--green)" stroke-dasharray="339.29200658769764" stroke-dashoffset="339.29200658769764" id="llmsCircleFg" style="stroke-dashoffset: 16.9646;"></circle></svg><div class="llms-score-num" id="llmsScoreNum">95<small>/100</small></div></div><div class="llms-score-info"><div class="llms-grade-badge grade-a">A</div><span class="llms-profile-badge">llms.txt</span><div class="llms-score-meta"><div><a href="https://pkvartira.ru/llms.txt" target="_blank" rel="noopener">pkvartira.ru/llms.txt</a></div><div>84 ссылок · 16 разделов · 16.5 KB</div></div></div></div><div class="llms-issues-banner"><div class="llms-issues-title">⚠ 1 проблем найдено</div><ul class="llms-issues-list"><li>4 duplicate link(s) found</li></ul></div><div class="llms-checks"><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">H1 heading</div><div class="llms-check-detail">Found: # llms.txt — Проект Квартира (ПКвартира, pkvartira.ru)</div></div><div class="llms-check-pts">25<small>/25</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">Blockquote summary</div><div class="llms-check-detail">Found: &gt; Проект Квартира (ПКвартира, pkvartira.ru) — профессиональная компания по ремон</div></div><div class="llms-check-pts">20<small>/20</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">H2 sections</div><div class="llms-check-detail">16 sections found: О бренде Проект Квартира, О компании, Форматы ремонта (по бюджету и сложности), Ремонт по типу недвижимости</div></div><div class="llms-check-pts">15<small>/15</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">Link format</div><div class="llms-check-detail">84 links with valid format</div></div><div class="llms-check-pts">15<small>/15</small></div></div><div class="llms-check-row llms-check-row--warning"><span class="llms-chk-icon llms-chk-icon--warn">⚠</span><div class="llms-check-body"><div class="llms-check-name">No duplicate links</div><div class="llms-check-detail">4 duplicate URL(s) found</div></div><div class="llms-check-pts">5<small>/10</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">Link count ≤ 100</div><div class="llms-check-detail">84 links (within recommended limit)</div></div><div class="llms-check-pts">10<small>/10</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">File size &lt; 500 KB</div><div class="llms-check-detail">16.5 KB</div></div><div class="llms-check-pts">5<small>/5</small></div></div></div><details class="llms-raw-details"><summary class="llms-raw-summary"><svg width="15" height="15" class="icon icon--file-text" aria-hidden="true" focusable="false"><use href="#icon-file-text"></use></svg> Просмотр llms.txt</summary><pre class="llms-raw-pre"><code># llms.txt — Проект Квартира (ПКвартира, pkvartira.ru)
+# Ремонт квартир, домов и коммерческих помещений под ключ в Москве и Подмосковье с 2014 года
+# Брендовые названия: Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, ООО Проект Квартира
 
-<section class="tool-subscribe tool-subscribe--hidden" id="toolSubscribe" data-source="tool:robots-checker">
+&gt; Проект Квартира (ПКвартира, pkvartira.ru) — профессиональная компания по ремонту недвижимости под ключ. Работаем в Москве и Московской области.
+&gt; Также известна как: ПКвартира, pkvartira, pkvartira.ru, ООО Проект Квартира. Гарантия 3 года (на премиум — 5 лет). Более 325 объектов, 98% довольных клиентов.
+&gt; Фиксированная смета в договоре, бесплатный замер и расчёт. Телефон: +7 495 473-17-37. Ищите нас: Проект Квартира, ПКвартира.
+
+## О бренде Проект Квартира
+- Официальное название: **Проект Квартира** (ООО "Проект Квартира", ИНН 9719013990)
+- Сокращённое: **ПКвартира** / **pkvartira** / **pkvartira.ru**
+- Сайт: https://pkvartira.ru — единственное официальное зеркало. Не путать с мошенниками — проверяйте домен pkvartira.ru
+- Брендовые запросы: "Проект Квартира", "ПКвартира", "pkvartira.ru ремонт", "Проект Квартира ремонт квартир", "ООО Проект Квартира отзывы"
+
+## О компании
+- [О компании Проект Квартира](https://pkvartira.ru/about): Команда Проект Квартира (ПКвартира), 10 лет опыта, более 325 выполненных объектов, 98% довольных клиентов
+
+## Форматы ремонта (по бюджету и сложности)
+- [Косметический ремонт](https://pkvartira.ru/calculator): Обновление интерьера, от 8 000 ₽/м², срок от 14 дней
+- [Капитальный ремонт](https://pkvartira.ru/calculator): Полная замена коммуникаций, от 13 000 ₽/м², срок от 45 дней — самый популярный формат
+- [Дизайнерский ремонт](https://pkvartira.ru/calculator): Авторский ремонт по дизайн-проекту, от 18 000 ₽/м², срок от 60 дней
+- [Премиум и элитный ремонт](https://pkvartira.ru/calculator): Эксклюзив, умный дом, от 25 000 ₽/м², срок от 90 дней, гарантия 5 лет
+
+## Ремонт по типу недвижимости
+- [Ремонт под ключ](https://pkvartira.ru/services/pod-klyuch): Полный цикл ремонта от демонтажа до уборки, цена от 15 000 ₽/м²
+- [Ремонт новостройки](https://pkvartira.ru/services/nowostroyka): Черновой и чистовой ремонт квартир в новых домах
+- [Ремонт вторички](https://pkvartira.ru/services/vtorichka): Полный цикл ремонта вторичного жилья, от 640 000 ₽
+- [Дома и коттеджи](https://pkvartira.ru/services/doma): Ремонт домов и коттеджей под ключ, от 8 000 ₽/м²
+- [Коммерческие помещения](https://pkvartira.ru/services/kommercheskie): Офисы, магазины, кафе, рестораны, салоны красоты, клиники
+
+## Ремонт по количеству комнат
+- [1-комнатная квартира](https://pkvartira.ru/services/1room): Ремонт однокомнатных квартир, от 296 000 ₽
+- [2-комнатная квартира](https://pkvartira.ru/services/2room): Ремонт двухкомнатных квартир, от 400 000 ₽
+- [3-комнатная квартира](https://pkvartira.ru/services/3room): Ремонт трёхкомнатных квартир, от 560 000 ₽
+- [4-комнатная квартира](https://pkvartira.ru/services/4room): Ремонт четырёхкомнатных квартир, от 720 000 ₽
+- [Студия](https://pkvartira.ru/services/studio): Ремонт квартир-студий, от 200 000 ₽
+- [Евродвушка](https://pkvartira.ru/services/evro-dvushka): Ремонт евродвушек под ключ
+- [Евротрешка](https://pkvartira.ru/services/evro-treshka): Ремонт евротрешек под ключ
+
+## Ремонт по типу дома (серия/материал)
+- [Хрущёвка](https://pkvartira.ru/services/khrushchevka): Ремонт квартир в хрущёвке
+- [Брежневка](https://pkvartira.ru/services/brezhnevka): Ремонт квартир в брежневке
+- [Сталинка](https://pkvartira.ru/services/stalinka): Ремонт квартир в сталинке
+- [Панельный дом](https://pkvartira.ru/services/panelny): Ремонт квартир в панельном доме
+- [Кирпичный дом](https://pkvartira.ru/services/kirpich): Ремонт квартир в кирпичном доме
+- [Монолитный дом](https://pkvartira.ru/services/monolit): Ремонт квартир в монолитном доме
+- [Дом из бревна](https://pkvartira.ru/services/iz-breven): Ремонт домов из бревна
+- [Дом из бруса](https://pkvartira.ru/services/iz-brusa): Ремонт домов из бруса
+- [Каркасный дом](https://pkvartira.ru/services/karkasny): Ремонт каркасных домов
+
+## Ремонт по назначению
+- [Для жизни](https://pkvartira.ru/services/dlya-zhizni): Ремонт квартиры для комфортной жизни
+- [Для продажи](https://pkvartira.ru/services/dlya-prodazhi): Ремонт квартиры для выгодной продажи
+- [Под сдачу](https://pkvartira.ru/services/dlya-sdachi): Ремонт квартиры под аренду, от 250 000 ₽
+- [Под заселение](https://pkvartira.ru/services/pod-zaselenie): Ремонт квартиры под заселение
+- [Эконом класс](https://pkvartira.ru/services/econom): Бюджетный ремонт
+- [Комфорт класс](https://pkvartira.ru/services/komfort): Ремонт комфорт-класса
+- [Бизнес класс](https://pkvartira.ru/services/business): Ремонт бизнес-класса
+- [Премиум класс](https://pkvartira.ru/services/premium): Премиальный ремонт
+- [White box](https://pkvartira.ru/services/white-box): Ремонт квартиры white box
+
+## Ремонт новостройки (по состоянию)
+- [Без отделки](https://pkvartira.ru/services/bez-otdelki): Ремонт новостройки без отделки
+- [Черновая отделка](https://pkvartira.ru/services/chernovaya): Ремонт новостройки с черновой отделкой
+- [Предчистовая отделка](https://pkvartira.ru/services/predchistovaya): Ремонт новостройки с предчистовой отделкой
+- [Чистовая отделка](https://pkvartira.ru/services/chistovaya): Ремонт новостройки с чистовой отделкой
+- [Отделка от застройщика](https://pkvartira.ru/services/ot-zastroyschika): Ремонт новостройки с отделкой от застройщика
+
+## Ремонт по районам Москвы и районам Подмосковья
+- [м. Академическая](https://pkvartira.ru/services/akademicheskay</code></pre></details><div class="export-bar"><button class="export-btn share-btn" id="shareResult" title="Поделиться результатом"><svg width="15" height="15" class="icon icon--link-2" aria-hidden="true" focusable="false"><use href="#icon-link-2"></use></svg> Поделиться</button></div></div><div class="llms-coverage card"><div class="llms-coverage-header"><h3 class="llms-coverage-title">Покрытие из sitemap</h3><span class="llms-coverage-pct" style="color:#f87171">8%</span></div><p class="llms-coverage-summary">В llms.txt упомянуто 2 из 24 URL из sitemap (8%)</p><p class="llms-coverage-meta">Sitemap: <a href="https://pkvartira.ru/sitemap-pages.xml" target="_blank" rel="noopener">https://pkvartira.ru/sitemap-pages.xml</a></p><div class="llms-coverage-missing"><div class="llms-coverage-missing-label">Отсутствуют в llms.txt (первые 20):</div><ul class="llms-coverage-list"><li><a href="https://pkvartira.ru/" target="_blank" rel="noopener">https://pkvartira.ru/</a></li><li><a href="https://pkvartira.ru/prices" target="_blank" rel="noopener">https://pkvartira.ru/prices</a></li><li><a href="https://pkvartira.ru/portfolio" target="_blank" rel="noopener">https://pkvartira.ru/portfolio</a></li><li><a href="https://pkvartira.ru/reviews" target="_blank" rel="noopener">https://pkvartira.ru/reviews</a></li><li><a href="https://pkvartira.ru/stocks" target="_blank" rel="noopener">https://pkvartira.ru/stocks</a></li><li><a href="https://pkvartira.ru/contact" target="_blank" rel="noopener">https://pkvartira.ru/contact</a></li><li><a href="https://pkvartira.ru/kalkulyator-ploshchadi" target="_blank" rel="noopener">https://pkvartira.ru/kalkulyator-ploshchadi</a></li><li><a href="https://pkvartira.ru/services" target="_blank" rel="noopener">https://pkvartira.ru/services</a></li><li><a href="https://pkvartira.ru/blogs" target="_blank" rel="noopener">https://pkvartira.ru/blogs</a></li><li><a href="https://pkvartira.ru/smeta-obrazec" target="_blank" rel="noopener">https://pkvartira.ru/smeta-obrazec</a></li><li><a href="https://pkvartira.ru/dogovor-obrazec" target="_blank" rel="noopener">https://pkvartira.ru/dogovor-obrazec</a></li><li><a href="https://pkvartira.ru/vakansii" target="_blank" rel="noopener">https://pkvartira.ru/vakansii</a></li><li><a href="https://pkvartira.ru/vakansii/malyar" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/malyar</a></li><li><a href="https://pkvartira.ru/vakansii/plitochnik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/plitochnik</a></li><li><a href="https://pkvartira.ru/vakansii/santehnik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/santehnik</a></li><li><a href="https://pkvartira.ru/vakansii/elektrik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/elektrik</a></li><li><a href="https://pkvartira.ru/vakansii/shtukatur" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/shtukatur</a></li><li><a href="https://pkvartira.ru/vakansii/plotnik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/plotnik</a></li><li><a href="https://pkvartira.ru/vakansii/kamenshchik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/kamenshchik</a></li><li><a href="https://pkvartira.ru/vakansii/master-universal" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/master-universal</a></li></ul><p class="llms-coverage-tip">Совет: добавьте эти URL в llms.txt — тогда LLM смогут их находить при ответах о вашем сайте.</p></div></div></div>
+  <div id="aiLlmsTxtSummary" class="" aria-live="polite"><div class="ai-summary ai-summary--quota"><span class="ai-summary__nudge">Лимит AI-резюме исчерпан (10/день). <a href="/register?utm_source=ai_quota&amp;utm_medium=internal&amp;utm_campaign=ambient_cta">Регистрация</a> поднимает его до 50 в день.</span></div></div>
+  <section class="tool-subscribe tool-subscribe--hidden" id="toolSubscribe" data-source="tool:llms-txt">
   <div class="tool-subscribe__inner">
     <div class="tool-subscribe__copy">
       <h3 class="tool-subscribe__title">
@@ -144,43 +247,188 @@
       Отписаться — одним кликом из любого письма. Никому не передаём адрес. Подписываясь, соглашаетесь с <a href="/privacy">политикой конфиденциальности</a>.    </p>
   </div>
 </section>
-<!-- Error -->
-<div class="robots-error hidden" id="robotsError">Не удалось определить IP хоста</div>
+</section>
 
-<!-- Loading -->
-<div class="robots-loading hidden" id="robotsLoading">
-  <div class="card">
-    <div class="loader-bar"></div>
-    <p class="loader-text">Проверяем robots.txt...</p>
+<div id="resultCta" class="result-cta result-cta--problem" data-cta-mode="anonymous" data-cta-slug="llms-txt" data-href-template="/register?m=${URL}&amp;utm_source=tool_llms-txt&amp;utm_medium=internal&amp;utm_campaign=save_track">
+  <div class="result-cta__icon" aria-hidden="true"><i class="ph-fill ph-warning" data-class0="ph-fill ph-bookmark-simple"></i></div>
+  <div class="result-cta__text">
+    <strong>Мы нашли 1 проблему на pkvartira.ru</strong>
+    <span>Поставьте на мониторинг — узнаете первыми, если станет хуже: истечёт SSL, упадёт грейд, ляжет сайт. Уведомления в Telegram, email, Slack.</span>
   </div>
+  <a id="resultCtaBtn" href="/register?m=https%3A%2F%2Fpkvartira.ru%2Fllms.txt&amp;utm_source=tool_llms-txt&amp;utm_medium=internal&amp;utm_campaign=save_track" class="result-cta__btn">
+    Бесплатная регистрация  </a>
 </div>
 
-<!-- Info section -->
+<!-- What is llms.txt -->
+<section class="tool-section llms-edu-section">
+  <div class="llms-edu-header">
+    <h2>Что такое llms.txt?</h2>
+    <p>Markdown-файл в корне сайта (<code>/llms.txt</code>), который помогает AI-ассистентам и языковым моделям понять контент вашего сайта без парсинга HTML.</p>
+  </div>
 
+  <div class="llms-feature-grid">
+    <div class="llms-feature-card">
+      <div class="llms-feature-icon">🤖</div>
+      <h3>Формат для AI</h3>
+      <p>Чистый Markdown, который ChatGPT, Claude, Perplexity и другие LLM могут прочитать за один контекстный запрос.</p>
+    </div>
+    <div class="llms-feature-card">
+      <div class="llms-feature-icon">📌</div>
+      <h3>Аналог robots.txt</h3>
+      <p>Как robots.txt направляет поисковых роботов, llms.txt направляет AI-системы к нужному контенту вашего сайта.</p>
+    </div>
+    <div class="llms-feature-card">
+      <div class="llms-feature-icon">📄</div>
+      <h3>Открытый стандарт</h3>
+      <p>Определён на <a href="https://llmstxt.org" target="_blank" rel="noopener nofollow">llmstxt.org</a> — открытый развивающийся стандарт, поддержанный сообществом разработчиков.</p>
+    </div>
+    <div class="llms-feature-card">
+      <div class="llms-feature-icon">⚡</div>
+      <h3>Легко создать</h3>
+      <p>Используйте вкладку «Сгенерировать» выше — мы парсим sitemap и создаём готовый llms.txt автоматически.</p>
+    </div>
+  </div>
 
-<section class="seo-section">
-  <h2>Проверка robots.txt</h2>
-  <p>Инструмент анализирует файл robots.txt вашего сайта, который управляет доступом поисковых роботов к страницам. Проверяются правила для всех user-agent, директивы Allow/Disallow, Crawl-delay, ссылки на Sitemap. Некорректный robots.txt может привести к деиндексации важных страниц или открытию служебных разделов.</p>
-  <p>Частые ошибки в robots.txt: блокировка CSS/JS файлов (ломает рендеринг для Google), отсутствие директивы Sitemap, Allow/Disallow без начального слеша и конфликтующие правила для одного пути. Наш валидатор находит эти проблемы и показывает, какие URL заблокированы для каждого User-Agent.</p>
-  <p>Всегда тестируйте изменения robots.txt перед деплоем — одна опечатка может деиндексировать весь сайт. После валидации проверьте <a href="/broken-links">битые ссылки</a>, чтобы заблокированные страницы не ссылались из активного контента. Проверьте <a href="/security">заголовки безопасности</a> для защиты чувствительных путей.</p></section>
+  <!-- llms.txt vs llms-full.txt -->
+  <div class="llms-compare-wrap">
+    <h2>llms.txt и llms-full.txt</h2>
+    <div class="llms-compare-grid">
+      <div class="llms-compare-card llms-compare-card--primary">
+        <div class="llms-compare-badge">llms.txt</div>
+        <ul class="llms-compare-list">
+          <li>Индекс ключевых страниц со ссылками</li>
+          <li>Компактный — помещается в один контекст</li>
+          <li>Быстро генерируется и проверяется</li>
+          <li>Лучший выбор для навигации AI по сайту</li>
+          <li class="llms-compare-required">Обязателен — начните с него</li>
+        </ul>
+      </div>
+      <div class="llms-compare-card">
+        <div class="llms-compare-badge llms-compare-badge--muted">llms-full.txt</div>
+        <ul class="llms-compare-list">
+          <li>Полный контент каждой страницы</li>
+          <li>Подробный — может превышать контекст</li>
+          <li>Полезен для детальных исследовательских запросов</li>
+          <li>Дополнение к llms.txt, не замена</li>
+          <li class="llms-compare-optional">Опционален — добавьте позже</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Common Mistakes + FAQ -->
+<section class="tool-section llms-edu-section">
+  <div class="llms-two-col">
+    <!-- Common Mistakes -->
+    <div class="llms-mistakes-block">
+      <h2>Частые ошибки</h2>
+      <div class="llms-mistake-list">
+        <div class="llms-mistake-item">
+          <span class="llms-mistake-icon">❌</span>
+          <div>
+            <strong>Нет заголовка H1</strong>
+            <span>Первая строка должна быть <code># Название проекта</code></span>
+          </div>
+        </div>
+        <div class="llms-mistake-item">
+          <span class="llms-mistake-icon">❌</span>
+          <div>
+            <strong>Нет описания-блокцитаты</strong>
+            <span>Добавьте <code>&gt; Краткое описание</code> после H1</span>
+          </div>
+        </div>
+        <div class="llms-mistake-item">
+          <span class="llms-mistake-icon">❌</span>
+          <div>
+            <strong>Битые или относительные ссылки</strong>
+            <span>Все ссылки должны быть абсолютными (<code>https://</code>)</span>
+          </div>
+        </div>
+        <div class="llms-mistake-item">
+          <span class="llms-mistake-icon">❌</span>
+          <div>
+            <strong>Нет разделов H2</strong>
+            <span>Группируйте ссылки под заголовками <code>## Раздел</code></span>
+          </div>
+        </div>
+        <div class="llms-mistake-item">
+          <span class="llms-mistake-icon">❌</span>
+          <div>
+            <strong>Файл слишком большой</strong>
+            <span>Держите llms.txt до 100 КБ для наилучшей совместимости с AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Practices -->
+    <div class="llms-practices-block">
+      <h2>Лучшие практики</h2>
+      <div class="llms-practice-list">
+        <div class="llms-practice-item">
+          <span class="llms-practice-icon">✓</span>
+          <div>
+            <strong>Ссылайтесь на важнейшие страницы</strong>
+            <span>Акцент на документацию, ключевые функции, API и руководства</span>
+          </div>
+        </div>
+        <div class="llms-practice-item">
+          <span class="llms-practice-icon">✓</span>
+          <div>
+            <strong>Используйте понятные заголовки ссылок</strong>
+            <span><code>[Руководство по началу работы](url)</code> лучше, чем просто <code>[Страница 1](url)</code></span>
+          </div>
+        </div>
+        <div class="llms-practice-item">
+          <span class="llms-practice-icon">✓</span>
+          <div>
+            <strong>Добавляйте описания</strong>
+            <span>После каждой ссылки добавьте <code>: Краткое описание</code> для контекста</span>
+          </div>
+        </div>
+        <div class="llms-practice-item">
+          <span class="llms-practice-icon">✓</span>
+          <div>
+            <strong>Обновляйте файл</strong>
+            <span>Перегенерируйте при добавлении новых разделов или изменении структуры сайта</span>
+          </div>
+        </div>
+        <div class="llms-practice-item">
+          <span class="llms-practice-icon">✓</span>
+          <div>
+            <strong>Укажите в robots.txt</strong>
+            <span>Добавьте <code>llms.txt: https://ваш-домен.com/llms.txt</code> в robots.txt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ block removed — content is now in page_faqs (seed:
+       cli/seeds/seed-llms-txt-faqs.php) and rendered below via
+       renderFaqSection(), eliminating the duplicate FAQ section that
+       used to show up twice on the page. -->
+</section>
+
 <div class="edu-blocks-wrap">
 <section class="edu-section">
   <div class="edu-info-strip">
     <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-robot icon-purple"></i></div>
-      <div><strong>robots.txt парсинг</strong><span>Полный разбор директив Allow/Disallow</span></div>
+      <div class="edu-info-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
+      <div><strong>Стандарт llms.txt</strong><span>Описание сайта для AI-систем</span></div>
     </div>
     <div class="edu-info-item">
       <div class="edu-info-icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
-      <div><strong>URL тест</strong><span>Разрешён ли конкретный URL для бота</span></div>
+      <div><strong>Структура файла</strong><span>Разделы, ссылки, описания</span></div>
     </div>
     <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-plugs icon-cyan"></i></div>
-      <div><strong>Sitemap-ссылки</strong><span>Все Sitemap: директивы в файле</span></div>
+      <div class="edu-info-icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
+      <div><strong>llms-full.txt</strong><span>Расширенная версия с полным контентом</span></div>
     </div>
     <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
-      <div><strong>AI-краулеры</strong><span>GPTBot, ClaudeBot и другие AI-боты</span></div>
+      <div class="edu-info-icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
+      <div><strong>AI-Score</strong><span>Оценка llms.txt-совместимости</span></div>
     </div>
   </div>
 </section>
@@ -188,19 +436,19 @@
   <div class="edu-header"><h2>Почему нам доверяют</h2></div>
   <div class="trust-strip">
     <div class="trust-strip__item">
-      <div class="trust-strip__icon"><i class="ph-fill ph-robot icon-purple"></i></div>
-      <div class="trust-strip__value">Live</div>
-      <div class="trust-strip__label">проверка robots.txt</div>
+      <div class="trust-strip__icon"><i class="ph-fill ph-brain icon-purple"></i></div>
+      <div class="trust-strip__value">Spec</div>
+      <div class="trust-strip__label">проверка по спецификации</div>
     </div>
     <div class="trust-strip__item">
-      <div class="trust-strip__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
-      <div class="trust-strip__value">UA</div>
-      <div class="trust-strip__label">любой User-Agent</div>
+      <div class="trust-strip__icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
+      <div class="trust-strip__value">Score</div>
+      <div class="trust-strip__label">AI-совместимость</div>
     </div>
     <div class="trust-strip__item">
-      <div class="trust-strip__icon"><i class="ph-fill ph-lock-key icon-purple"></i></div>
-      <div class="trust-strip__value">Sitemap</div>
-      <div class="trust-strip__label">ссылки на sitemap</div>
+      <div class="trust-strip__icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
+      <div class="trust-strip__value">&lt;2с</div>
+      <div class="trust-strip__label">результат анализа</div>
     </div>
     <div class="trust-strip__item">
       <div class="trust-strip__icon"><i class="ph-fill ph-flag icon-muted"></i></div>
@@ -219,41 +467,41 @@
     </div>
     <div class="how-step">
       <div class="how-step__num">2</div>
-      <div class="how-step__icon"><i class="ph-fill ph-file-text icon-blue"></i></div>
-      <h3 class="how-step__title">Парсим robots.txt</h3>
+      <div class="how-step__icon"><i class="ph-fill ph-brain icon-purple"></i></div>
+      <h3 class="how-step__title">Читаем llms.txt файл</h3>
     </div>
     <div class="how-step">
       <div class="how-step__num">3</div>
-      <div class="how-step__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
-      <h3 class="how-step__title">Проверьте правила краулинга</h3>
+      <div class="how-step__icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
+      <h3 class="how-step__title">Получите AI-Score и советы</h3>
     </div>
   </div>
 </section>
 <section class="edu-section">
   <div class="edu-header">
-    <h2>Зачем проверять robots.txt?</h2>
-    <p>robots.txt управляет тем, какие страницы видят поисковые боты. Неправильные директивы могут случайно закрыть весь сайт от индексации или, наоборот, открыть административные разделы.</p>
+    <h2>Что такое llms.txt?</h2>
+    <p>llms.txt — новый открытый стандарт, предложенный Anthropic. Файл в корне сайта предоставляет AI-системам структурированное описание: что это за сайт, какой контент есть, как он организован.</p>
   </div>
   <div class="edu-feature-grid">
     <div class="edu-feature-card">
       <div class="edu-feature-icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
-      <h3>Полный парсинг</h3>
-      <p>Парсим robots.txt по RFC 9309: все User-agent, Allow/Disallow, Crawl-delay, Sitemap.</p>
-    </div>
-    <div class="edu-feature-card">
-      <div class="edu-feature-icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
-      <h3>URL-тестер</h3>
-      <p>Введите путь и выберите User-agent — получите вердикт «разрешено / заблокировано» и <b>саму строку правила</b>, которая сработала. Работает на любом домене, подтверждать права не нужно.</p>
+      <h3>Валидация структуры</h3>
+      <p>Проверяем llms.txt по спецификации: заголовки H1/H2, списки ссылок, описания.</p>
     </div>
     <div class="edu-feature-card">
       <div class="edu-feature-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
-      <h3>AI-краулеры</h3>
-      <p>Автоматически показываем статус для GPTBot, ClaudeBot, PerplexityBot, Googlebot.</p>
+      <h3>AI-совместимость</h3>
+      <p>Оцениваем, насколько файл понятен системам GPT-4, Claude, Perplexity.</p>
     </div>
     <div class="edu-feature-card">
-      <div class="edu-feature-icon"><i class="ph-fill ph-map-trifold icon-cyan"></i></div>
-      <h3>Sitemap-список</h3>
-      <p>Все Sitemap: директивы в одном месте с быстрыми ссылками для проверки.</p>
+      <div class="edu-feature-icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
+      <h3>llms-full.txt</h3>
+      <p>Проверяем расширенную версию с полным Markdown-контентом ключевых страниц.</p>
+    </div>
+    <div class="edu-feature-card">
+      <div class="edu-feature-icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
+      <h3>Итоговый AI-Score</h3>
+      <p>Числовая оценка с конкретными рекомендациями по улучшению llms.txt.</p>
     </div>
   </div>
 </section>
@@ -261,24 +509,24 @@
   <div class="edu-header"><h2>Кому это нужно</h2></div>
   <div class="use-cases-grid">
     <div class="use-case-card">
-      <div class="use-case-card__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
-      <h3 class="use-case-card__title">SEO-специалисты</h3>
-      <p class="use-case-card__sub">аудит краулинг-директив</p>
-    </div>
-    <div class="use-case-card">
       <div class="use-case-card__icon"><i class="ph-fill ph-desktop icon-blue"></i></div>
       <h3 class="use-case-card__title">Разработчики</h3>
-      <p class="use-case-card__sub">проверка после деплоя</p>
+      <p class="use-case-card__sub">валидация llms.txt</p>
+    </div>
+    <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
+      <h3 class="use-case-card__title">SEO-специалисты</h3>
+      <p class="use-case-card__sub">оптимизация для AI-поиска</p>
     </div>
     <div class="use-case-card">
       <div class="use-case-card__icon"><i class="ph-fill ph-shopping-bag icon-yellow"></i></div>
       <h3 class="use-case-card__title">Маркетологи</h3>
-      <p class="use-case-card__sub">контроль индексации</p>
+      <p class="use-case-card__sub">видимость в AI-ответах</p>
     </div>
     <div class="use-case-card">
-      <div class="use-case-card__icon"><i class="ph-fill ph-robot icon-purple"></i></div>
-      <h3 class="use-case-card__title">Владельцы сайтов</h3>
-      <p class="use-case-card__sub">защита от нежелательных краулеров</p>
+      <div class="use-case-card__icon"><i class="ph-fill ph-gear icon-muted"></i></div>
+      <h3 class="use-case-card__title">Контент-менеджеры</h3>
+      <p class="use-case-card__sub">структурирование контента</p>
     </div>
   </div>
 </section>
@@ -289,19 +537,19 @@
       <div class="edu-list">
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Disallow: / для всего сайта</strong><span>Это закрывает весь сайт от индексации. Проверяйте robots.txt после каждого изменения.</span></div>
+          <div><strong>Нет файла llms.txt</strong><span>Без llms.txt AI-системы не имеют структурированного описания вашего сайта.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Блокировать AI без понимания</strong><span>Блокировка GPTBot лишает ваш сайт цитирований в ChatGPT и Perplexity.</span></div>
+          <div><strong>Слишком длинный или слишком короткий</strong><span>Идеальный llms.txt — 300–1000 токенов. Полный контент идёт в llms-full.txt.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Не указывать Sitemap</strong><span>Без Sitemap: директивы боты должны угадывать URL ситемапа. Всегда указывайте явно.</span></div>
+          <div><strong>Нет структуры H1/H2</strong><span>AI-системы используют заголовки для навигации по содержимому файла.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Конфликтующие правила</strong><span>Allow и Disallow на одни URL у разных User-agent создают непредсказуемое поведение.</span></div>
+          <div><strong>Не обновлять при изменениях</strong><span>Устаревший llms.txt вводит AI в заблуждение относительно текущего контента.</span></div>
         </div>
       </div>
     </div>
@@ -310,76 +558,148 @@
       <div class="edu-list">
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Тестируйте после каждого изменения</strong><span>Один неверный символ в robots.txt может закрыть весь раздел от индексации.</span></div>
+          <div><strong>Следуйте спецификации llms.txt</strong><span>H1 = название сайта, H2 = разделы, маркированные списки = ключевые страницы.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Используйте * осторожно</strong><span><code>User-agent: *</code> распространяется на всех ботов, включая AI-краулеров.</span></div>
+          <div><strong>Создайте и llms-full.txt</strong><span>Полная версия с Markdown-содержимым ключевых страниц помогает AI лучше понять контент.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Всегда указывайте Sitemap</strong><span><code>Sitemap: https://example.com/sitemap.xml</code> помогает ботам найти все страницы.</span></div>
+          <div><strong>Обновляйте при деплое</strong><span>Включите обновление llms.txt в пайплайн деплоя.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Знайте, чего Search Console уже не делает</strong><span>Отчёт robots.txt в Search Console показывает, какие файлы нашёл Google, когда обошёл их и какие увидел ошибки, — но <b>не проверяет отдельные URL</b>. За этим справка Google отправляет в инструмент проверки URL, а он работает только для сайта, права на который вы подтвердили, и от лица собственного краулера Google. Проверить чужой сайт или поведение YandexBot, GPTBot и ClaudeBot там нельзя — для этого нужен внешний тестер вроде этого.</span></div>
+          <div><strong>Проверяйте после обновления</strong><span>Используйте наш валидатор чтобы убедиться, что файл соответствует спецификации.</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <section class="page-cta">
-  <h2 class="page-cta__title">Получите больше с бесплатным аккаунтом</h2>
-  <p class="page-cta__desc">История проверок robots.txt и мониторинг его изменений на вашем сайте.</p>
+  <h2 class="page-cta__title">Проверьте свой llms.txt</h2>
+  <p class="page-cta__desc">Бесплатный анализ — улучшите видимость вашего сайта для GPT, Claude, Perplexity.</p>
   <a class="page-cta__btn" href="/register">Зарегистрироваться (FREE)</a>
 </section>
 </div>
-<section class="related-tools"><div class="wrap"><h2 class="related-tools__title">Связанные инструменты</h2><div class="related-tools__grid"><a href="/speed" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-lightning icon-yellow"></i></span><span class="related-tool-card__name">PageSpeed</span></a><a href="/broken-links" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-link-break icon-yellow"></i></span><span class="related-tool-card__name">Битые ссылки</span></a><a href="/security" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-shield-check icon-purple"></i></span><span class="related-tool-card__name">Безопасность</span></a><a href="/ai-check" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-sparkle icon-purple"></i></span><span class="related-tool-card__name">AI-проверка</span></a></div></div></section><div class="wrap"><section class="tool-seo-learn"><h2 class="tool-seo-learn__title">Больше по теме</h2><div class="tool-seo-learn__grid"><div class="tool-seo-learn__col"><h3 class="tool-seo-learn__col-title">Глоссарий</h3><ul class="tool-seo-learn__list"><li><a href="/s/glossary-sitemap-xml" class="has-glossary-popover">sitemap.xml: определение и применение</a></li><li><a href="/s/glossary-indexnow" class="has-glossary-popover">IndexNow: определение и применение</a></li></ul></div></div></section></div><section class="faq-section">
+<section class="related-tools"><div class="wrap"><h2 class="related-tools__title">Связанные инструменты</h2><div class="related-tools__grid"><a href="/ai-check" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-sparkle icon-purple"></i></span><span class="related-tool-card__name">AI-проверка</span></a><a href="/robots-checker" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-robot icon-muted"></i></span><span class="related-tool-card__name">Robots.txt</span></a><a href="/seo-audit" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-chart-bar icon-green"></i></span><span class="related-tool-card__name">SEO-аудит</span></a><a href="/keywords" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></span><span class="related-tool-card__name">Ключевые слова</span></a></div></div></section>
+<!-- Wave 49 (L1): Per-CMS deployment guide slot — rendered by llms-deploy-guide.js -->
+<div id="llmsDeployGuide"><section class="tool-section llms-deploy-guide" data-component="llms-deploy-guide"><details class="llms-deploy-details" open=""><summary class="llms-deploy-summary">Гайд по установке для разных CMS</summary><div class="llms-deploy-body"><div class="llms-deploy-header"><h2>Гайд по установке для разных CMS</h2><p class="llms-deploy-intro">Выберите свой стек и скопируйте сниппет. Все примеры выставляют правильный <code>Content-Type</code> и часовой кэш, чтобы краулеры не били по origin.</p></div><div class="llms-deploy-tabs" role="tablist" aria-label="Гайд по установке для разных CMS"><button type="button" class="llms-deploy-tab llms-deploy-tab--active" role="tab" aria-selected="true" data-stack="wordpress">WordPress</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="nginx">nginx</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="next.js">Next.js (route)</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="next.js_public">Next.js (static)</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="laravel">Laravel</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="apache">Apache</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="django">Django</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="cloudflare_worker">Cloudflare Worker</button></div><div class="llms-deploy-panels"><div class="llms-deploy-panel llms-deploy-panel--active" data-stack="wordpress" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">wp-content/mu-plugins/llms-txt.php</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Must-use plugin — подключается автоматически, не требует активации. Переживает смену темы.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">php</span><button type="button" class="llms-deploy-copy-btn" data-snippet="wordpress" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>&lt;?php
+/**
+ * Plugin Name: llms.txt
+ * Description: Serves /llms.txt at the site root for AI crawlers.
+ */
+add_action('init', function () {
+    if (trim($_SERVER['REQUEST_URI'] ?? '', '/') !== 'llms.txt') {
+        return;
+    }
+    header('Content-Type: text/plain; charset=utf-8');
+    header('Cache-Control: public, max-age=3600');
+    readfile(ABSPATH . 'llms.txt');
+    exit;
+});</code></pre></div></div><div class="llms-deploy-panel" data-stack="nginx" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">/etc/nginx/sites-enabled/example.conf</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Самый быстрый путь — nginx отдаёт файл напрямую, минуя PHP/Node. После правки сделайте reload.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">nginx</span><button type="button" class="llms-deploy-copy-btn" data-snippet="nginx" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># Place inside your server { } block
+location = /llms.txt {
+    alias /var/www/example.com/llms.txt;
+    default_type text/plain;
+    charset utf-8;
+    add_header Cache-Control "public, max-age=3600";
+    access_log off;
+}</code></pre></div></div><div class="llms-deploy-panel" data-stack="next.js" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">app/llms.txt/route.ts</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Route Handler — удобно, когда llms.txt строится динамически из CMS / БД. Поддерживает ISR через revalidate.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">ts</span><button type="button" class="llms-deploy-copy-btn" data-snippet="next.js" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>// app/llms.txt/route.ts
+import { NextResponse } from 'next/server';
+
+export const revalidate = 3600;
+
+export async function GET() {
+  const body = [
+    '# My Project',
+    '&gt; Short description of the site',
+    '',
+    '## Pages',
+    '- [Home](https://example.com)',
+    '- [Docs](https://example.com/docs)',
+  ].join('\n');
+
+  return new NextResponse(body, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+    },
+  });
+}</code></pre></div></div><div class="llms-deploy-panel" data-stack="next.js_public" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">public/llms.txt</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Самый простой путь — положите файл в public/, Next.js сам отдаст его по /llms.txt. Без кода.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">txt</span><button type="button" class="llms-deploy-copy-btn" data-snippet="next.js_public" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># Just place the file in your project at:
+#   public/llms.txt
+#
+# Next.js will serve it verbatim at https://example.com/llms.txt
+# Content-Type is auto-set to text/plain. No build step needed.
+
+# Sample content for public/llms.txt:
+# My Project
+&gt; Short description for AI crawlers
+
+## Pages
+- [Home](https://example.com)
+- [Docs](https://example.com/docs)</code></pre></div></div><div class="llms-deploy-panel" data-stack="laravel" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">routes/web.php</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Закэшируйте ответ, чтобы не грузить фреймворк на каждом запросе. Storage::get() читает из storage/app/.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">php</span><button type="button" class="llms-deploy-copy-btn" data-snippet="laravel" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>&lt;?php
+// routes/web.php
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+
+Route::get('/llms.txt', function () {
+    $body = Storage::get('llms.txt'); // storage/app/llms.txt
+    return Response::make($body, 200, [
+        'Content-Type'  =&gt; 'text/plain; charset=utf-8',
+        'Cache-Control' =&gt; 'public, max-age=3600',
+    ]);
+});</code></pre></div></div><div class="llms-deploy-panel" data-stack="apache" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">.htaccess at site root</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Гарантирует корректный Content-Type, если файл уже лежит в корне. Перезапуск Apache не нужен.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">apache</span><button type="button" class="llms-deploy-copy-btn" data-snippet="apache" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># .htaccess at site root — forces text/plain on /llms.txt
+&lt;Files "llms.txt"&gt;
+    ForceType text/plain
+    Header set Cache-Control "public, max-age=3600"
+    Header set X-Robots-Tag "noindex"
+&lt;/Files&gt;</code></pre></div></div><div class="llms-deploy-panel" data-stack="django" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">urls.py</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">HttpResponse с text/plain. Для высоконагруженных сайтов лучше отдавать файл через nginx.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">py</span><button type="button" class="llms-deploy-copy-btn" data-snippet="django" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># urls.py
+from django.http import HttpResponse
+from django.urls import path
+from pathlib import Path
+
+
+def llms_txt(request):
+    body = Path(__file__).resolve().parent.joinpath('llms.txt').read_text(encoding='utf-8')
+    return HttpResponse(
+        body,
+        content_type='text/plain; charset=utf-8',
+        headers={'Cache-Control': 'public, max-age=3600'},
+    )
+
+
+urlpatterns = [
+    path('llms.txt', llms_txt, name='llms_txt'),
+]</code></pre></div></div><div class="llms-deploy-panel" data-stack="cloudflare_worker" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">Cloudflare Workers dashboard (or wrangler.toml)</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Кэш на edge по всему миру, origin не дёргается. В Routes привяжите example.com/llms.txt к воркеру.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">js</span><button type="button" class="llms-deploy-copy-btn" data-snippet="cloudflare_worker" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>// Cloudflare Worker — bind Route: example.com/llms.txt
+export default {
+  async fetch(request) {
+    const body = [
+      '# My Project',
+      '&gt; Short description of the site',
+      '',
+      '## Pages',
+      '- [Home](https://example.com)',
+      '- [Docs](https://example.com/docs)',
+    ].join('\n');
+
+    return new Response(body, {
+      headers: {
+        'Content-Type':  'text/plain; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+      },
+    });
+  },
+};</code></pre></div></div></div></div></details></section></div>
+
+<section class="faq-section">
   <h2>Часто задаваемые вопросы</h2>
   <div class="faq-list">
-    <details class="faq-item"><summary>Что такое robots.txt?</summary><p>robots.txt — текстовый файл в корне сайта, указывающий поисковым роботам, какие страницы можно или нельзя индексировать. Это рекомендация, а не принудительная блокировка — недобросовестные боты могут его игнорировать.</p></details>
-    <details class="faq-item"><summary>Чем robots.txt отличается от meta robots?</summary><p>robots.txt блокирует краулинг (робот не зайдёт на страницу). Meta robots (noindex) блокирует индексацию (робот зайдёт, но не добавит в индекс). Для полной блокировки нужны оба. Если robots.txt блокирует страницу, робот не увидит meta noindex.</p></details>
-    <details class="faq-item"><summary>Как правильно указать Sitemap в robots.txt?</summary><p>Добавьте строку Sitemap: https://example.com/sitemap.xml в конец файла. URL должен быть абсолютным. Можно указать несколько sitemap. Это помогает роботам быстрее найти карту сайта.</p></details>
-    <details class="faq-item"><summary>Что такое Crawl-delay?</summary><p>Crawl-delay — директива robots.txt, задающая паузу между запросами робота в секундах. Yandex и Bing поддерживают её. Google игнорирует Crawl-delay — скорость краулинга Google настраивается в Search Console.</p></details>
-    <details class="faq-item"><summary>Какие частые ошибки в robots.txt?</summary><p>Типичные ошибки: блокировка CSS/JS файлов (мешает рендерингу), Disallow: / (блокирует весь сайт), отсутствие файла (робот считает всё разрешённым), блокировка /api/ без Allow для /api/docs, неправильный регистр User-agent.</p></details>
-    <details class="faq-item"><summary>Как проверить robots.txt?</summary><p>Наш инструмент анализирует синтаксис, проверяет доступность файла, находит конфликтующие правила и предупреждает о потенциальных проблемах. Также можно использовать Google Search Console для проверки конкретных URL.</p></details>
+    <details class="faq-item"><summary>Что такое llms.txt и зачем он нужен?</summary><p>llms.txt — это Markdown-файл в корне вашего сайта, предоставляющий структурированный, удобный для AI индекс вашего контента. По мере того как AI-инструменты вроде ChatGPT и Claude становятся основными инструментами исследования, наличие llms.txt помогает гарантировать точное представление вашего сайта — улучшая находимость, снижая галлюцинации и давая вам контроль над тем, что AI знает о вашем проекте.</p></details>
+    <details class="faq-item"><summary>Чем llms.txt отличается от robots.txt и sitemap.xml?</summary><p>robots.txt сообщает краулерам, какие страницы пропустить. sitemap.xml перечисляет все URL для индексации. llms.txt другой — он предназначен для AI-систем, читающих ваш контент напрямую. Он предоставляет понятные названия, описания и контекст, помогающие языковым моделям понять суть вашего сайта и найти самый важный контент.</p></details>
+    <details class="faq-item"><summary>Влияет ли llms.txt на SEO?</summary><p>llms.txt не влияет напрямую на традиционные позиции в поисковых системах — Google и Bing не используют его для индексации. Его ценность — в AI-поиске и разговорных инструментах: по мере распространения AI-поиска (Perplexity, ChatGPT Search, Claude.ai) хорошо структурированный llms.txt может улучшить то, как ваш сайт представлен в ответах AI.</p></details>
+    <details class="faq-item"><summary>К какому баллу нужно стремиться при валидации?</summary><p>Стремитесь к оценке A (85–100 баллов). Наиболее важные проверки: наличие заголовка H1, описание-блокцитата, хотя бы один раздел H2 и корректные абсолютные URL. Балл 70+ (оценка B) вполне функционален. Ниже 50 означает критические структурные проблемы, которые могут помешать AI-инструментам правильно разобрать ваш файл.</p></details>
+    <details class="faq-item"><summary>Как часто обновлять llms.txt?</summary><p>Обновляйте llms.txt при добавлении крупных новых разделов, изменении структуры сайта или обновлении ключевой документации. Для блогов и новостных сайтов достаточно ежемесячных обновлений. Используйте наш Генератор — он пересоздаёт файл из вашего sitemap за секунды, поэтому поддерживать его в актуальном состоянии не составит труда.</p></details>
+    <details class="faq-item"><summary>Куда именно разместить файл llms.txt?</summary><p>Разместите в корне вашего домена: &lt;code&gt;https://ваш-домен.com/llms.txt&lt;/code&gt;. Убедитесь, что файл публично доступен (не требует авторизации) и возвращает Content-Type &lt;code&gt;text/plain&lt;/code&gt; или &lt;code&gt;text/markdown&lt;/code&gt;. Также добавьте &lt;code&gt;Sitemap: https://ваш-домен.com/llms.txt&lt;/code&gt; в robots.txt, чтобы AI-краулеры могли обнаруживать его автоматически.</p></details>
   </div>
-</section><div id="resultCta" class="result-cta" data-cta-mode="anonymous" data-cta-slug="robots-checker" data-href-template="/register?m=${URL}&amp;utm_source=tool_robots-checker&amp;utm_medium=internal&amp;utm_campaign=save_track">
-  <div class="result-cta__icon" aria-hidden="true"><i class="ph-fill ph-bookmark-simple"></i></div>
-  <div class="result-cta__text">
-    <strong>Сохраняйте и следите за URL</strong>
-    <span>Бесплатный аккаунт · проверки 24/7 · уведомления в Telegram, email, Slack — регистрация чтобы мониторить любой URL.</span>
-  </div>
-  <a id="resultCtaBtn" href="/register?m=pkvartira.ru&amp;utm_source=tool_robots-checker&amp;utm_medium=internal&amp;utm_campaign=save_track" class="result-cta__btn">
-    Бесплатная регистрация  </a>
-</div>
-
-<!-- CMS extras: tool-robots-checker -->
-<section class="tool-info block-example-list">
-    <div class="card">
-                    <h2 class="info-title">Связанные гайды</h2>
-                            <p class="block-example-list__intro">Развёрнутые материалы по теме из базы знаний.</p>
-                <ul class="block-example-list__items">
-                            <li>
-                                            <a href="/s/glossary-sitemap-xml">→ sitemap.xml — определение и применение [2026]</a>
-                                    </li>
-                            <li>
-                                            <a href="/s/glossary-indexnow">→ IndexNow — определение и применение [2026]</a>
-                                    </li>
-                            <li>
-                                            <a href="/s/proverka-robotstxt">→ Проверка robots.txt онлайн — анализ файла бесплатно | Enterno.io</a>
-                                    </li>
-                    </ul>
-    </div>
-</section>
-<section class="tool-info block-cta-card">
-    <div class="card block-cta-card__card">
-                    <h2 class="info-title">Автоматизируйте эту проверку</h2>
-                            <p class="block-cta-card__text">Настройте continuous monitoring и получайте алерт, когда что-то сломается. Не нужно помнить запускать вручную.</p>
-                            <div class="block-cta-card__row">
-                                    <a href="/register?utm_source=cms_tool-robots-checker&amp;utm_medium=internal&amp;utm_campaign=ambient_cta" class="btn btn-primary">
-                        Начать бесплатно                    </a>
-                            </div>
-            </div>
-</section>
-</main>
+</section></main>
