@@ -61,6 +61,13 @@ echo "\n";
 echo "User-agent: PerplexityBot\n";
 echo "Disallow: /api/\n";
 echo "\n";
+// Явный допуск AI-краулеров (enterno: «не упомянут» → правило wildcard).
+// Политика «разрешить всех»: ассистенты и обучение видят сайт, закрыт только /api/.
+foreach (['ChatGPT-User', 'anthropic-ai', 'Google-Extended', 'CCBot', 'Applebot-Extended', 'Bytespider', 'cohere-ai', 'Diffbot'] as $aiBot) {
+    echo "User-agent: {$aiBot}\n";
+    echo "Disallow: /api/\n";
+    echo "\n";
+}
 echo "Sitemap: {$baseUrl}/sitemap.xml\n";
 echo "\n";
 echo "Host: {$host}\n";
