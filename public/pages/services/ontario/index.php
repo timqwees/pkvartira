@@ -28,7 +28,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             {
                 "@type": "Service",
                 "name": "Ремонт квартир в ЖК Онтарио",
-                "provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},
+                "provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},
                 "areaServed": {"@type": "City","name": "Москва"},
                 "description": "Ремонт квартир в жилом комплексе Онтарио под ключ. Цены от 8 000 ₽/м²."
             }

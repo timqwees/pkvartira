@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp'
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Укладка керамогранита","item": "<?= $site['baseUrl']; ?>/services/keramogranit-nazarovo"}
             ]},
-            {"@type": "Service","name": "Укладка керамогранита","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"}}
+            {"@type": "Service","name": "Укладка керамогранита","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"}}
         ]
     }
     </script>

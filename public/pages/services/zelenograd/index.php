@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Зеленограде","item": "<?= $site['baseUrl']; ?>/services/zelenograd"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Зеленограде","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Зеленоград"}}
+            {"@type": "Service","name": "Ремонт квартир в Зеленограде","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Зеленоград"}}
         ]
     }
     </script>

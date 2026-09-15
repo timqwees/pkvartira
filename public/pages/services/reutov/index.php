@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Реутове","item": "<?= $site['baseUrl']; ?>/services/reutov"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Реутове","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Реутов"}}
+            {"@type": "Service","name": "Ремонт квартир в Реутове","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Реутов"}}
         ]
     }
     </script>

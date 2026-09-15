@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Балашихе","item": "<?= $site['baseUrl']; ?>/services/balashikha"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Балашихе","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Балашиха"}}
+            {"@type": "Service","name": "Ремонт квартир в Балашихе","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Балашиха"}}
         ]
     }
     </script>

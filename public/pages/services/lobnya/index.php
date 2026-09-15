@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/studio/1_24sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Лобне","item": "<?= $site['baseUrl']; ?>/services/lobnya"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Лобне","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Лобня"}}
+            {"@type": "Service","name": "Ремонт квартир в Лобне","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Лобня"}}
         ]
     }
     </script>

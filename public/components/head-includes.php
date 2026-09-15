@@ -87,6 +87,13 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : htmlspecialchars
         "width": 300,
         "height": 300
       },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7 495 473-17-37",
+        "contactType": "customer service",
+        "availableLanguage": ["Russian"],
+        "areaServed": "RU"
+      },
       "brand": {
         "@type": "Brand",
         "name": "Проект Квартира",

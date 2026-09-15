@@ -48,6 +48,7 @@
                 "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                 "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
                 "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+                "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
                 "logo": {
                     "@type": "ImageObject",
                     "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,

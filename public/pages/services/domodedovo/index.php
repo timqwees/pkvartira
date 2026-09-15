@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Домодедово","item": "<?= $site['baseUrl']; ?>/services/domodedovo"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Домодедово","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Домодедово"}}
+            {"@type": "Service","name": "Ремонт квартир в Домодедово","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Домодедово"}}
         ]
     }
     </script>

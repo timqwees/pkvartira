@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в брежневке","item": "<?= $site['baseUrl']; ?>/services/brezhnevka"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в брежневке","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Ремонт квартир в брежневке","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Митино","item": "<?= $site['baseUrl']; ?>/services/mitino"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Митино","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Митино"}}
+            {"@type": "Service","name": "Ремонт квартир в Митино","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Митино"}}
         ]
     }
     </script>

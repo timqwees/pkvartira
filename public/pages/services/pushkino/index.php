@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Пушкино","item": "<?= $site['baseUrl']; ?>/services/pushkino"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Пушкино","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Пушкино"}}
+            {"@type": "Service","name": "Ремонт квартир в Пушкино","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Пушкино"}}
         ]
     }
     </script>

@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт дома из бруса","item": "<?= $site['baseUrl']; ?>/services/iz-brusa"}
             ]},
-            {"@type": "Service","name": "Ремонт дома из бруса","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Ремонт дома из бруса","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

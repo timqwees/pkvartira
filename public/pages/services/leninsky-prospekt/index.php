@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт на Ленинском проспекте","item": "<?= $site['baseUrl']; ?>/services/leninsky-prospekt"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир на Ленинском проспекте","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"},"serviceLocation": {"@type": "Place","name": "м. Ленинский проспект"}}
+            {"@type": "Service","name": "Ремонт квартир на Ленинском проспекте","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"},"serviceLocation": {"@type": "Place","name": "м. Ленинский проспект"}}
         ]
     }
     </script>

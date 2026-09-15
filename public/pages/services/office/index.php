@@ -21,7 +21,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт офиса","item": "<?= $site['baseUrl']; ?>/services/office"}
             ]},
-            {"@type": "Service","name": "Ремонт офиса под ключ","provider": {"@type": "Organization","name": "Проект Квартира","alternateName": "ПКвартира","brand": "Проект Квартира"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Ремонт офиса под ключ","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
         ]
     }
     </script>

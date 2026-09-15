@@ -982,10 +982,10 @@ class TheFunction
                 ],
                 'datePublished' => $opts['datePublished'] ?? date('c'),
                 'dateModified' => $opts['dateModified'] ?? date('c'),
+                // Ссылка на главную ноду Organization (@id), а не инлайн-объект:
+                // инлайн без sameAs/contactPoint/description плодит «Элемент 2» с 3 замечаниями в чекерах.
                 'author' => [
-                    '@type' => 'Organization',
-                    'name' => $site['name'],
-                    'url' => $site['baseUrl'],
+                    '@id' => $site['baseUrl'] . '#organization',
                 ],
                 'publisher' => [
                     '@id' => $site['baseUrl'] . '#organization',
