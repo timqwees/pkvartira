@@ -117,6 +117,12 @@ Routes::get('/.well-known/agents.json', function() {
 	header('Content-Type: application/json; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/.well-known/agents.json');
 });
+//==================================================================================================//SECURITY.TXT (RFC 9116)
+Routes::get('/.well-known/security.txt', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: text/plain; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/security.txt');
+});
 
 Routes::get('/robots.txt', function() {
 	\Setting\Route\Functions\SecurityHeaders::sendSecurity();

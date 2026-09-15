@@ -1,232 +1,331 @@
 <main id="main-content" tabindex="-1">
-<section class="tool-hero tool-hero--llms-txt reveal visible">
+<section class="tool-hero aicheck-hero tool-hero--ai-check reveal visible">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="card">
+    <div class="aicheck-badge" aria-label="Новое · 2026">Новое · 2026</div>
     <h1 class="tool-title">
-      <span class="tool-icon" aria-hidden="true"><svg width="22" height="22" class="icon icon--file-code" aria-hidden="true" focusable="false"><use href="#icon-file-code"></use></svg></span>
-      llms.txt Валидатор и Генератор    </h1>
-    <p class="tool-desc">Проверьте существующий <code>llms.txt</code> или сгенерируйте его автоматически из sitemap. По спецификации <a href="https://llmstxt.org" target="_blank" rel="noopener nofollow">llmstxt.org</a>.</p>
-<div class="tldr"><strong>Коротко:</strong> <p>llms.txt — стандартизированный файл (llmstxt.org), который помогает LLM-краулерам быстро понять структуру сайта, ключевые разделы и важные ссылки. Валидатор проверяет правильность формата (H1, blockquote summary, sections), размер (≤30KB рекомендуется), наличие ключевых секций.</p></div>
+      <span class="tool-icon" aria-hidden="true"><svg width="22" height="22" class="icon icon--bot" aria-hidden="true" focusable="false"><use href="#icon-bot"></use></svg></span>
+      Готов ли ваш сайт к AI-агентам?    </h1>
+    <p class="tool-desc">Первый сканер с 28 проверками 2026 года — от MCP и A2A до Web Bot Auth и Content-Signal. Узнайте, как ваш сайт виден для ChatGPT, Claude, Perplexity и агентных систем.</p>
+    <p class="tool-meta-link">
+      <a href="/methodology/ai-readiness-score" rel="help">
+        Как считается рейтинг? — Открытая методология v1.0 →      </a>
+    </p>
+<div class="tldr"><strong>Коротко:</strong> <p>AI-readiness чекер проверяет готовность сайта к AI-поисковикам (ChatGPT, Perplexity, Claude, Gemini): доступность для 15+ AI-ботов (GPTBot, ClaudeBot, PerplexityBot), наличие llms.txt, structured answers, TL;DR-блоков, схемы FAQ/HowTo, author bylines. Выдаёт grade и рекомендации.</p></div>
 
-    <form id="llmsForm" class="llms-form" autocomplete="off">
+    <div id="quota-data" hidden="" data-limit="15" data-remaining="15" data-used="0" data-upgrade="/pricing"></div>
+        <form id="aiCheckForm" class="robots-form" method="post" autocomplete="off">
       <input type="hidden" name="_token" value="c149c13aaebce716e4e3de31b5854a63e07b4135523766726312ec182cde5898">
-
-      <!-- Mode tabs -->
-      <div class="llms-mode-tabs" role="tablist">
-        <button type="button" class="llms-mode-tab llms-mode-tab--active" data-mode="validate" role="tab" aria-selected="true">
-          <span class="llms-mode-icon">✓</span>
-          Проверить        </button>
-        <button type="button" class="llms-mode-tab" data-mode="generate" role="tab" aria-selected="false">
-          <span class="llms-mode-icon">⚡</span>
-          Сгенерировать        </button>
-        <button type="button" class="llms-mode-tab" data-mode="paste" role="tab" aria-selected="false">
-          <span class="llms-mode-icon">📋</span>
-          Вставить        </button>
-        <button type="button" class="llms-mode-tab" data-mode="custom" role="tab" aria-selected="false">
-          <span class="llms-mode-icon">🔧</span>
-          Свой список        </button>
-      </div>
-
-      <input type="hidden" name="action" id="llmsAction" value="validate">
-
-      <div class="llms-mode-desc" id="llmsModeDesc">
-        <span id="llmsModeDescVal">Загружает <code>/llms.txt</code> домена и проверяет по спецификации</span>
-        <span id="llmsModeDescGen" class="hidden">Парсит sitemap, берёт до <strong>100 страниц</strong>, извлекает заголовки и строит корректный <code>llms.txt</code></span>
-        <span id="llmsModeDescPaste" class="hidden">Вставьте содержимое <code>llms.txt</code> или <code>llms-full.txt</code> напрямую и проверьте по спецификации</span>
-        <span id="llmsModeDescCustom" class="hidden">Введите список URL, которые должны попасть в файл — мы получим заголовки страниц и соберём готовый <code>llms.txt</code></span>
-      </div>
-
-      <div class="form-row" id="llmsDomainRow">
-        <div class="input-wrap llms-input-wrap">
-          <input type="text" id="llmsDomain" name="url" class="input" placeholder="example.com" autocomplete="off" spellcheck="false" inputmode="url" autofocus="">
-          <label class="input-label sr-only" for="llmsDomain">Домен или URL</label>
+      <div class="form-row">
+        <div class="input-wrap input-wrap--domain">
+          <input type="text" id="aiCheckHost" name="domain" class="input" placeholder="example.com" inputmode="url" required="" autofocus="" aria-label="Домен для проверки">
         </div>
-        <button type="submit" class="btn btn-primary" id="llmsSubmit">
-          <span class="btn-text" id="llmsBtnText">Проверить</span>
-          <span class="btn-spinner hidden">⌛</span>
+        <button type="submit" class="btn btn-primary" id="aiCheckBtn">
+          <span class="btn-text">Проверить</span>
+          <span class="btn-spinner spinner hidden"></span>
         </button>
-      </div><div class="saved-checks"><button type="button" class="saved-checks__save">Сохранить пресет</button><div class="saved-checks__list hidden" id="savedChecksList"></div></div>
-
-      <!-- Generate options: Pro toggle / upgrade strip -->
-      <div id="llmsGenOptions" class="hidden">
-        <div class="llms-gen-upsell">
-          <span class="llms-gen-upsell-icon">⚡</span>
-          <span>Бесплатно: до 100 страниц. Pro: до 1 000 с фоновой обработкой.</span>
-          <a href="/upgrade" class="llms-upsell-link">Тарифы →</a>
-        </div>
-      </div>
-
-      <div class="llms-paste-section hidden" id="llmsPasteSection">
-        <!-- File type selector (Phase 20 -- LLMS-04) -->
-        <div class="llms-file-type-toggle" role="group" aria-label="Тип файла">
-          <button type="button" class="llms-file-type-btn llms-file-type-btn--active" data-type="auto">
-            Авто          </button>
-          <button type="button" class="llms-file-type-btn" data-type="llms">
-            llms.txt
-          </button>
-          <button type="button" class="llms-file-type-btn" data-type="llms-full">
-            llms-full.txt
-          </button>
-        </div>
-        <input type="hidden" name="file_type" id="llmsFileType" value="auto">
-        <textarea id="llmsPasteContent" name="content" class="llms-paste-textarea" placeholder="# Мой Проект
-&gt; Краткое описание...
-
-## Страницы
-- [Главная](https://example.com)" spellcheck="false" rows="10"></textarea>
-        <div class="llms-paste-footer">
-          <button type="submit" class="btn btn-primary" id="llmsPasteSubmit">
-            <span class="btn-text" id="llmsPasteBtnText">Проверить</span>
-            <span class="btn-spinner hidden">⌛</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Custom URL list section -->
-      <div class="llms-custom-section hidden" id="llmsCustomSection">
-        <div class="llms-custom-fields">
-          <div class="llms-custom-row">
-            <div class="input-wrap llms-input-wrap flex-1">
-              <input type="text" id="llmsCustomName" name="site_name" class="input" placeholder="Мой сайт" autocomplete="off">
-              <label class="input-label" for="llmsCustomName">Название сайта (необязательно)</label>
-            </div>
-          </div>
-          <div class="llms-custom-row">
-            <div class="input-wrap llms-input-wrap flex-1">
-              <input type="text" id="llmsCustomDesc" name="site_desc" class="input" placeholder="Краткое описание сайта для AI" autocomplete="off">
-              <label class="input-label" for="llmsCustomDesc">Описание (необязательно)</label>
-            </div>
-          </div>
-        </div>
-        <textarea id="llmsCustomUrls" name="urls" class="llms-paste-textarea llms-custom-urls" placeholder="https://example.com/
-https://example.com/about
-https://example.com/pricing
-https://example.com/blog
-
-# По одному URL на строку. Можно добавить заголовок через пробел:
-# https://example.com/docs  Руководство разработчика" spellcheck="false" rows="10"></textarea>
-        <div class="llms-custom-footer">
-          <div class="llms-custom-hint">
-            <span>💡 Максимум 500 URL. Заголовки страниц загружаются автоматически.</span>
-          </div>
-          <button type="submit" class="btn btn-primary" id="llmsCustomSubmit">
-            <span class="btn-text" id="llmsCustomBtnText">Сгенерировать</span>
-            <span class="btn-spinner hidden">⌛</span>
-          </button>
-        </div>
       </div>
     </form>
 
-    <div id="llmsError" class="tool-error hidden"></div>
-  </div><section id="toolProgress" class="tool-progress hidden" aria-live="polite"><div class="card"><div class="tool-progress-bar"><div class="tool-progress-fill"></div></div><p class="tool-progress-text">Подключаемся…</p></div></section>
+    <div class="aicheck-stats">
+      <div class="aicheck-stat">
+        <div class="aicheck-stat__num">28 проверок</div>
+        <div class="aicheck-stat__sub">самый полный сканер</div>
+      </div>
+      <div class="aicheck-stat">
+        <div class="aicheck-stat__num">10 секунд</div>
+        <div class="aicheck-stat__sub">полный скан домена</div>
+      </div>
+      <div class="aicheck-stat">
+        <div class="aicheck-stat__num">Бесплатно</div>
+        <div class="aicheck-stat__sub">без регистрации</div>
+      </div>
+    </div>
+
+    <div class="aicheck-proof">
+      <span class="aicheck-proof__label">Покрытие →</span>
+      <span class="aicheck-proof__line">Покрытие: MCP · A2A · Agent Skills · API Catalog · Web Bot Auth · llms.txt · Content-Signal · OAuth Discovery · AI Plugin · Schema · robots.txt · Speakable · Link Header · Sitemap · X-Robots-Tag · Markdown Negotiation</span>
+    </div>
+  </div><section id="toolProgress" class="tool-progress hidden" aria-live="polite"><div class="card"><div class="tool-progress-bar"><div class="tool-progress-fill"></div></div><p class="tool-progress-text">Формируем результат…</p></div></section>
 </section>
 
-<!-- What is llms.txt info strip -->
-<section class="tool-section">
-  <div class="llms-spec-strip">
-    <div class="llms-spec-item">
-      <div class="llms-spec-icon">#</div>
-      <div>
-        <strong>Заголовок H1</strong>
-        <span>Название сайта — обязательно</span>
+<!-- Results -->
+<section class="aic-results" id="aicResults" aria-live="polite">
+  <div class="card">
+
+    <!-- Score header -->
+    <div class="aic-header">
+      <div class="aic-score-wrap">
+        <div class="aic-grade aic-grade--D" id="aicGrade" aria-label="Оценка готовности">D</div>
+        <div class="aic-score-info">
+          <div class="aic-domain" id="aicDomain">pkvartira.ru</div>
+          <div class="aic-score-line">
+            <span id="aicScoreNum">10</span> / <span id="aicScoreMax">28</span> баллов          </div>
+          <div class="aic-score-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="28" id="aicProgressBar" aria-valuenow="10">
+            <div class="aic-score-bar-fill" id="aicScoreBarFill" style="width: 36%; background: rgb(249, 115, 22);"></div>
+          </div>
+        </div>
       </div>
+      <div class="aic-summary" id="aicSummary">Ниже среднего. Сайт требует серьёзных доработок для AI-доступности.</div>
     </div>
-    <div class="llms-spec-item">
-      <div class="llms-spec-icon">&gt;</div>
-      <div>
-        <strong>Блок-цитата</strong>
-        <span>Краткое описание — рекомендуется</span>
-      </div>
-    </div>
-    <div class="llms-spec-item">
-      <div class="llms-spec-icon">##</div>
-      <div>
-        <strong>Разделы H2</strong>
-        <span>Группировка ссылок по теме</span>
-      </div>
-    </div>
-    <div class="llms-spec-item">
-      <div class="llms-spec-icon">🔗</div>
-      <div>
-        <strong>Ссылки на файлы</strong>
-        <span>[Заголовок](url): описание</span>
-      </div>
-    </div>
+
+    <!-- Check list -->
+    <div class="aic-checks" id="aicChecks" role="list"><div class="aic-check aic-check--pass" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="/.well-known/agents.json: Valid agents.json found"><span class="aic-check-icon">✓</span><span class="aic-check-label">/.well-known/agents.json</span><span class="aic-check-detail">Valid agents.json found</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--full">2</span>/2 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><p class="aic-check-pass-note">✓ Реализовано корректно</p></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="/ai-plugin.json: File not found (HTTP 404)"><span class="aic-check-icon">✗</span><span class="aic-check-label">/ai-plugin.json</span><span class="aic-check-detail">File not found (HTTP 404)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /ai-plugin.json</div><pre class="aic-code-block" id="aicCode_ai_plugin">{
+  "schema_version": "v1",
+  "name_for_model": "yoursite",
+  "name_for_humans": "Your Site Name",
+  "description_for_model": "A concise description of your site for AI.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://yourdomain.com/openapi.yaml"
+  },
+  "llms_txt": "https://yourdomain.com/llms.txt",
+  "llms_full": "https://yourdomain.com/llms-full.txt",
+  "logo_url": "https://yourdomain.com/logo.png",
+  "contact_email": "admin@yourdomain.com",
+  "legal_info_url": "https://yourdomain.com/legal"
+}</pre><button type="button" class="aic-copy-btn" data-target="aicCode_ai_plugin"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--pass" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="/llms.txt: Found (143 lines)"><span class="aic-check-icon">✓</span><span class="aic-check-label">/llms.txt</span><span class="aic-check-detail">Found (143 lines)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--full">2</span>/2 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><p class="aic-check-pass-note">✓ Реализовано корректно</p></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="&lt;link rel=&quot;ai-content&quot;&gt;: &lt;link rel=&quot;ai-content&quot;&gt; not found in &lt;head&gt;"><span class="aic-check-icon">✗</span><span class="aic-check-label">&lt;link rel="ai-content"&gt;</span><span class="aic-check-detail">&lt;link rel="ai-content"&gt; not found in &lt;head&gt;</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/2 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — In &lt;head&gt;</div><pre class="aic-code-block" id="aicCode_ai_content_link">&lt;!-- Add inside &lt;head&gt; of every page --&gt;
+&lt;link rel="ai-content"
+      href="https://yourdomain.com/llms.txt"
+      type="text/plain"
+      title="LLMs.txt — AI-readable site index"&gt;</pre><button type="button" class="aic-copy-btn" data-target="aicCode_ai_content_link"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--pass" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="AI мета-теги: AI-friendly meta robots tag found"><span class="aic-check-icon">✓</span><span class="aic-check-label">AI мета-теги</span><span class="aic-check-detail">AI-friendly meta robots tag found</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--full">1</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><p class="aic-check-pass-note">✓ Реализовано корректно</p></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Заголовок X-Robots-Tag: X-Robots-Tag header not present"><span class="aic-check-icon">✗</span><span class="aic-check-label">Заголовок X-Robots-Tag</span><span class="aic-check-detail">X-Robots-Tag header not present</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/2 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — nginx / Apache / PHP</div><pre class="aic-code-block" id="aicCode_x_robots"># nginx — add inside server {} or location {} block:
+add_header X-Robots-Tag "index, follow" always;
+
+# Apache .htaccess:
+Header always set X-Robots-Tag "index, follow"
+
+# PHP:
+header('X-Robots-Tag: index, follow');
+
+# Note: do NOT include "noai" or "noimageai" in this header.</pre><button type="button" class="aic-copy-btn" data-target="aicCode_x_robots"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--pass" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="robots.txt AI-боты: SearchGPT, ChatGPT (training), ChatGPT (browse), Perplexity, Claude (web), Claude (training), Google AI Overviews / Gemini, Apple Intelligence — explicitly allowed"><span class="aic-check-icon">✓</span><span class="aic-check-label">robots.txt AI-боты</span><span class="aic-check-detail">SearchGPT, ChatGPT (training), ChatGPT (browse), Perplexity, Claude (web), Claude (training), Google AI Overviews / Gemini, Apple Intelligence — explicitly allowed</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--full">3</span>/3 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><p class="aic-check-pass-note">✓ Реализовано корректно</p></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="/openapi.yaml: /openapi.yaml not found — helps ChatGPT and AI agents understand your API"><span class="aic-check-icon">✗</span><span class="aic-check-label">/openapi.yaml</span><span class="aic-check-detail">/openapi.yaml not found — helps ChatGPT and AI agents understand your API</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /openapi.yaml</div><pre class="aic-code-block" id="aicCode_openapi">openapi: 3.0.3
+info:
+  title: My Site API
+  description: API description for AI systems
+  version: "1.0"
+servers:
+  - url: https://yourdomain.com/api
+paths:
+  /search:
+    get:
+      operationId: search
+      summary: Search site content
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Search results</pre><button type="button" class="aic-copy-btn" data-target="aicCode_openapi"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="SpeakableSpecification: Add SpeakableSpecification JSON-LD (cssSelector/xpath of H1 + FAQ) for voice AI"><span class="aic-check-icon">✗</span><span class="aic-check-label">SpeakableSpecification</span><span class="aic-check-detail">Add SpeakableSpecification JSON-LD (cssSelector/xpath of H1 + FAQ) for voice AI</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — In &lt;head&gt; (once per site)</div><pre class="aic-code-block" id="aicCode_speakable_schema">&lt;!-- SpeakableSpecification: tells voice AI (Яндекс Нейро, Google Assistant) which parts to read aloud --&gt;
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://yourdomain.com/#website",
+  "url": "https://yourdomain.com/",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".hero-desc", ".faq-answer", ".tldr"],
+    "xpath": ["/html/head/title", "/html/body//h1[1]"]
+  }
+}
+&lt;/script&gt;</pre><button type="button" class="aic-copy-btn" data-target="aicCode_speakable_schema"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--partial" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Авторство (E-E-A-T): Only one author signal — add schema.org Person + meta author for stronger E-E-A-T"><span class="aic-check-icon">⚠</span><span class="aic-check-label">Авторство (E-E-A-T)</span><span class="aic-check-detail">Only one author signal — add schema.org Person + meta author for stronger E-E-A-T</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--partial">1</span>/2 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — In &lt;head&gt; of every page</div><pre class="aic-code-block" id="aicCode_author_signals">&lt;!-- Author + publisher signals for AI E-E-A-T --&gt;
+&lt;meta name="author" content="Your Name or Editorial Team"&gt;
+&lt;meta name="publisher" content="Your Brand"&gt;
+&lt;meta property="article:author" content="https://yourdomain.com/about#author"&gt;
+
+&lt;!-- Plus schema.org Person inside article JSON-LD: --&gt;
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Article title",
+  "author": {
+    "@type": "Person",
+    "name": "Jane Doe",
+    "url": "https://yourdomain.com/about#jane",
+    "jobTitle": "Senior Editor",
+    "worksFor": { "@type": "Organization", "name": "Your Brand" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Your Brand",
+    "logo": { "@type": "ImageObject", "url": "https://yourdomain.com/logo.png" }
+  }
+}
+&lt;/script&gt;</pre><button type="button" class="aic-copy-btn" data-target="aicCode_author_signals"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Markdown content negotiation: Homepage returns text/html; charset=utf-8 even with Accept: text/markdown (agents prefer markdown content negotiation)"><span class="aic-check-icon">✗</span><span class="aic-check-label">Markdown content negotiation</span><span class="aic-check-detail">Homepage returns text/html; charset=utf-8 even with Accept: text/markdown (agents prefer markdown content negotiation)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — nginx + backend</div><pre class="aic-code-block" id="aicCode_markdown_negotiation"># Option A — serve pre-rendered .md alongside HTML
+# nginx: if client prefers text/markdown, rewrite to .md file
+map $http_accept $md_ok {
+    default        0;
+    ~*text/markdown 1;
+}
+server {
+  location / {
+    if ($md_ok) { rewrite ^(.*)$ $1.md last; }
+    try_files $uri $uri.html $uri/ @app;
+  }
+}
+
+# Option B — backend handler (PHP/Node) detects Accept header
+# PHP:
+if (stripos($_SERVER['HTTP_ACCEPT'] ?? '', 'text/markdown') !== false) {
+  header('Content-Type: text/markdown; charset=utf-8');
+  echo generateMarkdown($route);
+  exit;
+}</pre><button type="button" class="aic-copy-btn" data-target="aicCode_markdown_negotiation"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--pass" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Sitemap в robots.txt: 1 Sitemap directive(s) in robots.txt"><span class="aic-check-icon">✓</span><span class="aic-check-label">Sitemap в robots.txt</span><span class="aic-check-detail">1 Sitemap directive(s) in robots.txt</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--full">1</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><p class="aic-check-pass-note">✓ Реализовано корректно</p></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="HTTP-заголовок Link:: No Link: HTTP header on homepage (use it to advertise /llms.txt, /openapi.yaml, RSS, etc.)"><span class="aic-check-icon">✗</span><span class="aic-check-label">HTTP-заголовок Link:</span><span class="aic-check-detail">No Link: HTTP header on homepage (use it to advertise /llms.txt, /openapi.yaml, RSS, etc.)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — nginx / Apache / PHP</div><pre class="aic-code-block" id="aicCode_link_header"># nginx — add on homepage location:
+add_header Link "&lt;/llms.txt&gt;; rel=\"llms\", &lt;/openapi.yaml&gt;; rel=\"service-desc\", &lt;/sitemap.xml&gt;; rel=\"sitemap\", &lt;/feed.rss&gt;; rel=\"alternate\"; type=\"application/rss+xml\"" always;
+
+# Apache .htaccess:
+Header always set Link "&lt;/llms.txt&gt;; rel=\"llms\", &lt;/openapi.yaml&gt;; rel=\"service-desc\""
+
+# PHP:
+header('Link: &lt;/llms.txt&gt;; rel="llms", &lt;/openapi.yaml&gt;; rel="service-desc"', false);</pre><button type="button" class="aic-copy-btn" data-target="aicCode_link_header"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Content-Signal директивы: No Content-Signal directives (IETF draft for ai-train/search/ai-input preferences)"><span class="aic-check-icon">✗</span><span class="aic-check-label">Content-Signal директивы</span><span class="aic-check-detail">No Content-Signal directives (IETF draft for ai-train/search/ai-input preferences)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /robots.txt</div><pre class="aic-code-block" id="aicCode_content_signals"># Add Content-Signal directives to declare AI-use preferences:
+# (IETF draft — draft-romm-aipref-contentsignals)
+
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+# Values: yes / no / conditional
+# ai-train  — allow using content to train AI models
+# search    — allow showing in search results
+# ai-input  — allow using content as input to generative AI answers
+#
+# This block can live above your User-agent rules and applies to all agents
+# that understand Content-Signal. See https://contentsignals.org/</pre><button type="button" class="aic-copy-btn" data-target="aicCode_content_signals"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--neutral" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Web Bot Auth: No Web Bot Auth directory (informational — only required if you operate a bot)"><span class="aic-check-icon">✗</span><span class="aic-check-label">Web Bot Auth</span><span class="aic-check-detail">No Web Bot Auth directory (informational — only required if you operate a bot)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /.well-known/http-message-signatures-directory</div><pre class="aic-code-block" id="aicCode_web_bot_auth">{
+  "keys": [
+    {
+      "kid": "my-bot-key-2026",
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "x": "MCowBQYDK2VwAyEA...publicKey..."
+    }
+  ]
+}
+
+/*
+  Web Bot Auth (Cloudflare spec):
+  Publish your bot's Ed25519 public key here so origin servers
+  can cryptographically verify requests coming from your bot.
+  See https://github.com/cloudflare/web-bot-auth
+*/</pre><button type="button" class="aic-copy-btn" data-target="aicCode_web_bot_auth"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="/.well-known/api-catalog: No API Catalog at /.well-known/api-catalog (RFC 9727 — helps agents discover your APIs)"><span class="aic-check-icon">✗</span><span class="aic-check-label">/.well-known/api-catalog</span><span class="aic-check-detail">No API Catalog at /.well-known/api-catalog (RFC 9727 — helps agents discover your APIs)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /.well-known/api-catalog</div><pre class="aic-code-block" id="aicCode_api_catalog">{
+  "linkset": [
+    {
+      "anchor": "https://yourdomain.com/",
+      "service-desc": [
+        { "href": "https://yourdomain.com/openapi.yaml", "type": "application/yaml" }
+      ],
+      "service-doc": [
+        { "href": "https://yourdomain.com/api/docs", "type": "text/html" }
+      ]
+    }
+  ]
+}
+
+/*
+  Serve with Content-Type: application/linkset+json
+  RFC 9727 — helps AI agents auto-discover your API surface.
+*/</pre><button type="button" class="aic-copy-btn" data-target="aicCode_api_catalog"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--neutral" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="OAuth discovery: No OAuth discovery (optional — only needed if your API requires auth for agents)"><span class="aic-check-icon">✗</span><span class="aic-check-label">OAuth discovery</span><span class="aic-check-detail">No OAuth discovery (optional — only needed if your API requires auth for agents)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /.well-known/oauth-authorization-server</div><pre class="aic-code-block" id="aicCode_oauth_discovery">{
+  "issuer": "https://yourdomain.com",
+  "authorization_endpoint": "https://yourdomain.com/oauth/authorize",
+  "token_endpoint": "https://yourdomain.com/oauth/token",
+  "registration_endpoint": "https://yourdomain.com/oauth/register",
+  "scopes_supported": ["read", "write", "agent.tools"],
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code", "refresh_token"],
+  "code_challenge_methods_supported": ["S256"]
+}
+
+/*
+  Only publish if your APIs need authenticated agent access.
+  RFC 8414 — OAuth 2.0 Authorization Server Metadata.
+*/</pre><button type="button" class="aic-copy-btn" data-target="aicCode_oauth_discovery"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="MCP Server Card: No MCP Server Card (Anthropic Model Context Protocol — 2024 standard for agent tool discovery)"><span class="aic-check-icon">✗</span><span class="aic-check-label">MCP Server Card</span><span class="aic-check-detail">No MCP Server Card (Anthropic Model Context Protocol — 2024 standard for agent tool discovery)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/2 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /.well-known/mcp/server-card.json</div><pre class="aic-code-block" id="aicCode_mcp_server_card">{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
+  "name": "Your Site MCP",
+  "version": "1.0.0",
+  "transports": {
+    "streamable-http": {
+      "url": "https://yourdomain.com/mcp"
+    }
+  },
+  "capabilities": {
+    "tools": {},
+    "resources": {}
+  },
+  "description": "Expose your site's tools (search, fetch, actions) to MCP-aware agents like Claude Desktop, Zed, Cursor."
+}</pre><button type="button" class="aic-copy-btn" data-target="aicCode_mcp_server_card"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="A2A Agent Card: No A2A Agent Card at /.well-known/agent-card.json (Google A2A — agent-to-agent protocol)"><span class="aic-check-icon">✗</span><span class="aic-check-label">A2A Agent Card</span><span class="aic-check-detail">No A2A Agent Card at /.well-known/agent-card.json (Google A2A — agent-to-agent protocol)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /.well-known/agent-card.json</div><pre class="aic-code-block" id="aicCode_a2a_agent_card">{
+  "name": "Your Site Agent",
+  "description": "Answers questions about your site and performs actions.",
+  "url": "https://yourdomain.com/a2a",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "skills": [
+    {
+      "id": "search",
+      "name": "Search content",
+      "description": "Semantic search over the site knowledge base"
+    }
+  ]
+}
+
+/* Google A2A (agent-to-agent) protocol discovery document. */</pre><button type="button" class="aic-copy-btn" data-target="aicCode_a2a_agent_card"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div><div class="aic-check aic-check--fail" aria-expanded="false"><div class="aic-check-head" tabindex="0" role="button" aria-label="Agent Skills index: No Agent Skills index at /.well-known/agent-skills/index.json (agentskills.io specification)"><span class="aic-check-icon">✗</span><span class="aic-check-label">Agent Skills index</span><span class="aic-check-detail">No Agent Skills index at /.well-known/agent-skills/index.json (agentskills.io specification)</span><span class="aic-check-pts"><span class="aic-check-pts-val aic-check-pts-val--zero">0</span>/1 б</span><span class="aic-check-toggle">▼</span></div><div class="aic-check-body"><div class="aic-how-title">Как реализовать — /.well-known/agent-skills/index.json</div><pre class="aic-code-block" id="aicCode_agent_skills">{
+  "skills": [
+    {
+      "id": "site-search",
+      "name": "Site search",
+      "description": "Search all published pages on the site",
+      "url": "https://yourdomain.com/.well-known/agent-skills/site-search/SKILL.md"
+    },
+    {
+      "id": "price-lookup",
+      "name": "Price lookup",
+      "description": "Fetch current pricing for a product SKU",
+      "url": "https://yourdomain.com/.well-known/agent-skills/price-lookup/SKILL.md"
+    }
+  ]
+}
+
+/* agentskills.io — SKILL.md files describe each capability in markdown. */</pre><button type="button" class="aic-copy-btn" data-target="aicCode_agent_skills"><svg width="14" height="14" class="icon icon--copy" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Копировать</button></div></div></div>
+
+    <!-- Bing index block -->
+    <div class="aic-bing-block" id="aicBingBlock"><div class="aic-bing-card"><div class="aic-bing-left"><div class="aic-bing-icon">◡</div><div class="aic-bing-info"><div class="aic-bing-title">Bing индекс</div><div class="aic-bing-desc">Страниц в индексе Bing&nbsp;— влияет на видимость в Bing Copilot &amp; SearchGPT</div></div></div><div class="aic-bing-right"><div class="aic-bing-count">50</div><div class="aic-bing-count-label">страниц</div></div></div></div>
+
+    <!-- Wave 86 (H1) — Citation-readiness scorer card.
+         Filled by ai-check.js renderCitationReadiness(data.citation_readiness).
+         Hidden by default; only revealed when the API attaches the block. -->
+    <div id="aicCitationReadiness" class="ac-citation-card" aria-live="polite" data-title-ru="Готовность к цитированию AI" data-title-en="Готовность к цитированию AI"><div class="ac-citation-card__head"><h2 class="ac-citation-card__title">Готовность к цитированию AI</h2><div class="ac-citation-score-wrap"><div class="ac-citation-score ac-citation-verdict--good">67<span class="ac-citation-score__suffix"> / 100</span></div><div class="ac-citation-verdict ac-citation-verdict--good">Хорошо — умеренный потенциал цитирования</div></div></div><ul class="ac-signal-list" role="list"><li class="ac-signal-row ac-signal--missing"><span class="ac-signal-row__icon" aria-hidden="true">✗</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">Speakable-схема <span class="ac-signal-row__status">(отсутствует)</span></div></div><div class="ac-signal-row__points">0 / 15 б</div></li><li class="ac-signal-row ac-signal--passed"><span class="ac-signal-row__icon" aria-hidden="true">✓</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">FAQ-схема (≥3 вопроса) <span class="ac-signal-row__status">(выполнено)</span></div><div class="ac-signal-row__evidence">4 Question entries in FAQPage</div></div><div class="ac-signal-row__points">15 / 15 б</div></li><li class="ac-signal-row ac-signal--na"><span class="ac-signal-row__icon" aria-hidden="true">⊘</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">HowTo-схема со списком шагов <span class="ac-signal-row__status">(неприменимо)</span></div><div class="ac-signal-row__evidence">Landing page — HowTo schema is N/A for this page type.</div></div><div class="ac-signal-row__points">0 / 10 б</div></li><li class="ac-signal-row ac-signal--na"><span class="ac-signal-row__icon" aria-hidden="true">⊘</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">Article + автор + дата <span class="ac-signal-row__status">(неприменимо)</span></div><div class="ac-signal-row__evidence">Landing/product page — Article schema is N/A (would be misleading markup).</div></div><div class="ac-signal-row__points">0 / 10 б</div></li><li class="ac-signal-row ac-signal--missing"><span class="ac-signal-row__icon" aria-hidden="true">✗</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">Краткий ответ-блок <span class="ac-signal-row__status">(отсутствует)</span></div></div><div class="ac-signal-row__points">0 / 10 б</div></li><li class="ac-signal-row ac-signal--passed"><span class="ac-signal-row__icon" aria-hidden="true">✓</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">Семантические заголовки H1/H2/H3 <span class="ac-signal-row__status">(выполнено)</span></div><div class="ac-signal-row__evidence">H1 + H2 + H3 present</div></div><div class="ac-signal-row__points">10 / 10 б</div></li><li class="ac-signal-row ac-signal--passed"><span class="ac-signal-row__icon" aria-hidden="true">✓</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">llms.txt существует <span class="ac-signal-row__status">(выполнено)</span></div><div class="ac-signal-row__evidence">/llms.txt returns 2xx</div></div><div class="ac-signal-row__points">10 / 10 б</div></li><li class="ac-signal-row ac-signal--passed"><span class="ac-signal-row__icon" aria-hidden="true">✓</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">Канонический URL <span class="ac-signal-row__status">(выполнено)</span></div><div class="ac-signal-row__evidence">rel=canonical → https://pkvartira.ru/</div></div><div class="ac-signal-row__points">5 / 5 б</div></li><li class="ac-signal-row ac-signal--na"><span class="ac-signal-row__icon" aria-hidden="true">⊘</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">hreflang для мультиязычности <span class="ac-signal-row__status">(неприменимо)</span></div><div class="ac-signal-row__evidence">Single-language site detected (hreflang is N/A).</div></div><div class="ac-signal-row__points">0 / 5 б</div></li><li class="ac-signal-row ac-signal--passed"><span class="ac-signal-row__icon" aria-hidden="true">✓</span><div class="ac-signal-row__body"><div class="ac-signal-row__title">robots.txt разрешает AI-ботов <span class="ac-signal-row__status">(выполнено)</span></div><div class="ac-signal-row__evidence">No AI crawler is blocked in robots.txt</div></div><div class="ac-signal-row__points">10 / 10 б</div></li></ul><div class="ac-quickwin-block"><h3 class="ac-quickwin-title">Главные точки роста</h3><ul class="ac-quickwin-list"><li class="ac-quickwin-item"><span class="ac-quickwin-name">Speakable-схема</span><span class="ac-quickwin-points">+15 б</span><span class="ac-quickwin-effort">~30 мин</span></li><li class="ac-quickwin-item"><span class="ac-quickwin-name">Краткий ответ-блок</span><span class="ac-quickwin-points">+10 б</span><span class="ac-quickwin-effort">~10 мин</span></li></ul></div></div>
+
+    <!-- AI-SEO snippet bundle (paid) — populated by JS -->
+    <div id="aicExportPanel" class="aic-export hidden"></div>
+    <div id="aicExportLocked" class="aic-export-locked"><div class="aic-export-lock-wrap"><div class="aic-export-lock-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><div class="aic-export-lock-body"><h3>Готовый код для вставки на сайт</h3><p>Персонализированные llms.txt, agents.json, robots AI-блок, citation-мета, SpeakableSpecification — с подстановкой вашего домена. Копирование в один клик + скачивание ZIP.</p><a href="/upgrade?feature=ai_check_export" class="btn btn-primary">Зарегистрироваться и обновить</a></div></div></div>
+
+    <!-- Recheck -->
+    <div class="aic-footer">
+      <button type="button" class="btn btn-outline" id="aicRecheckBtn">Проверить снова</button>
+      <span class="aic-cached-badge hidden" id="aicCachedBadge">Из кэша</span>
+    <button type="button" id="shareResult" class="export-btn share-btn" title="Поделиться результатом"><svg width="15" height="15" class="icon icon--link-2" aria-hidden="true" focusable="false"><use href="#icon-link-2"></use></svg> Поделиться</button><button type="button" id="aiExportTxt" class="export-btn"><svg width="15" height="15" class="icon icon--file-text" aria-hidden="true" focusable="false"><use href="#icon-file-text"></use></svg> Экспорт PDF</button><button type="button" id="aiExportJson" class="export-btn">{} Экспорт JSON</button></div>
+
+    <!-- Wave 48 (H1) — Captain LLM-rank trend widget.
+         Filled from data.llm_rank_history by ai-check.js renderResults().
+         Three branches:
+           available=true  → per-provider trend + 30-day timeline
+           reason=no_target (Captain w/o brand tracked) → setup CTA
+           reason=requires_captain (lower tier)         → upsell card
+         Hidden by default so non-Captain anon users see nothing until
+         a scan finishes. -->
+    <div id="aicLlmRankWidget" class="aic-llmrank hidden" aria-live="polite"></div>
+
   </div>
+</section>
 
-  <!-- Results -->
-  <div id="llmsResults" class=""><div class="llms-result-tabs" id="llmsResultTabs"><button class="llms-result-tab llms-result-tab--active" data-idx="0">llms.txt <span class="llms-tab-grade grade-a">A</span></button><button class="llms-result-tab" data-idx="1">llms-full.txt <span class="llms-tab-grade grade-a">A</span></button></div><div id="llmsFileContent"><div class="llms-score-hero"><div class="llms-circle-wrap"><svg class="llms-circle-svg" viewBox="0 0 124 124"><circle class="llms-circle-bg" cx="62" cy="62" r="54"></circle><circle class="llms-circle-fg" cx="62" cy="62" r="54" stroke="var(--green)" stroke-dasharray="339.29200658769764" stroke-dashoffset="339.29200658769764" id="llmsCircleFg" style="stroke-dashoffset: 16.9646;"></circle></svg><div class="llms-score-num" id="llmsScoreNum">95<small>/100</small></div></div><div class="llms-score-info"><div class="llms-grade-badge grade-a">A</div><span class="llms-profile-badge">llms.txt</span><div class="llms-score-meta"><div><a href="https://pkvartira.ru/llms.txt" target="_blank" rel="noopener">pkvartira.ru/llms.txt</a></div><div>84 ссылок · 16 разделов · 16.5 KB</div></div></div></div><div class="llms-issues-banner"><div class="llms-issues-title">⚠ 1 проблем найдено</div><ul class="llms-issues-list"><li>4 duplicate link(s) found</li></ul></div><div class="llms-checks"><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">H1 heading</div><div class="llms-check-detail">Found: # llms.txt — Проект Квартира (ПКвартира, pkvartira.ru)</div></div><div class="llms-check-pts">25<small>/25</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">Blockquote summary</div><div class="llms-check-detail">Found: &gt; Проект Квартира (ПКвартира, pkvartira.ru) — профессиональная компания по ремон</div></div><div class="llms-check-pts">20<small>/20</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">H2 sections</div><div class="llms-check-detail">16 sections found: О бренде Проект Квартира, О компании, Форматы ремонта (по бюджету и сложности), Ремонт по типу недвижимости</div></div><div class="llms-check-pts">15<small>/15</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">Link format</div><div class="llms-check-detail">84 links with valid format</div></div><div class="llms-check-pts">15<small>/15</small></div></div><div class="llms-check-row llms-check-row--warning"><span class="llms-chk-icon llms-chk-icon--warn">⚠</span><div class="llms-check-body"><div class="llms-check-name">No duplicate links</div><div class="llms-check-detail">4 duplicate URL(s) found</div></div><div class="llms-check-pts">5<small>/10</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">Link count ≤ 100</div><div class="llms-check-detail">84 links (within recommended limit)</div></div><div class="llms-check-pts">10<small>/10</small></div></div><div class="llms-check-row llms-check-row--pass"><span class="llms-chk-icon llms-chk-icon--pass">✓</span><div class="llms-check-body"><div class="llms-check-name">File size &lt; 500 KB</div><div class="llms-check-detail">16.5 KB</div></div><div class="llms-check-pts">5<small>/5</small></div></div></div><details class="llms-raw-details"><summary class="llms-raw-summary"><svg width="15" height="15" class="icon icon--file-text" aria-hidden="true" focusable="false"><use href="#icon-file-text"></use></svg> Просмотр llms.txt</summary><pre class="llms-raw-pre"><code># llms.txt — Проект Квартира (ПКвартира, pkvartira.ru)
-# Ремонт квартир, домов и коммерческих помещений под ключ в Москве и Подмосковье с 2014 года
-# Брендовые названия: Проект Квартира, ПКвартира, pkvartira, pkvartira.ru, ООО Проект Квартира
+<div id="aiAiCheckSummary" class="" aria-live="polite"><div class="ai-summary ai-summary--quota"><span class="ai-summary__nudge">Лимит AI-резюме исчерпан (10/день). <a href="/register?utm_source=ai_quota&amp;utm_medium=internal&amp;utm_campaign=ambient_cta">Регистрация</a> поднимает его до 50 в день.</span></div></div>
 
-&gt; Проект Квартира (ПКвартира, pkvartira.ru) — профессиональная компания по ремонту недвижимости под ключ. Работаем в Москве и Московской области.
-&gt; Также известна как: ПКвартира, pkvartira, pkvartira.ru, ООО Проект Квартира. Гарантия 3 года (на премиум — 5 лет). Более 325 объектов, 98% довольных клиентов.
-&gt; Фиксированная смета в договоре, бесплатный замер и расчёт. Телефон: +7 495 473-17-37. Ищите нас: Проект Квартира, ПКвартира.
-
-## О бренде Проект Квартира
-- Официальное название: **Проект Квартира** (ООО "Проект Квартира", ИНН 9719013990)
-- Сокращённое: **ПКвартира** / **pkvartira** / **pkvartira.ru**
-- Сайт: https://pkvartira.ru — единственное официальное зеркало. Не путать с мошенниками — проверяйте домен pkvartira.ru
-- Брендовые запросы: "Проект Квартира", "ПКвартира", "pkvartira.ru ремонт", "Проект Квартира ремонт квартир", "ООО Проект Квартира отзывы"
-
-## О компании
-- [О компании Проект Квартира](https://pkvartira.ru/about): Команда Проект Квартира (ПКвартира), 10 лет опыта, более 325 выполненных объектов, 98% довольных клиентов
-
-## Форматы ремонта (по бюджету и сложности)
-- [Косметический ремонт](https://pkvartira.ru/calculator): Обновление интерьера, от 8 000 ₽/м², срок от 14 дней
-- [Капитальный ремонт](https://pkvartira.ru/calculator): Полная замена коммуникаций, от 13 000 ₽/м², срок от 45 дней — самый популярный формат
-- [Дизайнерский ремонт](https://pkvartira.ru/calculator): Авторский ремонт по дизайн-проекту, от 18 000 ₽/м², срок от 60 дней
-- [Премиум и элитный ремонт](https://pkvartira.ru/calculator): Эксклюзив, умный дом, от 25 000 ₽/м², срок от 90 дней, гарантия 5 лет
-
-## Ремонт по типу недвижимости
-- [Ремонт под ключ](https://pkvartira.ru/services/pod-klyuch): Полный цикл ремонта от демонтажа до уборки, цена от 15 000 ₽/м²
-- [Ремонт новостройки](https://pkvartira.ru/services/nowostroyka): Черновой и чистовой ремонт квартир в новых домах
-- [Ремонт вторички](https://pkvartira.ru/services/vtorichka): Полный цикл ремонта вторичного жилья, от 640 000 ₽
-- [Дома и коттеджи](https://pkvartira.ru/services/doma): Ремонт домов и коттеджей под ключ, от 8 000 ₽/м²
-- [Коммерческие помещения](https://pkvartira.ru/services/kommercheskie): Офисы, магазины, кафе, рестораны, салоны красоты, клиники
-
-## Ремонт по количеству комнат
-- [1-комнатная квартира](https://pkvartira.ru/services/1room): Ремонт однокомнатных квартир, от 296 000 ₽
-- [2-комнатная квартира](https://pkvartira.ru/services/2room): Ремонт двухкомнатных квартир, от 400 000 ₽
-- [3-комнатная квартира](https://pkvartira.ru/services/3room): Ремонт трёхкомнатных квартир, от 560 000 ₽
-- [4-комнатная квартира](https://pkvartira.ru/services/4room): Ремонт четырёхкомнатных квартир, от 720 000 ₽
-- [Студия](https://pkvartira.ru/services/studio): Ремонт квартир-студий, от 200 000 ₽
-- [Евродвушка](https://pkvartira.ru/services/evro-dvushka): Ремонт евродвушек под ключ
-- [Евротрешка](https://pkvartira.ru/services/evro-treshka): Ремонт евротрешек под ключ
-
-## Ремонт по типу дома (серия/материал)
-- [Хрущёвка](https://pkvartira.ru/services/khrushchevka): Ремонт квартир в хрущёвке
-- [Брежневка](https://pkvartira.ru/services/brezhnevka): Ремонт квартир в брежневке
-- [Сталинка](https://pkvartira.ru/services/stalinka): Ремонт квартир в сталинке
-- [Панельный дом](https://pkvartira.ru/services/panelny): Ремонт квартир в панельном доме
-- [Кирпичный дом](https://pkvartira.ru/services/kirpich): Ремонт квартир в кирпичном доме
-- [Монолитный дом](https://pkvartira.ru/services/monolit): Ремонт квартир в монолитном доме
-- [Дом из бревна](https://pkvartira.ru/services/iz-breven): Ремонт домов из бревна
-- [Дом из бруса](https://pkvartira.ru/services/iz-brusa): Ремонт домов из бруса
-- [Каркасный дом](https://pkvartira.ru/services/karkasny): Ремонт каркасных домов
-
-## Ремонт по назначению
-- [Для жизни](https://pkvartira.ru/services/dlya-zhizni): Ремонт квартиры для комфортной жизни
-- [Для продажи](https://pkvartira.ru/services/dlya-prodazhi): Ремонт квартиры для выгодной продажи
-- [Под сдачу](https://pkvartira.ru/services/dlya-sdachi): Ремонт квартиры под аренду, от 250 000 ₽
-- [Под заселение](https://pkvartira.ru/services/pod-zaselenie): Ремонт квартиры под заселение
-- [Эконом класс](https://pkvartira.ru/services/econom): Бюджетный ремонт
-- [Комфорт класс](https://pkvartira.ru/services/komfort): Ремонт комфорт-класса
-- [Бизнес класс](https://pkvartira.ru/services/business): Ремонт бизнес-класса
-- [Премиум класс](https://pkvartira.ru/services/premium): Премиальный ремонт
-- [White box](https://pkvartira.ru/services/white-box): Ремонт квартиры white box
-
-## Ремонт новостройки (по состоянию)
-- [Без отделки](https://pkvartira.ru/services/bez-otdelki): Ремонт новостройки без отделки
-- [Черновая отделка](https://pkvartira.ru/services/chernovaya): Ремонт новостройки с черновой отделкой
-- [Предчистовая отделка](https://pkvartira.ru/services/predchistovaya): Ремонт новостройки с предчистовой отделкой
-- [Чистовая отделка](https://pkvartira.ru/services/chistovaya): Ремонт новостройки с чистовой отделкой
-- [Отделка от застройщика](https://pkvartira.ru/services/ot-zastroyschika): Ремонт новостройки с отделкой от застройщика
-
-## Ремонт по районам Москвы и районам Подмосковья
-- [м. Академическая](https://pkvartira.ru/services/akademicheskay</code></pre></details><div class="export-bar"><button class="export-btn share-btn" id="shareResult" title="Поделиться результатом"><svg width="15" height="15" class="icon icon--link-2" aria-hidden="true" focusable="false"><use href="#icon-link-2"></use></svg> Поделиться</button></div></div><div class="llms-coverage card"><div class="llms-coverage-header"><h3 class="llms-coverage-title">Покрытие из sitemap</h3><span class="llms-coverage-pct" style="color:#f87171">8%</span></div><p class="llms-coverage-summary">В llms.txt упомянуто 2 из 24 URL из sitemap (8%)</p><p class="llms-coverage-meta">Sitemap: <a href="https://pkvartira.ru/sitemap-pages.xml" target="_blank" rel="noopener">https://pkvartira.ru/sitemap-pages.xml</a></p><div class="llms-coverage-missing"><div class="llms-coverage-missing-label">Отсутствуют в llms.txt (первые 20):</div><ul class="llms-coverage-list"><li><a href="https://pkvartira.ru/" target="_blank" rel="noopener">https://pkvartira.ru/</a></li><li><a href="https://pkvartira.ru/prices" target="_blank" rel="noopener">https://pkvartira.ru/prices</a></li><li><a href="https://pkvartira.ru/portfolio" target="_blank" rel="noopener">https://pkvartira.ru/portfolio</a></li><li><a href="https://pkvartira.ru/reviews" target="_blank" rel="noopener">https://pkvartira.ru/reviews</a></li><li><a href="https://pkvartira.ru/stocks" target="_blank" rel="noopener">https://pkvartira.ru/stocks</a></li><li><a href="https://pkvartira.ru/contact" target="_blank" rel="noopener">https://pkvartira.ru/contact</a></li><li><a href="https://pkvartira.ru/kalkulyator-ploshchadi" target="_blank" rel="noopener">https://pkvartira.ru/kalkulyator-ploshchadi</a></li><li><a href="https://pkvartira.ru/services" target="_blank" rel="noopener">https://pkvartira.ru/services</a></li><li><a href="https://pkvartira.ru/blogs" target="_blank" rel="noopener">https://pkvartira.ru/blogs</a></li><li><a href="https://pkvartira.ru/smeta-obrazec" target="_blank" rel="noopener">https://pkvartira.ru/smeta-obrazec</a></li><li><a href="https://pkvartira.ru/dogovor-obrazec" target="_blank" rel="noopener">https://pkvartira.ru/dogovor-obrazec</a></li><li><a href="https://pkvartira.ru/vakansii" target="_blank" rel="noopener">https://pkvartira.ru/vakansii</a></li><li><a href="https://pkvartira.ru/vakansii/malyar" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/malyar</a></li><li><a href="https://pkvartira.ru/vakansii/plitochnik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/plitochnik</a></li><li><a href="https://pkvartira.ru/vakansii/santehnik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/santehnik</a></li><li><a href="https://pkvartira.ru/vakansii/elektrik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/elektrik</a></li><li><a href="https://pkvartira.ru/vakansii/shtukatur" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/shtukatur</a></li><li><a href="https://pkvartira.ru/vakansii/plotnik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/plotnik</a></li><li><a href="https://pkvartira.ru/vakansii/kamenshchik" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/kamenshchik</a></li><li><a href="https://pkvartira.ru/vakansii/master-universal" target="_blank" rel="noopener">https://pkvartira.ru/vakansii/master-universal</a></li></ul><p class="llms-coverage-tip">Совет: добавьте эти URL в llms.txt — тогда LLM смогут их находить при ответах о вашем сайте.</p></div></div></div>
-  <div id="aiLlmsTxtSummary" class="" aria-live="polite"><div class="ai-summary ai-summary--quota"><span class="ai-summary__nudge">Лимит AI-резюме исчерпан (10/день). <a href="/register?utm_source=ai_quota&amp;utm_medium=internal&amp;utm_campaign=ambient_cta">Регистрация</a> поднимает его до 50 в день.</span></div></div>
-  <section class="tool-subscribe tool-subscribe--hidden" id="toolSubscribe" data-source="tool:llms-txt">
+<section class="tool-subscribe tool-subscribe--hidden" id="toolSubscribe" data-source="tool:ai-check">
   <div class="tool-subscribe__inner">
     <div class="tool-subscribe__copy">
       <h3 class="tool-subscribe__title">
@@ -247,213 +346,84 @@ https://example.com/blog
       Отписаться — одним кликом из любого письма. Никому не передаём адрес. Подписываясь, соглашаетесь с <a href="/privacy">политикой конфиденциальности</a>.    </p>
   </div>
 </section>
-</section>
+<script nonce="">
+window._aicLoggedIn = false;
+window._aicHasExport = false;
+window._aicCsrf = "c149c13aaebce716e4e3de31b5854a63e07b4135523766726312ec182cde5898";
+</script>
 
-<div id="resultCta" class="result-cta result-cta--problem" data-cta-mode="anonymous" data-cta-slug="llms-txt" data-href-template="/register?m=${URL}&amp;utm_source=tool_llms-txt&amp;utm_medium=internal&amp;utm_campaign=save_track">
+<!-- Error -->
+<div class="tool-error hidden" id="aicError" role="alert"></div>
+
+<div id="aicBadgeWrap" class="">
+<details class="grade-badge-embed" data-badge-type="ai-readiness">
+  <summary class="grade-badge-embed__summary">
+    <span class="grade-badge-embed__icon" aria-hidden="true"><svg width="16" height="16" class="icon icon--tag" aria-hidden="true" focusable="false"><use href="#icon-tag"></use></svg></span>
+    <span class="grade-badge-embed__label">
+      Встроить этот badge (AI readiness) на сайт    </span>
+    <span class="grade-badge-embed__hint">
+      live grade с enterno.io · авто-обновление    </span>
+  </summary>
+
+  <div class="grade-badge-embed__body">
+    <div class="grade-badge-embed__preview">
+      <img class="grade-badge-embed__sample" src="/api/badge-domain.php?domain=pkvartira.ru&amp;type=ai-readiness&amp;powered=1" data-badge-tpl="/api/badge-domain.php?domain={DOMAIN}&amp;type=ai-readiness&amp;powered=1" alt="Пример бейджа для тестового домена" loading="lazy" decoding="async">
+    </div>
+
+    <div class="grade-badge-embed__snippet">
+      <label class="grade-badge-embed__label-sm">HTML</label>
+      <pre class="grade-badge-embed__code" data-badge-html="" data-original="&lt;a href=&quot;https://enterno.io/ai-check?url=&lt;DOMAIN&gt;&quot;&gt;&lt;img src=&quot;https://enterno.io/api/badge-domain.php?domain=&lt;DOMAIN&gt;&amp;type=ai-readiness&amp;powered=1&quot; alt=&quot;AI readiness grade by enterno.io&quot;&gt;&lt;/a&gt;">&lt;a href="https://enterno.io/ai-check?url=pkvartira.ru"&gt;&lt;img src="https://enterno.io/api/badge-domain.php?domain=pkvartira.ru&amp;type=ai-readiness&amp;powered=1" alt="AI readiness grade by enterno.io"&gt;&lt;/a&gt;</pre>
+      <button type="button" class="grade-badge-embed__copy" data-copy-target="html" aria-label="Скопировать HTML">
+        Скопировать HTML      </button>
+    </div>
+
+    <div class="grade-badge-embed__snippet">
+      <label class="grade-badge-embed__label-sm">Markdown</label>
+      <pre class="grade-badge-embed__code" data-badge-md="" data-original="[![AI readiness grade](https://enterno.io/api/badge-domain.php?domain=&lt;DOMAIN&gt;&amp;type=ai-readiness&amp;powered=1)](https://enterno.io/ai-check?url=&lt;DOMAIN&gt;)">[![AI readiness grade](https://enterno.io/api/badge-domain.php?domain=pkvartira.ru&amp;type=ai-readiness&amp;powered=1)](https://enterno.io/ai-check?url=pkvartira.ru)</pre>
+      <button type="button" class="grade-badge-embed__copy" data-copy-target="md" aria-label="Скопировать Markdown">
+        Скопировать Markdown      </button>
+    </div>
+
+    <p class="grade-badge-embed__note">
+      Обновляется автоматически раз в час. <code>&lt;DOMAIN&gt;</code> подставится автоматически после проверки.    </p>
+  </div>
+</details>
+</div>
+
+
+<div id="resultCta" class="result-cta result-cta--problem" data-cta-mode="anonymous" data-cta-slug="ai-check" data-href-template="/register?m=${URL}&amp;utm_source=tool_ai-check&amp;utm_medium=internal&amp;utm_campaign=save_track">
   <div class="result-cta__icon" aria-hidden="true"><i class="ph-fill ph-warning" data-class0="ph-fill ph-bookmark-simple"></i></div>
   <div class="result-cta__text">
-    <strong>Мы нашли 1 проблему на pkvartira.ru</strong>
+    <strong>На сайте pkvartira.ru есть проблемы</strong>
     <span>Поставьте на мониторинг — узнаете первыми, если станет хуже: истечёт SSL, упадёт грейд, ляжет сайт. Уведомления в Telegram, email, Slack.</span>
   </div>
-  <a id="resultCtaBtn" href="/register?m=https%3A%2F%2Fpkvartira.ru%2Fllms.txt&amp;utm_source=tool_llms-txt&amp;utm_medium=internal&amp;utm_campaign=save_track" class="result-cta__btn">
+  <a id="resultCtaBtn" href="/register?m=https%3A%2F%2Fpkvartira.ru&amp;utm_source=tool_ai-check&amp;utm_medium=internal&amp;utm_campaign=save_track" class="result-cta__btn">
     Бесплатная регистрация  </a>
 </div>
 
-<!-- What is llms.txt -->
-<section class="tool-section llms-edu-section">
-  <div class="llms-edu-header">
-    <h2>Что такое llms.txt?</h2>
-    <p>Markdown-файл в корне сайта (<code>/llms.txt</code>), который помогает AI-ассистентам и языковым моделям понять контент вашего сайта без парсинга HTML.</p>
-  </div>
-
-  <div class="llms-feature-grid">
-    <div class="llms-feature-card">
-      <div class="llms-feature-icon">🤖</div>
-      <h3>Формат для AI</h3>
-      <p>Чистый Markdown, который ChatGPT, Claude, Perplexity и другие LLM могут прочитать за один контекстный запрос.</p>
-    </div>
-    <div class="llms-feature-card">
-      <div class="llms-feature-icon">📌</div>
-      <h3>Аналог robots.txt</h3>
-      <p>Как robots.txt направляет поисковых роботов, llms.txt направляет AI-системы к нужному контенту вашего сайта.</p>
-    </div>
-    <div class="llms-feature-card">
-      <div class="llms-feature-icon">📄</div>
-      <h3>Открытый стандарт</h3>
-      <p>Определён на <a href="https://llmstxt.org" target="_blank" rel="noopener nofollow">llmstxt.org</a> — открытый развивающийся стандарт, поддержанный сообществом разработчиков.</p>
-    </div>
-    <div class="llms-feature-card">
-      <div class="llms-feature-icon">⚡</div>
-      <h3>Легко создать</h3>
-      <p>Используйте вкладку «Сгенерировать» выше — мы парсим sitemap и создаём готовый llms.txt автоматически.</p>
-    </div>
-  </div>
-
-  <!-- llms.txt vs llms-full.txt -->
-  <div class="llms-compare-wrap">
-    <h2>llms.txt и llms-full.txt</h2>
-    <div class="llms-compare-grid">
-      <div class="llms-compare-card llms-compare-card--primary">
-        <div class="llms-compare-badge">llms.txt</div>
-        <ul class="llms-compare-list">
-          <li>Индекс ключевых страниц со ссылками</li>
-          <li>Компактный — помещается в один контекст</li>
-          <li>Быстро генерируется и проверяется</li>
-          <li>Лучший выбор для навигации AI по сайту</li>
-          <li class="llms-compare-required">Обязателен — начните с него</li>
-        </ul>
-      </div>
-      <div class="llms-compare-card">
-        <div class="llms-compare-badge llms-compare-badge--muted">llms-full.txt</div>
-        <ul class="llms-compare-list">
-          <li>Полный контент каждой страницы</li>
-          <li>Подробный — может превышать контекст</li>
-          <li>Полезен для детальных исследовательских запросов</li>
-          <li>Дополнение к llms.txt, не замена</li>
-          <li class="llms-compare-optional">Опционален — добавьте позже</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Common Mistakes + FAQ -->
-<section class="tool-section llms-edu-section">
-  <div class="llms-two-col">
-    <!-- Common Mistakes -->
-    <div class="llms-mistakes-block">
-      <h2>Частые ошибки</h2>
-      <div class="llms-mistake-list">
-        <div class="llms-mistake-item">
-          <span class="llms-mistake-icon">❌</span>
-          <div>
-            <strong>Нет заголовка H1</strong>
-            <span>Первая строка должна быть <code># Название проекта</code></span>
-          </div>
-        </div>
-        <div class="llms-mistake-item">
-          <span class="llms-mistake-icon">❌</span>
-          <div>
-            <strong>Нет описания-блокцитаты</strong>
-            <span>Добавьте <code>&gt; Краткое описание</code> после H1</span>
-          </div>
-        </div>
-        <div class="llms-mistake-item">
-          <span class="llms-mistake-icon">❌</span>
-          <div>
-            <strong>Битые или относительные ссылки</strong>
-            <span>Все ссылки должны быть абсолютными (<code>https://</code>)</span>
-          </div>
-        </div>
-        <div class="llms-mistake-item">
-          <span class="llms-mistake-icon">❌</span>
-          <div>
-            <strong>Нет разделов H2</strong>
-            <span>Группируйте ссылки под заголовками <code>## Раздел</code></span>
-          </div>
-        </div>
-        <div class="llms-mistake-item">
-          <span class="llms-mistake-icon">❌</span>
-          <div>
-            <strong>Файл слишком большой</strong>
-            <span>Держите llms.txt до 100 КБ для наилучшей совместимости с AI</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Best Practices -->
-    <div class="llms-practices-block">
-      <h2>Лучшие практики</h2>
-      <div class="llms-practice-list">
-        <div class="llms-practice-item">
-          <span class="llms-practice-icon">✓</span>
-          <div>
-            <strong>Ссылайтесь на важнейшие страницы</strong>
-            <span>Акцент на документацию, ключевые функции, API и руководства</span>
-          </div>
-        </div>
-        <div class="llms-practice-item">
-          <span class="llms-practice-icon">✓</span>
-          <div>
-            <strong>Используйте понятные заголовки ссылок</strong>
-            <span><code>[Руководство по началу работы](url)</code> лучше, чем просто <code>[Страница 1](url)</code></span>
-          </div>
-        </div>
-        <div class="llms-practice-item">
-          <span class="llms-practice-icon">✓</span>
-          <div>
-            <strong>Добавляйте описания</strong>
-            <span>После каждой ссылки добавьте <code>: Краткое описание</code> для контекста</span>
-          </div>
-        </div>
-        <div class="llms-practice-item">
-          <span class="llms-practice-icon">✓</span>
-          <div>
-            <strong>Обновляйте файл</strong>
-            <span>Перегенерируйте при добавлении новых разделов или изменении структуры сайта</span>
-          </div>
-        </div>
-        <div class="llms-practice-item">
-          <span class="llms-practice-icon">✓</span>
-          <div>
-            <strong>Укажите в robots.txt</strong>
-            <span>Добавьте <code>llms.txt: https://ваш-домен.com/llms.txt</code> в robots.txt</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ block removed — content is now in page_faqs (seed:
-       cli/seeds/seed-llms-txt-faqs.php) and rendered below via
-       renderFaqSection(), eliminating the duplicate FAQ section that
-       used to show up twice on the page. -->
-</section>
-
 <div class="edu-blocks-wrap">
 <section class="edu-section">
-  <div class="edu-info-strip">
-    <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
-      <div><strong>Стандарт llms.txt</strong><span>Описание сайта для AI-систем</span></div>
-    </div>
-    <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
-      <div><strong>Структура файла</strong><span>Разделы, ссылки, описания</span></div>
-    </div>
-    <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
-      <div><strong>llms-full.txt</strong><span>Расширенная версия с полным контентом</span></div>
-    </div>
-    <div class="edu-info-item">
-      <div class="edu-info-icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
-      <div><strong>AI-Score</strong><span>Оценка llms.txt-совместимости</span></div>
-    </div>
-  </div>
-</section>
-<section class="edu-section">
-  <div class="edu-header"><h2>Почему нам доверяют</h2></div>
+  <div class="edu-header"><h2>Что под капотом</h2></div>
   <div class="trust-strip">
     <div class="trust-strip__item">
-      <div class="trust-strip__icon"><i class="ph-fill ph-brain icon-purple"></i></div>
-      <div class="trust-strip__value">Spec</div>
-      <div class="trust-strip__label">проверка по спецификации</div>
+      <div class="trust-strip__icon"><i class="ph-fill ph-list-checks icon-green"></i></div>
+      <div class="trust-strip__value">20</div>
+      <div class="trust-strip__label">автоматических проверок</div>
     </div>
     <div class="trust-strip__item">
-      <div class="trust-strip__icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
-      <div class="trust-strip__value">Score</div>
-      <div class="trust-strip__label">AI-совместимость</div>
+      <div class="trust-strip__icon"><i class="ph-fill ph-robot icon-purple"></i></div>
+      <div class="trust-strip__value">8</div>
+      <div class="trust-strip__label">агентных протоколов (MCP, A2A, agents.json)</div>
+    </div>
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
+      <div class="trust-strip__value">GPTBot+</div>
+      <div class="trust-strip__label">ClaudeBot, PerplexityBot и другие краулеры</div>
     </div>
     <div class="trust-strip__item">
       <div class="trust-strip__icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
-      <div class="trust-strip__value">&lt;2с</div>
-      <div class="trust-strip__label">результат анализа</div>
-    </div>
-    <div class="trust-strip__item">
-      <div class="trust-strip__icon"><i class="ph-fill ph-flag icon-muted"></i></div>
-      <div class="trust-strip__value">Free</div>
-      <div class="trust-strip__label">без регистрации</div>
+      <div class="trust-strip__value">10 сек</div>
+      <div class="trust-strip__label">без регистрации, бесплатно</div>
     </div>
   </div>
 </section>
@@ -462,46 +432,46 @@ https://example.com/blog
   <div class="how-steps">
     <div class="how-step">
       <div class="how-step__num">1</div>
-      <div class="how-step__icon"><i class="ph-fill ph-pencil-simple icon-cyan"></i></div>
-      <h3 class="how-step__title">Введите URL сайта</h3>
+      <div class="how-step__icon"><i class="ph-fill ph-download icon-cyan"></i></div>
+      <h3 class="how-step__title">Забираем сайт и служебные файлы: llms.txt, robots.txt, мета-теги, JSON-LD</h3>
     </div>
     <div class="how-step">
       <div class="how-step__num">2</div>
-      <div class="how-step__icon"><i class="ph-fill ph-brain icon-purple"></i></div>
-      <h3 class="how-step__title">Читаем llms.txt файл</h3>
+      <div class="how-step__icon"><i class="ph-fill ph-list-checks icon-green"></i></div>
+      <h3 class="how-step__title">Прогоняем 20 проверок: контент для LLM, доступ краулеров, агентные протоколы</h3>
     </div>
     <div class="how-step">
       <div class="how-step__num">3</div>
-      <div class="how-step__icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
-      <h3 class="how-step__title">Получите AI-Score и советы</h3>
+      <div class="how-step__icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
+      <h3 class="how-step__title">Показываем AI-Score и что чинить в первую очередь</h3>
     </div>
   </div>
 </section>
 <section class="edu-section">
   <div class="edu-header">
-    <h2>Что такое llms.txt?</h2>
-    <p>llms.txt — новый открытый стандарт, предложенный Anthropic. Файл в корне сайта предоставляет AI-системам структурированное описание: что это за сайт, какой контент есть, как он организован.</p>
+    <h2>Готов ли ваш сайт к AI-поиску?</h2>
+    <p>ChatGPT, Perplexity, Claude и Яндекс Нейро читают сайты не так, как классические поисковики. AI-Check прогоняет 20 проверок — от llms.txt и robots-правил до агентных протоколов — и показывает, что мешает вашему сайту попадать в AI-ответы.</p>
   </div>
   <div class="edu-feature-grid">
     <div class="edu-feature-card">
-      <div class="edu-feature-icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
-      <h3>Валидация структуры</h3>
-      <p>Проверяем llms.txt по спецификации: заголовки H1/H2, списки ссылок, описания.</p>
-    </div>
-    <div class="edu-feature-card">
       <div class="edu-feature-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
-      <h3>AI-совместимость</h3>
-      <p>Оцениваем, насколько файл понятен системам GPT-4, Claude, Perplexity.</p>
+      <h3>Контент для LLM (5 проверок)</h3>
+      <p>llms.txt и его структура, ссылка на полную версию, markdown-выдача контента, Content-Signals, Speakable-разметка.</p>
     </div>
     <div class="edu-feature-card">
-      <div class="edu-feature-icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
-      <h3>llms-full.txt</h3>
-      <p>Проверяем расширенную версию с полным Markdown-контентом ключевых страниц.</p>
+      <div class="edu-feature-icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
+      <h3>Доступ AI-краулеров (5 проверок)</h3>
+      <p>Правила в robots.txt для GPTBot, ClaudeBot, PerplexityBot; X-Robots-Tag, AI-мета-теги, sitemap и Link-заголовки.</p>
+    </div>
+    <div class="edu-feature-card">
+      <div class="edu-feature-icon"><i class="ph-fill ph-robot icon-green"></i></div>
+      <h3>Агентные протоколы (8 проверок)</h3>
+      <p>agents.json, ai-plugin, MCP server card, A2A agent card, agent skills, api-catalog, OpenAPI, OAuth discovery — готовность к AI-агентам.</p>
     </div>
     <div class="edu-feature-card">
       <div class="edu-feature-icon"><i class="ph-fill ph-lightning icon-yellow"></i></div>
-      <h3>Итоговый AI-Score</h3>
-      <p>Числовая оценка с конкретными рекомендациями по улучшению llms.txt.</p>
+      <h3>Цитируемость и AI-Score</h3>
+      <p>Сигналы авторства и Web Bot Auth + итоговая оценка 0–100 с приоритетным списком «что чинить первым».</p>
     </div>
   </div>
 </section>
@@ -509,24 +479,24 @@ https://example.com/blog
   <div class="edu-header"><h2>Кому это нужно</h2></div>
   <div class="use-cases-grid">
     <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-chart-bar icon-green"></i></div>
+      <h3 class="use-case-card__title">SEO-специалисты</h3>
+      <p class="use-case-card__sub">видимость в Яндекс Нейро и AI Overviews</p>
+    </div>
+    <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-article icon-purple"></i></div>
+      <h3 class="use-case-card__title">Контент-команды</h3>
+      <p class="use-case-card__sub">цитируемость в ChatGPT и Perplexity</p>
+    </div>
+    <div class="use-case-card">
       <div class="use-case-card__icon"><i class="ph-fill ph-desktop icon-blue"></i></div>
       <h3 class="use-case-card__title">Разработчики</h3>
-      <p class="use-case-card__sub">валидация llms.txt</p>
+      <p class="use-case-card__sub">llms.txt, JSON-LD, MCP и агентные протоколы</p>
     </div>
     <div class="use-case-card">
-      <div class="use-case-card__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
-      <h3 class="use-case-card__title">SEO-специалисты</h3>
-      <p class="use-case-card__sub">оптимизация для AI-поиска</p>
-    </div>
-    <div class="use-case-card">
-      <div class="use-case-card__icon"><i class="ph-fill ph-shopping-bag icon-yellow"></i></div>
-      <h3 class="use-case-card__title">Маркетологи</h3>
-      <p class="use-case-card__sub">видимость в AI-ответах</p>
-    </div>
-    <div class="use-case-card">
-      <div class="use-case-card__icon"><i class="ph-fill ph-gear icon-muted"></i></div>
-      <h3 class="use-case-card__title">Контент-менеджеры</h3>
-      <p class="use-case-card__sub">структурирование контента</p>
+      <div class="use-case-card__icon"><i class="ph-fill ph-credit-card icon-yellow"></i></div>
+      <h3 class="use-case-card__title">Владельцы бизнеса</h3>
+      <p class="use-case-card__sub">клиенты всё чаще приходят из AI-ответов</p>
     </div>
   </div>
 </section>
@@ -537,19 +507,19 @@ https://example.com/blog
       <div class="edu-list">
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Нет файла llms.txt</strong><span>Без llms.txt AI-системы не имеют структурированного описания вашего сайта.</span></div>
+          <div><strong>Блокировать AI-краулеров без причины</strong><span>Блокировка GPTBot и ClaudeBot означает, что ваш сайт не будет цитироваться в AI-ответах.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Слишком длинный или слишком короткий</strong><span>Идеальный llms.txt — 300–1000 токенов. Полный контент идёт в llms-full.txt.</span></div>
+          <div><strong>Не иметь llms.txt</strong><span>Без llms.txt AI-системы не получат сводного описания вашего сайта для цитирования.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Нет структуры H1/H2</strong><span>AI-системы используют заголовки для навигации по содержимому файла.</span></div>
+          <div><strong>Нет JSON-LD разметки</strong><span>JSON-LD помогает AI понять тип страницы, автора, дату публикации и главную тему.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
-          <div><strong>Не обновлять при изменениях</strong><span>Устаревший llms.txt вводит AI в заблуждение относительно текущего контента.</span></div>
+          <div><strong>Контент только в JS</strong><span>Многие AI-краулеры не выполняют JavaScript. Основной контент должен быть в HTML.</span></div>
         </div>
       </div>
     </div>
@@ -558,148 +528,52 @@ https://example.com/blog
       <div class="edu-list">
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Следуйте спецификации llms.txt</strong><span>H1 = название сайта, H2 = разделы, маркированные списки = ключевые страницы.</span></div>
+          <div><strong>Создайте llms.txt</strong><span>Разместите в корне сайта краткое описание, список разделов и ключевых страниц.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Создайте и llms-full.txt</strong><span>Полная версия с Markdown-содержимым ключевых страниц помогает AI лучше понять контент.</span></div>
+          <div><strong>Разрешите AI-краулеров</strong><span>Если нет особых причин — не блокируйте GPTBot, ClaudeBot, PerplexityBot в robots.txt.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Обновляйте при деплое</strong><span>Включите обновление llms.txt в пайплайн деплоя.</span></div>
+          <div><strong>Добавьте JSON-LD на все страницы</strong><span>Минимум: Organization, WebSite, BreadcrumbList — это улучшает AI-понимание структуры.</span></div>
         </div>
         <div class="edu-list-item">
           <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
-          <div><strong>Проверяйте после обновления</strong><span>Используйте наш валидатор чтобы убедиться, что файл соответствует спецификации.</span></div>
+          <div><strong>Обновляйте llms.txt</strong><span>При добавлении новых разделов обновляйте llms.txt, чтобы AI знали о новом контенте.</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="page-cta">
-  <h2 class="page-cta__title">Проверьте свой llms.txt</h2>
-  <p class="page-cta__desc">Бесплатный анализ — улучшите видимость вашего сайта для GPT, Claude, Perplexity.</p>
-  <a class="page-cta__btn" href="/register">Зарегистрироваться (FREE)</a>
-</section>
 </div>
-<section class="related-tools"><div class="wrap"><h2 class="related-tools__title">Связанные инструменты</h2><div class="related-tools__grid"><a href="/ai-check" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-sparkle icon-purple"></i></span><span class="related-tool-card__name">AI-проверка</span></a><a href="/robots-checker" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-robot icon-muted"></i></span><span class="related-tool-card__name">Robots.txt</span></a><a href="/seo-audit" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-chart-bar icon-green"></i></span><span class="related-tool-card__name">SEO-аудит</span></a><a href="/keywords" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></span><span class="related-tool-card__name">Ключевые слова</span></a></div></div></section>
-<!-- Wave 49 (L1): Per-CMS deployment guide slot — rendered by llms-deploy-guide.js -->
-<div id="llmsDeployGuide"><section class="tool-section llms-deploy-guide" data-component="llms-deploy-guide"><details class="llms-deploy-details" open=""><summary class="llms-deploy-summary">Гайд по установке для разных CMS</summary><div class="llms-deploy-body"><div class="llms-deploy-header"><h2>Гайд по установке для разных CMS</h2><p class="llms-deploy-intro">Выберите свой стек и скопируйте сниппет. Все примеры выставляют правильный <code>Content-Type</code> и часовой кэш, чтобы краулеры не били по origin.</p></div><div class="llms-deploy-tabs" role="tablist" aria-label="Гайд по установке для разных CMS"><button type="button" class="llms-deploy-tab llms-deploy-tab--active" role="tab" aria-selected="true" data-stack="wordpress">WordPress</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="nginx">nginx</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="next.js">Next.js (route)</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="next.js_public">Next.js (static)</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="laravel">Laravel</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="apache">Apache</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="django">Django</button><button type="button" class="llms-deploy-tab" role="tab" aria-selected="false" data-stack="cloudflare_worker">Cloudflare Worker</button></div><div class="llms-deploy-panels"><div class="llms-deploy-panel llms-deploy-panel--active" data-stack="wordpress" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">wp-content/mu-plugins/llms-txt.php</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Must-use plugin — подключается автоматически, не требует активации. Переживает смену темы.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">php</span><button type="button" class="llms-deploy-copy-btn" data-snippet="wordpress" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>&lt;?php
-/**
- * Plugin Name: llms.txt
- * Description: Serves /llms.txt at the site root for AI crawlers.
- */
-add_action('init', function () {
-    if (trim($_SERVER['REQUEST_URI'] ?? '', '/') !== 'llms.txt') {
-        return;
-    }
-    header('Content-Type: text/plain; charset=utf-8');
-    header('Cache-Control: public, max-age=3600');
-    readfile(ABSPATH . 'llms.txt');
-    exit;
-});</code></pre></div></div><div class="llms-deploy-panel" data-stack="nginx" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">/etc/nginx/sites-enabled/example.conf</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Самый быстрый путь — nginx отдаёт файл напрямую, минуя PHP/Node. После правки сделайте reload.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">nginx</span><button type="button" class="llms-deploy-copy-btn" data-snippet="nginx" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># Place inside your server { } block
-location = /llms.txt {
-    alias /var/www/example.com/llms.txt;
-    default_type text/plain;
-    charset utf-8;
-    add_header Cache-Control "public, max-age=3600";
-    access_log off;
-}</code></pre></div></div><div class="llms-deploy-panel" data-stack="next.js" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">app/llms.txt/route.ts</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Route Handler — удобно, когда llms.txt строится динамически из CMS / БД. Поддерживает ISR через revalidate.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">ts</span><button type="button" class="llms-deploy-copy-btn" data-snippet="next.js" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>// app/llms.txt/route.ts
-import { NextResponse } from 'next/server';
-
-export const revalidate = 3600;
-
-export async function GET() {
-  const body = [
-    '# My Project',
-    '&gt; Short description of the site',
-    '',
-    '## Pages',
-    '- [Home](https://example.com)',
-    '- [Docs](https://example.com/docs)',
-  ].join('\n');
-
-  return new NextResponse(body, {
-    headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600',
-    },
-  });
-}</code></pre></div></div><div class="llms-deploy-panel" data-stack="next.js_public" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">public/llms.txt</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Самый простой путь — положите файл в public/, Next.js сам отдаст его по /llms.txt. Без кода.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">txt</span><button type="button" class="llms-deploy-copy-btn" data-snippet="next.js_public" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># Just place the file in your project at:
-#   public/llms.txt
-#
-# Next.js will serve it verbatim at https://example.com/llms.txt
-# Content-Type is auto-set to text/plain. No build step needed.
-
-# Sample content for public/llms.txt:
-# My Project
-&gt; Short description for AI crawlers
-
-## Pages
-- [Home](https://example.com)
-- [Docs](https://example.com/docs)</code></pre></div></div><div class="llms-deploy-panel" data-stack="laravel" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">routes/web.php</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Закэшируйте ответ, чтобы не грузить фреймворк на каждом запросе. Storage::get() читает из storage/app/.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">php</span><button type="button" class="llms-deploy-copy-btn" data-snippet="laravel" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>&lt;?php
-// routes/web.php
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Response;
-
-Route::get('/llms.txt', function () {
-    $body = Storage::get('llms.txt'); // storage/app/llms.txt
-    return Response::make($body, 200, [
-        'Content-Type'  =&gt; 'text/plain; charset=utf-8',
-        'Cache-Control' =&gt; 'public, max-age=3600',
-    ]);
-});</code></pre></div></div><div class="llms-deploy-panel" data-stack="apache" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">.htaccess at site root</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Гарантирует корректный Content-Type, если файл уже лежит в корне. Перезапуск Apache не нужен.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">apache</span><button type="button" class="llms-deploy-copy-btn" data-snippet="apache" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># .htaccess at site root — forces text/plain on /llms.txt
-&lt;Files "llms.txt"&gt;
-    ForceType text/plain
-    Header set Cache-Control "public, max-age=3600"
-    Header set X-Robots-Tag "noindex"
-&lt;/Files&gt;</code></pre></div></div><div class="llms-deploy-panel" data-stack="django" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">urls.py</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">HttpResponse с text/plain. Для высоконагруженных сайтов лучше отдавать файл через nginx.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">py</span><button type="button" class="llms-deploy-copy-btn" data-snippet="django" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code># urls.py
-from django.http import HttpResponse
-from django.urls import path
-from pathlib import Path
-
-
-def llms_txt(request):
-    body = Path(__file__).resolve().parent.joinpath('llms.txt').read_text(encoding='utf-8')
-    return HttpResponse(
-        body,
-        content_type='text/plain; charset=utf-8',
-        headers={'Cache-Control': 'public, max-age=3600'},
-    )
-
-
-urlpatterns = [
-    path('llms.txt', llms_txt, name='llms_txt'),
-]</code></pre></div></div><div class="llms-deploy-panel" data-stack="cloudflare_worker" role="tabpanel"><div class="llms-deploy-meta"><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Где разместить:</span> <code class="llms-deploy-location">Cloudflare Workers dashboard (or wrangler.toml)</code></div><div class="llms-deploy-meta-row"><span class="llms-deploy-meta-label">Заметки:</span> <span class="llms-deploy-notes">Кэш на edge по всему миру, origin не дёргается. В Routes привяжите example.com/llms.txt к воркеру.</span></div></div><div class="llms-deploy-snippet-wrap"><div class="llms-deploy-snippet-bar"><span class="llms-deploy-snippet-lang">js</span><button type="button" class="llms-deploy-copy-btn" data-snippet="cloudflare_worker" aria-label="Скопировать сниппет">Скопировать сниппет</button></div><pre class="llms-deploy-snippet"><code>// Cloudflare Worker — bind Route: example.com/llms.txt
-export default {
-  async fetch(request) {
-    const body = [
-      '# My Project',
-      '&gt; Short description of the site',
-      '',
-      '## Pages',
-      '- [Home](https://example.com)',
-      '- [Docs](https://example.com/docs)',
-    ].join('\n');
-
-    return new Response(body, {
-      headers: {
-        'Content-Type':  'text/plain; charset=utf-8',
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-      },
-    });
-  },
-};</code></pre></div></div></div></div></details></section></div>
-
-<section class="faq-section">
+<section class="related-tools"><div class="wrap"><h2 class="related-tools__title">Связанные инструменты</h2><div class="related-tools__grid"><a href="/robots-checker" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-robot icon-muted"></i></span><span class="related-tool-card__name">Robots.txt</span></a><a href="/llms-txt" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-robot icon-purple"></i></span><span class="related-tool-card__name">llms.txt</span></a><a href="/seo-audit" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-chart-bar icon-green"></i></span><span class="related-tool-card__name">SEO-аудит</span></a><a href="/schema-checker" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-code icon-blue"></i></span><span class="related-tool-card__name">Schema-разметка</span></a></div></div></section><section class="faq-section">
   <h2>Часто задаваемые вопросы</h2>
   <div class="faq-list">
-    <details class="faq-item"><summary>Что такое llms.txt и зачем он нужен?</summary><p>llms.txt — это Markdown-файл в корне вашего сайта, предоставляющий структурированный, удобный для AI индекс вашего контента. По мере того как AI-инструменты вроде ChatGPT и Claude становятся основными инструментами исследования, наличие llms.txt помогает гарантировать точное представление вашего сайта — улучшая находимость, снижая галлюцинации и давая вам контроль над тем, что AI знает о вашем проекте.</p></details>
-    <details class="faq-item"><summary>Чем llms.txt отличается от robots.txt и sitemap.xml?</summary><p>robots.txt сообщает краулерам, какие страницы пропустить. sitemap.xml перечисляет все URL для индексации. llms.txt другой — он предназначен для AI-систем, читающих ваш контент напрямую. Он предоставляет понятные названия, описания и контекст, помогающие языковым моделям понять суть вашего сайта и найти самый важный контент.</p></details>
-    <details class="faq-item"><summary>Влияет ли llms.txt на SEO?</summary><p>llms.txt не влияет напрямую на традиционные позиции в поисковых системах — Google и Bing не используют его для индексации. Его ценность — в AI-поиске и разговорных инструментах: по мере распространения AI-поиска (Perplexity, ChatGPT Search, Claude.ai) хорошо структурированный llms.txt может улучшить то, как ваш сайт представлен в ответах AI.</p></details>
-    <details class="faq-item"><summary>К какому баллу нужно стремиться при валидации?</summary><p>Стремитесь к оценке A (85–100 баллов). Наиболее важные проверки: наличие заголовка H1, описание-блокцитата, хотя бы один раздел H2 и корректные абсолютные URL. Балл 70+ (оценка B) вполне функционален. Ниже 50 означает критические структурные проблемы, которые могут помешать AI-инструментам правильно разобрать ваш файл.</p></details>
-    <details class="faq-item"><summary>Как часто обновлять llms.txt?</summary><p>Обновляйте llms.txt при добавлении крупных новых разделов, изменении структуры сайта или обновлении ключевой документации. Для блогов и новостных сайтов достаточно ежемесячных обновлений. Используйте наш Генератор — он пересоздаёт файл из вашего sitemap за секунды, поэтому поддерживать его в актуальном состоянии не составит труда.</p></details>
-    <details class="faq-item"><summary>Куда именно разместить файл llms.txt?</summary><p>Разместите в корне вашего домена: &lt;code&gt;https://ваш-домен.com/llms.txt&lt;/code&gt;. Убедитесь, что файл публично доступен (не требует авторизации) и возвращает Content-Type &lt;code&gt;text/plain&lt;/code&gt; или &lt;code&gt;text/markdown&lt;/code&gt;. Также добавьте &lt;code&gt;Sitemap: https://ваш-домен.com/llms.txt&lt;/code&gt; в robots.txt, чтобы AI-краулеры могли обнаруживать его автоматически.</p></details>
+    <details class="faq-item"><summary>Что проверяет AI-Check?</summary><p>Инструмент выполняет 20 автоматических проверок: контент для LLM (llms.txt, markdown-выдача, Speakable), доступ AI-краулеров (правила для GPTBot, ClaudeBot, PerplexityBot в robots.txt, X-Robots-Tag, мета-теги), 8 агентных протоколов (agents.json, MCP, A2A, OpenAPI) и сигналы цитируемости. На выходе — AI-Score и приоритетный список исправлений.</p></details>
+    <details class="faq-item"><summary>Что такое llms.txt и обязателен ли он?</summary><p>llms.txt — файл в корне сайта со сводным описанием структуры и ключевых страниц для языковых моделей, аналог robots.txt для LLM. Формально он не обязателен, но помогает ИИ-системам быстро понять сайт и повышает шансы корректного цитирования вашего контента в ответах.</p></details>
+    <details class="faq-item"><summary>Нужно ли разрешать GPTBot и ClaudeBot в robots.txt?</summary><p>Если вы хотите, чтобы сайт цитировался в ответах ChatGPT, Claude и Perplexity — да: заблокированный краулер не может прочитать контент, и ссылаться на вас будет нечем. Блокировка оправдана только если вы осознанно не хотите попадать в AI-ответы и обучающие выборки.</p></details>
+    <details class="faq-item"><summary>Чем AI-краулеры отличаются от Googlebot?</summary><p>Многие AI-краулеры не выполняют JavaScript и читают в первую очередь HTML, служебные файлы и структурированную разметку. Для них критичны llms.txt, JSON-LD и понятная HTML-структура, а не поведенческие факторы. Поэтому сайт с хорошим классическим SEO всё равно может быть «невидим» для нейросетей.</p></details>
+    <details class="faq-item"><summary>Влияет ли AI-готовность на обычное SEO?</summary><p>Прямо — нет: llms.txt и агентные протоколы не являются факторами ранжирования Google или Яндекса. Но косвенно — да: структурированная разметка, чистый HTML и понятные метаданные улучшают и классическую индексацию. GEO строится поверх нормального SEO, а не вместо него.</p></details>
+    <details class="faq-item"><summary>Как часто стоит перепроверять сайт?</summary><p>После любых изменений robots.txt, разметки или структуры — сразу, а в фоне достаточно раза в месяц: стандарты AI-доступа (llms.txt, Content-Signals, агентные протоколы) быстро развиваются, и вчерашняя «зелёная» проверка может устареть. Можно включить еженедельную автоматическую перепроверку на почту.</p></details>
   </div>
-</section></main>
+</section>
+<!-- CMS extras: tool-ai-check -->
+<section class="tool-info block-example-list">
+    <div class="card">
+                    <h2 class="info-title">Связанные гайды</h2>
+                            <p class="block-example-list__intro">Развёрнутые материалы по теме из базы знаний.</p>
+                <ul class="block-example-list__items">
+                            <li>
+                                            <a href="/s/glossary-llm">→ LLM (Large Language Model) — что это</a>
+                                    </li>
+                            <li>
+                                            <a href="/s/glossary-lru-cache">→ LRU Cache — Least Recently Used</a>
+                                    </li>
+                            <li>
+                                            <a href="/s/research-api-response-times-2026">→ API response times 2026 — бенчмарк топ-1000 public APIs</a>
+                                    </li>
+                    </ul>
+    </div>
+</section>
+</main>

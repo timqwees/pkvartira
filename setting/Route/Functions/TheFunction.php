@@ -766,6 +766,7 @@ class TheFunction
             'type' => 'website',
             'pageType' => 'WebPage',
             'breadcrumbs' => [],
+            'speakable' => [],
             'schema' => [],
             'author' => null,
             'datePublished' => null,
@@ -1047,10 +1048,19 @@ class TheFunction
 
         // Связка основной ноды страницы ↔ BreadcrumbList.
         // Убирает warn enterno «WebPage: отсутствует breadcrumb».
-        if (!empty($opts['breadcrumbs'])) {
+        // Плюс SpeakableSpecification (AI-readiness: голосовые ассистенты и AI-цитирования).
+        if (!empty($opts['breadcrumbs']) || !empty($opts['speakable'])) {
             foreach ($jsonLd['@graph'] as $gi => $gn) {
                 if (($gn['@type'] ?? '') === $opts['pageType'] && ($gn['@id'] ?? '') === $pageUrl . '#webpage') {
-                    $jsonLd['@graph'][$gi]['breadcrumb'] = ['@id' => $pageUrl . '#breadcrumb'];
+                    if (!empty($opts['breadcrumbs'])) {
+                        $jsonLd['@graph'][$gi]['breadcrumb'] = ['@id' => $pageUrl . '#breadcrumb'];
+                    }
+                    if (!empty($opts['speakable'])) {
+                        $jsonLd['@graph'][$gi]['speakable'] = [
+                            '@type' => 'SpeakableSpecification',
+                            'cssSelector' => array_values($opts['speakable']),
+                        ];
+                    }
                     break;
                 }
             }

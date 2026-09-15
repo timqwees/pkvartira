@@ -1,0 +1,4 @@
+Contact: mailto:info@pkvartira.ru
+Contact: https://pkvartira.ru/contact
+Expires: 2027-09-30T00:00:00.000Z
+Preferred-Languages: ru, en
