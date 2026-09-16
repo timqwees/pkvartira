@@ -96,9 +96,14 @@ Routes::get('/rss.xsl', function () {
         http_response_code(404);
         exit;
     }
-    header('Content-Type: text/xsl; charset=utf-8');
+    header('Content-Type: application/xslt+xml; charset=utf-8');
     header('Cache-Control: public, max-age=86400');
     readfile($file);
+});
+//==================================================================================================//TURBO FEED (Яндекс Турбо-страницы)
+Routes::get('/turbo.xml', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+    Setting\Route\Functions\TurboFeed::output();
 });
 //==================================================================================================//PAGES LIST
 Routes::get('/pages', function () {
