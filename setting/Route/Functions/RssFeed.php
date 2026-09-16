@@ -76,6 +76,9 @@ class RssFeed
         });
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        // XSL-оформление: без него браузеры показывают ленту как plain-text.
+        // Сам файл отдаётся маршрутом /rss.xsl ниже (text/xsl + кэш).
+        $xml .= '<?xml-stylesheet href="' . $this->escape($this->baseUrl . '/rss.xsl') . '" type="text/xsl"?>' . "\n";
         $xml .= '<rss version="2.0"' . "\n"
               . '     xmlns:content="http://purl.org/rss/1.0/modules/content/"' . "\n"
               . '     xmlns:dc="http://purl.org/dc/elements/1.1/"' . "\n"
