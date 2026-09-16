@@ -456,6 +456,72 @@ class TheFunction
     }
 
     /**
+     * ВСЕ воронки/стадии Bitrix24 — в одном месте.
+     *
+     * - 'defaults.default' — обычные заявки (не вакансии).
+     * - 'defaults.vacancy' — любая вакансия, если ни одно правило не подошло.
+     * - 'rules' — конкретные вакансии. Порядок важен: первое совпадение побеждает
+     *   (поэтому менеджер ВЫШЕ прораба: slug 'prorab-inzhenir' содержит 'prorab').
+     *
+     * Как добавить новую вакансию: допишите один блок в 'rules':
+     *   'dizayner' => ['label' => 'Дизайнер', 'keywords' => ['дизайнер'],
+     *                  'category' => '17', 'stage' => 'C17:NEW'],
+     * Ключевики ищутся регистронезависимо в полях «Вакансия», «Вакансия_выбор», «форма».
+     */
+    private const FUNNELS = [
+        'defaults' => [
+            'default' => ['label' => 'Обычная заявка', 'category' => '7', 'stage' => 'C7:NEW'],
+            'vacancy' => ['label' => 'Вакансия (общая)', 'category' => '11', 'stage' => 'C11:NEW'],
+        ],
+        'rules' => [
+            'manager' => [
+                'label' => 'Менеджер (замерщик-сметчик)',//ни за что не отвечает, как комментарий
+                'keywords' => ['менеджер', 'замерщик', 'сметчик', 'prorab-inzhenir'],
+                'category' => '15',
+                'stage' => 'C15:NEW',
+            ],
+            'prorab' => [
+                'label' => 'Прораб',
+                'keywords' => ['прораб'],
+                'category' => '13',
+                'stage' => 'C13:NEW',
+            ],
+        ],
+    ];
+
+    /**
+     * Определяет воронку/стадию Bitrix24 по данным формы.
+     *
+     * @return array{0: string, 1: string} [CATEGORY_ID, STAGE_ID]
+     */
+    private static function resolveFunnel(object $data): array
+    {
+        // Не вакансия — обычная заявка.
+        if (!isset($data->Вакансия)) {
+            return [self::FUNNELS['defaults']['default']['category'], self::FUNNELS['defaults']['default']['stage']];
+        }
+
+        $vacancyText = trim(
+            self::toStr($data->Вакансия ?? '')
+            . ' ' . self::toStr($data->Вакансия_выбор ?? '')
+            . ' ' . self::toStr($data->форма ?? '')
+        );
+
+        if ($vacancyText !== '') {
+            foreach (self::FUNNELS['rules'] as $rule) {
+                foreach ($rule['keywords'] as $keyword) {
+                    if ($keyword !== '' && mb_stripos($vacancyText, $keyword, 0, 'UTF-8') !== false) {
+                        return [$rule['category'], $rule['stage']];
+                    }
+                }
+            }
+        }
+
+        // Вакансия, но ни одно правило не подошло — общая воронка вакансий.
+        return [self::FUNNELS['defaults']['vacancy']['category'], self::FUNNELS['defaults']['vacancy']['stage']];
+    }
+
+    /**
      * Отправка сделки в Bitrix24 через CRM REST API
      */
     private static function sendToBitrix24(object $data): void
@@ -463,11 +529,7 @@ class TheFunction
         $name = $data->имя ?? $data->name ?? '';
         $phone = $data->телефн ?? $data->телефон ?? $data->теефон ?? $data->phone ?? '';
         $email = $data->почта ?? $data->email ?? '';
-        (string) $CATEGORY_ID = isset($data->Вакансия) ? '11' : '7';//воронка
-        (string) $STAGE_ID = isset($data->Вакансия) ? 'C11:NEW' : 'C7:NEW';//стадия
-
-        (string) $CATEGORY_ID = isset($data->Вакансия) && strpos($data->Вакансия, 'Прораб') !== false ? '13' : $CATEGORY_ID;//воронка
-        (string) $STAGE_ID = isset($data->Вакансия) && strpos($data->Вакансия, 'Прораб') !== false ? 'C13:NEW' : $STAGE_ID;//стадия
+        [$CATEGORY_ID, $STAGE_ID] = self::resolveFunnel($data);
         
         // Комментарий — ищем без учета регистра/языка (сообщение/message/комментарий/comment)
         $comment = '';

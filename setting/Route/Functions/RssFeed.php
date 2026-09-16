@@ -67,6 +67,13 @@ class RssFeed
     private function buildXml(): string
     {
         $articles = $this->getArticles();
+        // Сортируем по дате (новые сверху): ветка БД уже идёт ORDER BY created_at DESC,
+        // но после фильтрации порядок гарантируем здесь — от него зависит lastBuildDate и порядок <item>.
+        usort($articles, function ($a, $b) {
+            $ta = strtotime($a['created_at'] ?? '') ?: 0;
+            $tb = strtotime($b['created_at'] ?? '') ?: 0;
+            return $tb <=> $ta;
+        });
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<rss version="2.0"' . "\n"
@@ -99,11 +106,26 @@ class RssFeed
 
         // Items
         foreach ($articles as $art) {
+            // Пропускаем битые записи без id — иначе <link>/<guid> ведут в никуда
+            if (empty($art['id'])) {
+                continue;
+            }
+            // Заголовок никогда не оставляем пустым: иначе в ридерах/валидаторах item без названия.
+            // Фолбэк: meta_description (первые 120 символов) → «Статья №id».
+            $itemTitle = trim((string)($art['title'] ?? ''));
+            if ($itemTitle === '') {
+                $fallback = trim((string)($art['meta_description'] ?? ''));
+                if ($fallback !== '') {
+                    $itemTitle = mb_substr($fallback, 0, 120, 'UTF-8');
+                } else {
+                    $itemTitle = 'Статья №' . $art['id'];
+                }
+            }
             $xml .= '    <item>' . "\n";
-            $xml .= '      <title>' . $this->escape($art['title'] ?? '') . "</title>\n";
+            $xml .= '      <title>' . $this->escape($itemTitle) . "</title>\n";
             $xml .= '      <link>' . $this->escape($this->baseUrl . '/blog/article/' . $art['id']) . "</link>\n";
             $xml .= '      <guid isPermaLink="true">' . $this->escape($this->baseUrl . '/blog/article/' . $art['id']) . "</guid>\n";
-            $xml .= '      <pubDate>' . $this->formatDate($art['created_at']) . "</pubDate>\n";
+            $xml .= '      <pubDate>' . $this->formatDate((string)($art['created_at'] ?? '')) . "</pubDate>\n";
             if (!empty($art['category'])) {
                 $xml .= '      <category>' . $this->escape($art['category']) . "</category>\n";
             }
@@ -112,7 +134,7 @@ class RssFeed
                 $mime = $this->detectMimeFromUrl($imgUrl);
                 $xml .= '      <enclosure url="' . $this->escape($imgUrl) . '" type="' . $mime . '" length="0"/>' . "\n";
                 $xml .= '      <media:content url="' . $this->escape($imgUrl) . '" medium="image" type="' . $mime . '">' . "\n";
-                $xml .= '        <media:title>' . $this->escape($art['title'] ?? '') . "</media:title>\n";
+                $xml .= '        <media:title>' . $this->escape($itemTitle) . "</media:title>\n";
                 $xml .= '      </media:content>' . "\n";
             }
             $xml .= '      <description><![CDATA[' . $this->escapeCdata($art['content'] ?? '') . "]]></description>\n";

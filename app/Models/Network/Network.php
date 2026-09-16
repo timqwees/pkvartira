@@ -341,6 +341,10 @@ class Network extends Session
         // Определяем HTTP-метод
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
+        // Флаг найденного маршрута — инициализируем ДО ветвлений,
+        // иначе при $_GET['route'] переменная не определена (Warning на строке if (!$findRoute))
+        $findRoute = false;
+
         // Получаем текущий маршрут из .htaccess или REQUEST_URI
         if (isset($_GET['route'])) {
             $route = trim($_GET['route']);
@@ -355,9 +359,8 @@ class Network extends Session
         } else {
             $route = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
             // Убираем дублирующиеся слэши (например, // -> /)
-        $route = preg_replace('#/+#', '/', $route) ?? $route;
+            $route = preg_replace('#/+#', '/', $route) ?? $route;
 
-        $findRoute = false;
             if ($route === '') {
                 $route = '/';
             }
