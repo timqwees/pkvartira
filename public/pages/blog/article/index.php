@@ -126,7 +126,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
                 <?php else: ?>
                     <?php
-                    $tops = array_slice($__blogJson, 0, 5);
+                    // «Читайте также» — свежие статьи (JSON лежит от старых к новым, сортируем явно)
+                    $__sortedBlog = $__blogJson;
+                    usort($__sortedBlog, fn($a, $b) => strtotime($b['created_at'] ?? '') - strtotime($a['created_at'] ?? ''));
+                    $tops = array_slice($__sortedBlog, 0, 5);
+                    $__fallbackImg = 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60';
                     ?>
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" itemscope itemtype="http://schema.org/Article">
                         <meta itemprop="inLanguage" content="ru-RU" />
@@ -188,7 +192,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     </div>
                                 </div>
                                 <div class="flex flex-col sm:flex-row gap-3">
-                                    <a href="<?= htmlspecialchars($site['baseUrl'] ?? '/calculator'); ?>"
+                                    <a href="/calculator"
                                         class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-black text-white font-semibold hover:bg-gray-900 transition">
                                         Получить расчёт
                                     </a>
@@ -512,7 +516,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </article>
 
                             <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                                <a href="<?= htmlspecialchars($site['baseUrl'] ?? '/calculator'); ?>"
+                                <a href="/"
                                     class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
                                     Перейти на главную
                                     <i class="fas fa-arrow-right ml-2"></i>
@@ -541,7 +545,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                                 <img class="w-[84px] h-[64px] object-cover rounded-lg"
                                                     alt="<?= htmlspecialchars($item['title']); ?>"
                                                     title="<?= htmlspecialchars($item['title']); ?>"
-                                                    src="<?= htmlspecialchars($item['image'] ?: $image); ?>">
+                                                    src="<?= htmlspecialchars($item['image'] ?: $__fallbackImg); ?>">
                                                 <div class="flex-1">
                                                     <div class="text-[13px] font-extrabold text-[#2a2e3b] leading-[16px]">
                                                         <?= htmlspecialchars($item['title']); ?>
@@ -572,6 +576,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     Перейти в калькулятор
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
+                            </div>
                         </aside>
                     </div>
                 <?php endif; ?>

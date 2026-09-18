@@ -312,7 +312,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     Получите расчёт и бесплатную консультацию без обязательств.
                 </p>
 
-                <a href="#calculator"
+                <a href="/calculator"
                     class="mt-8 inline-flex items-center h-12 px-8 rounded-lg bg-[#f97316] text-white font-semibold hover:bg-[#ea580c] transition-colors">
                     Рассчитать стоимость
                 </a>
