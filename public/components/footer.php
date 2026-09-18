@@ -109,17 +109,12 @@
                 <a href="/services/krasnogorsk" class="hover:text-orange-500 transition">Красногорск</a>
                 <a href="/services/mytishchi" class="hover:text-orange-500 transition">Мытищи</a>
                 <a href="/services/podolsk" class="hover:text-orange-500 transition">Подольск</a>
-                <a href="/services/domodedovo" class="hover:text-orange-500 transition">Домодедово</a>
                 <a href="/services/shcherbinka" class="hover:text-orange-500 transition">Щербинка</a>
-                <a href="/services/zelenograd" class="hover:text-orange-500 transition">Зеленоград</a>
-                <a href="/services/ramenskoye" class="hover:text-orange-500 transition">Раменское</a>
-                <a href="/services/pushkino" class="hover:text-orange-500 transition">Пушкино</a>
                 <a href="/services/reutov" class="hover:text-orange-500 transition">Реутов</a>
                 <a href="/services/dolgoprudny" class="hover:text-orange-500 transition">Долгопрудный</a>
                 <a href="/services/lobnya" class="hover:text-orange-500 transition">Лобня</a>
                 <a href="/services/zvenigorod" class="hover:text-orange-500 transition">Звенигород</a>
                 <a href="/services/vidnoye" class="hover:text-orange-500 transition">Видное</a>
-                <a href="/services/solnechnogorsk" class="hover:text-orange-500 transition">Солнечногорск</a>
                 <a href="/services/akademicheskaya" class="hover:text-orange-500 transition">м. Академическая</a>
                 <a href="/services/leninsky-prospekt" class="hover:text-orange-500 transition">Ленинский пр.</a>
             </div>

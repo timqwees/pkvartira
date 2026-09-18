@@ -140,17 +140,12 @@
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/krasnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Красногорск</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/podolsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Подольск</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/domodedovo"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Домодедово</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/shcherbinka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Щербинка</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zelenograd"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Зеленоград</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/ramenskoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Раменское</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pushkino"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Пушкино</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/reutov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Реутов</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dolgoprudny"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Долгопрудный</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lobnya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Лобня</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zvenigorod"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Звенигород</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vidnoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Видное</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/solnechnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Солнечногорск</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
                         </div>
