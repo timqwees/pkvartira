@@ -88,18 +88,6 @@ Routes::get('/rss.xml', function () {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\RssFeed::output();
 });
-//==================================================================================================//RSS XSL (оформление ленты в браузере)
-Routes::get('/rss.xsl', function () {
-    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
-    $file = dirname(__DIR__, 2) . '/public/rss.xsl';
-    if (!is_file($file)) {
-        http_response_code(404);
-        exit;
-    }
-    header('Content-Type: application/xslt+xml; charset=utf-8');
-    header('Cache-Control: public, max-age=86400');
-    readfile($file);
-});
 //==================================================================================================//TURBO FEED (Яндекс Турбо-страницы)
 Routes::get('/turbo.xml', function () {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity();
