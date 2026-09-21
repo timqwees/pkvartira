@@ -133,23 +133,94 @@ class TurboFeed
     }
 
     /**
-     * Чистит HTML статьи до тегов, разрешённых в Турбо-страницах,
-     * относительные ссылки делает абсолютными.
+     * Чистит HTML статьи до тегов и атрибутов, разрешённых в Турбо-страницах,
+     * относительные ссылки делает абсолютными, одиночные img оборачивает в figure.
      * Public static — переиспользуется генератором /rss.xml.
      */
     public static function sanitize(string $html, string $baseUrl): string
     {
         // Выкидываем PHP-остатки, если вдруг попали
         $html = preg_replace('/<\?.*?\?>/s', '', $html) ?? $html;
-        // Только разрешённые Турбо теги (плюс figure/img для картинок)
-        $html = strip_tags($html, '<header><h1><h2><h3><p><img><figure><figcaption><br><ul><ol><li><b><strong><i><em><sup><sub><a><menu>');
-        // Убираем служебные атрибуты наших шаблонов, Турбо их не понимает
-        $html = preg_replace('/\s+data-[a-z\-]+="[^"]*"/i', '', $html) ?? $html;
-        $html = preg_replace('/\s+style="[^"]*"/i', '', $html) ?? $html;
+        // script/style/svg/iframe/form удаляем целиком вместе с содержимым
+        $html = preg_replace('#<(script|style|svg|iframe|form|button|input|select|textarea|video|audio|canvas)[^>]*>.*?</\1>#si', '', $html) ?? $html;
         // Относительные ссылки → абсолютные
         $html = str_replace('src="/', 'src="' . $baseUrl . '/', $html);
         $html = str_replace('href="/', 'href="' . $baseUrl . '/', $html);
-        return trim($html);
+
+        $allowedTags = ['header','h1','h2','h3','p','img','figure','figcaption','br','ul','ol','li','b','strong','i','em','sup','sub','a','menu'];
+        // Вайтлист атрибутов: всё остальное (class, id, style, data-*, width, loading и т.д.) режем
+        $allowedAttrs = ['a' => ['href'], 'img' => ['src', 'alt']];
+        $dropWithContent = ['script','style','svg','iframe','form','button','input','select','textarea','video','audio','canvas'];
+
+        $doc = new \DOMDocument('1.0', 'UTF-8');
+        libxml_use_internal_errors(true);
+        $doc->loadHTML('<?xml encoding="utf-8"?><div>' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
+
+        $root = $doc->getElementsByTagName('div')->item(0);
+        if ($root === null) {
+            return '';
+        }
+
+        self::sanitizeNode($root, $allowedTags, $allowedAttrs, $dropWithContent);
+
+        // Одиночные img (вне figure) оборачиваем в <figure> — так требует Турбо
+        $imgs = [];
+        foreach ($root->getElementsByTagName('img') as $img) {
+            $imgs[] = $img;
+        }
+        foreach ($imgs as $img) {
+            $parent = $img->parentNode;
+            if ($parent !== null && strtolower((string)$parent->nodeName) !== 'figure') {
+                $fig = $doc->createElement('figure');
+                $parent->replaceChild($fig, $img);
+                $fig->appendChild($img);
+            }
+        }
+
+        $out = '';
+        foreach (iterator_to_array($root->childNodes) as $child) {
+            $out .= $doc->saveHTML($child);
+        }
+        return trim($out);
+    }
+
+    /**
+     * Рекурсивно чистит узел: запрещённые теги разворачивает (или удаляет с содержимым),
+     * у разрешённых оставляет только атрибуты из вайтлиста.
+     */
+    private static function sanitizeNode(\DOMNode $node, array $allowedTags, array $allowedAttrs, array $dropWithContent): void
+    {
+        foreach (iterator_to_array($node->childNodes) as $child) {
+            if ($child->nodeType === XML_ELEMENT_NODE) {
+                $tag = strtolower((string)$child->nodeName);
+                if (!in_array($tag, $allowedTags, true)) {
+                    if (in_array($tag, $dropWithContent, true)) {
+                        $node->removeChild($child);
+                    } else {
+                        // Разворачиваем: детей поднимаем на уровень выше, сам тег убираем
+                        self::sanitizeNode($child, $allowedTags, $allowedAttrs, $dropWithContent);
+                        foreach (iterator_to_array($child->childNodes) as $grand) {
+                            $node->insertBefore($grand, $child);
+                        }
+                        $node->removeChild($child);
+                    }
+                    continue;
+                }
+                // Разрешённый тег: чистим атрибуты
+                if ($child instanceof \DOMElement) {
+                    $keep = $allowedAttrs[$tag] ?? [];
+                    foreach (iterator_to_array($child->attributes) as $attr) {
+                        if (!in_array(strtolower((string)$attr->nodeName), $keep, true)) {
+                            $child->removeAttribute($attr->nodeName);
+                        }
+                    }
+                }
+                self::sanitizeNode($child, $allowedTags, $allowedAttrs, $dropWithContent);
+            } elseif ($child->nodeType === XML_COMMENT_NODE || $child->nodeType === XML_PI_NODE) {
+                $node->removeChild($child);
+            }
+        }
     }
 
     private function getArticles(): array
