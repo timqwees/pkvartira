@@ -83,6 +83,7 @@ class RssFeed
               . '     xmlns:content="http://purl.org/rss/1.0/modules/content/"' . "\n"
               . '     xmlns:dc="http://purl.org/dc/elements/1.1/"' . "\n"
               . '     xmlns:media="http://search.yahoo.com/mrss/"' . "\n"
+              . '     xmlns:turbo="http://turbo.yandex.ru"' . "\n"
               . '     xmlns:atom="http://www.w3.org/2005/Atom">' . "\n";
         $xml .= '  <channel>' . "\n";
 
@@ -105,7 +106,7 @@ class RssFeed
         $xml .= '      <width>144</width>' . "\n";
         $xml .= '      <height>144</height>' . "\n";
         $xml .= '    </image>' . "\n";
-        $xml .= '    <generator>Проект Квартира (PKvartira) RssFeed 1.0</generator>' . "\n";
+        $xml .= '    <generator>Проект Квартира (PKvartira) RssFeed 2.0</generator>' . "\n";
 
         // Items
         foreach ($articles as $art) {
@@ -124,11 +125,19 @@ class RssFeed
                     $itemTitle = 'Статья №' . $art['id'];
                 }
             }
-            $xml .= '    <item>' . "\n";
+            $link = $this->baseUrl . '/blog/article/' . $art['id'];
+            // Короткое текстовое описание (без HTML): meta_description → stripped content, макс. 400 символов
+            $description = $this->buildDescription($art);
+            $author = trim((string)($art['author'] ?? ''));
+            if ($author === '') {
+                $author = $this->siteName;
+            }
+            $xml .= '    <item turbo="true">' . "\n";
             $xml .= '      <title>' . $this->escape($itemTitle) . "</title>\n";
-            $xml .= '      <link>' . $this->escape($this->baseUrl . '/blog/article/' . $art['id']) . "</link>\n";
-            $xml .= '      <guid isPermaLink="true">' . $this->escape($this->baseUrl . '/blog/article/' . $art['id']) . "</guid>\n";
+            $xml .= '      <link>' . $this->escape($link) . "</link>\n";
+            $xml .= '      <description><![CDATA[' . $this->escapeCdata($description) . "]]></description>\n";
             $xml .= '      <pubDate>' . $this->formatDate((string)($art['created_at'] ?? '')) . "</pubDate>\n";
+            $xml .= '      <guid isPermaLink="true">' . $this->escape($link) . "</guid>\n";
             if (!empty($art['category'])) {
                 $xml .= '      <category>' . $this->escape($art['category']) . "</category>\n";
             }
@@ -140,14 +149,12 @@ class RssFeed
                 $xml .= '        <media:title>' . $this->escape($itemTitle) . "</media:title>\n";
                 $xml .= '      </media:content>' . "\n";
             }
-            $xml .= '      <description><![CDATA[' . $this->escapeCdata($art['content'] ?? '') . "]]></description>\n";
-            $xml .= '      <dc:creator>' . $this->escape($this->siteName) . "</dc:creator>\n";
+            $xml .= '      <dc:creator>' . $this->escape($author) . "</dc:creator>\n";
 
-            // Full content from the content file
-            $fullContent = $this->loadFullContent((int)$art['id']);
-            if ($fullContent !== '') {
-                $xml .= '      <content:encoded><![CDATA[' . $this->escapeCdata($fullContent) . "]]></content:encoded>\n";
-            }
+            // Чистый turbo-контент по образцу: header > h1 + figure + хлебные крошки + вычищенное тело
+            $xml .= '      <turbo:content><![CDATA[' . "\n";
+            $xml .= $this->escapeCdata($this->buildTurboContent($art, $itemTitle, $link, $description)) . "\n";
+            $xml .= '      ]]></turbo:content>' . "\n";
 
             $xml .= '    </item>' . "\n";
         }
@@ -234,6 +241,52 @@ class RssFeed
             'svg' => 'image/svg+xml',
             default => 'image/jpeg',
         };
+    }
+
+    /**
+     * Короткое текстовое описание для <description>: без HTML, макс. 400 символов.
+     */
+    private function buildDescription(array $art): string
+    {
+        $text = trim((string)($art['meta_description'] ?? ''));
+        if ($text === '') {
+            $text = trim(strip_tags((string)($art['content'] ?? '')));
+        }
+        $text = preg_replace('/\s+/u', ' ', $text) ?? $text;
+        $text = trim($text);
+        if (mb_strlen($text, 'UTF-8') > 400) {
+            $text = rtrim(mb_substr($text, 0, 400, 'UTF-8')) . '…';
+        }
+        return $text;
+    }
+
+    /**
+     * Чистый turbo-контент по образцу:
+     * header > h1 + figure + хлебные крошки, затем вычищенное от мусора тело статьи.
+     */
+    private function buildTurboContent(array $art, string $itemTitle, string $link, string $description): string
+    {
+        $out = '<header>' . "\n";
+        $out .= '  <h1>' . $this->escapeCdata($itemTitle) . '</h1>' . "\n";
+        if (!empty($art['image'])) {
+            $imgUrl = $this->normalizeImageUrl((string)$art['image']);
+            $out .= '  <figure><img src="' . $this->escape($imgUrl) . '" alt="' . $this->escape($itemTitle) . '"/></figure>' . "\n";
+        }
+        $out .= '  <div data-block="breadcrumblist">' . "\n";
+        $out .= '    <a href="' . $this->escape($this->baseUrl . '/') . '">Главная</a>' . "\n";
+        $out .= '    <a href="' . $this->escape($this->baseUrl . '/blogs') . '">Блог</a>' . "\n";
+        $out .= '    <a href="' . $this->escape($link) . '">' . $this->escapeCdata($itemTitle) . '</a>' . "\n";
+        $out .= '  </div>' . "\n";
+        $out .= '</header>' . "\n";
+
+        $fullContent = $this->loadFullContent((int)$art['id']);
+        if ($fullContent !== '') {
+            $out .= TurboFeed::sanitize($fullContent, $this->baseUrl);
+        } else {
+            $out .= '<p>' . $this->escapeCdata($description) . '</p>';
+        }
+
+        return trim($out);
     }
 
     private function loadFullContent(int $id): string

@@ -103,7 +103,7 @@ class TurboFeed
             if ($fullContent === '') {
                 $fullContent = '<p>' . $this->escape((string)($art['content'] ?? '')) . '</p>';
             }
-            $turboHtml = $this->turboSanitize($fullContent);
+            $turboHtml = self::sanitize($fullContent, $this->baseUrl);
 
             $xml .= '    <item turbo="true">' . "\n";
             $xml .= '      <title>' . $this->escape($itemTitle) . "</title>\n";
@@ -135,8 +135,9 @@ class TurboFeed
     /**
      * Чистит HTML статьи до тегов, разрешённых в Турбо-страницах,
      * относительные ссылки делает абсолютными.
+     * Public static — переиспользуется генератором /rss.xml.
      */
-    private function turboSanitize(string $html): string
+    public static function sanitize(string $html, string $baseUrl): string
     {
         // Выкидываем PHP-остатки, если вдруг попали
         $html = preg_replace('/<\?.*?\?>/s', '', $html) ?? $html;
@@ -146,8 +147,8 @@ class TurboFeed
         $html = preg_replace('/\s+data-[a-z\-]+="[^"]*"/i', '', $html) ?? $html;
         $html = preg_replace('/\s+style="[^"]*"/i', '', $html) ?? $html;
         // Относительные ссылки → абсолютные
-        $html = str_replace('src="/', 'src="' . $this->baseUrl . '/', $html);
-        $html = str_replace('href="/', 'href="' . $this->baseUrl . '/', $html);
+        $html = str_replace('src="/', 'src="' . $baseUrl . '/', $html);
+        $html = str_replace('href="/', 'href="' . $baseUrl . '/', $html);
         return trim($html);
     }
 
