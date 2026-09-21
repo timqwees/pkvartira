@@ -101,22 +101,32 @@
         <div class="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8">
             <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-center md:text-left">Районы работ</div>
             <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1.5 text-sm text-gray-400">
-                <a href="/services/lyubertsy" class="hover:text-orange-500 transition">Люберцы</a>
-                <a href="/services/odintsovo" class="hover:text-orange-500 transition">Одинцово</a>
                 <a href="/services/mitino" class="hover:text-orange-500 transition">Митино</a>
                 <a href="/services/khimki" class="hover:text-orange-500 transition">Химки</a>
-                <a href="/services/balashikha" class="hover:text-orange-500 transition">Балашиха</a>
+                <a href="/services/dolgoprudny" class="hover:text-orange-500 transition">Долгопрудный</a>
+                <a href="/services/odintsovo" class="hover:text-orange-500 transition">Одинцово</a>
                 <a href="/services/krasnogorsk" class="hover:text-orange-500 transition">Красногорск</a>
+                <a href="/services/lyubertsy" class="hover:text-orange-500 transition">Люберцы</a>
+                <a href="/services/balashikha" class="hover:text-orange-500 transition">Балашиха</a>
                 <a href="/services/mytishchi" class="hover:text-orange-500 transition">Мытищи</a>
                 <a href="/services/podolsk" class="hover:text-orange-500 transition">Подольск</a>
                 <a href="/services/shcherbinka" class="hover:text-orange-500 transition">Щербинка</a>
                 <a href="/services/reutov" class="hover:text-orange-500 transition">Реутов</a>
-                <a href="/services/dolgoprudny" class="hover:text-orange-500 transition">Долгопрудный</a>
                 <a href="/services/lobnya" class="hover:text-orange-500 transition">Лобня</a>
                 <a href="/services/zvenigorod" class="hover:text-orange-500 transition">Звенигород</a>
                 <a href="/services/vidnoye" class="hover:text-orange-500 transition">Видное</a>
                 <a href="/services/akademicheskaya" class="hover:text-orange-500 transition">м. Академическая</a>
                 <a href="/services/leninsky-prospekt" class="hover:text-orange-500 transition">Ленинский пр.</a>
+                <span>Савёловский</span>
+                <span>Тверской</span>
+                <span>Таганский</span>
+                <span>Крылатское</span>
+                <span>Раменки</span>
+                <span>Косино-Ухтомский</span>
+                <span>Бирюлёво Восточное</span>
+                <span>Текстильщики</span>
+                <span>Люблино</span>
+                <span>Внуковское</span>
             </div>
         </div>
         <div class="border-t border-white/10 mt-6 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">

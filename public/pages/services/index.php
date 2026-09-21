@@ -134,15 +134,16 @@ $seo = TheFunction::seo([
                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
                     <div class="font-bold text-gray-900">Популярные районы</div>
                     <ul class="mt-3 space-y-1 text-sm grid grid-cols-2 gap-x-4">
-                        <li><a href="/services/lyubertsy" class="text-gray-700 hover:text-orange-600">Люберцы</a></li>
-                        <li><a href="/services/odintsovo" class="text-gray-700 hover:text-orange-600">Одинцово</a></li>
                         <li><a href="/services/mitino" class="text-gray-700 hover:text-orange-600">Митино</a></li>
                         <li><a href="/services/khimki" class="text-gray-700 hover:text-orange-600">Химки</a></li>
-                        <li><a href="/services/balashikha" class="text-gray-700 hover:text-orange-600">Балашиха</a></li>
+                        <li><a href="/services/odintsovo" class="text-gray-700 hover:text-orange-600">Одинцово</a></li>
                         <li><a href="/services/krasnogorsk" class="text-gray-700 hover:text-orange-600">Красногорск</a></li>
+                        <li><a href="/services/lyubertsy" class="text-gray-700 hover:text-orange-600">Люберцы</a></li>
+                        <li><a href="/services/balashikha" class="text-gray-700 hover:text-orange-600">Балашиха</a></li>
                         <li><a href="/services/mytishchi" class="text-gray-700 hover:text-orange-600">Мытищи</a></li>
                         <li><a href="/services/podolsk" class="text-gray-700 hover:text-orange-600">Подольск</a></li>
                     </ul>
+                    <p class="mt-3 text-xs text-gray-500">Также работаем: Савёловский, Тверской, Таганский, Крылатское, Раменки, Косино-Ухтомский, Бирюлёво Восточное, Текстильщики, Люблино, Внуковское.</p>
                     <a href="#all" onclick="window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); return false;" class="mt-4 inline-block text-sm text-orange-600 font-medium hover:underline">Показать все районы →</a>
                 </div>
             </div>

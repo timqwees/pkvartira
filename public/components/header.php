@@ -132,22 +132,32 @@
                         </div>
                         <!-- Районы работ -->
                         <div class="grid grid-cols-2 gap-y-2 gap-x-4 pr-4"><span class="drop-title col-span-2">Популярные районы</span>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lyubertsy"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Люберцы</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/odintsovo"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Одинцово</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mitino"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Митино</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/khimki"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Химки</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/balashikha"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Балашиха</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dolgoprudny"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Долгопрудный</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/odintsovo"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Одинцово</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/krasnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Красногорск</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lyubertsy"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Люберцы</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/balashikha"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Балашиха</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/podolsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Подольск</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/shcherbinka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Щербинка</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/reutov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Реутов</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dolgoprudny"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Долгопрудный</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lobnya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Лобня</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zvenigorod"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Звенигород</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vidnoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Видное</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
+                          <li class="text-gray-500">Савёловский</li>
+                          <li class="text-gray-500">Тверской</li>
+                          <li class="text-gray-500">Таганский</li>
+                          <li class="text-gray-500">Крылатское</li>
+                          <li class="text-gray-500">Раменки</li>
+                          <li class="text-gray-500">Косино-Ухтомский</li>
+                          <li class="text-gray-500">Бирюлёво Восточное</li>
+                          <li class="text-gray-500">Текстильщики</li>
+                          <li class="text-gray-500">Люблино</li>
+                          <li class="text-gray-500">Внуковское</li>
                         </div>
                         <!-- Дополнительное -->
                         <div class="flex flex-col pr-4">
