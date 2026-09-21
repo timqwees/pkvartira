@@ -9,6 +9,14 @@ use App\Models\Article\Article;
  */
 class RssFeed
 {
+    /**
+     * Файловый кэш ленты (подход: лента генерируется в статический rss.xml в корне).
+     * Роут отдаёт файл, пока он свежий, иначе пересобирает. Cron может греть кэш заранее:
+     * php public/assets/files/generate-rss.php
+     */
+    private const CACHE_TTL = 1800; // 30 минут
+    private const MAX_ITEMS = 100;  // максимум статей в ленте (новые сверху)
+
     private string $baseUrl;
     private string $siteName;
     private string $shortName;
@@ -48,7 +56,27 @@ class RssFeed
     public static function output(): void
     {
         $instance = new self();
+        $cache = $instance->cachePath();
+
+        // Свежий файловый кэш — отдаём сразу, без пересборки
+        if (is_file($cache) && (time() - (int)filemtime($cache)) < self::CACHE_TTL) {
+            $etag = md5_file($cache) ?: '';
+            if ($etag !== '' && isset($_SERVER['HTTP_IF_NONE_MATCH']) && trim($_SERVER['HTTP_IF_NONE_MATCH']) === $etag) {
+                http_response_code(304);
+                return;
+            }
+            header('Content-Type: application/rss+xml; charset=utf-8');
+            if ($etag !== '') {
+                header('ETag: ' . $etag);
+            }
+            header('Cache-Control: public, max-age=1800');
+            readfile($cache);
+            return;
+        }
+
+        // Кэш протух или отсутствует — пересобираем и сохраняем в файл
         $xml = $instance->buildXml();
+        @file_put_contents($cache, $xml, LOCK_EX);
 
         $etag = md5($xml);
 
@@ -64,6 +92,23 @@ class RssFeed
         echo $xml;
     }
 
+    /**
+     * Принудительная генерация ленты в статический файл (для cron/CLI).
+     * Возвращает XML-строку.
+     */
+    public static function saveToFile(): string
+    {
+        $instance = new self();
+        $xml = $instance->buildXml();
+        file_put_contents($instance->cachePath(), $xml, LOCK_EX);
+        return $xml;
+    }
+
+    private function cachePath(): string
+    {
+        return dirname(__DIR__, 3) . '/rss.xml';
+    }
+
     private function buildXml(): string
     {
         $articles = $this->getArticles();
@@ -74,6 +119,8 @@ class RssFeed
             $tb = strtotime($b['created_at'] ?? '') ?: 0;
             return $tb <=> $ta;
         });
+        // Лимит ленты: только свежие
+        $articles = array_slice($articles, 0, self::MAX_ITEMS);
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         // XSL-оформление: без него браузеры показывают ленту как plain-text.
