@@ -26,7 +26,7 @@
                                 <td class="px-4 py-3 border-b border-gray-200 text-center">
                                     <?php
                                     $total = $area * (int)$row['price'];
-                                    echo number_format($total, 0, '.', ' ') . ' руб';
+                                    echo 'от ' . number_format($total, 0, '.', ' ') . ' руб';
                                     ?>
                                 </td>
                             <?php endforeach; ?>

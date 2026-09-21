@@ -261,7 +261,7 @@ include './public/components/cta-form.php';
                             </div>
                             <div class="text-xl text-black font-normal">от <font
                                     class="font-bold text-blue-600 text-2xl">296 000
-                                    ₽/м²</font>
+                                    ₽</font>
                             </div>
                         </div>
                     </div>
@@ -276,7 +276,7 @@ include './public/components/cta-form.php';
                                 <span class="text-xs text-gray-500">от 50 м²</span>
                             </div>
                             <div class="text-xl text-black font-normal">от <font
-                                    class="font-bold text-blue-600 text-2xl">400 000 ₽/м²</font>
+                                    class="font-bold text-blue-600 text-2xl">400 000 ₽</font>
                             </div>
                         </div>
                     </div>
@@ -291,7 +291,7 @@ include './public/components/cta-form.php';
                                 <span class="text-xs text-gray-500">от 70 м²</span>
                             </div>
                             <div class="text-xl text-black font-normal">от <font
-                                    class="font-bold text-blue-600 text-2xl">560 000 ₽/м²</font>
+                                    class="font-bold text-blue-600 text-2xl">560 000 ₽</font>
                             </div>
                         </div>
                     </div>
