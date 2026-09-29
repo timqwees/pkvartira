@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Стоимость ремонта однокомнатной квартиры — за кв/м в Москве и МО';
+$title = 'Стоимость ремонта однокомнатной квартиры — за м² в Москве и МО';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 $prices = [
     [
@@ -42,8 +42,8 @@ $prices = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Стоимость ремонта 1-комнатной квартиры',48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Узнайте цену ремонта однокомнатной квартиры под ключ от 30 кв/м до 40 кв/м',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт однокомнатной квартиры — от 8 000 ₽/м²',48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт однокомнатной квартиры 30–40 м² под ключ: от 296 000 ₽, фиксированная смета в договоре, гарантия 3 года. Бесплатный замер в Москве и МО.',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
@@ -200,7 +200,7 @@ $prices = [
         <?php
         $heroFormId = '1room_hero';
         $heroSubtitle = 'Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.';
-        $heroH1 = 'Стоимость ремонта однокомнатной квартиры — за кв/м в Москве и МО';
+        $heroH1 = 'Стоимость ремонта однокомнатной квартиры — за м² в Москве и МО';
         include './public/components/hero-section.php';
         ?>
 
