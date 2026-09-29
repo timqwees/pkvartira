@@ -56,11 +56,14 @@ if (preg_match('/от\s+[\d\s]+₽(?:\/м²)?/u', $heroTail, $pm)) {
 
                 <h1 class="text-3xl md:text-4xl lg:text-[44px] font-extrabold leading-tight tracking-tight">
                     <?php
-                    // H1 короче Title: база + цена. Хвост («гарантия…») живёт только в Title —
-                    // иначе H1 дословно дублирует Title.
+                    // Явный H1 страницы — приоритет над автопарсингом из $title
+                    if (!empty($heroH1)) {
+                        echo htmlspecialchars($heroH1);
+                    } else {
                     echo htmlspecialchars($heroBase);
                     if ($heroPrice) {
                         echo ' <span class="text-orange-400">— ' . htmlspecialchars($heroPrice) . '</span>';
+                    }
                     }
                     ?>
                 </h1>
