@@ -355,24 +355,24 @@ $prices = [
         <section class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8">
-                    Почему 98% клиентов рекомендуют нас
+                    Почему выбирают нас
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">50+</div>
-                        <div class="mt-1 text-sm text-gray-600">Сданных объектов</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">25</div>
+                        <div class="mt-1 text-sm text-gray-600">Отзывов со ссылками на источники</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">10</div>
-                        <div class="mt-1 text-sm text-gray-600">Лет опыта у костяка</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3</div>
+                        <div class="mt-1 text-sm text-gray-600">Варианта сметы под бюджет</div>
                     </div>
                     <div>
                         <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3 года</div>
                         <div class="mt-1 text-sm text-gray-600">Гарантии на все работы</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">45–300</div>
-                        <div class="mt-1 text-sm text-gray-600">м² — от студий до коттеджей</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">0 ₽</div>
+                        <div class="mt-1 text-sm text-gray-600">Замер и смета — бесплатно</div>
                     </div>
                 </div>
             </div>

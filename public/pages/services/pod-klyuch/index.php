@@ -436,7 +436,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
                         <p class="text-sm text-gray-600">
-                            Собственный склад и партнёрские скидки у поставщиков — подбираем оптимальную цену и не заставляем вас ездить по магазинам. И наша собственная
+                            Закупку, доставку и подъём материалов берём на себя — вам не нужно ездить по магазинам. И наша собственная
                             гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
                         </p>
                     </div>
@@ -514,7 +514,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                     <div class="bg-white border border-gray-200 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-gray-900">Почему 98% клиентов выбирают нас</h3>
+                        <h3 class="text-xl font-bold text-gray-900">Почему выбирают нас</h3>
                         <div class="mt-4 grid grid-cols-2 gap-4">
                             <div class="rounded-xl border border-gray-200 p-4">
                                 <div class="text-2xl font-bold text-orange-600">0 ₽</div>

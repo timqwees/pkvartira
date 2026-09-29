@@ -11,11 +11,7 @@
     "author": "ПКвартира",
     "tags": "ремонт квартиры, дизайн интерьера, планирование",
     "link": "/blog/remont-kvartiry-s-chego-nachat",
-    "slug": "remont-kvartiry-s-chego-nachat",
-    "old_slugs": [
-      "s-chego-nachat-remont-kvartiry-v-2026-poshagovyy-plan-i-sovety-ekspertov",
-      "с-чего-начать-ремонт-квартиры-в-2026-пошаговый-план-и-советы-экспертов"
-    ]
+    "slug": "remont-kvartiry-s-chego-nachat"
   },
   {
     "id": 2,
@@ -29,11 +25,7 @@
     "author": "ПКвартира",
     "tags": "ремонт под ключ, выбор подрядчика, ремонт квартиры",
     "link": "/blog/remont-pod-klyuch-2026",
-    "slug": "remont-pod-klyuch-2026",
-    "old_slugs": [
-      "remont-pod-klyuch-v-2026-pochemu-professionaly-vytesnyayut-samostoyatelnyy-remont",
-      "ремонт-под-ключ-в-2026-почему-профессионалы-вытесняют-самостоятельный-ремонт"
-    ]
+    "slug": "remont-pod-klyuch-2026"
   },
   {
     "id": 3,
@@ -47,11 +39,7 @@
     "author": "ПКвартира",
     "tags": "косметический ремонт, бюджетный ремонт, обновление интерьера",
     "link": "/blog/kosmeticheskiy-remont-2026",
-    "slug": "kosmeticheskiy-remont-2026",
-    "old_slugs": [
-      "kosmeticheskiy-remont-2026-kak-obnovit-kvartiru-bez-kapitalnyh-vlozheniy",
-      "косметический-ремонт-2026-как-обновить-квартиру-без-капитальных-вложений"
-    ]
+    "slug": "kosmeticheskiy-remont-2026"
   },
   {
     "id": 4,
@@ -65,11 +53,7 @@
     "author": "ПКвартира",
     "tags": "умный дом, IoT, технологии, автоматизация",
     "link": "/blog/umnyy-dom-2026",
-    "slug": "umnyy-dom-2026",
-    "old_slugs": [
-      "umnyy-dom-v-2026-chto-realno-nuzhno-v-kvartire-a-chto-marketing",
-      "умный-дом-в-2026-что-реально-нужно-в-квартире-а-что-маркетинг"
-    ]
+    "slug": "umnyy-dom-2026"
   },
   {
     "id": 5,
@@ -83,11 +67,7 @@
     "author": "ПКвартира",
     "tags": "удалённая работа, home office, эргономика, дизайн",
     "link": "/blog/rabochee-mesto-doma",
-    "slug": "rabochee-mesto-doma",
-    "old_slugs": [
-      "rabochee-mesto-doma-kak-adaptirovat-kvartiru-pod-udalennuyu-rabotu-v-2026",
-      "рабочее-место-дома-как-адаптировать-квартиру-под-удалённую-работу-в-2026"
-    ]
+    "slug": "rabochee-mesto-doma"
   },
   {
     "id": 6,
@@ -101,11 +81,7 @@
     "author": "ПКвартира",
     "tags": "тренды, цвета, материалы, дизайн интерьера",
     "link": "/blog/tsveta-materialy-2026",
-    "slug": "tsveta-materialy-2026",
-    "old_slugs": [
-      "tsveta-i-materialy-2026-trendy-kotorye-ne-ustareyut-cherez-god",
-      "цвета-и-материалы-2026-тренды-которые-не-устареют-через-год"
-    ]
+    "slug": "tsveta-materialy-2026"
   },
   {
     "id": 7,
@@ -119,11 +95,7 @@
     "author": "ПКвартира",
     "tags": "перепланировка, кухня-гостиная, мастер-спальня, согласование",
     "link": "/blog/pereplanirovka-kuhni-gostinoy",
-    "slug": "pereplanirovka-kuhni-gostinoy",
-    "old_slugs": [
-      "pereplanirovka-2026-obedinenie-kuhni-gostinoy-i-master-spalni",
-      "перепланировка-2026-объединение-кухни-гостиной-и-мастер-спальни"
-    ]
+    "slug": "pereplanirovka-kuhni-gostinoy"
   },
   {
     "id": 8,
@@ -137,11 +109,7 @@
     "author": "ПКвартира",
     "tags": "новостройка, черновая отделка, ремонт, экономия",
     "link": "/blog/remont-novostroyki-2026",
-    "slug": "remont-novostroyki-2026",
-    "old_slugs": [
-      "remont-v-novostroyke-2026-s-chego-nachat-i-na-chem-sekonomit",
-      "ремонт-в-новостройке-2026-с-чего-начать-и-на-чём-сэкономить"
-    ]
+    "slug": "remont-novostroyki-2026"
   },
   {
     "id": 9,
@@ -155,11 +123,7 @@
     "author": "ПКвартира",
     "tags": "энергоэффективность, отопление, электричество, экономия",
     "link": "/blog/energoeffektivnyy-remont",
-    "slug": "energoeffektivnyy-remont",
-    "old_slugs": [
-      "energoeffektivnyy-remont-kak-sekonomit-na-otoplenii-i-elektrichestve",
-      "энергоэффективный-ремонт-как-сэкономить-на-отоплении-и-электричестве"
-    ]
+    "slug": "energoeffektivnyy-remont"
   },
   {
     "id": 10,
@@ -173,11 +137,7 @@
     "author": "ПКвартира",
     "tags": "дизайнерский ремонт, премиум, архитектурный подход",
     "link": "/blog/dizaynerskiy-remont",
-    "slug": "dizaynerskiy-remont",
-    "old_slugs": [
-      "dizaynerskiy-remont-pochemu-spros-rastet-bystree-byudzhetnogo-segmenta",
-      "дизайнерский-ремонт-почему-спрос-растёт-быстрее-бюджетного-сегмента"
-    ]
+    "slug": "dizaynerskiy-remont"
   },
   {
     "id": 11,
@@ -191,11 +151,7 @@
     "author": "ПКвартира",
     "tags": "кухня, планировка, бюджет, тренды",
     "link": "/blog/remont-kuhni-2026",
-    "slug": "remont-kuhni-2026",
-    "old_slugs": [
-      "remont-kuhni-2026-trendy-planirovka-byudzhet",
-      "ремонт-кухни-2026-тренды-планировка-бюджет"
-    ]
+    "slug": "remont-kuhni-2026"
   },
   {
     "id": 12,
@@ -209,11 +165,7 @@
     "author": "ПКвартира",
     "tags": "дизайн интерьера, тренды, экоматериалы, натуральные фактуры",
     "link": "/blog/trendy-dizayna-interera-2026",
-    "slug": "trendy-dizayna-interera-2026",
-    "old_slugs": [
-      "trendy-dizayna-interera-2026-naturalnye-faktury-ekomaterialy-i-umnyy-dom",
-      "тренды-дизайна-интерьера-2026-натуральные-фактуры-экоматериалы-и-умный-дом"
-    ]
+    "slug": "trendy-dizayna-interera-2026"
   },
   {
     "id": 13,
@@ -227,11 +179,7 @@
     "author": "ПКвартира",
     "tags": "бюджет, планирование, экономия, подрядчик",
     "link": "/blog/byudzhet-remont-2026",
-    "slug": "byudzhet-remont-2026",
-    "old_slugs": [
-      "byudzhet-na-remont-v-2026-kak-splanirovat-rashody-i-ne-pereplatit",
-      "бюджет-на-ремонт-в-2026-как-спланировать-расходы-и-не-переплатить"
-    ]
+    "slug": "byudzhet-remont-2026"
   },
   {
     "id": 14,
@@ -245,11 +193,7 @@
     "author": "ПКвартира",
     "tags": "квадратные метры, площадь комнаты, замер квартиры, расчёт площади",
     "link": "/blog/kak-poschitat-kvadratnye-metry",
-    "slug": "kak-poschitat-kvadratnye-metry",
-    "old_slugs": [
-      "kak-poschitat-kvadratnye-metry-komnaty-formuly-i-primery",
-      "как-посчитать-квадратные-метры-комнаты-формулы-и-примеры"
-    ]
+    "slug": "kak-poschitat-kvadratnye-metry"
   },
   {
     "id": 15,
@@ -263,11 +207,7 @@
     "author": "ПКвартира",
     "tags": "сроки ремонта, ремонт комнаты, косметический ремонт, капитальный ремонт",
     "link": "/blog/skolko-dlitsya-remont-komnaty",
-    "slug": "skolko-dlitsya-remont-komnaty",
-    "old_slugs": [
-      "skolko-dlitsya-remont-komnaty-v-2026-tochnye-sroki-po-etapam-ot-5-dney-do-7-nedel",
-      "сколько-длится-ремонт-комнаты-в-2026-точные-сроки-по-этапам-от-5-дней-до-7-недель"
-    ]
+    "slug": "skolko-dlitsya-remont-komnaty"
   },
   {
     "id": 16,
@@ -281,11 +221,7 @@
     "author": "ПКвартира",
     "tags": "приемка квартиры, застройщик, чек-лист, новостройка, дефекты, акт приемки",
     "link": "/blog/priemka-kvartiry-zastroyshchik",
-    "slug": "priemka-kvartiry-zastroyshchik",
-    "old_slugs": [
-      "priemka-kvartiry-u-zastroyshchika-v-moskve-2026-chek-list-iz-30-punktov",
-      "приемка-квартиры-у-застройщика-в-москве-2026-чек-лист-из-30-пунктов"
-    ]
+    "slug": "priemka-kvartiry-zastroyshchik"
   },
   {
     "id": 17,
@@ -299,11 +235,7 @@
     "author": "ПКвартира",
     "tags": "смета на ремонт, смета, накрутки, ремонт квартиры, цены",
     "link": "/blog/smeta-na-remont-kvartiry-nakrutki",
-    "slug": "smeta-na-remont-kvartiry-nakrutki",
-    "old_slugs": [
-      "smeta-na-remont-kvartiry-2026-kak-chitat-i-12-skrytyh-nakrutok",
-      "смета-на-ремонт-квартиры-2026-как-читать-и-12-скрытых-накруток"
-    ]
+    "slug": "smeta-na-remont-kvartiry-nakrutki"
   },
   {
     "id": 18,
@@ -317,11 +249,7 @@
     "author": "ПКвартира",
     "tags": "цены на ремонт, стоимость ремонта, ремонт квартиры Москва, таблица цен",
     "link": "/blog/skolko-stoit-remont-kvartiry-2026",
-    "slug": "skolko-stoit-remont-kvartiry-2026",
-    "old_slugs": [
-      "skolko-stoit-remont-kvartiry-v-moskve-v-2026-tseny-za-m-i-tablitsa-po-ploshchadyam",
-      "сколько-стоит-ремонт-квартиры-в-москве-в-2026-цены-за-м²-и-таблица-по-площадям"
-    ]
+    "slug": "skolko-stoit-remont-kvartiry-2026"
   },
   {
     "id": 19,
@@ -335,11 +263,7 @@
     "author": "ПКвартира",
     "tags": "перепланировка, согласование, Мосжилинспекция, ремонт квартиры",
     "link": "/blog/pereplanirovka-kvartiry-soglasovanie",
-    "slug": "pereplanirovka-kvartiry-soglasovanie",
-    "old_slugs": [
-      "pereplanirovka-kvartiry-v-moskve-2026-chto-mozhno-bez-soglasovaniya-i-kak-uzakonit",
-      "перепланировка-квартиры-в-москве-2026-что-можно-без-согласования-и-как-узаконить"
-    ]
+    "slug": "pereplanirovka-kvartiry-soglasovanie"
   },
   {
     "id": 20,
@@ -353,11 +277,7 @@
     "author": "ПКвартира",
     "tags": "шумоизоляция, панельный дом, материалы, ЗИПС, Тексаунд, цены",
     "link": "/blog/shumoizolyatsiya-kvartiry-panelny-dom",
-    "slug": "shumoizolyatsiya-kvartiry-panelny-dom",
-    "old_slugs": [
-      "shumoizolyatsiya-kvartiry-v-panelnom-dome-2026-materialy-tseny-i-oshibki",
-      "шумоизоляция-квартиры-в-панельном-доме-2026-материалы-цены-и-ошибки"
-    ]
+    "slug": "shumoizolyatsiya-kvartiry-panelny-dom"
   },
   {
     "id": 21,
@@ -371,10 +291,6 @@
     "author": "ПКвартира",
     "tags": "смета в ремонте, что такое смета, смета на ремонт, состав сметы, проверка сметы",
     "link": "/blog/smeta-na-remont-kvartiry-primer",
-    "slug": "smeta-na-remont-kvartiry-primer",
-    "old_slugs": [
-      "smeta-v-remonte-chto-eto-prostymi-slovami-sostav-primer-i-kak-proverit",
-      "смета-в-ремонте-что-это-простыми-словами-состав-пример-и-как-проверить"
-    ]
+    "slug": "smeta-na-remont-kvartiry-primer"
   }
 ]

@@ -43,7 +43,7 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 1-комнатной квартиры под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. 50+ объектов команды. Замер и расчёт бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 1-комнатной квартиры под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. Замер и расчёт бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
@@ -437,7 +437,7 @@ $prices = [
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
                         <p class="text-sm text-gray-600">
-                            Собственный склад и партнёрские скидки у поставщиков — подбираем оптимальную цену и не заставляем вас ездить по магазинам. И наша собственная
+                            Закупку, доставку и подъём материалов берём на себя — вам не нужно ездить по магазинам. И наша собственная
                             гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
                         </p>
                     </div>

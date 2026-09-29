@@ -864,7 +864,7 @@ html { scroll-behavior: smooth; }
                 <div class="vd-employer-name">Проект Квартира</div>
               </div>
             </div>
-            <p class="vd-sidebar-employer"><?php if ($isProrab): ?>Прямой работодатель. Сайт с апреля 2026, костяк команды — 10+ лет, 50+ объектов. Готовые бригады, свой склад, прозрачный % от сметы.<?php else: ?>Прямой работодатель. Сайт с апреля 2026, костяк команды — 10+ лет, 50+ объектов. Фиксированные расценки, снабжение — с нас. Иногородним можно жить на объекте.<?php endif; ?></p>
+            <p class="vd-sidebar-employer"><?php if ($isProrab): ?>Прямой работодатель. Готовые бригады, прозрачный % от сметы.<?php else: ?>Прямой работодатель. Фиксированные расценки, снабжение — с нас. Иногородним можно жить на объекте.<?php endif; ?></p>
             <div class="vd-divider"></div>
             <div class="vd-employer-stats">
               <div class="vd-employer-stat">

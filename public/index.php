@@ -90,7 +90,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </strong> под ваш бюджет за 24 часа. Начнём в
                             ближайшие <strong class="text-orange-500">дни</strong> — точную дату зафиксируем в договоре
                         </p>
-                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • сайт запущен в 2026, костяк команды</p>
+                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • ООО «Проект Квартира»</p>
 
                         <div class="flex items-center flex-wrap gap-3 mb-6">
                             <button data-button-dialog
@@ -98,8 +98,8 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <i class="fa-solid fa-calculator"></i>
                                 <span>Рассчитать ремонт за <span class="text-orange-500"> 60 секунд</span></span>
                             </button>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 5.0 рейтинг на Яндекс</span>
-                            <span class="hero-stat"><i class="fa-solid fa-building"></i> 50+ объектов</span>
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 25 отзывов со ссылками</span>
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 25 отзывов со ссылками</span>
                             <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
@@ -215,27 +215,27 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="text-center mb-14">
                     <span class="label-tag">О компании</span>
                     <h2 class="section-heading mb-4">
-                        Нам доверяют — <strong class="text-orange-600">строим репутацию с нуля</strong>, на виду у клиента
+                        Ремонт под ключ — <strong class="text-orange-600">один подрядчик</strong> от замера до сдачи
                     </h2>
                     <p class="section-subtitle mx-auto">
-                        pkvartira.ru запущен в апреле 2026 — поэтому каждый объект ведём как витринный: фотоотчёт каждый день, оплата по этапам, фиксированная смета и гарантия 3 года в договоре.
+                        Один подрядчик отвечает за весь ремонт: замер, смета, закупка, контроль, фотоотчёт каждый день, оплата по этапам. Стоимость и срок — в договоре, гарантия 3 года.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
                     <div class="stat-card reveal">
-                        <div class="stat-icon"><i class="fa-regular fa-calendar-check"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="10" data-suffix="+"></span></div>
-                        <div class="stat-label">Лет опыта у костяка команды</div>
+                        <div class="stat-icon"><i class="fa-regular fa-star"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="25" data-suffix=""></span></div>
+                        <div class="stat-label">Отзывов со ссылками на источники</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-1">
-                        <div class="stat-icon"><i class="fa-regular fa-building"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="300" data-suffix=""></span></div>
-                        <div class="stat-label">Объектов сделано командой</div>
+                        <div class="stat-icon"><i class="fa-regular fa-file-lines"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="21" data-suffix=""></span></div>
+                        <div class="stat-label">Статья в блоге с честными ценами</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-2">
-                        <div class="stat-icon"><i class="fa-regular fa-heart"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="98" data-suffix="%"></span></div>
-                        <div class="stat-label">Довольных клиентов</div>
+                        <div class="stat-icon"><i class="fa-regular fa-file-word"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="3" data-suffix=""></span></div>
+                        <div class="stat-label">Варианта сметы под ваш бюджет</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-3">
                         <div class="stat-icon"><i class="fa-regular fa-handshake"></i></div>
@@ -976,7 +976,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
                         <p class="text-sm text-gray-600">
-                            Собственный склад и партнёрские скидки у поставщиков — подбираем оптимальную цену и не заставляем вас ездить по магазинам. И наша собственная
+                            Закупку, доставку и подъём материалов берём на себя — вам не нужно ездить по магазинам. И наша собственная
                             гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
                         </p>
                     </div>
@@ -1117,7 +1117,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                 <!-- Ручные отзывы -->
                 <div class="max-w-6xl mx-auto">
-                    <p class="text-sm text-gray-500 mb-6">25+ проверенных отзывов</p>
+                    <p class="text-sm text-gray-500 mb-6">25 отзывов со ссылками на источники</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Отзыв 1 -->
@@ -1429,7 +1429,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
                     <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>ПКвартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
                     Нас находят по запросам: <em>Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, ПКвартира отзывы, pkvartira отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
-                    Мы — одна команда: сайт pkvartira.ru запущен в апреле 2026, а костяк мастеров и прорабов делает ремонты 10+ лет. Работаем в Москве и Подмосковье, гарантия 3 года, фиксированная смета.
+                    Мы — ООО «Проект Квартира»: делаем ремонт квартир и домов под ключ в Москве и Подмосковье, гарантия 3 года, фиксированная смета.
                     Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
                 </p>
                 <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • Ищите нас: <strong>Проект Квартира</strong> | <strong>ПКвартира</strong> | <strong>pkvartira.ru</strong> | <strong>pkvartira</strong> | <strong>ООО Проект Квартира</strong></p>
@@ -1463,7 +1463,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Что такое ПКвартира (pkvartira.ru)?",
-              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира (ООО «Проект Квартира», ОГРН 1217700135058). Сайт запущен в апреле 2026, костяк команды — мастера и прорабы с опытом 10+ лет, вместе сделано 50+ объектов. Гарантия 3 года, фиксированная смета."}
+              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира (ООО «Проект Квартира», ОГРН 1217700135058). Ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета."}
             },
             {
               "@type": "Question",

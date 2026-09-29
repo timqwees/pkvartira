@@ -11,7 +11,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в ЖК Онтарио под ключ — официальный сайт ПКвартира. Цены от 8 000 ₽/м², гарантия 3 года, фиксированная смета. Бесплатный замер и расчёт. Более 300 проектов.',155)); ?>"><meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в ЖК Онтарио под ключ — официальный сайт ПКвартира. Цены от 8 000 ₽/м², гарантия 3 года, фиксированная смета. Бесплатный замер и расчёт.',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/ontario'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">

@@ -350,9 +350,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <span class="text-xs" style="color:rgba(255,255,255,.45)">или напишите в <a href="https://t.me/pkvartira" target="_blank" rel="noopener" class="underline hover:text-white" style="color:rgba(255,255,255,.65)">Telegram</a> / <a href="https://wa.me/74954731737" target="_blank" rel="noopener" class="underline hover:text-white" style="color:rgba(255,255,255,.65)">WhatsApp</a></span>
                         </div>
                         <div class="flex flex-wrap gap-2 mt-6">
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-award text-yellow-400 text-xs"></i> Опыт команды 10+ лет</span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-award text-yellow-400 text-xs"></i> Договор и гарантия 3 года</span>
                             <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-star text-yellow-400 text-xs"></i> 5.0 · <?= $totalReviews ?> отзывов</span>
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)">50+ объектов</span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)">Оплата по этапам</span>
 
                         </div>
                     </div>

@@ -4,32 +4,11 @@ $slug = isset($slug) ? $slug : '';
 $__blogJson = json_decode(file_get_contents(__DIR__ . '/../data/articles.json'), true) ?: [];
 $articleData = null;
 if ($slug) {
-    // Обратная совместимость: старый numeric-URL /blog/article/17 → 301 на канонический slug
-    if (ctype_digit($slug)) {
-        foreach ($__blogJson as $__item) {
-            if ((int) ($__item['id'] ?? 0) === (int) $slug && !empty($__item['slug'])) {
-                header('Location: /blog/' . $__item['slug'], true, 301);
-                exit;
-            }
-        }
-    }
+    // Прямая обработка slug без редиректов: совпало — показываем, нет — 404
     foreach ($__blogJson as $__item) {
-        if ($__item['slug'] === $slug) {
+        if (($__item['slug'] ?? '') === $slug) {
             $articleData = $__item;
             break;
-        }
-    }
-    // Обратная совместимость: старые слаги (кириллица, длинные) → 301 на короткий
-    if (!$articleData) {
-        foreach ($__blogJson as $__item) {
-            $olds = $__item['old_slugs'] ?? [];
-            if (!empty($__item['old_slug'])) {
-                $olds[] = $__item['old_slug'];
-            }
-            if (in_array($slug, $olds, true) && !empty($__item['slug'])) {
-                header('Location: /blog/' . $__item['slug'], true, 301);
-                exit;
-            }
         }
     }
 }

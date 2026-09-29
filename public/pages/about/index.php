@@ -2,8 +2,8 @@
 $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
-    'title' => 'Ремонт квартир в Москве — команда с опытом 10+ лет, 50+ объектов',
-    'description' => 'Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве. Сайт pkvartira.ru запущен в апреле 2026, костяк команды — мастера с опытом 10+ лет, 50+ объектов. Фиксированная смета, гарантия 3 года. Работаем по договору. Замер бесплатно.',
+    'title' => 'Ремонт квартир в Москве под ключ — договор, смета, гарантия',
+    'description' => 'Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве. ООО «Проект Квартира». Фиксированная смета, гарантия 3 года по договору. Замер бесплатно.',
     'keywords' => 'Проект Квартира, ПКвартира, pkvartira, ООО Проект Квартира, ремонт квартир Москва',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/about',
@@ -75,7 +75,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 </div>
 
                 <!-- GEO Entity: стабильное описание компании для AI-поиска -->
-                <p class="text-[15px] leading-[24px] text-[#4b5563] max-w-4xl mb-8">Проект Квартира (ПКвартира, ООО «Проект Квартира») — ремонт квартир и домов под ключ в Москве и Московской области. Сайт pkvartira.ru запущен в апреле 2026; костяк команды — мастера и прорабы с опытом 10+ лет, вместе сделано 50+ объектов. Клиент получает бесплатный замер, смету в 3 вариантах за 24 часа, договор с фиксированной стоимостью, ежедневные фотоотчёты и гарантию 3 года. Молодость сайта — наш контроль качества: каждый объект ведём как витринный, все 25+ отзывов публикуем со ссылками на источники.</p>
+                <p class="text-[15px] leading-[24px] text-[#4b5563] max-w-4xl mb-8">Проект Квартира (ПКвартира, ООО «Проект Квартира», ИНН 9719013990) — ремонт квартир и домов под ключ в Москве и Московской области. Клиент получает бесплатный замер, смету в 3 вариантах за 24 часа, договор с фиксированной стоимостью, ежедневные фотоотчёты и гарантию 3 года. Все 25 отзывов публикуем со ссылками на источники.</p>
 
                 <div class="flex flex-col gap-4 md:gap-8">
 
@@ -152,27 +152,25 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     <div class="check-icon-small">
                                         <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
-                                    <span class="text-sm text-gray-700">Костяк команды — <strong>10+ лет</strong> в ремонте (сайт с апреля 2026)</span>
+                                    <span class="text-sm text-gray-700">ООО «Проект Квартира» — работаем по договору</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
                                         <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
-                                    <span class="text-sm text-gray-700">Собственный склад материалов с выгодными
-                                        ценами</span>
+                                    <span class="text-sm text-gray-700">Закупка и доставка материалов — на нас</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
                                         <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
-                                    <span class="text-sm text-gray-700">Более <strong>40+</strong> специалистов в
-                                        штате</span>
+                                    <span class="text-sm text-gray-700">Узкие специалисты: электрик, сантехник, плиточник</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
                                         <i class="fas fa-check-circle text-orange-600"></i>
                                     </div>
-                                    <span class="text-sm text-gray-700">Страхование объекта на время ремонта</span>
+                                    <span class="text-sm text-gray-700">Ежедневные фотоотчёты с объекта</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
@@ -463,8 +461,8 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
                         <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-trophy text-orange-600 text-2xl"></i></div>
-                        <h3 class="text-xl font-heading font-bold mb-3">Компания с рейтингом 5,0</h3>
-                        <p class="text-gray-600">Молодая компания с опытным костяком: сайт запущен в апреле 2026, а мастера и прорабы — с опытом от 7 лет, вместе сделано 50+ объектов. Рейтинг 5.0, каждый объект ведём как витринный: фотоотчёты, смета в договоре, гарантия 3 года.</p>
+                        <h3 class="text-xl font-heading font-bold mb-3">Отзывы со ссылками на источники</h3>
+                        <p class="text-gray-600">Работаем по договору: фиксированная смета, поэтапная оплата, гарантия 3 года. Каждый объект ведём открыто: фотоотчёты, смета в договоре. Отзывы — только со ссылками на источники.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
                         <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-file-signature text-orange-600 text-2xl"></i></div>
