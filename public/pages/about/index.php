@@ -260,10 +260,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <!-- Team Member 5 -->
                         <div class="swiper-slide cursor-pointer text-center group">
                             <div class="relative overflow-hidden rounded-xl mb-4">
-                                <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/5.jpg') ?>" alt="Николай Сучков"
+                                <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/5.jpg') ?>" alt="Дмитрий Соколов"
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
-                            <h3 class="font-semibold text-gray-800 text-sm">Николай Сучков</h3>
+                            <h3 class="font-semibold text-gray-800 text-sm">Дмитрий Соколов</h3>
                             <p class="text-xs text-gray-500">Менеджер по сопровождению проектов</p>
                         </div>
 

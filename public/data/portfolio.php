@@ -8,7 +8,7 @@ $portfolio_types = [
     'studio' => 'Студии',
     'new' => 'Новостройки',
     'вторичка' => 'Вторичка',
-    'Котедж' => 'Котедж',
+    'дома' => 'Дома',
 ];
 
 $portfolio = [
@@ -160,14 +160,14 @@ $portfolio = [
         'category' => 'Под ключ',
     ],
     [
-        'type' => $portfolio_types['Котедж'],
+        'type' => $portfolio_types['дома'],
         'title' => 'Дизайнерский ремонт, коттедж',
         'folder_image' => 'public/assets/images/portfolio-photos/cottage/1_180sqm',
         'size' => '180 м²',
         'category' => 'Под ключ',
     ],
     [
-        'type' => $portfolio_types['Котедж'],
+        'type' => $portfolio_types['дома'],
         'title' => 'Капитальный ремонт, коттедж (евро)',
         'folder_image' => 'public/assets/images/portfolio-photos/cottage/2_euro_230sqm',
         'size' => '230 м²',
