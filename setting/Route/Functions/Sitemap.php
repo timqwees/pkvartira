@@ -128,6 +128,8 @@ class Sitemap
         // Попытка servir кэшированную версию
         $cacheFile = $instance->getCacheFilePath('pages');
         $sourceMtime = 0;
+        // Сам код генератора: правки логики sitemap обязаны сбрасывать кэш
+        $sourceMtime = max($sourceMtime, filemtime(__FILE__));
         // Время модификации основного файла маршрутизации (routes.php)
         $routesFile = __DIR__ . '/../../../routes.php';
         if (file_exists($routesFile)) {
@@ -221,6 +223,8 @@ class Sitemap
         // Попытка servir кэшированную версию
         $cacheFile = $instance->getCacheFilePath('services');
         $sourceMtime = 0;
+        // Сам код генератора: правки логики sitemap обязаны сбрасывать кэш
+        $sourceMtime = max($sourceMtime, filemtime(__FILE__));
         // Время модификации директории services
         $servicesDir = __DIR__ . '/../../../public/pages/services';
         if (is_dir($servicesDir)) {
@@ -328,6 +332,8 @@ class Sitemap
         // Попытка servir кэшированную версию
         $cacheFile = $instance->getCacheFilePath('blog');
         $sourceMtime = 0;
+        // Сам код генератора: правки логики sitemap обязаны сбрасывать кэш
+        $sourceMtime = max($sourceMtime, filemtime(__FILE__));
         // Время модификации articles.json
         $articlesFile = __DIR__ . '/../../../public/pages/blog/data/articles.json';
         if (file_exists($articlesFile)) {
