@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт однокомнатной квартиры в Москве — цена от 296 000 ₽ под ключ с гарантией 3 года';
+$title = 'Ремонт однокомнатной квартиры в Москве — цена от 296 000 ₽, гарантия 3 года';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 $prices = [
     [
@@ -43,7 +43,7 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 1-комнатной квартиры и евротрёшки под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. Более 80 проектов под ключ. Замер и расчёт бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 1-комнатной квартиры под ключ в Москве от 296 000 ₽. Фиксированная смета, сроки в договоре, гарантия 3 года. 50+ объектов команды. Замер и расчёт бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
@@ -54,7 +54,7 @@ $prices = [
     <meta property="og:title"
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
-        content="Ремонт однокомнатных квартир под ключ от 285 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
+        content="Ремонт однокомнатных квартир под ключ от 296 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/1room'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
 
@@ -68,7 +68,7 @@ $prices = [
     <meta name="twitter:title"
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="twitter:description"
-        content="Ремонт однокомнатных квартир под ключ от 285 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
+        content="Ремонт однокомнатных квартир под ключ от 296 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">

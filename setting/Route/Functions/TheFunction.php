@@ -1150,6 +1150,27 @@ class TheFunction
         ];
     }
 
+    /**
+     * Число слов статьи для BlogPosting.wordCount.
+     * В JSON лежит только тизер — считаем по полному тексту content/{id}.php.
+     */
+    public static function articleWordCount(array $article): int
+    {
+        $id = (int) ($article['id'] ?? 0);
+        if ($id > 0) {
+            $f = dirname(__DIR__, 3) . '/public/pages/blog/article/content/' . $id . '.php';
+            if (is_file($f)) {
+                $text = trim(strip_tags((string) file_get_contents($f)));
+                $n = count(preg_split('/\s+/u', $text, -1, PREG_SPLIT_NO_EMPTY) ?: []);
+                if ($n > 0) {
+                    return $n;
+                }
+            }
+        }
+        $fb = trim(strip_tags((string) ($article['content'] ?? '')));
+        return count(preg_split('/\s+/u', $fb, -1, PREG_SPLIT_NO_EMPTY) ?: []);
+    }
+
     public static function articleSchema(array $article): array
     {
         $site = self::site();
@@ -1175,7 +1196,9 @@ class TheFunction
             'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
             'articleSection' => (string) ($article['category'] ?? 'Ремонт'),
             'keywords' => (string) ($article['tags'] ?? 'ремонт квартиры, дизайн интерьера'),
-            'wordCount' => count(preg_split('/\s+/u', trim(strip_tags((string) ($article['content'] ?? ''))), -1, PREG_SPLIT_NO_EMPTY) ?: []),
+            // wordCount считаем по полному тексту content/{id}.php (в JSON лежит только тизер);
+            // фолбэк — поле content из JSON.
+            'wordCount' => self::articleWordCount($article),
             'inLanguage' => 'ru-RU',
         ];
     }

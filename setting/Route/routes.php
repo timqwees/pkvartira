@@ -59,6 +59,26 @@ Routes::get('/blog/article', function () {
     exit;
 });
 Routes::get('/blog/article/{slug}', function ($slug) {
+    // Прямой 301 на финальный URL (без цепочки): numeric и старые слаги резолвим здесь же
+    $jf = dirname(__DIR__, 2) . '/public/pages/blog/data/articles.json';
+    $arts = is_file($jf) ? (json_decode((string) file_get_contents($jf), true) ?: []) : [];
+    foreach ($arts as $a) {
+        if (!is_array($a) || empty($a['slug'])) {
+            continue;
+        }
+        if (ctype_digit((string) $slug) && (int) ($a['id'] ?? 0) === (int) $slug) {
+            header('Location: /blog/' . $a['slug'], true, 301);
+            exit;
+        }
+        $olds = $a['old_slugs'] ?? [];
+        if (!empty($a['old_slug'])) {
+            $olds[] = $a['old_slug'];
+        }
+        if (in_array($slug, $olds, true)) {
+            header('Location: /blog/' . $a['slug'], true, 301);
+            exit;
+        }
+    }
     header('Location: /blog/' . $slug, true, 301);
     exit;
 });
