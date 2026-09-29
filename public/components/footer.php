@@ -42,11 +42,11 @@
                     <li><a href="/services/pod-klyuch" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт квартир под ключ</a></li>
                     <li><a href="/services/doma" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт домов</a></li>
                     <li><a href="/services/studio" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт студий</a></li>
-                    <li><a href="/services/nowostroyka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт в новостройке</a></li>
+                    <li><a href="/services/novostroyka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт в новостройке</a></li>
                     <li><a href="/services/vtorichka" class="text-gray-400 hover:text-orange-500 transition text-sm">Ремонт вторичного жилья</a></li>
                     <li><a href="/services/ukladka-laminata" class="text-gray-400 hover:text-orange-500 transition text-sm">Укладка ламината</a></li>
                     <li><a href="/services/keramogranit-nazarovo" class="text-gray-400 hover:text-orange-500 transition text-sm">Укладка керамогранита</a></li>
-                    <li><a href="/services/dizajn-interierov" class="text-gray-400 hover:text-orange-500 transition text-sm">Дизайн интерьеров</a></li>
+                    <li><a href="/services/dizayn-interierov" class="text-gray-400 hover:text-orange-500 transition text-sm">Дизайн интерьеров</a></li>
                     <li><a href="/calculator" class="text-gray-400 hover:text-orange-500 transition text-sm">Калькулятор стоимости</a></li>
                 </ul>
             </div>

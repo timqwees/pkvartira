@@ -285,9 +285,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <div class="relative h-52">
                                     <div class="swiper swiper-type-one w-full h-full">
                                         <div class="swiper-wrapper">
-                                            <?php foreach ((new Functions())->getPhotos($value['текущая_папка']) as $img): ?>
+                                            <?php foreach ((new Functions())->getPhotos($value['текущая_папка']) as $rkey => $img): ?>
                                                 <div class="swiper-slide">
-                                                    <img decoding="async" loading="lazy" src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>" class="w-full h-full object-cover" width="640" height="360" alt="<?= htmlspecialchars($value['заголовок']) ?>" title="<?= htmlspecialchars($value['заголовок']) ?>">
+                                                    <img decoding="async" loading="lazy" src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>" class="w-full h-full object-cover" width="640" height="360" alt="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$rkey + 1)) ?>" title="<?= htmlspecialchars($value['заголовок']) ?>">
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
@@ -347,12 +347,13 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <a href="tel:+74954731737" class="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm" style="background:#fff;color:#0f172a">
                                 <i class="fas fa-phone text-xs"></i> +7 495 473-17-37
                             </a>
-                            <span class="text-xs" style="color:rgba(255,255,255,.45)">или напишите в <a href="https://t.me/pkvartira" target="_blank" rel="noopener" class="underline hover:text-white" style="color:rgba(255,255,255,.65)">Telegram</a> / <a href="https://wa.me/74951234567" target="_blank" rel="noopener" class="underline hover:text-white" style="color:rgba(255,255,255,.65)">WhatsApp</a></span>
+                            <span class="text-xs" style="color:rgba(255,255,255,.45)">или напишите в <a href="https://t.me/pkvartira" target="_blank" rel="noopener" class="underline hover:text-white" style="color:rgba(255,255,255,.65)">Telegram</a> / <a href="https://wa.me/74954731737" target="_blank" rel="noopener" class="underline hover:text-white" style="color:rgba(255,255,255,.65)">WhatsApp</a></span>
                         </div>
                         <div class="flex flex-wrap gap-2 mt-6">
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-award text-yellow-400 text-xs"></i> 10 лет на рынке</span>
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-star text-yellow-400 text-xs"></i> 5.0 · 25 отзывов</span>
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)">400+ объектов</span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-award text-yellow-400 text-xs"></i> Опыт команды 10+ лет</span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-star text-yellow-400 text-xs"></i> 5.0 · <?= $totalReviews ?> отзывов</span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)">50+ объектов</span>
+
                         </div>
                     </div>
                     <div class="relative">

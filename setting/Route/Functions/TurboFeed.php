@@ -96,7 +96,7 @@ class TurboFeed
                     ? mb_substr($fallback, 0, 120, 'UTF-8')
                     : 'Статья №' . $art['id'];
             }
-            $link = $this->baseUrl . '/blog/article/' . $art['id'];
+            $link = $this->baseUrl . '/blog/' . (string) ($art['slug'] ?? $art['id']);
 
             // Полный текст статьи → чистим до разрешённых в Турбо тегов
             $fullContent = $this->loadFullContent((int)$art['id']);

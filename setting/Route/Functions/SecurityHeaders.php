@@ -19,9 +19,9 @@ namespace Setting\Route\Functions;
  */
 final class SecurityHeaders
 {
-    public const HTML_CACHE_MAX_AGE = 3600;
+    public const HTML_CACHE_MAX_AGE = 7200;
 
-    public static function sendSecurity(): void
+    public static function sendSecurity(string $robots = 'index, follow'): void
     {
         if (headers_sent()) {
             return;
@@ -42,7 +42,7 @@ final class SecurityHeaders
         header("Content-Security-Policy: upgrade-insecure-requests; frame-ancestors 'self'", true);
         // AI-readiness (enterno ai-check): явное разрешение индексации + машиночитаемые связи.
         // Без noai/noimageai — политика сайта «разрешить всех» (см. robots.php).
-        header('X-Robots-Tag: index, follow', true);
+        header('X-Robots-Tag: ' . $robots, true);
         header('Link: </llms.txt>; rel="llms", </sitemap.xml>; rel="sitemap", </openapi.yaml>; rel="service-desc"', true);
     }
 

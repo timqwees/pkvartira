@@ -864,7 +864,7 @@ html { scroll-behavior: smooth; }
                 <div class="vd-employer-name">Проект Квартира</div>
               </div>
             </div>
-            <p class="vd-sidebar-employer"><?php if ($isProrab): ?>Прямой работодатель. 10 лет на рынке, 325+ сданных объектов. Готовые бригады, свой склад, прозрачный % от сметы.<?php else: ?>Прямой работодатель. 10 лет на рынке, 325+ сданных объектов. Фиксированные расценки, снабжение — с нас. Иногородним можно жить на объекте.<?php endif; ?></p>
+            <p class="vd-sidebar-employer"><?php if ($isProrab): ?>Прямой работодатель. Сайт с апреля 2026, костяк команды — 10+ лет, 50+ объектов. Готовые бригады, свой склад, прозрачный % от сметы.<?php else: ?>Прямой работодатель. Сайт с апреля 2026, костяк команды — 10+ лет, 50+ объектов. Фиксированные расценки, снабжение — с нас. Иногородним можно жить на объекте.<?php endif; ?></p>
             <div class="vd-divider"></div>
             <div class="vd-employer-stats">
               <div class="vd-employer-stat">
@@ -872,7 +872,7 @@ html { scroll-behavior: smooth; }
                 <div class="vd-employer-stat-label">лет</div>
               </div>
               <div class="vd-employer-stat">
-                <div class="vd-employer-stat-value">325+</div>
+                <div class="vd-employer-stat-value">50+</div>
                 <div class="vd-employer-stat-label">объектов</div>
               </div>
               <div class="vd-employer-stat">

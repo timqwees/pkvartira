@@ -162,7 +162,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             <div class="blog-card-meta">
                                                 <span class="blog-card-date"><time itemprop="datePublished"
                                                         datetime="<?php echo htmlspecialchars(date('c', strtotime($article['created_at']))); ?>"><?php echo date('d.m.Y', strtotime($article['created_at'])); ?></time></span>
-                                                <a href="/blog/article/<?php echo $article['id']; ?>" class="blog-btn-more"
+                                                <a href="/blog/<?php echo $article['slug']; ?>" class="blog-btn-more"
                                                     itemprop="url">Читать далее <i class="fa-solid fa-arrow-right"></i></a>
                                             </div>
                                         </div>

@@ -68,9 +68,9 @@ class YmlFeed
                 'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
                 'desc' => 'Ремонт квартир под ключ — полный цикл работ от замера до отделки. Выезд специалиста, смета — бесплатно. Гарантия 3 года.',
             ],
-            'nowostroyka' => [
+            'novostroyka' => [
                 'name' => 'в новостройке',
-                'slug' => 'nowostroyka',
+                'slug' => 'novostroyka',
                 'price' => 585000,
                 'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
                 'desc' => 'Ремонт квартиры в новостройке с нуля. Адаптация под усадку дома, качественные материалы. Гарантия 3 года.',

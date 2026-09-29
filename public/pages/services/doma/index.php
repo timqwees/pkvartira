@@ -424,7 +424,7 @@ $prices = [
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Договор и фиксация цены</h3>
                         <p class="text-sm text-gray-600">
                             Подписываем официальный договор, где четко прописаны сроки и финальная стоимость. Цена
-                            фиксируется на 100% — мы гарантируем отсутствие доплат и «скрытых» расходов в процессе.
+                            фиксируется в договоре. Дополнительные работы — только после вашего согласования: сначала показываем причину и стоимость, начинаем только после подтверждения.
                         </p>
                     </div>
 
@@ -435,7 +435,7 @@ $prices = [
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
                         <p class="text-sm text-gray-600">
-                            Собственный склад материалов. За счёт этого цены на материалы ниже. И наша собственная
+                            Собственный склад и партнёрские скидки у поставщиков — подбираем оптимальную цену и не заставляем вас ездить по магазинам. И наша собственная
                             гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
                         </p>
                     </div>
@@ -459,8 +459,7 @@ $prices = [
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Сдача и гарантия</h3>
                         <p class="text-sm text-gray-600">
-                            Ваш дом в чистом виде и полностью готов для жизни. Все работы выполняются согласно
-                            ГОСТ и СНИП.
+                            Ваш дом в чистом виде и полностью готов для жизни. Все работы выполняются по действующим нормам и технологическим картам.
                             Получаете гарантийный сертификат на 3 года. Мы остаемся на связи и после ремонта.
                         </p>
                     </div>
@@ -489,8 +488,8 @@ $prices = [
                                             <div class="swiper-slide">
                                                 <img decoding="async" loading="lazy"
                                                     src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>"
-                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars($value['заголовок']) ?>"
-                                                    title="<?= htmlspecialchars($value['заголовок']) ?>">
+                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>"
+                                                    title="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -529,8 +528,8 @@ $prices = [
                                 <div class="text-sm text-gray-600 mt-1">гарантия на работы</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">ГОСТ</div>
-                                <div class="text-sm text-gray-600 mt-1">соблюдаем нормативы</div>
+                                <div class="text-2xl font-bold text-orange-600">Нормы</div>
+                                <div class="text-sm text-gray-600 mt-1">работаем по техкартам</div>
                             </div>
                         </div>
                     </div>

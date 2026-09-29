@@ -83,7 +83,7 @@ final class RssFeed
             if ($title === '') {
                 $title = 'Статья №' . $art['id'];
             }
-            $link = $base . '/blog/article/' . $art['id'];
+            $link = $base . '/blog/' . (string) ($art['slug'] ?? $art['id']);
 
             $xml .= '    <item>' . "\n";
             $xml .= '      <title>' . self::esc($title) . '</title>' . "\n";

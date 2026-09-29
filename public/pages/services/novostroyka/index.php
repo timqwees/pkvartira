@@ -47,7 +47,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/nowostroyka'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/novostroyka'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -55,7 +55,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
         content="Ремонт квартир в новостройке под ключ в Москве от 360 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/nowostroyka'); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/novostroyka'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
 
     <meta property="og:site_name"
@@ -265,7 +265,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <!-- 1. hero section -->
         <?php
-        $heroFormId = 'nowostroyka_hero';
+        $heroFormId = 'novostroyka_hero';
         $heroSubtitle = 'С 2014 года делаем ремонт в новостройках Москвы. Работаем с бетоном, голыми стенами и стяжкой. Делаем разводку электрики и сантехники с нуля, учитываем усадку дома. Принимаем квартиру от застройщика и готовим под чистовую отделку.';
         include './public/components/hero-section.php';
         ?>
@@ -425,7 +425,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Договор и фиксация цены</h3>
                         <p class="text-sm text-gray-600">
                             Подписываем официальный договор, где четко прописаны сроки и финальная стоимость. Цена
-                            фиксируется на 100% — мы гарантируем отсутствие доплат и «скрытых» расходов в процессе.
+                            фиксируется в договоре. Дополнительные работы — только после вашего согласования: сначала показываем причину и стоимость, начинаем только после подтверждения.
                         </p>
                     </div>
 
@@ -436,7 +436,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
                         <p class="text-sm text-gray-600">
-                            Собственный склад материалов. За счёт этого цены на материалы ниже. И наша собственная
+                            Собственный склад и партнёрские скидки у поставщиков — подбираем оптимальную цену и не заставляем вас ездить по магазинам. И наша собственная
                             гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
                         </p>
                     </div>
@@ -460,8 +460,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Сдача и гарантия</h3>
                         <p class="text-sm text-gray-600">
-                            Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются согласно
-                            ГОСТ и СНИП.
+                            Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются по действующим нормам и технологическим картам.
                             Получаете гарантийный сертификат на 3 года. Мы остаемся на связи и после ремонта.
                         </p>
                     </div>
@@ -490,8 +489,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                             <div class="swiper-slide">
                                                 <img decoding="async" loading="lazy"
                                                     src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>"
-                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars($value['заголовок']) ?>"
-                                                    title="<?= htmlspecialchars($value['заголовок']) ?>">
+                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>"
+                                                    title="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -530,8 +529,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                 <div class="text-sm text-gray-600 mt-1">гарантия на работы</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">ГОСТ</div>
-                                <div class="text-sm text-gray-600 mt-1">соблюдаем нормативы</div>
+                                <div class="text-2xl font-bold text-orange-600">Нормы</div>
+                                <div class="text-sm text-gray-600 mt-1">работаем по техкартам</div>
                             </div>
                         </div>
                     </div>
@@ -647,7 +646,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
         <!-- 11. Финальный CTA -->
         <?php
-        $ctaFormId = 'nowostroyka_cta';
+        $ctaFormId = 'novostroyka_cta';
         $ctaFormTitle = 'Рассчитать стоимость ремонта';
         $ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
         $ctaButtonText = 'Получить расчёт бесплатно';

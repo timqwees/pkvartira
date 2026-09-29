@@ -174,7 +174,7 @@ class TheFunction
             'priceRange' => '₽₽',
             'kartaAdress' => 'https://yandex.ru/maps/213/moscow/house/varshavskoye_shosse_28a/Z04YcAZnQEEGQFtvfXp5c3RjZw==/?indoorLevel=1&ll=37.617940%2C55.682803&source=serp_navig&z=16.99',
             'telegram' => 'https://t.me/pkvartira',
-            'whatsapp' => 'https://wa.me/74951234567',
+            'whatsapp' => 'https://wa.me/74954731737',
             'vk' => '', // VK сообщество pkvartira не найдено (404) — скрываем ссылку до появления валидного URL; укажите реальный адрес вида https://vk.com/clubXXXX или https://vk.com/pkvartira_ru
             'max' => '',
             'phone8800' => '8 800 302-17-37',
@@ -846,28 +846,11 @@ class TheFunction
             $withBrand = $opts['description'] . $brandSuffix;
             $opts['description'] = self::truncateSeo($withBrand, 155);
         }
-        // Брендовые keywords: если не заданы — генерируем из бренда + заголовка
-        if (empty($opts['keywords'])) {
-            // Базовые брендовые запросы для быстрого нахождения
-            $brandQueries = [
-                $site['brand'] ?? 'Проект Квартира',
-                $site['shortBrand'] ?? 'ПКвартира',
-                $site['brand'] . ' официальный сайт',
-                ($site['shortBrand'] ?? 'ПКвартира') . ' официальный сайт',
-                'pkvartira.ru',
-                'pkvartira.ru официальный сайт',
-                'pkvartira',
-                $site['legalName'] ?? 'ООО Проект Квартира',
-                $site['brand'] . ' Москва',
-                $site['brand'] . ' отзывы',
-                $site['brand'] . ' ремонт квартир',
-                ($site['shortBrand'] ?? 'ПКвартира') . ' ремонт',
-                'ПроектКвартира',
-                'Proekt Kvartira',
-            ];
-            $brandKw = implode(', ', array_unique(array_filter($brandQueries)));
-            // Добавляем заголовок как ключевую фразу + базовые ключи ремонта
-            $opts['keywords'] = $brandKw . ', ' . $opts['title'] . ', ремонт квартир в Москве, ремонт под ключ';
+        // Keywords: НЕ генерируем автоматически — мета keywords игнорируется
+        // поисковиками, а брендовая «простыня» на каждой странице выглядит как переспам.
+        // Страница может передать свои keywords явно; по умолчанию — пусто (мета-тег не выводим).
+        if (!isset($opts['keywords'])) {
+            $opts['keywords'] = '';
         }
 
         $ogImage = $opts['image'];
@@ -1170,14 +1153,14 @@ class TheFunction
     public static function articleSchema(array $article): array
     {
         $site = self::site();
-        $id = (string) ($article['id'] ?? '');
+        $slugOrId = (string) ($article['slug'] ?? $article['id'] ?? '');
         $tsCreated = strtotime((string) ($article['created_at'] ?? '')) ?: time();
         $tsModified = strtotime((string) ($article['updated_at'] ?? '')) ?: $tsCreated;
 
         return [
             '@type' => 'BlogPosting',
-            '@id' => $site['baseUrl'] . '/blog/article/' . $id . '#article',
-            'url' => $site['baseUrl'] . '/blog/article/' . $id,
+            '@id' => $site['baseUrl'] . '/blog/' . $slugOrId . '#article',
+            'url' => $site['baseUrl'] . '/blog/' . $slugOrId,
             'headline' => (string) ($article['title'] ?? ''),
             'description' => (string) ($article['meta_description'] ?? ''),
             'image' => [
@@ -1192,7 +1175,7 @@ class TheFunction
             'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
             'articleSection' => (string) ($article['category'] ?? 'Ремонт'),
             'keywords' => (string) ($article['tags'] ?? 'ремонт квартиры, дизайн интерьера'),
-            'wordCount' => (int) str_word_count(strip_tags((string) ($article['content'] ?? ''))),
+            'wordCount' => count(preg_split('/\s+/u', trim(strip_tags((string) ($article['content'] ?? ''))), -1, PREG_SPLIT_NO_EMPTY) ?: []),
             'inLanguage' => 'ru-RU',
         ];
     }
@@ -1342,7 +1325,7 @@ class TheFunction
                     }
                     $pool[] = [
                         'title' => (string) ($a['title'] ?? ''),
-                        'url' => $base . (string) ($a['link'] ?? ('/blog/article/' . $id)),
+                        'url' => $base . (string) ($a['link'] ?? ('/blog/' . (string) ($a['slug'] ?? $a['id'] ?? ''))),
                         'snippet' => (string) ($a['meta_description'] ?? ''),
                         'section' => 'Блог',
                         'tags' => (string) ($a['tags'] ?? '') . ' ' . (string) ($a['category'] ?? ''),
@@ -1412,7 +1395,7 @@ class TheFunction
             ['Калькулятор', '/calculator', 'Рассчитайте стоимость ремонта за 60 секунд.'],
             ['Контакты', '/contact', 'Телефон, адрес, как связаться.'],
             ['Акции', '/stocks', 'Скидки и акции на ремонт.'],
-            ['О компании', '/about', 'Проект Квартира — 10 лет на рынке.'],
+            ['О компании', '/about', 'Проект Квартира — команда с опытом 10+ лет, сайт с апреля 2026.'],
             ['Вакансии', '/vakansii', 'Работа в ремонте: мастера, прорабы.'],
         ] as [$pTitle, $pUrl, $pSnippet]) {
             $pool[] = ['title' => $pTitle, 'url' => $base . $pUrl, 'snippet' => $pSnippet, 'section' => 'Страницы', 'tags' => ''];

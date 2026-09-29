@@ -83,14 +83,14 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             Ремонт квартир под ключ в Москве без нервов:<br>
                             - <strong class="text-orange-500">фиксированная</strong> цена,<br>
                             - <strong class="text-orange-400">реальные</strong> сроки<br>
-                            - <strong class="text-orange-300">компенсация</strong>, если что-то пойдет не так
+                             - <strong class="text-orange-300">неустойка</strong> за просрочку по договору
                         </h1>
                         <p class="z-10 hero-subtitle text-2xl mb-8 text-white max-w-3xl">
                             Приедем на замер в день обращения. Составим смету в <strong class="text-orange-500">3&nbsp;вариантах
-                            </strong> под ваш бюджет. Начнем работу
-                            через <strong class="text-orange-500">2 дня</strong>
+                            </strong> под ваш бюджет за 24 часа. Начнём в
+                            ближайшие <strong class="text-orange-500">дни</strong> — точную дату зафиксируем в договоре
                         </p>
-                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • 10 лет на рынке</p>
+                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (ПКвартира) — <span class="text-orange-300">pkvartira.ru</span> • сайт запущен в 2026, костяк команды</p>
 
                         <div class="flex items-center flex-wrap gap-3 mb-6">
                             <button data-button-dialog
@@ -99,7 +99,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <span>Рассчитать ремонт за <span class="text-orange-500"> 60 секунд</span></span>
                             </button>
                             <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 5.0 рейтинг на Яндекс</span>
-                            <span class="hero-stat"><i class="fa-solid fa-building"></i> 320+ объектов</span>
+                            <span class="hero-stat"><i class="fa-solid fa-building"></i> 50+ объектов</span>
                             <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
@@ -124,18 +124,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
 
-        <!-- Краткий ответ-блок (AI-citations / featured snippets): суть страницы в 2–3 предложениях -->
-        <section class="tldr bg-white border-b border-gray-100" aria-label="Коротко о компании">
-            <div class="container mx-auto px-4 py-4 max-w-4xl">
-                <p id="ai-short-answer" class="tldr-text text-sm md:text-base text-gray-700 text-center">
-                    <strong class="text-gray-900">Коротко:</strong>
-                    Проект Квартира (ПКвартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве.
-                    Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.
-                    Замер в день обращения, старт работ через 2 дня.
-                </p>
-            </div>
-        </section>
-
         <!-- 2 -->
         <section
             class="py-16 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 reveal">
@@ -148,7 +136,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             варианта</span> сметы под ваш бюджет
                     </h2>
                     <p class="text-gray-600 text-sm md:text-base">
-                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы с точной стоимостью под ваш бюджет
+                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы: Эконом — только необходимое, Оптимальный — лучшее соотношение цены и результата, Комфорт — материалы и решения классом выше
                     </p>
                 </div>
 
@@ -227,22 +215,22 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="text-center mb-14">
                     <span class="label-tag">О компании</span>
                     <h2 class="section-heading mb-4">
-                        Нам доверяют — <strong class="text-orange-600">10 лет</strong> безупречной репутации
+                        Нам доверяют — <strong class="text-orange-600">строим репутацию с нуля</strong>, на виду у клиента
                     </h2>
                     <p class="section-subtitle mx-auto">
-                        Каждый объект — это чья-то история: честная цена, фиксированная смета и гарантия 3 года.
+                        pkvartira.ru запущен в апреле 2026 — поэтому каждый объект ведём как витринный: фотоотчёт каждый день, оплата по этапам, фиксированная смета и гарантия 3 года в договоре.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
                     <div class="stat-card reveal">
                         <div class="stat-icon"><i class="fa-regular fa-calendar-check"></i></div>
                         <div class="stat-number"><span class="counter" data-target="10" data-suffix="+"></span></div>
-                        <div class="stat-label">Лет на рынке ремонта</div>
+                        <div class="stat-label">Лет опыта у костяка команды</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-1">
                         <div class="stat-icon"><i class="fa-regular fa-building"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="325" data-suffix=""></span></div>
-                        <div class="stat-label">Выполненных объектов</div>
+                        <div class="stat-number"><span class="counter" data-target="300" data-suffix=""></span></div>
+                        <div class="stat-label">Объектов сделано командой</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-2">
                         <div class="stat-icon"><i class="fa-regular fa-heart"></i></div>
@@ -464,7 +452,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                                         <p class="text-gray-600 text-sm mb-4">
                                             <strong class="text-green-600">Ваша выгода:</strong> Персональный архитектор,
-                                            комплектация премиальными материалами, гарантия 5 лет на все работы.
+                                            комплектация премиальными материалами, гарантия 5 лет на премиум-пакет (на остальные пакеты — 3 года).
                                         </p>
                                     </div>
 
@@ -665,7 +653,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                                 <p class="text-gray-600 text-sm mb-4">
                                     <strong class="text-green-600">Ваша выгода:</strong> Персональный архитектор,
-                                    комплектация премиальными материалами, гарантия 5 лет на все работы.
+                                    комплектация премиальными материалами, гарантия 5 лет на премиум-пакет (на остальные пакеты — 3 года).
                                 </p>
                             </div>
 
@@ -717,7 +705,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="text-center mb-12">
                     <span class="section-number section-number-dark">05</span>
                     <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт квартир в Москве и Московской области</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем по всей Москве и ближайшим городам Подмосковья. Бесплатный выезд инженера и точная смета в день обращения.</p>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем по всей Москве и ближайшим городам Подмосковья. Бесплатный выезд инженера, предварительный расчёт в день обращения, детальная смета в 3 вариантах — за 24 часа после замера.</p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     <?php
@@ -785,7 +773,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div
                         class="flex flex-wrap gap-3 md:gap-4 justify-center max-w-[95%] md:max-w-[90%] mx-auto text-sm md:text-xl">
                         <!-- Button 1 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"
+                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka"
                             class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
                             <i class="fas fa-building text-orange-600 text-sm md:text-base"></i>
                             <span class="text-gray-800 font-medium">Ремонт квартир в новостройке</span>
@@ -977,7 +965,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Договор и фиксация цены</h3>
                         <p class="text-sm text-gray-600">
                             Подписываем официальный договор, где четко прописаны сроки и финальная стоимость. Цена
-                            фиксируется на 100% — мы гарантируем отсутствие доплат и «скрытых» расходов в процессе.
+                            фиксируется в договоре. Дополнительные работы — только после вашего согласования: сначала показываем причину и стоимость, начинаем только после подтверждения.
                         </p>
                     </div>
 
@@ -988,7 +976,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
                         <p class="text-sm text-gray-600">
-                            Собственный склад материалов. За счёт этого цены на материалы ниже. И наша собственная
+                            Собственный склад и партнёрские скидки у поставщиков — подбираем оптимальную цену и не заставляем вас ездить по магазинам. И наша собственная
                             гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
                         </p>
                     </div>
@@ -1012,8 +1000,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Сдача и гарантия</h3>
                         <p class="text-sm text-gray-600">
-                            Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются согласно
-                            ГОСТ и СНИП.
+                            Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются по действующим нормам и технологическим картам.
                             Получаете гарантийный сертификат на 3 года. Мы остаемся на связи и после ремонта.
                         </p>
                     </div>
@@ -1042,7 +1029,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="block">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4">Эконом (Косметический)</h3>
                             <div class="text-3xl font-bold text-blue-600 mb-2">от 8 000 ₽/м²</div>
-                            <div class="text-sm text-gray-500 mb-4">Срок: от 14 дней · Гарантия: 3 год</div>
+                            <div class="text-sm text-gray-500 mb-4">Срок: от 14 дней · Гарантия: 3 года</div>
                             <p class="text-gray-600 mb-4">Идеально, чтобы освежить квартиру: замена обоев, ламината и
                                 покраска потолков.</p>
                             <p class="text-sm font-semibold text-gray-800 mb-2">Что входит:</p>
@@ -1070,7 +1057,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </div>
                             <h3 class="text-2xl font-bold mb-4">Стандарт (Капитальный)</h3>
                             <div class="text-3xl font-bold text-orange-300 mb-2">от 13 000 ₽/м²</div>
-                            <div class="text-sm text-blue-100 mb-4">Срок: от 30 дней · Гарантия: 3 года</div>
+                            <div class="text-sm text-blue-100 mb-4">Срок: от 45 дней · Гарантия: 3 года</div>
                             <p class="mb-4">Полное обновление инженерных систем и идеально ровные поверхности.</p>
                             <p class="text-sm font-semibold mb-2">Что входит:</p>
                             <ul class="space-y-2 mb-8 text-sm">
@@ -1094,8 +1081,8 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="block">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4">Премиум (Дизайнерский)</h3>
                             <div class="text-3xl font-bold text-blue-600 mb-2">от 18 000 ₽/м²</div>
-                            <div class="text-sm text-gray-500 mb-4">Срок: от 45 дней · Гарантия: 3 лет</div>
-                            <p class="text-gray-600 mb-4">Бескомпромиссное качество и работа со сложными дизайнерскими
+                            <div class="text-sm text-gray-500 mb-4">Срок: от 60 дней · Гарантия: 3 года</div>
+                            <p class="text-gray-600 mb-4">Приёмка каждого этапа по чек-листу и работа со сложными дизайнерскими
                                 решениями.</p>
                             <p class="text-sm font-semibold text-gray-800 mb-2">Что входит:</p>
                             <ul class="text-gray-600 space-y-2 mb-8 text-sm">
@@ -1130,7 +1117,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                 <!-- Ручные отзывы -->
                 <div class="max-w-6xl mx-auto">
-                    <p class="text-sm text-gray-500 mb-6">150+ проверенных отзывов</p>
+                    <p class="text-sm text-gray-500 mb-6">25+ проверенных отзывов</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Отзыв 1 -->
@@ -1343,9 +1330,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <p class="mb-2">Всё зависит от площади и сложности:</p>
                                 <ul class="list-disc ml-5 space-y-1 mb-3">
                                     <li>Косметический ремонт — от 14 дней.</li>
-                                    <li>Капитальный в ремонт — от 30 дней.</li>
-                                    <li>Дизайнерский ремонт — от 40 дней.</li>
+                                    <li>Капитальный ремонт — от 45 дней.</li>
+                                    <li>Дизайнерский ремонт — от 60 дней.</li>
+                                    <li>Премиум — от 90 дней.</li>
                                 </ul>
+                                <p class="mb-2">Это стартовые сроки для небольших квартир. Фактический срок зависит от площади, состояния квартиры и объёма работ: например, косметический ремонт 53 м² у нас занял 72 дня. Средний срок для квартиры 50–60 м² — 45–70 дней.</p>
                                 <p>Мы фиксируем дату сдачи в договоре. Если мы опоздаем хотя бы на день — мы выплачиваем вам неустойку за каждые сутки просрочки.</p>
                             </div>
                         </div>
@@ -1360,7 +1349,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Мы даем полную гарантию 3 года на все виды отделочных и инженерных работ. Если в течение этого срока у вас отклеится плинтус или возникнут проблемы с электрикой — мы приедем и бесплатно устраним всё в течение 48 часов. Наша ответственность прописана в договоре и закреплена юридически.</span>
+                            <span itemprop="text">Базовая гарантия — 3 года на все виды отделочных и инженерных работ. На премиум-пакет — 5 лет. Если в течение гарантийного срока что-то пойдёт не так — приедем и бесплатно устраним всё в течение 48 часов. Ответственность прописана в договоре.</span>
                         </div>
                     </div>
 
@@ -1407,7 +1396,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">У нас работают только узкопрофильные специалисты со стажем от 5 лет. Электрику делает электрик, плитку кладет плиточник — никаких «универсалов». Все мастера — граждане РФ и РБ с проверенной репутацией. Мы несем полную ответственность за порядок на объекте и культуру поведения рабочих.</span>
+                            <span itemprop="text">У нас работают только узкопрофильные специалисты со стажем от 5 лет. Электрику делает электрик, плитку кладет плиточник — никаких «универсалов». Все специалисты проходят проверку перед допуском на объект, за работу каждого отвечает наша компания по договору.</span>
                         </div>
                     </div>
 
@@ -1420,7 +1409,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Мы берем все коммуникации на себя. Работаем строго по «закону о тишине» в Москве (шумные работы только с 9:00 до 13:00 и с 15:00 до 19:00). После завершения работ проводим финальную уборку и вывозим мусор. Соседи и УК будут только благодарны, что вы выбрали профессионалов.</span>
+                            <span itemprop="text">Берём коммуникации с УК на себя. В Москве соблюдаем правила шумных работ (с перерывом 13:00–15:00, без работ в воскресенье и праздники — точный график подскажет инженер под ваш адрес; в области действуют свои правила). Вывозим мусор поэтапно, после сдачи делаем финальную уборку.</span>
                         </div>
                     </div>
                 </div>
@@ -1440,7 +1429,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
                     <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>ПКвартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
                     Нас находят по запросам: <em>Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, ПКвартира отзывы, pkvartira отзывы, Проект Квартира ремонт, ПКвартира ремонт квартир, pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
-                    Мы — одна компания: делаем ремонт квартир и домов под ключ в Москве и Подмосковье с 2016 года, гарантия 3 года, фиксированная смета.
+                    Мы — одна команда: сайт pkvartira.ru запущен в апреле 2026, а костяк мастеров и прорабов делает ремонты 10+ лет. Работаем в Москве и Подмосковье, гарантия 3 года, фиксированная смета.
                     Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
                 </p>
                 <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • Ищите нас: <strong>Проект Квартира</strong> | <strong>ПКвартира</strong> | <strong>pkvartira.ru</strong> | <strong>pkvartira</strong> | <strong>ООО Проект Квартира</strong></p>
@@ -1474,7 +1463,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Что такое ПКвартира (pkvartira.ru)?",
-              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира. Компания с 2016 года делает ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета, 325+ выполненных объектов."}
+              "acceptedAnswer": {"@type": "Answer", "text": "ПКвартира (pkvartira.ru) — сокращённое название бренда Проект Квартира (ООО «Проект Квартира», ОГРН 1217700135058). Сайт запущен в апреле 2026, костяк команды — мастера и прорабы с опытом 10+ лет, вместе сделано 50+ объектов. Гарантия 3 года, фиксированная смета."}
             },
             {
               "@type": "Question",
@@ -1494,7 +1483,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 </h2>
                 <p class="text-xl mb-8" style="color: #cbd5e1;">
                     Забронируйте бесплатный выезд инженера сегодня. Мы проведем замеры лазером, найдем все<br>«косяки»
-                    застройщика и составим смету, которая не вырастет ни на рубль.
+                    застройщика и составим смету с фиксированной стоимостью: допработы — только после вашего согласования.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="tel:<?php echo $site['phone']; ?>"

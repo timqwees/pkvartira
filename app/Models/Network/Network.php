@@ -398,10 +398,12 @@ class Network extends Session
                         }
                     } elseif (is_callable($callback)) {
                         // Извлекаем именованные параметры для callables (совместимо с {param} в пути)
+                        // URI приходит percent-encoded (кириллица в ЧПУ) — декодируем,
+                        // иначе сравнение слагов (===) с данными из JSON/БД не сойдётся.
                         $named_params = [];
                         foreach ($matches as $key => $value) {
                             if (is_string($key)) {
-                                $named_params[$key] = $value;
+                                $named_params[$key] = urldecode($value);
                             }
                         }
                         call_user_func_array($callback, array_values($named_params));

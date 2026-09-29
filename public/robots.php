@@ -44,17 +44,19 @@ echo "User-agent: *\n";
 echo "Disallow: /api/\n";
 echo "Disallow: /*?*\n";
 echo "Allow: /*?page=\n";
+echo "Allow: /portfolio?project=\n";
 echo "\n";
 echo "User-agent: Yandex\n";
 echo "Disallow: /api/\n";
 echo "Disallow: /*?*\n";
 echo "Allow: /*?page=\n";
-echo "Crawl-delay: 0.8\n";
+echo "Allow: /portfolio?project=\n";
 echo "\n";
 echo "User-agent: Googlebot\n";
 echo "Disallow: /api/\n";
 echo "Disallow: /*?*\n";
 echo "Allow: /*?page=\n";
+echo "Allow: /portfolio?project=\n";
 echo "\n";
 echo "User-agent: OAI-SearchBot\n";
 echo "Allow: /\n";
@@ -68,5 +70,3 @@ foreach (['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'anthropic-ai', 'PerplexityBot'
     echo "\n";
 }
 echo "Sitemap: {$baseUrl}/sitemap.xml\n";
-echo "\n";
-echo "Host: {$host}\n";

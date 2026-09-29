@@ -51,13 +51,13 @@ $prices = [
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interierov'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dizayn-interierov'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars($title); ?>">
     <meta property="og:description" content="Дизайн интерьеров в Москве от 1 200 ₽/м². Консультация перед покупкой — 20 000 ₽. Эскизный и стандартный дизайн-проекты, чертежи, подбор мебели.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dizajn-interierov'); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dizayn-interierov'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
     <meta property="og:locale" content="ru_RU">
@@ -104,8 +104,8 @@ $prices = [
       },
       {
         "@type": "WebPage",
-        "@id": <?= json_encode($site['baseUrl'] . '/services/dizajn-interierov#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'] . '/services/dizajn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+        "@id": <?= json_encode($site['baseUrl'] . '/services/dizayn-interierov#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+        "url": <?= json_encode($site['baseUrl'] . '/services/dizayn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
         "name": <?= json_encode($title, JSON_UNESCAPED_UNICODE); ?>,
         "isPartOf": {"@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
         "primaryImageOfPage": {"@id": <?= json_encode($site['baseUrl'] . $bg_url, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
@@ -131,7 +131,7 @@ $prices = [
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "item": {"@id": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Главная"}},
           {"@type": "ListItem", "position": 2, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Услуги"}},
-          {"@type": "ListItem", "position": 3, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services/dizajn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Дизайн интерьеров"}}
+          {"@type": "ListItem", "position": 3, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services/dizayn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Дизайн интерьеров"}}
         ]
       },
       {
@@ -359,12 +359,12 @@ $prices = [
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">325+</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">50+</div>
                         <div class="mt-1 text-sm text-gray-600">Сданных объектов</div>
                     </div>
                     <div>
                         <div class="text-3xl md:text-4xl font-extrabold text-orange-600">10</div>
-                        <div class="mt-1 text-sm text-gray-600">Лет на рынке</div>
+                        <div class="mt-1 text-sm text-gray-600">Лет опыта у костяка</div>
                     </div>
                     <div>
                         <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3 года</div>

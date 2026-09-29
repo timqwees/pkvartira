@@ -176,10 +176,12 @@ class Routes extends Network
                 //   URI:            '/pay_send/100/VPN7/123456'
                 //   $matches:       [0=>'100', 1=>'VPN7', 2=>'123456']
                 //   $named_params:  ['param_function_1'=>'100', 'param_function_2'=>'VPN7', 'param_function_3'=>'123456']
+                // URI приходит percent-encoded (кириллица в ЧПУ) — декодируем,
+                // иначе сравнение слагов (===) с данными из JSON/БД не сойдётся.
                 $named_params = [];
                 foreach ($matches as $key => $value) {
                     if (is_string($key)) {
-                        $named_params[$key] = $value;
+                        $named_params[$key] = urldecode($value);
                     }
                 }
 
@@ -271,7 +273,7 @@ class Routes extends Network
         $link = dirname(__DIR__, 2) . '/Models/Router/view/404/404.html';
         if (file_exists($link)) {
         	http_response_code(404);//устанавливаем код страницы
-        	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+        	\Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, nofollow');
         	include_once $link;
         }
     }

@@ -29,6 +29,16 @@ Routes::get('/services/vakansii/{slug}', function ($slug) {
     exit;
 });
 //==================================================================================================//SERVICE
+// Опечатка nowostroyka → правильное novostroyka (301, чтобы не плодить дубль)
+Routes::get('/services/nowostroyka', function () {
+    header('Location: /services/novostroyka', true, 301);
+    exit;
+});
+// Транслит й→y: dizajn → dizayn (301, единая схема ЧПУ)
+Routes::get('/services/dizajn-interierov', function () {
+    header('Location: /services/dizayn-interierov', true, 301);
+    exit;
+});
 Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php", get_defined_vars()); });
 //==================================================================================================//PRICES
 Routes::get('/prices', 'on_Prices');
@@ -39,12 +49,18 @@ Routes::get('/blog', function() {
     header('Location: /blogs', true, 301);
     exit;
 });
-//==================================================================================================//BLOG ARTICLE (SEO URL)
-Routes::get('/blog/article', function () {//для ненайденных
-    Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/blog/article/index.php', get_defined_vars());
+//==================================================================================================//BLOG ARTICLE (короткое ЧПУ: /blog/{slug})
+Routes::get('/blog/{slug}', function ($slug) {
+    Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/blog/article/index.php', ['slug' => $slug]);
 });
-Routes::get('/blog/article/{id}', function ($id = null) {
-    Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/blog/article/index.php', get_defined_vars());
+//==================================================================================================//BLOG ARTICLE LEGACY (старый префикс /blog/article/* → 301 на /blog/*)
+Routes::get('/blog/article', function () {
+    header('Location: /blogs', true, 301);
+    exit;
+});
+Routes::get('/blog/article/{slug}', function ($slug) {
+    header('Location: /blog/' . $slug, true, 301);
+    exit;
 });
 //==================================================================================================//CALCULATOR
 Routes::get('/calculator', 'on_Calculator');

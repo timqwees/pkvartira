@@ -444,7 +444,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         Рассчитать стоимость ремонта
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
-                    <a href="/blog/article/14"
+                    <a href="/blog/kak-poschitat-kvadratnye-metry"
                         class="inline-flex items-center justify-center px-6 btn-pad rounded-lg bg-white/10 border border-white/30 text-white font-semibold hover:bg-white/20 transition">
                         Как считать м² вручную — гайд
                     </a>

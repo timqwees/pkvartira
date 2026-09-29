@@ -134,7 +134,7 @@ include './public/components/cta-form.php';
         $ctaSectionBadge = 'Бесплатный расчёт';
         $ctaSectionHeading = 'Готовы рассчитать стоимость: ремонт офиса под ключ';
         $ctaSectionText = 'Оставьте заявку — бесплатно приедем на замер и составим точную смету с фиксированной ценой.';
-        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 30 минут', 'Фиксированная цена', 'Гарантия 3 года'];
+        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 24 часа', 'Фиксированная цена', 'Гарантия 3 года'];
         include './public/components/cta-section.php';
         ?>
 </main>

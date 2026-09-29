@@ -108,9 +108,9 @@
                                     отделка </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box"><i class="fas fa-chevron-right drop-submenu-arrow"></i>White
                                     Box </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interierov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizayn-interierov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
                                     интерьеров </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     в новостройке </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     во вторичке </a></li>
@@ -148,16 +148,6 @@
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vidnoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Видное</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
-                          <li class="text-gray-500">Савёловский</li>
-                          <li class="text-gray-500">Тверской</li>
-                          <li class="text-gray-500">Таганский</li>
-                          <li class="text-gray-500">Крылатское</li>
-                          <li class="text-gray-500">Раменки</li>
-                          <li class="text-gray-500">Косино-Ухтомский</li>
-                          <li class="text-gray-500">Бирюлёво Восточное</li>
-                          <li class="text-gray-500">Текстильщики</li>
-                          <li class="text-gray-500">Люблино</li>
-                          <li class="text-gray-500">Внуковское</li>
                         </div>
                         <!-- Дополнительное -->
                         <div class="flex flex-col pr-4">
@@ -170,7 +160,7 @@
                             <span class="drop-title">Другое</span>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/kalkulyator-ploshchadi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Калькулятор площади (м²)</a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/stocks"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Акции и скидки</a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/article/14"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/kak-poschitat-kvadratnye-metry"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blogs"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Все статьи о ремонте</a></li>
                           </div>
                         </div>
@@ -246,8 +236,8 @@
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya">Чистовая отделка</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya">Черновая отделка</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box">White Box</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizajn-interierov">Дизайн интерьеров</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/nowostroyka">Ремонт в
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizayn-interierov">Дизайн интерьеров</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka">Ремонт в
                             новостройке</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka">Ремонт во вторичке</a></li>
                     <li class="text-xs font-bold text-gray-400 uppercase tracking-wider px-4 py-2 mt-2">По типу помещения</li>

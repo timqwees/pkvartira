@@ -1,13 +1,35 @@
 <?php
 $site = Setting\Route\Functions\TheFunction::site();
-$id = isset($id) ? (int) $id : 0;
+$slug = isset($slug) ? $slug : '';
 $__blogJson = json_decode(file_get_contents(__DIR__ . '/../data/articles.json'), true) ?: [];
 $articleData = null;
-if ($id > 0) {
+if ($slug) {
+    // Обратная совместимость: старый numeric-URL /blog/article/17 → 301 на канонический slug
+    if (ctype_digit($slug)) {
+        foreach ($__blogJson as $__item) {
+            if ((int) ($__item['id'] ?? 0) === (int) $slug && !empty($__item['slug'])) {
+                header('Location: /blog/' . $__item['slug'], true, 301);
+                exit;
+            }
+        }
+    }
     foreach ($__blogJson as $__item) {
-        if ((int) $__item['id'] === $id) {
+        if ($__item['slug'] === $slug) {
             $articleData = $__item;
             break;
+        }
+    }
+    // Обратная совместимость: старые слаги (кириллица, длинные) → 301 на короткий
+    if (!$articleData) {
+        foreach ($__blogJson as $__item) {
+            $olds = $__item['old_slugs'] ?? [];
+            if (!empty($__item['old_slug'])) {
+                $olds[] = $__item['old_slug'];
+            }
+            if (in_array($slug, $olds, true) && !empty($__item['slug'])) {
+                header('Location: /blog/' . $__item['slug'], true, 301);
+                exit;
+            }
         }
     }
 }
@@ -16,18 +38,20 @@ if ($id > 0) {
 if (!$articleData) {
     http_response_code(404);
 }
+// ЧПУ: дальше странице нужен и slug (URL), и id (файл контента content/{id}.php)
+$id = (int) ($articleData['id'] ?? 0);
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => $articleData['title'] ?? 'Статья не найдена',
     'description' => $articleData ? ($articleData['meta_description'] ?? mb_substr(trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? '')) ?? ''), 0, 160)) : 'Запрошенная статья не найдена.',
     'image' => $articleData['image'] ?? $site['shareImageUrl'],
-    'url' => $site['baseUrl'] . '/blog/article/' . $id,
+    'url' => $site['baseUrl'] . '/blog/' . $slug,
     'type' => 'article',
     'pageType' => 'WebPage',
     'breadcrumbs' => [
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
         ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
-        ['name' => $articleData['title'] ?? 'Статья', 'url' => $site['baseUrl'] . '/blog/article/' . $id],
+        ['name' => $articleData['title'] ?? 'Статья', 'url' => $site['baseUrl'] . '/blog/' . $slug],
     ],
     'schema' => [Setting\Route\Functions\TheFunction::articleSchema($articleData ?? [])],
 ]);
@@ -539,7 +563,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     <?php foreach ($tops as $item): ?>
                                         <?php if ((int) $item['id'] === $id)
                                             continue; ?>
-                                        <a href="/blog/article/<?= (int) $item['id']; ?>"
+                                        <a href="/blog/<?= $item['slug']; ?>"
                                             class="block rounded-xl hover:bg-gray-50 transition p-2">
                                             <div class="flex gap-3">
                                                 <img class="w-[84px] h-[64px] object-cover rounded-lg"

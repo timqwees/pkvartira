@@ -3,7 +3,7 @@ $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Контакты — заказать ремонт квартиры в Москве',
-    'description' => 'ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 30 минут. Работаем ежедневно.',
+    'description' => 'ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 24 часа. Работаем ежедневно.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/contact',
     'type' => 'website',
@@ -230,7 +230,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             конфиденциальности</a>
                                     </label>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <button type="submit"
                                     class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition">

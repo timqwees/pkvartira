@@ -278,7 +278,7 @@ class Sitemap
         $priorityMap = [
             'pod-klyuch' => ['0.9', 'weekly'],
             'studio' => ['0.8', 'weekly'],
-            'nowostroyka' => ['0.8', 'weekly'],
+            'novostroyka' => ['0.8', 'weekly'],
             'vtorichka' => ['0.8', 'weekly'],
             '1room' => ['0.7', 'weekly'],
             '2room' => ['0.7', 'weekly'],
@@ -287,7 +287,7 @@ class Sitemap
             'doma' => ['0.7', 'weekly'],
             'kommercheskie' => ['0.7', 'weekly'],
             'dlya-sdachi' => ['0.7', 'weekly'],
-            'dizajn-interierov' => ['0.8', 'weekly'],
+            'dizayn-interierov' => ['0.8', 'weekly'],
         ];
 
         $dir = __DIR__ . '/../../../public/pages/services';
@@ -392,7 +392,7 @@ class Sitemap
                     $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
                     $lastmod = date('Y-m-d', strtotime((string)$lastmod));
                     $slug = $art['id'] ?? '';
-                    $xml .= $this->buildEntry('/blog/article/' . $slug, '0.6', 'weekly', $lastmod);
+                    $xml .= $this->buildEntry('/blog/' . $slug, '0.6', 'weekly', $lastmod);
                 }
             }
         }

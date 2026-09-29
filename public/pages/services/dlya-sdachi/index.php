@@ -334,7 +334,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         $ctaSectionBadge = 'Сдать или продать';
         $ctaSectionHeading = 'Готовы рассчитать стоимость: ремонт квартиры под сдачу в Москве';
         $ctaSectionText = 'Оставьте заявку на бесплатный расчёт стоимости ремонта под вашу цель';
-        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 30 минут', 'Фиксированная цена', 'Гарантия 3 года'];
+        $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 24 часа', 'Фиксированная цена', 'Гарантия 3 года'];
         include './public/components/cta-section.php';
         ?>
 

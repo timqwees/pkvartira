@@ -103,7 +103,7 @@ $seo = TheFunction::seo([
                     <div class="font-bold text-gray-900">Под ключ</div>
                     <ul class="mt-3 space-y-1 text-sm">
                         <li><a href="/services/pod-klyuch" class="text-blue-700 hover:underline">Ремонт под ключ</a></li>
-                        <li><a href="/services/nowostroyka" class="text-blue-700 hover:underline">Ремонт новостройки</a></li>
+                        <li><a href="/services/novostroyka" class="text-blue-700 hover:underline">Ремонт новостройки</a></li>
                         <li><a href="/services/vtorichka" class="text-blue-700 hover:underline">Ремонт вторички</a></li>
                         <li><a href="/services/studio" class="text-blue-700 hover:underline">Студии</a></li>
                         <li><a href="/services/doma" class="text-blue-700 hover:underline">Дома и коттеджи</a></li>
@@ -113,7 +113,7 @@ $seo = TheFunction::seo([
                 <div class="bg-purple-50 border border-purple-100 rounded-xl p-6">
                     <div class="font-bold text-gray-900">Дизайн и проектирование</div>
                     <ul class="mt-3 space-y-1 text-sm">
-                        <li><a href="/services/dizajn-interierov" class="text-purple-700 hover:underline">Дизайн интерьеров</a></li>
+                        <li><a href="/services/dizayn-interierov" class="text-purple-700 hover:underline">Дизайн интерьеров</a></li>
                         <li><a href="/services/premium" class="text-purple-700 hover:underline">Дизайнерский ремонт</a></li>
                         <li><a href="/services/white-box" class="text-purple-700 hover:underline">White Box</a></li>
                         <li><a href="/services/chistovaya" class="text-purple-700 hover:underline">Чистовая отделка</a></li>
