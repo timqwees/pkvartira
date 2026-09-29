@@ -19,6 +19,10 @@ shuffle($reviews);
 $reviews = array_slice($reviews, 0, count($reviews));
 $sourceCounts = $reviewsParser->getSourceCounts();
 $totalReviews = count($reviews);
+$avgRating = $totalReviews > 0
+    ? round(array_sum(array_map(fn($r) => (int)($r['rating'] ?? 5), $reviews)) / $totalReviews, 1)
+    : 5.0;
+$avgRatingStr = number_format($avgRating, 1, '.', '');
 $sourceOrder = ['2GIS', 'Яндекс Карты', 'YouDo', 'Авито', 'Профи.ру'];
 $orderedSources = [];
 foreach ($sourceOrder as $s) {
@@ -61,8 +65,8 @@ $validFilters = array_merge(['all'], array_keys($orderedSources));
 if (!in_array($filterParam, $validFilters, true)) $filterParam = 'all';
 
 $seo = Setting\Route\Functions\TheFunction::seo([
-    'title' => 'Отзывы — ' . $totalReviews . ' реальных отзывов, рейтинг 5.0',
-    'description' => 'Все отзывы о Проект Квартира (ПКвартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo и Авито. Рейтинг 5.0. Фото объектов, ссылки на источники.',
+    'title' => 'Отзывы — ' . $totalReviews . ' реальных отзывов, рейтинг ' . $avgRatingStr,
+    'description' => 'Все отзывы о Проект Квартира (ПКвартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/reviews',
     'type' => 'website',
@@ -78,7 +82,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 '@type' => 'LocalBusiness',
                 'name' => $site['name'],
             ],
-            'ratingValue' => '5.0',
+            'ratingValue' => $avgRatingStr,
             'reviewCount' => (string)$totalReviews,
             'bestRating' => '5',
             'worstRating' => '1',
@@ -172,7 +176,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div class="flex items-center justify-between gap-4 mb-8 md:mb-10">
                         <div>
                             <h1 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Отзывы клиентов</h1>
-                            <p class="text-sm text-gray-500 mt-1"><?= $totalReviews ?> реальных отзывов · рейтинг 5.0</p>
+                            <p class="text-sm text-gray-500 mt-1"><?= $totalReviews ?> реальных отзывов · рейтинг <?= $avgRatingStr ?></p>
                         </div>
                         <div class="flex-shrink-0 relative" id="reviewBtnWrap">
                             <button id="reviewBtn" type="button" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-md shadow-orange-500/25 transition-all duration-200 hover:shadow-orange-500/40">
@@ -184,7 +188,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <a href="https://yandex.ru/profile/90420725359" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Яндекс Карты', '28') ?> Яндекс Карты <span class="ml-auto text-xs text-gray-400">4 отзыва</span></a>
                                 <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Авито', '28') ?> Авито <span class="ml-auto text-xs text-gray-400">2 отзыва</span></a>
                                 <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('YouDo', '28') ?> YouDo <span class="ml-auto text-xs text-gray-400">3 отзыва</span></a>
-                                <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру</a>
+                                <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру <span class="ml-auto text-xs text-gray-400">10 отзывов</span></a>
                             </div>
                         </div>
                     </div>
@@ -381,6 +385,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <a href="https://yandex.ru/profile/90420725359" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Яндекс Карты', '32') ?> Яндекс Карты</a>
             <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Авито', '32') ?> Авито</a>
             <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('YouDo', '32') ?> YouDo</a>
+            <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Профи.ру', '32') ?> Профи.ру</a>
         </div>
     </div>
 

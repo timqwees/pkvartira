@@ -98,8 +98,8 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <i class="fa-solid fa-calculator"></i>
                                 <span>Рассчитать ремонт за <span class="text-orange-500"> 60 секунд</span></span>
                             </button>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 25 отзывов со ссылками</span>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 25 отзывов со ссылками</span>
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 35 отзывов со ссылками</span>
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 35 отзывов со ссылками</span>
                             <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
@@ -224,7 +224,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
                     <div class="stat-card reveal">
                         <div class="stat-icon"><i class="fa-regular fa-star"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="25" data-suffix=""></span></div>
+                        <div class="stat-number"><span class="counter" data-target="35" data-suffix=""></span></div>
                         <div class="stat-label">Отзывов со ссылками на источники</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-1">
@@ -1117,7 +1117,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                 <!-- Ручные отзывы -->
                 <div class="max-w-6xl mx-auto">
-                    <p class="text-sm text-gray-500 mb-6">25 отзывов со ссылками на источники</p>
+                    <p class="text-sm text-gray-500 mb-6">35 отзывов со ссылками на источники</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Отзыв 1 -->

@@ -359,7 +359,7 @@ $prices = [
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">25</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">35</div>
                         <div class="mt-1 text-sm text-gray-600">Отзывов со ссылками на источники</div>
                     </div>
                     <div>
