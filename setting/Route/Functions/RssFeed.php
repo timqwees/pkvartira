@@ -65,6 +65,9 @@ final class RssFeed
     {
         $base = self::baseUrl();
         $articles = self::articles();
+        // Слаги живут в JSON; строки из БД их могут не иметь — дообогащаем по id,
+        // иначе в ленту уйдут устаревшие numeric-ссылки /blog/article/N.
+        $slugById = self::slugMap();
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<rss version="2.0">' . "\n";
@@ -83,7 +86,7 @@ final class RssFeed
             if ($title === '') {
                 $title = 'Статья №' . $art['id'];
             }
-            $link = $base . '/blog/' . (string) ($art['slug'] ?? $art['id']);
+            $link = $base . '/blog/' . (string) ($art['slug'] ?? $slugById[(int) ($art['id'] ?? 0)] ?? $art['id']);
 
             $xml .= '    <item>' . "\n";
             $xml .= '      <title>' . self::esc($title) . '</title>' . "\n";
@@ -101,6 +104,24 @@ final class RssFeed
         $xml .= '</rss>' . "\n";
 
         return $xml;
+    }
+
+    /** Карта id → slug из JSON-источника (для строк без slug, напр. из БД). */
+    private static function slugMap(): array
+    {
+        $map = [];
+        $jsonPath = dirname(__DIR__, 3) . '/public/pages/blog/data/articles.json';
+        if (is_file($jsonPath) && is_readable($jsonPath)) {
+            $data = json_decode((string)file_get_contents($jsonPath), true);
+            if (is_array($data)) {
+                foreach ($data as $a) {
+                    if (is_array($a) && !empty($a['id']) && !empty($a['slug'])) {
+                        $map[(int)$a['id']] = (string)$a['slug'];
+                    }
+                }
+            }
+        }
+        return $map;
     }
 
     /** Плоский текст для description: без единого тега, макс. 400 символов. */

@@ -88,6 +88,10 @@ class TurboFeed
             if (empty($art['id'])) {
                 continue;
             }
+            // Слаг может отсутствовать в строках из БД — добираем из JSON по id
+            if (empty($art['slug'])) {
+                $art['slug'] = $this->slugById((int) $art['id']);
+            }
             // Заголовок никогда не пустой: фолбэк meta_description → «Статья №id»
             $itemTitle = trim((string)($art['title'] ?? ''));
             if ($itemTitle === '') {
@@ -96,7 +100,7 @@ class TurboFeed
                     ? mb_substr($fallback, 0, 120, 'UTF-8')
                     : 'Статья №' . $art['id'];
             }
-            $link = $this->baseUrl . '/blog/' . (string) ($art['slug'] ?? $art['id']);
+            $link = $this->baseUrl . '/blog/' . (string) (!empty($art['slug']) ? $art['slug'] : $art['id']);
 
             // Полный текст статьи → чистим до разрешённых в Турбо тегов
             $fullContent = $this->loadFullContent((int)$art['id']);
@@ -220,6 +224,26 @@ class TurboFeed
                 $node->removeChild($child);
             }
         }
+    }
+
+    private function slugById(int $id): string
+    {
+        static $map = null;
+        if ($map === null) {
+            $map = [];
+            $jsonPath = dirname(__DIR__, 3) . '/public/pages/blog/data/articles.json';
+            if (is_file($jsonPath) && is_readable($jsonPath)) {
+                $data = json_decode((string) file_get_contents($jsonPath), true);
+                if (is_array($data)) {
+                    foreach ($data as $a) {
+                        if (is_array($a) && !empty($a['id']) && !empty($a['slug'])) {
+                            $map[(int) $a['id']] = (string) $a['slug'];
+                        }
+                    }
+                }
+            }
+        }
+        return $map[$id] ?? '';
     }
 
     private function getArticles(): array
