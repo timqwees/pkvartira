@@ -3,7 +3,15 @@ use Setting\Route\Functions\TheFunction;
 
 $site = TheFunction::site();
 $portfolio = TheFunction::portfolioItems();
-$types = array_column($portfolio, 'type');
+$types = [];
+foreach ($portfolio as $__pfItem) {
+    foreach (explode(',', (string) ($__pfItem['type'] ?? '')) as $__pfType) {
+        $__pfType = trim($__pfType);
+        if ($__pfType !== '' && !in_array($__pfType, $types, true)) {
+            $types[] = $__pfType;
+        }
+    }
+}
 $portfolioJson = array_map(static function (array $item) use ($site): array {
     return [
         'slug' => $item['slug'],
