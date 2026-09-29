@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Укладка ламината в Москве — цена за м² с работой и фанерой | Проект Квартира';
+$title = 'Укладка ламината — цена за м²';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 ?>
 <!DOCTYPE html>

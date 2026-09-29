@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Укладка керамогранита — цена за м², работа в Москве и Назарово | Проект Квартира';
+$title = 'Укладка керамогранита — цена за м²';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp';
 ?>
 <!DOCTYPE html>

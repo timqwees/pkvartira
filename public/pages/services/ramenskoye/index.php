@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир в Раменском — цены под ключ, гарантия 3 года | Проект Квартира';
+$title = 'Ремонт квартир в Раменском — от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/3_112sqm/1.jpg';
 ?>
 <!DOCTYPE html>

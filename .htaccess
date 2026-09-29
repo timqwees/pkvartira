@@ -4,6 +4,12 @@ RewriteBase /
 # Редирект robots.txt на динамический генератор (файл в public/)
 RewriteRule ^robots\.txt$ public/robots.php [L]
 
+# Дубли служебных файлов: прямые /public/* → канонические URL (301)
+RewriteRule ^public/llms\.txt$ /llms.txt [R=301,L]
+RewriteRule ^public/llms-full\.txt$ /llms-full.txt [R=301,L]
+RewriteRule ^public/opensearch\.xml$ /opensearch.xml [R=301,L]
+RewriteRule ^public/robots\.php$ /robots.txt [R=301,L]
+
 # 0. Редирект с портом :443 на URL без порта (301)
 RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]
 RewriteRule ^(.*)$ https://%1pkvartira.ru/$1 [R=301,L]

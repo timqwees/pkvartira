@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Дизайн интерьеров в Москве — от 1 200 ₽/м², консультация от 20 000 ₽';
+$title = 'Дизайн интерьеров — от 1 200 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg';
 $prices = [
     [

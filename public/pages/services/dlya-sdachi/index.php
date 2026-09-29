@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартиры под сдачу в Москве — цена от 250 000 ₽, для аренды и продажи';
+$title = 'Ремонт квартиры под сдачу — от 250 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $prices = [
     [
@@ -144,30 +144,17 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
           "@type": "OfferCatalog",
           "name": "Услуги по ремонту для сдачи",
           "itemListElement": [
+            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
             {
               "@type": "Offer",
+              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
+              "priceCurrency": "RUB",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Для сдачи в аренду",
-                "description": "Бюджетный ремонт для сдачи квартиры в аренду"
+                "name": <?= json_encode($__offer['заголовок'] ?? '', JSON_UNESCAPED_UNICODE); ?>
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Для продажи",
-                "description": "Премиальный ремонт для продажи квартиры"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Под заселение",
-                "description": "Полный ремонт с мебелью и техникой"
-              }
-            }
+            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
+            <?php endforeach; ?>
           ]
         }
       },

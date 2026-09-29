@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт четырёхкомнатной квартиры в Москве — цена от 720 000 ₽, гарантия 3 года';
+$title = 'Ремонт 4-комнатной квартиры — от 720 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/3_112sqm/2.jpg';
 $prices = [
     [
@@ -151,30 +151,17 @@ $prices = [
           "@type": "OfferCatalog",
           "name": "Услуги по ремонту",
           "itemListElement": [
+            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
             {
               "@type": "Offer",
+              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
+              "priceCurrency": "RUB",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Черновой ремонт",
-                "description": "Строительные работы для подготовки помещения к чистовой отделке"
+                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Чистовой ремонт",
-                "description": "Полная отделка помещения с использованием качественных материалов"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Ремонт под ключ",
-                "description": "Полный комплекс работ от проектирования до финальной уборки"
-              }
-            }
+            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
+            <?php endforeach; ?>
           ]
         }
       },

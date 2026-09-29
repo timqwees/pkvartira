@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт домов и коттеджей под ключ в Москве — цена от 8 000 ₽/м², гарантия 3 года';
+$title = 'Ремонт домов и коттеджей — от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
 $prices = [
     [
@@ -151,30 +151,17 @@ $prices = [
           "@type": "OfferCatalog",
           "name": "Услуги по ремонту",
           "itemListElement": [
+            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
             {
               "@type": "Offer",
+              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
+              "priceCurrency": "RUB",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Черновой ремонт",
-                "description": "Строительные работы для подготовки помещения к чистовой отделке"
+                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Чистовой ремонт",
-                "description": "Полная отделка помещения с использованием качественных материалов"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Ремонт под ключ",
-                "description": "Полный комплекс работ от проектирования до финальной уборки"
-              }
-            }
+            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
+            <?php endforeach; ?>
           ]
         }
       },
@@ -488,7 +475,7 @@ $prices = [
                                             <div class="swiper-slide">
                                                 <img decoding="async" loading="lazy"
                                                     src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>"
-                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>"
+                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars(trim($value['заголовок'] . (!empty($value['срок']) ? ', срок ' . $value['срок'] : '') . (!empty($value['цена']) ? ', ' . $value['цена'] : '') . ' — фото ' . ((int)$key + 1))) ?>"
                                                     title="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>">
                                             </div>
                                         <?php endforeach; ?>

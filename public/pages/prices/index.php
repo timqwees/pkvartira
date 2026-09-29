@@ -385,6 +385,7 @@ include './public/components/cta-form.php';
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
                     Что входит в стоимость ремонта
                 </h2>
+                <p class="text-center text-sm text-gray-500 mt-3">Состав услуги, этапы и сроки — на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">Ремонт под ключ</a>.</p>
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">

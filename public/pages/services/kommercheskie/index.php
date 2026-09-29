@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт коммерческих помещений в Москве — офисы, магазины, кафе под ключ, гарантия 3 года';
+$title = 'Ремонт коммерческих помещений — под ключ';
 $bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
 $prices = [
     [
@@ -152,30 +152,17 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
           "@type": "OfferCatalog",
           "name": "Услуги по ремонту",
           "itemListElement": [
+            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
             {
               "@type": "Offer",
+              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
+              "priceCurrency": "RUB",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Черновой ремонт",
-                "description": "Строительные работы для подготовки помещения к чистовой отделке"
+                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Чистовой ремонт",
-                "description": "Полная отделка помещения с использованием качественных материалов"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Ремонт под ключ",
-                "description": "Полный комплекс работ от проектирования до финальной уборки"
-              }
-            }
+            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
+            <?php endforeach; ?>
           ]
         }
       },

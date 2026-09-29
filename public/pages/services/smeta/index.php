@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Смета на ремонт квартиры — рассчитать онлайн бесплатно | Проект Квартира';
+$title = 'Смета на ремонт квартиры — онлайн-расчёт';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>

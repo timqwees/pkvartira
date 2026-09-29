@@ -139,15 +139,8 @@
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/krasnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Красногорск</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lyubertsy"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Люберцы</a></li>
                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/balashikha"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Балашиха</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/podolsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Подольск</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/shcherbinka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Щербинка</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/reutov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Реутов</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lobnya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Лобня</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/zvenigorod"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Звенигород</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vidnoye"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Видное</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/akademicheskaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>м.Академическая</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/leninsky-prospekt"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ленинский пр.</a></li>
+                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
+                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services"><i class="fas fa-chevron-right drop-submenu-arrow"></i><strong>Все районы →</strong></a></li>
                         </div>
                         <!-- Дополнительное -->
                         <div class="flex flex-col pr-4">

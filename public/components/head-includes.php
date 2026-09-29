@@ -17,7 +17,6 @@ $__ogAlt = htmlspecialchars(
 // hreflang должен указывать на каноникал текущей страницы, а не на главную
 $__canonicalForHreflang = isset($seo['canonical']) ? $seo['canonical'] : ($site['canonicalUrl'] ?? $site['baseUrl'] ?? 'https://pkvartira.ru');
 $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES, 'UTF-8');
-$__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : '';
 ?>
 <!-- CLS Prevention -->
 <style>body{background:#fff;margin:0}
@@ -55,7 +54,7 @@ $__brandKeywords = isset($seo['keywords']) ? $seo['keywords'] : '';
 <meta name="apple-mobile-web-app-title" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="application-name" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="author" content="<?= htmlspecialchars($__brandName . ' (' . $__shortBrand . ')', ENT_QUOTES, 'UTF-8'); ?>" />
-<?php if ($__brandKeywords !== ''): ?><meta name="keywords" content="<?= htmlspecialchars($__brandKeywords, ENT_QUOTES, 'UTF-8'); ?>" /><?php endif; ?>
+<?php /* meta keywords удалён вовсе: поисковики его игнорируют, а список «официальный сайт» ×7 — переспам */ ?>
 <link rel="manifest"
     href="<?= $__headBase; ?>/public/assets/images/logo/favicon/site.webmanifest" />
 <link rel="search" type="application/opensearchdescription+xml" title="<?= htmlspecialchars($__brandName . ' — ' . $__shortBrand . ' поиск', ENT_QUOTES, 'UTF-8'); ?>" href="<?= $__headBase; ?>/opensearch.xml" />

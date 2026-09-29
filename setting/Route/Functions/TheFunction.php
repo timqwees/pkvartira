@@ -717,21 +717,23 @@ class TheFunction
             return [];
         }
         $all = array_diff(scandir($path, SCANDIR_SORT_ASCENDING), ['.', '..', 'about.json']);
-        $preferred = ['webp', 'png', 'jpg', 'jpeg'];
+        // Приоритет форматов: webp > png > jpg — иначе алфавитный scandir отдаст 1.jpg
+        // при существующем 1.webp, и галереи грузят тяжёлые оригиналы.
+        $rank = ['webp' => 0, 'png' => 1, 'jpg' => 2, 'jpeg' => 2];
         $seen = [];
         $result = [];
         foreach ($all as $file) {
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
             $base = pathinfo($file, PATHINFO_FILENAME);
-            if (in_array($ext, $preferred, true)) {
-                $key = $base;
-                if (!isset($seen[$key])) {
-                    $seen[$key] = true;
-                    $result[] = $file;
-                }
+            if (!isset($rank[$ext])) {
+                continue;
+            }
+            if (!isset($seen[$base]) || $rank[$ext] < $rank[$seen[$base]]) {
+                $seen[$base] = $ext;
+                $result[$base] = $file;
             }
         }
-        return $result;
+        return array_values($result);
     }
 
     public function getPortfolio(string $path): array

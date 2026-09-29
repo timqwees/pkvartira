@@ -291,7 +291,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                         <div class="swiper-wrapper">
                                             <?php foreach ((new Functions())->getPhotos($value['текущая_папка']) as $rkey => $img): ?>
                                                 <div class="swiper-slide">
-                                                    <img decoding="async" loading="lazy" src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>" class="w-full h-full object-cover" width="640" height="360" alt="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$rkey + 1)) ?>" title="<?= htmlspecialchars($value['заголовок']) ?>">
+                                                    <img decoding="async" loading="lazy" src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>" class="w-full h-full object-cover" width="640" height="360" alt="<?= htmlspecialchars(trim($value['заголовок'] . (!empty($value['срок']) ? ', срок ' . $value['срок'] : '') . (!empty($value['цена']) ? ', ' . $value['цена'] : '') . ' — фото ' . ((int)$rkey + 1))) ?>" title="<?= htmlspecialchars($value['заголовок']) ?>">
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>

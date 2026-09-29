@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир на Ленинском проспекте — цены под ключ, гарантия 3 года | Проект Квартира';
+$title = 'Ремонт квартир на Ленинском проспекте';
 $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
 ?>
 <!DOCTYPE html>

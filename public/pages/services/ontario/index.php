@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир в ЖК Онтарио — официальный сайт, цены под ключ | Проект Квартира';
+$title = 'Ремонт квартир в ЖК Онтарио — под ключ';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/newbuilds');
 ?>

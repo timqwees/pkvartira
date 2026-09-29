@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир под ключ в Москве — цена от 8 000 ₽/м², гарантия 3 года';
+$title = 'Ремонт квартир под ключ — от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 $prices = [
     [
@@ -42,7 +42,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве — цена от 8 000 ₽/м² с гарантией 3 года, 2026',48)); ?> | Проект Квартира</title>
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -152,30 +152,17 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
           "@type": "OfferCatalog",
           "name": "Услуги по ремонту",
           "itemListElement": [
+            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
             {
               "@type": "Offer",
+              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
+              "priceCurrency": "RUB",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Черновой ремонт",
-                "description": "Строительные работы для подготовки помещения к чистовой отделке"
+                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Чистовой ремонт",
-                "description": "Полная отделка помещения с использованием качественных материалов"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Ремонт под ключ",
-                "description": "Полный комплекс работ от проектирования до финальной уборки"
-              }
-            }
+            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
+            <?php endforeach; ?>
           ]
         }
       },
@@ -489,7 +476,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                             <div class="swiper-slide">
                                                 <img decoding="async" loading="lazy"
                                                     src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['текущая_папка'] . '/' . $img) ?>"
-                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>"
+                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars(trim($value['заголовок'] . (!empty($value['срок']) ? ', срок ' . $value['срок'] : '') . (!empty($value['цена']) ? ', ' . $value['цена'] : '') . ' — фото ' . ((int)$key + 1))) ?>"
                                                     title="<?= htmlspecialchars($value['заголовок'] . ' — фото ' . ((int)$key + 1)) ?>">
                                             </div>
                                         <?php endforeach; ?>
@@ -571,6 +558,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         $priceTableTitle = 'Стоимость ремонта под ключ по метражу';
         include './public/components/price-table.php';
         ?>
+        <p class="text-center text-sm text-gray-500 mt-4">Полный прайс по всем видам работ — на странице <a href="/prices" class="text-orange-600 underline hover:text-orange-700">Цены на ремонт</a>.</p>
 
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">

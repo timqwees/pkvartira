@@ -13,9 +13,6 @@ $heroPrice = '';
 if (preg_match('/от\s+[\d\s]+₽(?:\/м²)?/u', $heroTail, $pm)) {
     $heroPrice = $pm[0];
 }
-$heroRest = trim(preg_replace('/^цена\s*/u', '', $heroTail) ?? '');
-$heroRest = trim(preg_replace('/^от\s+[\d\s]+₽(?:\/м²)?/u', '', $heroRest) ?? '');
-$heroRest = trim(preg_replace('/^\s*,/', '', $heroRest) ?? '');
 ?>
 <section class="relative bg-black text-white">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>);"></div>
@@ -59,15 +56,11 @@ $heroRest = trim(preg_replace('/^\s*,/', '', $heroRest) ?? '');
 
                 <h1 class="text-3xl md:text-4xl lg:text-[44px] font-extrabold leading-tight tracking-tight">
                     <?php
+                    // H1 короче Title: база + цена. Хвост («гарантия…») живёт только в Title —
+                    // иначе H1 дословно дублирует Title.
                     echo htmlspecialchars($heroBase);
                     if ($heroPrice) {
                         echo ' <span class="text-orange-400">— ' . htmlspecialchars($heroPrice) . '</span>';
-                        if ($heroRest) {
-                            $sep = (mb_strpos($heroRest, 'под ключ') === 0) ? ' ' : ', ';
-                            echo htmlspecialchars($sep . $heroRest);
-                        }
-                    } elseif ($heroRest) {
-                        echo htmlspecialchars(' — ' . $heroRest);
                     }
                     ?>
                 </h1>

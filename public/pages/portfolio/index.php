@@ -29,8 +29,8 @@ $portfolioJson = array_map(static function (array $item) use ($site): array {
 }, $portfolio);
 
 $seo = Setting\Route\Functions\TheFunction::seo([
-    'title' => 'Портфолио ремонтов квартир — 50+ проектов с фото до и после',
-    'description' => 'Реальные проекты ремонта квартир в Москве 2026: 50+ работ с фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект. От компании Проект Квартира (ПКвартира).',
+    'title' => 'Портфолио ремонтов квартир — фото до и после',
+    'description' => 'Реальные проекты ремонта квартир в Москве 2026: фото до и после. Студии, 1-4 комнатные квартиры, дома, коттеджи. Сроки, бюджеты, планировки. Закажите похожий проект. От компании Проект Квартира (ПКвартира).',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/portfolio',
     'type' => 'website',
@@ -51,7 +51,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         'name' => $item['title'],
                         'url' => $site['baseUrl'] . '/portfolio?project=' . urlencode($item['slug']),
                         'description' => $item['subtitle'] ?? '',
-                        'image' => $item['photos'][0] ?? $site['shareImageUrl'],
+                        'image' => !empty($item['photos'][0]) ? $site['baseUrl'] . '/' . $item['folder_image'] . '/' . $item['photos'][0] : $site['shareImageUrl'],
                     ],
                 ];
             }, $portfolio, array_keys($portfolio)),
@@ -167,7 +167,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             <div class="swiper-slide">
                                                 <img decoding="async" loading="lazy" itemprop="image"
                                                     src="<?= htmlspecialchars($site['baseUrl'] . '/' . $value['folder_image'] . '/' . $img) ?>"
-                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars(($value['title'] ?? 'Фото ремонта') . ' — фото ' . ((int)$key + 1)); ?>">
+                                                    class="w-full h-full object-cover" width="1280" height="720" alt="<?= htmlspecialchars(trim(($value['title'] ?? 'Фото ремонта') . (!empty($value['duration']) ? ', срок ' . $value['duration'] : '') . (!empty($value['price']) ? ', ' . $value['price'] : '') . ' — фото ' . ((int)$key + 1))); ?>">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>

@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир в Митино — цены под ключ, гарантия 3 года | Проект Квартира';
+$title = 'Ремонт квартир в Митино — от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.jpg';
 ?>
 <!DOCTYPE html>

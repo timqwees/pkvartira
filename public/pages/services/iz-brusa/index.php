@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт дома из бруса под ключ — цены 2026 | Проект Квартира';
+$title = 'Ремонт дома из бруса под ключ — цены';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
 ?>
 <!DOCTYPE html>
