@@ -1432,7 +1432,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     Мы — ООО «Проект Квартира»: делаем ремонт квартир и домов под ключ в Москве и Подмосковье, гарантия 3 года, фиксированная смета.
                     Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
                 </p>
-                <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • Ищите нас: <strong>Проект Квартира</strong> | <strong>ПКвартира</strong> | <strong>pkvartira.ru</strong> | <strong>pkvartira</strong> | <strong>ООО Проект Квартира</strong></p>
+                <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • ООО «Проект Квартира»</p>
                 <p class="mt-3 text-xs text-gray-400 text-center">
                     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand">
                         <span itemprop="name">Проект Квартира</span> |
@@ -1453,7 +1453,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Где официальный сайт Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира (ПКвартира) — https://pkvartira.ru. Единственное официальное зеркало — pkvartira.ru. Проверяйте домен, чтобы не попасть к мошенникам. Ищите нас по запросам: Проект Квартира официальный сайт, ПКвартира официальный сайт, pkvartira.ru."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира (ПКвартира) — https://pkvartira.ru. Единственное официальное зеркало — pkvartira.ru. Проверяйте домен, чтобы не попасть к мошенникам."}
             },
             {
               "@type": "Question",
