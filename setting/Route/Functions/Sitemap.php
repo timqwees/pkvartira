@@ -391,7 +391,8 @@ class Sitemap
                 foreach ($articles as $art) {
                     $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
                     $lastmod = date('Y-m-d', strtotime((string)$lastmod));
-                    $slug = $art['id'] ?? '';
+                    // Каноника статей — короткие ЧПУ-слаги; фолбэк id на случай битой записи
+                    $slug = !empty($art['slug']) ? (string) $art['slug'] : (string) ($art['id'] ?? '');
                     $xml .= $this->buildEntry('/blog/' . $slug, '0.6', 'weekly', $lastmod);
                 }
             }

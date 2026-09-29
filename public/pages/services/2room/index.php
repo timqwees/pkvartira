@@ -51,7 +51,7 @@ $prices = [
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
         content="Отделка двухкомнатных квартир под ключ в Москве от 400 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/2room'); ?>">
@@ -65,7 +65,7 @@ $prices = [
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="twitter:description"
         content="Отделка двухкомнатных квартир под ключ от 400 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">

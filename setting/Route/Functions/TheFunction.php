@@ -212,12 +212,15 @@ class TheFunction
     {
         $text = trim(preg_replace('/\s+/', ' ', $text) ?? '');
         if (mb_strlen($text) <= $max) return $text;
-        $cut = mb_substr($text, 0, $max);
-        $lastSpace = mb_strrpos($cut, ' ');
+        $cut = mb_substr($text, 0, $max, 'UTF-8');
+        $lastSpace = mb_strrpos($cut, ' ', 0, 'UTF-8');
         if ($lastSpace !== false && $lastSpace > $max * 0.7) {
-            $cut = mb_substr($cut, 0, $lastSpace);
+            $cut = mb_substr($cut, 0, $lastSpace, 'UTF-8');
         }
-        return rtrim($cut, " ,.—:") . '…';
+        // Юникод-безопасный rtrim: обычный rtrim() режет ПОБАЙТОВО, и байты 0x80/0x94
+        // из тире в списке выедают последний байт кириллицы (→ � и ломка json_encode).
+        $cut = (string) preg_replace('/[\s,.:;—–-]+$/u', '', $cut);
+        return $cut . '…';
     }
 
     /**
