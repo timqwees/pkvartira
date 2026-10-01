@@ -12,6 +12,8 @@ if (!isset($hubLinks)) {
         ['url' => '/services/smeta', 'label' => 'Смета на ремонт'],
         ['url' => '/calculator', 'label' => 'Калькулятор ремонта'],
         ['url' => '/services/pod-klyuch', 'label' => 'Ремонт под ключ'],
+        ['url' => '/services/novostroyka', 'label' => 'Ремонт в новостройке'],
+        ['url' => '/services/vtorichka', 'label' => 'Ремонт во вторичке'],
         ['url' => '/portfolio', 'label' => 'Портфолио работ'],
         ['url' => '/reviews', 'label' => 'Отзывы клиентов'],
         ['url' => '/blogs', 'label' => 'Блог о ремонте'],

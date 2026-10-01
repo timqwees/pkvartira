@@ -81,6 +81,16 @@
         display: block !important;
     }
 
+    /* защита от переполнения на узких экранах: длинные названия не ломают меню */
+    .mobile-menu {
+        max-width: 100vw;
+    }
+    .mobile-menu a,
+    .mobile-menu .submenu-services li a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
     .menu ul li span {
         display: none;
     }

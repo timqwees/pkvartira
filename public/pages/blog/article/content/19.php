@@ -64,7 +64,7 @@
     </ul>
     <div data-type="box" data-color="blue">
         <h3>Цена проекта 2026</h3>
-        <p>Техзаключение — 15 000–30 000 ₽, проект перепланировки — 25 000–45 000 ₽, согласование под ключ — 60 000–90 000 ₽. Делаем за 14–45 дней. <a href="/services/pereplanirovka" style="color:#2563eb;">Подробнее →</a></p>
+        <p>Техзаключение — 15 000–30 000 ₽, проект перепланировки — 25 000–45 000 ₽, согласование под ключ — 60 000–90 000 ₽. Делаем за 14–45 дней. <a href="/services/dizayn-interierov" style="color:#2563eb;">Подробнее →</a></p>
     </div>
 </section>
 
@@ -93,7 +93,7 @@
         <strong>4.</strong> Ремонт строго по проекту<br>
         <strong>5.</strong> Акт завершенного переустройства + новый план БТИ — 15 дней</p>
     </div>
-    <p>Итого 1,5–2 месяца. Делаем под ключ: <a href="/services/pereplanirovka" style="color:#2563eb;">перепланировка под ключ →</a></p>
+    <p>Итого 1,5–2 месяца. Делаем под ключ: <a href="/services/dizayn-interierov" style="color:#2563eb;">перепланировка под ключ →</a></p>
     <div data-type="compare">
         <h3>Согласованная vs Несогласованная</h3>
         <article data-variant="good">

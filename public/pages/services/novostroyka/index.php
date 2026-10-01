@@ -671,6 +671,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <p class="text-orange-600 font-semibold text-sm">Бесплатно при заказе ремонта</p>
                     </div>
                 </div>
+                <p class="mt-6 text-center text-[#4b5563]">Ключи только через несколько месяцев? <a href="/services/budushchiy-remont" class="text-orange-600 underline hover:text-orange-700 font-semibold">Узнайте стоимость ремонта уже сейчас</a> и спланируйте бюджет заранее.</p>
             </div>
         </section>
 
