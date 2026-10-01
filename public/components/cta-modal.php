@@ -553,13 +553,16 @@
     window.__hideCtaModal = hideModal;
 
     /* ── Scroll-down trigger: показ через 45с после скролла вниз ── */
+    /* Отключено на информационных страницах (/blog, /blogs): читателя статьи
+       перекрывать полноэкранным окном нельзя — только ручное открытие. */
+    var autoShowAllowed = !/^\/blogs?(\/|$)/.test(window.location.pathname);
     var scrollTimer = null;
     var lastScrollY = 0;
     var scrollThreshold = 80;
     var SHOW_DELAY = 45000;
 
     function onScroll() {
-        if (isOpen) return;
+        if (isOpen || !autoShowAllowed) return;
         var y = window.scrollY || window.pageYOffset;
         var scrolledDown = y - lastScrollY > scrollThreshold;
 
