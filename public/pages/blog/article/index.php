@@ -190,7 +190,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                         class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-extrabold">
                                         PK</div>
                                     <div>
-                                        <div class="text-sm font-extrabold text-[#2a2e3b]"><a href="/about" class="hover:text-blue-700 transition">ПКвартира</a></div>
+                                        <div class="text-sm font-extrabold text-[#2a2e3b]"><a href="/about" class="hover:text-blue-700 transition">Проект Квартира</a></div>
                                         <div class="text-xs text-[#7a7f8c]">Специалист</div>
                                     </div>
                                 </div>

@@ -148,15 +148,15 @@ class TheFunction
             'canonicalUrl' => $canonicalUrl,
             'shareImageUrl' => $shareImageUrl,
             'name' => 'Проект Квартира',
-            // Брендовые названия для SEO: «Проект Квартира» — основное, «ПКвартира» — сокращённое/домен
-            'shortName' => 'ПКвартира',
+            // Брендовые названия для SEO: «Проект Квартира» — основное, «Проект Квартира» — сокращённое/домен
+            'shortName' => 'Проект Квартира',
             'brand' => 'Проект Квартира',
-            'shortBrand' => 'ПКвартира',
+            'shortBrand' => 'Проект Квартира',
             'legalName' => 'ООО "Проект Квартира"',
             // Расширенные брендовые варианты для быстрого нахождения по любым запросам
-            'alternateName' => ['Проект Квартира', 'ПКвартира', 'пквартира', 'ПроектКвартира', 'ПКВАРТИРА', 'пк квартира', 'Proekt Kvartira', 'proekt kvartira', 'PKVARTIRA', 'pkvartira', 'pkvartira.ru', 'ООО Проект Квартира', 'Проект Квартира Москва'],
+            'alternateName' => ['Проект Квартира', 'Проект Квартира', 'Проект Квартира', 'ПроектКвартира', 'Проект Квартира', 'пк квартира', 'Proekt Kvartira', 'proekt kvartira', 'PKVARTIRA', 'pkvartira', 'pkvartira.ru', 'ООО Проект Квартира', 'Проект Квартира Москва'],
             'slogan' => 'Ремонт квартир под ключ в Москве',
-            'description' => 'Проект Квартира (ПКвартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Официальный сайт',
+            'description' => 'Проект Квартира (Проект Квартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Официальный сайт',
             'phone' => '+7 495 473-17-37',
             'email' => 'info@pkvartira.ru',
             'address' => [
@@ -846,8 +846,8 @@ class TheFunction
         $opts['title'] = self::truncateSeo((string)$opts['title'], 48);
         $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
         // Гарантируем бренд в description — если нет упоминания бренда, добавляем «Проект Квартира»
-        if (stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'ПКвартира') === false && stripos($opts['description'], 'pkvartira') === false) {
-            $brandSuffix = ' — Проект Квартира (ПКвартира, pkvartira.ru)';
+        if (stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'pkvartira') === false) {
+            $brandSuffix = ' — Проект Квартира (Проект Квартира, pkvartira.ru)';
             $withBrand = $opts['description'] . $brandSuffix;
             $opts['description'] = self::truncateSeo($withBrand, 155);
         }
@@ -867,7 +867,7 @@ class TheFunction
         // GEO: sameAs связывает сущность компании везде — сайт, мессенджеры, Яндекс Карты (один и тот же бренд для AI-поиска)
         $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp'], $site['kartaAdress'] ?? '', 'https://yandex.ru/maps/org/proyekt_kvartira/'], fn($v) => is_string($v) && $v !== ''));
         $brand = $site['brand'] ?? $site['name'];
-        $shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'ПКвартира';
+        $shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'Проект Квартира';
         $alternateName = $site['alternateName'] ?? [$brand, $shortBrand, 'pkvartira.ru'];
 
         $jsonLd = [

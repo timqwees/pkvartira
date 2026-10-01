@@ -3,7 +3,7 @@ $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Контакты — заказать ремонт квартиры в Москве',
-    'description' => 'ПКвартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 24 часа. Работаем ежедневно.',
+    'description' => 'Проект Квартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 24 часа. Работаем ежедневно.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/contact',
     'type' => 'website',
@@ -97,7 +97,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
                             <iframe
                                 src="https://yandex.ru/map-widget/v1/?um=constructor%3Af7ad50414c62379c5c51eb60cf29ce866dd6e5bd0e1914048a94a2cd0f7dd129&amp;source=constructor"
-                                width="100%" height="400" frameborder="0" title="Карта расположения офиса ПКвартира"></iframe>
+                                width="100%" height="400" frameborder="0" title="Карта расположения офиса Проект Квартира"></iframe>
                         </div>
 
                         <!-- Phone -->

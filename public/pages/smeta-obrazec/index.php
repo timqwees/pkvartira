@@ -3,7 +3,7 @@ $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Смета на ремонт квартиры: образец, скачать бесплатно',
-    'description' => 'Смета на ремонт квартиры — образец с ценами 2026. Скачайте готовую смету в DOCX бесплатно. Структура и расценки по этапам. Расчёт с выездом на замер в Москве. От компании Проект Квартира (ПКвартира).',
+    'description' => 'Смета на ремонт квартиры — образец с ценами 2026. Скачайте готовую смету в DOCX бесплатно. Структура и расценки по этапам. Расчёт с выездом на замер в Москве. От компании Проект Квартира (Проект Квартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/renovation-format/cosmetic.png',
     'url' => $site['baseUrl'] . '/smeta-obrazec',
     'type' => 'article',

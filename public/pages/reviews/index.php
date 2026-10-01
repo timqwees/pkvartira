@@ -66,7 +66,7 @@ if (!in_array($filterParam, $validFilters, true)) $filterParam = 'all';
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Отзывы — ' . $totalReviews . ' реальных отзывов, рейтинг ' . $avgRatingStr,
-    'description' => 'Все отзывы о Проект Квартира (ПКвартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
+    'description' => 'Все отзывы о Проект Квартира (Проект Квартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/reviews',
     'type' => 'website',

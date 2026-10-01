@@ -3,7 +3,7 @@ $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Договор на ремонт квартиры: шаблон, скачать бесплатно',
-    'description' => 'Шаблон договора на ремонт квартиры и отделочные работы — скачайте бесплатно в DOCX. Структура договора подряда: предмет, сроки, оплата, гарантия, ответственность сторон. От компании Проект Квартира (ПКвартира).',
+    'description' => 'Шаблон договора на ремонт квартиры и отделочные работы — скачайте бесплатно в DOCX. Структура договора подряда: предмет, сроки, оплата, гарантия, ответственность сторон. От компании Проект Квартира (Проект Квартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/renovation-format/capital.png',
     'url' => $site['baseUrl'] . '/dogovor-obrazec',
     'type' => 'article',

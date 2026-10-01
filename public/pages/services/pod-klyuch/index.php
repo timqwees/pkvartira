@@ -43,7 +43,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">

@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт квартиры white box (вайт бокс) в Москве. Белая коробка: стены, пол, потолок, электрика, сантехника. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
+    <meta name="description" content="Ремонт квартиры white box (вайт бокс) в Москве. Белая коробка: стены, пол, потолок, электрика, сантехника. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/white-box'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">

@@ -3,7 +3,7 @@ $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Калькулятор площади комнаты онлайн — расчёт м² стен и пола',
-    'description' => 'Калькулятор площади квартиры онлайн: расчёт м² комнаты, стен, пола и потолка за 10 секунд. Формулы для любых помещений + перевод площади в стоимость ремонта. От компании Проект Квартира (ПКвартира).',
+    'description' => 'Калькулятор площади квартиры онлайн: расчёт м² комнаты, стен, пола и потолка за 10 секунд. Формулы для любых помещений + перевод площади в стоимость ремонта. От компании Проект Квартира (Проект Квартира).',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/bg.webp',
     'url' => $site['baseUrl'] . '/kalkulyator-ploshchadi',
     'type' => 'website',
@@ -16,7 +16,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         [
             '@type' => 'WebApplication',
             'name' => 'Калькулятор площади квартиры',
-            'description' => 'Онлайн-расчёт площади комнаты, стен, пола и потолка в квадратных метрах От компании Проект Квартира (ПКвартира).',
+            'description' => 'Онлайн-расчёт площади комнаты, стен, пола и потолка в квадратных метрах От компании Проект Квартира (Проект Квартира).',
             'url' => $site['baseUrl'] . '/kalkulyator-ploshchadi',
             'applicationCategory' => 'UtilitiesApplication',
             'operatingSystem' => 'Web',

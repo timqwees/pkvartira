@@ -15,6 +15,7 @@ Routes::get('/about', 'on_About');
 Routes::get('/other', 'on_Other');
 //==================================================================================================//REVIEWS
 Routes::get('/reviews', 'on_Reviews');
+Routes::get('/reviews/qr', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/reviews/qr.php", get_defined_vars()); });
 //==================================================================================================//REVIEWS
 Routes::get('/portfolio', 'on_Portfolio');
 //==================================================================================================//SERVICE INDEX

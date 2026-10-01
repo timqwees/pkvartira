@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт квартир в Зеленограде под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (ПКвартира)."><meta name="robots" content="index, follow">
+    <meta name="description" content="Ремонт квартир в Зеленограде под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/zelenograd'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">

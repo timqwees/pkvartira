@@ -1,6 +1,6 @@
 # Site search
 
-Ищи по сайту Проект Квартира (ПКвартира, pkvartira.ru) GET-запросом:
+Ищи по сайту Проект Квартира (Проект Квартира, pkvartira.ru) GET-запросом:
 
 ```
 GET https://pkvartira.ru/search?q={запрос}

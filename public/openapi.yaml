@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: pkvartira.ru — поиск по сайту
-  description: Read-only поиск по сайту Проект Квартира (ПКвартира) — услуги, статьи блога, цены, вакансии.
+  description: Read-only поиск по сайту Проект Квартира (Проект Квартира) — услуги, статьи блога, цены, вакансии.
   version: "1.0"
 servers:
   - url: https://pkvartira.ru

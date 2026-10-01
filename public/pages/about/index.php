@@ -3,8 +3,8 @@ $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир в Москве под ключ — договор, смета, гарантия',
-    'description' => 'Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве. ООО «Проект Квартира». Фиксированная смета, гарантия 3 года по договору. Замер бесплатно.',
-    'keywords' => 'Проект Квартира, ПКвартира, pkvartira, ООО Проект Квартира, ремонт квартир Москва',
+    'description' => 'Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве. ООО «Проект Квартира». Фиксированная смета, гарантия 3 года по договору. Замер бесплатно.',
+    'keywords' => 'Проект Квартира, Проект Квартира, pkvartira, ООО Проект Квартира, ремонт квартир Москва',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/about',
     'type' => 'website',
@@ -70,12 +70,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div class="bg-blue-600 p-2.5 rounded-full w-10 h-10 flex items-center justify-center text-white">
                         <i class="fas fa-briefcase"></i>
                     </div>
-                    <h1 class="text-3xl font-bold text-gray-800">О компании ПКвартира</h1>
+                    <h1 class="text-3xl font-bold text-gray-800">О компании Проект Квартира</h1>
                     <div class="h-[0.5px] bg-gray-400 flex-1 ml-4"></div>
                 </div>
 
                 <!-- GEO Entity: стабильное описание компании для AI-поиска -->
-                <p class="text-[15px] leading-[24px] text-[#4b5563] max-w-4xl mb-8">Проект Квартира (ПКвартира, ООО «Проект Квартира», ИНН 9719013990) — ремонт квартир и домов под ключ в Москве и Московской области. Клиент получает бесплатный замер, смету в 3 вариантах за 24 часа, договор с фиксированной стоимостью, ежедневные фотоотчёты и гарантию 3 года. Все 35 отзывов публикуем со ссылками на источники.</p>
+                <p class="text-[15px] leading-[24px] text-[#4b5563] max-w-4xl mb-8">Проект Квартира (Проект Квартира, ООО «Проект Квартира», ИНН 9719013990) — ремонт квартир и домов под ключ в Москве и Московской области. Клиент получает бесплатный замер, смету в 3 вариантах за 24 часа, договор с фиксированной стоимостью, ежедневные фотоотчёты и гарантию 3 года. Все 35 отзывов публикуем со ссылками на источники.</p>
 
                 <div class="flex flex-col gap-4 md:gap-8">
 
@@ -307,7 +307,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div class="bg-gray-50 rounded-xl overflow-hidden">
                         <div class="relative h-64 overflow-hidden">
                             <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/pages/about/quality-control/img.jpg') ?>"
-                                alt="Шоурум и офис ПКвартира" class="w-full h-full object-cover">
+                                alt="Шоурум и офис Проект Квартира" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
                             <div class="flex items-center gap-3 mb-3">
@@ -451,7 +451,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Надёжная компания по ремонту квартир в Москве</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">ПКвартира — профессиональная бригада и фирма по ремонту квартир под ключ. Работаем официально, с договором и гарантией. Вы — заказываете ремонт, мы — делаем качественно и в срок.</p>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Проект Квартира — профессиональная бригада и фирма по ремонту квартир под ключ. Работаем официально, с договором и гарантией. Вы — заказываете ремонт, мы — делаем качественно и в срок.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">

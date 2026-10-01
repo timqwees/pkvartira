@@ -46,7 +46,7 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьеров в Москве от 1 200 ₽/м². Консультация перед покупкой квартиры — 20 000 ₽, эскизный проект, стандартный дизайн-проект, чертежи, подбор мебели и материалов. — Проект Квартира (ПКвартира).', 155)); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьеров в Москве от 1 200 ₽/м². Консультация перед покупкой квартиры — 20 000 ₽, эскизный проект, стандартный дизайн-проект, чертежи, подбор мебели и материалов. — Проект Квартира (Проект Квартира).', 155)); ?>">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">

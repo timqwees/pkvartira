@@ -8,7 +8,7 @@
  */
 $__headBase = htmlspecialchars((string) $site['baseUrl'], ENT_QUOTES, 'UTF-8');
 $__brandName = $site['brand'] ?? $site['name'] ?? 'Проект Квартира';
-$__shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'ПКвартира';
+$__shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'Проект Квартира';
 $__ogAlt = htmlspecialchars(
     $__brandName . ' (' . $__shortBrand . ') — ремонт квартир под ключ в Москве',
     ENT_QUOTES,
@@ -74,11 +74,11 @@ $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES,
       "@type": "Organization",
       "@id": "<?= $__headBase; ?>#organization",
       "name": <?= json_encode($__brandName, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>,
-      "alternateName": ["Проект Квартира","ПКвартира","пквартира","ПроектКвартира","ПКВАРТИРА","pkvartira.ru","pkvartira","Proekt Kvartira","proekt kvartira","PKVARTIRA","ООО Проект Квартира","Проект Квартира Москва","Проект Квартира официальный сайт"],
+      "alternateName": ["Проект Квартира","Проект Квартира","Проект Квартира","ПроектКвартира","Проект Квартира","pkvartira.ru","pkvartira","Proekt Kvartira","proekt kvartira","PKVARTIRA","ООО Проект Квартира","Проект Квартира Москва","Проект Квартира официальный сайт"],
       "legalName": "ООО \"Проект Квартира\"",
       "url": "<?= $__headBase; ?>",
       "slogan": "Ремонт квартир под ключ в Москве",
-      "description": "Проект Квартира (ПКвартира, pkvartira.ru) — официальный сайт компании по ремонту квартир и домов под ключ в Москве. Ищите нас как Проект Квартира, ПКвартира, pkvartira.ru",
+      "description": "Проект Квартира (Проект Квартира, pkvartira.ru) — официальный сайт компании по ремонту квартир и домов под ключ в Москве. Ищите нас как Проект Квартира, Проект Квартира, pkvartira.ru",
       "logo": {
         "@type": "ImageObject",
         "url": "<?= $__headBase; ?>/public/assets/images/logo/favicon/favicon.svg",
@@ -95,7 +95,7 @@ $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES,
       "brand": {
         "@type": "Brand",
         "name": "Проект Квартира",
-        "alternateName": ["ПКвартира","пквартира","pkvartira.ru","pkvartira","ПроектКвартира"],
+        "alternateName": ["Проект Квартира","Проект Квартира","pkvartira.ru","pkvartira","ПроектКвартира"],
         "slogan": "Ремонт квартир под ключ в Москве"
       },
       "sameAs": ["https://t.me/pkvartira","https://wa.me/74954731737","https://yandex.ru/maps/org/proyekt_kvartira/"],
@@ -105,9 +105,9 @@ $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES,
       "@type": "WebSite",
       "@id": "<?= $__headBase; ?>#website",
       "url": "<?= $__headBase; ?>",
-      "name": "Проект Квартира — ПКвартира (pkvartira.ru) — официальный сайт",
-      "alternateName": ["Проект Квартира","ПКвартира","pkvartira.ru","pkvartira","Проект Квартира официальный сайт","ПКвартира официальный сайт","pkvartira.ru официальный сайт"],
-      "description": "Официальный сайт Проект Квартира (ПКвартира, pkvartira.ru) — ремонт квартир под ключ в Москве. Ищите: Проект Квартира, ПКвартира, pkvartira",
+      "name": "Проект Квартира — Проект Квартира (pkvartira.ru) — официальный сайт",
+      "alternateName": ["Проект Квартира","Проект Квартира","pkvartira.ru","pkvartira","Проект Квартира официальный сайт","Проект Квартира официальный сайт","pkvartira.ru официальный сайт"],
+      "description": "Официальный сайт Проект Квартира (Проект Квартира, pkvartira.ru) — ремонт квартир под ключ в Москве. Ищите: Проект Квартира, Проект Квартира, pkvartira",
       "publisher": {"@id": "<?= $__headBase; ?>#organization"},
       "inLanguage": "ru-RU",
       "potentialAction": {

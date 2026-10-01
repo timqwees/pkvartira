@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 use Setting\Route\Functions\Vacancy;
 $site = TheFunction::site();
-$title = 'Вакансии — работа в ПКвартира — от 110 000 ₽';
+$title = 'Вакансии — работа в Проект Квартира — от 110 000 ₽';
 $vacancies = Vacancy::all();
 $vacCount = count($vacancies);
 $benefits = Vacancy::benefits();
@@ -18,8 +18,8 @@ $catCount = ['all' => count($vacancies), 'otdelka' => 0, 'engineering' => 0, 'st
 foreach ($vacancies as $vv) { $catCount[$catOf($vv)]++; }
 
 $seo = TheFunction::seo([
-    'title' => 'Работа в ПКвартира — ' . $vacCount . ' вакансий от 110 000 ₽',
-    'description' => 'Работа в Проект Квартира (ПКвартира) — ' . $vacCount . ' вакансий: маляр, плиточник, сантехник, электрик, штукатур, плотник, каменщик, мастер-универсал, замерщик-сметчик, прораб. Выплаты каждую неделю без задержек, жильё на объекте, +5% бонус и аванс.',
+    'title' => 'Работа в Проект Квартира — ' . $vacCount . ' вакансий от 110 000 ₽',
+    'description' => 'Работа в Проект Квартира (Проект Квартира) — ' . $vacCount . ' вакансий: маляр, плиточник, сантехник, электрик, штукатур, плотник, каменщик, мастер-универсал, замерщик-сметчик, прораб. Выплаты каждую неделю без задержек, жильё на объекте, +5% бонус и аванс.',
     'keywords' => 'работа маляр, плиточник, сантехник, электрик, вакансии Москва',
     'image' => $site['baseUrl'] . '/public/assets/images/logo/favicon/web-app-manifest-512x512.png',
     'url' => $site['baseUrl'] . '/vakansii',

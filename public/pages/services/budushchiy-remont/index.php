@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Планируете ремонт квартиры и скоро получаете ключи? Узнайте стоимость ремонта уже сейчас: ориентиры цен, план бюджета, бесплатный замер ближе к дате. — Проект Квартира (ПКвартира).',155)); ?>"><meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Планируете ремонт квартиры и скоро получаете ключи? Узнайте стоимость ремонта уже сейчас: ориентиры цен, план бюджета, бесплатный замер ближе к дате. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/budushchiy-remont'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">

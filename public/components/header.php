@@ -94,13 +94,20 @@
     .menu ul li span {
         display: none;
     }
+
+    /* Скрыть блок телефона в шапке на 1280–1600px (чтобы не ломал меню) */
+    @media (min-width: 1280px) and (max-width: 1599.98px) {
+        .header-phone-block {
+            display: none !important;
+        }
+    }
 </style>
 <!-- Header -->
 <header class="bg-white border-b border-gray-100 fixed w-full top-0 z-[100]" style="backdrop-filter: blur(16px) saturate(180%); background: rgba(255,255,255,0.88);">
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="flex justify-between items-center">
             <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
-                    src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
+                    src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-8">
                 <!-- Главная --><a href="/" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Главная</a>
@@ -184,7 +191,7 @@
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">
-                <div class="flex flex-col justify-center items-center lg:hidden xl:flex"><a
+                <div class="header-phone-block flex flex-col justify-center items-center lg:hidden xl:flex"><a
                         href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-orange-500 transition">+7 495
                         473-17-37</a>
                     <!--<a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>-->
@@ -214,7 +221,7 @@
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
                 <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="145" height="48" class="h-12"
-                        src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (ПКвартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
+                        src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             </div><button class="mobile-menu-close p-2" aria-label="Закрыть меню"><i
                     class="fas fa-times text-2xl text-gray-800"></i></button>
         </div>
