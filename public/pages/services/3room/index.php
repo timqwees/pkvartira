@@ -557,6 +557,9 @@ if (is_readable($euroAbout)) {
             </div>
         </section>
 
+        <!-- 10b. Возвратные ссылки на хабы (RangeRank Loop) -->
+        <?php include './public/components/hub-links.php'; ?>
+
         <!-- 11. Финальный CTA -->
         <?php
         $ctaFormId = '3room_cta';

@@ -550,6 +550,9 @@ $prices = [
             </div>
         </section>
 
+        <!-- 10b. Возвратные ссылки на хабы (RangeRank Loop) -->
+        <?php include './public/components/hub-links.php'; ?>
+
         <!-- 11. Финальный CTA -->
         <?php
         $ctaFormId = '4room_cta';

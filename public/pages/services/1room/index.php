@@ -179,6 +179,54 @@ $prices = [
               "@type": "Answer",
               "text": "Да, работаем по официальному договору. В нем фиксируются сроки, стоимость и гарантия."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько стоит ремонт однокомнатной квартиры?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "От 296 000 ₽ за квартиру 37 м². Пакеты — от 8 000 ₽/м² (косметика), от 13 000 ₽/м² (капитальный), от 18 000 ₽/м² (дизайнерский). Точную стоимость даёт смета после бесплатного замера."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько стоит ремонт однушки под ключ в Москве?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Готовим смету в 3 вариантах за 24 часа после замера, цена фиксируется в договоре и не растёт. Ориентиры и состав пакетов — на странице цен."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Где посмотреть фото и дизайны ремонта однушек?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В портфолио: фото до и после с площадью, сроком и стоимостью каждого проекта."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько длится ремонт однокомнатной квартиры?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Косметический — от 14 дней, капитальный — от 45 дней. Точный срок зависит от площади и состояния квартиры и фиксируется в договоре."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Какие есть идеи и примеры ремонта однушки 30–40 м²?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Смотрите реализованные проекты в портфолио и варианты планировок на странице ремонта под ключ."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Что входит в ремонт однушки под ключ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Полный цикл: демонтаж, электрика, сантехника, выравнивание, чистовая отделка, двери, освещение и финальная уборка. Полный состав — на странице ремонта под ключ."
+            }
           }
         ]
       }
@@ -494,9 +542,90 @@ $prices = [
                                 стоимость и гарантия.</span>
                         </div>
                     </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт
+                                однокомнатной квартиры?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">От 296 000 ₽ за квартиру 37 м². Пакеты — от 8 000 ₽/м², от 13 000 ₽/м² и от 18 000 ₽/м². Точную стоимость даёт смета после замера — <a href="/prices" class="text-orange-600 underline hover:text-orange-700">смотрите цены</a>.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт однушки
+                                под ключ в Москве?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Готовим смету в 3 вариантах за 24 часа после замера, цена фиксируется в договоре. Состав услуги — на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">ремонта под ключ</a>.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Где посмотреть фото и дизайны
+                                ремонта однушек?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">В <a href="/portfolio" class="text-orange-600 underline hover:text-orange-700">портфолио</a>: фото до и после с площадью, сроком и стоимостью каждого проекта.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько длится ремонт
+                                однокомнатной квартиры?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Косметический — от 14 дней, капитальный — от 45 дней. Точный срок зависит от площади и состояния квартиры и фиксируется в договоре.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Какие есть идеи и примеры
+                                ремонта однушки 30–40 м²?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Смотрите реализованные проекты в <a href="/portfolio" class="text-orange-600 underline hover:text-orange-700">портфолио</a> и варианты планировок на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">ремонта под ключ</a>.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Что входит в ремонт однушки
+                                под ключ?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Полный цикл: демонтаж, электрика, сантехника, выравнивание, чистовая отделка, двери, освещение и финальная уборка. Полный состав — на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">ремонта под ключ</a>.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- 10b. Возвратные ссылки на хабы (RangeRank Loop) -->
+        <?php include './public/components/hub-links.php'; ?>
 
         <!-- 11. Финальный CTA -->
         <?php

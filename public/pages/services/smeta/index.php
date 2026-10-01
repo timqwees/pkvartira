@@ -80,6 +80,35 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         </div>
     </section>
 
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Смета по типам объектов</h2>
+            <p class="mt-3 text-center text-[#6b7280] max-w-2xl mx-auto">Выберите свой случай — внутри готовые ориентиры цен и ссылка на точный расчёт.</p>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="/services/1room" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                    <div class="font-bold text-[#111827]">1-комнатная, 30–40 м²</div>
+                    <p class="mt-2 text-sm text-[#6b7280]">Смета от 296 000 ₽. Три пакета: от 8 000 ₽/м².</p>
+                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Смотреть смету →</span>
+                </a>
+                <a href="/services/novostroyka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                    <div class="font-bold text-[#111827]">Новостройка</div>
+                    <p class="mt-2 text-sm text-[#6b7280]">Без отделки, white box, чистовая. Что влияет на смету.</p>
+                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Смотреть смету →</span>
+                </a>
+                <a href="/services/vtorichka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                    <div class="font-bold text-[#111827]">Вторичка</div>
+                    <p class="mt-2 text-sm text-gray-600">Демонтаж, замена коммуникаций. Честная смета без доплат.</p>
+                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Смотреть смету →</span>
+                </a>
+                <a href="/calculator" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                    <div class="font-bold text-[#111827]">Калькулятор</div>
+                    <p class="mt-2 text-sm text-[#6b7280]">Предварительный расчёт за 5 минут под ваш метраж.</p>
+                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Рассчитать →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="py-12">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="max-w-lg mx-auto">
@@ -102,7 +131,7 @@ include './public/components/cta-form.php';
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит смета на ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Смета составляется бесплатно. Инженер приедет на замер и подготовит детальный расчёт без оплаты.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как быстро вы hazırlыvаете смету?</summary><p class="mt-2 text-sm text-[#6b7280]">Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как быстро вы готовите смету?</summary><p class="mt-2 text-sm text-[#6b7280]">Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Меняется ли стоимость по смете?</summary><p class="mt-2 text-sm text-[#6b7280]">Стоимость фиксируется в договоре. Изменения возможны только по вашему согласованию при дополнительных работах.</p></details>
             </div>
         </div>
