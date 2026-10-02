@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в кирпичном доме?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Кирпичные дома обычно в хорошем состоянии, но стоимость зависит от возраста здания и объёма работ."}}, {"@type": "Question", "name": "Нужна ли дополнительная шумоизоляция?", "acceptedAnswer": {"@type": "Answer", "text": "В кирпичных домах шумоизоляция уже хорошая благодаря толстым стенам. Дополнительная шумоизоляция нужна только при ремонте в очень старых домах или при повышенных требованиях к комфорту."}}, {"@type": "Question", "name": "Можно ли сделать перепланировку?", "acceptedAnswer": {"@type": "Answer", "text": "В кирпичных домах несущие стены толстые, поэтому перепланировка возможна, но требует проектирования. Мы проведём экспертизу и предложим оптимальные решения."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

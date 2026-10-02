@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит смета на ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Смета составляется бесплатно. Инженер приедет на замер и подготовит детальный расчёт без оплаты."}}, {"@type": "Question", "name": "Как быстро вы готовите смету?", "acceptedAnswer": {"@type": "Answer", "text": "Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно."}}, {"@type": "Question", "name": "Меняется ли стоимость по смете?", "acceptedAnswer": {"@type": "Answer", "text": "Стоимость фиксируется в договоре. Изменения возможны только по вашему согласованию при дополнительных работах."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

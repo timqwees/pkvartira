@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можете ли вы выполнять работы в нерабочее время?", "acceptedAnswer": {"@type": "Answer", "text": "Да, мы работаем в ночное время и выходные, чтобы не нарушать рабочий процесс в вашем офисе."}}, {"@type": "Question", "name": "Помогаете ли вы с согласованием работ с бизнес-центром?", "acceptedAnswer": {"@type": "Answer", "text": "Да, мы берём на себя согласование всех работ с администрацией бизнес-центра."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт офиса?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от объёма работ. Косметический ремонт — от 5 дней, капитальный — от 2 недель."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

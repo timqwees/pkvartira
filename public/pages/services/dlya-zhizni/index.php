@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Какие материалы безопасны для семьи?", "acceptedAnswer": {"@type": "Answer", "text": "Используем экологичные материалы с сертификатами безопасности: латексные краски, обои на бумаге, напольные покрытия класса Е1."}}, {"@type": "Question", "name": "Можно ли жить в квартире во время ремонта?", "acceptedAnswer": {"@type": "Answer", "text": "Во время активных работ лучше переехать. Шум и пыль делают проживание неудобным. После завершения — заселяйтесь сразу."}}, {"@type": "Question", "name": "Сколько стоит ремонт для семьи?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 13 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

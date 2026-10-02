@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в брежневке?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от состояния панелей, объёма замены коммуникаций и выбранных материалов."}}, {"@type": "Question", "name": "Нужна ли шумоизоляция при ремонте?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в брежневках стены тонкие, и шумоизоляция значительно повышает комфорт. Рекомендуем её при капитальном и дизайнерском ремонте."}}, {"@type": "Question", "name": "Можно ли сделать перепланировку?", "acceptedAnswer": {"@type": "Answer", "text": "Возможность перепланировки зависит от типа стен. Мы проведём экспертизу и предложим оптимальные решения для увеличения полезного пространства."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

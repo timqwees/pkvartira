@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в сталинке?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Точная стоимость зависит от объёма работ, состояния инженерных сетей и материалов."}}, {"@type": "Question", "name": "Можно ли сохранить лепнину при ремонте?", "acceptedAnswer": {"@type": "Answer", "text": "Да, мы работаем с историческими элементами: реставрируем лепнину, восстанавливаем паркет, обновляем подоконники. Это особенно актуально для домов с высокой исторической ценностью."}}, {"@type": "Question", "name": "Какой ремонт лучше для сталинки?", "acceptedAnswer": {"@type": "Answer", "text": "Для сталинок рекомендуем дизайнерский ремонт, чтобы раскрыть потенциал высоких потолков и просторных комнат. Капитальный ремонт также подходит для обновления инженерных сетей."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

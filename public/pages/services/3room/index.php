@@ -267,11 +267,10 @@ if (is_readable($euroAbout)) {
         <section id="price" class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
-                    Сколько стоит
-                    <?= htmlspecialchars($title); ?> в Москве
+                    Стоимость ремонта трехкомнатной квартиры под ключ
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Стоимость капитального ремонта в 3х комнатной квартире — от 13 000 ₽/м². Выберите подходящий пакет. Точную стоимость ремонта 3 комнатной квартиры рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -479,6 +478,42 @@ if (is_readable($euroAbout)) {
                 </h2>
 
                 <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт трехкомнатной квартиры под ключ?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Ремонт трехкомнатной квартиры под ключ в Москве — от 8 000 ₽/м² косметический, от 13 000 ₽/м² капитальный. Например, трёшка 70 м² — капитальный от 910 000 ₽. Точную смету даём после бесплатного замера, цена фиксируется в договоре.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит капитальный ремонт 3 комнатной квартиры?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Стоимость капитального ремонта в 3х комнатной квартире — от 13 000 ₽/м²: замена электрики и сантехники, стяжка, штукатурка, чистовая отделка. Срок — от 60 дней.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Какая цена ремонта трехкомнатной квартиры под ключ в Москве?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Цена ремонта трехкомнатной квартиры под ключ в Москве зависит от состояния и метража. Ориентир: 65 м² — от 845 000 ₽ капитальный, 80 м² — от 1 040 000 ₽. Посчитайте свой вариант в <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">калькуляторе</a>.</span>
+                        </div>
+                    </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button

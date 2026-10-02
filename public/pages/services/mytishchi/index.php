@@ -21,7 +21,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт в Мытищах","item": "<?= $site['baseUrl']; ?>/services/mytishchi"}
             ]},
-            {"@type": "Service","name": "Ремонт квартир в Мытищах","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Мытищи"}}
+            {"@type": "Service","name": "Ремонт квартир в Мытищах","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Мытищи"}},
+            {"@type": "FAQPage","mainEntity": [
+                {"@type": "Question","name": "Сколько стоит ремонт квартир недорого в Мытищах?","acceptedAnswer": {"@type": "Answer","text": "Ремонт квартир недорого в Мытищах — от 8 000 ₽/м² (косметический). Капитальный — от 13 000 ₽/м². Точную смету даём после бесплатного замера."}},
+                {"@type": "Question","name": "Сколько стоит черновой ремонт квартир в Мытищах?","acceptedAnswer": {"@type": "Answer","text": "Черновой ремонт квартир в Мытищах — от 8 000 ₽/м²: стяжка, штукатурка, электрика, сантехника."}},
+                {"@type": "Question","name": "Сколько стоит капитальный ремонт квартиры в Мытищах?","acceptedAnswer": {"@type": "Answer","text": "Капитальный ремонт квартиры в Мытищах — от 13 000 ₽/м² под ключ. Цена фиксируется в договоре."}},
+                {"@type": "Question","name": "Делаете ли ремонт квартир под ключ в Мытищах?","acceptedAnswer": {"@type": "Answer","text": "Да, делаем ремонт квартир под ключ в Мытищах: от замера и закупки материалов до финальной уборки. Гарантия 3 года."}}
+            ]}
         ]
     }
     </script>
@@ -46,8 +52,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Ремонт квартир в Мытищах под ключ</h2>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">Выполняем ремонт квартир в Мытищах под ключ любой сложности. Работаем с новостройками, вторичным жильём, частными домами. Составляем прозрачную смету, фиксируем сроки в договоре. Выезд инженера на замер — бесплатно.</p>
+                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Ремонт квартир недорого в Мытищах под ключ</h2>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Ремонт квартир под ключ в Мытищах — от 8 000 ₽/м². Делаем недорого без потери качества: косметический, черновой ремонт квартир в Мытищах, капитальный ремонт квартиры в Мытищах. Прозрачная смета, сроки в договоре. Выезд инженера на замер — бесплатно.</p>
                     <ul class="mt-4 space-y-2">
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Косметический, капитальный, дизайнерский ремонт</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Ремонт квартир, домов, коммерческих помещений</li>
@@ -99,6 +105,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартир недорого в Мытищах?</summary><p class="mt-2 text-sm text-[#6b7280]">Недорого — это косметический от 8 000 ₽/м². Например, студия 28 м² — от 224 000 ₽. Капитальный ремонт квартиры в Мытищах — от 13 000 ₽/м². Точную смету рассчитаем после бесплатного замера.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли черновой ремонт квартир в Мытищах?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, черновой ремонт квартир в Мытищах — от 8 000 ₽/м²: стяжка, штукатурка, разводка электрики и сантехники.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит капитальный ремонт квартиры в Мытищах?</summary><p class="mt-2 text-sm text-[#6b7280]">От 13 000 ₽/м² под ключ: замена электрики и сантехники, выравнивание, чистовая отделка. Цена фиксируется в договоре.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Работаете ли вы в Мытищах?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выезжаем на объекты в Мытищах и в ближайших районах. Выезд бесплатный.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в Мытищах?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ и материалов. Рассчитаем смету после бесплатного замера.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли ремонт под ключ с материалами?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем по схеме под ключ: от закупки материалов до финальной уборки. Вам останется только завезти мебель.</p></details>

@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можете ли вы обеспечить условия хранения лекарств?", "acceptedAnswer": {"@type": "Answer", "text": "Да,我们提供 монтаж систем климат-контроля для обеспечения оптимальных условий хранения лекарственных средств."}}, {"@type": "Question", "name": "Выполняете ли вы монтаж витрин?", "acceptedAnswer": {"@type": "Answer", "text": "Да, монтируем витрины и стеллажи любой конфигурации с подсветкой."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт аптеки?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки от 2 недель до 2 месяцев в зависимости от площади и объёма работ."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

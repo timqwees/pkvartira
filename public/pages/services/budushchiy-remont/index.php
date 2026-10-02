@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Когда лучше заказывать ремонт, если ключи будут через полгода?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир цены можно получить уже сейчас через калькулятор. Точную смету составим после бесплатного замера готовой квартиры — заявка ни к чему не обязывает."}}, {"@type": "Question", "name": "Цена не вырастет, пока я жду ключи?", "acceptedAnswer": {"@type": "Answer", "text": "Точная стоимость фиксируется в договоре по смете после замера. Ориентир сейчас нужен, чтобы спланировать бюджет."}}, {"@type": "Question", "name": "Что проверить при приёмке квартиры?", "acceptedAnswer": {"@type": "Answer", "text": "Геометрию стен, стяжку, окна, электрику и сантехнику. Подробно — в нашем чек-листе приёмки. Можем выехать на приёмку вместе с вами."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

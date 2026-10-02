@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в панельном доме?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от объёма работ по шумоизоляции, замены коммуникаций и отделочных материалов."}}, {"@type": "Question", "name": "Обязательна ли шумоизоляция?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в панельных домах шумоизоляция значительно повышает уровень комфорта. Мы рекомендуем её при любом типе ремонта, особенно капитальном."}}, {"@type": "Question", "name": "Можно ли заменить коммуникации?", "acceptedAnswer": {"@type": "Answer", "text": "Да, мы полностью заменяем водоснабжение, электрику и канализацию. Это особенно важно в старых панельных домах, где коммуникации изношены."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

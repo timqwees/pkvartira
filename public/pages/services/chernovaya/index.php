@@ -21,7 +21,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
                 {"@type": "ListItem","position": 2,"name": "Ремонт с черновой отделкой","item": "<?= $site['baseUrl']; ?>/services/chernovaya"}
             ]},
-            {"@type": "Service","name": "Ремонт новостройки с черновой отделкой","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
+            {"@type": "Service","name": "Ремонт новостройки с черновой отделкой","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}},
+            {"@type": "FAQPage","mainEntity": [
+                {"@type": "Question","name": "Сколько стоит черновая отделка квартиры в новостройке?","acceptedAnswer": {"@type": "Answer","text": "Черновая отделка квартиры в новостройке стоит от 8 000 ₽/м²: штукатурка стен, стяжка пола, разводка электрики и сантехники. Точную смету даём после бесплатного замера."}},
+                {"@type": "Question","name": "Какая цена черновой отделки квартиры в новостройке?","acceptedAnswer": {"@type": "Answer","text": "Цена черновой отделки квартиры в новостройке — от 8 000 ₽/м². Полный черновой ремонт квартиры в новостройке с материалами — от 13 000 ₽/м²."}},
+                {"@type": "Question","name": "Сколько стоит черновой ремонт квартиры в новостройке?","acceptedAnswer": {"@type": "Answer","text": "Стоимость чернового ремонта квартиры в новостройке — от 8 000 ₽/м². Например, студия 28 м² — от 224 000 ₽, 1-комнатная 45 м² — от 360 000 ₽."}},
+                {"@type": "Question","name": "Как рассчитать черновой ремонт новостройки?","acceptedAnswer": {"@type": "Answer","text": "Оставьте заявку — приедем на бесплатный замер и за 24 часа рассчитаем точную смету чернового ремонта новостройки с фиксированной ценой."}}
+            ]}
         ]
     }
     </script>
@@ -46,9 +52,9 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Черновая отделка новостройки</h2>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">Черновая отделка — это подготовительный этап ремонта, который превращает голые стены новостройки в готовую основу для чистового ремонта. Включает все базовые работы: выравнивание, утепление, коммуникации.</p>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">После черновой отделки стены оштукатурены и готовы к финишной отделке, пол выровнен стяжкой, электрика и сантехника разведены по точкам. Можно приступать к чистовому ремонту.</p>
+                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Сколько стоит черновая отделка квартиры в новостройке</h2>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Стоимость чернового ремонта в новостройке — от 8 000 ₽/м². Черновая отделка квартиры в новостройке по этой цене включает штукатурку стен по маякам, стяжку пола, разводку электрики и сантехники — квартира готова к чистовому ремонту.</p>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Черновая отделка квартиры в новостройке, цена под ключ: студия 28 м² — от 224 000 ₽, 1-комнатная 45 м² — от 360 000 ₽, 2-комнатная 60 м² — от 480 000 ₽. Ремонт в новостройке с черновой отделкой делаем за 30–60 дней.</p>
                     <ul class="mt-4 space-y-2">
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Штукатурка стен по маякам с выравниванием</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Цементно-песчаная или сухая стяжка пола</li>
@@ -58,7 +64,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                     </ul>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
-                    <h3 class="text-lg font-bold text-[#111827]">Цены на черновую отделку</h3>
+                    <h3 class="text-lg font-bold text-[#111827]">Цены на черновую отделку в новостройке</h3>
                     <div class="mt-4 space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
@@ -102,6 +108,10 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит черновая отделка квартиры в новостройке?</summary><p class="mt-2 text-sm text-[#6b7280]">От 8 000 ₽/м²: штукатурка, стяжка, электрика, сантехника. Студия 28 м² — от 224 000 ₽, 45 м² — от 360 000 ₽. Точную смету рассчитаем после бесплатного замера.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какая цена черновой отделки квартиры в новостройке?</summary><p class="mt-2 text-sm text-[#6b7280]">Цена черновой отделки квартиры в новостройке — от 8 000 ₽/м², черновой ремонт квартиры в новостройке под ключ с материалами — от 13 000 ₽/м². Фиксируем в договоре.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит черновой ремонт квартиры в новостройке?</summary><p class="mt-2 text-sm text-[#6b7280]">Стоимость чернового ремонта квартиры в новостройке зависит от площади и состояния объекта: в среднем от 8 000 ₽/м². Рассчитайте свой вариант в <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">калькуляторе</a> за 1 минуту.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как рассчитать черновой ремонт новостройки?</summary><p class="mt-2 text-sm text-[#6b7280]">Оставьте заявку — инженер приедет бесплатно, замерит квартиру и за 24 часа подготовит смету. Или посчитайте предварительно в <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">калькуляторе</a>.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что такое черновая отделка?</summary><p class="mt-2 text-sm text-[#6b7280]">Это подготовительные работы: штукатурка стен, стяжка пола, разводка электрики и сантехники. После черновой отделки квартира готова к чистовому ремонту.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит черновая отделка?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ и состояния объекта. Рассчитаем смету после бесплатного замера.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сразу сделать чистовую отделку?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, если стены уже оштукатурены и пол стянут. Если нет — сначала выполняем черновую, затем чистовую. Выполняем полный цикл.</p></details>

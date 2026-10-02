@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чем white box отличается от чистовой отделки?", "acceptedAnswer": {"@type": "Answer", "text": "White box — это подготовка основы (стены, пол, электрика, сантехника). Чистовая отделка — финишные работы поверх неё: обои, плитка, ламинат, двери."}}, {"@type": "Question", "name": "Сколько стоит ремонт квартиры в формате white box?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 8 000 ₽/м². Точная стоимость зависит от объёма чистовых работ и выбранных материалов. Рассчитаем смету после бесплатного замера."}}, {"@type": "Question", "name": "Все ли застройщики сдают в формате white box?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, форматы сдачи варьируются: от голых стен до предчистовой. Уточните у застройщика, что входит в вашу квартиру."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

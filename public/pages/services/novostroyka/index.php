@@ -196,34 +196,58 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Можно ли жить в квартире во время ремонта?",
+            "name": "Сколько стоит ремонт квартиры в новостройке?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "В большинстве случаев — да. Мы организуем работы поэтапно и соблюдаем чистоту. Уточним нюансы после замера."
+              "text": "Ремонт квартиры в новостройке под ключ стоит от 8 000 ₽/м² за косметический, от 13 000 ₽/м² за капитальный и от 18 000 ₽/м² за дизайнерский. Точную смету даём после бесплатного замера."
             }
           },
           {
             "@type": "Question",
-            "name": "Что если смета вырастет в процессе?",
+            "name": "Сколько стоит ремонт в новостройке под ключ за м²?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Смета фиксируется договором. Изменения возможны только по вашему согласованию при дополнительных работах."
+              "text": "Стоимость отделки квартиры под ключ за м² в новостройке — от 8 000 ₽/м², полный цикл с нуля — от 13 000 ₽/м². Цена фиксируется в договоре."
             }
           },
           {
             "@type": "Question",
-            "name": "Нужен ли дизайн-проект для капитального ремонта?",
+            "name": "Сколько стоит ремонт студии в новостройке под ключ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Не обязательно. Но проект помогает точно рассчитать стоимость и избежать переделок. Мы можем сделать базовую планировку."
+              "text": "Ремонт студии 28 м² в новостройке под ключ — от 224 000 ₽ (косметический) и от 364 000 ₽ (капитальный с нуля). Срок 30–45 дней."
             }
           },
           {
             "@type": "Question",
-            "name": "Как вы контролируете качество работ?",
+            "name": "Когда лучше начинать ремонт в новостройке?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и приемку работ по чек-листу."
+              "text": "Оптимально — через 1–2 года после сдачи дома, когда пройдёт основная усадка. Но мы используем технологии, которые минимизируют риски: армированная стяжка, пластичные шпаклёвки, деформационные швы."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Нужно ли ждать усадки дома?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В кирпичных и монолитных домах усадка минимальна — ремонт можно делать сразу. В панельных рекомендуем подождать 1–2 года."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько стоит черновой ремонт в новостройке?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Средняя стоимость чернового ремонта в новостройке — от 8 000 ₽ за м²: стяжка пола, штукатурка стен, разводка электрики и сантехники."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Делаете ли вы приёмку квартиры от застройщика?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, выезжаем на приёмку, проверяем стяжку, штукатурку, остекление и инженерные системы, составляем акт недостатков."
             }
           },
           {
@@ -261,11 +285,10 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         <section id="price" class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
-                    Сколько стоит
-                    <?= htmlspecialchars($title); ?> в Москве
+                    Сколько стоит ремонт квартиры в новостройке
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Стоимость отделки квартиры под ключ за м² в новостройке — от 8 000 ₽/м². Выберите подходящий пакет. Точную стоимость ремонта в новостройке рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -303,6 +326,29 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                 class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
                         </article>
                     <?php endforeach; ?>
+                </div>
+
+                <div class="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900">Сколько стоит ремонт в новостройке: примеры для типовых площадей</h3>
+                    <p class="mt-1 text-sm text-gray-600">Ориентировочная цена ремонта новостройки под ключ, работа + черновые материалы.</p>
+                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <div class="font-semibold text-gray-900">Студия 28 м²</div>
+                            <div class="mt-1 text-gray-600">косметический — от 224 000 ₽</div>
+                            <div class="text-gray-600">капитальный — от 364 000 ₽</div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <div class="font-semibold text-gray-900">1-комнатная 45 м²</div>
+                            <div class="mt-1 text-gray-600">косметический — от 360 000 ₽</div>
+                            <div class="text-gray-600">капитальный — от 585 000 ₽</div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <div class="font-semibold text-gray-900">2-комнатная 60 м²</div>
+                            <div class="mt-1 text-gray-600">косметический — от 480 000 ₽</div>
+                            <div class="text-gray-600">капитальный — от 780 000 ₽</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Посчитайте в калькуляторе за 1 минуту</a>.</p>
                 </div>
             </div>
         </section>
@@ -567,6 +613,42 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 </h2>
 
                 <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт квартиры в новостройке?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Ремонт квартиры в новостройке под ключ стоит от 8 000 ₽/м² за косметический, от 13 000 ₽/м² за капитальный и от 18 000 ₽/м² за дизайнерский. Например, 1-комнатная 45 м² — от 360 000 ₽, 2-комнатная 60 м² — от 780 000 ₽ за капитальный. Точную смету даём после бесплатного замера.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт в новостройке под ключ за м²?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Стоимость отделки квартиры под ключ за м² в новостройке — от 8 000 ₽/м² (чистовая отделка white box), от 13 000 ₽/м² (полный цикл с нуля: стяжка, штукатурка, электрика, сантехника). Цена фиксируется в договоре после замера.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт студии в новостройке под ключ?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Ремонт студии в новостройке под ключ — от 224 000 ₽ за 28 м² (косметический) и от 364 000 ₽ (капитальный с нуля). Студии делаем за 30–45 дней, включая разводку электрики и сантехники.</span>
+                        </div>
+                    </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button

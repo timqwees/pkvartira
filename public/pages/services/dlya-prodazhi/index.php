@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько времени занимает ремонт перед продажей?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт — от 2 недель, капитальный — до 3 недель. Сроки фиксируются в договоре."}}, {"@type": "Question", "name": "Окупится ли ремонт перед продажей?", "acceptedAnswer": {"@type": "Answer", "text": "Да, качественный косметический ремонт повышает ликвидность квартиры и может увеличить стоимость продажи на 10-15%."}}, {"@type": "Question", "name": "Какой ремонт лучше сделать перед продажей?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический: покраска стен, замена напольного покрытия, обновление сантехники. Этого достаточно для повышения привлекательности."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в предчистовую отделку застройщика?", "acceptedAnswer": {"@type": "Answer", "text": "Штукатурка стен, стяжка пола, разводка электрики и сантехники до точек. Это базовая подготовка для чистовой отделки."}}, {"@type": "Question", "name": "Что нужно делать после предчистовой отделки?", "acceptedAnswer": {"@type": "Answer", "text": "Чистовая отделка: покраска или обои, укладка плитки и ламината, установка дверей, монтаж сантехники и розеток."}}, {"@type": "Question", "name": "Сколько стоит чистовая отделка поверх предчистовой?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 8 000 ₽/м². Точная стоимость зависит от выбранных материалов и объёма работ. Рассчитаем смету после бесплатного замера."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

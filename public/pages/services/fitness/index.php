@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Выполняете ли вы звукоизоляцию?", "acceptedAnswer": {"@type": "Answer", "text": "Да, монтируем профессиональную звукоизоляцию для снижения шума от тренажёров и музыки."}}, {"@type": "Question", "name": "Какие покрытия вы устанавливаете?", "acceptedAnswer": {"@type": "Answer", "text": "Устанавливаем безопасные спортивные покрытия: резиновые, ПВХ, ковровые для различных зон."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт фитнес-центра?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки от 3 недель до 3 месяцев в зависимости от площади и объёма работ."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

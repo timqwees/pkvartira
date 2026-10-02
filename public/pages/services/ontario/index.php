@@ -35,6 +35,10 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Какие сроки ремонта в ЖК Онтарио?", "acceptedAnswer": {"@type": "Answer", "text": "От 2 недель для косметического до 3 месяцев для дизайнерского ремонта."}}, {"@type": "Question", "name": "Нужно ли согласовывать перепланировку?", "acceptedAnswer": {"@type": "Answer", "text": "Да, если планируете изменение стен. Мы помогаем с согласованием."}}, {"@type": "Question", "name": "Можно ли сделать ремонт с материалами?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем с материалами заказчика и с полным обеспечением. Все варианты обсуждаются индивидуально."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

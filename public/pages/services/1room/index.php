@@ -198,6 +198,30 @@ $prices = [
           },
           {
             "@type": "Question",
+            "name": "Сколько стоит ремонт однокомнатной квартиры с материалами?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Стоимость ремонта однокомнатной квартиры с материалами — от 8 000 ₽/м² (косметический с черновыми материалами), капитальный с материалами — от 13 000 ₽/м². Например, 37 м² — от 296 000 ₽."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Во сколько обойдется ремонт 1 комнатной квартиры?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ремонт 1 комнатной квартиры обойдётся от 280 000 ₽ (косметический 35 м²) до 585 000 ₽ (капитальный 45 м²). Точную цифру даёт смета после бесплатного замера."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько стоит черновой ремонт однокомнатной квартиры в Москве?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Черновой ремонт однокомнатной квартиры в Москве — от 8 000 ₽/м²: стяжка, штукатурка, электрика, сантехника."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Где посмотреть фото и дизайны ремонта однушек?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -259,7 +283,7 @@ $prices = [
                     Сколько стоит ремонт 1-комнатной квартиры в Москве
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Стоимость ремонта однокомнатной квартиры с материалами — от 8 000 ₽/м². Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -540,6 +564,32 @@ $prices = [
                             itemtype="https://schema.org/Answer">
                             <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
                                 стоимость и гарантия.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт
+                                однокомнатной квартиры с материалами?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Стоимость ремонта однокомнатной квартиры с материалами — от 8 000 ₽/м² косметический и от 13 000 ₽/м² капитальный. Например, 37 м² — от 296 000 ₽. <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">Посчитайте свой метраж в калькуляторе</a>.</span>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                        <button
+                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
+                            <span class="font-semibold text-gray-800" itemprop="name">Во сколько обойдется ремонт 1
+                                комнатной квартиры?</span>
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </button>
+                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Ремонт 1 комнатной квартиры обойдётся от 280 000 ₽ (косметический 35 м²) до 585 000 ₽ (капитальный 45 м²). Точную цифру фиксируем в смете после бесплатного замера.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"

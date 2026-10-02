@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит укладка ламината за квадратный метр?", "acceptedAnswer": {"@type": "Answer", "text": "Работа от 350 ₽/м², с фанерой от 600 ₽/м², с материалом от 1 200 ₽/м²."}}, {"@type": "Question", "name": "Нужно ли укладывать фанеру под ламинат?", "acceptedAnswer": {"@type": "Answer", "text": "Фанера нужна для выравнивания основания. На идеально ровный пол можно укладывать без неё."}}, {"@type": "Question", "name": "Какой ламинат лучше выбрать?", "acceptedAnswer": {"@type": "Answer", "text": "Для квартиры рекомендуем 32-33 класс толщиной 8-12 мм. Поможем с выбором."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

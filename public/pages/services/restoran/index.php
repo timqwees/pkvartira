@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Выполняете ли вы звукоизоляцию?", "acceptedAnswer": {"@type": "Answer", "text": "Да, монтируем профессиональную звукоизоляцию для обеспечения комфорта гостей и соседей."}}, {"@type": "Question", "name": "Помогаете ли вы с согласованием с СЭС?", "acceptedAnswer": {"@type": "Answer", "text": "Да,我们提供 полное сопровождение по согласованию с СЭС и Роспотребнадзором."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт ресторана?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки от 1 до 4 месяцев в зависимости от площади и сложности проекта."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работаете ли вы у м. Академическая?", "acceptedAnswer": {"@type": "Answer", "text": "Да, выезжаем на объекты у м. Академическая и в ближайших районах. Выезд бесплатный."}}, {"@type": "Question", "name": "Сколько стоит ремонт квартиры у м. Академическая?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ и материалов. Рассчитаем смету после бесплатного замера."}}, {"@type": "Question", "name": "Делаете ли ремонт под ключ с материалами?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем по схеме под ключ: от закупки материалов до финальной уборки. Вам останется только завезти мебель."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

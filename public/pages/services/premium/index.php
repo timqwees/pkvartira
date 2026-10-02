@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Премиальный ремонт включает элитные материалы, авторский дизайн, интеграцию «умного дома», меблировку, климат-контроль и полную комплектацию квартиры."}}, {"@type": "Question", "name": "Сколько времени занимает премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от площади и сложности проекта. В среднем от 2 до 6 месяцев. Точные сроки фиксируются в договоре."}}, {"@type": "Question", "name": "Можно ли сделать премиальный ремонт в новостройке?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем с новостройками и вторичным жильём. Выполняем полный цикл от черновой отделки до меблировки."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

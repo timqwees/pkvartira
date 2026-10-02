@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp'
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит укладка керамогранита за квадратный метр?", "acceptedAnswer": {"@type": "Answer", "text": "Цена работы от 1 200 ₽/м² на пол, от 1 400 ₽/м² на стены. С материалом от 2 500 ₽/м²."}}, {"@type": "Question", "name": "Какой керамогранит лучше для пола?", "acceptedAnswer": {"@type": "Answer", "text": "Для пола рекомендуем керамогранит толщиной от 8 мм, класс износостойкости PEI 4-5."}}, {"@type": "Question", "name": "Сколько сохнет керамогранит после укладки?", "acceptedAnswer": {"@type": "Answer", "text": "Ходить можно через 24 часа, полная нагрузка через 5-7 дней."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

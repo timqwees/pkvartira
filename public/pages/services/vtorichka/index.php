@@ -261,11 +261,10 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         <section id="price" class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
-                    Сколько стоит
-                    <?= htmlspecialchars($title); ?> в Москве
+                    Сколько стоит ремонт вторички
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Стоимость с черновыми материалами, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">

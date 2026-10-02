@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в монолитном доме?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Монолитные дома обычно newer, поэтому состояние коммуникаций лучше, но стоимость зависит от объёма перепланировки."}}, {"@type": "Question", "name": "Можно ли сделать перепланировку?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в монолитных домах несущие стены расположены только по периметру квартиры. Внутри можно свободно менять планировку, объединять комнаты, создавать просторные студии."}}, {"@type": "Question", "name": "Какой ремонт лучше для монолитного дома?", "acceptedAnswer": {"@type": "Answer", "text": "Для монолитных домов идеально подходит дизайнерский ремонт — прочные стены позволяют реализовать любые идеи. Капитальный ремонт также хорош для обновления интерьера."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

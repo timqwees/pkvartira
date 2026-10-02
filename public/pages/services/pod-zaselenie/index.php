@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Как быстро можно сделать ремонт под заселение?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт — от 2 недель, капитальный — до 4 недель. Сроки фиксируются в договоре."}}, {"@type": "Question", "name": "Подходит ли ремонт под заселение для аренды?", "acceptedAnswer": {"@type": "Answer", "text": "Да, мы специализируемся на подготовке квартир для сдачи в аренду. Оптимизируем стоимость под бюджет арендатора."}}, {"@type": "Question", "name": "Что входит в косметический ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Покраска или обои, замена напольного покрытия, потолки, розетки, финальная уборка. Готовность к заселению."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

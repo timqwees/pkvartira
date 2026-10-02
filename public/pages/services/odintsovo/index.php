@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работаете ли вы в Одинцово?", "acceptedAnswer": {"@type": "Answer", "text": "Да, выезжаем на объекты в Одинцово и в ближайших районах. Выезд бесплатный."}}, {"@type": "Question", "name": "Сколько стоит ремонт квартиры в Одинцово?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ и материалов. Рассчитаем смету после бесплатного замера."}}, {"@type": "Question", "name": "Делаете ли ремонт под ключ с материалами?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем по схеме под ключ: от закупки материалов до финальной уборки. Вам останется только завезти мебель."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

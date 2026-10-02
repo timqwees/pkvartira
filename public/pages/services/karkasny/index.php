@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Нужно ли утеплять каркасный дом?", "acceptedAnswer": {"@type": "Answer", "text": "Да, утепление — обязательный этап. Без него дом будет холодным и некомфортным. Используем минеральную вату и пенополистирол."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт каркасного дома?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от площади и объёма работ. Внутренняя отделка — от 3 недель, полный цикл — от 2 месяцев."}}, {"@type": "Question", "name": "Какие инженерные системы устанавливаете?", "acceptedAnswer": {"@type": "Answer", "text": "Электрика, водоснабжение, канализация, отопление, вентиляция, кондиционирование. Полный спектр инженерных систем."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли отреставрировать старый сруб?", "acceptedAnswer": {"@type": "Answer", "text": "Да, выполняем полную реставрацию: замена повреждённых брёвен, конопатка швов, обработка дерева, обновление отделки."}}, {"@type": "Question", "name": "Как защитить дерево от насекомых и гниения?", "acceptedAnswer": {"@type": "Answer", "text": "Используем антисептики глубокого проникновения. Обработка проводится каждые 3-5 лет для поддержания защиты."}}, {"@type": "Question", "name": "Сколько стоит ремонт дома из бревна?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 10 000 ₽/м². Реставрация старых срубов может стоить дороже. Рассчитаем смету после бесплатного замера."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

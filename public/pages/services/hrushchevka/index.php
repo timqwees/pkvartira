@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в хрущёвке?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Точная стоимость зависит от объёма работ и материалов. Рассчитаем смету после бесплатного замера."}}, {"@type": "Question", "name": "Можно ли сделать перепланировку в хрущёвке?", "acceptedAnswer": {"@type": "Answer", "text": "Да, большинство несущих стен в хрущёвках можно сносить или перемещать. Мы подберём оптимальную планировку под ваш бюджет."}}, {"@type": "Question", "name": "Какой ремонт лучше — капитальный или дизайнерский?", "acceptedAnswer": {"@type": "Answer", "text": "Для хрущёвок рекомендуем капитальный или дизайнерский ремонт, так как он позволяет полностью обновить инженерные сети и увеличить полезное пространство."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

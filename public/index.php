@@ -1,6 +1,6 @@
 <?php
 $site = Setting\Route\Functions\TheFunction::site();
-$featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio('3-комнатные', 3);
+$featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio(null, 5);
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8000 ₽/м²',
@@ -822,78 +822,118 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
                 </div>
 
-                <!-- Project Cards -->
-                <div class="relative mx-auto mt-10">
+                <!-- Case cards -->
+                <div class="relative mx-auto mt-10 max-w-6xl">
                     <!-- Swiper -->
-                    <div class="swiper swiper-type-4 py-10">
+                    <div class="swiper swiper-case">
                         <div class="swiper-wrapper">
-                            <?php foreach ($featuredProjects as $project): ?>
+                            <?php foreach ($featuredProjects as $index => $project): ?>
                                 <?php
                                 $coverUrl = $project['cover']
                                     ? htmlspecialchars($site['baseUrl'] . '/' . $project['folder_image'] . '/' . $project['cover'])
                                     : '';
-                                $descriptionParts = [htmlspecialchars($project['category']) . ', площадь ' . htmlspecialchars($project['size']) . '.'];
-                                if (!empty($project['duration'])) {
-                                    $descriptionParts[] = 'Срок выполнения — ' . htmlspecialchars($project['duration']) . '.';
-                                }
-                                if (!empty($project['price'])) {
-                                    $descriptionParts[] = 'Стоимость — ' . htmlspecialchars($project['price']) . '.';
-                                }
+                                $projectUrl = htmlspecialchars(Setting\Route\Functions\TheFunction::portfolioProjectUrl($project['slug']));
+                                $projectTitle = htmlspecialchars($project['title']);
+                                $projectType = htmlspecialchars($project['type'] ?? '');
+                                $projectSize = htmlspecialchars($project['size'] ?? '');
+                                $projectDuration = htmlspecialchars($project['duration'] ?? '');
+                                $projectPrice = htmlspecialchars($project['price'] ?? '');
+                                $projectSubtitle = !empty($project['subtitle']) ? htmlspecialchars($project['subtitle']) : $projectType . ' · под ключ';
                                 ?>
                                 <div class="swiper-slide">
-                                    <div
-                                        class="border border-gray-100 shadow-sm bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition h-full list-none">
-                                        <div class="relative">
+                                    <article
+                                        class="grid grid-cols-1 lg:grid-cols-12 bg-[#EDF1F6] rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                                        <div class="lg:col-span-7 relative min-h-[280px] sm:min-h-[340px] lg:min-h-[480px] bg-gray-200">
                                             <?php if ($coverUrl): ?>
                                                 <img data-src="<?= $coverUrl ?>"
-                                                    alt="<?= htmlspecialchars($project['title']) ?>"
-                                                    title="<?= htmlspecialchars($project['title']) ?>"
-                                                    class="lazy w-full h-48 object-cover" width="768" height="384"
+                                                    alt="<?= $projectTitle ?>"
+                                                    title="<?= $projectTitle ?>"
+                                                    class="lazy absolute inset-0 w-full h-full object-cover" width="1024" height="768"
                                                     decoding="async" loading="lazy">
                                             <?php endif; ?>
                                         </div>
 
-                                        <div class="flex flex-col justify-between items-center p-6 h-[calc(100%-12rem)]">
-                                            <div class="flex flex-col w-full">
-                                                <h3 class="text-xl font-bold text-gray-800 mb-2">
-                                                    <?= htmlspecialchars($project['title']) ?>
-                                                </h3>
-                                                <p class="text-gray-600 mb-4">
-                                                    <?= implode(' ', $descriptionParts) ?>
-                                                </p>
-                                            </div>
+                                        <div class="lg:col-span-5 bg-white p-7 sm:p-9 lg:p-10 flex flex-col justify-center">
+                                            <p class="text-sm font-semibold text-gray-500 mb-2">Новые проекты дизайна и ремонта под ключ</p>
+                                            <h3 class="text-2xl lg:text-[28px] leading-snug font-bold text-gray-900 mb-1">
+                                                <?= $projectTitle ?>
+                                            </h3>
+                                            <p class="text-[15px] text-slate-500 mb-6"><?= $projectSubtitle ?></p>
 
-                                            <div class="flex items-center justify-between w-full gap-2">
-                                                <div class="flex flex-col items-start justify-start text-sm text-gray-500">
-                                                    <div class="relative">
-                                                        <i class="fas fa-ruler-combined mr-1"></i>
-                                                        <?= htmlspecialchars($project['size']) ?>
-                                                    </div>
-                                                    <?php if (!empty($project['duration'])): ?>
-                                                        <div class="relative">
-                                                            <i class="fas fa-clock mr-1"></i>
-                                                            <?= htmlspecialchars($project['duration']) ?>
-                                                        </div>
-                                                    <?php endif; ?>
+                                            <dl class="text-[15px] mb-8">
+                                                <div class="flex items-baseline justify-between gap-4 py-3 border-t border-gray-100">
+                                                    <dt class="text-gray-500">Площадь объекта</dt>
+                                                    <dd class="font-semibold text-gray-900 text-right"><?= $projectSize ?></dd>
                                                 </div>
+                                                <?php if ($projectDuration !== ''): ?>
+                                                    <div class="flex items-baseline justify-between gap-4 py-3 border-t border-gray-100">
+                                                        <dt class="text-gray-500">Срок работ</dt>
+                                                        <dd class="font-semibold text-gray-900 text-right"><?= $projectDuration ?></dd>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if ($projectPrice !== ''): ?>
+                                                    <div class="flex items-baseline justify-between gap-4 py-3 border-t border-b border-gray-100">
+                                                        <dt class="text-gray-500">Стоимость работ</dt>
+                                                        <dd class="font-semibold text-gray-900 text-right"><?= $projectPrice ?></dd>
+                                                    </div>
+                                                <?php else: ?>
+                                                    <div class="flex items-baseline justify-between gap-4 py-3 border-t border-b border-gray-100">
+                                                        <dt class="text-gray-500">Стоимость работ</dt>
+                                                        <dd class="font-semibold text-gray-900 text-right">по запросу</dd>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </dl>
 
-                                                <a href="<?= htmlspecialchars(Setting\Route\Functions\TheFunction::portfolioProjectUrl($project['slug'])) ?>"
-                                                    class="text-orange-600 hover:text-orange-600 transition font-semibold flex items-center gap-1">
-                                                    Смотреть проект
-                                                    <i class="fas fa-arrow-right text-sm"></i>
+                                            <div class="flex flex-col gap-3">
+                                                <button data-button-dialog
+                                                    class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-blue-700 text-white text-sm font-bold tracking-wide hover:bg-blue-800 transition">
+                                                    ОБСУДИТЬ СВОЙ ПРОЕКТ
+                                                </button>
+                                                <a href="<?= $projectUrl ?>"
+                                                    class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-gray-300 text-gray-800 text-sm font-bold tracking-wide hover:border-blue-700 hover:text-blue-700 transition">
+                                                    ПОДРОБНЕЕ О ПРОЕКТЕ
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </article>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
 
-                    <!-- Navigation buttons -->
-                    <div class="swiper-button-prev" aria-label="Предыдущий слайд"></div>
-                    <div class="swiper-button-next" aria-label="Следующий слайд"></div>
+                    <!-- Navigation -->
+                    <div class="flex items-center justify-between gap-4 mt-6">
+                        <div class="case-pagination text-sm font-semibold text-gray-400 tracking-widest" aria-hidden="true"></div>
+                        <div class="flex items-center gap-3">
+                            <button type="button" aria-label="Предыдущий проект"
+                                class="case-prev w-12 h-12 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-700 hover:border-blue-700 hover:text-blue-700 transition">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <button type="button" aria-label="Следующий проект"
+                                class="case-next w-12 h-12 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-700 hover:border-blue-700 hover:text-blue-700 transition">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        if (typeof Swiper === 'undefined') return;
+                        var el = document.querySelector('.swiper-case');
+                        if (!el) return;
+                        var slides = el.querySelectorAll('.swiper-slide').length;
+                        new Swiper(el, {
+                            slidesPerView: 1,
+                            spaceBetween: 24,
+                            speed: 700,
+                            loop: slides > 1,
+                            autoplay: { delay: 6000, disableOnInteraction: true },
+                            navigation: { nextEl: '.case-next', prevEl: '.case-prev' },
+                            pagination: { el: '.case-pagination', type: 'fraction' },
+                            keyboard: { enabled: true }
+                        });
+                    });
+                </script>
             </div>
         </section>
 

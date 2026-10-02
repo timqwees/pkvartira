@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чем бизнес класс отличается от эконом?", "acceptedAnswer": {"@type": "Answer", "text": "Бизнес класс предполагает более качественные материалы, индивидуальный дизайн, полную замену инженерных систем и авторский надзор."}}, {"@type": "Question", "name": "Сколько стоит ремонт бизнес класса?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 13 000 ₽/м². Точная стоимость зависит от объёма работ и выбранных материалов. Рассчитаем смету после бесплатного замера."}}, {"@type": "Question", "name": "Входит ли дизайн-проект в стоимость?", "acceptedAnswer": {"@type": "Answer", "text": "Базовая планировка входит. Полный дизайн-проект разрабатывается отдельно и оплачивается по договарённой стоимости."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

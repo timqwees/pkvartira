@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Выполняете ли вы монтаж витрин?", "acceptedAnswer": {"@type": "Answer", "text": "Да, монтируем витрины любой конфигурации с подсветкой и декоративными элементами."}}, {"@type": "Question", "name": "Помогаете ли вы с проектированием зонирования?", "acceptedAnswer": {"@type": "Answer", "text": "Да,我们的设计师 разработают проект зонирования торгового зала для максимального удобства покупателей."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт магазина?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки от 2 недель до 2 месяцев в зависимости от площади и сложности проекта."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

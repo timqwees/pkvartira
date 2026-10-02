@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в чистовую отделку?", "acceptedAnswer": {"@type": "Answer", "text": "Покраска/обои, плиточные работы, укладка ламината, установка дверей, монтаж плинтусов, розеток, освещения, установка сантехники."}}, {"@type": "Question", "name": "Сколько занимает чистовая отделка?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от объёма работ и площади. В среднем 2–6 недель. Точные сроки фиксируем в договоре."}}, {"@type": "Question", "name": "Можно ли выбрать свои материалы?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем с материалами заказчика или поможем подобрать оптимальные варианты под ваш бюджет."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что такое новостройка без отделки?", "acceptedAnswer": {"@type": "Answer", "text": "Это квартира со голыми стенами, без штукатурки, стяжки и коммуникаций. Самый дешёвый вариант входа, но требует полного цикла ремонтных работ."}}, {"@type": "Question", "name": "Сколько времени занимает полный цикл?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от площади и сложности. В среднем 6–10 недель. Точные сроки фиксируем в договоре."}}, {"@type": "Question", "name": "Выгоднее ли брать квартиру без отделки?", "acceptedAnswer": {"@type": "Answer", "text": "Да, квартиры без отделки дешевле. Но полный цикл ремонта обойдётся дороже, чем чистовая поверх предчистовой. Сравним цены на замере."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

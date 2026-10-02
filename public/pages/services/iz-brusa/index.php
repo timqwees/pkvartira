@@ -25,6 +25,10 @@ $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
         ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Нужна ли обработка дерева?", "acceptedAnswer": {"@type": "Answer", "text": "Да, антисептическая обработка обязательна. Она защищает дерево от гниения, насекомых и возгорания. Рекомендуем обновлять каждые 3-5 лет."}}, {"@type": "Question", "name": "Какое утепление лучше для брусового дома?", "acceptedAnswer": {"@type": "Answer", "text": "Используем минеральную вату или экструдированный пенополистирол. Выбор зависит от конструкции стен и климатических условий."}}, {"@type": "Question", "name": "Сколько стоит ремонт дома из бруса?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера."}}]}
+    </script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>
