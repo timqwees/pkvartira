@@ -858,7 +858,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             <h3 class="text-2xl lg:text-[28px] leading-snug font-bold text-gray-900 mb-1">
                                                 <?= $projectTitle ?>
                                             </h3>
-                                            <p class="text-[15px] text-slate-500 mb-6"><?= $projectSubtitle ?></p>
+                                            <p class="text-sm text-gray-500 mb-6"><?= $projectSubtitle ?></p>
 
                                             <dl class="text-[15px] mb-8">
                                                 <div class="flex items-baseline justify-between gap-4 py-3 border-t border-gray-100">

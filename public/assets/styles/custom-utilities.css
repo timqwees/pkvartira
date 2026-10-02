@@ -67,3 +67,22 @@
 .w-[84px] { width: 84px; }
 .z-[100] { z-index: 100; }
 .z-[200] { z-index: 200; }
+
+/* Case cards (главная, секция портфолио) */
+.bg-[#EDF1F6] { background-color: #EDF1F6; }
+.p-7 { padding: 1.75rem; }
+.py-3\.5 { padding-top: .875rem; padding-bottom: .875rem; }
+.min-h-[280px] { min-height: 280px; }
+.tracking-wide { letter-spacing: .025em; }
+.tracking-widest { letter-spacing: .1em; }
+.items-baseline { align-items: baseline; }
+.hover\:border-blue-700:hover { border-color: #1d4ed8; }
+@media (min-width: 640px) {
+    .sm\:p-9 { padding: 2.25rem; }
+    .sm\:min-h-[340px] { min-height: 340px; }
+}
+@media (min-width: 1024px) {
+    .lg\:p-10 { padding: 2.5rem; }
+    .lg\:min-h-[480px] { min-height: 480px; }
+    .lg\:text-\[28px\] { font-size: 28px; }
+}
