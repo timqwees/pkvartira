@@ -19,6 +19,7 @@
     "git":"git add -f . && git commit -m 'update' && git push -f",
     "build:css": "npx tailwindcss -i ./public/assets/styles/tailwind-input.css -o ./public/assets/styles/tailwind-built.css --minify",
     "build": "npm run build:css",
+    "indexnow": "php tools/indexnow.php",
     "qwees:start": "php -S 0.0.0.0:80"
   },
   "dependencies": {
