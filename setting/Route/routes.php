@@ -107,6 +107,12 @@ Routes::get('/pages', function () {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity();
     Setting\Route\Functions\UrlList::output();
 });
+//==================================================================================================//INDEXNOW KEY
+Routes::get('/769e1df8217a98f76286a4d39b571085.txt', function () {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+    header('Content-Type: text/plain; charset=utf-8');
+    readfile(dirname(__DIR__, 2) . '/public/769e1df8217a98f76286a4d39b571085.txt');
+});
 //==================================================================================================//LLMS.TXT (AI)
 Routes::get('/llms.txt', function () {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity();
