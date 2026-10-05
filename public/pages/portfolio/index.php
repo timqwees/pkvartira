@@ -219,32 +219,19 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <?php endforeach; ?>
 
                 </ul>
-
-                <div class="mt-10 bg-gradient-to-r from-blue-800 to-blue-700 rounded-2xl p-6 md:p-8 text-white">
-                    <div class="text-xl md:text-2xl font-bold">Хотите такой же проект?</div>
-                    <div class="mt-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                        <form action="/send/email" method="POST" class="md:col-span-7">
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <input type="hidden" name="Источник: Портфолио" id="">
-                                <input name="телефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+"
-                                    maxlength="15" placeholder="+7 ___ ___-__-__" aria-label="Телефон"
-                                    class="w-full px-4 py-3 rounded-lg text-gray-900 outline-none" required>
-                                <label class="flex items-start gap-2 text-xs text-blue-100 cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span>Согласен на обработку персональных данных</span></label>
-                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-                                <button
-                                    class="w-full sm:w-auto px-6 py-3 rounded-lg bg-orange-500 font-semibold hover:bg-orange-600 transition whitespace-nowrap">Рассчитать
-                                    стоимость</button>
-                            </div>
-                        </form>
-                        <div class="md:col-span-5 text-center">
-                            <div class="text-sm text-blue-100">Бесплатная честная смета</div>
-                            <div class="mt-2 text-sm text-blue-100">Точный расчет за 1 день</div>
-                            <div class="mt-2 text-sm text-blue-100">Ответим за 5–10 минут на странице портфолио</div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
+
+        <!-- 11. Финальный CTA -->
+        <?php
+        $ctaFormId = 'prices_cta';
+        $ctaFormTitle = 'Рассчитать стоимость ремонта';
+        $ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
+        $ctaButtonText = 'Получить расчёт бесплатно';
+        $ctaExpandable = false;
+        include './public/components/cta-section.php';
+        ?>
 
     </main>
 
@@ -254,10 +241,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <?php include_once './public/components/footer.php'; ?>
 
     <!-- Local Scripts -->
-    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/portfolio-modal.min.js') ?>" defer></script>
-    <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
+    <script src="<?= Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/lazyIMG.min.js') ?>" defer></script>
+    <script src="<?= Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/main/header.min.js') ?>" defer></script>
+    <script src="<?= Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/portfolio-modal.min.js') ?>" defer></script>
+    <script src="<?= Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 
     <!-- Portfolio Swiper & Filter Script -->
     <script>
