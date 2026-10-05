@@ -29,7 +29,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     'pageType' => 'WebPage',
     'breadcrumbs' => [
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
-        ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blog'],
+        ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
         ['name' => $articleData['title'] ?? 'Статья', 'url' => $site['baseUrl'] . '/blog/' . $slug],
     ],
     'schema' => [Setting\Route\Functions\TheFunction::articleSchema($articleData ?? [])],
@@ -102,7 +102,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </li>
                         <li class="text-gray-400">/</li>
                         <li itemprop="url" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <a itemprop="item" href="/blog" class="hover:text-blue-600 transition">
+                            <a itemprop="item" href="/blogs" class="hover:text-blue-600 transition">
                                 <span itemprop="name">Блог</span>
                             </a>
                             <meta itemprop="position" content="2">
@@ -121,7 +121,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div class="rounded-2xl border border-gray-200 p-8 text-center">
                         <h1 class="text-2xl font-extrabold text-gray-900">Статья не найдена</h1>
                         <p class="mt-2 text-gray-600">Проверьте ссылку или вернитесь в список статей.</p>
-                        <a href="/blog"
+                        <a href="/blogs"
                             class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
                             Перейти в блог
                             <i class="fas fa-arrow-right ml-2"></i>
@@ -168,10 +168,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                                 <div
                                     class="flex flex-wrap justify-start sm:justify-end gap-x-3 gap-y-1 text-[12px] font-bold text-blue-700">
-                                    <a class="hover:text-blue-800 transition" href="/blog">#ремонтподключ</a>
-                                    <a class="hover:text-blue-800 transition" href="/blog">#дизайнинтерьера</a>
-                                    <a class="hover:text-blue-800 transition" href="/blog">#отделкастен</a>
-                                    <a class="hover:text-blue-800 transition" href="/blog">#напольныепокрытия</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#ремонтподключ</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#дизайнинтерьера</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#отделкастен</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs">#напольныепокрытия</a>
                                 </div>
                             </div>
 
@@ -524,7 +524,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     Перейти на главную
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
-                                <a href="/blog"
+                                <a href="/blogs"
                                     class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-800 font-semibold hover:bg-gray-50 transition">
                                     К спискам блогов
                                     <i class="fas fa-arrow-right ml-2"></i>

@@ -29,12 +29,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Блог о ремонте квартир — полезные статьи, советы, цены 2026',
     'description' => 'Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта. От компании Проект Квартира (Проект Квартира).',
     'image' => $site['shareImageUrl'],
-    'url' => $site['baseUrl'] . '/blog',
+    'url' => $site['baseUrl'] . '/blogs',
     'type' => 'website',
     'pageType' => 'WebPage',
     'breadcrumbs' => [
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
-        ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blog'],
+        ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
     ],
 ]);
 ?>

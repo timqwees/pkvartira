@@ -22,7 +22,7 @@ if (!isset($hubLinks)) {
         ['url' => '/services/vtorichka', 'label' => 'Ремонт во вторичке'],
         ['url' => '/portfolio', 'label' => 'Портфолио работ'],
         ['url' => '/reviews', 'label' => 'Отзывы клиентов'],
-        ['url' => '/blog', 'label' => 'Блог о ремонте'],
+        ['url' => '/blogs', 'label' => 'Блог о ремонте'],
     ];
 }
 ?>
