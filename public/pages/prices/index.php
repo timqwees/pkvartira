@@ -300,6 +300,60 @@ include './public/components/cta-form.php';
             </div>
         </section>
 
+        <!-- 4. Стоимость ремонта по метражу -->
+        <section class="reveal py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
+                    Стоимость ремонта по метражу
+                </h2>
+                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Ориентировочная цена под ключ для типовых площадей. Точную смету даст <a href="/calculator" class="text-orange-600 underline hover:text-orange-700 font-semibold">калькулятор за 1 минуту</a>.</p>
+                <div class="max-w-4xl mx-auto bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-blue-100 text-gray-800">
+                            <tr>
+                                <th class="px-4 py-3 font-semibold text-left">Объект</th>
+                                <th class="px-4 py-3 font-semibold text-right">Косметический</th>
+                                <th class="px-4 py-3 font-semibold text-right">Капитальный</th>
+                                <th class="px-4 py-3 font-semibold text-right">Дизайнерский</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-white">
+                                <td class="px-4 py-3"><a href="/services/studio" class="text-blue-700 font-semibold hover:underline">Студия 28 м²</a></td>
+                                <td class="px-4 py-3 text-right">от 224 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 364 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 504 000 ₽</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3"><a href="/services/1room" class="text-blue-700 font-semibold hover:underline">1-комнатная 37 м²</a></td>
+                                <td class="px-4 py-3 text-right">от 296 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 481 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 666 000 ₽</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3"><a href="/services/2room" class="text-blue-700 font-semibold hover:underline">2-комнатная 55 м²</a></td>
+                                <td class="px-4 py-3 text-right">от 440 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 715 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 990 000 ₽</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3"><a href="/services/3room" class="text-blue-700 font-semibold hover:underline">3-комнатная 70 м²</a></td>
+                                <td class="px-4 py-3 text-right">от 560 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 910 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 1 260 000 ₽</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-4 py-3"><a href="/services/4room" class="text-blue-700 font-semibold hover:underline">4-комнатная 90 м²</a></td>
+                                <td class="px-4 py-3 text-right">от 720 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 1 170 000 ₽</td>
+                                <td class="px-4 py-3 text-right">от 1 620 000 ₽</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <!-- 5. Пример сметы -->
         <!-- <section class="py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4">

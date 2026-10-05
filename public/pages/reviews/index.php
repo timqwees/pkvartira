@@ -65,7 +65,7 @@ $validFilters = array_merge(['all'], array_keys($orderedSources));
 if (!in_array($filterParam, $validFilters, true)) $filterParam = 'all';
 
 $seo = Setting\Route\Functions\TheFunction::seo([
-    'title' => 'Отзывы — ' . $totalReviews . ' реальных отзывов, рейтинг ' . $avgRatingStr,
+    'title' => 'Отзывы Проект Квартира — ' . $totalReviews . ' реальных отзывов, рейтинг ' . $avgRatingStr,
     'description' => 'Все отзывы о Проект Квартира (Проект Квартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/reviews',
@@ -175,7 +175,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <!-- Heading -->
                     <div class="flex items-center justify-between gap-4 mb-8 md:mb-10">
                         <div>
-                            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Отзывы клиентов</h1>
+                            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Отзывы клиентов Проект Квартира</h1>
                             <p class="text-sm text-gray-500 mt-1"><?= $totalReviews ?> реальных отзывов · рейтинг <?= $avgRatingStr ?></p>
                         </div>
                         <div class="flex-shrink-0 relative" id="reviewBtnWrap">

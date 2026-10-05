@@ -348,7 +348,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             <div class="text-gray-600">капитальный — от 780 000 ₽</div>
                         </div>
                     </div>
-                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Посчитайте в калькуляторе за 1 минуту</a>.</p>
+                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Посчитайте в калькуляторе за 1 минуту</a> или смотрите <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">все цены на ремонт</a>.</p>
                 </div>
             </div>
         </section>

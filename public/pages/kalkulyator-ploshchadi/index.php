@@ -344,6 +344,25 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
 
+        <!-- Donor: метраж посчитан — ведём на услуги-акцепторы -->
+        <section class="container mx-auto px-4 max-w-5xl reveal">
+            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-gray-900">Посчитали метраж? Выберите услугу</h2>
+                <p class="mt-2 text-gray-600">Площадь уже известна — дальше считаем стоимость ремонта под ваш тип квартиры.</p>
+                <div class="mt-5 flex flex-wrap gap-3">
+                    <a href="/services/studio" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт студии</a>
+                    <a href="/services/1room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 1-комнатной</a>
+                    <a href="/services/2room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 2-комнатной</a>
+                    <a href="/services/3room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 3-комнатной</a>
+                    <a href="/services/4room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 4-комнатной</a>
+                    <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт в новостройке</a>
+                    <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт под ключ</a>
+                    <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Цены на ремонт</a>
+                    <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Калькулятор сметы</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Formulas -->
         <section class="container mx-auto px-4 max-w-5xl reveal">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Формулы расчёта площади</h2>

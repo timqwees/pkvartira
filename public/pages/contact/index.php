@@ -2,7 +2,7 @@
 $site = Setting\Route\Functions\TheFunction::site();
 
 $seo = Setting\Route\Functions\TheFunction::seo([
-    'title' => 'Контакты — заказать ремонт квартиры в Москве',
+    'title' => 'ООО Проект Квартира — контакты и офис',
     'description' => 'Проект Квартира: +7 495 473-17-37, Москва, Варшавское шоссе. Офис, шоурум, склад. Бесплатная консультация, выезд инженера на замер, смета за 24 часа. Работаем ежедневно.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/contact',
@@ -65,7 +65,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <div class="container mx-auto px-4">
                 <div class="text-start mb-12">
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Контакты
+                        Контакты — ООО «Проект Квартира»
                     </h1>
                     <p class="text-xl text-gray-600">
                         Свяжитесь с нами для консультации

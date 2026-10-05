@@ -134,6 +134,28 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     usort($__sortedBlog, fn($a, $b) => strtotime($b['created_at'] ?? '') - strtotime($a['created_at'] ?? ''));
                     $tops = array_slice($__sortedBlog, 0, 5);
                     $__fallbackImg = 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60';
+                    // «Услуги по теме статьи» — мосты веса блог → деньги.
+                    // Кнопка под статьёй ведёт на первую услугу из карты, сайдбар — на все.
+                    $__serviceMap = [
+                        'remont-kvartiry-s-chego-nachat' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ']],
+                        'remont-pod-klyuch-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']],
+                        'kosmeticheskiy-remont-2026' => [['/services/econom', 'Косметический ремонт'], ['/calculator', 'Калькулятор ремонта']],
+                        'umnyy-dom-2026' => [['/services/premium', 'Премиальный ремонт'], ['/services/business', 'Бизнес-класс']],
+                        'tsveta-materialy-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров']],
+                        'remont-novostroyki-2026' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/budushchiy-remont', 'Ремонт к дате ключей']],
+                        'energoeffektivnyy-remont' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ']],
+                        'dizaynerskiy-remont' => [['/services/premium', 'Премиальный ремонт'], ['/services/dizayn-interierov', 'Дизайн интерьеров']],
+                        'remont-kuhni-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/services/komfort', 'Комфорт-класс']],
+                        'trendy-dizayna-interera-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров']],
+                        'byudzhet-remont-2026' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт']],
+                        'kak-poschitat-kvadratnye-metry' => [['/kalkulyator-ploshchadi', 'Калькулятор площади'], ['/calculator', 'Калькулятор ремонта']],
+                        'priemka-kvartiry-zastroyshchik' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/ot-zastroyschika', 'Отделка от застройщика']],
+                        'smeta-na-remont-kvartiry-nakrutki' => [['/services/smeta', 'Смета на ремонт']],
+                        'skolko-stoit-remont-kvartiry-2026' => [['/prices', 'Цены на ремонт'], ['/calculator', 'Калькулятор ремонта']],
+                        'shumoizolyatsiya-kvartiry-panelny-dom' => [['/services/panelny', 'Ремонт в панельном доме']],
+                        'smeta-na-remont-kvartiry-primer' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт']],
+                    ];
+                    $__serviceLinks = $__serviceMap[$slug] ?? [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']];
                     ?>
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" itemscope itemtype="http://schema.org/Article">
                         <meta itemprop="inLanguage" content="ru-RU" />
@@ -519,9 +541,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </article>
 
                             <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                                <a href="/"
+                                <a href="<?= htmlspecialchars($__serviceLinks[0][0]); ?>"
                                     class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
-                                    Перейти на главную
+                                    <?= htmlspecialchars($__serviceLinks[0][1]); ?>
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                                 <a href="/blogs"
@@ -570,27 +592,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </div>
 
                             <?php
-                            // «Услуги по теме статьи» — мосты веса блог → деньги.
-                            $__serviceMap = [
-                                'remont-kvartiry-s-chego-nachat' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ']],
-                                'remont-pod-klyuch-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']],
-                                'kosmeticheskiy-remont-2026' => [['/services/econom', 'Косметический ремонт'], ['/calculator', 'Калькулятор ремонта']],
-                                'umnyy-dom-2026' => [['/services/premium', 'Премиальный ремонт'], ['/services/business', 'Бизнес-класс']],
-                                'tsveta-materialy-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров']],
-                                'remont-novostroyki-2026' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/budushchiy-remont', 'Ремонт к дате ключей']],
-                                'energoeffektivnyy-remont' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ']],
-                                'dizaynerskiy-remont' => [['/services/premium', 'Премиальный ремонт'], ['/services/dizayn-interierov', 'Дизайн интерьеров']],
-                                'remont-kuhni-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/services/komfort', 'Комфорт-класс']],
-                                'trendy-dizayna-interera-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров']],
-                                'byudzhet-remont-2026' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт']],
-                                'kak-poschitat-kvadratnye-metry' => [['/kalkulyator-ploshchadi', 'Калькулятор площади'], ['/calculator', 'Калькулятор ремонта']],
-                                'priemka-kvartiry-zastroyshchik' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/ot-zastroyschika', 'Отделка от застройщика']],
-                                'smeta-na-remont-kvartiry-nakrutki' => [['/services/smeta', 'Смета на ремонт']],
-                                'skolko-stoit-remont-kvartiry-2026' => [['/prices', 'Цены на ремонт'], ['/calculator', 'Калькулятор ремонта']],
-                                'shumoizolyatsiya-kvartiry-panelny-dom' => [['/services/panelny', 'Ремонт в панельном доме']],
-                                'smeta-na-remont-kvartiry-primer' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт']],
-                            ];
-                            $__serviceLinks = $__serviceMap[$slug] ?? [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']];
+                            // «Услуги по теме статьи» — $__serviceLinks уже посчитаны выше (карта $__serviceMap).
                             ?>
                             <div class="bg-white rounded-2xl border border-[#e6e7ee] shadow-[0_2px_10px_rgba(0,0,0,0.06)] overflow-hidden">
                                 <div class="px-4 py-3 bg-[#f2f3f8] border-b border-[#e6e7ee]">

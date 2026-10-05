@@ -309,6 +309,7 @@ if (is_readable($euroAbout)) {
                         </article>
                     <?php endforeach; ?>
                 </div>
+                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">цен на ремонт</a> или <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">посчитайте в калькуляторе</a>.</p>
             </div>
         </section>
 
