@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Стоимость ремонта однокомнатной квартиры — за м² в Москве и МО';
+$title = 'Стоимость ремонта однокомнатной квартиры — Москва';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
 $prices = [
     [

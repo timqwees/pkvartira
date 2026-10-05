@@ -12,11 +12,17 @@ if (!isset($hubLinks)) {
         ['url' => '/services/smeta', 'label' => 'Смета на ремонт'],
         ['url' => '/calculator', 'label' => 'Калькулятор ремонта'],
         ['url' => '/services/pod-klyuch', 'label' => 'Ремонт под ключ'],
+        ['url' => '/services/1room', 'label' => 'Ремонт 1-комнатной'],
+        ['url' => '/services/2room', 'label' => 'Ремонт 2-комнатной'],
+        ['url' => '/services/3room', 'label' => 'Ремонт 3-комнатной'],
+        ['url' => '/services/4room', 'label' => 'Ремонт 4-комнатной'],
+        ['url' => '/services/studio', 'label' => 'Ремонт студии'],
+        ['url' => '/services/budushchiy-remont', 'label' => 'Ремонт к дате ключей'],
         ['url' => '/services/novostroyka', 'label' => 'Ремонт в новостройке'],
         ['url' => '/services/vtorichka', 'label' => 'Ремонт во вторичке'],
         ['url' => '/portfolio', 'label' => 'Портфолио работ'],
         ['url' => '/reviews', 'label' => 'Отзывы клиентов'],
-        ['url' => '/blogs', 'label' => 'Блог о ремонте'],
+        ['url' => '/blog', 'label' => 'Блог о ремонте'],
     ];
 }
 ?>

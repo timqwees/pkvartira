@@ -182,7 +182,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </ul>
             <p class="text-gray-600 leading-relaxed">
                 Подробнее о том, сколько времени занимает ремонт по такому договору, читайте в разделе
-                <a href="/blogs" class="text-blue-600 font-semibold hover:underline">блога о ремонте</a>.
+                <a href="/blog" class="text-blue-600 font-semibold hover:underline">блога о ремонте</a>.
             </p>
         </section>
 
