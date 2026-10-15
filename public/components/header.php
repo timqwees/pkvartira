@@ -95,23 +95,41 @@
         display: none;
     }
 
-    /* Телефон виден всегда, пункты меню прячутся при тесноте (без wrap) */
+    /* Телефон виден всегда, пункты меню прячутся при тесноте */
     .header-row {
         flex-wrap: nowrap !important;
+        align-items: center;
     }
     .header-row .desktop-nav,
     .header-row .desktop-nav a,
+    .header-row .desktop-cta,
     .header-phone-block a,
     .header-phone-mobile {
         white-space: nowrap;
     }
+    /* Телефон и CTA не сжимаются — всегда видны */
     .header-phone-block,
+    .header-phone-mobile,
     .desktop-cta {
         flex-shrink: 0;
+    }
+    .header-phone-mobile .phone-num {
+        flex-shrink: 0;
+    }
+    /* Меню может сжиматься и переноситься, но телефон не прячется */
+    .header-row .desktop-nav {
+        flex-shrink: 1;
+        min-width: 0;
     }
     /* lg (1024–1280): только ключевые пункты */
     @media (min-width: 1024px) and (max-width: 1279.98px) {
         .nav-hide-lg {
+            display: none !important;
+        }
+    }
+    /* На узких десктопах (1024–1180): телефон всегда виден — прячем меню */
+    @media (min-width: 1024px) and (max-width: 1180px) {
+        .header-row .desktop-nav {
             display: none !important;
         }
     }
