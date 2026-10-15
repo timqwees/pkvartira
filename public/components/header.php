@@ -95,9 +95,35 @@
         display: none;
     }
 
-    /* Скрыть блок телефона в шапке на 1280–1600px (чтобы не ломал меню) */
-    @media (min-width: 1280px) and (max-width: 1599.98px) {
-        .header-phone-block {
+    /* Телефон виден всегда, пункты меню прячутся при тесноте (без wrap) */
+    .header-row {
+        flex-wrap: nowrap !important;
+    }
+    .header-row .desktop-nav,
+    .header-row .desktop-nav a,
+    .header-phone-block a,
+    .header-phone-mobile {
+        white-space: nowrap;
+    }
+    .header-phone-block,
+    .desktop-cta {
+        flex-shrink: 0;
+    }
+    /* lg (1024–1280): только ключевые пункты */
+    @media (min-width: 1024px) and (max-width: 1279.98px) {
+        .nav-hide-lg {
+            display: none !important;
+        }
+    }
+    /* xl (1280–1536): прячем второстепенные */
+    @media (min-width: 1280px) and (max-width: 1535.98px) {
+        .nav-hide-xl {
+            display: none !important;
+        }
+    }
+    /* Мобильный телефон: на очень узких — только иконка */
+    @media (max-width: 419.98px) {
+        .header-phone-mobile .phone-num {
             display: none !important;
         }
     }
@@ -105,12 +131,12 @@
 <!-- Header -->
 <header class="bg-white border-b border-gray-100 fixed w-full top-0 z-[100]" style="backdrop-filter: blur(16px) saturate(180%); background: rgba(255,255,255,0.88);">
     <nav class="mx-auto px-6 py-4 lg:py-0">
-        <div class="flex justify-between items-center">
+        <div class="header-row flex justify-between items-center">
             <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
                     src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             <!-- Desktop Navigation -->
-            <div class="hidden lg:flex items-center space-x-8">
-                <!-- Главная --><a href="/" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Главная</a>
+            <div class="desktop-nav hidden lg:flex items-center space-x-8">
+                <!-- Главная --><a href="/" class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium">Главная</a>
                 <!-- Услуги -->
                 <div class="drop py-6"><a href="/">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
                     <ul class="flex p-4 py-0">     
@@ -181,26 +207,29 @@
                     class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Калькулятор</a>
                 <!-- Портфолио --><a href="/portfolio"
                     class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Портфолио</a>
-                <!-- Отзывы --><a href="/reviews" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Отзывы</a>
+                <!-- Отзывы --><a href="/reviews" class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium">Отзывы</a>
                 <!-- О компании --><a href="/about"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">О компании</a>
+                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium">О компании</a>
                 <!-- Контакты --><a href="/contact"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Контакты</a>
+                    class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium">Контакты</a>
                 <!-- Блоги --><a href="/blogs"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Блоги</a>
+                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium">Блоги</a>
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">
-                <div class="header-phone-block flex flex-col justify-center items-center lg:hidden xl:flex"><a
+                <div class="header-phone-block flex flex-col justify-center items-center"><a
                         href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-orange-500 transition">+7 495
                         473-17-37</a>
                     <!--<a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>-->
                     <p class="text-sm text-gray-500">Ежедневно с 9:00 до 22:00</p>
                 </div><button data-button-dialog
-                    class="flex items-center bg-orange-500 text-white px-6 py-2.5 rounded-lg hover:bg-orange-600 transition font-semibold shadow-sm hover:shadow-md">Получить
+                    class="desktop-cta flex items-center bg-orange-500 text-white px-6 py-2.5 rounded-lg hover:bg-orange-600 transition font-semibold shadow-sm hover:shadow-md">Получить
                     расчет </button>
             </div>
             <div class="lg:hidden flex justify-between items-center gap-4">
+                <!-- Mobile Phone --><a href="tel:<?= $site['phone']; ?>" aria-label="Позвонить"
+                    class="header-phone-mobile flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-orange-500 transition"><i
+                        class="fas fa-phone text-orange-500"></i><span class="phone-num">+7 495 473-17-37</span></a>
                 <!-- Mobile Menu Button --><button data-button-dialog
                     class="hidden sm:flex text-sm bg-orange-500 text-white p-2 rounded-lg hover:bg-orange-600 transition">Получить
                     расчет </button><button class="lg:hidden mobile-menu-toggle p-2" aria-label="Открыть меню">
