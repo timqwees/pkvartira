@@ -42,7 +42,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -257,7 +257,23 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
         include './public/components/hero-section.php';
         ?>
 
-<!-- 2. price section -->
+<!-- 1.5. Internal links: передаём вес на калькулятор и связанные сервисы -->
+        <section class="reveal bg-white py-8 md:py-10 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <p class="text-sm text-gray-600 mb-3">Также может быть интересен:</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="/calculator" class="inline-flex items-center gap-2 text-sm font-medium text-orange-600 hover:text-orange-700 hover:underline bg-orange-50 px-4 py-2 rounded-lg transition">
+                        Калькулятор ремонта квартиры — расчёл стоимости за 1 минуту
+                    </a>
+                    <a href="/prices" class="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-orange-600 hover:underline bg-gray-50 px-4 py-2 rounded-lg transition">
+                        Цены на ремонт — полный прайс
+                    </a>
+                    <a href="/services/dizayn-interierov" class="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-orange-600 hover:underline bg-gray-50 px-4 py-2 rounded-lg transition">
+                        Дизайн интерьеров
+                    </a>
+                </div>
+            </div>
+        </section>
         <section id="price" class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">

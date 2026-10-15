@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт офиса под ключ — под ключ';
+$title = 'Ремонт офиса — цены под ключ';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="Ремонт офиса под ключ в Москве. Цены от 5 000 ₽/м². Переговорные, open space, серверная. Согласование с БЦ, работа в нерабочее время. Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/office'); ?>">
     <?php include_once './public/components/head-includes.php'; ?>

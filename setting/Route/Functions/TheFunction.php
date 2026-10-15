@@ -842,8 +842,9 @@ class TheFunction
             'keywords' => null,
         ];
         $opts = array_merge($defaults, $options);
-        // SEO лимиты: title ≤48 (финал + " | Проект Квартира" =19 → ≤67), description ≤155 (сниппет 160)
-        $opts['title'] = self::truncateSeo((string)$opts['title'], 48);
+        // SEO лимиты: title ≤55 (+ " | Проект Квартира" =17 → ≤72, Google часто показывает до 70).
+        // Ранее truncate до 48 резал цену и гео-контекст на страницах районов/комнат.
+        $opts['title'] = self::truncateSeo((string)$opts['title'], 55);
         $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
         // Гарантируем бренд в description — если нет упоминания бренда, добавляем «Проект Квартира»
         if (stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'pkvartira') === false) {
