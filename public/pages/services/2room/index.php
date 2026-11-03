@@ -471,82 +471,69 @@ $prices = [
                     Отвечаем на главные вопросы
                 </h2>
 
-                <div class="max-w-3xl mx-auto space-y-4">
+                                <div class="max-w-3xl mx-auto space-y-4">
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в квартире во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как правильно зонировать двухкомнатную квартиру?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время ремонта жить в квартире будет неудобно. Работы идут активно —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">Двухкомнатную квартиру зонируем на: прихожую, кухню-столовую, спальню родителей, детскую/гостевую, санузел(ы). Правила: спальня от 12 м², детская от 10 м², кухня-студия от 12 м². Если есть балкон/лоджия — включаем в зонирование (рабочее место, зона отдыха). Проходы не менее 90 см.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как обустроить детскую комнату при ремонте двухкомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
+                            <span itemprop="text">Детскую планируем под возраст: до 3 лет — зона сна + игра, 3-7 лет — зона сна + игра + учеба, 7+ — зона сна + учеба + хранение. Обязательны: встроенный гардероб (глубина 60 см), рабочее место у окна, безопасные материалы, защита от углов, черновики на окнах. Площадь детской от 10 м².</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как разделить спальню родителей и детскую в двухкомнатной квартире?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
+                            <span itemprop="text">Разделение естественное — две разные комнаты. Важно: звукоизоляция перегородки (минеральная вата 50 мм + 2 слоя ГКЛ), двери с уплотнителями, разные режимы подсветки. Если комнат смежные — обязательно звукоизоляция перегородки. Спальня родителей от 14 м², детская от 10 м².</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт двухкомнатной квартиры под ключ?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
+                            <span itemprop="text">От 480 000 ₽ за 50 м² (косметический), от 780 000 ₽ (капитальный). Зависит от метража, состояния и пакета. Для 55-60 м² — от 520 000 ₽ до 930 000 ₽. Точную смету — после бесплатного замера.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает ремонт двухкомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
+                            <span itemprop="text">Косметический — 14–21 день, капитальный — 45–60 дней. Зависит от площади, состояния и пакета. Точные сроки в договоре после замера.</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
