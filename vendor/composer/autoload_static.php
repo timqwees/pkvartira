@@ -122,6 +122,7 @@ class ComposerStaticInit163cd77d877054c00281f6f13268f6f8
     );
 
     public static $classMap = array (
+        'App\\Config\\Database' => __DIR__ . '/../..' . '/app/Config/Database.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
