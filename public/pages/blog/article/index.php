@@ -26,13 +26,27 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     'image' => $articleData['image'] ?? $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/blog/' . $slug,
     'type' => 'article',
-    'pageType' => 'WebPage',
+    'pageType' => 'BlogPosting',
     'breadcrumbs' => [
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
         ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
         ['name' => $articleData['title'] ?? 'Статья', 'url' => $site['baseUrl'] . '/blog/' . $slug],
     ],
-    'schema' => [Setting\Route\Functions\TheFunction::articleSchema($articleData ?? [])],
+    'schema' => [Setting\Route\Functions\TheFunction::articleSchema($articleData ?? []), [
+        '@type' => 'ItemList',
+        '@id' => $site['baseUrl'] . '/blogs#itemlist',
+        'name' => 'Статьи блога',
+        'numberOfItems' => count($__blogJson),
+        'itemListElement' => array_values(array_map(function($art, $i) use ($site) {
+            return [
+                '@type' => 'ListItem',
+                'position' => $i + 1,
+                'url' => $site['baseUrl'] . '/blog/' . ($art['slug'] ?? $art['id'] ?? ''),
+                'name' => (string) ($art['title'] ?? ''),
+            ];
+        }, array_slice($__blogJson, 0, 5), array_keys(array_slice($__blogJson, 0, 5)))),
+    ]],
+    'speakable' => ['.article-body [data-type="start"]', '.article-body section:first-of-type p:first-of-type'],
 ]);
 ?>
 <!DOCTYPE html>
@@ -44,7 +58,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
     <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="robots" content="<?= $articleData ? 'index, follow' : 'noindex, nofollow'; ?>">
+    <meta name="robots" content="<?= $articleData ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' : 'noindex, nofollow'; ?>">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -137,25 +151,37 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     // «Услуги по теме статьи» — мосты веса блог → деньги.
                     // Кнопка под статьёй ведёт на первую услугу из карты, сайдбар — на все.
                     $__serviceMap = [
-                        'remont-kvartiry-s-chego-nachat' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ']],
-                        'remont-pod-klyuch-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']],
-                        'kosmeticheskiy-remont-2026' => [['/services/econom', 'Косметический ремонт'], ['/calculator', 'Калькулятор ремонта']],
-                        'umnyy-dom-2026' => [['/services/premium', 'Премиальный ремонт'], ['/services/business', 'Бизнес-класс']],
-                        'tsveta-materialy-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров']],
-                        'remont-novostroyki-2026' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/budushchiy-remont', 'Ремонт к дате ключей']],
-                        'energoeffektivnyy-remont' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ']],
-                        'dizaynerskiy-remont' => [['/services/premium', 'Премиальный ремонт'], ['/services/dizayn-interierov', 'Дизайн интерьеров']],
-                        'remont-kuhni-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/services/komfort', 'Комфорт-класс']],
-                        'trendy-dizayna-interera-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров']],
-                        'byudzhet-remont-2026' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт']],
-                        'kak-poschitat-kvadratnye-metry' => [['/kalkulyator-ploshchadi', 'Калькулятор площади'], ['/calculator', 'Калькулятор ремонта']],
-                        'priemka-kvartiry-zastroyshchik' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/ot-zastroyschika', 'Отделка от застройщика']],
-                        'smeta-na-remont-kvartiry-nakrutki' => [['/services/smeta', 'Смета на ремонт']],
-                        'skolko-stoit-remont-kvartiry-2026' => [['/prices', 'Цены на ремонт'], ['/calculator', 'Калькулятор ремонта']],
-                        'shumoizolyatsiya-kvartiry-panelny-dom' => [['/services/panelny', 'Ремонт в панельном доме']],
-                        'smeta-na-remont-kvartiry-primer' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт']],
+                        'remont-kvartiry-s-chego-nachat' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ'], ['/author', 'Об авторе']],
+                        'remont-pod-klyuch-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта'], ['/author', 'Об авторе']],
+                        'kosmeticheskiy-remont-2026' => [['/services/econom', 'Косметический ремонт'], ['/calculator', 'Калькулятор ремонта'], ['/author', 'Об авторе']],
+                        'umnyy-dom-2026' => [['/services/premium', 'Премиальный ремонт'], ['/services/business', 'Бизнес-класс'], ['/author', 'Об авторе']],
+                        'tsveta-materialy-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров'], ['/author', 'Об авторе']],
+                        'remont-novostroyki-2026' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/budushchiy-remont', 'Ремонт к дате ключей'], ['/author', 'Об авторе']],
+                        'energoeffektivnyy-remont' => [['/calculator', 'Калькулятор ремонта'], ['/services/pod-klyuch', 'Ремонт под ключ'], ['/author', 'Об авторе']],
+                        'dizaynerskiy-remont' => [['/services/premium', 'Премиальный ремонт'], ['/services/dizayn-interierov', 'Дизайн интерьеров'], ['/author', 'Об авторе']],
+                        'remont-kuhni-2026' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/services/komfort', 'Комфорт-класс'], ['/author', 'Об авторе']],
+                        'trendy-dizayna-interera-2026' => [['/services/dizayn-interierov', 'Дизайн интерьеров'], ['/author', 'Об авторе']],
+                        'byudzhet-remont-2026' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт'], ['/author', 'Об авторе']],
+                        'kak-poschitat-kvadratnye-metry' => [['/kalkulyator-ploshchadi', 'Калькулятор площади'], ['/calculator', 'Калькулятор ремонта'], ['/author', 'Об авторе']],
+                        'priemka-kvartiry-zastroyshchik' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/ot-zastroyschika', 'Отделка от застройщика'], ['/author', 'Об авторе']],
+                        'smeta-na-remont-kvartiry-nakrutki' => [['/services/smeta', 'Смета на ремонт'], ['/author', 'Об авторе']],
+                        'skolko-stoit-remont-kvartiry-2026' => [['/prices', 'Цены на ремонт'], ['/calculator', 'Калькулятор ремонта'], ['/author', 'Об авторе']],
+                        'shumoizolyatsiya-kvartiry-panelny-dom' => [['/services/panelny', 'Ремонт в панельном доме'], ['/author', 'Об авторе']],
+                        'smeta-na-remont-kvartiry-primer' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт'], ['/author', 'Об авторе']],
                     ];
                     $__serviceLinks = $__serviceMap[$slug] ?? [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']];
+
+                    // prev/next — соседние статьи в ленте блога (кластер: PageRank ходит внутри серии).
+                    // Лента отсортирована от новых к старым: prev = новее, next = старше.
+                    $__prevArticle = null;
+                    $__nextArticle = null;
+                    foreach ($__sortedBlog as $__bi => $__bitem) {
+                        if (($__bitem['slug'] ?? '') === $slug) {
+                            $__prevArticle = $__sortedBlog[$__bi - 1] ?? null;
+                            $__nextArticle = $__sortedBlog[$__bi + 1] ?? null;
+                            break;
+                        }
+                    }
                     ?>
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" itemscope itemtype="http://schema.org/Article">
                         <meta itemprop="inLanguage" content="ru-RU" />
@@ -174,10 +200,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                                 <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500">
                                     <?php if (!empty($articleData['category'] ?? '')): ?>
-                                        <span itemprop="articleSection"
-                                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-800 font-semibold">
+                                        <a href="/blogs" rel="tag"
+                                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-800 font-semibold hover:bg-gray-200 transition">
                                             <?= htmlspecialchars($articleData['category']); ?>
-                                        </span>
+                                        </a>
                                     <?php endif; ?>
                                     <span class="inline-flex items-center gap-2">
                                         <i class="fa-regular fa-calendar"></i>
@@ -190,10 +216,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                                 <div
                                     class="flex flex-wrap justify-start sm:justify-end gap-x-3 gap-y-1 text-[12px] font-bold text-blue-700">
-                                    <a class="hover:text-blue-800 transition" href="/blogs">#ремонтподключ</a>
-                                    <a class="hover:text-blue-800 transition" href="/blogs">#дизайнинтерьера</a>
-                                    <a class="hover:text-blue-800 transition" href="/blogs">#отделкастен</a>
-                                    <a class="hover:text-blue-800 transition" href="/blogs">#напольныепокрытия</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#ремонтподключ</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#дизайнинтерьера</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#отделкастен</a>
+                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#напольныепокрытия</a>
                                 </div>
                             </div>
 
@@ -206,16 +232,26 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <?= htmlspecialchars($articleData ? trim(preg_replace('/\s+/', ' ', strip_tags($articleData['content'] ?? '')) ?? '') : 'Запрошенная статья не найдена.'); ?>
                             </p>
 
+                            <?php if ($articleData && !empty($articleData['meta_description'])): ?>
+                            <!-- TL;DR: прямой ответ для AI Overviews / featured snippets -->
+                            <div class="mt-5 rounded-xl border-l-4 border-blue-600 bg-[#f5f8ff] p-4" itemprop="abstract">
+                                <div class="text-[11px] font-extrabold uppercase tracking-wide text-blue-700 mb-1">Кратко</div>
+                                <p class="text-[15px] leading-[23px] text-[#2a2e3b]">
+                                    <?= htmlspecialchars($articleData['meta_description']); ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
                             <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-extrabold">
-                                        PK</div>
-                                    <div>
-                                        <div class="text-sm font-extrabold text-[#2a2e3b]"><a href="/about" class="hover:text-blue-700 transition">Проект Квартира</a></div>
-                                        <div class="text-xs text-[#7a7f8c]">Специалист</div>
-                                    </div>
-                                </div>
+<div class="flex items-center gap-3">
+    <div
+        class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-extrabold">
+        PK</div>
+    <div>
+        <div class="text-sm font-extrabold text-[#2a2e3b]"><a href="/author" rel="author" itemprop="url" class="hover:text-blue-700 transition">Елена</a></div>
+        <div class="text-xs text-[#7a7f8c]">Основатель Проект Квартира</div>
+    </div>
+</div>
                                 <div class="flex flex-col sm:flex-row gap-3">
                                     <a href="/calculator"
                                         class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-black text-white font-semibold hover:bg-gray-900 transition">
@@ -237,6 +273,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <img src="<?= htmlspecialchars($articleData['image'] ?? 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1400&q=60'); ?>"
                                     alt="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?>"
                                     title="<?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?>"
+                                    width="1400" height="900" fetchpriority="high" decoding="async"
                                     class="w-full h-[260px] md:h-[420px] object-cover">
                             </div>
 
@@ -552,6 +589,33 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                             </div>
+
+                            <?php if ($__prevArticle || $__nextArticle): ?>
+                            <nav class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label="Навигация по статьям">
+                                <?php if ($__prevArticle): ?>
+                                <a href="/blog/<?= htmlspecialchars($__prevArticle['slug']); ?>" rel="prev"
+                                    class="group block rounded-xl border border-[#e6e7ee] bg-white p-4 hover:border-blue-400 hover:shadow-sm transition">
+                                    <span class="flex items-center gap-1 text-[11px] uppercase tracking-wide text-[#8a90a0] font-bold">
+                                        <i class="fas fa-arrow-left"></i> Предыдущая
+                                    </span>
+                                    <span class="mt-1 block text-[14px] font-extrabold text-[#2a2e3b] group-hover:text-blue-700 leading-[19px]">
+                                        <?= htmlspecialchars($__prevArticle['title']); ?>
+                                    </span>
+                                </a>
+                                <?php endif; ?>
+                                <?php if ($__nextArticle): ?>
+                                <a href="/blog/<?= htmlspecialchars($__nextArticle['slug']); ?>" rel="next"
+                                    class="group block rounded-xl border border-[#e6e7ee] bg-white p-4 hover:border-blue-400 hover:shadow-sm transition sm:text-right">
+                                    <span class="flex items-center gap-1 text-[11px] uppercase tracking-wide text-[#8a90a0] font-bold sm:justify-end">
+                                        Следующая <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="mt-1 block text-[14px] font-extrabold text-[#2a2e3b] group-hover:text-blue-700 leading-[19px]">
+                                        <?= htmlspecialchars($__nextArticle['title']); ?>
+                                    </span>
+                                </a>
+                                <?php endif; ?>
+                            </nav>
+                            <?php endif; ?>
                         </article>
 
                         <aside class="lg:col-span-4 lg:sticky lg:top-24 h-max space-y-4">
@@ -564,12 +628,13 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     <?php foreach ($tops as $item): ?>
                                         <?php if ((int) $item['id'] === $id)
                                             continue; ?>
-                                        <a href="/blog/<?= $item['slug']; ?>"
+                                        <a href="/blog/<?= $item['slug']; ?>" rel="bookmark"
                                             class="block rounded-xl hover:bg-gray-50 transition p-2">
                                             <div class="flex gap-3">
                                                 <img class="w-[84px] h-[64px] object-cover rounded-lg"
                                                     alt="<?= htmlspecialchars($item['title']); ?>"
                                                     title="<?= htmlspecialchars($item['title']); ?>"
+                                                    width="84" height="64" loading="lazy" decoding="async"
                                                     src="<?= htmlspecialchars($item['image'] ?: $__fallbackImg); ?>">
                                                 <div class="flex-1">
                                                     <div class="text-[13px] font-extrabold text-[#2a2e3b] leading-[16px]">

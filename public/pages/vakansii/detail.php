@@ -45,7 +45,7 @@ $validThrough = date('Y-m-d', strtotime('+60 days') ?: time());
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
 <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="content-language" content="ru">
 <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/vakansii/' . $vacancy['slug']); ?>">

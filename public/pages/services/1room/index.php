@@ -44,7 +44,7 @@ $prices = [
 
     <title>Ремонт однокомнатной квартиры под ключ в Москве — цена за м² | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт однокомнатной квартиры 30–40 м² под ключ: от 296 000 ₽, фиксированная смета в договоре, гарантия 3 года. Бесплатный замер в Москве и МО.',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/1room'); ?>">

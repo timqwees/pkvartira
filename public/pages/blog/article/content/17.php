@@ -96,7 +96,7 @@
         <li>☐ Гарантия бесплатно, не 3%?</li>
         <li>☐ Итог фиксируется в <a href="/dogovor-obrazec" style="color:#2563eb;">договоре</a> без «ориентировочно»?</li>
     </ul>
-    <p>Если 2+ пункта — нет, просите переделать. Или пришлите нам смету в <a href="https://t.me/pkvartira">Telegram</a> — проверим бесплатно за 30 минут.</p>
+    <p>Если 2+ пункта — нет, просите переделать. Или пришлите нам смету в <a href="https://t.me/pkvartira" target="_blank" rel="external nofollow noopener noreferrer">Telegram</a> — проверим бесплатно за 30 минут.</p>
 </section>
 
 <section id="save">

@@ -25,6 +25,32 @@ if (!$cached) {
 
 usort($__blogJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
 
+// JSON-LD: блог как сущность + ItemList статей (sitelinks в выдаче).
+$__blogSchema = [
+    '@type' => 'Blog',
+    '@id' => $site['baseUrl'] . '/blogs#blog',
+    'name' => 'Блог о ремонте квартир — Проект Квартира',
+    'url' => $site['baseUrl'] . '/blogs',
+    'description' => 'Статьи о ремонте квартир: пошаговые руководства, материалы, дизайн интерьера, цены 2026.',
+    'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
+    'inLanguage' => 'ru-RU',
+];
+$__itemList = [
+    '@type' => 'ItemList',
+    '@id' => $site['baseUrl'] . '/blogs#itemlist',
+    'name' => 'Статьи блога',
+    'numberOfItems' => count($__blogJson),
+    'itemListElement' => [],
+];
+foreach (array_values($__blogJson) as $__i => $__art) {
+    $__itemList['itemListElement'][] = [
+        '@type' => 'ListItem',
+        'position' => $__i + 1,
+        'url' => $site['baseUrl'] . '/blog/' . ($__art['slug'] ?? $__art['id'] ?? ''),
+        'name' => (string) ($__art['title'] ?? ''),
+    ];
+}
+
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Блог о ремонте квартир — полезные статьи, советы, цены 2026',
     'description' => 'Полезные статьи о ремонте квартир: пошаговые руководства, выбор материалов, дизайн интерьера, актуальные цены 2026. Советы экспертов с 10-летним опытом ремонта. От компании Проект Квартира (Проект Квартира).',
@@ -36,6 +62,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
         ['name' => 'Блог', 'url' => $site['baseUrl'] . '/blogs'],
     ],
+    'schema' => [$__blogSchema, $__itemList],
 ]);
 ?>
 <!DOCTYPE html>
@@ -47,7 +74,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
     <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -86,6 +113,23 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <main class="pt-20" style="padding-top:80px">
         <section class="py-8 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
+                <nav aria-label="breadcrumb" class="mb-4 text-xs text-gray-500" itemscope
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <ol class="flex flex-wrap items-center gap-2">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a itemprop="item" href="/" class="hover:text-blue-700 transition">
+                                <span itemprop="name">Главная</span>
+                            </a>
+                            <meta itemprop="position" content="1">
+                        </li>
+                        <li class="text-gray-400">/</li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
+                            class="font-medium text-gray-900">
+                            <span itemprop="name">Блог</span>
+                            <meta itemprop="position" content="2">
+                        </li>
+                    </ol>
+                </nav>
                 <div class="mb-8">
                     <h1 class="text-[32px] md:text-[40px] font-extrabold text-[#1f2937] leading-tight" style="font-family:var(--font-heading)">Блог / статьи</h1>
                     <p class="mt-3 text-[15px] leading-[22px] text-[#6b7280] max-w-2xl">
@@ -137,61 +181,63 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <p class="text-[#7a7f8c]">Пока нет статей. Вернитесь позже!</p>
                             </div>
                         <?php else: ?>
-                            <?php foreach ($articles as $article): ?>
-                                <article class="blog-card" data-category="<?php echo $article['category']; ?>"
-                                    itemscope itemtype="https://schema.org/Article">
-                                    <meta itemprop="inLanguage" content="ru-RU" />
-                                    <div class="blog-card-grid">
-                                        <div class="blog-card-img-wrap">
-                                            <div class="blog-card-bg" style="background-image: url('<?php echo $article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'; ?>');"
-                                                itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                                                <meta itemprop="url"
-                                                    content="<?php echo htmlspecialchars($article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'); ?>">
-                                            </div>
-                                            <?php if (!empty($article['category'])): ?>
-                                                <span class="blog-card-category"><?php echo $article['category']; ?></span>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="blog-card-body">
-                                            <h2 class="blog-card-title" itemprop="headline">
-                                                <?php echo htmlspecialchars($article['title']); ?>
-                                            </h2>
-                                            <p class="blog-card-text" itemprop="description">
-                                                <?php echo htmlspecialchars(mb_substr($article['content'], 0, 150)) . '...'; ?>
-                                            </p>
-                                            <div class="blog-card-meta">
-                                                <span class="blog-card-date"><time itemprop="datePublished"
-                                                        datetime="<?php echo htmlspecialchars(date('c', strtotime($article['created_at']))); ?>"><?php echo date('d.m.Y', strtotime($article['created_at'])); ?></time></span>
-                                                <a href="/blog/<?php echo $article['slug']; ?>" class="blog-btn-more"
-                                                    itemprop="url">Читать далее <i class="fa-solid fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            <?php endforeach; ?>
+<?php foreach ($articles as $article): ?>
+<article class="blog-card" data-category="<?php echo $article['category']; ?>"
+    itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="inLanguage" content="ru-RU" />
+    <div class="blog-card-grid">
+        <div class="blog-card-img-wrap">
+            <div class="blog-card-bg" style="background-image: url('<?php echo $article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'; ?>');"
+                itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                <meta itemprop="url"
+                    content="<?php echo htmlspecialchars($article['image'] ?: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=60'); ?>">
+                <meta itemprop="caption" content="<?php echo htmlspecialchars($article['title']); ?>">
+            </div>
+            <?php if (!empty($article['category'])): ?>
+                <span class="blog-card-category"><?php echo $article['category']; ?></span>
+            <?php endif; ?>
+        </div>
+        <div class="blog-card-body">
+            <h2 class="blog-card-title" itemprop="headline">
+                <a href="/blog/<?php echo $article['slug']; ?>" rel="bookmark"
+                    class="hover:text-blue-700 transition"><?php echo htmlspecialchars($article['title']); ?></a>
+            </h2>
+            <p class="blog-card-text" itemprop="description">
+                <?php echo htmlspecialchars(mb_substr($article['content'], 0, 150)) . '...'; ?>
+            </p>
+            <div class="blog-card-meta">
+                <span class="blog-card-date"><time itemprop="datePublished"
+                        datetime="<?php echo htmlspecialchars(date('c', strtotime($article['created_at']))); ?>"><?php echo date('d.m.Y', strtotime($article['created_at'])); ?></time></span>
+                <a href="/blog/<?php echo $article['slug']; ?>" rel="bookmark" class="blog-btn-more"
+                    itemprop="url">Читать далее <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</article>
+<?php endforeach; ?>
                         <?php endif; ?>
 
                         <?php if ($max_pages > 1): ?>
                             <div class="flex justify-center items-center gap-2 mt-6">
-                                <?php if ($current_page > 1): //если будет 1 - 1 = 0 то систем защиты поставит автомтаически, но м ыне выводим 1 а только 2 в пагинации ?>
-                                    <a href="?page=<?php echo $current_page - 1; ?>" class="pagination-btn">
-                                        Назад
-                                    </a>
-                                <?php endif; ?>
+<?php if ($current_page > 1): ?>
+<a href="?page=<?php echo $current_page - 1; ?>" class="pagination-btn" rel="prev">
+Назад
+</a>
+<?php endif; ?>
 
-                                <?php for ($i = 1; $i <= $max_pages; $i++): ?>
-                                    <?php if ($i === $current_page): ?>
-                                        <span class="pagination-btn active"><?php echo $i; ?></span>
-                                    <?php else: ?>
-                                        <a href="?page=<?php echo $i; ?>" class="pagination-btn"><?php echo $i; ?></a>
-                                    <?php endif; ?>
-                                <?php endfor; ?>
+<?php for ($i = 1; $i <= $max_pages; $i++): ?>
+<?php if ($i === $current_page): ?>
+<span class="pagination-btn active"><?php echo $i; ?></span>
+<?php else: ?>
+<a href="?page=<?php echo $i; ?>" class="pagination-btn"><?php echo $i; ?></a>
+<?php endif; ?>
+<?php endfor; ?>
 
-                                <?php if ($current_page < $max_pages): ?>
-                                    <a href="?page=<?php echo $current_page + 1; ?>" class="pagination-btn">
-                                        Вперед
-                                    </a>
-                                <?php endif; ?>
+<?php if ($current_page < $max_pages): ?>
+<a href="?page=<?php echo $current_page + 1; ?>" class="pagination-btn" rel="next">
+Вперед
+</a>
+<?php endif; ?>
                             </div>
                         <?php endif; ?>
                     </div>

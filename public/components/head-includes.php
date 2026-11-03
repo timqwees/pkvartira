@@ -58,75 +58,15 @@ $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES,
 <link rel="manifest"
     href="<?= $__headBase; ?>/public/assets/images/logo/favicon/site.webmanifest" />
 <link rel="search" type="application/opensearchdescription+xml" title="<?= htmlspecialchars($__brandName . ' — ' . $__shortBrand . ' поиск', ENT_QUOTES, 'UTF-8'); ?>" href="<?= $__headBase; ?>/opensearch.xml" />
-<link rel="author" href="<?= $__headBase; ?>/about" />
-
-<!-- Брендовые сигналы для поиска -->
-<meta name="brand" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
-<meta property="og:brand" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
-<meta name="subject" content="<?= htmlspecialchars($__brandName . ' (' . $__shortBrand . ', pkvartira.ru) — официальный сайт', ENT_QUOTES, 'UTF-8'); ?>" />
-<meta name="classification" content="<?= htmlspecialchars($__brandName . ', ' . $__shortBrand . ', pkvartira.ru', ENT_QUOTES, 'UTF-8'); ?>" />
-<?php if (!isset($seo) || !isset($seo['jsonLd'])): /* Глобальная микроразметка бренда для страниц без seo() — чтобы бренд «Проект Квартира» индексировался везде */ ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "<?= $__headBase; ?>#organization",
-      "name": <?= json_encode($__brandName, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>,
-      "alternateName": ["Проект Квартира","Проект Квартира","Проект Квартира","ПроектКвартира","Проект Квартира","pkvartira.ru","pkvartira","Proekt Kvartira","proekt kvartira","PKVARTIRA","ООО Проект Квартира","Проект Квартира Москва","Проект Квартира официальный сайт"],
-      "legalName": "ООО \"Проект Квартира\"",
-      "url": "<?= $__headBase; ?>",
-      "slogan": "Ремонт квартир под ключ в Москве",
-      "description": "Проект Квартира (Проект Квартира, pkvartira.ru) — официальный сайт компании по ремонту квартир и домов под ключ в Москве. Ищите нас как Проект Квартира, Проект Квартира, pkvartira.ru",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "<?= $__headBase; ?>/public/assets/images/logo/favicon/favicon.svg",
-        "width": 300,
-        "height": 300
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+7 495 473-17-37",
-        "contactType": "customer service",
-        "availableLanguage": ["Russian"],
-        "areaServed": "RU"
-      },
-      "brand": {
-        "@type": "Brand",
-        "name": "Проект Квартира",
-        "alternateName": ["Проект Квартира","Проект Квартира","pkvartira.ru","pkvartira","ПроектКвартира"],
-        "slogan": "Ремонт квартир под ключ в Москве"
-      },
-      "sameAs": ["https://t.me/pkvartira","https://wa.me/74954731737","https://yandex.ru/maps/org/proyekt_kvartira/"],
-      "knowsAbout": ["ремонт квартир","ремонт под ключ","дизайнерский ремонт","капитальный ремонт"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "<?= $__headBase; ?>#website",
-      "url": "<?= $__headBase; ?>",
-      "name": "Проект Квартира — Проект Квартира (pkvartira.ru) — официальный сайт",
-      "alternateName": ["Проект Квартира","Проект Квартира","pkvartira.ru","pkvartira","Проект Квартира официальный сайт","Проект Квартира официальный сайт","pkvartira.ru официальный сайт"],
-      "description": "Официальный сайт Проект Квартира (Проект Квартира, pkvartira.ru) — ремонт квартир под ключ в Москве. Ищите: Проект Квартира, Проект Квартира, pkvartira",
-      "publisher": {"@id": "<?= $__headBase; ?>#organization"},
-      "inLanguage": "ru-RU",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {"@type": "EntryPoint", "urlTemplate": "<?= $__headBase; ?>/search?q={search_term_string}"},
-        "query-input": "required name=search_term_string"
-      }
-    }
-  ]
-}
-</script>
-<?php endif; ?>
-
-<!-- LLM Discovery -->
-<meta name="llms:website" content="<?= $__headBase; ?>/llms.txt">
-<meta name="llms:full" content="<?= $__headBase; ?>/llms-full.txt">
-<link rel="ai-content" href="<?= $__headBase; ?>/llms.txt" type="text/plain" title="LLMs.txt — AI-readable site index">
-
-<!-- Performance Hints (max 4 preconnects) -->
+<link rel="author" href="<?= $__headBase; ?>/author" />
+<link rel="publisher" href="<?= $__headBase; ?>/" />
+<link rel="privacy-policy" href="<?= $__headBase; ?>/privacy-policy" />
+<link rel="terms-of-service" href="<?= $__headBase; ?>/soglashenie" />
+<link rel="help" type="text/html" href="<?= $__headBase; ?>/#faq" />
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://mc.yandex.ru">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>

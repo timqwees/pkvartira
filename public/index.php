@@ -24,7 +24,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -1342,7 +1342,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         </section>
 
         <!-- FAQ Section -->
-        <section class="py-16 md:py-24 bg-gray-50 reveal" itemscope itemtype="https://schema.org/FAQPage">
+        <section id="faq" class="py-16 md:py-24 bg-gray-50 reveal" itemscope itemtype="https://schema.org/FAQPage">
             <span class="section-number">10</span>
             <div class="container mx-auto px-4">
                 <div class="text-center mb-14">

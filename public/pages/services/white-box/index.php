@@ -9,9 +9,27 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title,48)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт квартиры white box (вайт бокс) в Москве. Белая коробка: стены, пол, потолок, электрика, сантехника. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow">
+    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="Ремонт квартиры white box (вайт бокс) в Москве. Белая коробка: стены, пол, потолок, электрика, сантехника. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/white-box'); ?>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
+    <meta property="og:description" content="Ремонт квартиры white box (вайт бокс) в Москве. Белая коробка: стены, пол, потолок, электрика, сантехника. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
+    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/white-box'); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pkvartira">
+    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
+    <meta name="twitter:description" content="Ремонт квартиры white box (вайт бокс) в Москве. Белая коробка: стены, пол, потолок, электрика, сантехника. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
+    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
+    <meta name="twitter:creator" content="@pkvartira">
+    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
     <?php include_once './public/components/head-includes.php'; ?>
     <script type="application/ld+json">
     {

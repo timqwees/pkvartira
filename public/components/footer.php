@@ -11,7 +11,7 @@
             </style>
 
             <div class="space-y-4">
-                <a href="/" class="inline-block">
+                <a href="/" rel="publisher" class="inline-block">
                     <img width="145" height="48" class="h-12" src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира (Проект Квартира) — pkvartira.ru" title="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве">
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
@@ -20,14 +20,14 @@
                 <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира</p>
                 <div class="flex items-center gap-3 pt-2">
                     <?php if (!empty($site['vk'])): ?>
-                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="nofollow noopener noreferrer" target="_blank">
+                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="external nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-vk text-sm"></i>
                     </a>
                     <?php endif; ?>
-                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в Telegram" rel="nofollow noopener noreferrer" target="_blank">
+                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в Telegram" rel="external nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-telegram-plane text-sm"></i>
                     </a>
-                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp" rel="nofollow noopener noreferrer" target="_blank">
+                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp" rel="external nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-whatsapp text-sm"></i>
                     </a>
                     <!--<a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в MAX">
@@ -60,6 +60,7 @@
                     <li><a href="/vakansii" class="text-gray-400 hover:text-orange-500 transition text-sm">Вакансии</a></li>
                     <li><a href="/stocks" class="text-gray-400 hover:text-orange-500 transition text-sm">Акции</a></li>
                     <li><a href="/blogs" class="text-gray-400 hover:text-orange-500 transition text-sm">Блог</a></li>
+                    <li><a href="/#faq" rel="help" class="text-gray-400 hover:text-orange-500 transition text-sm">Вопросы и ответы</a></li>
                     <li><a href="/contact" class="text-gray-400 hover:text-orange-500 transition text-sm">Контакты</a></li>
                     <li><a href="/smeta-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm">Смета на ремонт: образец</a></li>
                     <li><a href="/dogovor-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm">Договор на ремонт: шаблон</a></li>
@@ -89,7 +90,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="nofollow noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
+                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="external nofollow noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-xs"></i></span>
                             <span><?= htmlspecialchars($site['address']['streetAddress']) ?></span>
                         </a>

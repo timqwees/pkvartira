@@ -49,7 +49,7 @@ foreach ($vacancies as $v) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
 <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="content-language" content="ru">
 <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/vakansii'); ?>">
@@ -305,7 +305,7 @@ body.alv-page a:focus-visible,body.alv-page button:focus-visible,body.alv-page i
 <section id="vacancies" data-code="home_head" class="relative overflow-hidden bg-white alv-hero"><div class="box"><div class="intro__content">
 <div class="recommend-block" style="display:none"><button role="button" type="button" class="button button_style_red button_view_default button_size_m button_theme_alfa-on-white"><span class="button__content"><span class="button__text">Приведи друга</span></span></button></div>
 <div class="text intro__text alv-hero-text"><p class="main-text">Работа <span class="brake"> в&nbsp;<span class="main-text-red">Проект Квартира</span></span></p>
-<p class="subtitle"><?= (int)$vacCount; ?> вакансий от 110 000 ₽ — еженедельные выплаты, жильё на объекте, бонус +5% — <a class="header-link" href="https://pkvartira.ru" target="_blank">pkvartira.ru</a></p></div>
+<p class="subtitle"><?= (int)$vacCount; ?> вакансий от 110 000 ₽ — еженедельные выплаты, жильё на объекте, бонус +5% — <a class="header-link" href="https://pkvartira.ru" target="_blank" rel="external noopener noreferrer">pkvartira.ru</a></p></div>
 <div class="SearchBarWidget_search-bar__6dISE"><div class="SearchBarWidget_search-bar__wrapper__vZFcH" id="alvSearchWrap"><svg class="SearchBarWidget_search-bar__search-icon___aBy_" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg><input id="alvSearch" type="text" placeholder="Найти вакансию" class="SearchBarWidget_search-bar__input__18IWy" value="" autocomplete="off" spellcheck="false"><button type="button" class="alv-search-clear" id="alvClear" aria-label="Очистить" style="width:32px;height:32px;border-radius:50%;background:#E5E7EB;color:#6B7280;border:none;cursor:pointer;line-height:0"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="display:block;margin:auto"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div><div class="SearchBarWidget_suggest" id="alvSuggest"></div></div>
 <div class="ChipLinksWidget_chip-links__WBefA" id="alvChips"><div class="ChipLinksWidget_chip-links__desktop__MCYxe" id="alvChipsScroll">
 <button type="button" data-filter="otdelka" class="ChipLinksWidget_chip-links__chip__6irpI ChipLinksWidget_chip-0__q99S8 alv-chip">Отделка · <?= $catCount['otdelka']; ?></button>

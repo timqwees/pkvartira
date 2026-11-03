@@ -193,6 +193,29 @@ Routes::get('/robots.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	include_once 'public/robots.php';
 });
+// IndexNow авто-пуш при изменении контента
+Routes::post('/indexnow', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: application/json; charset=utf-8');
+	$key = '769e1df8217a98f76286a4d39b571085';
+	$input = json_decode(file_get_contents('php://input'), true);
+	$urls = $input['urls'] ?? [];
+	$host = parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST);
+	$results = [];
+	foreach ($urls as $url) {
+		if (strpos($url, $host) !== false) {
+			$ch = curl_init("https://api.indexnow.org/indexnow?url=" . urlencode($url) . "&key=" . $key . "&keyLocation=https://{$host}/{$key}.txt");
+			curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
+			$resp = curl_exec($ch);
+			$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			curl_close($ch);
+			$results[] = ['url' => $url, 'status' => $code];
+		} else {
+			$results[] = ['url' => $url, 'status' => 400, 'error' => 'Wrong host'];
+		}
+	}
+	echo json_encode(['results' => $results], JSON_UNESCAPED_UNICODE);
+});
 //==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
 Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
 Routes::get('/vakansii/{slug}', function($slug) { $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });

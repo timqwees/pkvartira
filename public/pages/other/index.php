@@ -10,7 +10,7 @@
     <title>Ремонт квартиры в ЖК «Пример Парк» — фото до и после, цена | Проект Квартира</title>
     <meta name="description"
         content="Пример ремонта квартиры в ЖК «Пример Парк»: современный интерьер, фото до и после, полный список работ, сроки и бюджет проекта. Закажите похожий ремонт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/other'); ?>">
 
     <!-- Open Graph (для соцсетей) -->

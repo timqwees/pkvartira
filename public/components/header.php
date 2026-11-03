@@ -150,7 +150,7 @@
 <header class="bg-white border-b border-gray-100 fixed w-full top-0 z-[100]" style="backdrop-filter: blur(16px) saturate(180%); background: rgba(255,255,255,0.88);">
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="header-row flex justify-between items-center">
-            <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
+            <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
                     src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             <!-- Desktop Navigation -->
             <div class="desktop-nav hidden lg:flex items-center space-x-8">
@@ -267,7 +267,7 @@
     <div class="p-6">
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
-                <!-- logo name --><a href="/" class="flex items-center space-x-2"><img width="145" height="48" class="h-12"
+                <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2"><img width="145" height="48" class="h-12"
                         src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             </div><button class="mobile-menu-close p-2" aria-label="Закрыть меню"><i
                     class="fas fa-times text-2xl text-gray-800"></i></button>

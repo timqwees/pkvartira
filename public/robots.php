@@ -40,21 +40,25 @@ $baseUrl = $scheme . '://' . $host;
 echo "# Content-Signal: search=yes, ai-train=yes, ai-input=yes\n";
 echo "Content-Signal: search=yes, ai-train=yes, ai-input=yes\n";
 echo "\n";
+// Clean-param (Яндекс): склеивает URL с рекламными/трекерными параметрами.
+// Без него ?utm_source=… и ?gclid=… считаются отдельными страницами-дублями.
+echo "Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid&fbclid&ref&from&source\n";
+echo "\n";
 echo "User-agent: *\n";
 echo "Disallow: /api/\n";
-echo "Disallow: /*?*\n";
+echo "Disallow: /mcp/\n";
 echo "Allow: /*?page=\n";
 echo "Allow: /portfolio?project=\n";
 echo "\n";
 echo "User-agent: Yandex\n";
 echo "Disallow: /api/\n";
-echo "Disallow: /*?*\n";
+echo "Disallow: /mcp/\n";
 echo "Allow: /*?page=\n";
 echo "Allow: /portfolio?project=\n";
 echo "\n";
 echo "User-agent: Googlebot\n";
 echo "Disallow: /api/\n";
-echo "Disallow: /*?*\n";
+echo "Disallow: /mcp/\n";
 echo "Allow: /*?page=\n";
 echo "Allow: /portfolio?project=\n";
 echo "\n";

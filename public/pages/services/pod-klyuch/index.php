@@ -44,7 +44,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир под ключ в Москве 2026 — от 8 000 ₽/м². Полный цикл: от дизайн-проекта до финальной уборки. Без скрытых платежей, сроки в договоре, гарантия 3 года. Замер и смета бесплатно. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/pod-klyuch'); ?>">

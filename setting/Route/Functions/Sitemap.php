@@ -396,7 +396,9 @@ class Sitemap
             if (is_array($articles)) {
                 foreach ($articles as $art) {
                     $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
-                    $lastmod = date('Y-m-d', strtotime((string)$lastmod));
+                    // Валидация даты: если strtotime вернул false — фолбэк на сегодня
+                    $lastmodTs = strtotime((string)$lastmod);
+                    $lastmod = $lastmodTs ? date('Y-m-d', $lastmodTs) : date('Y-m-d');
                     // Каноника статей — короткие ЧПУ-слаги; фолбэк id на случай битой записи
                     $slug = !empty($art['slug']) ? (string) $art['slug'] : (string) ($art['id'] ?? '');
                     $xml .= $this->buildEntry('/blog/' . $slug, '0.6', 'weekly', $lastmod);

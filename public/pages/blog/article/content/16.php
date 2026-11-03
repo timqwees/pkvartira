@@ -143,5 +143,5 @@
     <p><strong>Можно ли не принимать квартиру?</strong> Да, если есть критичные дефекты. Пишете отказ с перечнем, застройщик обязан исправить и пригласить снова. Просрочка — неустойка по ДДУ.</p>
     <p><strong>Нужно ли платить за повторную приемку?</strong> Нет, первая повторная — бесплатно. Застройщик не вправе брать деньги.</p>
     <p><strong>Черновая отделка — что требовать?</strong> Только геометрия и коммуникации. Обои/ламинат — уже ваша отделка.</p>
-    <p><strong>Где взять бланк акта?</strong> В разделе <a href="/dogovor-obrazec" style="color:#2563eb;">договор/акты</a> на pkvartira.ru или напишите нам в <a href="https://t.me/pkvartira">Telegram</a>.</p>
+    <p><strong>Где взять бланк акта?</strong> В разделе <a href="/dogovor-obrazec" style="color:#2563eb;">договор/акты</a> на pkvartira.ru или напишите нам в <a href="https://t.me/pkvartira" target="_blank" rel="external nofollow noopener noreferrer">Telegram</a>.</p>
 </section>

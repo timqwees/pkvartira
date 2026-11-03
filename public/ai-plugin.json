@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_model": "pkvartira",
   "name_for_human": "Проект Квартира (Проект Квартира)",
-  "description_for_model": "Проект Квартира (Проект Квартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве. Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.",
-  "description_for_human": "Ремонт квартир под ключ в Москве — цены, калькулятор, портфолио.",
+  "description_for_model": "Проект Квартира (Проект Квартира, pkvartira.ru) — ремонт квартир и домов под ключ в Москве. Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года. 21 статья в блоге о ремонте, сметы, материалы, цены 2026.",
+  "description_for_human": "Ремонт квартир под ключ в Москве — цены, калькулятор, портфолио, блог.",
   "auth": { "type": "none" },
   "api": {
     "type": "openapi",
@@ -13,5 +13,34 @@
   "llms_full": "https://pkvartira.ru/llms-full.txt",
   "logo_url": "https://pkvartira.ru/public/assets/images/logo/favicon/favicon-96x96.png",
   "contact_email": "info@pkvartira.ru",
-  "legal_info_url": "https://pkvartira.ru/soglashenie"
+  "legal_info_url": "https://pkvartira.ru/soglashenie",
+  "functions": [
+    {
+      "name": "search_articles",
+      "description": "Поиск статей блога о ремонте квартир",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "Поисковый запрос" }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "read_article",
+      "description": "Чтение полной статьи блога по слагу",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string", "description": "Слаг статьи (например remont-kvartiry-s-chego-nachat)" }
+        },
+        "required": ["slug"]
+      }
+    },
+    {
+      "name": "list_articles",
+      "description": "Полный список статей блога",
+      "parameters": { "type": "object", "properties": {} }
+    }
+  ]
 }

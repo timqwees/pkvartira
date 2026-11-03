@@ -21,7 +21,7 @@ final class SecurityHeaders
 {
     public const HTML_CACHE_MAX_AGE = 7200;
 
-    public static function sendSecurity(string $robots = 'index, follow'): void
+    public static function sendSecurity(string $robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'): void
     {
         if (headers_sent()) {
             return;
@@ -37,6 +37,7 @@ final class SecurityHeaders
         header('Cross-Origin-Opener-Policy: same-origin-allow-popups', true);
         header('Cross-Origin-Resource-Policy: same-origin', true);
         header('Cross-Origin-Embedder-Policy: unsafe-none', true);
+        header('Expect-CT: max-age=86400, enforce', true);
         // Permissive CSP: сайт использует инлайн-скрипты/стили, строгий CSP всё сломает.
         // frame-ancestors усиливает X-Frame-Options.
         header("Content-Security-Policy: upgrade-insecure-requests; frame-ancestors 'self'", true);
