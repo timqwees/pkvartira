@@ -100,11 +100,12 @@
         }
 
         var lenis = new Lenis({
-            duration: 1.2,
-            easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+            duration: 0.8,
+            easing: function(t) { return 1 - Math.pow(1 - t, 3); },
             smooth: true,
             smoothTouch: false,
-            touchMultiplier: 2
+            touchMultiplier: 1.5,
+            wheelMultiplier: 0.8
         });
 
         function raf(time) {
@@ -279,7 +280,7 @@
     }
 
     /* ============================================================
-       PARALLAX EFFECTS
+       PARALLAX EFFECTS (Optimized)
        ============================================================ */
     function initParallax() {
         if (CONFIG.reduceMotion()) return;
@@ -288,15 +289,18 @@
         var gsap = window.gsap;
         var parallaxElements = [
             { trigger: '.hero', target: '.hero-bg, .hero__bg, .hero-bg img', yPercent: 15 },
-            { trigger: '.prj-hero', target: '.prj-hero-bg, .prj-hero__bg', yPercent: 10 },
-            { trigger: '.uslugi-hero', target: '.uslugi-hero-bg', yPercent: 10 },
-            { trigger: '.page-hero', target: '.page-hero-bg, .page-hero__bg', yPercent: 10 }
+            { trigger: '.prj-hero', target: '.prj-hero-bg, .prj-hero__bg', yPercent: 8 },
+            { trigger: '.uslugi-hero', target: '.uslugi-hero-bg', yPercent: 8 },
+            { trigger: '.page-hero', target: '.page-hero-bg, .page-hero__bg', yPercent: 8 }
         ];
 
         parallaxElements.forEach(function(row) {
             var trigger = document.querySelector(row.trigger);
             var target = document.querySelector(row.target);
             if (!trigger || !target) return;
+
+            // Add will-change for performance
+            target.style.willChange = 'transform';
 
             gsap.to(target, {
                 yPercent: row.yPercent,
@@ -305,7 +309,9 @@
                     trigger: trigger,
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: 0.5
+                    scrub: 0.3,  // Reduced from 0.5 for smoother feel
+                    // Add invalidateOnRefresh for better performance
+                    invalidateOnRefresh: true
                 }
             });
         });
@@ -395,7 +401,7 @@
     }
 
     /* ============================================================
-       IMAGE REVEAL (clip-path zoom)
+       IMAGE REVEAL (clip-path zoom) - Optimized
        ============================================================ */
     function initImageReveals() {
         if (CONFIG.reduceMotion()) return;
@@ -408,24 +414,30 @@
         document.querySelectorAll(selector).forEach(function(el) {
             var radius = getComputedStyle(el).borderRadius || '8px';
             
+            // Add will-change for performance
+            el.style.willChange = 'clip-path, opacity';
+            
             gsap.fromTo(el,
                 { clipPath: 'inset(6% 0% 0% 0% round ' + radius + ')', opacity: 0.25 },
                 {
                     clipPath: 'inset(0% 0% 0% 0% round ' + radius + ')',
                     opacity: 1,
-                    duration: 1.15,
+                    duration: 0.9,  // Reduced from 1.15
                     ease: 'power3.out',
                     scrollTrigger: {
                         trigger: el,
-                        start: 'top 90%',
-                        toggleActions: 'play none none none'
+                        start: 'top 85%',  // Earlier trigger
+                        toggleActions: 'play none none none',
+                        // Invalidate on refresh for better performance
+                        invalidateOnRefresh: true
                     }
                 }
             );
 
             var img = el.querySelector('img');
             if (img) {
-                gsap.fromTo(img, { scale: 1.065 }, { scale: 1, duration: 1.35, ease: 'power3.out' }, 0);
+                img.style.willChange = 'transform';
+                gsap.fromTo(img, { scale: 1.05 }, { scale: 1, duration: 1.0, ease: 'power3.out' }, 0);
             }
         });
     }
@@ -501,25 +513,6 @@
 
         window.addEventListener('scroll', function() { update(); }, { passive: true });
         update();
-    }
-
-    /* ============================================================
-       FORCE REVEAL VISIBLE (fallback)
-       ============================================================ */
-    function forceRevealVisible() {
-        if (!window.gsap || !window.ScrollTrigger) return;
-        var triggers = window.ScrollTrigger.getAll ? window.ScrollTrigger.getAll() : [];
-        var vh = window.innerHeight;
-        triggers.forEach(function(st) {
-            var anim = st.animation;
-            if (!anim || typeof anim.progress !== 'function') return;
-            var el = st.trigger;
-            if (!el || !el.getBoundingClientRect) return;
-            var r = el.getBoundingClientRect();
-            if (r.top < vh && r.bottom > 0 && anim.progress() < 0.05) {
-                anim.progress(1);
-            }
-        });
     }
 
     /* ============================================================
@@ -599,5 +592,39 @@
         Utils: Utils,
         CONFIG: CONFIG
     };
+
+    /* ============================================================
+       PERFORMANCE HINTS (CSS via JS)
+       ============================================================ */
+    // Add will-change to common animated elements
+    var style = document.createElement('style');
+    style.textContent = `
+        /* Performance hints */
+        .hero-bg, .hero__bg, .hero-bg img,
+        .prj-hero-bg, .prj-hero__bg,
+        .uslugi-hero-bg, .uslugi-hero-bg img,
+        .page-hero-bg, .page-hero__bg,
+        .project-card__image, .expertise-image, .project-detail-hero,
+        .project-next > a, .esp-item .ph, .blog-card-img,
+        .blog-featured-img, .prj-gallery figure,
+        .svc-aud__media, .svc-work__media, .svc-project__media,
+        .article-img, .blog-popular-img {
+            will-change: transform, clip-path, opacity;
+        }
+        
+        .reveal {
+            will-change: transform, opacity;
+        }
+        
+        .hero, .uslugi-hero, .page-hero, .prj-hero {
+            contain: layout style paint;
+        }
+        
+        /* Reduce paint area for hero backgrounds */
+        .hero-bg, .hero__bg {
+            content-visibility: auto;
+        }
+    `;
+    document.head.appendChild(style);
 
 })();
