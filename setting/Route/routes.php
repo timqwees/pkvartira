@@ -193,28 +193,205 @@ Routes::get('/robots.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	include_once 'public/robots.php';
 });
-// IndexNow авто-пуш при изменении контента
-Routes::post('/indexnow', function() {
-	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
-	header('Content-Type: application/json; charset=utf-8');
-	$key = '769e1df8217a98f76286a4d39b571085';
-	$input = json_decode(file_get_contents('php://input'), true);
-	$urls = $input['urls'] ?? [];
-	$host = parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST);
-	$results = [];
-	foreach ($urls as $url) {
-		if (strpos($url, $host) !== false) {
-			$ch = curl_init("https://api.indexnow.org/indexnow?url=" . urlencode($url) . "&key=" . $key . "&keyLocation=https://{$host}/{$key}.txt");
-			curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
-			$resp = curl_exec($ch);
-			$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-			curl_close($ch);
-			$results[] = ['url' => $url, 'status' => $code];
-		} else {
-			$results[] = ['url' => $url, 'status' => 400, 'error' => 'Wrong host'];
-		}
-	}
-	echo json_encode(['results' => $results], JSON_UNESCAPED_UNICODE);
+// IndexNow авто-пуш: ручной POST /indexnow + автоматический GET /indexnow (по mtime)
+$indexNowKey = '769e1df8217a98f76286a4d39b571085';
+$indexNowStateFile = sys_get_temp_dir() . '/pkvartira-indexnow-state.json';
+$indexNowHost = parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST);
+$indexNowKeyLocation = "https://{$indexNowHost}/{$indexNowKey}.txt";
+
+// Функция: собрать все публичные URL проекта с их mtime
+function indexNowCollectUrls(): array {
+    $root = dirname(__DIR__, 2);
+    $urls = [];
+
+    // 1. Статические страницы (routes.php + шаблоны)
+    $staticPages = [
+        '/' => 'public/index.php',
+        '/about' => 'public/pages/about/index.php',
+        '/contact' => 'public/pages/contact/index.php',
+        '/stocks' => 'public/pages/stocks/index.php',
+        '/portfolio' => 'public/pages/portfolio/index.php',
+        '/reviews' => 'public/pages/reviews/index.php',
+        '/prices' => 'public/pages/prices/index.php',
+        '/calculator' => 'public/pages/calculator/index.php',
+        '/kalkulyator-ploshchadi' => 'public/pages/kalkulyator-ploshchadi/index.php',
+        '/services' => 'public/pages/services/index.php',
+        '/blogs' => 'public/pages/blog/index.php',
+        '/blogs/pilar-remont-kvartir' => 'public/pages/blog/pilar-remont-kvartir/index.php',
+        '/author' => 'public/pages/author/index.php',
+        '/search' => 'public/pages/search/index.php',
+        '/soglashenie' => 'public/pages/soglashenie/index.php',
+        '/smeta-obrazec' => 'public/pages/smeta-obrazec/index.php',
+        '/dogovor-obrazec' => 'public/pages/dogovor-obrazec/index.php',
+    ];
+    foreach ($staticPages as $route => $file) {
+        $full = $root . '/' . $file;
+        if (is_file($full)) {
+            $urls[$route] = filemtime($full);
+        }
+    }
+
+    // 2. Сервисные страницы (сканируем директории)
+    $servicesDir = $root . '/public/pages/services';
+    if (is_dir($servicesDir)) {
+        foreach (scandir($servicesDir) as $item) {
+            if ($item === '.' || $item === '..' || $item === 'index.php') continue;
+            $indexFile = $servicesDir . '/' . $item . '/index.php';
+            if (is_file($indexFile)) {
+                $urls['/services/' . $item] = filemtime($indexFile);
+            }
+        }
+    }
+
+    // 3. Статьи блога (articles.json + content/{id}.php)
+    $articlesFile = $root . '/public/pages/blog/data/articles.json';
+    if (is_file($articlesFile)) {
+        $articles = json_decode(file_get_contents($articlesFile), true);
+        if (is_array($articles)) {
+            foreach ($articles as $art) {
+                $slug = $art['slug'] ?? $art['id'] ?? '';
+                if ($slug) {
+                    $route = '/blog/' . $slug;
+                    // mtime = max(articles.json, content/{id}.php)
+                    $mtime = filemtime($articlesFile);
+                    $contentFile = $root . '/public/pages/blog/article/content/' . ((int)($art['id'] ?? 0)) . '.php';
+                    if (is_file($contentFile)) {
+                        $mtime = max($mtime, filemtime($contentFile));
+                    }
+                    $urls[$route] = $mtime;
+                }
+            }
+        }
+    }
+
+    // 4. Вакансии
+    $vacanciesFile = $root . '/public/pages/vakansii/vacancies.json';
+    if (is_file($vacanciesFile)) {
+        $vacancies = json_decode(file_get_contents($vacanciesFile), true);
+        if (is_array($vacancies)) {
+            foreach ($vacancies as $vac) {
+                $slug = $vac['slug'] ?? '';
+                if ($slug) {
+                    $urls['/vakansii/' . $slug] = filemtime($vacanciesFile);
+                }
+            }
+        }
+    }
+
+    // 5. Портфолио проекты
+    $portfolioFile = $root . '/public/data/portfolio.php';
+    if (is_file($portfolioFile)) {
+        $portfolio = require $portfolioFile;
+        if (is_array($portfolio)) {
+            foreach ($portfolio as $proj) {
+                $slug = $proj['slug'] ?? '';
+                if ($slug) {
+                    $urls['/portfolio?project=' . urlencode($slug)] = filemtime($portfolioFile);
+                }
+            }
+        }
+    }
+
+    return $urls;
+}
+
+// Функция: отправить URLs в IndexNow
+function indexNowSend(array $urls, string $key, string $keyLocation): array {
+    $results = [];
+    $ch = curl_init();
+    curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
+    foreach ($urls as $url) {
+        $fullUrl = "https://api.indexnow.org/indexnow?url=" . urlencode($url) . "&key=" . $key . "&keyLocation=" . urlencode($keyLocation);
+        curl_setopt($ch, CURLOPT_URL, $fullUrl);
+        $resp = curl_exec($ch);
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $results[] = ['url' => $url, 'status' => $code];
+        // throttle чтобы не получить 429
+        usleep(100000);
+    }
+    curl_close($ch);
+    return $results;
+}
+
+// GET /indexnow — автоматическая проверка по mtime
+Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $indexNowKeyLocation) {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+    header('Content-Type: application/json; charset=utf-8');
+
+    $allUrls = indexNowCollectUrls();
+    if (!$allUrls) {
+        echo json_encode(['ok' => true, 'message' => 'Нет URL для проверки', 'sent' => []], JSON_UNESCAPED_UNICODE);
+        return;
+    }
+
+    // Загружаем состояние последнего успешного пуша
+    $state = [];
+    if (is_file($indexNowStateFile)) {
+        $state = json_decode(file_get_contents($indexNowStateFile), true) ?: [];
+    }
+
+    $now = time();
+    $toSend = [];
+    foreach ($allUrls as $route => $mtime) {
+        $lastSent = $state[$route] ?? 0;
+        // Отправляем если: файл изменился ПОСЛЕ последнего успешного пуша
+        if ($mtime > $lastSent) {
+            $toSend[] = 'https://' . parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST) . $route;
+        }
+    }
+
+    if (!$toSend) {
+        echo json_encode([
+            'ok' => true,
+            'message' => 'Нет новых изменений — все URL актуальны',
+            'checked' => count($allUrls),
+            'sent' => []
+        ], JSON_UNESCAPED_UNICODE);
+        return;
+    }
+
+    $results = indexNowSend($toSend, $indexNowKey, $indexNowKeyLocation);
+
+    // Обновляем состояние только для успешно отправленных (2xx)
+    foreach ($results as $i => $r) {
+        if ($r['status'] >= 200 && $r['status'] < 300) {
+            $route = parse_url($r['url'], PHP_URL_PATH);
+            $state[$route] = $now;
+        }
+    }
+    file_put_contents($indexNowStateFile, json_encode($state));
+
+    $sentUrls = array_filter($results, fn($r) => $r['status'] >= 200 && $r['status'] < 300);
+    echo json_encode([
+        'ok' => true,
+        'message' => 'Автоматический IndexNow пуш завершён',
+        'checked' => count($allUrls),
+        'sent_count' => count($sentUrls),
+        'sent' => array_values(array_map(fn($r) => ['url' => $r['url'], 'status' => $r['status']], $sentUrls))
+    ], JSON_UNESCAPED_UNICODE);
+});
+
+// POST /indexnow — ручной пуш (как было)
+Routes::post('/indexnow', function() use ($indexNowKey, $indexNowKeyLocation) {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+    header('Content-Type: application/json; charset=utf-8');
+    $input = json_decode(file_get_contents('php://input'), true);
+    $urls = $input['urls'] ?? [];
+    $host = parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST);
+    $results = [];
+    foreach ($urls as $url) {
+        if (strpos($url, $host) !== false) {
+            $ch = curl_init("https://api.indexnow.org/indexnow?url=" . urlencode($url) . "&key=" . $indexNowKey . "&keyLocation=https://{$host}/{$indexNowKey}.txt");
+            curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
+            $resp = curl_exec($ch);
+            $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            $results[] = ['url' => $url, 'status' => $code];
+        } else {
+            $results[] = ['url' => $url, 'status' => 400, 'error' => 'Wrong host'];
+        }
+    }
+    echo json_encode(['results' => $results], JSON_UNESCAPED_UNICODE);
 });
 //==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
 Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
