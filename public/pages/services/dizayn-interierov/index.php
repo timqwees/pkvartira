@@ -279,10 +279,10 @@ $prices = [
                     Стоимость дизайн проекта квартиры зависит от площади и состава: эскизный, стандартный или полный с авторским надзором. Выберите подходящий пакет или <a href="/calculator" class="text-orange-600 underline hover:text-orange-700 font-semibold">посчитайте стоимость в калькуляторе за 1 минуту</a>. Точную стоимость рассчитаем после знакомства с объектом и вашими пожеланиями.
                 </p>
 
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
                     <?php foreach ($prices as $price): ?>
                         <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
+                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6 max-w-md w-full"
                             itemscope itemtype="https://schema.org/Service">
                             <meta itemprop="name" content="<?= htmlspecialchars($price['заголовок']); ?> дизайн интерьера">
                             <?php if (isset($price['бейдж'])): ?>
