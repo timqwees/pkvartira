@@ -236,7 +236,7 @@ include './public/components/cta-form.php';
 
                     <!-- студия -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/studio/2_31sqm/03_gostinaya-kukhnya.jpg"
+                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/studio/2_31sqm/03_gostinaya-kukhnya.webp"
                             alt="Студия" title="Ремонт студии — от 200 000 ₽" class="w-full h-40 object-cover">
                         <div class="p-5">
                             <div class="flex items-center justify-between mb-2">
