@@ -3,7 +3,7 @@ use Setting\Route\Functions\TheFunction;
 require_once __DIR__ . '/../../../components/ai-background.php';
 $site = TheFunction::site();
 $title = 'Дизайн интерьеров — от 1 500 ₽/м²';
-$bg_url = getAiBackground(2); // AI Background 2 для дизайна интерьеров
+$bg_url = getAiBackground(4); // AI Background 4 для дизайна интерьеров
 $prices = [
     [
         'заголовок' => 'Пакет 1 — Консультация перед покупкой',
