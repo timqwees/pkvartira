@@ -565,83 +565,69 @@ $prices = [
                     Отвечаем на главные вопросы
                 </h2>
 
-                <div class="max-w-3xl mx-auto space-y-4">
+                                <div class="max-w-3xl mx-auto space-y-4">
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в доме во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как правильно спланировать инженерные системы в частном доме?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время активных работ жить на объекте обычно неудобно. Работы идут
-                                по графику —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">Инженерные системы проектируем на этапе архитектурного проекта: 1) Водоснабжение — центральный водопровод или скважина/колодец, насосная станция, гидроаккумулятор, фильтрация. 2) Канализация — септик/ЛОС или центральная, трубы ПВХ 110/160 мм с наклоном 2 см/м. 3) Отопление — котел (газ/электро/твердое топливо), коллекторная разводка, теплый пол/радиаторы, автоматика. 4) Вентиляция — приточная/вытяжная с рекуператором. 5) Электрика — щит вводной/групповой, заземление, УЗО, резервный вход. Все узлы в инженерных шкафах с доступом.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        <span class="font-semibold text-gray-800" itemprop="name">Какую систему отопления выбрать для частного дома?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
+                            <span itemprop="text">Выбор зависит от доступности газа и площади: 1) Газовый котел + теплый пол/радиаторы — оптимально при наличии газа, автономность, низкая стоимость отопления. 2) Электрический котел + теплый пол — при отсутствии газа, простая установка, но дорогие тарифы. 3) Твердотопливный/пеллетный котел — автономность, требует хранения топлива. 4) Теплый пол по всему дому — комфорт, равномерный нагрев, работает с любым котелом. Рекомендуем: газ + теплый пол 1 этаж + радиаторы 2 этаж + автоматика по комнатам.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        <span class="font-semibold text-gray-800" itemprop="name">Как организовать водоснабжение и канализацию в доме?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
+                            <span itemprop="text">Водоснабжение: центральный водопровод (счетчик, обратный клапан, фильтр) или скважина (насос, гидроаккумулятор, фильтры). Разводка коллекторная ПЭХ/металлопластик к каждой точке. Канализация: внешняя ПВХ 110/160 мм с наклоном 2 см/м, септик/ЛОС (биологическая очистка до 98%) или центральная. Внутренняя разводка ПВХ 50/110 мм, вентиляция стояков через крышу. Все узлы в инженерных шкафах с доступом.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт частного дома под ключ?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
+                            <span itemprop="text">От 15 000 ₽/м² (косметический), от 25 000 ₽/м² (капитальный). Для дома 150 м² — от 2 250 000 ₽ до 3 750 000 ₽. Цена зависит от площади, этажности, сложности инженерии, материалов. Точную смету — после бесплатного замера и обсуждения проекта.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает ремонт частного дома?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
+                            <span itemprop="text">Капитальный ремонт дома 150-200 м² — 4-6 месяцев. Включает: инженерию (1-1.5 мес), стяжку/штукатурку (1 мес), чистовую отделку (1.5-2 мес), инженерию финишную/мебель (0.5 мес). Точные сроки в договоре после проекта и замера.</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
