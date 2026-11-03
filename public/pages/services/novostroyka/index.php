@@ -330,7 +330,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <div class="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8">
                     <h3 class="text-lg md:text-xl font-bold text-gray-900">Сколько стоит ремонт в новостройке: примеры для типовых площадей</h3>
-                    <p class="mt-1 text-sm text-gray-600">Ориентировочная цена ремонта новостройки под ключ, работа + черновые материалы.</p>
+                    <p class="mt-1 text-sm text-gray-600">Ориентировочная стоимость работ по ремонту новостройки под ключ. Материалы оплачиваются отдельно.</p>
                     <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
                         <div class="bg-white rounded-xl border border-gray-200 p-4">
                             <div class="font-semibold text-gray-900">Студия 28 м²</div>
