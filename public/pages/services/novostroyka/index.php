@@ -294,13 +294,13 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <?php foreach ($prices as $price): ?>
                         <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
+                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-[#876b55] shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
                             itemscope itemtype="https://schema.org/Service">
                             <meta itemprop="name"
                                 content="<?= htmlspecialchars($price['заголовок']); ?> ремонт в новостройке">
                             <?php if (isset($price['бейдж'])): ?>
                                 <div
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#fef8f3] text-[#6d5744] border border-orange-200">
                                     <?= htmlspecialchars($price['бейдж']); ?>
                                 </div>
                             <?php endif; ?>
@@ -323,7 +323,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                 <?php endforeach; ?>
                             </ul>
                             <a href="tel:<?= $site['phone'] ?>"
-                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
+                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-[#876b55] hover:bg-[#6d5744] text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
                         </article>
                     <?php endforeach; ?>
                 </div>
@@ -348,7 +348,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             <div class="text-gray-600">капитальный — от 780 000 ₽</div>
                         </div>
                     </div>
-                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Посчитайте в калькуляторе за 1 минуту</a> или смотрите <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">все цены на ремонт</a>.</p>
+                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">Посчитайте в калькуляторе за 1 минуту</a> или смотрите <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">все цены на ремонт</a>.</p>
                 </div>
             </div>
         </section>
@@ -362,47 +362,47 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-screwdriver-wrench"
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-screwdriver-wrench"
                                 aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Демонтаж</div>
                         <div class="text-sm text-gray-600 mt-1">Подготовительные работы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Электрика</div>
                         <div class="text-sm text-gray-600 mt-1">Проводка и щит</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Сантехника</div>
                         <div class="text-sm text-gray-600 mt-1">Разводка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Отделка</div>
                         <div class="text-sm text-gray-600 mt-1">Стены, пол, потолок</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Двери</div>
                         <div class="text-sm text-gray-600 mt-1">Монтаж и доборы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Освещение</div>
                         <div class="text-sm text-gray-600 mt-1">Светильники и выключатели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Мебель</div>
                         <div class="text-sm text-gray-600 mt-1">Сборка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Уборка</div>
                         <div class="text-sm text-gray-600 mt-1">После работ</div>
                     </div>
@@ -415,7 +415,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Ваш путь к идеальному ремонту:<br><span class="text-orange-600">6 шагов</span> до новоселья
+                        Ваш путь к идеальному ремонту:<br><span class="text-[#6d5744]">6 шагов</span> до новоселья
                     </h2>
                     <p class="text-xl text-gray-600">
                         Мы выстроили систему так, чтобы вы не тратили время на контроль и закупки
@@ -550,19 +550,19 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <h3 class="text-xl font-bold text-gray-900">Почему выбирают нас</h3>
                         <div class="mt-4 grid grid-cols-2 gap-4">
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">0 ₽</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">0 ₽</div>
                                 <div class="text-sm text-gray-600 mt-1">выезд инженера</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">24 ч</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">24 ч</div>
                                 <div class="text-sm text-gray-600 mt-1">подготовка сметы</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">3 года</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">3 года</div>
                                 <div class="text-sm text-gray-600 mt-1">гарантия на работы</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">Нормы</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">Нормы</div>
                                 <div class="text-sm text-gray-600 mt-1">работаем по техкартам</div>
                             </div>
                         </div>
@@ -588,7 +588,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                     работ</span></li>
                         </ul>
                         <button data-button-dialog
-                            class="block max-w-fit cta-button mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition sm:w-auto">Получить
+                            class="block max-w-fit cta-button mt-6 bg-[#876b55] hover:bg-[#6d5744] text-white px-6 py-3 rounded-lg font-semibold transition sm:w-auto">Получить
                             консультацию</button>
                     </div>
                 </div>
@@ -733,49 +733,49 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     <a href="/services/bez-otdelki" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт новостройки без отделки (черновая)">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">1</span>Без отделки (черновая)</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">1</span>Без отделки (черновая)</h3>
                         <p class="text-gray-600 text-sm mb-3">Голые стены, стяжка, подведены коммуникации. Полный цикл: штукатурка, электрика, сантехника, чистовая отделка. Самый популярный формат.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
                     </a>
                     <a href="/services/white-box" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры White Box (предчистовая)">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">2</span>White Box (предчистовая)</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">2</span>White Box (предчистовая)</h3>
                         <p class="text-gray-600 text-sm mb-3">Стены оштукатурены, стяжка залита, разведена электрика и сантехника. Остаётся чистовая отделка: финишные покрытия, двери, сантехника, освещение.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
                     </a>
                     <a href="/services/predchistovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры с предчистовой отделкой">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">3</span>Предчистовая отделка</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">3</span>Предчистовая отделка</h3>
                         <p class="text-gray-600 text-sm mb-3">Стены оштукатурены, стяжка залита, электрика и сантехника разведена. Остаются финишные покрытия, двери, сантехника, освещение.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 10 000 ₽/м² под ключ</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">От 10 000 ₽/м² под ключ</p>
                     </a>
                     <a href="/services/chistovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт с чистовой отделкой от застройщика">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">4</span>Чистовая отделка от застройщика</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">4</span>Чистовая отделка от застройщика</h3>
                         <p class="text-gray-600 text-sm mb-3">Косметический ремонт: замена напольных покрытий, переклейка обоев, обновление сантехники и фурнитуры. Бюджетное преображение без перепланировок.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 5 000 ₽/м² — косметика, с материалами</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">От 5 000 ₽/м² — косметика, с материалами</p>
                     </a>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     <a href="/services/white-box" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="White Box отделка квартиры">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">5</span>White Box (детально)</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">5</span>White Box (детально)</h3>
                         <p class="text-gray-600 text-sm mb-3">Подробнее о формате White Box: что входит в комплект застройщика, какие работы остаются, как сэкономить на этапе черновика.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
                     </a>
                     <a href="/services/chernovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры с черновой отделкой">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">6</span>Черновая отделка (детально)</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">6</span>Черновая отделка (детально)</h3>
                         <p class="text-gray-600 text-sm mb-3">Что входит в понятие «черновая», какие работы за застройщиком, а какие — за подрядчиком. Сроки и этапы.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
                     </a>
                     <a href="/services/ot-zastroyschika" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Отделка квартир от застройщика">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">7</span>Отделка от застройщика</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">7</span>Отделка от застройщика</h3>
                         <p class="text-gray-600 text-sm mb-3">Разбор форматов: white box, предчистовая, чистовая. Что проверить при приёмке, какие дефекты частые, как защитить свои интересы.</p>
-                        <p class="text-orange-600 font-semibold text-sm">Бесплатно при заказе ремонта</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">Бесплатно при заказе ремонта</p>
                     </a>
                     <a href="/services/budushchiy-remont" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт к дате получения ключей">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">8</span>Ремонт к дате ключей</h3>
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-[#6d5744] font-bold text-sm">8</span>Ремонт к дате ключей</h3>
                         <p class="text-gray-600 text-sm mb-3">Планируем ремонт заранее: замер, смету, договор — пока ключей нет. В день получения — бригада уже на месте.</p>
-                        <p class="text-orange-600 font-semibold text-sm">Планирование без потери времени</p>
+                        <p class="text-[#6d5744] font-semibold text-sm">Планирование без потери времени</p>
                     </a>
                 </div>
-                <p class="mt-6 text-center text-[#4b5563]">Ключи только через несколько месяцев? <a href="/services/budushchiy-remont" class="text-orange-600 underline hover:text-orange-700 font-semibold">Узнайте стоимость ремонта уже сейчас</a> и спланируйте бюджет заранее.</p>
+                <p class="mt-6 text-center text-[#4b5563]">Ключи только через несколько месяцев? <a href="/services/budushchiy-remont" class="text-[#6d5744] underline hover:text-[#5c4a3a] font-semibold">Узнайте стоимость ремонта уже сейчас</a> и спланируйте бюджет заранее.</p>
             </div>
         </section>
 

@@ -118,7 +118,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                             <div class="mt-6">
                                 <a href="/calculator"
-                                    class="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-orange-500 text-white font-semibold shadow hover:bg-orange-600 transition">
+                                    class="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-[#876b55] text-white font-semibold shadow hover:bg-[#6d5744] transition">
                                     Рассчитать стоимость
                                 </a>
                             </div>
@@ -210,7 +210,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                         <?php endif; ?>
                                     </div>
                                     <button type="button" data-open-project="<?= htmlspecialchars($value['slug']) ?>"
-                                        class="text-orange-600 hover:text-orange-600 font-semibold inline-flex items-center gap-1">
+                                        class="text-[#6d5744] hover:text-[#6d5744] font-semibold inline-flex items-center gap-1">
                                         Смотреть проект
                                         <i class="fas fa-arrow-right text-xs"></i>
                                     </button>

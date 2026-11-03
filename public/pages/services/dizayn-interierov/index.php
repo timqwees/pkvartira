@@ -276,17 +276,17 @@ $prices = [
                     Стоимость дизайн проекта квартиры — от 1 500 ₽/м²
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость дизайн проекта квартиры зависит от площади и состава: эскизный, стандартный или полный с авторским надзором. Выберите подходящий пакет или <a href="/calculator" class="text-orange-600 underline hover:text-orange-700 font-semibold">посчитайте стоимость в калькуляторе за 1 минуту</a>. Точную стоимость рассчитаем после знакомства с объектом и вашими пожеланиями.
+                    Стоимость дизайн проекта квартиры зависит от площади и состава: эскизный, стандартный или полный с авторским надзором. Выберите подходящий пакет или <a href="/calculator" class="text-[#6d5744] underline hover:text-[#5c4a3a] font-semibold">посчитайте стоимость в калькуляторе за 1 минуту</a>. Точную стоимость рассчитаем после знакомства с объектом и вашими пожеланиями.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center items-start">
                     <?php foreach ($prices as $price): ?>
                         <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6 max-w-md w-full"
+                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-[#876b55] shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6 max-w-md w-full"
                             itemscope itemtype="https://schema.org/Service">
                             <meta itemprop="name" content="<?= htmlspecialchars($price['заголовок']); ?> дизайн интерьера">
                             <?php if (isset($price['бейдж'])): ?>
-                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
+                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#fef8f3] text-[#6d5744] border border-orange-200">
                                     <?= htmlspecialchars($price['бейдж']); ?>
                                 </div>
                             <?php endif; ?>
@@ -312,11 +312,11 @@ $prices = [
                                 <div class="mt-3 text-sm font-semibold text-gray-900"><?= htmlspecialchars($price['примечание']); ?></div>
                             <?php endif; ?>
                             <a href="tel:<?= $site['phone'] ?>"
-                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
+                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-[#876b55] hover:bg-[#6d5744] text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
                         </article>
                     <?php endforeach; ?>
                 </div>
-                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">цен на ремонт</a> или <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">посчитайте в калькуляторе</a>.</p>
+                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">посчитайте в калькуляторе</a>.</p>
             </div>
         </section>
 
@@ -329,42 +329,42 @@ $prices = [
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-pencil-ruler" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-pencil-ruler" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Замер и обмер</div>
                         <div class="text-sm text-gray-600 mt-1">Точные размеры всех помещений</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-drafting-compass" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-drafting-compass" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Планировка</div>
                         <div class="text-sm text-gray-600 mt-1">Оптимальная расстановка стен и мебели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-cube" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-cube" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">3D-визуализация</div>
                         <div class="text-sm text-gray-600 mt-1">Фотореалистичные картинки будущего интерьера</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Чертежи</div>
                         <div class="text-sm text-gray-600 mt-1">Полный комплект для бригады</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Подбор материалов</div>
                         <div class="text-sm text-gray-600 mt-1">Обои, плитка, напольные покрытия</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Мебель</div>
                         <div class="text-sm text-gray-600 mt-1">Подбор и расстановка мебели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Освещение</div>
                         <div class="text-sm text-gray-600 mt-1">Схема света и подбор светильников</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Авторский надзор</div>
                         <div class="text-sm text-gray-600 mt-1">Контроль на всех этапах ремонта</div>
                     </div>
@@ -377,7 +377,7 @@ $prices = [
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Как мы создаём дизайн интерьера:<br><span class="text-orange-600">5 шагов</span> к идеальному пространству
+                        Как мы создаём дизайн интерьера:<br><span class="text-[#6d5744]">5 шагов</span> к идеальному пространству
                     </h2>
                     <p class="text-xl text-gray-600">
                         От первого разговора до финальной расстановки мебели — прозрачный процесс
@@ -446,7 +446,7 @@ $prices = [
                         </div>
                         <div class="p-5">
                             <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                                <span class="px-2 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">Новостройка</span>
+                                <span class="px-2 py-1 bg-[#fef8f3] text-[#5c4a3a] rounded-full text-xs font-medium">Новостройка</span>
                                 <span>32 м²</span>
                             </div>
                             <h3 class="font-bold text-gray-900 mb-1">Новостройка, 32 м²</h3>
@@ -469,7 +469,7 @@ $prices = [
                         </div>
                         <div class="p-5">
                             <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                                <span class="px-2 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">Новостройка</span>
+                                <span class="px-2 py-1 bg-[#fef8f3] text-[#5c4a3a] rounded-full text-xs font-medium">Новостройка</span>
                                 <span>62 м²</span>
                             </div>
                             <h3 class="font-bold text-gray-900 mb-1">Новостройка, 62 м²</h3>
@@ -492,7 +492,7 @@ $prices = [
                         </div>
                         <div class="p-5">
                             <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                                <span class="px-2 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">Новостройка</span>
+                                <span class="px-2 py-1 bg-[#fef8f3] text-[#5c4a3a] rounded-full text-xs font-medium">Новостройка</span>
                                 <span>86 м²</span>
                             </div>
                             <h3 class="font-bold text-gray-900 mb-1">Капитальный ремонт, новостройка 86 м²</h3>
@@ -506,7 +506,7 @@ $prices = [
                 </div>
 
                 <div class="text-center mt-8">
-                    <a href="/portfolio" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 hover:underline">
+                    <a href="/portfolio" class="inline-flex items-center gap-2 text-[#6d5744] font-semibold hover:text-[#5c4a3a] hover:underline">
                         Все проекты в портфолио <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -521,19 +521,19 @@ $prices = [
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">35</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-[#6d5744]">35</div>
                         <div class="mt-1 text-sm text-gray-600">Отзывов со ссылками на источники</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-[#6d5744]">3</div>
                         <div class="mt-1 text-sm text-gray-600">Варианта сметы под бюджет</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3 года</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-[#6d5744]">3 года</div>
                         <div class="mt-1 text-sm text-gray-600">Гарантии на все работы</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">0 ₽</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-[#6d5744]">0 ₽</div>
                         <div class="mt-1 text-sm text-gray-600">Замер и смета — бесплатно</div>
                     </div>
                 </div>
@@ -558,7 +558,7 @@ $prices = [
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Стоимость дизайн проекта квартиры — от 1 500 ₽/м² (эскизный), от 2 200 ₽/м² (стандартный) и от 4 000 ₽/м² (авторский). Например, 1-комнатная 37 м² — от 55 500 ₽. <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">Посчитайте свой метраж в калькуляторе</a>.</span>
+                            <span itemprop="text">Стоимость дизайн проекта квартиры — от 1 500 ₽/м² (эскизный), от 2 200 ₽/м² (стандартный) и от 4 000 ₽/м² (авторский). Например, 1-комнатная 37 м² — от 55 500 ₽. <a href="/calculator" class="text-[#6d5744] underline hover:text-[#5c4a3a]">Посчитайте свой метраж в калькуляторе</a>.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"

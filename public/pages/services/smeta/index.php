@@ -57,9 +57,9 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
             <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Смета на ремонт квартиры</h1>
             <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Рассчитайте смету на ремонт квартиры онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера на замер.</p>
             <div class="mt-6 flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Калькулятор онлайн</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Точная смета бесплатно</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Расчёт за 30 минут</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Калькулятор онлайн</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Точная смета бесплатно</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Расчёт за 30 минут</div>
             </div>
         </div>
     </section>
@@ -71,19 +71,19 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                     <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Рассчитать смету на ремонт онлайн</h2>
                     <p class="mt-4 text-[#4b5563] leading-relaxed">Используйте наш онлайн-калькулятор для предварительного расчёта стоимости ремонта. Для точной сметы оставьте заявку — инженер приедет на бесплатный замер и подготовит детальную смету за 30 минут.</p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Онлайн-калькулятор на сайте</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Бесплатный выезд инженера</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Точная смета за 24 часа</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Фиксация стоимости в договоре</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Онлайн-калькулятор на сайте</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Бесплатный выезд инженера</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Точная смета за 24 часа</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Фиксация стоимости в договоре</li>
                     </ul>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
                     <h3 class="text-lg font-bold text-[#111827]">Что вы получите</h3>
                     <div class="mt-4 space-y-3">
-                        <div class="flex items-start gap-3 py-2 border-b border-gray-200"><span class="text-orange-500 mt-1">✓</span><span class="text-[#4b5563]">Детальную смету с перечнем работ</span></div>
-                        <div class="flex items-start gap-3 py-2 border-b border-gray-200"><span class="text-orange-500 mt-1">✓</span><span class="text-[#4b5563]">Расчёт стоимости материалов</span></div>
-                        <div class="flex items-start gap-3 py-2 border-b border-gray-200"><span class="text-orange-500 mt-1">✓</span><span class="text-[#4b5563]">Сроки выполнения работ</span></div>
-                        <div class="flex items-start gap-3 py-2"><span class="text-orange-500 mt-1">✓</span><span class="text-[#4b5563]">Рекомендации по материалам</span></div>
+                        <div class="flex items-start gap-3 py-2 border-b border-gray-200"><span class="text-[#876b55] mt-1">✓</span><span class="text-[#4b5563]">Детальную смету с перечнем работ</span></div>
+                        <div class="flex items-start gap-3 py-2 border-b border-gray-200"><span class="text-[#876b55] mt-1">✓</span><span class="text-[#4b5563]">Расчёт стоимости материалов</span></div>
+                        <div class="flex items-start gap-3 py-2 border-b border-gray-200"><span class="text-[#876b55] mt-1">✓</span><span class="text-[#4b5563]">Сроки выполнения работ</span></div>
+                        <div class="flex items-start gap-3 py-2"><span class="text-[#876b55] mt-1">✓</span><span class="text-[#4b5563]">Рекомендации по материалам</span></div>
                     </div>
                 </div>
             </div>
@@ -94,10 +94,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Как мы работаем</h2>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Заявка</h3><p class="mt-1 text-sm text-[#6b7280]">Оставьте заявку на сайте</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Выезд</h3><p class="mt-1 text-sm text-[#6b7280]">Инженер приедет на замер</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Смета</h3><p class="mt-1 text-sm text-[#6b7280]">Готовая смета за 24 часа</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Договор</h3><p class="mt-1 text-sm text-[#6b7280]">Фиксируем стоимость в договоре</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Заявка</h3><p class="mt-1 text-sm text-[#6b7280]">Оставьте заявку на сайте</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Выезд</h3><p class="mt-1 text-sm text-[#6b7280]">Инженер приедет на замер</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Смета</h3><p class="mt-1 text-sm text-[#6b7280]">Готовая смета за 24 часа</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Договор</h3><p class="mt-1 text-sm text-[#6b7280]">Фиксируем стоимость в договоре</p></div>
             </div>
         </div>
     </section>
@@ -107,25 +107,25 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
             <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Смета по типам объектов</h2>
             <p class="mt-3 text-center text-[#6b7280] max-w-2xl mx-auto">Выберите свой случай — внутри готовые ориентиры цен и ссылка на точный расчёт.</p>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="/services/1room" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                <a href="/services/1room" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-[#876b55] transition">
                     <div class="font-bold text-[#111827]">1-комнатная, 30–40 м²</div>
                     <p class="mt-2 text-sm text-[#6b7280]">Смета от 296 000 ₽. Три пакета: от 8 000 ₽/м².</p>
-                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Смотреть смету →</span>
+                    <span class="mt-3 inline-block text-sm font-semibold text-[#6d5744]">Смотреть смету →</span>
                 </a>
-                <a href="/services/novostroyka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                <a href="/services/novostroyka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-[#876b55] transition">
                     <div class="font-bold text-[#111827]">Новостройка</div>
                     <p class="mt-2 text-sm text-[#6b7280]">Без отделки, white box, чистовая. Что влияет на смету.</p>
-                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Смотреть смету →</span>
+                    <span class="mt-3 inline-block text-sm font-semibold text-[#6d5744]">Смотреть смету →</span>
                 </a>
-                <a href="/services/vtorichka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                <a href="/services/vtorichka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-[#876b55] transition">
                     <div class="font-bold text-[#111827]">Вторичка</div>
                     <p class="mt-2 text-sm text-gray-600">Демонтаж, замена коммуникаций. Честная смета без доплат.</p>
-                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Смотреть смету →</span>
+                    <span class="mt-3 inline-block text-sm font-semibold text-[#6d5744]">Смотреть смету →</span>
                 </a>
-                <a href="/calculator" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-orange-500 transition">
+                <a href="/calculator" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-[#876b55] transition">
                     <div class="font-bold text-[#111827]">Калькулятор</div>
                     <p class="mt-2 text-sm text-[#6b7280]">Предварительный расчёт за 5 минут под ваш метраж.</p>
-                    <span class="mt-3 inline-block text-sm font-semibold text-orange-600">Рассчитать →</span>
+                    <span class="mt-3 inline-block text-sm font-semibold text-[#6d5744]">Рассчитать →</span>
                 </a>
             </div>
         </div>
@@ -163,15 +163,15 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
             <div class="mt-4 flex flex-wrap justify-center gap-3">
-                <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт новостроек</a>
-                <a href="/services/vtorichka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Вторичное жильё</a>
-                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт под ключ</a>
-                <a href="/services/studio" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт студий</a>
-                <a href="/services/doma" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт домов</a>
-                <a href="/services/premium" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Премиум класс</a>
-                <a href="/services/econom" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Эконом класс</a>
-                <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Цены</a>
-                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Калькулятор</a>
+                <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт новостроек</a>
+                <a href="/services/vtorichka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Вторичное жильё</a>
+                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт под ключ</a>
+                <a href="/services/studio" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт студий</a>
+                <a href="/services/doma" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт домов</a>
+                <a href="/services/premium" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Премиум класс</a>
+                <a href="/services/econom" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Эконом класс</a>
+                <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Цены</a>
+                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Калькулятор</a>
             </div>
         </div>
     </section>

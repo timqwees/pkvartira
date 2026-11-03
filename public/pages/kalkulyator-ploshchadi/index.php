@@ -301,7 +301,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 </button>
                             </div>
                         </div>
-                        <button type="button" id="aptAddRoom" class="mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 dash border-gray-300 text-gray-500 hover:border-orange-300 hover:text-orange-500 transition text-sm font-semibold">
+                        <button type="button" id="aptAddRoom" class="mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 dash border-gray-300 text-gray-500 hover:border-orange-300 hover:text-[#876b55] transition text-sm font-semibold">
                             <i class="fas fa-plus"></i> Добавить помещение
                         </button>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -335,7 +335,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </div>
                         </div>
                         <a href="/calculator"
-                            class="mt-5 inline-flex items-center justify-center w-full sm:w-auto px-6 btn-pad rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold transition shadow-lg shadow-orange-500/25">
+                            class="mt-5 inline-flex items-center justify-center w-full sm:w-auto px-6 btn-pad rounded-xl bg-[#876b55] hover:bg-[#6d5744] text-white font-semibold transition shadow-lg shadow-orange-500/25">
                             <i class="fas fa-calculator mr-2"></i>
                             Получить точную смету бесплатно
                         </a>
@@ -350,15 +350,15 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <h2 class="text-2xl font-bold text-gray-900">Посчитали метраж? Выберите услугу</h2>
                 <p class="mt-2 text-gray-600">Площадь уже известна — дальше считаем стоимость ремонта под ваш тип квартиры.</p>
                 <div class="mt-5 flex flex-wrap gap-3">
-                    <a href="/services/studio" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт студии</a>
-                    <a href="/services/1room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 1-комнатной</a>
-                    <a href="/services/2room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 2-комнатной</a>
-                    <a href="/services/3room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 3-комнатной</a>
-                    <a href="/services/4room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт 4-комнатной</a>
-                    <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт в новостройке</a>
-                    <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Ремонт под ключ</a>
-                    <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Цены на ремонт</a>
-                    <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-orange-500 transition">Калькулятор сметы</a>
+                    <a href="/services/studio" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт студии</a>
+                    <a href="/services/1room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт 1-комнатной</a>
+                    <a href="/services/2room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт 2-комнатной</a>
+                    <a href="/services/3room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт 3-комнатной</a>
+                    <a href="/services/4room" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт 4-комнатной</a>
+                    <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт в новостройке</a>
+                    <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Ремонт под ключ</a>
+                    <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Цены на ремонт</a>
+                    <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-gray-700 hover:border-[#876b55] transition">Калькулятор сметы</a>
                 </div>
             </div>
         </section>
@@ -368,7 +368,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Формулы расчёта площади</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div class="bg-white rounded-xl border border-gray-200 p-6">
-                    <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mb-3">
                         <i class="fas fa-vector-square"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 mb-2">Пол / потолок</h3>
@@ -379,7 +379,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </p>
                 </div>
                 <div class="bg-white rounded-xl border border-gray-200 p-6">
-                    <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mb-3">
                         <i class="fas fa-ruler-combined"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 mb-2">Стены под обои</h3>
@@ -390,7 +390,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </p>
                 </div>
                 <div class="bg-white rounded-xl border border-gray-200 p-6">
-                    <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mb-3">
                         <i class="fas fa-home"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 mb-2">Площадь квартиры</h3>

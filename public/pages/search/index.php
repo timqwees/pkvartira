@@ -62,8 +62,8 @@ $seo = TheFunction::seo([
                 <input type="search" name="q" value="<?= htmlspecialchars($q); ?>" required minlength="2" maxlength="120"
                     placeholder="Например: дизайнерский ремонт, смета, вакансии…"
                     aria-label="Поисковый запрос"
-                    class="flex-1 px-4 py-3 border border-gray-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
-                <button type="submit" class="px-6 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">Найти</button>
+                    class="flex-1 px-4 py-3 border border-gray-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-[#876b55] focus:border-[#876b55]">
+                <button type="submit" class="px-6 py-3 rounded-xl bg-[#876b55] text-white font-semibold hover:bg-[#6d5744] transition">Найти</button>
             </form>
         </div>
     </section>
@@ -74,19 +74,19 @@ $seo = TheFunction::seo([
                 <p class="text-gray-600">Введите запрос — ищем по услугам, статьям блога, ценам, вакансиям и страницам сайта.</p>
                 <div class="mt-4 flex flex-wrap gap-2">
                     <?php foreach (['дизайнерский ремонт', 'смета', 'новостройка', 'вакансии', 'гарантия', 'калькулятор'] as $hint): ?>
-                        <a href="/search?q=<?= urlencode($hint); ?>" class="px-3 py-1.5 text-sm bg-gray-100 hover:bg-orange-100 hover:text-orange-700 rounded-full transition"><?= htmlspecialchars($hint); ?></a>
+                        <a href="/search?q=<?= urlencode($hint); ?>" class="px-3 py-1.5 text-sm bg-gray-100 hover:bg-orange-100 hover:text-[#5c4a3a] rounded-full transition"><?= htmlspecialchars($hint); ?></a>
                     <?php endforeach; ?>
                 </div>
             <?php elseif ($results === []): ?>
                 <h2 class="text-xl font-bold text-gray-900">По запросу «<?= htmlspecialchars($q); ?>» ничего не найдено</h2>
-                <p class="text-gray-600 mt-2">Попробуйте другие слова или позвоните нам: <a href="tel:<?= htmlspecialchars($site['phone']); ?>" class="text-orange-600 font-semibold hover:underline"><?= htmlspecialchars($site['phone']); ?></a></p>
+                <p class="text-gray-600 mt-2">Попробуйте другие слова или позвоните нам: <a href="tel:<?= htmlspecialchars($site['phone']); ?>" class="text-[#6d5744] font-semibold hover:underline"><?= htmlspecialchars($site['phone']); ?></a></p>
             <?php else: ?>
                 <h2 class="text-xl font-bold text-gray-900">Найдено: <?= count($results); ?> — «<?= htmlspecialchars($q); ?>»</h2>
                 <div class="mt-6 space-y-4">
                     <?php foreach ($results as $r): ?>
-                        <article class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                            <div class="text-xs font-semibold uppercase tracking-wide text-orange-600"><?= htmlspecialchars($r['section']); ?></div>
-                            <a href="<?= htmlspecialchars(preg_replace('~^https?://[^/]+~', '', $r['url'])); ?>" class="mt-1 block text-lg font-bold text-gray-900 hover:text-orange-600 transition"><?= htmlspecialchars($r['title']); ?></a>
+                        <article class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                            <div class="text-xs font-semibold uppercase tracking-wide text-[#6d5744]"><?= htmlspecialchars($r['section']); ?></div>
+                            <a href="<?= htmlspecialchars(preg_replace('~^https?://[^/]+~', '', $r['url'])); ?>" class="mt-1 block text-lg font-bold text-gray-900 hover:text-[#6d5744] transition"><?= htmlspecialchars($r['title']); ?></a>
                             <?php if (!empty($r['snippet'])): ?>
                                 <p class="mt-1 text-sm text-gray-600"><?= htmlspecialchars($r['snippet']); ?></p>
                             <?php endif; ?>

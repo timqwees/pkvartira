@@ -107,12 +107,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm hover:shadow-lg transition">
                     <div class="flex items-start gap-4">
                         <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-gift text-2xl text-orange-500"></i>
+                            <i class="fas fa-gift text-2xl text-[#876b55]"></i>
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-gray-900 mb-2">Бесплатный дизайн-проект</h2>
                             <p class="text-gray-600 mb-4">При заказе ремонта под ключ — полный дизайн-проект с 3D-визуализацией в подарок (ценность до 50 000 ₽).</p>
-                            <a href="/contact" class="text-orange-600 font-semibold hover:underline">Узнать условия <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="/contact" class="text-[#6d5744] font-semibold hover:underline">Узнать условия <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>

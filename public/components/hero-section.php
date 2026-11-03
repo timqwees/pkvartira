@@ -74,10 +74,10 @@ if (preg_match('/от\s+[\d\s]+₽(?:\/м²)?/u', $heroTail, $pm)) {
 
                 <div class="flex flex-wrap gap-3">
                   <div class="mt-8 flex flex-col sm:flex-row gap-3 items-center">
-                      <button data-button-dialog
-                          class="cta-button bg-white hover:bg-orange-500 text-black px-6 py-3 rounded-full font-semibold transition">
-                          <?= htmlspecialchars($heroCtaText); ?>
-                      </button>
+<button data-button-dialog
+    class="cta-button bg-white hover:bg-[#fef8f3] text-[#876b55] px-6 py-3 rounded-full font-semibold transition">
+    <?= htmlspecialchars($heroCtaText); ?>
+</button>
                       <->
                       <a href="#price"
                           class="cta-button border border-orange-400/30 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-semibold transition text-center">

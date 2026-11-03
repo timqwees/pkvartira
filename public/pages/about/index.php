@@ -150,37 +150,37 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <div class="w-fit grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-600"></i>
+                                        <i class="fas fa-check-circle text-[#6d5744]"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">ООО «Проект Квартира» — работаем по договору</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-600"></i>
+                                        <i class="fas fa-check-circle text-[#6d5744]"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Закупка и доставка материалов — на нас</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-600"></i>
+                                        <i class="fas fa-check-circle text-[#6d5744]"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Узкие специалисты: электрик, сантехник, плиточник</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-600"></i>
+                                        <i class="fas fa-check-circle text-[#6d5744]"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Ежедневные фотоотчёты с объекта</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-600"></i>
+                                        <i class="fas fa-check-circle text-[#6d5744]"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Фиксированные цены</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="check-icon-small">
-                                        <i class="fas fa-check-circle text-orange-600"></i>
+                                        <i class="fas fa-check-circle text-[#6d5744]"></i>
                                     </div>
                                     <span class="text-sm text-gray-700">Без скрытых платежей</span>
                                 </div>
@@ -190,7 +190,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <!-- Right: Button -->
                         <div class="w-full md:w-1/3 flex justify-start mt-4 md:mt-auto md:justify-end">
                             <a href="tel:<?= $site['phone']; ?>"
-                                class="bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition inline-flex items-center justify-center gap-2">
+                                class="bg-[#876b55] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#6d5744] transition inline-flex items-center justify-center gap-2">
                                 Получить консультацию
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -363,31 +363,31 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-check-circle text-[#6d5744]"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Честный текст договора</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-check-circle text-[#6d5744]"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Договор и смета</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-check-circle text-[#6d5744]"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Заявление об учете и актах</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-check-circle text-[#6d5744]"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">ИНН / ОГРН</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-check-circle text-[#6d5744]"></i>
                                 </div>
                                 <span class="text-sm text-gray-700">Гарантийные обязательства</span>
                             </div>
@@ -455,17 +455,17 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
-                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-handshake text-orange-600 text-2xl"></i></div>
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-handshake text-[#6d5744] text-2xl"></i></div>
                         <h3 class="text-xl font-heading font-bold mb-3">Подрядчик на ремонт квартиры</h3>
                         <p class="text-gray-600">Выступаем генеральным подрядчиком: сами нанимаем бригады, закупаем материалы и контролируем качество на каждом этапе. Вам не нужно искать мастеров по отделке квартир — мы берём всё на себя.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
-                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-trophy text-orange-600 text-2xl"></i></div>
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-trophy text-[#6d5744] text-2xl"></i></div>
                         <h3 class="text-xl font-heading font-bold mb-3">Отзывы со ссылками на источники</h3>
                         <p class="text-gray-600">Работаем по договору: фиксированная смета, поэтапная оплата, гарантия 3 года. Каждый объект ведём открыто: фотоотчёты, смета в договоре. Отзывы — только со ссылками на источники.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
-                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-file-signature text-orange-600 text-2xl"></i></div>
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-file-signature text-[#6d5744] text-2xl"></i></div>
                         <h3 class="text-xl font-heading font-bold mb-3">Работаем по договору</h3>
                         <p class="text-gray-600">Прозрачный договор, фиксированная смета без накруток, поэтапная оплата. Даём чек и гарантию 3 года на все виды ремонтно-отделочных работ. Нанять бригаду — доверить профессионалам.</p>
                     </div>

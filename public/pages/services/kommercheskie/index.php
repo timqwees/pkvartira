@@ -270,13 +270,13 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <?php foreach ($prices as $price): ?>
                         <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
+                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-[#876b55] shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
                             itemscope itemtype="https://schema.org/Service">
                             <meta itemprop="name"
                                 content="<?= htmlspecialchars($price['заголовок']); ?> ремонт коммерческого помещения">
                             <?php if (isset($price['бейдж'])): ?>
                                 <div
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#fef8f3] text-[#6d5744] border border-orange-200">
                                     <?= htmlspecialchars($price['бейдж']); ?>
                                 </div>
                             <?php endif; ?>
@@ -299,11 +299,11 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                 <?php endforeach; ?>
                             </ul>
                             <a href="tel:<?= $site['phone'] ?>"
-                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
+                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-[#876b55] hover:bg-[#6d5744] text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
                         </article>
                     <?php endforeach; ?>
                 </div>
-                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">цен на ремонт</a> или <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">посчитайте в калькуляторе</a>.</p>
+                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">посчитайте в калькуляторе</a>.</p>
             </div>
         </section>
 
@@ -316,47 +316,47 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-screwdriver-wrench"
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-screwdriver-wrench"
                                 aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Демонтаж</div>
                         <div class="text-sm text-gray-600 mt-1">Подготовительные работы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Электрика</div>
                         <div class="text-sm text-gray-600 mt-1">Проводка и щит</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Сантехника</div>
                         <div class="text-sm text-gray-600 mt-1">Разводка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Отделка</div>
                         <div class="text-sm text-gray-600 mt-1">Стены, пол, потолок</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Двери</div>
                         <div class="text-sm text-gray-600 mt-1">Монтаж и доборы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Освещение</div>
                         <div class="text-sm text-gray-600 mt-1">Светильники и выключатели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Мебель</div>
                         <div class="text-sm text-gray-600 mt-1">Сборка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Уборка</div>
                         <div class="text-sm text-gray-600 mt-1">После работ</div>
                     </div>
@@ -369,7 +369,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Ваш путь кльному ремонту:<br><span class="text-orange-600">6 шагов</span> до новоселья
+                        Ваш путь кльному ремонту:<br><span class="text-[#6d5744]">6 шагов</span> до новоселья
                     </h2>
                     <p class="text-xl text-gray-600">
                         Мы выстроили систему так, чтобы вы не тратили время на контроль и закупки
@@ -574,14 +574,14 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Специализируемся на отделке коммерческой недвижимости. Учитываем специфику бизнеса, нормы СНиП, пожарную безопасность и санэпидемтребования.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-briefcase text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Офисы под ключ</h3><p class="text-gray-500 text-xs">Open space, кабинеты, переговорные, ресепшн</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-store text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Магазины и бутики</h3><p class="text-gray-500 text-xs">Торговые залы, витрины, примерочные, склад</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-utensils text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Кафе и рестораны</h3><p class="text-gray-500 text-xs">Залы, барные стойки, кухня, санузлы для посетителей</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-dumbbell text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Фитнес-центры</h3><p class="text-gray-500 text-xs">Залы, раздевалки, душевые, сауны, зона ресепшн</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-spa text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Салоны красоты</h3><p class="text-gray-500 text-xs">Парикмахерские, косметология, маникюр, зона ожидания</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tooth text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Стоматологии</h3><p class="text-gray-500 text-xs">Кабинеты, рентген, стерилизация, санузлы, зона ожидания</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tablets text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Аптеки</h3><p class="text-gray-500 text-xs">Торговый зал, подсобные, хранение, зона приёма товара</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-child text-orange-600 text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Детские центры</h3><p class="text-gray-500 text-xs">Игровые, учебные классы, санузлы, зона родителей</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-briefcase text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Офисы под ключ</h3><p class="text-gray-500 text-xs">Open space, кабинеты, переговорные, ресепшн</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-store text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Магазины и бутики</h3><p class="text-gray-500 text-xs">Торговые залы, витрины, примерочные, склад</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-utensils text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Кафе и рестораны</h3><p class="text-gray-500 text-xs">Залы, барные стойки, кухня, санузлы для посетителей</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-dumbbell text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Фитнес-центры</h3><p class="text-gray-500 text-xs">Залы, раздевалки, душевые, сауны, зона ресепшн</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-spa text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Салоны красоты</h3><p class="text-gray-500 text-xs">Парикмахерские, косметология, маникюр, зона ожидания</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tooth text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Стоматологии</h3><p class="text-gray-500 text-xs">Кабинеты, рентген, стерилизация, санузлы, зона ожидания</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tablets text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Аптеки</h3><p class="text-gray-500 text-xs">Торговый зал, подсобные, хранение, зона приёма товара</p></div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-child text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Детские центры</h3><p class="text-gray-500 text-xs">Игровые, учебные классы, санузлы, зона родителей</p></div>
                 </div>
             </div>
         </section>

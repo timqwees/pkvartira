@@ -179,7 +179,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <p class="text-sm text-gray-500 mt-1"><?= $totalReviews ?> реальных отзывов · рейтинг <?= $avgRatingStr ?></p>
                         </div>
                         <div class="flex-shrink-0 relative" id="reviewBtnWrap">
-                            <button id="reviewBtn" type="button" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-md shadow-orange-500/25 transition-all duration-200 hover:shadow-orange-500/40">
+                            <button id="reviewBtn" type="button" class="inline-flex items-center gap-2 bg-[#876b55] hover:bg-[#6d5744] text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-md shadow-orange-500/25 transition-all duration-200 hover:shadow-orange-500/40">
                                 <i class="fas fa-pen text-xs"></i> Написать отзыв
                             </button>
                             <div id="reviewDropdown" class="hidden absolute right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50" style="min-width:380px">
@@ -320,7 +320,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
                     <div>
                         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border mb-6" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.10);color:#fb923c">
-                            <span class="rounded-full bg-orange-500" style="width:8px;height:8px;box-shadow:0 0 0 6px rgba(249,115,22,.15)"></span>
+                            <span class="rounded-full bg-[#876b55]" style="width:8px;height:8px;box-shadow:0 0 0 6px rgba(249,115,22,.15)"></span>
                             Бесплатный выезд сметчика сегодня
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4" style="color:#fff">
@@ -375,7 +375,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <!-- Mobile glass bar -->
     <div class="mobile-review-bar md:hidden" id="mobileBar">
         <span>Оставьте отзыв</span>
-        <button id="mobileReviewBtn" type="button" class="bg-white text-orange-600 text-[14px] font-semibold px-5 py-2.5 rounded-full">Написать</button>
+        <button id="mobileReviewBtn" type="button" class="bg-white text-[#6d5744] text-[14px] font-semibold px-5 py-2.5 rounded-full">Написать</button>
     </div>
     <div id="mobileDropdown" class="hidden fixed inset-0 z-50">
         <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" id="mobileOverlay"></div>

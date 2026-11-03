@@ -78,7 +78,7 @@ $seo = TheFunction::seo([
             <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">Услуги по ремонту квартир и домов</h1>
             <p class="mt-3 text-gray-600 max-w-3xl">Выберите нужный раздел — фиксированная цена в договоре, гарантия 3 года, бесплатный замер и смета за 24 часа. Работаем по Москве и Московской области.</p>
             <div class="mt-6 flex flex-wrap gap-3">
-                <a href="/calculator" class="inline-flex items-center px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">Рассчитать стоимость</a>
+                <a href="/calculator" class="inline-flex items-center px-6 py-3 rounded-lg bg-[#876b55] text-white font-semibold hover:bg-[#6d5744] transition">Рассчитать стоимость</a>
                 <a href="tel:<?= htmlspecialchars($site['phone']); ?>" class="inline-flex items-center px-6 py-3 rounded-lg bg-white border border-gray-300 font-semibold hover:bg-gray-50 transition">Позвонить <?= htmlspecialchars($site['phone']); ?></a>
             </div>
         </div>
@@ -90,10 +90,10 @@ $seo = TheFunction::seo([
             <p class="text-sm text-gray-500 mt-1">Всего услуг: <?= count($all); ?>. Выберите интересующее направление.</p>
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <?php foreach ($all as $svc): ?>
-                    <a href="/services/<?= htmlspecialchars($svc['slug']); ?>" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <div class="text-sm font-semibold text-gray-900 group-hover:text-orange-600 transition"><?= htmlspecialchars($svc['title']); ?></div>
+                    <a href="/services/<?= htmlspecialchars($svc['slug']); ?>" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <div class="text-sm font-semibold text-gray-900 group-hover:text-[#6d5744] transition"><?= htmlspecialchars($svc['title']); ?></div>
                         <div class="text-xs text-gray-500 mt-1">/services/<?= htmlspecialchars($svc['slug']); ?></div>
-                        <div class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-orange-600">Перейти <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        <div class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#6d5744]">Перейти <i class="fa-solid fa-arrow-right text-xs"></i></div>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -120,31 +120,31 @@ $seo = TheFunction::seo([
                         <li><a href="/services/chernovaya" class="text-purple-700 hover:underline">Черновая отделка</a></li>
                     </ul>
                 </div>
-                <div class="bg-orange-50 border border-orange-100 rounded-xl p-6">
+                <div class="bg-[#fef8f3] border border-orange-100 rounded-xl p-6">
                     <div class="font-bold text-gray-900">По площади и типу</div>
                     <ul class="mt-3 space-y-1 text-sm">
-                        <li><a href="/services/1room" class="text-orange-700 hover:underline">1-комнатные</a></li>
-                        <li><a href="/services/2room" class="text-orange-700 hover:underline">2-комнатные</a></li>
-                        <li><a href="/services/3room" class="text-orange-700 hover:underline">3-комнатные</a></li>
-                        <li><a href="/services/4room" class="text-orange-700 hover:underline">4-комнатные</a></li>
-                        <li><a href="/services/evro-dvushka" class="text-orange-700 hover:underline">Евродвушка</a></li>
-                        <li><a href="/services/evro-treshka" class="text-orange-700 hover:underline">Евротрешка</a></li>
+                        <li><a href="/services/1room" class="text-[#5c4a3a] hover:underline">1-комнатные</a></li>
+                        <li><a href="/services/2room" class="text-[#5c4a3a] hover:underline">2-комнатные</a></li>
+                        <li><a href="/services/3room" class="text-[#5c4a3a] hover:underline">3-комнатные</a></li>
+                        <li><a href="/services/4room" class="text-[#5c4a3a] hover:underline">4-комнатные</a></li>
+                        <li><a href="/services/evro-dvushka" class="text-[#5c4a3a] hover:underline">Евродвушка</a></li>
+                        <li><a href="/services/evro-treshka" class="text-[#5c4a3a] hover:underline">Евротрешка</a></li>
                     </ul>
                 </div>
                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
                     <div class="font-bold text-gray-900">Популярные районы</div>
                     <ul class="mt-3 space-y-1 text-sm grid grid-cols-2 gap-x-4">
-                        <li><a href="/services/mitino" class="text-gray-700 hover:text-orange-600">Митино</a></li>
-                        <li><a href="/services/khimki" class="text-gray-700 hover:text-orange-600">Химки</a></li>
-                        <li><a href="/services/odintsovo" class="text-gray-700 hover:text-orange-600">Одинцово</a></li>
-                        <li><a href="/services/krasnogorsk" class="text-gray-700 hover:text-orange-600">Красногорск</a></li>
-                        <li><a href="/services/lyubertsy" class="text-gray-700 hover:text-orange-600">Люберцы</a></li>
-                        <li><a href="/services/balashikha" class="text-gray-700 hover:text-orange-600">Балашиха</a></li>
-                        <li><a href="/services/mytishchi" class="text-gray-700 hover:text-orange-600">Мытищи</a></li>
-                        <li><a href="/services/podolsk" class="text-gray-700 hover:text-orange-600">Подольск</a></li>
+                        <li><a href="/services/mitino" class="text-gray-700 hover:text-[#6d5744]">Митино</a></li>
+                        <li><a href="/services/khimki" class="text-gray-700 hover:text-[#6d5744]">Химки</a></li>
+                        <li><a href="/services/odintsovo" class="text-gray-700 hover:text-[#6d5744]">Одинцово</a></li>
+                        <li><a href="/services/krasnogorsk" class="text-gray-700 hover:text-[#6d5744]">Красногорск</a></li>
+                        <li><a href="/services/lyubertsy" class="text-gray-700 hover:text-[#6d5744]">Люберцы</a></li>
+                        <li><a href="/services/balashikha" class="text-gray-700 hover:text-[#6d5744]">Балашиха</a></li>
+                        <li><a href="/services/mytishchi" class="text-gray-700 hover:text-[#6d5744]">Мытищи</a></li>
+                        <li><a href="/services/podolsk" class="text-gray-700 hover:text-[#6d5744]">Подольск</a></li>
                     </ul>
                     <p class="mt-3 text-xs text-gray-500">Также работаем: Савёловский, Тверской, Таганский, Крылатское, Раменки, Косино-Ухтомский, Бирюлёво Восточное, Текстильщики, Люблино, Внуковское.</p>
-                    <a href="#all" onclick="window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); return false;" class="mt-4 inline-block text-sm text-orange-600 font-medium hover:underline">Показать все районы →</a>
+                    <a href="#all" onclick="window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); return false;" class="mt-4 inline-block text-sm text-[#6d5744] font-medium hover:underline">Показать все районы →</a>
                 </div>
             </div>
         </div>

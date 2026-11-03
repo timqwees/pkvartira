@@ -92,27 +92,27 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
                     <div class="md:w-2/3 text-center md:text-left">
                         <h1 class="text-3xl md:text-4xl font-extrabold text-[#1f2937]">Елена</h1>
-                        <p class="mt-2 text-xl text-orange-600 font-semibold">Основатель и CEO Проект Квартира</p>
+                        <p class="mt-2 text-xl text-[#6d5744] font-semibold">Основатель и CEO Проект Квартира</p>
                         <p class="mt-4 text-gray-600 leading-relaxed">
                             Более 10 лет опыта в ремонте квартир под ключ в Москве. За это время компания выполнила сотни проектов — от студий до элитных пентхаусов.
                             Главный принцип: честная смета, фиксированная цена в договоре, ежедневные фотоотчёты, гарантия 3 года.
                         </p>
                         <div class="mt-6 grid grid-cols-3 gap-4 text-center md:text-left">
                             <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-2xl font-extrabold text-orange-600">10+</div>
+                                <div class="text-2xl font-extrabold text-[#6d5744]">10+</div>
                                 <div class="text-sm text-gray-600">лет опыта</div>
                             </div>
                             <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-2xl font-extrabold text-orange-600">35</div>
+                                <div class="text-2xl font-extrabold text-[#6d5744]">35</div>
                                 <div class="text-sm text-gray-600">отзывов клиентов</div>
                             </div>
                             <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-2xl font-extrabold text-orange-600">3</div>
+                                <div class="text-2xl font-extrabold text-[#6d5744]">3</div>
                                 <div class="text-sm text-gray-600">года гарантии</div>
                             </div>
                         </div>
                         <div class="mt-8 flex flex-col md:flex-row gap-3 justify-center md:justify-start">
-                            <a href="tel:<?= $site['phone']; ?>" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                            <a href="tel:<?= $site['phone']; ?>" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#876b55] text-white font-semibold hover:bg-[#6d5744] transition">
                                 <i class="fas fa-phone mr-2"></i> Связаться
                             </a>
                             <a href="/calculator" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white border border-gray-300 font-semibold hover:bg-gray-50 transition">
@@ -128,29 +128,29 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <div class="container mx-auto px-4 max-w-4xl">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-[#1f2937] text-center mb-10">Экспертиза и статьи</h2>
                 <div class="space-y-4">
-                    <a href="/blog/smeta-na-remont-kvartiry-primer" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
+                    <a href="/blog/smeta-na-remont-kvartiry-primer" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
                         <h3 class="font-bold text-gray-900">Смета в ремонте — что это простыми словами</h3>
                         <p class="mt-1 text-sm text-gray-600">Состав сметы, пример на 60 м², как проверить за 10 минут</p>
                     </a>
-                    <a href="/blog/smeta-na-remont-kvartiry-nakrutki" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
+                    <a href="/blog/smeta-na-remont-kvartiry-nakrutki" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
                         <h3 class="font-bold text-gray-900">Смета на ремонт: 12 скрытых накруток</h3>
                         <p class="mt-1 text-sm text-gray-600">Как читать смету и не переплатить подрядчику</p>
                     </a>
-                    <a href="/blog/skolko-stoit-remont-kvartiry-2026" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
+                    <a href="/blog/skolko-stoit-remont-kvartiry-2026" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
                         <h3 class="font-bold text-gray-900">Сколько стоит ремонт в Москве в 2026</h3>
                         <p class="mt-1 text-sm text-gray-600">Цены за м² и таблица по площадям 30–120 м²</p>
                     </a>
-                    <a href="/blog/remont-kvartiry-s-chego-nachat" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
+                    <a href="/blog/remont-kvartiry-s-chego-nachat" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
                         <h3 class="font-bold text-gray-900">С чего начать ремонт квартиры в 2026</h3>
                         <p class="mt-1 text-sm text-gray-600">Пошаговый план от замеров до финальной отделки</p>
                     </a>
-                    <a href="/blog/pereplanirovka-kuhni-gostinoy" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
+                    <a href="/blog/pereplanirovka-kuhni-gostinoy" class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
                         <h3 class="font-bold text-gray-900">Перепланировка 2026: кухня-гостиная и мастер-спальня</h3>
                         <p class="mt-1 text-sm text-gray-600">Законное объединение, согласование в Мосжилинспекции</p>
                     </a>
                 </div>
                 <div class="mt-6 text-center">
-                    <a href="/blogs" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 hover:underline">
+                    <a href="/blogs" class="inline-flex items-center gap-2 text-[#6d5744] font-semibold hover:text-[#5c4a3a] hover:underline">
                         Все статьи автора <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -164,7 +164,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <p class="text-xl text-gray-700 italic mb-4">«Главный страх был, что цена в процессе вырастет в два раза. Но ребята из Проект Квартира молодцы — как в смете прописали сумму, так она и осталась до конца.»</p>
                     <p class="font-semibold text-gray-900">— Александр В., ЖК «Сердце Столицы»</p>
                     <div class="mt-4 flex justify-center gap-2">
-                        <a href="/reviews" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                        <a href="/reviews" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#876b55] text-white font-semibold hover:bg-[#6d5744] transition">
                             Все 35 отзывов
                         </a>
                     </div>
@@ -172,12 +172,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
 
-        <section class="py-16 bg-orange-50 reveal">
+        <section class="py-16 bg-[#fef8f3] reveal">
             <div class="container mx-auto px-4 max-w-4xl text-center">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-[#1f2937] mb-4">Нужен экспертный взгляд на ваш ремонт?</h2>
                 <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Получите бесплатную консультацию и расчёт стоимости от команды Проект Квартира. Приедем на замер, составим смету в 3 вариантах и ответим на все вопросы.</p>
                 <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="/calculator" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-orange-500 text-white font-extrabold hover:bg-orange-600 transition">
+                    <a href="/calculator" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#876b55] text-white font-extrabold hover:bg-[#6d5744] transition">
                         Рассчитать стоимость
                     </a>
                     <a href="tel:<?= $site['phone']; ?>" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white border border-gray-300 font-extrabold hover:bg-gray-50 transition">

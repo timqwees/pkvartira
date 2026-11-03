@@ -88,7 +88,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <?= htmlspecialchars($site['description']); ?>
                             </p>
                             <a href="tel:<?= $site['phone']; ?>"
-                                class="cta-button bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition">
+                                class="cta-button bg-[#876b55] text-white px-6 py-3 rounded-lg hover:bg-[#6d5744] transition">
                                 Записаться на визит
                             </a>
                         </div>
@@ -230,10 +230,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             конфиденциальности</a>
                                     </label>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-[#876b55] shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <button type="submit"
-                                    class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+                                    class="w-full bg-[#876b55] text-white py-3 rounded-lg font-semibold hover:bg-[#6d5744] transition">
                                     Отправить заявку
                                 </button>
                             </form>
@@ -275,7 +275,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="tel:<?= $site['phone']; ?>"
-                        class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition">
+                        class="bg-[#876b55] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#6d5744] transition">
                         <i class="fas fa-phone mr-2"></i>
                         Позвонить нам
                     </a>

@@ -234,19 +234,19 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer hover:border-orange-400 transition">
                                             <input required type="radio" name="Какой ремонт планируете?"
-                                                value="Косметический" class="accent-orange-500">
+                                                value="Косметический" class="accent-[#876b55]">
                                             <span class="text-[12px] font-semibold text-gray-800">Косметический</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer hover:border-orange-400 transition">
                                             <input required type="radio" name="Какой ремонт планируете?"
-                                                value="Капитальный" class="accent-orange-500">
+                                                value="Капитальный" class="accent-[#876b55]">
                                             <span class="text-[12px] font-semibold text-gray-800">Капитальный</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer hover:border-orange-400 transition">
                                             <input required type="radio" name="Какой ремонт планируете?"
-                                                value="Дизайнерский" class="accent-orange-500">
+                                                value="Дизайнерский" class="accent-[#876b55]">
                                             <span class="text-[12px] font-semibold text-gray-800">Дизайнерский</span>
                                         </label>
                                     </div>
@@ -265,7 +265,7 @@
                                         </div>
                                         <input required id="RangeSize2" name="Какая площадь квартиры?" type="range"
                                             min="20" max="300" value="60" aria-label="Площадь квартиры"
-                                            class="w-full accent-orange-500 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                            class="w-full accent-[#876b55] h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                                     </div>
                                 </div>
                                 <hr>
@@ -274,7 +274,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">3. В каком состоянии
                                         квартира?<span class="ml-1 text-red-400">*</span></div>
                                     <select required name="В каком состоянии квартира?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Состояние квартиры (новостройка)">
                                         <option value="">Выберите</option>
                                         <option value="Сдана без отделки">Сдана без отделки</option>
@@ -291,7 +291,7 @@
                                         покрытие
                                     </div>
                                     <select name="Выберите наполненное покрытие"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Напольное покрытие">
                                         <option value="">Выберите</option>
                                         <option value="Ламинат">Ламинат</option>
@@ -309,7 +309,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">5. Какой нуже потолок?
                                     </div>
                                     <select name="Какой нуже потолок?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Тип потолка (новостройка)">
                                         <option value="">Выберите</option>
                                         <option value="Покраска">Покраска</option>
@@ -327,25 +327,25 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?"
-                                                value="Электрика" class="accent-orange-500 w-4 h-4">
+                                                value="Электрика" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Электрика</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?2"
-                                                value="Сантехника" class="accent-orange-500 w-4 h-4">
+                                                value="Сантехника" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Сантехника</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?3"
-                                                value="Теплый пол" class="accent-orange-500 w-4 h-4">
+                                                value="Теплый пол" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Теплый пол</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?4"
-                                                value="Вентиляция" class="accent-orange-500 w-4 h-4">
+                                                value="Вентиляция" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Вентиляция</span>
                                         </label>
                                     </div>
@@ -359,20 +359,20 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы"
-                                                value="Разработка дизайн-проекта" class="accent-orange-500 w-4 h-4">
+                                                value="Разработка дизайн-проекта" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Разработка дизайн-проекта</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы2"
                                                 value="Производство кухонного гарнтира"
-                                                class="accent-orange-500 w-4 h-4">
+                                                class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Производство кухонного гарнтира</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы3"
-                                                value="Согласование перепланировки" class="accent-orange-500 w-4 h-4">
+                                                value="Согласование перепланировки" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Согласование перепланировки</span>
                                         </label>
                                     </div>
@@ -386,13 +386,13 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="radio" name="Купить и доставить материалы под ключ?" value="Да"
-                                                class="accent-orange-500">
+                                                class="accent-[#876b55]">
                                             <span class="text-[12px]">Да</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="radio" name="Купить и доставить материалы под ключ?"
-                                                value="Нет" class="accent-orange-500">
+                                                value="Нет" class="accent-[#876b55]">
                                             <span class="text-[12px]">Нет</span>
                                         </label>
                                     </div>
@@ -403,7 +403,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">9. Когда начать ремонт?<span
                                             class="ml-1 text-red-400">*</span></div>
                                     <select required name="Когда начать ремонт?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Когда начать ремонт (новостройка)">
                                         <option value="">Выберите</option>
                                         <option value="В течение месяца">В течение месяца</option>
@@ -419,15 +419,15 @@
                                                 class="ml-1 text-red-400">*</span></div>
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                             <input name="имя" type="text" placeholder="Ваше имя" required aria-label="Ваше имя"
-                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]" />
                                             <input name="телефон" data-type-phone type="tel"
                                                 pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
                                                 placeholder="(___) ___-__-__" required aria-label="Телефон"
-                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]" />
                                         </div>
                                     </div>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-[#876b55] shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <!-- Кнопка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 pt-2">
@@ -452,19 +452,19 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer hover:border-orange-400 transition">
                                             <input required type="radio" name="Какой ремонт планируете?"
-                                                value="Косметический" class="accent-orange-500">
+                                                value="Косметический" class="accent-[#876b55]">
                                             <span class="text-[12px] font-semibold text-gray-800">Косметический</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer hover:border-orange-400 transition">
                                             <input required type="radio" name="Какой ремонт планируете?"
-                                                value="Капитальный" class="accent-orange-500">
+                                                value="Капитальный" class="accent-[#876b55]">
                                             <span class="text-[12px] font-semibold text-gray-800">Капитальный</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer hover:border-orange-400 transition">
                                             <input required type="radio" name="Какой ремонт планируете?"
-                                                value="Дизайнерский" class="accent-orange-500">
+                                                value="Дизайнерский" class="accent-[#876b55]">
                                             <span class="text-[12px] font-semibold text-gray-800">Дизайнерский</span>
                                         </label>
                                     </div>
@@ -483,7 +483,7 @@
                                         </div>
                                         <input required id="RangeSize2V" name="Какая площадь квартиры?" type="range"
                                             min="20" max="300" value="60" aria-label="Площадь квартиры (вторичка)"
-                                            class="w-full accent-orange-500 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                            class="w-full accent-[#876b55] h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                                     </div>
                                 </div>
                                 <hr>
@@ -492,7 +492,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">3. В каком состоянии
                                         квартира?<span class="ml-1 text-red-400">*</span></div>
                                     <select required name="В каком состоянии квартира?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Состояние квартиры (вторичка)">
                                         <option value="">Выберите</option>
                                         <option value="Жилое состояние">Жилое состояние</option>
@@ -507,7 +507,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">4. Какой тип вашего дома?
                                     </div>
                                     <select name="Какой тип вашего дома?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Тип дома">
                                         <option value="">Выберите</option>
                                         <option value="Панельный">Панельный</option>
@@ -523,7 +523,7 @@
                                         покрытие
                                     </div>
                                     <select name="Наполненное покрытие"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Напольное покрытие (вторичка)">
                                         <option value="">Выберите</option>
                                         <option value="Ламинат">Ламинат</option>
@@ -539,7 +539,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">6. Какой нуже потолок?
                                     </div>
                                     <select name="Какой нуже потолок?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Тип потолка (вторичка)">
                                         <option value="">Выберите</option>
                                         <option value="Покраска">Покраска</option>
@@ -557,19 +557,19 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?"
-                                                value="Замена окон" class="accent-orange-500 w-4 h-4">
+                                                value="Замена окон" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Замена окон</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?2"
-                                                value="Замена дверей" class="accent-orange-500 w-4 h-4">
+                                                value="Замена дверей" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Замена дверей</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Какие инженерные сети сделать?3"
-                                                value="Замена радиаторов отопления" class="accent-orange-500 w-4 h-4">
+                                                value="Замена радиаторов отопления" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Замена радиаторов отопления</span>
                                         </label>
                                     </div>
@@ -583,20 +583,20 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы"
-                                                value="Разработка дизайн-проекта" class="accent-orange-500 w-4 h-4">
+                                                value="Разработка дизайн-проекта" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Разработка дизайн-проекта</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы2"
                                                 value="Производство кухонного гарнтира"
-                                                class="accent-orange-500 w-4 h-4">
+                                                class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Производство кухонного гарнтира</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы3"
-                                                value="Согласование перепланировки" class="accent-orange-500 w-4 h-4">
+                                                value="Согласование перепланировки" class="accent-[#876b55] w-4 h-4">
                                             <span class="text-[12px]">Согласование перепланировки</span>
                                         </label>
                                     </div>
@@ -607,7 +607,7 @@
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">9. Когда начать ремонт?<span
                                             class="ml-1 text-red-400">*</span></div>
                                     <select required name="Когда начать ремонт?"
-                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]"
                                         aria-label="Когда начать ремонт (новостройка)">
                                         <option value="">Выберите</option>
                                         <option value="В течение месяца">В течение месяца</option>
@@ -623,15 +623,15 @@
                                                 class="ml-1 text-red-400">*</span></div>
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                             <input name="имя" type="text" placeholder="Ваше имя" required aria-label="Ваше имя"
-                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]" />
                                             <input name="телефон" data-type-phone type="tel"
                                                 pattern="\+?[0-9\s\-\(\)]+" maxlength="15"
                                                 placeholder="(___) ___-__-__" required aria-label="Телефон"
-                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                                                class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]" />
                                         </div>
                                     </div>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-[#876b55] shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <!-- Кнопка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 pt-2">
@@ -677,8 +677,8 @@
                             class="mt-3 flex flex-col sm:flex-row gap-3 sm:items-center text-black">
                             <input name="телефон" data-type-phone type="tel" pattern="\+?[0-9\s\-\(\)]+"
                                 maxlength="15" placeholder="(___) ___-__-__" required aria-label="Телефон"
-                                class="w-full text-black px-3 py-2.5 rounded-md border border-[#e6e7ee] text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500" />
-                            <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                class="w-full text-black px-3 py-2.5 rounded-md border border-[#e6e7ee] text-[13px] focus:outline-none focus:ring-2 focus:ring-[#876b55]" />
+                            <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-[#876b55] shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
                             <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                             <button
                                 class="py-3 px-6 rounded-md bg-[#ff7a21] text-white text-[13px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] whitespace-nowrap">Получить

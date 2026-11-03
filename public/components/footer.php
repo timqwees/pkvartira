@@ -20,17 +20,17 @@
                 <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира</p>
                 <div class="flex items-center gap-3 pt-2">
                     <?php if (!empty($site['vk'])): ?>
-                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="external nofollow noopener noreferrer" target="_blank">
+                    <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#876b55] flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="external nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-vk text-sm"></i>
                     </a>
                     <?php endif; ?>
-                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в Telegram" rel="external nofollow noopener noreferrer" target="_blank">
+                    <a href="<?= $site['telegram'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#876b55] flex items-center justify-center transition-colors" aria-label="Мы в Telegram" rel="external nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-telegram-plane text-sm"></i>
                     </a>
-                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp" rel="external nofollow noopener noreferrer" target="_blank">
+                    <a href="<?= $site['whatsapp'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#876b55] flex items-center justify-center transition-colors" aria-label="Мы в WhatsApp" rel="external nofollow noopener noreferrer" target="_blank">
                         <i class="fab fa-whatsapp text-sm"></i>
                     </a>
-                    <!--<a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в MAX">
+                    <!--<a href="<?= $site['max'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#876b55] flex items-center justify-center transition-colors" aria-label="Мы в MAX">
                         <img class="h-4 w-4 brightness-0 invert" src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/icons/MAX.svg') ?>" alt="MAX">
                     </a>-->
                 </div>
@@ -39,57 +39,57 @@
             <div>
                 <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Услуги</div>
                 <ul class="space-y-2.5">
-                    <li><a href="/services/pod-klyuch" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Ремонт квартир под ключ в Москве">Ремонт квартир под ключ</a></li>
-                    <li><a href="/services/doma" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Ремонт домов и коттеджей">Ремонт домов</a></li>
-                    <li><a href="/services/studio" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Ремонт квартир-студий">Ремонт студий</a></li>
-                    <li><a href="/services/novostroyka" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Ремонт в новостройке">Ремонт в новостройке</a></li>
-                    <li><a href="/services/vtorichka" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Ремонт во вторичном жилье">Ремонт вторичного жилья</a></li>
-                    <li><a href="/services/ukladka-laminata" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Укладка ламината">Укладка ламината</a></li>
-                    <li><a href="/services/keramogranit-nazarovo" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Укладка керамогранита">Укладка керамогранита</a></li>
-                    <li><a href="/services/dizayn-interierov" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Дизайн интерьеров квартир">Дизайн интерьеров</a></li>
-                    <li><a href="/calculator" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Калькулятор стоимости ремонта">Калькулятор стоимости</a></li>
+                    <li><a href="/services/pod-klyuch" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт квартир под ключ в Москве">Ремонт квартир под ключ</a></li>
+                    <li><a href="/services/doma" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт домов и коттеджей">Ремонт домов</a></li>
+                    <li><a href="/services/studio" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт квартир-студий">Ремонт студий</a></li>
+                    <li><a href="/services/novostroyka" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт в новостройке">Ремонт в новостройке</a></li>
+                    <li><a href="/services/vtorichka" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт во вторичном жилье">Ремонт вторичного жилья</a></li>
+                    <li><a href="/services/ukladka-laminata" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Укладка ламината">Укладка ламината</a></li>
+                    <li><a href="/services/keramogranit-nazarovo" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Укладка керамогранита">Укладка керамогранита</a></li>
+                    <li><a href="/services/dizayn-interierov" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Дизайн интерьеров квартир">Дизайн интерьеров</a></li>
+                    <li><a href="/calculator" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Калькулятор стоимости ремонта">Калькулятор стоимости</a></li>
                 </ul>
             </div>
 
             <div>
                 <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Компания</div>
                 <ul class="space-y-2.5">
-                    <li><a href="/about" class="text-gray-400 hover:text-orange-500 transition text-sm" title="О компании Проект Квартира">О нас</a></li>
-                    <li><a href="/portfolio" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Портфолио выполненных работ">Портфолио</a></li>
-                    <li><a href="/reviews" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Отзывы клиентов">Отзывы</a></li>
-                    <li><a href="/vakansii" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Вакансии в компании">Вакансии</a></li>
-                    <li><a href="/stocks" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Акции и скидки">Акции</a></li>
-                    <li><a href="/blogs" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Блог о ремонте и дизайне">Блог</a></li>
-                    <li><a href="/#faq" rel="help" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Часто задаваемые вопросы">Вопросы и ответы</a></li>
-                    <li><a href="/contact" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Контакты компании">Контакты</a></li>
-                    <li><a href="/smeta-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Образец сметы на ремонт">Смета на ремонт: образец</a></li>
-                    <li><a href="/dogovor-obrazec" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Шаблон договора на ремонт">Договор на ремонт: шаблон</a></li>
-                    <li><a href="/kalkulyator-ploshchadi" class="text-gray-400 hover:text-orange-500 transition text-sm" title="Калькулятор площади квартиры">Калькулятор площади м²</a></li>
+                    <li><a href="/about" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="О компании Проект Квартира">О нас</a></li>
+                    <li><a href="/portfolio" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Портфолио выполненных работ">Портфолио</a></li>
+                    <li><a href="/reviews" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Отзывы клиентов">Отзывы</a></li>
+                    <li><a href="/vakansii" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Вакансии в компании">Вакансии</a></li>
+                    <li><a href="/stocks" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Акции и скидки">Акции</a></li>
+                    <li><a href="/blogs" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Блог о ремонте и дизайне">Блог</a></li>
+                    <li><a href="/#faq" rel="help" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Часто задаваемые вопросы">Вопросы и ответы</a></li>
+                    <li><a href="/contact" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Контакты компании">Контакты</a></li>
+                    <li><a href="/smeta-obrazec" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Образец сметы на ремонт">Смета на ремонт: образец</a></li>
+                    <li><a href="/dogovor-obrazec" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Шаблон договора на ремонт">Договор на ремонт: шаблон</a></li>
+                    <li><a href="/kalkulyator-ploshchadi" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Калькулятор площади квартиры">Калькулятор площади м²</a></li>
             </div>
 
             <div>
                 <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Контакты</div>
                 <ul class="space-y-3">
                     <li>
-                        <a href="tel:<?= $site['phone']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm" title="Позвонить: <?= $site['phone']; ?>">
+                        <a href="tel:<?= $site['phone']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-[#876b55] transition text-sm" title="Позвонить: <?= $site['phone']; ?>">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-xs"></i></span>
                             <?= $site['phone']; ?>
                         </a>
                     </li>
                     <!--<li>
-                        <a href="tel:88003021737" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm">
+                        <a href="tel:88003021737" class="flex items-center gap-3 text-gray-400 hover:text-[#876b55] transition text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone-volume text-xs"></i></span>
                             <?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> <span class="text-xs text-gray-500 ml-1">бесплатно по РФ</span>
                         </a>
                     </li>-->
                     <li>
-                        <a href="mailto:<?= $site['email']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm" aria-label="Написать на <?= $site['email']; ?>" title="Написать на email: <?= $site['email']; ?>">
+                        <a href="mailto:<?= $site['email']; ?>" class="flex items-center gap-3 text-gray-400 hover:text-[#876b55] transition text-sm" aria-label="Написать на <?= $site['email']; ?>" title="Написать на email: <?= $site['email']; ?>">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-xs"></i></span>
                             <?= $site['email']; ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="external nofollow noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition text-sm" title="Наш адрес на карте: <?= htmlspecialchars($site['address']['streetAddress']) ?>">
+                        <a href="<?= htmlspecialchars($site['kartaAdress']); ?>" target="_blank" rel="external nofollow noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-[#876b55] transition text-sm" title="Наш адрес на карте: <?= htmlspecialchars($site['address']['streetAddress']) ?>">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-xs"></i></span>
                             <span><?= htmlspecialchars($site['address']['streetAddress']) ?></span>
                         </a>
@@ -101,22 +101,22 @@
         <div class="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8">
             <div class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-center md:text-left">Районы работ</div>
             <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1.5 text-sm text-gray-400">
-                <a href="/services/mitino" class="hover:text-orange-500 transition" title="Ремонт квартир в Митино">Митино</a>
-                <a href="/services/khimki" class="hover:text-orange-500 transition" title="Ремонт квартир в Химках">Химки</a>
-                <a href="/services/dolgoprudny" class="hover:text-orange-500 transition" title="Ремонт квартир в Долгопрудном">Долгопрудный</a>
-                <a href="/services/odintsovo" class="hover:text-orange-500 transition" title="Ремонт квартир в Одинцово">Одинцово</a>
-                <a href="/services/krasnogorsk" class="hover:text-orange-500 transition" title="Ремонт квартир в Красногорске">Красногорск</a>
-                <a href="/services/lyubertsy" class="hover:text-orange-500 transition" title="Ремонт квартир в Люберцах">Люберцы</a>
-                <a href="/services/balashikha" class="hover:text-orange-500 transition" title="Ремонт квартир в Балашихе">Балашиха</a>
-                <a href="/services/mytishchi" class="hover:text-orange-500 transition" title="Ремонт квартир в Мытищах">Мытищи</a>
-                <a href="/services/podolsk" class="hover:text-orange-500 transition" title="Ремонт квартир в Подольске">Подольск</a>
-                <a href="/services/shcherbinka" class="hover:text-orange-500 transition" title="Ремонт квартир в Щербинке">Щербинка</a>
-                <a href="/services/reutov" class="hover:text-orange-500 transition" title="Ремонт квартир в Реутове">Реутов</a>
-                <a href="/services/lobnya" class="hover:text-orange-500 transition" title="Ремонт квартир в Лобне">Лобня</a>
-                <a href="/services/zvenigorod" class="hover:text-orange-500 transition" title="Ремонт квартир в Звенигороде">Звенигород</a>
-                <a href="/services/vidnoye" class="hover:text-orange-500 transition" title="Ремонт квартир в Видном">Видное</a>
-                <a href="/services/akademicheskaya" class="hover:text-orange-500 transition" title="Ремонт квартир у м. Академическая">м. Академическая</a>
-                <a href="/services/leninsky-prospekt" class="hover:text-orange-500 transition" title="Ремонт квартир на Ленинском проспекте">Ленинский пр.</a>
+                <a href="/services/mitino" class="hover:text-[#876b55] transition" title="Ремонт квартир в Митино">Митино</a>
+                <a href="/services/khimki" class="hover:text-[#876b55] transition" title="Ремонт квартир в Химках">Химки</a>
+                <a href="/services/dolgoprudny" class="hover:text-[#876b55] transition" title="Ремонт квартир в Долгопрудном">Долгопрудный</a>
+                <a href="/services/odintsovo" class="hover:text-[#876b55] transition" title="Ремонт квартир в Одинцово">Одинцово</a>
+                <a href="/services/krasnogorsk" class="hover:text-[#876b55] transition" title="Ремонт квартир в Красногорске">Красногорск</a>
+                <a href="/services/lyubertsy" class="hover:text-[#876b55] transition" title="Ремонт квартир в Люберцах">Люберцы</a>
+                <a href="/services/balashikha" class="hover:text-[#876b55] transition" title="Ремонт квартир в Балашихе">Балашиха</a>
+                <a href="/services/mytishchi" class="hover:text-[#876b55] transition" title="Ремонт квартир в Мытищах">Мытищи</a>
+                <a href="/services/podolsk" class="hover:text-[#876b55] transition" title="Ремонт квартир в Подольске">Подольск</a>
+                <a href="/services/shcherbinka" class="hover:text-[#876b55] transition" title="Ремонт квартир в Щербинке">Щербинка</a>
+                <a href="/services/reutov" class="hover:text-[#876b55] transition" title="Ремонт квартир в Реутове">Реутов</a>
+                <a href="/services/lobnya" class="hover:text-[#876b55] transition" title="Ремонт квартир в Лобне">Лобня</a>
+                <a href="/services/zvenigorod" class="hover:text-[#876b55] transition" title="Ремонт квартир в Звенигороде">Звенигород</a>
+                <a href="/services/vidnoye" class="hover:text-[#876b55] transition" title="Ремонт квартир в Видном">Видное</a>
+                <a href="/services/akademicheskaya" class="hover:text-[#876b55] transition" title="Ремонт квартир у м. Академическая">м. Академическая</a>
+                <a href="/services/leninsky-prospekt" class="hover:text-[#876b55] transition" title="Ремонт квартир на Ленинском проспекте">Ленинский пр.</a>
                 <span>Савёловский</span>
                 <span>Тверской</span>
                 <span>Таганский</span>
@@ -132,7 +132,7 @@
         <div class="border-t border-white/10 mt-6 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p class="text-gray-500 text-xs">&copy; 2026 Проект Квартира. Все права защищены.</p>
             <div class="flex items-center gap-6">
-                <a href="/privacy-policy" class="text-gray-500 hover:text-orange-500 transition text-xs" title="Политика конфиденциальности">Соглашение и обработка персональных данных</a>
+                <a href="/privacy-policy" class="text-gray-500 hover:text-[#876b55] transition text-xs" title="Политика конфиденциальности">Соглашение и обработка персональных данных</a>
                 <div class="flex items-center justify-center gap-2 text-xs text-gray-400">
                   <img src="https://avatars.githubusercontent.com/u/88802215?v=4" alt="TimQwees" class="h-4 w-auto opacity-60 grayscale" width="16" height="16" loading="lazy">
                   <span>By TimQwees</span>

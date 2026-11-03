@@ -322,7 +322,7 @@
                 <div class="text-center py-12">
                     <p class="text-gray-600 mb-6">Современный и уютный интерьер, полностью готовый к проживанию.</p>
                     <a href="/contact"
-                        class="bg-orange-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-orange-600 transition inline-flex items-center justify-center gap-2 text-lg">
+                        class="bg-[#876b55] text-white px-8 py-4 rounded-lg font-medium hover:bg-[#6d5744] transition inline-flex items-center justify-center gap-2 text-lg">
                         Хочу похожий ремонт
                         <i class="fas fa-arrow-right"></i>
                     </a>

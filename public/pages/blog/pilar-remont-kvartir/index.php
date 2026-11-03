@@ -79,7 +79,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     От выбора типа ремонта и подрядчика до приёмки работ — всё, что нужно знать, чтобы не переплатить, уложиться в сроки и получить качественный результат.
                 </p>
                 <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-orange-700 font-semibold">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fef8f3] text-[#5c4a3a] font-semibold">
                         <i class="fas fa-book-open mr-2"></i> 21 статья
                     </span>
                     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-semibold">
@@ -95,19 +95,19 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         <section class="py-8 bg-gray-50 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-orange-500 transition">
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-[#876b55] transition">
                         <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-layer-group text-orange-600 text-2xl"></i>
+                            <i class="fas fa-layer-group text-[#6d5744] text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-extrabold text-gray-900 mb-2">Виды ремонта</h3>
                         <p class="text-gray-600 mb-4">Косметический, капитальный, дизайнерский — в чём разница и что выбрать вашей квартире.</p>
                         <div class="space-y-2">
-                            <a href="/blog/kosmeticheskiy-remont-2026" class="block text-orange-600 hover:underline font-medium">Косметический ремонт 2026 →</a>
-                            <a href="/blog/remont-pod-klyuch-2026" class="block text-orange-600 hover:underline font-medium">Ремонт под ключ: почему профессионалы вытесняют DIY →</a>
-                            <a href="/blog/dizaynerskiy-remont" class="block text-orange-600 hover:underline font-medium">Дизайнерский ремонт: архитектурный подход →</a>
+                            <a href="/blog/kosmeticheskiy-remont-2026" class="block text-[#6d5744] hover:underline font-medium">Косметический ремонт 2026 →</a>
+                            <a href="/blog/remont-pod-klyuch-2026" class="block text-[#6d5744] hover:underline font-medium">Ремонт под ключ: почему профессионалы вытесняют DIY →</a>
+                            <a href="/blog/dizaynerskiy-remont" class="block text-[#6d5744] hover:underline font-medium">Дизайнерский ремонт: архитектурный подход →</a>
                         </div>
                     </div>
-                    <div class="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-orange-500 transition">
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-[#876b55] transition">
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
                             <i class="fas fa-calculator text-blue-600 text-2xl"></i>
                         </div>
@@ -120,7 +120,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <a href="/blog/byudzhet-remont-2026" class="block text-blue-600 hover:underline font-medium">Бюджет на ремонт: как спланировать →</a>
                         </div>
                     </div>
-                    <div class="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-orange-500 transition">
+                    <div class="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-[#876b55] transition">
                         <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
                             <i class="fas fa-tools text-green-600 text-2xl"></i>
                         </div>
@@ -141,96 +141,96 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <div class="container mx-auto px-4 max-w-6xl">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 text-center mb-12">Все статьи кластера «Ремонт квартир»</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a href="/blog/remont-kvartiry-s-chego-nachat" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">С чего начать ремонт квартиры в 2026 — пошаговый план</h3>
+                    <a href="/blog/remont-kvartiry-s-chego-nachat" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">С чего начать ремонт квартиры в 2026 — пошаговый план</h3>
                         <p class="mt-1 text-sm text-gray-600">5 этапов: демонтаж → инженерия → черновая → чистовая → финал</p>
                     </a>
-                    <a href="/blog/remont-pod-klyuch-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Ремонт под ключ в 2026: почему профессионалы вытесняют DIY</h3>
+                    <a href="/blog/remont-pod-klyuch-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Ремонт под ключ в 2026: почему профессионалы вытесняют DIY</h3>
                         <p class="mt-1 text-sm text-gray-600">Спрос вырос на 40%. Как не ошибиться с подрядчиком.</p>
                     </a>
-                    <a href="/blog/kosmeticheskiy-remont-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Косметический ремонт 2026: как обновить квартиру без капитальных вложений</h3>
+                    <a href="/blog/kosmeticheskiy-remont-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Косметический ремонт 2026: как обновить квартиру без капитальных вложений</h3>
                         <p class="mt-1 text-sm text-gray-600">За 2 недели и до 500 000 ₽ преобразить квартиру.</p>
                     </a>
-                    <a href="/blog/umnyy-dom-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Умный дом в 2026: что реально нужно, а что — маркетинг</h3>
+                    <a href="/blog/umnyy-dom-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Умный дом в 2026: что реально нужно, а что — маркетинг</h3>
                         <p class="mt-1 text-sm text-gray-600">IoT-устройства, которые упростят жизнь, и от чего отказаться.</p>
                     </a>
-                    <a href="/blog/rabochee-mesto-doma" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Рабочее место дома: как адаптировать квартиру под удалённую работу</h3>
+                    <a href="/blog/rabochee-mesto-doma" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Рабочее место дома: как адаптировать квартиру под удалённую работу</h3>
                         <p class="mt-1 text-sm text-gray-600">Эргономичный home office без перепланировки.</p>
                     </a>
-                    <a href="/blog/tsveta-materialy-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Цвета и материалы 2026: тренды, которые не устареют через год</h3>
+                    <a href="/blog/tsveta-materialy-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Цвета и материалы 2026: тренды, которые не устареют через год</h3>
                         <p class="mt-1 text-sm text-gray-600">Тёплые нейтральные, натуральные фактуры, экоматериалы.</p>
                     </a>
-                    <a href="/blog/pereplanirovka-kuhni-gostinoy" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Перепланировка 2026: объединение кухни-гостиной и мастер-спальни</h3>
+                    <a href="/blog/pereplanirovka-kuhni-gostinoy" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Перепланировка 2026: объединение кухни-гостиной и мастер-спальни</h3>
                         <p class="mt-1 text-sm text-gray-600">Законные способы, цены, типичные ошибки.</p>
                     </a>
-                    <a href="/blog/remont-novostroyki-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Ремонт в новостройке 2026: с чего начать и на чём сэкономить</h3>
+                    <a href="/blog/remont-novostroyki-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Ремонт в новостройке 2026: с чего начать и на чём сэкономить</h3>
                         <p class="mt-1 text-sm text-gray-600">Усадка дома, некачественная стяжка, приёмка у застройщика.</p>
                     </a>
-                    <a href="/blog/energoeffektivnyy-remont" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Энергоэффективный ремонт: как сэкономить на отоплении и электричестве</h3>
+                    <a href="/blog/energoeffektivnyy-remont" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Энергоэффективный ремонт: как сэкономить на отоплении и электричестве</h3>
                         <p class="mt-1 text-sm text-gray-600">Утепление, вентиляция с рекуперацией, умное отопление.</p>
                     </a>
-                    <a href="/blog/dizaynerskiy-remont" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Дизайнерский ремонт: почему спрос растёт быстрее бюджетного</h3>
+                    <a href="/blog/dizaynerskiy-remont" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Дизайнерский ремонт: почему спрос растёт быстрее бюджетного</h3>
                         <p class="mt-1 text-sm text-gray-600">Архитектурный подход, премиум-материалы, авторский надзор.</p>
                     </a>
-                    <a href="/blog/remont-kuhni-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Ремонт кухни 2026: тренды, планировка, бюджет</h3>
+                    <a href="/blog/remont-kuhni-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Ремонт кухни 2026: тренды, планировка, бюджет</h3>
                         <p class="mt-1 text-sm text-gray-600">Эргономика, встроенная техника, натуральные материалы.</p>
                     </a>
-                    <a href="/blog/trendy-dizayna-interera-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Тренды дизайна интерьера 2026: натуральные фактуры, экоматериалы</h3>
+                    <a href="/blog/trendy-dizayna-interera-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Тренды дизайна интерьера 2026: натуральные фактуры, экоматериалы</h3>
                         <p class="mt-1 text-sm text-gray-600">Бетон, дерево, природный камень, терракота + умный дом.</p>
                     </a>
-                    <a href="/blog/byudzhet-remont-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Бюджет на ремонт в 2026: как спланировать расходы и не переплатить</h3>
+                    <a href="/blog/byudzhet-remont-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Бюджет на ремонт в 2026: как спланировать расходы и не переплатить</h3>
                         <p class="mt-1 text-sm text-gray-600">Пошаговый план, советы по экономии, выбор подрядчика.</p>
                     </a>
-                    <a href="/blog/kak-poschitat-kvadratnye-metry" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Как посчитать квадратные метры комнаты: формулы и примеры</h3>
+                    <a href="/blog/kak-poschitat-kvadratnye-metry" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Как посчитать квадратные метры комнаты: формулы и примеры</h3>
                         <p class="mt-1 text-sm text-gray-600">Прямоугольные, Г-образные, неправильные помещения. Калькулятор.</p>
                     </a>
-                    <a href="/blog/skolko-dlitsya-remont-komnaty" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Сколько длится ремонт комнаты в 2026: точные сроки по этапам</h3>
+                    <a href="/blog/skolko-dlitsya-remont-komnaty" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Сколько длится ремонт комнаты в 2026: точные сроки по этапам</h3>
                         <p class="mt-1 text-sm text-gray-600">Косметический 5–7 дней, капитальный 21–35 дней с просушкой.</p>
                     </a>
-                    <a href="/blog/priemka-kvartiry-zastroyshchik" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Приёмка квартиры у застройщика в Москве 2026: чек-лист 30 пунктов</h3>
+                    <a href="/blog/priemka-kvartiry-zastroyshchik" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Приёмка квартиры у застройщика в Москве 2026: чек-лист 30 пунктов</h3>
                         <p class="mt-1 text-sm text-gray-600">Окна, стены, пол, электрика, вентиляция. Акт с дефектами.</p>
                     </a>
-                    <a href="/blog/smeta-na-remont-kvartiry-nakrutki" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Смета на ремонт квартиры 2026: как читать и 12 скрытых накруток</h3>
+                    <a href="/blog/smeta-na-remont-kvartiry-nakrutki" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Смета на ремонт квартиры 2026: как читать и 12 скрытых накруток</h3>
                         <p class="mt-1 text-sm text-gray-600">Пример сметы на 60 м², чек-лист проверки, как сэкономить.</p>
                     </a>
-                    <a href="/blog/skolko-stoit-remont-kvartiry-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Сколько стоит ремонт квартиры в Москве в 2026: цены за м² и таблица</h3>
+                    <a href="/blog/skolko-stoit-remont-kvartiry-2026" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Сколько стоит ремонт квартиры в Москве в 2026: цены за м² и таблица</h3>
                         <p class="mt-1 text-sm text-gray-600">Косметический от 8 000 ₽, капитальный от 13 000 ₽ за м².</p>
                     </a>
-                    <a href="/blog/shumoizolyatsiya-kvartiry-panelny-dom" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Шумоизоляция квартиры в панельном доме 2026: материалы, цены, ошибки</h3>
+                    <a href="/blog/shumoizolyatsiya-kvartiry-panelny-dom" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Шумоизоляция квартиры в панельном доме 2026: материалы, цены, ошибки</h3>
                         <p class="mt-1 text-sm text-gray-600">ЗИПС, Тексаунд, Шуманет — сравнение по толщине и эффективности.</p>
                     </a>
-                    <a href="/blog/smeta-na-remont-kvartiry-primer" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-500 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition">Смета в ремонте — что это простыми словами: состав, пример, как проверить</h3>
+                    <a href="/blog/smeta-na-remont-kvartiry-primer" class="group block bg-white border border-gray-200 rounded-xl p-5 hover:border-[#876b55] hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-900 group-hover:text-[#6d5744] transition">Смета в ремонте — что это простыми словами: состав, пример, как проверить</h3>
                         <p class="mt-1 text-sm text-gray-600">Пример на 60 м², чтение за 10 минут, цены 2026 Москва.</p>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 bg-orange-50 reveal">
+        <section class="py-16 bg-[#fef8f3] reveal">
             <div class="container mx-auto px-4 max-w-6xl text-center">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">Хотите точный расчёт для своей квартиры?</h2>
                 <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Получите бесплатную консультацию и смету в 3 вариантах от команды Проект Квартира. Приедем на замер, ответим на все вопросы.</p>
                 <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="/calculator" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-orange-500 text-white font-extrabold hover:bg-orange-600 transition">
+                    <a href="/calculator" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#876b55] text-white font-extrabold hover:bg-[#6d5744] transition">
                         Рассчитать стоимость
                     </a>
                     <a href="tel:<?= $site['phone']; ?>" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white border border-gray-300 font-extrabold hover:bg-gray-50 transition">

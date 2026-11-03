@@ -30,7 +30,7 @@ $title = 'QR-коды для отзывов — ПКвартира';
         <div class="no-print mb-8 text-center">
             <h1 class="text-3xl font-extrabold text-gray-900">QR-коды для отзывов</h1>
             <p class="mt-2 text-gray-600">Распечатайте и разместите на объекте — клиент сканирует и оставляет отзыв на нужной площадке.</p>
-            <button onclick="window.print()" class="mt-4 px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">Распечатать все</button>
+            <button onclick="window.print()" class="mt-4 px-6 py-3 rounded-lg bg-[#876b55] text-white font-semibold hover:bg-[#6d5744] transition">Распечатать все</button>
         </div>
 
         <div class="qr-grid">

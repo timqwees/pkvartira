@@ -270,13 +270,13 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <?php foreach ($prices as $price): ?>
                         <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
+                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-[#876b55] shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
                             itemscope itemtype="https://schema.org/Service">
                             <meta itemprop="name"
                                 content="<?= htmlspecialchars($price['заголовок']); ?> ремонт в новостройке">
                             <?php if (isset($price['бейдж'])): ?>
                                 <div
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#fef8f3] text-[#6d5744] border border-orange-200">
                                     <?= htmlspecialchars($price['бейдж']); ?>
                                 </div>
                             <?php endif; ?>
@@ -299,11 +299,11 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                 <?php endforeach; ?>
                             </ul>
                             <a href="tel:<?= $site['phone'] ?>"
-                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
+                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-[#876b55] hover:bg-[#6d5744] text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
                         </article>
                     <?php endforeach; ?>
                 </div>
-                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">цен на ремонт</a> или <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">посчитайте в калькуляторе</a>.</p>
+                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">посчитайте в калькуляторе</a>.</p>
             </div>
         </section>
 
@@ -316,47 +316,47 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-screwdriver-wrench"
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-screwdriver-wrench"
                                 aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Демонтаж</div>
                         <div class="text-sm text-gray-600 mt-1">Подготовительные работы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Электрика</div>
                         <div class="text-sm text-gray-600 mt-1">Проводка и щит</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Сантехника</div>
                         <div class="text-sm text-gray-600 mt-1">Разводка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Отделка</div>
                         <div class="text-sm text-gray-600 mt-1">Стены, пол, потолок</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Двери</div>
                         <div class="text-sm text-gray-600 mt-1">Монтаж и доборы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Освещение</div>
                         <div class="text-sm text-gray-600 mt-1">Светильники и выключатели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Мебель</div>
                         <div class="text-sm text-gray-600 mt-1">Сборка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Уборка</div>
                         <div class="text-sm text-gray-600 mt-1">После работ</div>
                     </div>
@@ -369,7 +369,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Ваш путь к идеальному ремонту:<br><span class="text-orange-600">6 шагов</span> до новоселья
+                        Ваш путь к идеальному ремонту:<br><span class="text-[#6d5744]">6 шагов</span> до новоселья
                     </h2>
                     <p class="text-xl text-gray-600">
                         Мы выстроили систему так, чтобы вы не тратили время на контроль и закупки
@@ -504,19 +504,19 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <h3 class="text-xl font-bold text-gray-900">Почему выбирают нас</h3>
                         <div class="mt-4 grid grid-cols-2 gap-4">
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">0 ₽</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">0 ₽</div>
                                 <div class="text-sm text-gray-600 mt-1">выезд инженера</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">24 ч</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">24 ч</div>
                                 <div class="text-sm text-gray-600 mt-1">подготовка сметы</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">3 года</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">3 года</div>
                                 <div class="text-sm text-gray-600 mt-1">гарантия на работы</div>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-4">
-                                <div class="text-2xl font-bold text-orange-600">Нормы</div>
+                                <div class="text-2xl font-bold text-[#6d5744]">Нормы</div>
                                 <div class="text-sm text-gray-600 mt-1">работаем по техкартам</div>
                             </div>
                         </div>
@@ -542,7 +542,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                                     работ</span></li>
                         </ul>
                         <button data-button-dialog
-                            class="block max-w-fit cta-button mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition sm:w-auto">Получить
+                            class="block max-w-fit cta-button mt-6 bg-[#876b55] hover:bg-[#6d5744] text-white px-6 py-3 rounded-lg font-semibold transition sm:w-auto">Получить
                             консультацию</button>
                     </div>
                 </div>
@@ -651,32 +651,32 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-building text-orange-600 text-xl"></i></div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-building text-[#6d5744] text-xl"></i></div>
                         <h3 class="text-lg font-heading font-bold mb-2">Ремонт в панельном доме</h3>
                         <p class="text-gray-600 text-sm">Неровные стены и потолки требуют выравнивания штукатуркой. Швы между панелями нуждаются в усиленной звукоизоляции. Опыт — 100+ панельных проектов.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-home text-orange-600 text-xl"></i></div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-home text-[#6d5744] text-xl"></i></div>
                         <h3 class="text-lg font-heading font-bold mb-2">Ремонт в кирпичном доме</h3>
                         <p class="text-gray-600 text-sm">Старый кирпич требует бережного штробления под проводку. Высокая несущая способность позволяет любые перепланировки. Плюс — отличная звукоизоляция стен.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-city text-orange-600 text-xl"></i></div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-city text-[#6d5744] text-xl"></i></div>
                         <h3 class="text-lg font-heading font-bold mb-2">Ремонт в монолитном доме</h3>
                         <p class="text-gray-600 text-sm">Свободная планировка — главный плюс. Стены возводятся из газоблока или кирпича. Тёплые полы эффективны благодаря бетонным перекрытиям.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-clock text-orange-600 text-xl"></i></div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-clock text-[#6d5744] text-xl"></i></div>
                         <h3 class="text-lg font-heading font-bold mb-2">Ремонт в хрущёвке</h3>
                         <p class="text-gray-600 text-sm">Полная замена коммуникаций — обязательна. Небольшие метражи требуют эргономичных решений. Демонтаж встроенных шкафов и антресолей расширит пространство.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-crown text-orange-600 text-xl"></i></div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-crown text-[#6d5744] text-xl"></i></div>
                         <h3 class="text-lg font-heading font-bold mb-2">Ремонт в сталинке</h3>
                         <p class="text-gray-600 text-sm">Высокие потолки (до 3,5 м) позволяют двухуровневые решения. Паркет восстанавливаем, лепнину сохраняем. Большие комнаты — для дизайнерских проектов.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-layer-group text-orange-600 text-xl"></i></div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-layer-group text-[#6d5744] text-xl"></i></div>
                         <h3 class="text-lg font-heading font-bold mb-2">Ремонт в брежневке</h3>
                         <p class="text-gray-600 text-sm">Улучшенная планировка по сравнению с хрущёвками. Раздельные санузлы, изолированные комнаты. Замена проводки и труб — обязательный этап капремонта.</p>
                     </div>

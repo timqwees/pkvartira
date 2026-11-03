@@ -57,9 +57,9 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
             <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Укладка ламината в Москве — цена за м²</h1>
             <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Профессиональная укладка ламината с фанерой. Стоимость работы от 350 ₽/м². Фиксированная смета, гарантия 3 года.</p>
             <div class="mt-6 flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> Работа от 350 ₽/м²</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> С фанерой от 600 ₽/м²</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">₽</span> Работа от 350 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> С фанерой от 600 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
             </div>
         </div>
     </section>
@@ -71,10 +71,10 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
                     <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Сколько стоит укладка ламината?</h2>
                     <p class="mt-4 text-[#4b5563] leading-relaxed">Стоимость укладки ламината зависит от объёма работ, основания и класса материала. Мы предлагаем прозрачные цены без скрытых платежей. В стоимость входит подготовка основания, укладка подложки, монтаж ламината и установка плинтуса.</p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Подготовка и выравнивание пола</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Укладка фанеры (при необходимости)</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Монтаж ламината любой сложности</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Установка плинтуса и порожков</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Подготовка и выравнивание пола</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Укладка фанеры (при необходимости)</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Монтаж ламината любой сложности</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Установка плинтуса и порожков</li>
                     </ul>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
@@ -95,10 +95,10 @@ $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Этапы работ</h2>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Демонтаж</h3><p class="mt-1 text-sm text-[#6b7280]">Снимаем старое покрытие, вывозим мусор</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Основание</h3><p class="mt-1 text-sm text-[#6b7280]">Выравниваем пол, укладываем фанеру</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Укладка</h3><p class="mt-1 text-sm text-[#6b7280]">Монтируем ламинат с подложкой</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Финиш</h3><p class="mt-1 text-sm text-[#6b7280]">Устанавливаем плинтус, убираем объект</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Демонтаж</h3><p class="mt-1 text-sm text-[#6b7280]">Снимаем старое покрытие, вывозим мусор</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Основание</h3><p class="mt-1 text-sm text-[#6b7280]">Выравниваем пол, укладываем фанеру</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Укладка</h3><p class="mt-1 text-sm text-[#6b7280]">Монтируем ламинат с подложкой</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Финиш</h3><p class="mt-1 text-sm text-[#6b7280]">Устанавливаем плинтус, убираем объект</p></div>
             </div>
         </div>
     </section>
@@ -133,14 +133,14 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
             <div class="mt-4 flex flex-wrap justify-center gap-3">
-                <a href="/services/keramogranit-nazarovo" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Укладка керамогранита</a>
-                <a href="/services/solnechnogorsk" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Солнечногорске</a>
-                <a href="/services/lyubertsy" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Люберцах</a>
-                <a href="/services/odintsovo" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт в Одинцово</a>
-                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт под ключ</a>
-                <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт новостроек</a>
-                <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Цены</a>
-                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Калькулятор</a>
+                <a href="/services/keramogranit-nazarovo" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Укладка керамогранита</a>
+                <a href="/services/solnechnogorsk" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт в Солнечногорске</a>
+                <a href="/services/lyubertsy" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт в Люберцах</a>
+                <a href="/services/odintsovo" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт в Одинцово</a>
+                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт под ключ</a>
+                <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт новостроек</a>
+                <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Цены</a>
+                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Калькулятор</a>
             </div>
         </div>
     </section>

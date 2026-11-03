@@ -76,9 +76,9 @@ $casePrice = $case['price'] ?? '';
             <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Дизайн и ремонт квартир в ЖК Символ</h1>
             <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Ремонт под ключ в жилом комплексе Символ: знаем планировки корпусов и требования УК. Дизайн-проект, закупка, согласования — берём на себя. Гарантия 3 года.</p>
             <div class="mt-6 flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> от 8 000 ₽/м²</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Замер бесплатно</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">₽</span> от 8 000 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Замер бесплатно</div>
             </div>
         </div>
     </section>
@@ -90,10 +90,10 @@ $casePrice = $case['price'] ?? '';
                     <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Ремонт в ЖК Символ под ключ</h2>
                     <p class="mt-4 text-[#4b5563] leading-relaxed">Делаем дизайн и ремонт квартир в ЖК Символ под ключ: от приёмки у застройщика до меблировки. Знаем типовые планировки корпусов, согласовываем шумные работы и вывоз мусора с управляющей компанией.</p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Приёмка квартиры от застройщика</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Дизайн-проект под вашу планировку</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Черновой, капитальный, дизайнерский ремонт</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Работаем по правилам УК комплекса</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Приёмка квартиры от застройщика</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Дизайн-проект под вашу планировку</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Черновой, капитальный, дизайнерский ремонт</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Работаем по правилам УК комплекса</li>
                     </ul>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
@@ -156,7 +156,7 @@ $casePrice = $case['price'] ?? '';
                     </div>
                 </div>
             </article>
-            <p class="mt-4 text-center text-sm text-gray-500">Хотите так же в ЖК Символ? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Посчитайте свой метраж в калькуляторе</a>.</p>
+            <p class="mt-4 text-center text-sm text-gray-500">Хотите так же в ЖК Символ? <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">Посчитайте свой метраж в калькуляторе</a>.</p>
         </div>
     </section>
 
@@ -164,10 +164,10 @@ $casePrice = $case['price'] ?? '';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Как мы работаем</h2>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Заявка</h3><p class="mt-1 text-sm text-[#6b7280]">Оставьте заявку на сайте или позвоните</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Замер</h3><p class="mt-1 text-sm text-[#6b7280]">Инженер выезжает в ЖК Символ бесплатно</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Смета</h3><p class="mt-1 text-sm text-[#6b7280]">Фиксированная смета без скрытых платежей</p></div>
-                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Ремонт</h3><p class="mt-1 text-sm text-[#6b7280]">Выполняем работы в срок с гарантией</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">1</span><h3 class="mt-3 font-semibold text-[#111827]">Заявка</h3><p class="mt-1 text-sm text-[#6b7280]">Оставьте заявку на сайте или позвоните</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">2</span><h3 class="mt-3 font-semibold text-[#111827]">Замер</h3><p class="mt-1 text-sm text-[#6b7280]">Инженер выезжает в ЖК Символ бесплатно</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">3</span><h3 class="mt-3 font-semibold text-[#111827]">Смета</h3><p class="mt-1 text-sm text-[#6b7280]">Фиксированная смета без скрытых платежей</p></div>
+                <div class="bg-white rounded-xl p-5 text-center"><span class="w-10 h-10 rounded-lg bg-orange-100 text-[#876b55] flex items-center justify-center mx-auto font-bold text-lg">4</span><h3 class="mt-3 font-semibold text-[#111827]">Ремонт</h3><p class="mt-1 text-sm text-[#6b7280]">Выполняем работы в срок с гарантией</p></div>
             </div>
         </div>
     </section>
@@ -194,7 +194,7 @@ include './public/components/cta-form.php';
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в ЖК Символ?</summary><p class="mt-2 text-sm text-[#6b7280]">Ремонт квартиры в ЖК Символ под ключ — от 8 000 ₽/м² косметический, от 13 000 ₽/м² капитальный, от 18 000 ₽/м² дизайнерский. Точную смету даём после бесплатного замера.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли дизайн и ремонт квартиры в ЖК Символ под ключ?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, делаем дизайн и ремонт квартир в ЖК Символ под ключ: знаем планировки корпусов и требования управляющей компании, берём на себя согласования, закупку материалов и вывоз мусора.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит дизайн проект квартиры в ЖК Символ?</summary><p class="mt-2 text-sm text-[#6b7280]">Дизайн проект квартиры — от 1 200 ₽/м². При заказе ремонта под ключ делаем скидку на проект. <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">Посчитайте свой метраж в калькуляторе</a>.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит дизайн проект квартиры в ЖК Символ?</summary><p class="mt-2 text-sm text-[#6b7280]">Дизайн проект квартиры — от 1 200 ₽/м². При заказе ремонта под ключ делаем скидку на проект. <a href="/calculator" class="text-[#6d5744] underline hover:text-[#5c4a3a]">Посчитайте свой метраж в калькуляторе</a>.</p></details>
             </div>
         </div>
     </section>
@@ -203,13 +203,13 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
             <div class="mt-4 flex flex-wrap justify-center gap-3">
-                <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт новостроек</a>
-                <a href="/services/premium" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт с дизайн-проектом</a>
-                <a href="/services/dizayn-interierov" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Дизайн интерьеров</a>
-                <a href="/services/ontario" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">ЖК Онтарио</a>
-                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт под ключ</a>
-                <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Цены</a>
-                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Калькулятор</a>
+                <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт новостроек</a>
+                <a href="/services/premium" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт с дизайн-проектом</a>
+                <a href="/services/dizayn-interierov" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Дизайн интерьеров</a>
+                <a href="/services/ontario" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">ЖК Онтарио</a>
+                <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт под ключ</a>
+                <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Цены</a>
+                <a href="/calculator" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Калькулятор</a>
             </div>
         </div>
     </section>

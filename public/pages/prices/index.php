@@ -144,12 +144,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <!-- CTA Button -->
                         <div class="text-start flex flex-wrap gap-3">
                             <a href="tel:<?= $site['phone']; ?>"
-                                class="cta-button relative bg-orange-500 text-white px-6 md:px-8 py-3 rounded-xl text-lg w-full max-w-xs md:w-auto">
+                                class="cta-button relative bg-[#876b55] text-white px-6 md:px-8 py-3 rounded-xl text-lg w-full max-w-xs md:w-auto">
                                 <span class="drop-shadow-lg font-sans">Расчитать Стоимость</span>
                             </a>
                             <a href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/files/price-list.pdf') ?>" download
                                 class="bg-white text-gray-700 px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-100 transition border border-gray-300 inline-flex items-center gap-2">
-                                <i class="fas fa-download text-orange-600"></i>
+                                <i class="fas fa-download text-[#6d5744]"></i>
                                 <span>Скачать прайс-лист</span>
                             </a>
                             <p class="text-xs md:text-sm mt-6 text-white">
@@ -205,7 +205,7 @@ include './public/components/cta-form.php';
                     <div
                         class="break-all bg-gray-50 rounded-xl p-6 text-start hover:shadow-lg transition border-2 border-orange-200 relative">
                         <div
-                            class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white text-xs px-3 py-1 rounded-full">
+                            class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#876b55] text-white text-xs px-3 py-1 rounded-full">
                             Популярно
                         </div>
                         <div class="text-xl font-bold text-black mb-2">Капитальный ремонт</div>
@@ -306,7 +306,7 @@ include './public/components/cta-form.php';
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
                     Стоимость ремонта по метражу
                 </h2>
-                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Ориентировочная цена под ключ для типовых площадей. Точную смету даст <a href="/calculator" class="text-orange-600 underline hover:text-orange-700 font-semibold">калькулятор за 1 минуту</a>.</p>
+                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Ориентировочная цена под ключ для типовых площадей. Точную смету даст <a href="/calculator" class="text-[#6d5744] underline hover:text-[#5c4a3a] font-semibold">калькулятор за 1 минуту</a>.</p>
                 <div class="max-w-4xl mx-auto bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
                     <table class="w-full text-sm">
                         <thead class="bg-blue-100 text-gray-800">
@@ -439,51 +439,51 @@ include './public/components/cta-form.php';
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
                     Что входит в стоимость ремонта
                 </h2>
-                <p class="text-center text-sm text-gray-500 mt-3">Состав услуги, этапы и сроки — на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">Ремонт под ключ</a>.</p>
+                <p class="text-center text-sm text-gray-500 mt-3">Состав услуги, этапы и сроки — на странице <a href="/services/pod-klyuch" class="text-[#6d5744] underline hover:text-[#5c4a3a]">Ремонт под ключ</a>.</p>
 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-screwdriver-wrench"
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-screwdriver-wrench"
                                 aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Демонтаж</div>
                         <div class="text-sm text-gray-600 mt-1">Подготовительные работы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Электрика</div>
                         <div class="text-sm text-gray-600 mt-1">Проводка и щит</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Сантехника</div>
                         <div class="text-sm text-gray-600 mt-1">Разводка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Отделка</div>
                         <div class="text-sm text-gray-600 mt-1">Стены, пол, потолок</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Двери</div>
                         <div class="text-sm text-gray-600 mt-1">Монтаж и доборы</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <div class="mt-2 font-semibold text-gray-900">Освещение</div>
                         <div class="text-sm text-gray-600 mt-1">Светильники и выключатели</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Мебель</div>
                         <div class="text-sm text-gray-600 mt-1">Сборка и установка</div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-orange-600 text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
+                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
                         <div class="mt-2 font-semibold text-gray-900">Уборка</div>
                         <div class="text-sm text-gray-600 mt-1">После работ</div>
                     </div>

@@ -154,7 +154,7 @@
                     src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             <!-- Desktop Navigation -->
             <div class="desktop-nav hidden lg:flex items-center space-x-8">
-                <!-- Главная --><a href="/" class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Главная страница">Главная</a>
+                <!-- Главная --><a href="/" class="nav-hide-xl py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Главная страница">Главная</a>
                 <!-- Услуги -->
                 <div class="drop py-6"><a href="/services" title="Все услуги и виды ремонта">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
                     <ul class="flex p-4 py-0">     
@@ -220,36 +220,36 @@
                         </div>
                     </ul>
                 </div>
-                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Цены на ремонт квартир">Цены</a>
+                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Цены на ремонт квартир">Цены</a>
                 <!-- Калькулятор --><a href="/calculator"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Онлайн калькулятор стоимости ремонта">Калькулятор</a>
+                    class="py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Онлайн калькулятор стоимости ремонта">Калькулятор</a>
                 <!-- Портфолио --><a href="/portfolio"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Примеры выполненных работ">Портфолио</a>
-                <!-- Отзывы --><a href="/reviews" class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Отзывы клиентов">Отзывы</a>
+                    class="py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Примеры выполненных работ">Портфолио</a>
+                <!-- Отзывы --><a href="/reviews" class="nav-hide-lg py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Отзывы клиентов">Отзывы</a>
                 <!-- О компании --><a href="/about"
-                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="О компании Проект Квартира">О компании</a>
+                    class="nav-hide-xl py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="О компании Проект Квартира">О компании</a>
                 <!-- Контакты --><a href="/contact"
-                    class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Контакты и адрес офиса">Контакты</a>
+                    class="nav-hide-lg py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Контакты и адрес офиса">Контакты</a>
                 <!-- Блоги --><a href="/blogs"
-                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Статьи о ремонте и дизайне">Блоги</a>
+                    class="nav-hide-xl py-6 text-gray-600 hover:text-[#876b55] transition font-medium" title="Статьи о ремонте и дизайне">Блоги</a>
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">
                 <div class="header-phone-block flex flex-col justify-center items-center"><a
-                        href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-orange-500 transition" title="Позвонить: +7 495 473-17-37">+7 495
+                        href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-[#876b55] transition" title="Позвонить: +7 495 473-17-37">+7 495
                         473-17-37</a>
                     <!--<a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>-->
                     <p class="text-sm text-gray-500">Ежедневно с 9:00 до 22:00</p>
                 </div><button data-button-dialog
-                    class="desktop-cta flex items-center bg-orange-500 text-white px-6 py-2.5 rounded-lg hover:bg-orange-600 transition font-semibold shadow-sm hover:shadow-md" title="Получить расчет стоимости ремонта">Получить
+                    class="desktop-cta flex items-center bg-[#876b55] text-white px-6 py-2.5 rounded-lg hover:bg-[#6d5744] transition font-semibold shadow-sm hover:shadow-md" title="Получить расчет стоимости ремонта">Получить
                     расчет </button>
             </div>
             <div class="lg:hidden flex justify-between items-center gap-4">
                 <!-- Mobile Phone --><a href="tel:<?= $site['phone']; ?>" aria-label="Позвонить" title="Позвонить: +7 495 473-17-37"
-                    class="header-phone-mobile flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-orange-500 transition"><i
-                        class="fas fa-phone text-orange-500"></i><span class="phone-num">+7 495 473-17-37</span></a>
+                    class="header-phone-mobile flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-[#876b55] transition"><i
+                        class="fas fa-phone text-[#876b55]"></i><span class="phone-num">+7 495 473-17-37</span></a>
                 <!-- Mobile Menu Button --><button data-button-dialog
-                    class="hidden sm:flex text-sm bg-orange-500 text-white p-2 rounded-lg hover:bg-orange-600 transition">Получить
+                    class="hidden sm:flex text-sm bg-[#876b55] text-white p-2 rounded-lg hover:bg-[#6d5744] transition">Получить
                     расчет </button><button class="lg:hidden mobile-menu-toggle p-2" aria-label="Открыть меню">
                     <div class="relative w-6 h-5"><span
                             class="absolute top-0 left-0 w-full h-0.5 bg-gray-800 transition-all duration-300"></span><span
@@ -308,25 +308,25 @@
                 </ul>
             </div>
             <hr><a href="/prices"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Цены
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">Цены
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/calculator"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Калькулятор
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">Калькулятор
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/portfolio"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Портфолио
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">Портфолио
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/reviews"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Отзывы
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">Отзывы
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/about"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">О
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">О
                 компании <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/contact"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Контакты
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">Контакты
                 <i class="fa fa-arrow-right"></i></a>
             <hr><a href="/blogs"
-                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition">Блоги
+                class="flex justify-between items-center py-3 px-4 text-gray-700 hover:bg-[#fef8f3] hover:text-[#876b55] rounded-lg transition">Блоги
                 <i class="fa fa-arrow-right"></i></a>
         </nav>
         <div class="border-t pt-6">
@@ -392,7 +392,7 @@
                     </label>
                     <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                     <button type="submit"
-                        class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl text-base md:text-lg font-bold">
+                        class="w-full bg-[#876b55] hover:bg-[#6d5744] text-white py-3 rounded-xl text-base md:text-lg font-bold">
                         Отправить
                     </button>
                 </div>

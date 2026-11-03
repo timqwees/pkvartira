@@ -203,12 +203,12 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <div class="max-w-3xl">
                         <h1 class="text-3xl md:text-5xl font-heading font-bold mb-6 text-white leading-tight">
                             Ремонт квартиры<br>
-                            <strong class="text-orange-500">под сдачу или продажу</strong><br>
+                            <strong class="text-[#876b55]">под сдачу или продажу</strong><br>
                             в Москве
                         </h1>
                         <p class="text-xl mb-8 text-white max-w-2xl">Сделайте квартиру ликвидной: бюджетный ремонт для сдачи или премиальный — для продажи. Фиксированная смета и гарантия 3 года.</p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="tel:<?= $site['phone']; ?>" class="bg-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-orange-600 transition text-lg"><i class="fas fa-phone mr-2"></i>Вызвать инженера</a>
+                            <a href="tel:<?= $site['phone']; ?>" class="bg-[#876b55] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#6d5744] transition text-lg"><i class="fas fa-phone mr-2"></i>Вызвать инженера</a>
                             <button data-button-dialog class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition"><i class="fas fa-calculator mr-2"></i>Расчёт сметы</button>
                         </div>
                     </div>
@@ -227,23 +227,23 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <?php foreach ($prices as $price): ?>
                     <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition group <?= ($price['стиль'] ?? '') === 'рекомендуем' ? 'ring-2 ring-orange-500 scale-105' : '' ?>">
                         <?php if (!empty($price['бейдж'])): ?>
-                        <div class="bg-orange-500 text-white text-center text-sm font-bold py-2"><?= htmlspecialchars($price['бейдж']) ?></div>
+                        <div class="bg-[#876b55] text-white text-center text-sm font-bold py-2"><?= htmlspecialchars($price['бейдж']) ?></div>
                         <?php endif; ?>
                         <div class="p-6">
                             <h3 class="text-2xl font-heading font-bold mb-2"><?= htmlspecialchars($price['заголовок']) ?></h3>
-                            <div class="text-3xl font-bold text-orange-600 mb-1"><?= htmlspecialchars($price['цена']) ?></div>
+                            <div class="text-3xl font-bold text-[#6d5744] mb-1"><?= htmlspecialchars($price['цена']) ?></div>
                             <p class="text-sm text-gray-500 mb-4"><?= htmlspecialchars($price['подзаголовок']) ?></p>
                             <ul class="space-y-2 mb-6">
                                 <?php foreach ($price['услуги'] as $service): ?>
                                 <li class="flex items-start gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-green-500 mt-0.5"></i><?= htmlspecialchars($service) ?></li>
                                 <?php endforeach; ?>
                             </ul>
-                            <button data-button-dialog class="w-full bg-orange-500 text-white py-3 rounded-xl font-semibold hover:bg-orange-600 transition"><?= htmlspecialchars($price['кнопка']) ?></button>
+                            <button data-button-dialog class="w-full bg-[#876b55] text-white py-3 rounded-xl font-semibold hover:bg-[#6d5744] transition"><?= htmlspecialchars($price['кнопка']) ?></button>
                         </div>
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">цен на ремонт</a> или <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">посчитайте в калькуляторе</a>.</p>
+                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">посчитайте в калькуляторе</a>.</p>
             </div>
         </section>
 
@@ -270,11 +270,11 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <p class="text-xl text-gray-600">5 шагов от замера до полной готовности объекта</p>
                 </div>
                 <div class="grid md:grid-cols-5 gap-4">
-                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-orange-600 font-heading font-bold text-xl">1</span></div><h3 class="font-heading font-bold mb-2">Замер и смета</h3><p class="text-gray-500 text-sm">Выезд инженера, 3 варианта сметы под ваш бюджет</p></div>
-                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-orange-600 font-heading font-bold text-xl">2</span></div><h3 class="font-heading font-bold mb-2">Дизайн-проект</h3><p class="text-gray-500 text-sm">Планировка, материалы, мебель под цель ремонта</p></div>
-                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-orange-600 font-heading font-bold text-xl">3</span></div><h3 class="font-heading font-bold mb-2">Ремонт</h3><p class="text-gray-500 text-sm">Штатные мастера, фиксированные сроки, фотоотчёты</p></div>
-                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-orange-600 font-heading font-bold text-xl">4</span></div><h3 class="font-heading font-bold mb-2">Меблировка</h3><p class="text-gray-500 text-sm">Сборка и расстановка мебели, подключение техники</p></div>
-                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-orange-600 font-heading font-bold text-xl">5</span></div><h3 class="font-heading font-bold mb-2">Приёмка</h3><p class="text-gray-500 text-sm">Подписание акта, гарантия 3 года, ключи вам</p></div>
+                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-[#6d5744] font-heading font-bold text-xl">1</span></div><h3 class="font-heading font-bold mb-2">Замер и смета</h3><p class="text-gray-500 text-sm">Выезд инженера, 3 варианта сметы под ваш бюджет</p></div>
+                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-[#6d5744] font-heading font-bold text-xl">2</span></div><h3 class="font-heading font-bold mb-2">Дизайн-проект</h3><p class="text-gray-500 text-sm">Планировка, материалы, мебель под цель ремонта</p></div>
+                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-[#6d5744] font-heading font-bold text-xl">3</span></div><h3 class="font-heading font-bold mb-2">Ремонт</h3><p class="text-gray-500 text-sm">Штатные мастера, фиксированные сроки, фотоотчёты</p></div>
+                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-[#6d5744] font-heading font-bold text-xl">4</span></div><h3 class="font-heading font-bold mb-2">Меблировка</h3><p class="text-gray-500 text-sm">Сборка и расстановка мебели, подключение техники</p></div>
+                    <div class="bg-white rounded-2xl p-5 shadow-sm text-center"><div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3"><span class="text-[#6d5744] font-heading font-bold text-xl">5</span></div><h3 class="font-heading font-bold mb-2">Приёмка</h3><p class="text-gray-500 text-sm">Подписание акта, гарантия 3 года, ключи вам</p></div>
                 </div>
             </div>
         </section>
