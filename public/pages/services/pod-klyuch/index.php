@@ -274,55 +274,6 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 </div>
             </div>
         </section>
-        <section id="price" class="reveal bg-white py-10 md:py-14">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
-                    Сколько стоит ремонт квартир под ключ
-                </h2>
-                <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость с черновыми материалами, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
-                </p>
-
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <?php foreach ($prices as $price): ?>
-                        <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-orange-500 shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
-                            itemscope itemtype="https://schema.org/Service">
-                            <meta itemprop="name"
-                                content="<?= htmlspecialchars($price['заголовок']); ?> ремонт квартиры под ключ">
-                            <?php if (isset($price['бейдж'])): ?>
-                                <div
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-200">
-                                    <?= htmlspecialchars($price['бейдж']); ?>
-                                </div>
-                            <?php endif; ?>
-                            <div class="<?= isset($price['бейдж']) ? 'mt-3' : ''; ?> text-sm text-gray-600">
-                                <?= htmlspecialchars($price['заголовок']); ?>
-                            </div>
-                            <div class="mt-2 text-3xl font-bold text-gray-900" itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer">
-                                <span itemprop="price"
-                                    content="<?= htmlspecialchars($price['цена_число']); ?>"><?= htmlspecialchars($price['цена']); ?></span>
-                                <meta itemprop="priceCurrency" content="RUB">
-                                <meta itemprop="priceValidUntil" content="2026-12-31">
-                            </div>
-                            <div class="text-sm text-gray-600"><?= htmlspecialchars($price['подзаголовок']); ?></div>
-                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                                <?php foreach ($price['услуги'] as $услуга): ?>
-                                    <li class="flex gap-2"><i
-                                            class="fa-solid fa-check text-green-600 mt-0.5"></i><span><?= htmlspecialchars($услуга); ?></span>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                            <a href="tel:<?= $site['phone'] ?>"
-                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Что входит в стоимость ремонта -->
         <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
