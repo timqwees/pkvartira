@@ -28,4 +28,10 @@ class Database
         }
         return self::$instance;
     }
+
+    // Алиас для совместимости с существующим кодом (index.php:58)
+    public static function getConnection(): PDO
+    {
+        return self::getInstance();
+    }
 }
