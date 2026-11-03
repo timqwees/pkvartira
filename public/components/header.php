@@ -150,102 +150,102 @@
 <header class="bg-white border-b border-gray-100 fixed w-full top-0 z-[100]" style="backdrop-filter: blur(16px) saturate(180%); background: rgba(255,255,255,0.88);">
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="header-row flex justify-between items-center">
-            <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2"><img width="152" height="50" class="h-[50px] translate-y-0.5"
+            <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2" title="Главная страница Проект Квартира — ремонт квартир под ключ в Москве"><img width="152" height="50" class="h-[50px] translate-y-0.5"
                     src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             <!-- Desktop Navigation -->
             <div class="desktop-nav hidden lg:flex items-center space-x-8">
-                <!-- Главная --><a href="/" class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium">Главная</a>
+                <!-- Главная --><a href="/" class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Главная страница">Главная</a>
                 <!-- Услуги -->
-                <div class="drop py-6"><a href="/">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
+                <div class="drop py-6"><a href="/services" title="Все услуги и виды ремонта">Услуги <i class="fas fa-chevron-down dropdown-arrow arrow"></i></a>
                     <ul class="flex p-4 py-0">     
                         <div class="flex flex-col pr-4"><span class="drop-title">Виды ремонта</span>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch" title="Ремонт квартир под ключ в Москве"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     квартир под ключ </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайнерский
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium" title="Дизайнерский ремонт квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайнерский
                                     ремонт </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Чистовая
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya" title="Чистовая отделка квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Чистовая
                                     отделка </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Черновая
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya" title="Черновая отделка квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Черновая
                                     отделка </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box"><i class="fas fa-chevron-right drop-submenu-arrow"></i>White
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box" title="White Box отделка квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>White
                                     Box </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizayn-interierov"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dizayn-interierov" title="Дизайн интерьеров квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайн
                                     интерьеров </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka" title="Ремонт в новостройке"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     в новостройке </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka" title="Ремонт во вторичном жилье"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     во вторичке </a></li>
                         </div>
                         <div class="flex flex-col pr-4"><span class="drop-title">По типу помещения</span>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Квартиры-студии</a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>1-комнатные
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio" title="Ремонт квартир-студий"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Квартиры-студии</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room" title="Ремонт 1-комнатных квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>1-комнатные
                                     квартиры </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>2-комнатные
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room" title="Ремонт 2-комнатных квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>2-комнатные
                                     квартиры </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>3-комнатные
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room" title="Ремонт 3-комнатных квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>3-комнатные
                                     квартиры </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room"><i class="fas fa-chevron-right drop-submenu-arrow"></i>4-комнатные
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/4room" title="Ремонт 4-комнатных квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>4-комнатные
                                     квартиры </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дома
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/doma" title="Ремонт домов и коттеджей"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дома
                                     и коттеджи </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Коммерческие
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/kommercheskie" title="Ремонт коммерческих помещений"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Коммерческие
                                     помещения </a></li>
                         </div>
                         <!-- Районы работ -->
                         <div class="grid grid-cols-2 gap-y-2 gap-x-4 pr-4"><span class="drop-title col-span-2">Популярные районы</span>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mitino"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Митино</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/khimki"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Химки</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dolgoprudny"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Долгопрудный</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/odintsovo"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Одинцово</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/krasnogorsk"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Красногорск</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lyubertsy"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Люберцы</a></li>
-                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/balashikha"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Балашиха</a></li>
-                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
-                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services"><i class="fas fa-chevron-right drop-submenu-arrow"></i><strong>Все районы →</strong></a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mitino" title="Ремонт квартир в Митино"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Митино</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/khimki" title="Ремонт квартир в Химках"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Химки</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/dolgoprudny" title="Ремонт квартир в Долгопрудном"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Долгопрудный</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/odintsovo" title="Ремонт квартир в Одинцово"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Одинцово</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/krasnogorsk" title="Ремонт квартир в Красногорске"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Красногорск</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/lyubertsy" title="Ремонт квартир в Люберцах"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Люберцы</a></li>
+                          <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/balashikha" title="Ремонт квартир в Балашихе"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Балашиха</a></li>
+                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/mytishchi" title="Ремонт квартир в Мытищах"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Мытищи</a></li>
+                           <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services" title="Все районы обслуживания"><i class="fas fa-chevron-right drop-submenu-arrow"></i><strong>Все районы →</strong></a></li>
                         </div>
                         <!-- Дополнительное -->
                         <div class="flex flex-col pr-4">
                           <div class="flex flex-col">
                             <span class="drop-title">Образцы документов</span>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/smeta-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Смета на ремонт: образец</a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/dogovor-obrazec"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Договор на ремонт: шаблон</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/smeta-obrazec" title="Образец сметы на ремонт"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Смета на ремонт: образец</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/dogovor-obrazec" title="Шаблон договора на ремонт"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Договор на ремонт: шаблон</a></li>
                           </div>
                           <div class="flex flex-col">
                             <span class="drop-title">Другое</span>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/kalkulyator-ploshchadi"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Калькулятор площади (м²)</a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/stocks"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Акции и скидки</a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/kak-poschitat-kvadratnye-metry"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blogs"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Все статьи о ремонте</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/kalkulyator-ploshchadi" title="Калькулятор площади квартиры"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Калькулятор площади (м²)</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/stocks" title="Акции и скидки на ремонт"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Акции и скидки</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blog/kak-poschitat-kvadratnye-metry" title="Как посчитать квадратные метры квартиры"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Как посчитать квадратные метры</a></li>
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/blogs" title="Все статьи о ремонте и дизайне"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Все статьи о ремонте</a></li>
                           </div>
                         </div>
                     </ul>
                 </div>
-                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Цены</a>
+                <!-- Цена --><a href="/prices" class="py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Цены на ремонт квартир">Цены</a>
                 <!-- Калькулятор --><a href="/calculator"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Калькулятор</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Онлайн калькулятор стоимости ремонта">Калькулятор</a>
                 <!-- Портфолио --><a href="/portfolio"
-                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium">Портфолио</a>
-                <!-- Отзывы --><a href="/reviews" class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium">Отзывы</a>
+                    class="py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Примеры выполненных работ">Портфолио</a>
+                <!-- Отзывы --><a href="/reviews" class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Отзывы клиентов">Отзывы</a>
                 <!-- О компании --><a href="/about"
-                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium">О компании</a>
+                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="О компании Проект Квартира">О компании</a>
                 <!-- Контакты --><a href="/contact"
-                    class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium">Контакты</a>
+                    class="nav-hide-lg py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Контакты и адрес офиса">Контакты</a>
                 <!-- Блоги --><a href="/blogs"
-                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium">Блоги</a>
+                    class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Статьи о ремонте и дизайне">Блоги</a>
             </div>
             <!-- Desktop Contact -->
             <div class="hidden lg:flex items-stretch items-end gap-6">
                 <div class="header-phone-block flex flex-col justify-center items-center"><a
-                        href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-orange-500 transition">+7 495
+                        href="tel:<?= $site['phone']; ?>" class="text-xl font-bold text-gray-800 hover:text-orange-500 transition" title="Позвонить: +7 495 473-17-37">+7 495
                         473-17-37</a>
                     <!--<a href="tel:88003021737" class="text-sm font-semibold text-orange-600 hover:text-orange-700"><?= htmlspecialchars($site['phone8800'] ?? '8 800 302-17-37') ?> — бесплатно по РФ</a>-->
                     <p class="text-sm text-gray-500">Ежедневно с 9:00 до 22:00</p>
                 </div><button data-button-dialog
-                    class="desktop-cta flex items-center bg-orange-500 text-white px-6 py-2.5 rounded-lg hover:bg-orange-600 transition font-semibold shadow-sm hover:shadow-md">Получить
+                    class="desktop-cta flex items-center bg-orange-500 text-white px-6 py-2.5 rounded-lg hover:bg-orange-600 transition font-semibold shadow-sm hover:shadow-md" title="Получить расчет стоимости ремонта">Получить
                     расчет </button>
             </div>
             <div class="lg:hidden flex justify-between items-center gap-4">
-                <!-- Mobile Phone --><a href="tel:<?= $site['phone']; ?>" aria-label="Позвонить"
+                <!-- Mobile Phone --><a href="tel:<?= $site['phone']; ?>" aria-label="Позвонить" title="Позвонить: +7 495 473-17-37"
                     class="header-phone-mobile flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-orange-500 transition"><i
                         class="fas fa-phone text-orange-500"></i><span class="phone-num">+7 495 473-17-37</span></a>
                 <!-- Mobile Menu Button --><button data-button-dialog
@@ -267,7 +267,7 @@
     <div class="p-6">
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
-                <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2"><img width="145" height="48" class="h-12"
+                <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2" title="Главная страница"><img width="145" height="48" class="h-12"
                         src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве pkvartira.ru"></a>
             </div><button class="mobile-menu-close p-2" aria-label="Закрыть меню"><i
                     class="fas fa-times text-2xl text-gray-800"></i></button>
