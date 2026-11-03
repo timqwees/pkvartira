@@ -120,6 +120,20 @@ $portfolio = [
     ],
     [
         'type' => $portfolio_types['new'],
+        'title' => 'Новостройка, 32 м²',
+        'folder_image' => 'public/assets/images/portfolio-photos/newbuilds/1_32new',
+        'size' => '32 м²',
+        'category' => 'Под ключ',
+    ],
+    [
+        'type' => $portfolio_types['new'],
+        'title' => 'Новостройка, 62 м²',
+        'folder_image' => 'public/assets/images/portfolio-photos/newbuilds/1_62new',
+        'size' => '62 м²',
+        'category' => 'Под ключ',
+    ],
+    [
+        'type' => $portfolio_types['new'],
         'title' => 'Капитальный ремонт, новостройка',
         'folder_image' => 'public/assets/images/portfolio-photos/newbuilds/1_86sqm',
         'size' => '86 м²',

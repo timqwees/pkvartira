@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Дизайн интерьеров — от 1 500 ₽/м²';
-$bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg';
+$bg_url = getAiBackground(2); // AI Background 2 для дизайна интерьеров
 $prices = [
     [
         'заголовок' => 'Пакет 1 — Консультация перед покупкой',
