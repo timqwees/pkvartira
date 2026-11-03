@@ -10,13 +10,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 18 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/premium'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 18 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/premium'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
@@ -26,7 +26,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 18 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
@@ -45,7 +45,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     </script>
 
     <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в ремонт квартиры под ключ с дизайн проектом?", "acceptedAnswer": {"@type": "Answer", "text": "Авторский дизайн-проект, черновые работы, замена электрики и сантехники, чистовая отделка, умный дом, меблировка и финальная уборка. Цена фиксируется в договоре."}}, {"@type": "Question", "name": "Сколько стоит ремонт квартиры под ключ с дизайн проектом за м²?", "acceptedAnswer": {"@type": "Answer", "text": "От 18 000 ₽/м² (премиум) и от 25 000 ₽/м² (люкс). Например, 1-комнатная 45 м² — от 810 000 ₽, 2-комнатная 60 м² — от 1 080 000 ₽. Точную смету даём после бесплатного замера."}}, {"@type": "Question", "name": "Можно ли сделать ремонт по готовому дизайн проекту?", "acceptedAnswer": {"@type": "Answer", "text": "Да, берём в работу готовые дизайн проекты: проверяем чертежи, считаем смету и выполняем ремонт под ключ. Также адаптируем готовые решения под вашу планировку."}}, {"@type": "Question", "name": "Что входит в премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Премиальный ремонт включает элитные материалы, авторский дизайн, интеграцию «умного дома», меблировку, климат-контроль и полную комплектацию квартиры."}}, {"@type": "Question", "name": "Сколько времени занимает премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от площади и сложности проекта. В среднем от 2 до 6 месяцев. Точные сроки фиксируются в договоре."}}, {"@type": "Question", "name": "Можно ли сделать премиальный ремонт в новостройке?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем с новостройками и вторичным жильём. Выполняем полный цикл от черновой отделки до меблировки."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в ремонт квартиры под ключ с дизайн проектом?", "acceptedAnswer": {"@type": "Answer", "text": "Авторский дизайн-проект, черновые работы, замена электрики и сантехники, чистовая отделка, умный дом, меблировка и финальная уборка. Цена фиксируется в договоре."}}, {"@type": "Question", "name": "Сколько стоит ремонт квартиры под ключ с дизайн проектом за м²?", "acceptedAnswer": {"@type": "Answer", "text": "От 25 000 ₽/м² (премиум) и от 40 000 ₽/м² (люкс). Например, 1-комнатная 45 м² — от 1 125 000 ₽, 2-комнатная 60 м² — от 1 500 000 ₽. Точную смету даём после бесплатного замера."}}, {"@type": "Question", "name": "Можно ли сделать ремонт по готовому дизайн проекту?", "acceptedAnswer": {"@type": "Answer", "text": "Да, берём в работу готовые дизайн проекты: проверяем чертежи, считаем смету и выполняем ремонт под ключ. Также адаптируем готовые решения под вашу планировку."}}, {"@type": "Question", "name": "Что входит в премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Премиальный ремонт включает элитные материалы, авторский дизайн, интеграцию «умного дома», меблировку, климат-контроль и полную комплектацию квартиры."}}, {"@type": "Question", "name": "Сколько времени занимает премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от площади и сложности проекта. В среднем от 2 до 6 месяцев. Точные сроки фиксируются в договоре."}}, {"@type": "Question", "name": "Можно ли сделать премиальный ремонт в новостройке?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем с новостройками и вторичным жильём. Выполняем полный цикл от черновой отделки до меблировки."}}]}
     </script>
 </head>
 <body class="bg-white">
@@ -55,9 +55,9 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
         <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
             <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Ремонт квартиры под ключ с дизайн-проектом</h1>
-            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Премиальный ремонт квартир в Москве: авторский дизайн-проект, элитные материалы, умный дом и меблировка. Стоимость ремонта с дизайн проектом — от 18 000 ₽/м². Гарантия 3 года.</p>
+            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Премиальный ремонт квартир в Москве: авторский дизайн-проект, элитные материалы, умный дом и меблировка. Стоимость ремонта с дизайн проектом — от 25 000 ₽/м². Гарантия 3 года.</p>
             <div class="mt-6 flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> от 18 000 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> от 25 000 ₽/м²</div>
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Авторский дизайн</div>
             </div>
@@ -69,8 +69,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Сколько стоит ремонт квартиры под ключ с дизайн проектом</h2>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">Стоимость ремонта квартиры под ключ с дизайн проектом — от 18 000 ₽/м². Дизайн-проект включён в цену: авторский проект, черновые работы, инженерия, чистовая отделка, умный дом и меблировка.</p>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">Примеры: 1-комнатная 45 м² — от 810 000 ₽, 2-комнатная 60 м² — от 1 080 000 ₽. Точную смету рассчитаем после бесплатного замера или <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">посчитайте в калькуляторе</a>.</p>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Стоимость ремонта квартиры под ключ с дизайн проектом — от 25 000 ₽/м². Дизайн-проект включён в цену: авторский проект, черновые работы, инженерия, чистовая отделка, умный дом и меблировка.</p>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Примеры: 1-комнатная 45 м² — от 1 125 000 ₽, 2-комнатная 60 м² — от 1 500 000 ₽. Точную смету рассчитаем после бесплатного замера или <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">посчитайте в калькуляторе</a>.</p>
                     <ul class="mt-4 space-y-2">
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Элитные материалы: мрамор, натуральное дерево, кожа</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Авторский дизайн-проект от ведущих архитекторов</li>
@@ -81,8 +81,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 <div class="bg-[#f9fafb] rounded-xl p-6">
                     <h3 class="text-lg font-bold text-[#111827]">Цены на премиальный ремонт</h3>
                     <div class="mt-4 space-y-3">
-                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Премиум</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
-                        <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Люкс</span><span class="font-bold text-[#111827]">от 25 000 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Премиум</span><span class="font-bold text-[#111827]">от 25 000 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Люкс</span><span class="font-bold text-[#111827]">от 40 000 ₽/м²</span></div>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@ include './public/components/cta-form.php';
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в ремонт квартиры под ключ с дизайн проектом?</summary><p class="mt-2 text-sm text-[#6b7280]">Авторский дизайн-проект, черновые работы, замена электрики и сантехники, чистовая отделка элитными материалами, умный дом, меблировка и финальная уборка. Цена фиксируется в договоре.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры под ключ с дизайн проектом за м²?</summary><p class="mt-2 text-sm text-[#6b7280]">От 18 000 ₽/м² (премиум) и от 25 000 ₽/м² (люкс). Например, 45 м² — от 810 000 ₽. Точную смету рассчитаем после бесплатного замера или <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">посчитайте в калькуляторе</a>.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры под ключ с дизайн проектом за м²?</summary><p class="mt-2 text-sm text-[#6b7280]">От 25 000 ₽/м² (премиум) и от 40 000 ₽/м² (люкс). Например, 45 м² — от 1 125 000 ₽. Точную смету рассчитаем после бесплатного замера или <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">посчитайте в калькуляторе</a>.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать ремонт по готовому дизайн проекту?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, берём в работу готовые дизайн проекты: проверяем чертежи, считаем смету и выполняем ремонт под ключ. Адаптируем готовые решения под вашу планировку.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в премиальный ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Премиальный ремонт включает элитные материалы, авторский дизайн, интеграцию «умного дома», меблировку, климат-контроль и полную комплектацию квартиры.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает премиальный ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и сложности проекта. В среднем от 2 до 6 месяцев. Точные сроки фиксируются в договоре.</p></details>

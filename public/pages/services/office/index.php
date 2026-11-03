@@ -79,6 +79,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
                     <h3 class="text-lg font-bold text-[#111827]">Цены на ремонт офиса</h3>
+                    <p class="mt-2 text-sm text-[#6b7280]">Цены на ремонт офиса ниже квартирных за счёт: отсутствия мокрых зон (сантехника), типовых планировочных решений, больших площадей без сложной зонирования и более простых материалов отделки.</p>
                     <div class="mt-4 space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 5 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 10 000 ₽/м²</span></div>

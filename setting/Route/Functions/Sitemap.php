@@ -294,6 +294,9 @@ class Sitemap
             'dizayn-interierov' => ['0.8', 'weekly'],
         ];
 
+        // Страницы вне периметра услуг / не по региону — исключаем из sitemap
+        $excludeServices = ['ukladka-laminata', 'keramogranit-nazarovo'];
+
         $dir = __DIR__ . '/../../../public/pages/services';
         $entries = [];
 
@@ -301,6 +304,7 @@ class Sitemap
             $items = scandir($dir);
             foreach ($items as $item) {
                 if ($item === '.' || $item === '..') continue;
+                if (in_array($item, $excludeServices)) continue;
                 $indexFile = $dir . '/' . $item . '/index.php';
                 if (is_file($indexFile)) {
                     if (isset($priorityMap[$item])) {

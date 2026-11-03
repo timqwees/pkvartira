@@ -287,8 +287,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
                     Сколько стоит ремонт квартиры в новостройке
                 </h2>
-                <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость отделки квартиры под ключ за м² в новостройке — от 8 000 ₽/м². Выберите подходящий пакет. Точную стоимость ремонта в новостройке рассчитаем после замера и составления сметы.
+<p class="mt-2 text-gray-600 max-w-3xl">
+                    Стоимость работ без учёта материалов, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость ремонта в новостройке рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -746,6 +746,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">3</span>С чистовой отделкой от застройщика</h3>
                         <p class="text-gray-600 text-sm mb-3">Косметический ремонт: замена напольных покрытий, переклейка обоев, обновление сантехники и фурнитуры. Бюджетное преображение без перепланировок.</p>
                         <p class="text-orange-600 font-semibold text-sm">От 5 000 ₽/м² — косметика, с материалами</p>
+                        <p class="mt-2 text-xs text-gray-500">* 5 000 ₽/м² — только косметическая отделка поверх готовой базы застройщика. 8 000 ₽/м² (White Box) — полная чистовая отделка на базе «предчистовой» (штукатурка, стяжка, электрика, сантехника).</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
                         <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">4</span>Приёмка квартиры в новостройке</h3>

@@ -40,6 +40,15 @@ Routes::get('/services/dizajn-interierov', function () {
     header('Location: /services/dizayn-interierov', true, 301);
     exit;
 });
+// Страницы вне периметра / не по региону — noindex
+Routes::get('/services/ukladka-laminata', function() {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+    Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/ukladka-laminata/index.php", get_defined_vars());
+});
+Routes::get('/services/keramogranit-nazarovo', function() {
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+    Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/keramogranit-nazarovo/index.php", get_defined_vars());
+});
 Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php", get_defined_vars()); });
 //==================================================================================================//PRICES
 Routes::get('/prices', 'on_Prices');
@@ -115,19 +124,19 @@ Routes::get('/769e1df8217a98f76286a4d39b571085.txt', function () {
 });
 //==================================================================================================//LLMS.TXT (AI)
 Routes::get('/llms.txt', function () {
-    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
     header('Content-Type: text/plain; charset=utf-8');
     readfile(dirname(__DIR__, 2) . '/public/llms.txt');
 });
 //==================================================================================================//LLMS-FULL.TXT (AI)
 Routes::get('/llms-full.txt', function () {
-    \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
     header('Content-Type: text/plain; charset=utf-8');
     readfile(dirname(__DIR__, 2) . '/public/llms-full.txt');
 });
 
 Routes::get('/opensearch.xml', function() {
-	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
 	header('Content-Type: application/opensearchdescription+xml; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/opensearch.xml');
 });
@@ -143,6 +152,29 @@ Routes::get('/.well-known/security.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/.well-known/security.txt');
 });
+
+// .docx documents — noindex
+Routes::get('/public/documents/politika-konfidencialnosti.docx', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+	header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+	readfile(dirname(__DIR__, 2) . '/public/documents/politika-konfidencialnosti.docx');
+});
+Routes::get('/public/documents/soglasie-na-obrabotku-personalnyh-dannyh.docx', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+	header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+	readfile(dirname(__DIR__, 2) . '/public/documents/soglasie-na-obrabotku-personalnyh-dannyh.docx');
+});
+Routes::get('/public/documents/dogovor-remonta-obrazec.docx', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+	header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+	readfile(dirname(__DIR__, 2) . '/public/documents/dogovor-remonta-obrazec.docx');
+});
+Routes::get('/public/documents/smeta-remonta-obrazec.docx', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+	header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+	readfile(dirname(__DIR__, 2) . '/public/documents/smeta-remonta-obrazec.docx');
+});
+
 //==================================================================================================//AI DISCOVERY (ai-check: ai-plugin, openapi, api-catalog, agent-skills)
 Routes::get('/ai-plugin.json', function() {
 	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
@@ -409,8 +441,15 @@ Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $inde
     }
 });
 //==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
-Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
-Routes::get('/vakansii/{slug}', function($slug) { $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });
+Routes::get('/vakansii', function() { 
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+    Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); 
+});
+Routes::get('/vakansii/{slug}', function($slug) { 
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+    $vacancySlug = $slug; 
+    Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); 
+});
 
 // HTML интерфейс для IndexNow (минималистичный)
 function indexNowHtmlResponse(array $response, int $checked, int $sentCount, array $details = [], string $indexNowKey = ''): void
@@ -547,5 +586,12 @@ Routes::post('/indexnow', function() use ($indexNowKey, $indexNowKeyLocation) {
     echo json_encode(['results' => $results], JSON_UNESCAPED_UNICODE);
 });
 //==================================================================================================//VACANCIES (JSON-шаблон: список + поиск + деталка по slug)
-Routes::get('/vakansii', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); });
-Routes::get('/vakansii/{slug}', function($slug) { $vacancySlug = $slug; Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); });
+Routes::get('/vakansii', function() { 
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+    Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/index.php", get_defined_vars()); 
+});
+Routes::get('/vakansii/{slug}', function($slug) { 
+    \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
+    $vacancySlug = $slug; 
+    Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/vakansii/detail.php", get_defined_vars()); 
+});
