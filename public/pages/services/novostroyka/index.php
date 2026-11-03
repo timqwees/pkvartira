@@ -731,28 +731,49 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт новостройки с любым типом отделки</h2>
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Независимо от того, что оставил застройщик — голые стены, стяжку или white box — мы доведём квартиру до идеала под ключ.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <a href="/services/bez-otdelki" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт новостройки без отделки (черновая)">
                         <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">1</span>Без отделки (черновая)</h3>
                         <p class="text-gray-600 text-sm mb-3">Голые стены, стяжка, подведены коммуникации. Полный цикл: штукатурка, электрика, сантехника, чистовая отделка. Самый популярный формат.</p>
                         <p class="text-orange-600 font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    </a>
+                    <a href="/services/white-box" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры White Box (предчистовая)">
                         <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">2</span>White Box (предчистовая)</h3>
                         <p class="text-gray-600 text-sm mb-3">Стены оштукатурены, стяжка залита, разведена электрика и сантехника. Остаётся чистовая отделка: финишные покрытия, двери, сантехника, освещение.</p>
                         <p class="text-orange-600 font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">3</span>С чистовой отделкой от застройщика</h3>
+                    </a>
+                    <a href="/services/predchistovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры с предчистовой отделкой">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">3</span>Предчистовая отделка</h3>
+                        <p class="text-gray-600 text-sm mb-3">Стены оштукатурены, стяжка залита, электрика и сантехника разведена. Остаются финишные покрытия, двери, сантехника, освещение.</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 10 000 ₽/м² под ключ</p>
+                    </a>
+                    <a href="/services/chistovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт с чистовой отделкой от застройщика">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">4</span>Чистовая отделка от застройщика</h3>
                         <p class="text-gray-600 text-sm mb-3">Косметический ремонт: замена напольных покрытий, переклейка обоев, обновление сантехники и фурнитуры. Бюджетное преображение без перепланировок.</p>
                         <p class="text-orange-600 font-semibold text-sm">От 5 000 ₽/м² — косметика, с материалами</p>
-                        <p class="mt-2 text-xs text-gray-500">* 5 000 ₽/м² — только косметическая отделка поверх готовой базы застройщика. 8 000 ₽/м² (White Box) — полная чистовая отделка на базе «предчистовой» (штукатурка, стяжка, электрика, сантехника).</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition">
-                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">4</span>Приёмка квартиры в новостройке</h3>
-                        <p class="text-gray-600 text-sm mb-3">Выезд технического специалиста на приёмку квартиры от застройщика. Проверка качества отделки, замеры, фиксация дефектов. Поможем отстоять свои права.</p>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <a href="/services/white-box" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="White Box отделка квартиры">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">5</span>White Box (детально)</h3>
+                        <p class="text-gray-600 text-sm mb-3">Подробнее о формате White Box: что входит в комплект застройщика, какие работы остаются, как сэкономить на этапе черновика.</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 8 000 ₽/м² чистовой отделки</p>
+                    </a>
+                    <a href="/services/chernovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры с черновой отделкой">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">6</span>Черновая отделка (детально)</h3>
+                        <p class="text-gray-600 text-sm mb-3">Что входит в понятие «черновая», какие работы за застройщиком, а какие — за подрядчиком. Сроки и этапы.</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 13 000 ₽/м² под ключ</p>
+                    </a>
+                    <a href="/services/ot-zastroyschika" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Отделка квартир от застройщика">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">7</span>Отделка от застройщика</h3>
+                        <p class="text-gray-600 text-sm mb-3">Разбор форматов: white box, предчистовая, чистовая. Что проверить при приёмке, какие дефекты частые, как защитить свои интересы.</p>
                         <p class="text-orange-600 font-semibold text-sm">Бесплатно при заказе ремонта</p>
-                    </div>
+                    </a>
+                    <a href="/services/budushchiy-remont" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт к дате получения ключей">
+                        <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">8</span>Ремонт к дате ключей</h3>
+                        <p class="text-gray-600 text-sm mb-3">Планируем ремонт заранее: замер, смету, договор — пока ключей нет. В день получения — бригада уже на месте.</p>
+                        <p class="text-orange-600 font-semibold text-sm">Планирование без потери времени</p>
+                    </a>
                 </div>
                 <p class="mt-6 text-center text-[#4b5563]">Ключи только через несколько месяцев? <a href="/services/budushchiy-remont" class="text-orange-600 underline hover:text-orange-700 font-semibold">Узнайте стоимость ремонта уже сейчас</a> и спланируйте бюджет заранее.</p>
             </div>
