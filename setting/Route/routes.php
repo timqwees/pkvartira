@@ -1,7 +1,6 @@
 <?php
 
-namespace Setting\Route;
-
+use App\Models\Router\Routes;
 use Setting\Route\Functions\{SecurityHeaders, TheFunction, Sitemap, YmlFeed, RssFeed, TurboFeed, McpServer};
 
 $routes = new class {
