@@ -1,5 +1,6 @@
 <?php
 use Setting\Route\Functions\TheFunction;
+require_once __DIR__ . '/../../../components/ai-background.php';
 $site = TheFunction::site();
 $title = 'Дизайн интерьеров — от 1 500 ₽/м²';
 $bg_url = getAiBackground(2); // AI Background 2 для дизайна интерьеров
