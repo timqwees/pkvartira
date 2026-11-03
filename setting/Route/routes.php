@@ -313,14 +313,24 @@ function indexNowSend(array $urls, string $key, string $keyLocation): array {
     return $results;
 }
 
-// GET /indexnow — автоматическая проверка по mtime
+// GET /indexnow — автоматическая проверка по mtime (с визуальным интерфейсом)
 Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $indexNowKeyLocation) {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity();
-    header('Content-Type: application/json; charset=utf-8');
-
+    
+    // Определяем формат ответа: HTML для браузеров, JSON для API
+    $accept = $_SERVER['HTTP_ACCEPT'] ?? '';
+    $wantsHtml = strpos($accept, 'text/html') !== false || (isset($_GET['format']) && $_GET['format'] === 'html');
+    
     $allUrls = indexNowCollectUrls();
+    
     if (!$allUrls) {
-        echo json_encode(['ok' => true, 'message' => 'Нет URL для проверки', 'sent' => []], JSON_UNESCAPED_UNICODE);
+        $response = ['ok' => true, 'message' => 'Нет URL для проверки', 'sent' => []];
+        if ($wantsHtml) {
+            echo indexNowHtmlResponse($response, 0, 0, []);
+        } else {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($response, JSON_UNESCAPED_UNICODE);
+        }
         return;
     }
 
@@ -334,23 +344,33 @@ Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $inde
     $toSend = [];
     foreach ($allUrls as $route => $mtime) {
         $lastSent = $state[$route] ?? 0;
-        // Отправляем если: файл изменился ПОСЛЕ последнего успешного пуша
         if ($mtime > $lastSent) {
-            $toSend[] = 'https://' . parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST) . $route;
+            $toSend[] = [
+                'route' => $route,
+                'url' => 'https://' . parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST) . $route,
+                'modified' => $mtime,
+                'lastSent' => $lastSent,
+            ];
         }
     }
 
     if (!$toSend) {
-        echo json_encode([
+        $response = [
             'ok' => true,
             'message' => 'Нет новых изменений — все URL актуальны',
             'checked' => count($allUrls),
             'sent' => []
-        ], JSON_UNESCAPED_UNICODE);
+        ];
+        if ($wantsHtml) {
+            echo indexNowHtmlResponse($response, count($allUrls), 0, $allUrls, $state);
+        } else {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($response, JSON_UNESCAPED_UNICODE);
+        }
         return;
     }
 
-    $results = indexNowSend($toSend, $indexNowKey, $indexNowKeyLocation);
+    $results = indexNowSend(array_column($toSend, 'url'), $indexNowKey, $indexNowKeyLocation);
 
     // Обновляем состояние только для успешно отправленных (2xx)
     foreach ($results as $i => $r) {
@@ -358,18 +378,257 @@ Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $inde
             $route = parse_url($r['url'], PHP_URL_PATH);
             $state[$route] = $now;
         }
+        // Добавляем статус в toSend для отображения
+        $toSend[$i]['status'] = $r['status'];
+        $toSend[$i]['success'] = ($r['status'] >= 200 && $r['status'] < 300);
     }
     file_put_contents($indexNowStateFile, json_encode($state));
 
     $sentUrls = array_filter($results, fn($r) => $r['status'] >= 200 && $r['status'] < 300);
-    echo json_encode([
+    $response = [
         'ok' => true,
         'message' => 'Автоматический IndexNow пуш завершён',
         'checked' => count($allUrls),
         'sent_count' => count($sentUrls),
         'sent' => array_values(array_map(fn($r) => ['url' => $r['url'], 'status' => $r['status']], $sentUrls))
-    ], JSON_UNESCAPED_UNICODE);
+    ];
+
+    if ($wantsHtml) {
+        echo indexNowHtmlResponse($response, count($allUrls), count($sentUrls), $toSend, $state);
+    } else {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
 });
+
+// HTML визуальный интерфейс для IndexNow
+function indexNowHtmlResponse(array $response, int $checked, int $sentCount, array $details = [], array $state = []): void
+{
+    $site = (new Setting\Route\Functions\TheFunction())->site();
+    $baseUrl = $site['baseUrl'];
+    $brand = $site['name'] ?? 'Проект Квартира';
+    $shortBrand = $site['shortName'] ?? 'Проект Квартира';
+    $now = date('d.m.Y H:i:s');
+    $ok = $response['ok'] ?? true;
+    $message = $response['message'] ?? '';
+    $sent = $response['sent'] ?? [];
+    $sentCount = $response['sent_count'] ?? $sentCount;
+    $checked = $response['checked'] ?? $checked;
+    
+    // Статус для цветов
+    $statusClass = $ok ? 'success' : 'error';
+    $statusIcon = $ok ? '✅' : '❌';
+    $statusText = $ok ? 'Успешно' : 'Ошибка';
+    
+    // CSS
+    $css = <<<CSS
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            background: #f8f9fa; 
+            color: #1a1a2e; 
+            line-height: 1.6; 
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: #fff; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            overflow: hidden; 
+        }
+        .header { 
+            background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%); 
+            color: #1a1a2e; 
+            padding: 32px; 
+            text-align: center; 
+        }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .header .subtitle { font-size: 14px; opacity: 0.8; }
+        .status-badge { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            padding: 8px 16px; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 14px; 
+            margin-top: 16px; 
+        }
+        .status-badge.success { background: #dcfce7; color: #166534; }
+        .status-badge.error { background: #fee2e2; color: #991b1b; }
+        .content { padding: 32px; }
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 16px; 
+            margin-bottom: 32px; 
+        }
+        .stat-card { 
+            background: #f8f9fa; 
+            border: 1px solid #e9ecef; 
+            border-radius: 10px; 
+            padding: 20px; 
+            text-align: center; 
+            transition: transform 0.2s, box-shadow 0.2s; 
+        }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .stat-value { font-size: 36px; font-weight: 700; color: #1a1a2e; line-height: 1; margin-bottom: 4px; }
+        .stat-label { font-size: 13px; color: #6c757d; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card.sent .stat-value { color: #16a34a; }
+        .stat-card.checked .stat-value { color: #2563eb; }
+        .stat-card.failed .stat-value { color: #dc2626; }
+        .message-box { 
+            padding: 16px 20px; 
+            border-radius: 8px; 
+            margin-bottom: 24px; 
+            font-size: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        .message-box.success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .message-box.error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+        .message-box.info { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+        .section-title { 
+            font-size: 18px; 
+            font-weight: 600; 
+            margin-bottom: 16px; 
+            padding-bottom: 8px; 
+            border-bottom: 2px solid #eab308; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        .table-container { overflow-x: auto; margin-bottom: 24px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #e9ecef; }
+        th { background: #f8f9fa; font-weight: 600; color: #495057; white-space: nowrap; }
+        tr:hover td { background: #fafbfc; }
+        .url-cell { max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: monospace; font-size: 12px; }
+        .badge { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 4px; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+        }
+        .badge.success { background: #dcfce7; color: #166534; }
+        .badge.error { background: #fee2e2; color: #991b1b; }
+        .badge.pending { background: #fef3c7; color: #92400e; }
+        .badge.skipped { background: #f3f4f6; color: #6b7280; }
+        .footer { 
+            text-align: center; 
+            padding: 20px 32px; 
+            background: #f8f9fa; 
+            border-top: 1px solid #e9ecef; 
+            color: #6c757d; 
+            font-size: 13px; 
+        }
+        .footer a { color: #eab308; text-decoration: none; font-weight: 500; }
+        .footer a:hover { text-decoration: underline; }
+        .empty-state { text-align: center; padding: 40px 20px; color: #6c757d; }
+        .empty-state svg { width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5; }
+        .toggle-json { 
+            display: block; 
+            text-align: center; 
+            margin-top: 24px; 
+            padding: 12px; 
+            background: #f8f9fa; 
+            border: 1px dashed #dee2e6; 
+            border-radius: 8px; 
+            color: #6c757d; 
+            font-size: 13px; 
+            text-decoration: none; 
+        }
+        .toggle-json:hover { background: #e9ecef; color: #495057; }
+        @media (max-width: 640px) {
+            .container { margin: 0; border-radius: 0; min-height: 100vh; }
+            .header h1 { font-size: 22px; }
+            .stat-value { font-size: 28px; }
+            th, td { padding: 10px 8px; font-size: 12px; }
+        }
+    </style>
+CSS;
+
+    // Начало HTML
+    echo '<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IndexNow — ' . htmlspecialchars($brand) . '</title>' . $css . '</head><body>';
+    echo '<div class="container">';
+    
+    // Header
+    echo '<header class="header">';
+    echo '<h1>📡 IndexNow</h1>';
+    echo '<div class="subtitle">Автоматическая отправка изменений в поисковые системы</div>';
+    echo '<div class="status-badge ' . $statusClass . '">' . $statusIcon . ' ' . $statusText . '</div>';
+    echo '</header>';
+    
+    // Content
+    echo '<div class="content">';
+    
+    // Message
+    $msgClass = $ok ? ($sentCount > 0 ? 'success' : 'info') : 'error';
+    $msgIcon = $ok ? ($sentCount > 0 ? '✅' : 'ℹ️') : '❌';
+    echo '<div class="message-box ' . $msgClass . '">' . $msgIcon . ' ' . htmlspecialchars($message) . '</div>';
+    
+    // Stats
+    $failed = $checked - $sentCount;
+    echo '<div class="stats-grid">';
+    echo '<div class="stat-card checked"><div class="stat-value">' . number_format($checked) . '</div><div class="stat-label">Проверено URL</div></div>';
+    echo '<div class="stat-card sent"><div class="stat-value">' . number_format($sentCount) . '</div><div class="stat-label">Отправлено</div></div>';
+    echo '<div class="stat-card' . ($failed > 0 ? ' failed' : '') . '"><div class="stat-value">' . number_format($failed) . '</div><div class="stat-label">Без изменений / Ошибки</div></div>';
+    echo '<div class="stat-card"><div class="stat-value">' . date('H:i:s') . '</div><div class="stat-label">Время выполнения</div></div>';
+    echo '</div>';
+    
+    // Details table
+    if (!empty($details)) {
+        echo '<h2 class="section-title">📋 Детали отправки</h2>';
+        echo '<div class="table-container"><table>';
+        echo '<thead><tr><th>URL</th><th>Статус</th><th>Код</th><th>Изменён</th><th>Последний пуш</th></tr></thead><tbody>';
+        foreach ($details as $item) {
+            $url = $item['url'] ?? ($item['route'] ?? '');
+            $status = $item['success'] ?? ($item['status'] >= 200 && $item['status'] < 300 ? true : false);
+            $code = $item['status'] ?? ($item['lastSent'] ?? 0);
+            $modified = $item['modified'] ?? 0;
+            $lastSent = $item['lastSent'] ?? 0;
+            
+            $badgeClass = $status ? 'success' : 'error';
+            $badgeText = $status ? 'Отправлено' : 'Ошибка';
+            if ($lastSent > 0 && $modified <= $lastSent) {
+                $badgeClass = 'skipped';
+                $badgeText = 'Без изменений';
+            } elseif ($lastSent === 0 && $modified > 0) {
+                $badgeClass = 'pending';
+                $badgeText = 'Новый';
+            }
+            
+            echo '<tr>';
+            echo '<td class="url-cell">' . htmlspecialchars($url) . '</td>';
+            echo '<td><span class="badge ' . $badgeClass . '">' . $badgeText . '</span></td>';
+            echo '<td>' . ($code ? '<span style="font-family:monospace;font-size:12px;">' . $code . '</span>' : '—') . '</td>';
+            echo '<td>' . ($modified ? date('d.m.Y H:i', $modified) : '—') . '</td>';
+            echo '<td>' . ($lastSent ? date('d.m.Y H:i', $lastSent) : '—') . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody></table></div>';
+    }
+    
+    // Footer
+    echo '<footer class="footer">';
+    echo '<p>IndexNow автоматизирован для <strong>' . htmlspecialchars($brand) . '</strong> — ' . htmlspecialchars($baseUrl) . '</p>';
+    echo '<p>Ключ: <code style="background:#f1f3f4;padding:2px 6px;border-radius:4px;font-size:12px;">' . htmlspecialchars(substr($indexNowKey ?? '', 0, 8)) . '***</code> | ';
+    echo '<a href="' . htmlspecialchars($baseUrl) . '/indexnow?format=json" target="_blank">JSON API</a> | ';
+    echo '<a href="' . htmlspecialchars($baseUrl) . '" target="_blank">На сайт</a></p>';
+    echo '<p>Последняя проверка: ' . $now . ' | Кэш: ' . (is_file(sys_get_temp_dir() . '/pkvartira-indexnow-state.json') ? 'активен' : 'пуст') . '</p>';
+    echo '</footer>';
+    
+    echo '</div></body></html>';
+}
 
 // POST /indexnow — ручной пуш (как было)
 Routes::post('/indexnow', function() use ($indexNowKey, $indexNowKeyLocation) {
