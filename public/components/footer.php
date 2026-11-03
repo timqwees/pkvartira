@@ -493,4 +493,12 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
+
+<!-- PK Animation System -->
+<!-- Load order: Lenis -> GSAP -> ScrollTrigger -> PK Animation -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/pk-animation.js'); ?>"></script>
+
 <?php include_once './public/components/cta-modal.php'; ?>    
