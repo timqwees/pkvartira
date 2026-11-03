@@ -373,7 +373,7 @@ $prices = [
         </section>
 
         <!-- 4. Этапы работ -->
-        <section id="process" class="reveal py-16 bg-blue-50">
+        <section id="process" class="reveal py-16 bg-gradient-to-br from-orange-50 via-white to-yellow-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -385,34 +385,34 @@ $prices = [
                 </div>
 
                 <ol class="relative grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 list-none m-0 p-0">
-                    <div class="hidden lg:block absolute w-full h-0.5 bg-gray-300 top-8 left-0 z-0" aria-hidden="true"></div>
+                    <div class="hidden lg:block absolute w-full h-0.5 bg-gradient-to-r from-orange-300 via-orange-400 to-yellow-400 top-8 left-0 z-0" aria-hidden="true"></div>
 
                     <li class="text-center z-10">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">01</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">01</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Знакомство и замер</h3>
                         <p class="text-sm text-gray-600">Обсуждаем ваши пожелания, стиль, бюджет. Выезжаем на замер, фиксируем все размеры и особенности помещения.</p>
                     </li>
 
                     <li class="text-center z-10">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">02</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">02</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Планировка и эскизы</h3>
                         <p class="text-sm text-gray-600">Разрабатываем варианты планировки, подбираем стиль, цветовую палитру. Согласовываем с вами каждый элемент.</p>
                     </li>
 
                     <li class="text-center z-10">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">03</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">03</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">3D-визуализация</h3>
                         <p class="text-sm text-gray-600">Создаём фотореалистичные картинки вашего будущего интерьера. Вы видите результат до начала ремонта.</p>
                     </li>
 
                     <li class="text-center z-10">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">04</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">04</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Чертежи и комплектация</h3>
                         <p class="text-sm text-gray-600">Готовим полный комплект чертежей для бригады. Подбираем все материалы, мебель, освещение.</p>
                     </li>
 
                     <li class="text-center z-10">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">05</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">05</div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Авторский надзор</h3>
                         <p class="text-sm text-gray-600">По желанию дизайнер сопровождает ремонт: следит за соответствием проекту и помогает бригаде с решениями.</p>
                     </li>
@@ -420,7 +420,100 @@ $prices = [
             </div>
         </section>
 
-        <!-- 5. Почему выбирают нас -->
+        </ol>
+            </div>
+        </section>
+
+        <!-- 5. Примеры реализованных проектов -->
+        <section class="reveal py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
+                    Реализованные проекты с дизайном
+                </h2>
+                <p class="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
+                    Несколько примеров квартир, где мы разрабатывали дизайн-проект и сопровождали ремонт под ключ.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Новостройка 32 м² -->
+                    <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
+                        itemscope itemtype="https://schema.org/CreativeWork">
+                        <div class="relative h-48 bg-gray-100">
+                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_32new/11.png"
+                                alt="Новостройка 32 м² — дизайн-проект"
+                                class="w-full h-full object-cover"
+                                width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                                <span class="px-2 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">Новостройка</span>
+                                <span>32 м²</span>
+                            </div>
+                            <h3 class="font-bold text-gray-900 mb-1">Новостройка, 32 м²</h3>
+                            <p class="text-sm text-gray-500 mb-4">Современный минимализм, светлые тона, встроенные хранилища. Дизайн-проект + авторский надзор.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500 border-t border-gray-100 pt-4">
+                                <span>45 дней</span>
+                                <span class="font-semibold text-gray-900">2 118 000 ₽</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Новостройка 62 м² -->
+                    <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
+                        itemscope itemtype="https://schema.org/CreativeWork">
+                        <div class="relative h-48 bg-gray-100">
+                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_62new/11.jpeg"
+                                alt="Новостройка 62 м² — дизайн-проект"
+                                class="w-full h-full object-cover"
+                                width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                                <span class="px-2 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">Новостройка</span>
+                                <span>62 м²</span>
+                            </div>
+                            <h3 class="font-bold text-gray-900 mb-1">Новостройка, 62 м²</h3>
+                            <p class="text-sm text-gray-500 mb-4">Семейная квартира для двоих детей. Зонирование, детская, мастер-спальня. Полный комплект чертежей.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500 border-t border-gray-100 pt-4">
+                                <span>90 дней</span>
+                                <span class="font-semibold text-gray-900">3 118 000 ₽</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Капитальный ремонт, новостройка 86 м² -->
+                    <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
+                        itemscope itemtype="https://schema.org/CreativeWork">
+                        <div class="relative h-48 bg-gray-100">
+                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg"
+                                alt="Капитальный ремонт новостройка 86 м² — дизайн-проект"
+                                class="w-full h-full object-cover"
+                                width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                                <span class="px-2 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">Новостройка</span>
+                                <span>86 м²</span>
+                            </div>
+                            <h3 class="font-bold text-gray-900 mb-1">Капитальный ремонт, новостройка 86 м²</h3>
+                            <p class="text-sm text-gray-500 mb-4">Премиальная отделка, сложные инженерные системы, индивидуальная мебель. Авторский дизайн-проект.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500 border-t border-gray-100 pt-4">
+                                <span>60 дней</span>
+                                <span class="font-semibold text-gray-900">1 118 000 ₽</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="/portfolio" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 hover:underline">
+                        Все проекты в портфолио <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Почему выбирают нас -->
         <section class="reveal bg-white py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8">
@@ -445,9 +538,11 @@ $prices = [
                     </div>
                 </div>
             </div>
+        </div>
+            </div>
         </section>
 
-        <!-- 6. FAQ -->
+        <!-- 7. FAQ -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
@@ -524,16 +619,6 @@ $prices = [
                 </div>
             </div>
         </section>
-
-        <!-- 7. Финальный CTA -->
-        <?php
-        $ctaFormId = 'dizajn_cta';
-        $ctaFormTitle = 'Закажите дизайн интерьера';
-        $ctaFormSubtitle = 'Бесплатная консультация за 15 минут';
-        $ctaButtonText = 'Получить консультацию';
-        $ctaExpandable = false;
-        include './public/components/cta-section.php';
-        ?>
 
     </main>
 
