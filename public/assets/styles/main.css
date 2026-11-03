@@ -71,20 +71,21 @@ body {
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #1f2937;
+    color: var(--color-ink);
     line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    color: var(--color-ink);
 }
 
 /* Premium scrollbar */
 ::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
+    background: var(--color-brand);
     border-radius: 30px;
 }
 
@@ -118,7 +119,7 @@ html {
 .card-premium {
     background: white;
     border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--color-border);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -134,7 +135,7 @@ html {
 }
 
 .section-dark {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, var(--color-ink) 0%, #2a211b 100%);
     color: white;
 }
 
@@ -913,7 +914,7 @@ footer a:hover {
 .stat-card {
     text-align: center;
     padding: 2rem 1.5rem;
-    border-radius: 20px;
+    border-radius: var(--radius-2xl);
     background: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -1012,25 +1013,25 @@ footer a:hover {
 }
 .btn-premium:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 32px rgba(135,107,85,0.4);
 }
 
 /* Price card premium */
 .price-card-premium {
-    border-radius: 20px;
+    border-radius: var(--radius-2xl);
     padding: 2rem;
     background: white;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 .price-card-premium:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
 }
 .price-card-premium.featured {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, var(--color-ink) 0%, #2a211b 100%);
     color: white;
     border-color: transparent;
     transform: scale(1.02);
@@ -1249,7 +1250,7 @@ footer a:hover {
     align-items: center;
     gap: 6px;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-2xl);
     font-size: 0.75rem;
     font-weight: 600;
     background: linear-gradient(135deg, #f97316, #ea580c);
