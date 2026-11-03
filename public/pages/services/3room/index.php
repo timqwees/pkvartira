@@ -478,118 +478,69 @@ if (is_readable($euroAbout)) {
                     Отвечаем на главные вопросы
                 </h2>
 
-                <div class="max-w-3xl mx-auto space-y-4">
+                                <div class="max-w-3xl mx-auto space-y-4">
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт трехкомнатной квартиры под ключ?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как правильно поэтапить капитальный ремонт трёхкомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Ремонт трехкомнатной квартиры под ключ в Москве — от 8 000 ₽/м² косметический, от 13 000 ₽/м² капитальный. Например, трёшка 70 м² — капитальный от 910 000 ₽. Точную смету даём после бесплатного замера, цена фиксируется в договоре.</span>
+                            <span itemprop="text">Этапы: 1) Демонтаж и вынос мусора (3-5 дней), 2) Грубые работы: стяжка, штукатурка, перегородки (10-15 дней), 3) Инженерия: электрика, сантехника, вентиляция (7-10 дней), 4) Чистовая отделка: полы, стены, потолки (10-14 дней), 5) Установка дверей, плинтусов, освещения (3-5 дней), 6) Финальная уборка и сдача (1-2 дня). Итого: 35-55 дней. Этапы не перекрываются — строгая последовательность.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит капитальный ремонт 3 комнатной квартиры?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как организовать санузлы в трёхкомнатной квартире?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Стоимость капитального ремонта в 3х комнатной квартире — от 13 000 ₽/м²: замена электрики и сантехники, стяжка, штукатурка, чистовая отделка. Срок — от 60 дней.</span>
+                            <span itemprop="text">В 3-комнатной оптимально 2 санузла: совмещённый у спален (ванна/душ, унитаз, раковина) + гостевой у входа (унитаз, раковина). Если площадь позволяет — 3 санузла: мастер-ванная в мастер-спальне, общий у спален, гостевой у входа. Вентиляция в каждом — принудительная. Водонагреватель в мастер-ванной или на кухне.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Какая цена ремонта трехкомнатной квартиры под ключ в Москве?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как развести водопровод и канализацию в трёхкомнатной квартире?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Цена ремонта трехкомнатной квартиры под ключ в Москве зависит от состояния и метража. Ориентир: 65 м² — от 845 000 ₽ капитальный, 80 м² — от 1 040 000 ₽. Посчитайте свой вариант в <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">калькуляторе</a>.</span>
+                            <span itemprop="text">Разводка коллекторная (манжетная): от коллектора на каждом этаже/зоне отдельные трубы к каждой точке (раковина, унитаз, душ, стиралка, посудомойка). Трубы ПЭХ или металлопластик в штробах или коробах. Коллекторы в сантехнических шкафах с доступом. Отопление — тоже коллекторное, по контурам на комнаты.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в квартире во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит капитальный ремонт трёхкомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время ремонта жить в квартире будет неудобно. Работы идут активно —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">От 910 000 ₽ за 70 м² (капитальный пакет). Дизайнерский — от 1 260 000 ₽. Зависит от метража (60-90 м²), состояния, пакета. Для 75-85 м² — от 975 000 ₽ до 1 530 000 ₽. Точную смету — после замера.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает капитальный ремонт трёхкомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
+                            <span itemprop="text">Капитальный — 45-60 дней. Дизайнерский — 60-75 дней. Этапы не перекрываются. Точные сроки в договоре после замера и согласования сметы.</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
