@@ -491,186 +491,69 @@ $prices = [
                     Отвечаем на главные вопросы
                 </h2>
 
-                <div class="max-w-3xl mx-auto space-y-4">
+                                <div class="max-w-3xl mx-auto space-y-4">
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в квартире во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как правильно спланировать планировку однокомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время ремонта жить в квартире будет неудобно. Работы идут активно —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">В 1-комнатной квартире планировку строим вокруг зон: входная группа, кухня-столовая, зона сна, санузел. Ключевые правила: кухня не менее 8 м², спальная зона от 12 м², проходы не менее 90 см. Если площадь позволяет — выносим гардероб в коридор или делаем встроенный пенал в нише.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как использовать ниши и выступы в однокомнатной квартире?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
+                            <span itemprop="text">Ниши используем под: встроенные гардеробы (глубина 60 см), рабочее место под окном, полки для книг/декора, пьедестал под ванной, техническую нишу за стиралкой. В проекте закладываем каждую нишу под конкретную функцию — пустых ниш не оставляем.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как отделить спальную зону от гостиной в однушке?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
+                            <span itemprop="text">Разделение делаем через: низкую перегородку-стойку (110–130 см), шторку на потолковом карнизе, разную подсветку, раскладку напольных покрытий (плитка на кухне, ламинат в зоне сна), раскладку мебели (диван спиной к кухне). Перегородки на потолок не обязательны — визуального разделения достаточно.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт однокомнатной квартиры под ключ?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
+                            <span itemprop="text">От 296 000 ₽ за 37 м² (косметический), от 481 000 ₽ (капитальный). Точная стоимость зависит от метража, состояния квартиры и пакета услуг. Точную смету даём после бесплатного замера.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает ремонт однокомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт
-                                однокомнатной квартиры с материалами?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Стоимость ремонта однокомнатной квартиры с материалами — от 8 000 ₽/м² косметический и от 13 000 ₽/м² капитальный. Например, 37 м² — от 296 000 ₽. <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">Посчитайте свой метраж в калькуляторе</a>.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Во сколько обойдется ремонт 1
-                                комнатной квартиры?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Ремонт 1 комнатной квартиры обойдётся от 280 000 ₽ (косметический 35 м²) до 585 000 ₽ (капитальный 45 м²). Точную цифру фиксируем в смете после бесплатного замера.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт
-                                однокомнатной квартиры?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">От 296 000 ₽ за квартиру 37 м². Пакеты — от 8 000 ₽/м², от 13 000 ₽/м² и от 18 000 ₽/м². Точную стоимость даёт смета после замера — <a href="/prices" class="text-orange-600 underline hover:text-orange-700">смотрите цены</a>.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт однушки
-                                под ключ в Москве?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Готовим смету в 3 вариантах за 24 часа после замера, цена фиксируется в договоре. Состав услуги — на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">ремонта под ключ</a>.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Где посмотреть фото и дизайны
-                                ремонта однушек?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">В <a href="/portfolio" class="text-orange-600 underline hover:text-orange-700">портфолио</a>: фото до и после с площадью, сроком и стоимостью каждого проекта.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько длится ремонт
-                                однокомнатной квартиры?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Косметический — от 14 дней, капитальный — от 45 дней. Точный срок зависит от площади и состояния квартиры и фиксируется в договоре.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Какие есть идеи и примеры
-                                ремонта однушки 30–40 м²?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смотрите реализованные проекты в <a href="/portfolio" class="text-orange-600 underline hover:text-orange-700">портфолио</a> и варианты планировок на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">ремонта под ключ</a>.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что входит в ремонт однушки
-                                под ключ?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Полный цикл: демонтаж, электрика, сантехника, выравнивание, чистовая отделка, двери, освещение и финальная уборка. Полный состав — на странице <a href="/services/pod-klyuch" class="text-orange-600 underline hover:text-orange-700">ремонта под ключ</a>.</span>
+                            <span itemprop="text">Косметический — 14–21 день, капитальный — 35–50 дней. Точные сроки фиксируем в договоре после замера и согласования сметы.</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
