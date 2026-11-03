@@ -477,74 +477,60 @@ $prices = [
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в квартире во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как организовать зонирование в студии без перегородок?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время ремонта жить в квартире будет неудобно. Работы идут активно —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">В студии зонирование делаем через: разные напольные покрытия (плитка в зоне кухни, ламинат в зоне сна), цветовые акценты на стенах, расстановку мебели (диван как перегородка), подвесные конструкции или разные уровни потолка. Перегородки не обязательны — визуальное разделение работает лучше.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Где хранить вещи в студии, если нет кладовой?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
+                            <span itemprop="text">В студии хранилища выстраиваем вертикально и в мебели: кровать с выдвижными ящиками, пеналы до потолка, ниши в стенах под телевизор/книги, верхние ярусы кухонных гарнитуров, пьедестал под ванной. В проекте закладываем минимум 15–20% площади под хранение.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как отделить кухню от спальной зоны в студии?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
+                            <span itemprop="text">Разделение делаем через: барную стойку/остров, разную подсветку (рабочая над кухней, мягкая в зоне сна), разные материалы пола, низкую перегородку-стойку или шторку. Важно оставить проход не менее 90 см.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт студии под ключ?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
+                            <span itemprop="text">От 200 000 ₽ за 25 м² (косметический), от 325 000 ₽ (капитальный). Точная стоимость зависит от метража, состояния стен и выбранных материалов. Точную смету даём после бесплатного замера.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает ремонт студии?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
+                            <span itemprop="text">Косметический — 10–14 дней, капитальный — 21–35 дней. Точные сроки фиксируем в договоре после замера и согласования сметы.</span>
                         </div>
                     </div>
                 </div>
