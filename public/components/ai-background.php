@@ -1,12 +1,11 @@
 <?php
 /**
- * AI Backgrounds helper — возвращает URL AI-сгенерированного фона
+ * AI Backgrounds helper — возвращает путь к AI-сгенерированному фону
  * Использование: $aiBg = getAiBackground(1); // 1-4
  * В hero-section: $bg_url = getAiBackground(2);
  */
 function getAiBackground(int $index = 1): string
 {
-    $site = (new Setting\Route\Functions\TheFunction())->site();
     $images = [
         1 => '/public/assets/images/ai_background/11.png',
         2 => '/public/assets/images/ai_background/21.png',
@@ -14,7 +13,7 @@ function getAiBackground(int $index = 1): string
         4 => '/public/assets/images/ai_background/41.png',
     ];
     $index = max(1, min(4, $index));
-    return $site['baseUrl'] . $images[$index];
+    return $images[$index];
 }
 
 /**
