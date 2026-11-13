@@ -31,7 +31,7 @@ require_once __DIR__ . '/ai-background.php';
 <!-- Глобальные подсказки браузерам -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="#f97316">
-<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="telephone=yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -58,6 +58,13 @@ require_once __DIR__ . '/ai-background.php';
 <meta name="application-name" content="<?= htmlspecialchars($__brandName, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="author" content="<?= htmlspecialchars($__brandName . ' (' . $__shortBrand . ')', ENT_QUOTES, 'UTF-8'); ?>" />
 <?php /* meta keywords удалён вовсе: поисковики его игнорируют, а список «официальный сайт» ×7 — переспам */ ?>
+<?php /* M-03: верификация Яндекс.Вебмастера. Токен берётся из переменной окружения
+   YANDEX_VERIFICATION — в коде его нет, поэтому файл можно коммитить безопасно.
+   Значение выдаёт личный кабинет Вебмастера → Настройки → Верификация → Мета-тег. */
+$__yandexVerification = trim((string) (getenv('YANDEX_VERIFICATION') ?: ($_ENV['YANDEX_VERIFICATION'] ?? '')));
+if ($__yandexVerification !== '') : ?>
+<meta name="yandex-verification" content="<?= htmlspecialchars($__yandexVerification, ENT_QUOTES, 'UTF-8') ?>">
+<?php endif; ?>
 <link rel="manifest"
     href="<?= $__headBase; ?>/public/assets/images/logo/favicon/site.webmanifest" />
 <link rel="search" type="application/opensearchdescription+xml" title="<?= htmlspecialchars($__brandName . ' — ' . $__shortBrand . ' поиск', ENT_QUOTES, 'UTF-8'); ?>" href="<?= $__headBase; ?>/opensearch.xml" />
@@ -92,8 +99,10 @@ require_once __DIR__ . '/ai-background.php';
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap">
 </noscript>
 
-<!-- Tailwind CSS (local, pre-built) - Blocking (prevents unstyled HTML causing CLS) -->
-<link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/tailwind-built.css') ?>">
+<!-- Premium font preload: заголовочный шрифт грузится сразу, без FOUT -->
+<link rel="preload" as="font" type="font/woff2" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/fonts/WixMadeforDisplay/WixMadeforDisplay-Variable.woff2') ?>" crossorigin>
+
+<!-- Tailwind CSS (local, pre-built) - Blocking (prevents unstyled HTML causing CLS) --><link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/tailwind-built.css') ?>">
 
 <!-- Custom utility classes (replaces Tailwind JIT arbitrary values) -->
 <link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/custom-utilities.min.css') ?>" media="print" onload="this.media='all'">
@@ -103,6 +112,27 @@ require_once __DIR__ . '/ai-background.php';
 
 <!-- Local Styles - Blocking -->
 <link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/main.min.css') ?>">
+
+<!-- Premium theme (FSS-inspired) — слой поверх Tailwind: палитра, типографика, компоненты -->
+<link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/premium-theme.css') ?>">
+
+<!-- Yandex.Metrica counter (M-03) — на ВСЕХ страницах сайта.
+     Раньше счётчик стоял только в public/index.php, из-за чего цели SENDFORM/FORM_START
+     не срабатывали на внутренних страницах и нельзя было оценить вклад органики (M-02). -->
+<script>
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=108587554', 'ym');
+
+    ym(108587554, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/108587554" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrica counter -->
 
 <!-- Swiper JS - deferred -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>

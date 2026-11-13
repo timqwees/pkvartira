@@ -8,6 +8,8 @@
     <ul>
         <li><a href="#kitchen">Кухня-гостиная: плюсы, минусы, закон</a></li>
         <li><a href="#master">Мастер-спальня: гардеробная + санузел</a></li>
+        <li><a href="#without">Что можно делать без согласования</a></li>
+        <li><a href="#table">Допустимо / нужен проект / запрещено</a></li>
         <li><a href="#legal">Как узаконить перепланировку в 2026</a></li>
         <li><a href="#price">Стоимость перепланировки</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -64,6 +66,114 @@
     <div data-type="box" data-color="gray">
         <h3>Совет планировщика</h3>
         <p>Минимальная площадь мастер-спальни — 16 м². Из них 8 м² — спальная зона, 4 м² — гардеробная, 4 м² — санузел с душевой.</p>
+    </div>
+</section>
+
+<section id="without">
+    <h2>Что можно делать без согласования</h2>
+    <p>Без проекта перепланировки и без согласования в Мосжилинспекции можно делать <strong>текущий ремонт</strong> — работы, которые не меняют конфигурацию квартиры и не затрагивают несущие конструкции.</p>
+    <p>К такому относятся:</p>
+    <ul>
+        <li><strong>Отделочные работы.</strong> Побелка, покраска, обои, штукатурка, настил пола — с заменой покрытий без изменения геометрии.</li>
+        <li><strong>Замена сантехники на аналогичную.</strong> Стояк ванны меняем на стояк ванны, унитаз на унитаз — расположение и подводка те же.</li>
+        <li><strong>Замена электроплиты, светильников, розеток</strong> — на аналоги, без изменения электрики и без новых линий.</li>
+        <li><strong>Замена окон, дверей, радиаторов</strong> — с теми же габаритами и подключением.</li>
+        <li><strong>Установка кондиционера, сплит-системы</strong> — с сохранением фасада и без изменения стояков.</li>
+        <li><strong>Остекление балкона</strong> — если не меняется площадь помещения и не затрагивается фасад.</li>
+        <li><strong>Утепление</strong> — внутри квартиры, без изменения фасада и перекрытий.</li>
+        <li><strong>Умный дом, тёплые полы электрические</strong> — приборы и проводка не считаются перепланировкой, если не меняется электрика.</li>
+    </ul>
+
+    <div data-type="box" data-color="yellow">
+        <h3>Граница простого ремонта</h3>
+        <p>Ключевой критерий — <strong>не меняется назначение помещений и не затрагиваются несущие конструкции</strong>. Снесли перегородку между комнатой и кухней, перенесли санузел, расширили дверной проём в несущей стене — это уже перепланировка, даже если работа выглядит простой.</p>
+    </div>
+</section>
+
+<section id="table">
+    <h2>Допустимо / нужен проект / запрещено</h2>
+    <p>Разделили типичные для кухни-гостиной работы на три категории. Таблица помогает понять, где заканчивается ремонт и начинается перепланировка.</p>
+    <div style="overflow-x:auto;margin:16px 0;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:680px;">
+            <thead>
+                <tr style="background:#0f172a;color:#fff;">
+                    <th style="padding:10px;text-align:left;border-radius:8px 0 0 0;">Что хотите сделать</th>
+                    <th style="padding:10px;text-align:left;">Категория</th>
+                    <th style="padding:10px;text-align:left;border-radius:0 8px 0 0;">Комментарий</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Объединить кухню с гостиной (снос перегородки)</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Нужен проект</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Меняется назначение помещения. Проект и согласование обязательны.</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Проём в несущей стене (с усилением)</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Нужен проект</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Требуется техзаключение и проект усиления. Полный снос несущей стены — невозможен.</td>
+                </tr>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Перенос санузла</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Нужен проект</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Требуется проект инженерных сетей и проверка несущей способности перекрытия.</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Устройство санузла в нише, где был холодильник</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Нужен проект</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Санузел над жилой комнатой требует согласования и гидроизоляции.</td>
+                </tr>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Замена сантехники на аналогичную</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#16a34a;font-weight:700;">Допустимо</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Текущий ремонт. Согласование не требуется.</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Покраска, обои, штукатурка, замена пола</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#16a34a;font-weight:700;">Допустимо</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Текущий ремонт без изменения конфигурации.</td>
+                </tr>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Замена окон, дверей, радиаторов на аналоги</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#16a34a;font-weight:700;">Допустимо</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Габариты и подключение не меняются.</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Утепление внутри квартиры</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#16a34a;font-weight:700;">Допустимо</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Не меняется фасад и площадь помещений.</td>
+                </tr>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Остекление балкона</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Нужен проект</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Если балкон не является холодным, остекление меняет его статус — оформляется проект.</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Полный снос несущей стены</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Запрещено</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Несущая способность перекрытия не восстанавливается стеной в пол. Проект не поможет.</td>
+                </tr>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Снос вентиляционного канала или стояка</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Запрещено</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Нарушение нормативов, дом может не быть принят в эксплуатацию.</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Устройство тёплого пола водяного от отопления</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Запрещено</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Водяной тёплый пол от центрального отопления — грубейшее нарушение.</td>
+                </tr>
+                <tr style="background:#fff;">
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Устройство мансардного этажа при низком потолке</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;color:#dc2626;font-weight:700;">Запрещено</td>
+                    <td style="padding:8px 10px;border:1px solid #e5e7eb;">Ниже нормативной высоты — перекрытие теряет несущую способность.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div data-type="box" data-color="blue">
+        <h3>Хотите проверить свою идею до проекта?</h3>
+        <p>Архитектор посмотрит план квартиры и скажет, попадает ваша идея в категорию «допустимо», «нужен проект» или «запрещено». Это занимает 15 минут и экономит месяцы согласований.</p>
     </div>
 </section>
 

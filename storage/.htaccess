@@ -1,0 +1,10 @@
+# Служебное хранилище: прямой доступ по HTTP закрыт.
+# Файлы отдаются только через PHP-роутер (см. setting/Route/routes.php),
+# где выставляются правильные заголовки и X-Robots-Tag: noindex.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>

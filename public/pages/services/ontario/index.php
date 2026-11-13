@@ -94,7 +94,8 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Дизайнерский</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Элитный</span><span class="font-bold text-[#111827]">от 25 000 ₽/м²</span></div>
-                    </div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%.</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -127,6 +128,11 @@ include './public/components/cta-form.php';
             </div>
         </div>
     </section>
+<?php
+$districtKey = 'ontario';
+include './public/components/district-local.php';
+?>
+
 
     <section class="py-12 bg-[#f9fafb]">
         <div class="container mx-auto px-4 max-w-6xl">
@@ -147,8 +153,6 @@ include './public/components/cta-form.php';
                 <a href="/services/mitino" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт в Митино</a>
                 <a href="/services/krasnogorsk" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт в Красногорске</a>
                 <a href="/services/lyubertsy" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт в Люберцах</a>
-                <a href="/services/ukladka-laminata" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Укладка ламината</a>
-                <a href="/services/keramogranit-nazarovo" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Укладка керамогранита</a>
                 <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт под ключ</a>
                 <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт новостроек</a>
                 <a href="/services/zhk-simvol" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">ЖК Символ</a>

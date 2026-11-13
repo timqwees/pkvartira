@@ -35,7 +35,8 @@
   function animateCounters() {
     if (counted) return;
     var counters = document.querySelectorAll('.counter');
-    if (counters.length === 0 || !isVisible(counters[0].closest('.counter-section') || counters[0])) return;
+    var section = counters[0] ? counters[0].closest('.counter-section') : null;
+    if (counters.length === 0 || !isVisible(section || counters[0])) return;
     counted = true;
     counters.forEach(function(el) {
       var target = parseInt(el.getAttribute('data-target'), 10);

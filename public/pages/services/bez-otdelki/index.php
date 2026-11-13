@@ -85,7 +85,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Дизайнерский</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
-                    </div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%.</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -131,6 +132,39 @@ include './public/components/cta-form.php';
         </div>
     </section>
 </main>
+<?php
+$otdelkaClusterCurrent = 'bez-otdelki';
+include './public/components/otdelka-cluster.php';
+?>
+
+
+<?php
+// N-15: кейс «Новостройка 86 м², 60 дней, 1 118 000 ₽»
+$caseData = [
+    'title'  => 'Новостройка, 86 м²',
+    'area'   => '86 м²',
+    'days'   => '60 дней',
+    'sum'    => '1 118 000 ₽',
+    'alt'    => 'Ремонт новостройки 86 м² — выполненный объект',
+    'photos' => [
+        '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+        '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/2.jpg',
+        '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/3.jpg',
+        '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/4.jpg',
+    ],
+    'note'   => 'Квартира сдана из состояния «без отделки»: голые стены, без стяжки и коммуникаций. Сделали полный цикл — черновые работы, инженерия, чистовая отделка. Срок и сумма зафиксированы в договоре.',
+    'bullets' => [
+        'Демонтаж, штукатурка стен по маякам, стяжка с выравниванием',
+        'Полная разводка электрики и сантехники',
+        'Чистовая отделка всех помещений, двери и плинтусы',
+        'Финальная уборка и передача ключей',
+    ],
+];
+$caseTitle    = 'Наш объект: новостройка 86 м² за 60 дней';
+$caseSubtitle = 'Квартира без отделки от застройщика — полный цикл работ. Срок и стоимость из договора.';
+$caseNote     = 'Хотите такой же результат в своей квартире? Посчитаем за 5 минут — <a href="/calculator" class="text-[#6d5744] font-semibold underline">калькулятор ремонта</a>.';
+include './public/components/case-study.php';
+?>
     <section class="py-12 text-center bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>

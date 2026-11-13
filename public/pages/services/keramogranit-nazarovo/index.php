@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Укладка керамогранита — цена за квадратный метр. Стоимость работы от 1 200 ₽/м². Укладка на пол и стены, с подрезкой и без. Гарантия 3 года. Работаем в Москве и области. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="noindex, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/keramogranit-nazarovo'); ?>">
 
     <!-- Open Graph -->

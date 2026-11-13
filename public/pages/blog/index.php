@@ -130,9 +130,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </li>
                     </ol>
                 </nav>
-                <div class="mb-8">
-                    <h1 class="text-[32px] md:text-[40px] font-extrabold text-[#1f2937] leading-tight" style="font-family:var(--font-heading)">Блог / статьи</h1>
-                    <p class="mt-3 text-[15px] leading-[22px] text-[#6b7280] max-w-2xl">
+                <div class="mb-10 max-w-3xl">
+                    <span class="label-tag">Журнал о ремонте</span>
+                    <h1 class="section-heading">Блог: инструкции, цены и разборы от практиков</h1>
+                    <p class="section-subtitle" style="margin-left:0">
                         Полезные советы и лайфхаки для ремонта квартир под ключ, практическая информация и наши
                         наработки.
                     </p>
@@ -349,33 +350,18 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
         <hr>
-        <section class="py-16 bg-[#f9fafb] border-t border-[#e5e7eb]">
+        <section class="blog-cta">
             <div class="container mx-auto px-4 max-w-6xl text-center">
-                <h3 class="text-2xl md:text-3xl font-bold text-[#111827]">
-                    Хотите рассчитать стоимость ремонта?
-                </h3>
-                <p class="mt-3 text-[#6b7280]">
-                    Получите расчёт и бесплатную консультацию без обязательств.
-                </p>
+                <span class="label-tag">Бесплатно и без обязательств</span>
+                <h2 class="section-heading">Хотите рассчитать стоимость ремонта?</h2>
+                <p class="section-subtitle">Получите расчёт и бесплатную консультацию без обязательств.</p>
 
-                <a href="/calculator"
-                    class="mt-8 inline-flex items-center h-12 px-8 rounded-lg bg-[#f97316] text-white font-semibold hover:bg-[#ea580c] transition-colors">
-                    Рассчитать стоимость
-                </a>
+                <a href="/calculator" class="cta-button mt-8">Рассчитать стоимость</a>
 
-                <div class="mt-8 flex items-center justify-center gap-6 flex-wrap text-sm text-[#4b5563]">
-                    <span class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#f97316] text-[10px]"><i class="fa-solid fa-check"></i></span>
-                        Перезвоним через 15 минут
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#f97316] text-[10px]"><i class="fa-solid fa-check"></i></span>
-                        Обсудим все пожелания
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-[#fed7aa] flex items-center justify-center text-[#f97316] text-[10px]"><i class="fa-solid fa-check"></i></span>
-                        Сориентируем по стоимости
-                    </span>
+                <div class="blog-cta-checks">
+                    <span><i class="fa-solid fa-check" aria-hidden="true"></i>Перезвоним через 15 минут</span>
+                    <span><i class="fa-solid fa-check" aria-hidden="true"></i>Обсудим все пожелания</span>
+                    <span><i class="fa-solid fa-check" aria-hidden="true"></i>Сориентируем по стоимости</span>
                 </div>
             </div>
         </section>
@@ -384,76 +370,83 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <?php include_once './public/components/footer.php'; ?>
 
     <style>
+        /* Блог: карточки и сайдбар в премиальной палитре (бронза/чернила/бумага) */
         .blog-card {
-            border-radius: 12px;
+            border-radius: 26px;
             background: #fff;
-            border: 1px solid #e5e7eb;
-            transition: box-shadow .2s;
+            border: 1px solid #e4ddd2;
+            box-shadow: 0 2px 10px rgba(23,19,16,.04);
+            transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s, border-color .35s;
             overflow: hidden;
         }
         .blog-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: #876b55;
+            box-shadow: 0 18px 40px rgba(23,19,16,.10);
         }
 
         .blog-card-grid {
             display: grid;
-            grid-template-columns: 260px 1fr;
-            min-height: 180px;
+            grid-template-columns: 300px 1fr;
+            min-height: 200px;
         }
         @media (max-width: 767px) {
-            .blog-card-grid {
-                grid-template-columns: 1fr;
-            }
+            .blog-card-grid { grid-template-columns: 1fr; }
         }
 
         .blog-card-img-wrap {
             position: relative;
             overflow: hidden;
-            min-height: 180px;
-            background: #f3f4f6;
+            min-height: 200px;
+            background: #f0e6da;
         }
         .blog-card-img-wrap .blog-card-bg {
             position: absolute;
             inset: 0;
             background-size: cover;
             background-position: center;
-            transition: transform .3s;
+            transition: transform .6s cubic-bezier(.4,0,.2,1);
         }
-        .blog-card:hover .blog-card-img-wrap .blog-card-bg {
-            transform: scale(1.04);
-        }
+        .blog-card:hover .blog-card-img-wrap .blog-card-bg { transform: scale(1.04); }
         .blog-card-category {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 3px 10px;
-            border-radius: 4px;
-            background: #f97316;
-            color: #fff;
+            top: 14px;
+            left: 14px;
+            padding: 6px 13px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.94);
+            color: #554433;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
 
         .blog-card-body {
-            padding: 20px 22px 16px;
+            padding: 26px 28px 22px;
             display: flex;
             flex-direction: column;
         }
+        @media (max-width: 767px) {
+            .blog-card-body { padding: 20px; }
+        }
         .blog-card-title {
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 700;
-            color: #111827;
+            font-family: 'Wix Madefor Display', 'DM Sans Variable', Inter, sans-serif;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 600;
+            letter-spacing: -.03em;
+            color: #171310;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
         .blog-card-text {
-            margin-top: 8px;
+            margin-top: 10px;
             font-size: 14px;
-            line-height: 20px;
-            color: #6b7280;
+            line-height: 21px;
+            color: #6f665e;
             flex: 1;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -461,116 +454,114 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             overflow: hidden;
         }
         .blog-card-meta {
-            margin-top: 14px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #f0ebe3;
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 13px;
-            color: #9ca3af;
+            font-size: 12.5px;
+            color: #948b82;
         }
         .blog-btn-more {
             margin-left: auto;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            height: 30px;
-            padding: 0 14px;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 12px;
+            gap: 6px;
+            height: 36px;
+            padding: 0 18px;
+            border-radius: 999px;
+            color: #554433;
+            font-size: 12.5px;
             font-weight: 600;
-            background: #f97316;
+            background: #f0e6da;
             text-decoration: none;
-            transition: background .2s;
+            transition: background .25s, color .25s;
         }
         .blog-btn-more:hover {
-            background: #ea580c;
+            background: #876b55;
+            color: #fff;
         }
-        .blog-btn-more i {
-            font-size: 10px;
-        }
+        .blog-btn-more i { font-size: 10px; }
 
         .filter-btn {
-            height: 34px;
-            padding: 0 16px;
-            border-radius: 6px;
+            height: 40px;
+            padding: 0 20px;
+            border-radius: 999px;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
-            border: 1px solid #d1d5db;
+            border: 1px solid #e4ddd2;
             background: #fff;
-            color: #374151;
-            transition: background .15s, border-color .15s;
+            color: #44403c;
+            transition: background .2s, border-color .2s, color .2s;
         }
         .filter-btn:hover {
-            border-color: #9ca3af;
-            background: #f9fafb;
+            border-color: #876b55;
+            background: #f8f4ef;
         }
         .filter-btn.active {
-            background: #f97316;
+            background: #876b55;
             color: #fff;
-            border-color: #f97316;
+            border-color: #876b55;
         }
 
         .pagination-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 36px;
-            min-width: 36px;
-            padding: 0 12px;
-            border-radius: 6px;
+            height: 40px;
+            min-width: 40px;
+            padding: 0 14px;
+            border-radius: 999px;
             font-size: 13px;
             font-weight: 500;
-            color: #374151;
+            color: #44403c;
             background: #fff;
-            border: 1px solid #d1d5db;
+            border: 1px solid #e4ddd2;
             text-decoration: none;
-            transition: background .15s;
+            transition: background .2s, border-color .2s;
         }
-        .pagination-btn:hover {
-            background: #f9fafb;
-        }
+        .pagination-btn:hover { border-color: #876b55; background: #f8f4ef; }
         .pagination-btn.active {
-            background: #f97316;
+            background: #876b55;
             color: #fff;
-            border-color: #f97316;
+            border-color: #876b55;
         }
 
         .sidebar-card {
-            border-radius: 12px;
+            border-radius: 24px;
             background: #fff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e4ddd2;
+            box-shadow: 0 2px 10px rgba(23,19,16,.04);
             overflow: hidden;
         }
         .sidebar-card-header {
-            padding: 14px 18px;
-            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0ebe3;
+            font-family: 'Wix Madefor Display', 'DM Sans Variable', Inter, sans-serif;
             font-size: 15px;
-            font-weight: 700;
-            color: #111827;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            color: #171310;
         }
-        .sidebar-card-body {
-            padding: 12px 18px;
-        }
+        .sidebar-card-body { padding: 8px 20px 14px; }
 
         .popular-item {
             display: flex;
             gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 12px 0;
+            border-bottom: 1px solid #f4efe8;
             text-decoration: none;
         }
-        .popular-item:last-child {
-            border-bottom: none;
-        }
+        .popular-item:last-child { border-bottom: none; }
         .popular-item-num {
             width: 24px;
             height: 24px;
             min-width: 24px;
-            border-radius: 4px;
-            background: #f97316;
-            color: #fff;
+            border-radius: 50%;
+            background: #f0e6da;
+            color: #554433;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -581,61 +572,44 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             width: 72px;
             height: 52px;
             min-width: 72px;
-            border-radius: 6px;
+            border-radius: 12px;
             object-fit: cover;
-            background: #f3f4f6;
+            background: #f0e6da;
         }
-        .popular-item-body {
-            flex: 1;
-            min-width: 0;
-        }
+        .popular-item-body { flex: 1; min-width: 0; }
         .popular-item-title {
             font-size: 13px;
             font-weight: 600;
-            color: #111827;
+            color: #171310;
             line-height: 17px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        .popular-item-meta {
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 3px;
-        }
+        .popular-item-meta { font-size: 11px; color: #948b82; margin-top: 3px; }
 
         .service-widget-item {
             display: flex;
             gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 12px 0;
+            border-bottom: 1px solid #f4efe8;
         }
-        .service-widget-item:last-child {
-            border-bottom: none;
-        }
+        .service-widget-item:last-child { border-bottom: none; }
         .service-widget-icon {
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
-            border-radius: 8px;
-            background: #eff6ff;
-            color: #2563eb;
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border-radius: 12px;
+            background: #f0e6da;
+            color: #6d5744;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 15px;
         }
-        .service-widget-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #111827;
-        }
-        .service-widget-desc {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 1px;
-        }
+        .service-widget-title { font-size: 13px; font-weight: 600; color: #171310; }
+        .service-widget-desc { font-size: 12px; color: #6f665e; margin-top: 1px; }
     </style>
 
     <script>

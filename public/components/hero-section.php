@@ -1,124 +1,128 @@
 <?php
-if (!isset($heroFormId)) $heroFormId = 'hero';
-if (!isset($heroSubtitle)) $heroSubtitle = 'Зафиксируем стоимость в договоре, выполним работы в срок и дадим гарантию 3 года на все виды работ.';
-if (!isset($heroCtaText)) $heroCtaText = 'Рассчитать стоимость';
-if (!isset($heroCtaAnchorText)) $heroCtaAnchorText = 'Смотреть цены';
+/**
+ * Cinema-hero в формате ФСС (единый для всех страниц услуг).
+ * Ожидает:
+ * - $heroH1 (string, обязательный) — чистое название услуги для H1 (например: "Ремонт однокомнатной квартиры в Москве")
+ * - $heroSubtitle (string) — подзаголовок под H1
+ * - $heroFormId (string) — ID формы в hero
+ * - $bg_url (string) — фоновое изображение
+ * - $title (string) — SEO title страницы (для alt/title)
+ */
 
-if (!isset($title)) $title = '';
-$heroParts = preg_split('/\s*—\s*/u', $title, 2);
-$heroBase = trim($heroParts[0]);
-$heroTail = isset($heroParts[1]) ? trim($heroParts[1]) : '';
-
-$heroPrice = '';
-if (preg_match('/от\s+[\d\s]+₽(?:\/м²)?/u', $heroTail, $pm)) {
-    $heroPrice = $pm[0];
+if (!isset($heroSubtitle) || $heroSubtitle === '') {
+    $heroSubtitle = 'Зафиксируем стоимость в договоре, выполним работы в срок и дадим гарантию 3 года на все виды работ.';
 }
+
+/* $heroH1 теперь должен приходить чистым из вызывающей страницы.
+ * Если не передан — фоллбек на $title без SEO-хвостов.
+ */
+$heroH1 = $heroH1 ?? ($title ?? 'Ремонт квартир под ключ');
+$heroH1 = trim(preg_replace('/\s*\|.*$/u', '', $heroH1));
+
+/* Не разбиваем на части по " — " — используем целиком как одну строку H1.
+ * Для длинных заголовков добавляем модификатор класса.
+ */
+$heroLine1 = $heroH1;
+$heroLine2 = '';
+
+/* Длинные заголовки услуг не должны «взрывать» первый экран */
+$heroTitleLen = mb_strlen($heroLine1);
+$heroTitleClass = $heroTitleLen > 48 ? 'hero-title--long' : ($heroTitleLen > 28 ? 'hero-title--mid' : '');
+
+/* Длинные заголовки услуг не должны «взрывать» первый экран */
+$heroTitleLen = mb_strlen($heroLine1 . ' ' . $heroLine2);
+$heroTitleClass = $heroTitleLen > 48 ? 'hero-title--long' : ($heroTitleLen > 28 ? 'hero-title--mid' : '');
+
+$heroSlides = [
+    [
+        'src' => '/public/assets/images/pages/main/hero/bg.webp',
+        'alt' => $heroH1 . ' — Проект Квартира',
+    ],
+    [
+        'src' => '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.webp',
+        'alt' => 'Дизайн интерьера квартиры в Москве',
+    ],
+    [
+        'src' => '/public/assets/images/portfolio-photos/cottage/2_euro_230sqm/10.webp',
+        'alt' => 'Ремонт квартиры 230 м² в бизнес-классе',
+    ],
+];
+
+$heroBg = $bg_url ?? '';
+if (is_string($heroBg) && str_starts_with($heroBg, '/public/')) {
+    $heroFile = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/') . $heroBg;
+    if (is_file($heroFile)) {
+        $heroSlides[0]['src'] = $heroBg;
+        $heroSlides[0]['alt'] = $heroH1 . ' — Проект Квартира';
+    }
+}
+
+$heroProjects = [
+    ['name' => 'Ремонт квартиры 180 м²', 'caption' => 'Москва / Премиум'],
+    ['name' => 'Ремонт квартиры 230 м²', 'caption' => 'Москва / Бизнес-класс'],
+    ['name' => 'Дизайн-интерьер 90 м²', 'caption' => 'Московская область / Дизайн'],
+];
 ?>
-<section class="relative bg-black text-white">
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url(<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>);"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-16 lg:py-20">
-        <nav aria-label="breadcrumb" class="mb-8">
-            <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-300" itemscope
-                itemtype="https://schema.org/BreadcrumbList">
-                <li class="font-medium" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a href="<?= $site['baseUrl'] ?>" class="hover:text-orange-400 transition" itemprop="item">
-                        <span itemprop="name">Главная</span>
-                    </a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <li>/</li>
-                <li class="font-medium" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a href="<?= $site['baseUrl'] ?>/services" class="hover:text-orange-400 transition"
-                        itemprop="item">
-                        <span itemprop="name">Услуги</span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-                <li>/</li>
-                <li class="font-medium" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a href="<?= $site['canonicalUrl'] ?>" class="hover:text-orange-400 transition"
-                        itemprop="item">
-                        <span itemprop="name"><?= htmlspecialchars($heroBase ?: $title); ?></span>
-                    </a>
-                    <meta itemprop="position" content="3">
-                </li>
-            </ol>
-        </nav>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            <div>
-                <span class="label-tag !text-orange-400">Ремонт под ключ в Москве</span>
-
-                <h1 class="text-3xl md:text-4xl lg:text-[44px] font-extrabold leading-tight tracking-tight">
-                    <?php
-                    // Явный H1 страницы — приоритет над автопарсингом из $title
-                    if (!empty($heroH1)) {
-                        echo htmlspecialchars($heroH1);
-                    } else {
-                    echo htmlspecialchars($heroBase);
-                    if ($heroPrice) {
-                        echo ' <span class="text-orange-400">— ' . htmlspecialchars($heroPrice) . '</span>';
-                    }
-                    }
-                    ?>
-                </h1>
-
-                <p class="mt-5 text-lg text-gray-300 leading-relaxed max-w-xl">
-                    <?= htmlspecialchars($heroSubtitle); ?>
-                </p>
-
-                <div class="flex flex-wrap gap-3">
-                  <div class="mt-8 flex flex-col sm:flex-row gap-3 items-center">
-<button data-button-dialog
-    class="cta-button bg-white hover:bg-[#fef8f3] text-[#876b55] px-6 py-3 rounded-full font-semibold transition">
-    <?= htmlspecialchars($heroCtaText); ?>
-</button>
-                      <->
-                      <a href="#price"
-                          class="cta-button border border-orange-400/30 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-semibold transition text-center">
-                          <?= htmlspecialchars($heroCtaAnchorText); ?>
-                      </a>
-                  </div>
-                    <span class="inline-flex items-center gap-2 text-sm font-medium text-gray-200 bg-white/10 border border-white/15 rounded-full px-4 py-2">
-                        <i class="fa-solid fa-file-signature text-orange-400"></i> Фиксированная цена в договоре
-                    </span>
-                    <span class="inline-flex items-center gap-2 text-sm font-medium text-gray-200 bg-white/10 border border-white/15 rounded-full px-4 py-2">
-                        <i class="fa-solid fa-calendar-check text-orange-400"></i> Реальные сроки
-                    </span>
-                    <span class="inline-flex items-center gap-2 text-sm font-medium text-gray-200 bg-white/10 border border-white/15 rounded-full px-4 py-2">
-                        <i class="fa-solid fa-shield-halved text-orange-400"></i> Гарантия 3 года
-                    </span>
-                    <div class="flex items-center gap-2">
-                        <span class="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center">
-                            <i class="fa-solid fa-phone text-orange-400"></i>
-                        </span>
-                        <span>Ответим за 5 минут</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center">
-                            <i class="fa-solid fa-location-dot text-orange-400"></i>
-                        </span>
-                        <span>Работаем по Москве и области</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="w-full lg:max-w-lg lg:ml-auto">
-                <?php
-                $ctaFormId = $heroFormId;
-                $ctaFormTitle = 'Рассчитайте стоимость ремонта';
-                $ctaFormSubtitle = 'Заполните форму и получите смету за 5 минут';
-                $ctaButtonText = $heroCtaText;
-                $ctaExpandable = true;
-                include __DIR__ . '/cta-form.php';
-                ?>
-            </div>
+<section id="hero" class="hero" aria-labelledby="hero-title" data-cinema data-nav-hero>
+    <div class="hero-visual" data-hero-frame>
+        <?php foreach ($heroSlides as $i => $slide): ?>
+            <img src="<?= htmlspecialchars($slide['src']); ?>"
+                 srcset="<?= htmlspecialchars($slide['src']); ?> 720w, <?= htmlspecialchars($slide['src']); ?> 1200w, <?= htmlspecialchars($slide['src']); ?> 1672w"
+                 alt="<?= htmlspecialchars($slide['alt']); ?>"
+                 title="<?= htmlspecialchars($slide['alt']); ?>"
+                 sizes="100vw"
+                 loading="<?= $i === 0 ? 'eager' : 'lazy'; ?>"
+                 fetchpriority="<?= $i === 0 ? 'high' : 'auto'; ?>"
+                 data-cinema-image="<?= $i; ?>" decoding="async"
+                 width="1672" height="941"
+                 class="cinema-image<?= $i === 0 ? ' is-active' : ''; ?>">
+        <?php endforeach; ?>
+    </div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-content">
+        <p class="eyebrow hero-eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            Ремонт квартир · Под ключ · Москва и МО
+        </p>
+        <h1 id="hero-title"<?= $heroTitleClass !== '' ? ' class="' . $heroTitleClass . '"' : ''; ?>>
+            <span><?= htmlspecialchars($heroLine1); ?></span>
+        </h1>
+        <div class="hero-intro">
+            <p><?= htmlspecialchars($heroSubtitle); ?></p>
+            <a class="text-link" href="/about" data-goal="hero_about" title="Узнать о компании">Узнать о компании <span>&#8595;</span></a>
         </div>
+    </div>
+    <div class="hero-bottom">
+        <a href="/portfolio" class="hero-project" data-cinema-link title="Посмотреть проекты">
+            <span class="eyebrow">Избранный проект / <span data-cinema-number>01</span></span>
+            <strong data-cinema-name><?= htmlspecialchars($heroProjects[0]['name']); ?></strong>
+            <span data-cinema-caption><?= htmlspecialchars($heroProjects[0]['caption']); ?></span>
+            <span class="hero-project-arrow">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path>
+                </svg>
+            </span>
+        </a>
+        <div class="hero-controls">
+            <div class="cinema-pagination" role="group" aria-label="Избранные проекты">
+                <?php foreach ($heroProjects as $i => $project): ?>
+                    <button type="button"
+                            data-cinema-select="<?= $i; ?>"
+                            data-name="<?= htmlspecialchars($project['name']); ?>"
+                            data-caption="<?= htmlspecialchars($project['caption']); ?>"
+                            aria-label="Показать <?= htmlspecialchars(mb_strtolower($project['name'])); ?>"
+                            aria-pressed="<?= $i === 0 ? 'true' : 'false'; ?>"><?= sprintf('%02d', $i + 1); ?><span></span></button>
+                <?php endforeach; ?>
+            </div>
+            <p class="eyebrow" data-cinema-status aria-live="polite">01 / 03 — <?= htmlspecialchars($heroProjects[0]['name']); ?> — Москва</p>
+        </div>
+        <a href="/calculator" class="hero-cta" data-goal="hero_projects" title="Рассчитать стоимость">
+            Рассчитать стоимость
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path>
+            </svg>
+        </a>
     </div>
 </section>

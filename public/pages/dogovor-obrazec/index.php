@@ -106,7 +106,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     сторон. Заполните реквизиты — и документ готов к подписанию.
                 </p>
                 <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                    <a href="/public/documents/dogovor-remonta-obrazec.docx" download
+                    <a href="/documents/dogovor-remonta-obrazec.docx" download
                         class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
                         <i class="fas fa-file-word"></i>
                         Скачать шаблон договора (DOCX)

@@ -197,17 +197,13 @@ class Sitemap
             ['/blogs', '0.9', 'daily'],
             ['/smeta-obrazec', '0.8', 'weekly'],
             ['/dogovor-obrazec', '0.8', 'weekly'],
-            ['/vakansii', '0.8', 'weekly'],
+            // N-07: /vakansii и дочерние страницы закрыты от индексации (noindex) — в sitemap их нет.
         ];
 
         $xml = $this->openUrlset();
 
         foreach ($pages as $p) {
             $xml .= $this->buildEntry($p[0], $p[1], $p[2]);
-        }
-
-        foreach (Vacancy::slugs() as $slug) {
-            $xml .= $this->buildEntry('/vakansii/' . $slug, '0.7', 'weekly');
         }
 
         $xml .= '</urlset>' . "\n";
@@ -295,7 +291,20 @@ class Sitemap
         ];
 
         // Страницы вне периметра услуг / не по региону — исключаем из sitemap
-        $excludeServices = ['ukladka-laminata', 'keramogranit-nazarovo'];
+        // Исключены из карты: страницы вне периметра услуг (N-08) и узкие коммерческие
+        // страницы без кейсов и уникального наполнения (F-02).
+        $excludeServices = [
+            'ukladka-laminata',
+            'keramogranit-nazarovo',
+            'kafe',
+            'restoran',
+            'magazin',
+            'stomatologiya',
+            'apteka',
+            'fitness',
+            'showroom',
+            'salon-krasoty',
+        ];
 
         $dir = __DIR__ . '/../../../public/pages/services';
         $entries = [];

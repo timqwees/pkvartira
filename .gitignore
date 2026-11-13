@@ -40,3 +40,17 @@ storage/uploads/
 # Ignore migration artefacts (if any)
 /setting/schema/*.bak
 /setting/schema/*.tmp
+
+# Ignore backup files
+*.bak
+
+# Ignore user ini files
+.user.ini
+
+# Ignore IDE configs (if not already)
+.phpstorm.meta.php
+.phpintel/
+
+# Ignore deployment configs
+.env.local
+.env.*.local

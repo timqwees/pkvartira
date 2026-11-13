@@ -109,7 +109,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="/services/1room" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-[#876b55] transition">
                     <div class="font-bold text-[#111827]">1-комнатная, 30–40 м²</div>
-                    <p class="mt-2 text-sm text-[#6b7280]">Смета от 296 000 ₽. Три пакета: от 8 000 ₽/м².</p>
+                    <p class="mt-2 text-sm text-[#6b7280]">Смета от 296 000 ₽. Три пакета: от 8 000 ₽/м². Цены указаны за работы, без учёта материалов.</p>
                     <span class="mt-3 inline-block text-sm font-semibold text-[#6d5744]">Смотреть смету →</span>
                 </a>
                 <a href="/services/novostroyka" class="block bg-[#f9fafb] rounded-xl p-6 border border-gray-200 hover:border-[#876b55] transition">

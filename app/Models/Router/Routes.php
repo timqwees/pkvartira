@@ -286,6 +286,8 @@ class Routes extends Network
      * ---
      * @param string $path <b>Путь</b> к подключаемому PHP/HTML-файлу
      * @param array  $params <i>Массив параметров</i> (будут доступны как переменные внутри файла)
+     * @param string|null $robots Директива индексации для X-Robots-Tag (например 'noindex, follow').
+     *        Без неё заголовок перезаписывается значением по умолчанию «index, follow».
      *
      * @return void
      *
@@ -296,12 +298,12 @@ class Routes extends Network
      *
      * ---
      */
-    public static function auto_element(string $path, array $params = [])
+    public static function auto_element(string $path, array $params = [], ?string $robots = null)
     {
         if (file_exists($path)) {
             // Единый набор заголовков: безопасность (HSTS/Referrer/Permissions/COOP-COEP-CORP/CSP)
             // + ОДИН Cache-Control + ETag/Last-Modified/304. Убирает дубль Cache-Control из отчёта enterno.
-            \Setting\Route\Functions\SecurityHeaders::sendForHtml($path);
+            \Setting\Route\Functions\SecurityHeaders::sendForHtml($path, $robots);
             if (!empty($params)) {
                 extract($params, EXTR_SKIP);
             }

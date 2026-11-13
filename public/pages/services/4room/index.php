@@ -1,8 +1,9 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт 4-комнатной квартиры — от 720 000 ₽';
-$bg_url = '/public/assets/images/portfolio-photos/3room/standard/3_112sqm/2.jpg';
+$title = 'Ремонт 4-комнатной квартиры под ключ в Москве — цены';
+$navMode = 'transparent'; // шапка поверх cinema-hero
+$bg_url = '/public/assets/images/portfolio-photos/4room/standard/3_100sqm/1.jpg';
 $prices = [
     [
         'заголовок' => 'Косметический',
@@ -42,7 +43,7 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 4-комнатной квартиры под ключ в Москве от 720 000 ₽. Работаем с большими площадями от 90 м². Фиксированная смета, гарантия 3 года, бесплатный замер и расчёт. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт 4-комнатной квартиры под ключ в Москве: косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Три реализованных объекта 65–100 м², сроки 78–95 дней. Гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
@@ -53,7 +54,7 @@ $prices = [
     <meta property="og:title"
         content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
-        content="Ремонт четырехкомнатных квартир под ключ в Москве от 720 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
+        content="Ремонт 4-комнатной квартиры под ключ в Москве: от 8 000 ₽/м². Реальные объекты 65–100 м², сроки 78–95 дней, фиксированная смета, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/4room'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
 
@@ -247,14 +248,58 @@ $prices = [
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
+    <main class="flex flex-col">
 
                 <!-- 1. hero section -->
         <?php
         $heroFormId = '4room_hero';
-        $heroSubtitle = 'Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.';
+        $heroSubtitle = 'Большая площадь — не значит переплата. Косметический ремонт от 8 000 ₽/м², капитальный от 13 000 ₽/м². Стоимость фиксируем в договоре, сроки — тоже.';
         include './public/components/hero-section.php';
         ?>
+
+<!-- 1.5. Реальные объекты 4-комнатной квартиры (N-14) -->
+        <section class="reveal bg-gray-50 py-10 md:py-14" aria-labelledby="cases-4room">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 id="cases-4room" class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
+                    Реализованные 4-комнатные квартиры
+                </h2>
+                <p class="mt-3 text-center text-gray-600 max-w-3xl mx-auto">
+                    Три объекта разной площади — с реальными сроками и стоимостью из договоров.
+                </p>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <?php
+                    $__cases4room = [
+                        ['img' => '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png',   'alt' => 'Ремонт четырёхкомнатной квартиры 65 м²', 'area' => '65 м²',  'days' => '85 дней',  'sum' => '845 000 ₽',   'note' => 'Косметический пакет, новостройка с черновой отделкой'],
+                        ['img' => '/public/assets/images/portfolio-photos/4room/standard/2_75sqm/1.webp',  'alt' => 'Ремонт четырёхкомнатной квартиры 75 м²', 'area' => '75 м²',  'days' => '78 дней',  'sum' => '1 350 000 ₽', 'note' => 'Капитальный пакет, перенос кухни-гостиной'],
+                        ['img' => '/public/assets/images/portfolio-photos/4room/standard/3_100sqm/1.jpg',  'alt' => 'Ремонт четырёхкомнатной квартиры 100 м²', 'area' => '100 м²', 'days' => '95 дней',  'sum' => '800 000 ₽',   'note' => 'Косметический пакет, вторичка, срок фиксирован в договоре'],
+                    ];
+                    foreach ($__cases4room as $__c):
+                    ?>
+                    <article class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+                        <div class="relative h-52">
+                            <img src="<?= htmlspecialchars($__c['img']) ?>" alt="<?= htmlspecialchars($__c['alt']) ?>" loading="lazy"
+                                 class="w-full h-full object-cover" width="1280" height="720">
+                            <span class="absolute top-3 left-3 bg-white/90 px-3 py-1 rounded-full text-sm font-semibold text-[#6d5744]"><?= htmlspecialchars($__c['area']) ?></span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-baseline justify-between gap-3">
+                                <span class="text-sm text-gray-500">Срок работ</span>
+                                <span class="font-semibold text-gray-900"><?= htmlspecialchars($__c['days']) ?></span>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-3 mt-2">
+                                <span class="text-sm text-gray-500">Стоимость по договору</span>
+                                <span class="font-semibold text-gray-900"><?= htmlspecialchars($__c['sum']) ?></span>
+                            </div>
+                            <p class="mt-3 text-sm text-gray-600"><?= htmlspecialchars($__c['note']) ?></p>
+                        </div>
+                    </article>
+                    <?php endforeach; ?>
+                </div>
+                <p class="mt-6 text-center text-sm text-gray-600">
+                    Полный прайс по типам ремонта — на странице <a href="/prices" class="text-[#6d5744] font-semibold underline hover:text-[#5c4a3a]">цен</a>.
+                </p>
+            </div>
+        </section>
 
 <!-- 2. price section -->
         <section id="price" class="reveal bg-white py-10 md:py-14">
@@ -263,7 +308,7 @@ $prices = [
                     Сколько стоит ремонт 4-комнатной квартиры
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость с черновыми материалами, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%. Стоимость фиксируем в договоре. Точную смету рассчитаем после бесплатного замера.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">

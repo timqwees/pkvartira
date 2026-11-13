@@ -224,7 +224,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </div>
 
                             <h1 itemprop="headline"
-                                class="mt-4 text-[32px] leading-[38px] md:text-[40px] md:leading-[46px] font-extrabold text-[#2a2e3b]">
+                                class="mt-4 section-heading" style="font-size:clamp(28px,3.6vw,46px);line-height:1.06">
                                 <?= htmlspecialchars($articleData['title'] ?? 'Статья не найдена'); ?>
                             </h1>
 
@@ -234,9 +234,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                             <?php if ($articleData && !empty($articleData['meta_description'])): ?>
                             <!-- TL;DR: прямой ответ для AI Overviews / featured snippets -->
-                            <div class="mt-5 rounded-xl border-l-4 border-blue-600 bg-[#f5f8ff] p-4" itemprop="abstract">
-                                <div class="text-[11px] font-extrabold uppercase tracking-wide text-blue-700 mb-1">Кратко</div>
-                                <p class="text-[15px] leading-[23px] text-[#2a2e3b]">
+                            <div class="tldr-box" itemprop="abstract">
+                                <div class="tldr-label">Кратко</div>
+                                <p>
                                     <?= htmlspecialchars($articleData['meta_description']); ?>
                                 </p>
                             </div>
@@ -571,6 +571,81 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 .article-body [data-type="compare"]>article[data-variant="bad"]>p {
                                     color: #7f1d1d;
                                 }
+                                /* === PREMIUM OVERRIDES: бронза / чернила / бумага === */
+                                .article-body { font-size: 16.5px; line-height: 1.75; color: #44403c; }
+                                .article-body>section { margin: 34px 0; }
+                                .article-body>section>h2 {
+                                    font-family: 'Wix Madefor Display', 'DM Sans Variable', Inter, sans-serif;
+                                    font-size: clamp(22px, 2.4vw, 30px);
+                                    font-weight: 600;
+                                    letter-spacing: -.035em;
+                                    line-height: 1.15;
+                                    color: #171310;
+                                    margin: 0 0 14px 0;
+                                }
+                                .article-body>section>h3 {
+                                    font-family: 'Wix Madefor Display', 'DM Sans Variable', Inter, sans-serif;
+                                    font-size: 20px;
+                                    font-weight: 600;
+                                    letter-spacing: -.02em;
+                                    color: #171310;
+                                    margin: 26px 0 10px 0;
+                                }
+                                .article-body>section>p { font-size: 16.5px; line-height: 1.75; color: #44403c; margin: 0 0 16px 0; }
+                                .article-body a { color: #6d5744; text-decoration: underline; text-underline-offset: 2px; }
+                                .article-body a:hover { color: #554433; }
+                                .article-body [data-type="start"] { font-size: 18px; line-height: 1.7; color: #44403c; }
+                                .article-body [data-type="list"] {
+                                    background: #f8f4ef;
+                                    border: 1px solid #e4ddd2;
+                                    border-radius: 22px;
+                                    padding: 22px 26px;
+                                }
+                                .article-body [data-type="list"] h2 {
+                                    font-family: 'Wix Madefor Display', 'DM Sans Variable', Inter, sans-serif;
+                                    font-size: 17px;
+                                    font-weight: 600;
+                                    letter-spacing: -.02em;
+                                    color: #171310;
+                                }
+                                .article-body [data-type="image"] img { border-radius: 24px; }
+                                .article-body [data-type="box"] {
+                                    border-radius: 20px;
+                                    border-width: 1px;
+                                    padding: 22px 24px;
+                                    background: #f8f4ef;
+                                    border-color: #e4ddd2;
+                                }
+                                .article-body [data-type="box"][data-color="green"],
+                                .article-body [data-type="box"][data-color="blue"] {
+                                    background: #f8f4ef;
+                                    border-color: #e4ddd2;
+                                }
+                                .article-body [data-type="box"][data-color="green"]>h3,
+                                .article-body [data-type="box"][data-color="green"]>h4,
+                                .article-body [data-type="box"][data-color="blue"]>h3,
+                                .article-body [data-type="box"][data-color="blue"]>h4 {
+                                    color: #554433;
+                                }
+                                .article-body [data-type="box"][data-color="green"]>p,
+                                .article-body [data-type="box"][data-color="blue"]>p { color: #44403c; }
+                                .article-body [data-type="box"][data-color="red"] {
+                                    background: #fbf2ee;
+                                    border-color: #e8cfc4;
+                                }
+                                .article-body [data-type="box"][data-color="red"]>h3,
+                                .article-body [data-type="box"][data-color="red"]>h4 { color: #7a453a; }
+                                .article-body [data-type="box"][data-color="red"]>p { color: #5f3a32; }
+                                .article-body [data-type="compare"]>article[data-variant="good"] {
+                                    background: #f8f4ef;
+                                    border-color: #d2b89d;
+                                }
+                                .article-body [data-type="compare"]>article[data-variant="bad"] {
+                                    background: #f6f3f0;
+                                    border-color: #e4ddd2;
+                                }
+                                .article-body [data-type="compare"]>article[data-variant="bad"]>h3 { color: #6f665e; }
+                                .article-body [data-type="compare"]>article[data-variant="bad"]>p { color: #6f665e; }
                             </style>
                             <!-- CONTENT INCLUDE -->
                             <article class="article-body mt-8">

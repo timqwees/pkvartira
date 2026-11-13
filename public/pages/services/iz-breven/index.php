@@ -82,7 +82,8 @@ $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
                     <div class="mt-4 space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Внутренняя отделка</span><span class="font-bold text-[#111827]">от 10 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Полный цикл</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
-                    </div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%.</p>
+                </div>
                 </div>
             </div>
         </div>

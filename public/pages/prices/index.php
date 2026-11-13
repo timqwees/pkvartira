@@ -488,6 +488,7 @@ include './public/components/cta-form.php';
                         <div class="text-sm text-gray-600 mt-1">После работ</div>
                     </div>
                 </div>
+                <p class="mt-8 text-center text-sm text-gray-600">Подробный состав работ, этапы ремонта и сроки по пакетам — на странице <a href="/services/pod-klyuch" class="text-[#6d5744] font-semibold underline hover:text-[#5c4a3a]">Ремонт под ключ</a>.</p>
             </div>
         </section>
 

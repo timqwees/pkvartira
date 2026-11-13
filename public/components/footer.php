@@ -44,8 +44,6 @@
                     <li><a href="/services/studio" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт квартир-студий">Ремонт студий</a></li>
                     <li><a href="/services/novostroyka" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт в новостройке">Ремонт в новостройке</a></li>
                     <li><a href="/services/vtorichka" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Ремонт во вторичном жилье">Ремонт вторичного жилья</a></li>
-                    <li><a href="/services/ukladka-laminata" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Укладка ламината">Укладка ламината</a></li>
-                    <li><a href="/services/keramogranit-nazarovo" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Укладка керамогранита">Укладка керамогранита</a></li>
                     <li><a href="/services/dizayn-interierov" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Дизайн интерьеров квартир">Дизайн интерьеров</a></li>
                     <li><a href="/calculator" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Калькулятор стоимости ремонта">Калькулятор стоимости</a></li>
                 </ul>
@@ -413,6 +411,28 @@
         if (params.get('message_status') === 'success') {
             if (typeof ym === 'function') {
                 ym(108587554, 'reachGoal', 'SENDFORM');
+                // M-02: цель с разбивкой по источнику трафика — позволяет отделить
+                // заявки из органического поиска от платного трафика и прямых заходов.
+                ym(108587554, 'reachGoal', 'LEAD', {
+                    source: (function(){
+                        try {
+                            var cur = new URLSearchParams(window.location.search);
+                            var u = cur.get('utm_source') || '';
+                            if (u) return u;
+                            var store = JSON.parse(localStorage.getItem('pk_utm') || '{}');
+                            if (store && store.utm_source) return store.utm_source;
+                            if (cur.get('yclid') || (store && store.yclid)) return 'yandex';
+                            if (cur.get('gclid') || (store && store.gclid)) return 'google';
+                            var ref = document.referrer || (store && store.referrer) || '';
+                            if (ref) {
+                                var host = '';
+                                try { host = new URL(ref).hostname; } catch(e) { host = ref; }
+                                if (host && host.indexOf(location.hostname) === -1) return 'referral:' + host;
+                            }
+                            return 'direct';
+                        } catch(e) { return 'unknown'; }
+                    })()
+                });
             }
             window.dispatchEvent(new Event('form-sent'));
         }
@@ -496,9 +516,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- PK Animation System -->
 <!-- Load order: Lenis -> GSAP -> ScrollTrigger -> PK Animation -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/pk-animation.js'); ?>"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.3.8/dist/lenis.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/pk-animation.js'); ?>"></script>
 
 <?php include_once './public/components/cta-modal.php'; ?>    

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# This subdomain is for internal testing only.
+# No content here should be indexed by search engines.
+# See: https://pkvartira.ru for the production site.

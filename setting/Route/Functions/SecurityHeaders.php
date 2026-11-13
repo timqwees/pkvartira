@@ -95,10 +95,16 @@ final class SecurityHeaders
         return false;
     }
 
-    /** Полный набор для HTML-страницы: безопасность + кэш. Вызывать ДО вывода тела. */
-    public static function sendForHtml(string $templatePath): void
+    /**
+     * Полный набор для HTML-страницы: безопасность + кэш. Вызывать ДО вывода тела.
+     *
+     * $robots — директива индексации для X-Robots-Tag. Нужна, когда страница
+     * закрыта от индексации: sendSecurity() по умолчанию ставит «index, follow»
+     * и перезаписывает ранее выставленный noindex (header replace=true).
+     */
+    public static function sendForHtml(string $templatePath, ?string $robots = null): void
     {
-        self::sendSecurity();
+        self::sendSecurity($robots ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
         self::sendHtmlCache($templatePath);
     }
 

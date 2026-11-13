@@ -4,10 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.mobile-menu');
   const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 
+  // Scrollbar width compensation to prevent layout jump when locking body
+  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  var originalBodyPadding = document.body.style.paddingRight || '';
+
   function openMobileMenu() {
     mobileMenu.classList.add('active');
     mobileMenuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = scrollbarWidth + 'px';
   }
 
   function closeMobileMenu() {
@@ -15,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuOverlay.classList.remove('active');
     mobileMenu.querySelectorAll('.submenu').forEach(el => el.classList.remove('show'));
     document.body.style.overflow = '';
+    document.body.style.paddingRight = originalBodyPadding;
   }
 
   if (mobileMenuToggle) {

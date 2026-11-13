@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартиры эконом класса — цены';
+$title = 'Недорогой ремонт квартиры под ключ в Москве — от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -10,13 +10,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры эконом класса в Москве — цены от 5 000 ₽/м². Качественная отделка по доступной цене, надёжные материалы. Фиксированная смета, гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры под ключ в Москве от 8 000 ₽/м². Косметический и капитальный ремонт по доступной цене: проверенные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/econom'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры эконом класса в Москве — цены от 5 000 ₽/м². Качественная отделка по доступной цене, надёжные материалы. Фиксированная смета, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры под ключ в Москве от 8 000 ₽/м². Косметический и капитальный ремонт по доступной цене: проверенные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/econom'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
@@ -26,7 +26,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры эконом класса в Москве — цены от 5 000 ₽/м². Качественная отделка по доступной цене, надёжные материалы. Фиксированная смета, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры под ключ в Москве от 8 000 ₽/м². Косметический и капитальный ремонт по доступной цене: проверенные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
@@ -54,10 +54,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <section class="relative bg-[#1f2937] text-white">
         <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
         <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
-            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Ремонт квартиры эконом класса</h1>
-            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Качественная отделка квартиры по доступной цене в Москве. Надёжные материалы, честные цены, гарантия 3 года.</p>
+            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Недорогой ремонт квартиры под ключ в Москве</h1>
+            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Ремонт под ключ по доступной цене: от 8 000 ₽/м² за косметический и от 13 000 ₽/м² за капитальный. Надёжные материалы, фиксированная смета, гарантия 3 года.</p>
             <div class="mt-6 flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">₽</span> от 5 000 ₽/м²</div>
+                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">₽</span> от 8 000 ₽/м²</div>
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Замер бесплатно</div>
             </div>
@@ -68,11 +68,11 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Ремонт квартиры эконом под ключ</h2>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">Выполняем ремонт квартир эконом класса в Москве под ключ. Используем надёжные и доступные материалы, оптимизируем процессы для снижения стоимости. Прозрачная смета без скрытых платежей.</p>
+                    <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Недорогой ремонт квартиры под ключ</h2>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Делаем ремонт под ключ по доступной цене: косметический от 8 000 ₽/м² и капитальный от 13 000 ₽/м². Экономия достигается не качеством «на глаз», а процессом: типовые решения без лишних переделок, закупка материалов по смете со скидкой 10–15% и один подрядчик на все этапы. Прозрачная смета без скрытых платежей.</p>
                     <ul class="mt-4 space-y-2">
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Косметический и капитальный ремонт</li>
-                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Надёжные материалы по доступной цене</li>
+                        <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Материалы по смете — закупаем со скидкой 10–15%</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Фиксированная смета без доплат</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Работаем с новостройками и вторичкой</li>
                     </ul>
@@ -80,9 +80,10 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 <div class="bg-[#f9fafb] rounded-xl p-6">
                     <h3 class="text-lg font-bold text-[#111827]">Цены на ремонт эконом</h3>
                     <div class="mt-4 space-y-3">
-                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 5 000 ₽/м²</span></div>
-                        <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 10 000 ₽/м²</span></div>
-                    </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
+                        <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%.</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -121,9 +122,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в ремонт эконом класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт: покраска или обои, замена напольного покрытия, потолки, розетки, финальная уборка. Капитальный включает замену электрики и сантехники.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать качественный ремонт недорого?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы оптимизируем процессы и используем надёжные материалы по доступной цене. Прозрачная смета без скрытых платежей.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие материалы используете для эконом ремонта?</summary><p class="mt-2 text-sm text-[#6b7280]">Надёжные материалы от проверенных поставщиков: Леруа Мерлен, Петрович, Castillo. Гарантия на все работы 3 года.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в недорогой ремонт под ключ?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический пакет от 8 000 ₽/м²: демонтаж старых покрытий, покраска или обои, замена напольного покрытия, потолки, розетки и выключатели, финальная уборка. Капитальный от 13 000 ₽/м² добавляет замену электрики, сантехники, стяжку и штукатурку.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как получается недорого, и не получится ли плохо?</summary><p class="mt-2 text-sm text-[#6b7280]">Мы не удешевляем технологию: стяжка по маякам, штукатурка под покраску, электрика по ПУЭ. Экономия — в объёме работ под вашу задачу, в типовых решениях без лишних переделок и в закупке материалов по смете со скидкой 10–15%. Гарантия на все работы — 3 года.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие материалы используете и кто их закупает?</summary><p class="mt-2 text-sm text-[#6b7280]">Работаем с проверенными поставщиками: Леруа Мерлен, Петрович, Castillo. Можно приобрести материалы самостоятельно или доверить закупку нам — тогда вы получаете наши цены и скидку 10–15%. Гарантия на все работы 3 года.</p></details>
             </div>
         </div>
     </section>

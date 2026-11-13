@@ -1,4 +1,6 @@
 <?php
+ini_set('max_execution_time', 300);
+ini_set('memory_limit', '512M');
 $site = Setting\Route\Functions\TheFunction::site();
 $featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio(null, 5);
 
@@ -17,7 +19,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 ]);
 ?>
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -71,1301 +73,852 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col" style="padding-top:80px">
+    <main class="flex flex-col">
 
-        <!-- Hero Content -->
-        <section class="relative text-white py-12 md:py-32 bg-center bg-cover bg-no-repeat" style="background-image: url(<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp);">
-            <div class="hero-overlay"></div>
-            <div class="relative z-10 container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-                    <div class="max-w-4xl">
-                        <h1 class="z-10 hero-title text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-                            Ремонт квартир под ключ в Москве без нервов:<br>
-                            - <strong class="text-orange-500">фиксированная</strong> цена,<br>
-                            - <strong class="text-orange-400">реальные</strong> сроки<br>
-                             - <strong class="text-orange-300">неустойка</strong> за просрочку по договору
-                        </h1>
-                        <p class="z-10 hero-subtitle text-2xl mb-8 text-white max-w-3xl">
-                            Приедем на замер в день обращения. Составим смету в <strong class="text-orange-500">3&nbsp;вариантах
-                            </strong> под ваш бюджет за 24 часа. Начнём в
-                            ближайшие <strong class="text-orange-500">дни</strong> — точную дату зафиксируем в договоре
-                        </p>
-                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (Проект Квартира) — <span class="text-orange-300">pkvartira.ru</span> • ООО «Проект Квартира»</p>
-
-                        <div class="flex items-center flex-wrap gap-3 mb-6">
-                            <button data-button-dialog
-                                class="ripple inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-black/25 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-0.5 hover:scale-[1.03] transition-all duration-300 cursor-pointer">
-                                <i class="fa-solid fa-calculator"></i>
-                                <span>Рассчитать ремонт за <span class="text-orange-500"> 60 секунд</span></span>
-                            </button>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 35 отзывов со ссылками</span>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 35 отзывов со ссылками</span>
-                            <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
-                            <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
-                        </div>
-
-                        <!-- <div class="flex items-center flex-wrap gap-2 mb-3">
-                            <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
-                        </div> -->
-                    </div>
-
-                    <?php
-                    $ctaFormId = 'hero_glavnaya';
-                    $ctaExpandable = true;
-                    include './public/components/cta-form.php';
-                    ?>
-
+        <!-- CINEMA HERO — FSS design system 1:1 -->
+        <section id="hero" class="hero" aria-labelledby="hero-title" data-cinema data-nav-hero>
+            <div class="hero-visual" data-hero-frame>
+                <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp"
+                     srcset="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp 720w, <?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp 1200w, <?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp 1672w"
+                     alt="Ремонт квартир под ключ в Москве — Проект Квартира"
+                     title="Ремонт квартир под ключ в Москве — Проект Квартира"
+                     sizes="100vw" loading="eager" fetchpriority="high" data-cinema-image="0" decoding="async"
+                     width="1672" height="941" class="cinema-image is-active">
+                <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.webp"
+                     srcset="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.webp 720w, <?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.webp 1200w, <?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/1room/standard/2_37sqm/1.webp 1672w"
+                     alt="Дизайн интерьера квартиры в Москве"
+                     sizes="100vw" loading="lazy" fetchpriority="auto" data-cinema-image="1" decoding="async"
+                     width="1672" height="941" class="cinema-image">
+                <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/2_euro_230sqm/10.webp"
+                     srcset="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/2_euro_230sqm/10.webp 720w, <?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/2_euro_230sqm/10.webp 1200w, <?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/2_euro_230sqm/10.webp 1672w"
+                     alt="Ремонт квартиры 230 м² в бизнес-классе"
+                     title="Ремонт квартиры 230 м² в бизнес-классе"
+                     sizes="100vw" loading="lazy" fetchpriority="auto" data-cinema-image="2" decoding="async"
+                     width="1672" height="941" class="cinema-image">
+            </div>
+            <div class="hero-shade" aria-hidden="true"></div>
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">
+                    <span class="live-dot" aria-hidden="true"></span>
+                    Ремонт квартир · Под ключ · Москва
+                </p>
+                <h1 id="hero-title">
+                    <span>Ремонт квартир</span>
+                    <span>под ключ в Москве<span class="accent-dot">.</span></span>
+                </h1>
+                <div class="hero-intro">
+                    <p>Приедем на замер в день обращения. Составим смету в 3 варианта под ваш бюджет за 24 часа.</p>
+                    <a class="text-link" href="#counters" data-goal="hero_about" title="Узнать о компании">Узнать о компании <span>&#8595;</span></a>
                 </div>
-
+            </div>
+            <div class="hero-bottom">
+                <a href="/portfolio" class="hero-project" data-cinema-link title="Посмотреть проекты">
+                    <span class="eyebrow">Избранный проект / <span data-cinema-number>01</span></span>
+                    <strong data-cinema-name>Ремонт квартиры 180 м²</strong>
+                    <span data-cinema-caption>Москва / Премиум</span>
+                    <span class="hero-project-arrow">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </a>
+                <div class="hero-controls">
+                    <div class="cinema-pagination" role="group" aria-label="Избранные проекты">
+                        <button type="button" data-cinema-select="0" data-name="Ремонт квартиры 180 м²" data-caption="Москва / Премиум" aria-label="Показать проект ремонта квартиры 180 м²" aria-pressed="true">01<span></span></button>
+                        <button type="button" data-cinema-select="1" data-name="Ремонт квартиры 230 м²" data-caption="Москва / Бизнес-класс" aria-label="Показать проект ремонта квартиры 230 м²" aria-pressed="false">02<span></span></button>
+                        <button type="button" data-cinema-select="2" data-name="Дизайн-интерьер 90 м²" data-caption="Московская область / Дизайн" aria-label="Показать проект дизайн-интерьера 90 м²" aria-pressed="false">03<span></span></button>
+                    </div>
+                    <p class="eyebrow" data-cinema-status aria-live="polite">01 / 03 — Ремонт квартиры 180 м² — Москва</p>
+                </div>
+                <a href="#counters" class="hero-cta" data-goal="hero_projects" title="Рассчитать стоимость">
+                    Рассчитать стоимость
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </a>
             </div>
         </section>
 
-        <!-- 2 -->
-        <section
-            class="py-16 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 reveal">
+        <section class="counter-section section-shell" id="counters">
             <span class="section-number">02</span>
-            <div class="container mx-auto px-4">
-                <!-- title -->
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Рассчитайте стоимость вашего ремонта<br>и получите <span class="text-orange-600">3
-                            варианта</span> сметы под ваш бюджет
-                    </h2>
-                    <p class="text-gray-600 text-sm md:text-base">
-                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы: Эконом — только необходимое, Оптимальный — лучшее соотношение цены и результата, Комфорт — материалы и решения классом выше
-                    </p>
-                </div>
-
-                <form action="/send/email" method="POST" data-form-id="quiz_glavnaya" class="max-w-5xl mx-auto">
-                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <select name="тип жилья"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
-                                aria-label="Тип жилья">
-                                <option value="" selected disabled>Тип жилья?</option>
-                                <option value="Новостройка">Новостройка</option>
-                                <option value="Вторичка">Вторичка</option>
-                                <option value="Коттедж">Коттедж / Загородный дом</option>
-                            </select>
-                            <select name="площадь объекта"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
-                                aria-label="Площадь объекта">
-                                <option value="" selected disabled>Площадь?</option>
-                                <?php for ($i = 20; $i <= 150; $i++) { ?>
-                                    <option value="<?php echo $i; ?>"><?php echo $i; ?> м²</option>
-                                <?php } ?>
-                            </select>
-                            <select name="Стиль ремонта"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
-                                aria-label="Стиль ремонта">
-                                <option value="" selected disabled>Стиль?</option>
-                                <option value="Современный">Современный</option>
-                                <option value="Классический">Классический</option>
-                                <option value="Лофт">Лофт</option>
-                                <option value="Скандинавский">Скандинавский</option>
-                                <option value="Не определился">Ещё не определился</option>
-                            </select>
-                            <select name="Дата планировки"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
-                                aria-label="Когда планируете начинать работы">
-                                <option value="" selected disabled>Когда начать?</option>
-                                <option value="Сейчас">В ближайшее время</option>
-                                <option value="Через 1–2 мес">Через 1–2 месяца</option>
-                                <option value="На будущее">Просто прицениваюсь</option>
-                            </select>
-                            <select name="Куда прислать расчет?"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
-                                aria-label="Куда прислать расчет">
-                                <option value="" selected disabled>Куда прислать?</option>
-                                <option value="WhatsApp">WhatsApp</option>
-                                <option value="Telegram">Telegram</option>
-                                <option value="MAX">MAX</option>
-                            </select>
-                            <div class="relative">
-                                <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone
-                                    name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон"
-                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition" required>
-                            </div>
-                        </div>
-                        <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
-                                <input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0">
-                                <span>Согласен на обработку персональных данных</span>
-                            </label>
-                            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-                            <button type="submit"
-                                class="cta-button bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl text-base font-bold shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all whitespace-nowrap">
-                                Получить расчёт бесплатно
-                            </button>
-                        </div>
-                        <p class="text-xs text-gray-400 text-center mt-3">Ответим за 5 минут</p>
-                    </div>
-                </form>
+            <div class="section-topline">
+                <p class="eyebrow">02 / О компании</p>
+                <span class="eyebrow">Один подрядчик — весь ремонт</span>
             </div>
-        </section>
-
-        <!-- Trust Stats Section -->
-        <section class="py-16 md:py-24 bg-gray-50 counter-section" id="counters">
-            <span class="section-number">03</span>
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-14">
-                    <span class="label-tag">О компании</span>
-                    <h2 class="section-heading mb-4">
+            <div class="head-row">
+                    <h2>
                         Ремонт под ключ — <strong class="text-orange-600">один подрядчик</strong> от замера до сдачи
                     </h2>
-                    <p class="section-subtitle mx-auto">
+                    <p>
                         Один подрядчик отвечает за весь ремонт: замер, смета, закупка, контроль, фотоотчёт каждый день, оплата по этапам. Стоимость и срок — в договоре, гарантия 3 года.
                     </p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
-                    <div class="stat-card reveal">
-                        <div class="stat-icon"><i class="fa-regular fa-star"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="35" data-suffix=""></span></div>
-                        <div class="stat-label">Отзывов со ссылками на источники</div>
+                <dl class="stats-fss">
+                    <div>
+                        <dd><span class="counter" data-target="35">0</span></dd>
+                        <dt>Отзывов со ссылками на источники</dt>
                     </div>
-                    <div class="stat-card reveal reveal-delay-1">
-                        <div class="stat-icon"><i class="fa-regular fa-file-lines"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="21" data-suffix=""></span></div>
-                        <div class="stat-label">Статья в блоге с честными ценами</div>
+                    <div>
+                        <dd><span class="counter" data-target="21">0</span></dd>
+                        <dt>Статья в блоге с честными ценами</dt>
                     </div>
-                    <div class="stat-card reveal reveal-delay-2">
-                        <div class="stat-icon"><i class="fa-regular fa-file-word"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="3" data-suffix=""></span></div>
-                        <div class="stat-label">Варианта сметы под ваш бюджет</div>
+                    <div>
+                        <dd><span class="counter" data-target="3">0</span></dd>
+                        <dt>Варианта сметы под ваш бюджет</dt>
                     </div>
-                    <div class="stat-card reveal reveal-delay-3">
-                        <div class="stat-icon"><i class="fa-regular fa-handshake"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="3" data-suffix=" года"></span></div>
-                        <div class="stat-label">Гарантии на работы</div>
+                    <div>
+                        <dd><span class="counter" data-target="3" data-suffix=" года">0</span></dd>
+                        <dt>Гарантии на работы</dt>
                     </div>
-                </div>
-            </div>
+                </dl>
+                <p class="mt-6 text-center text-sm text-gray-600 max-w-3xl mx-auto">
+                    Все отзывы проверены, сметы составляются по ГЭСН, договор защищает ваши интересы.
+                </p>
         </section>
 
         <!-- 4 -->
-        <section class="max-w-[90%] mx-auto py-16 rounded-2xl reveal">
-            <span class="section-number">04</span>
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-14">
-                    <span class="label-tag">Форматы ремонта</span>
-                    <h2 class="section-heading mb-4">
-                        Выберите подходящий формат ремонта для вашей квартиры
-                    </h2>
-                    <p class="text-xl text-gray-600">
-                        Работаем честно — вы платите только за те работы, которые реально необходимы вашему объекту
-                    </p>
-                </div>
+        <section id="formats" class="format-section section-shell reveal">
+            <span class="section-number">03</span>
+            <div class="section-topline">
+                <p class="eyebrow">03 / Форматы ремонта</p>
+                <span class="eyebrow">Москва и область · смета в договоре</span>
+            </div>
+            <div class="head-row">
+                <h2>Четыре формата.<br><span>Один стандарт качества.</span></h2>
+                <p>Работаем честно — вы платите только за те работы,<br>которые реально необходимы вашему объекту.</p>
+            </div>
 
-                <!-- Desktop: all 4 cards in grid | Mobile: swiper -->
-                <div class="swiper swiper-type-2 md:hidden">
-                    <div class="swiper-wrapper">
+            <?php
+            $formatCards = [
+                [
+                    'num' => '01',
+                    'href' => '/services/pod-klyuch',
+                    'title' => 'Косметический ремонт',
+                    'price' => 'от 8 000 ₽/м²',
+                    'term' => 'от 14 дней',
+                    'badge' => '',
+                    'img' => '/public/assets/images/pages/main/renovation-format/cosmetic.webp',
+                    'alt' => 'Косметический ремонт — быстрый ремонт квартиры по цене',
+                    'audience' => 'Если нужно обновить интерьер перед заездом или для сдачи в аренду.',
+                    'includes' => 'Демонтаж старых покрытий, переклейка обоев, укладка ламината, покраска потолков, замена розеток.',
+                    'benefit' => 'Самый быстрый способ превратить «бабушкин ремонт» в современное жилье без огромных вложений.',
+                ],
+                [
+                    'num' => '02',
+                    'href' => '/services/pod-klyuch',
+                    'title' => 'Капитальный ремонт',
+                    'price' => 'от 13 000 ₽/м²',
+                    'term' => 'от 45 дней',
+                    'badge' => 'Самый популярный',
+                    'img' => '/public/assets/images/pages/main/renovation-format/capital.webp',
+                    'alt' => 'Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций',
+                    'audience' => 'Для новостроек в бетоне или «вторички» с изношенными коммуникациями.',
+                    'includes' => 'Полная замена электрики и сантехники, возведение перегородок, выравнивание стен по маякам, стяжка пола, чистовая отделка.',
+                    'benefit' => 'Полное обновление всех инженерных систем. Забудете о проблемах с проводкой или трубами на ближайшие 20 лет.',
+                ],
+                [
+                    'num' => '03',
+                    'href' => '/services/pod-klyuch',
+                    'title' => 'Дизайнерский ремонт',
+                    'price' => 'от 18 000 ₽/м²',
+                    'term' => 'от 60 дней',
+                    'badge' => '',
+                    'img' => '/public/assets/images/pages/main/renovation-format/finish.webp',
+                    'alt' => 'Дизайнерский ремонт — авторский ремонт с дизайн-проектом',
+                    'audience' => 'Для тех, кому важна уникальная эстетика, перепланировка и сложные решения.',
+                    'includes' => 'Работа по индивидуальному дизайн-проекту, многоуровневое освещение, скрытые двери, теневые профили, декоративная штукатурка.',
+                    'benefit' => 'Мы воплощаем в жизнь самые сложные идеи. Авторский надзор и комплектация объекта материалами — на нас.',
+                ],
+                [
+                    'num' => '04',
+                    'href' => '/services/pod-klyuch',
+                    'title' => 'Премиум и элитный ремонт',
+                    'price' => 'от 25 000 ₽/м²',
+                    'term' => 'от 90 дней',
+                    'badge' => 'Premium',
+                    'img' => '/public/assets/images/portfolio-photos/cottage/1_180sqm/2.webp',
+                    'alt' => 'Премиум и элитный ремонт — роскошь и эксклюзивность квартиры',
+                    'audience' => 'Для владельцев бизнес-класса и премиум-недвижимости. Максимальное качество и эксклюзивность.',
+                    'includes' => 'Итальянская плитка, паркет, авторская мебель, умный дом, сложные архитектурные решения, полная автоматизация.',
+                    'benefit' => 'Персональный архитектор, комплектация премиальными материалами, гарантия 5 лет на премиум-пакет (на остальные пакеты — 3 года).',
+                ],
+            ];
+            ?>
 
-                        <!-- Slide 1: Косметический ремонт -->
-                        <div class="swiper-slide !h-auto">
-                            <div
-                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
-                                <div class="relative">
-                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/cosmetic.png"
-                                        alt="Косметический ремонт — быстрый ремонт квартиры по цене | Проект Квартира — Проект Квартира" title="Косметический ремонт — от 8 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
-                                        width="640" height="360" decoding="async" loading="lazy">
-                                    <div
-                                        class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
-                                        от 8 000 ₽/м²
-                                    </div>
-                                </div>
-                                <div class="p-4 flex flex-col flex-grow justify-between">
-                                    <div>
-                                        <h3 class="text-lg font-bold text-gray-800 mb-2">Косметический ремонт</h3>
+            <div class="format-grid">
+                <?php foreach ($formatCards as $card): ?>
+                    <article class="format-card">
+                        <a class="format-media" href="<?= htmlspecialchars($site['baseUrl'] . $card['href']); ?>" tabindex="-1"
+                            aria-hidden="true">
+                            <img src="<?= htmlspecialchars($site['baseUrl'] . $card['img']); ?>"
+                                alt="<?= htmlspecialchars($card['alt']); ?>" width="640" height="480" loading="lazy"
+                                decoding="async">
+                            <span class="format-price"><?= htmlspecialchars($card['price']); ?></span>
+                        </a>
 
-                                        <div class="mb-3">
-                                            <span class="text-sm text-gray-500">Срок:</span>
-                                            <span class="text-sm font-semibold text-[#3F6A9B]">от 14 дней</span>
-                                        </div>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Для кого:</strong> Если нужно обновить
-                                            интерьер
-                                            перед заездом или для сдачи в аренду.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Что входит:</strong> Демонтаж старых покрытий,
-                                            переклейка обоев, укладка ламината, покраска потолков, замена розеток.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-4">
-                                            <strong class="text-green-600">Ваша выгода:</strong> Самый быстрый способ
-                                            превратить «бабушкин ремонт» в современное жилье без огромных вложений.
-                                        </p>
-                                    </div>
-
-                                    <a href="/calculator"
-                                        class="block w-full text-center bg-[#3F6A9B] text-white px-4 py-2 rounded-lg hover:bg-[#2d527a] transition text-sm font-semibold mt-auto">
-                                        Рассчитать для моей площади
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="format-label">
+                            <span class="format-meta">
+                                <span class="format-index"><?= htmlspecialchars($card['num']); ?></span>
+                                <span class="format-term"><?= htmlspecialchars($card['term']); ?></span>
+                            </span>
+                            <?php if ($card['badge'] !== ''): ?>
+                                <span class="format-badge"><?= htmlspecialchars($card['badge']); ?></span>
+                            <?php endif; ?>
                         </div>
 
-                        <!-- Slide 2: Капитальный ремонт (Популярный) -->
-                        <div class="swiper-slide !h-auto">
-                            <div
-                                class="absolute -top-6 left-4 bg-orange-500 text-white px-3 py-1 rounded-t-lg text-xs font-bold z-10">
-                                Самый популярный
-                            </div>
-                            <div
-                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col relative">
-                                <div class="relative">
-                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/capital.png"
-                                        alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | Проект Квартира — Проект Квартира" title="Капитальный ремонт — от 13 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
-                                        width="640" height="360" decoding="async" loading="lazy">
-                                    <div
-                                        class="absolute top-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                                        от 13 000 ₽/м²
-                                    </div>
-                                </div>
-                                <div class="p-4 flex flex-col flex-grow justify-between">
-                                    <div>
-                                        <h3 class="text-lg font-bold text-gray-800 mb-2">Капитальный ремонт</h3>
+                        <h3>
+                            <a href="<?= htmlspecialchars($site['baseUrl'] . $card['href']); ?>"
+                                title="<?= htmlspecialchars($card['title'] . ' — ' . $card['price']); ?>"><?= htmlspecialchars($card['title']); ?></a>
+                        </h3>
 
-                                        <div class="mb-3">
-                                            <span class="text-sm text-gray-500">Срок:</span>
-                                            <span class="text-sm font-semibold text-orange-600">от 45 дней</span>
-                                        </div>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Для кого:</strong> Для новостроек в бетоне или
-                                            «вторички» с изношенными коммуникациями.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Что входит:</strong> Полная замена электрики и
-                                            сантехники, возведение перегородок, выравнивание стен по маякам, стяжка
-                                            пола,
-                                            чистовая отделка.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-4">
-                                            <strong class="text-green-600">Ваша выгода:</strong> Полное обновление всех
-                                            инженерных систем. Забудете о проблемах с проводкой или трубами на ближайшие
-                                            20
-                                            лет.
-                                        </p>
-                                    </div>
-
-                                    <a href="/calculator"
-                                        class="block w-full text-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition text-sm font-semibold mt-auto">
-                                        Рассчитать для моей площади
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 3: Дизайнерский ремонт -->
-                        <div class="swiper-slide !h-auto">
-                            <div
-                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
-                                <div class="relative">
-                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
-                                        alt="Дизайнерский ремонт — авторский ремонт с дизайн-проектом | Проект Квартира — Проект Квартира" title="Дизайнерский ремонт — от 18 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
-                                        width="640" height="360" decoding="async" loading="lazy">
-                                    <div
-                                        class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
-                                        от 18 000 ₽/м²
-                                    </div>
-                                </div>
-                                <div class="p-4 flex flex-col flex-grow justify-between">
-                                    <div>
-                                        <h3 class="text-lg font-bold text-gray-800 mb-2">Дизайнерский ремонт</h3>
-
-                                        <div class="mb-3">
-                                            <span class="text-sm text-gray-500">Срок:</span>
-                                            <span class="text-sm font-semibold text-[#3F6A9B]">от 60 дней</span>
-                                        </div>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Для кого:</strong> Для тех, кому важна
-                                            уникальная
-                                            эстетика, перепланировка и сложные решения.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Что входит:</strong> Работа по индивидуальному
-                                            дизайн-проекту, многоуровневое освещение, скрытые двери, теневые профили,
-                                            декоративная штукатурка.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-4">
-                                            <strong class="text-green-600">Ваша выгода:</strong> Мы воплощаем в жизнь
-                                            самые
-                                            сложные идеи. Авторский надзор и комплектация объекта материалами — на нас.
-                                        </p>
-                                    </div>
-
-                                    <a href="/calculator"
-                                        class="block w-full text-center bg-[#3F6A9B] text-white px-4 py-2 rounded-lg hover:bg-[#2d527a] transition text-sm font-semibold mt-auto">
-                                        Рассчитать для моей площади
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 4: Премиум и элитный ремонт -->
-                        <div class="swiper-slide !h-auto">
-                            <div
-                                class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
-                                <div class="relative">
-                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg"
-                                        alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира — Проект Квартира" title="Премиум и элитный ремонт — от 25 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
-                                        width="640" height="360" decoding="async" loading="lazy">
-                                    <div
-                                        class="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                                        от 25 000 ₽/м²
-                                    </div>
-                                    <div class="absolute top-2 left-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                                        PREMIUM
-                                    </div>
-                                </div>
-                                <div class="p-4 flex flex-col flex-grow justify-between">
-                                    <div>
-                                        <h3 class="text-lg font-bold text-gray-800 mb-2">Премиум и элитный ремонт</h3>
-
-                                        <div class="mb-3">
-                                            <span class="text-sm text-gray-500">Срок:</span>
-                                            <span class="text-sm font-semibold text-yellow-600">от 90 дней</span>
-                                        </div>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Для кого:</strong> Для владельцев бизнес-класса
-                                            и премиум-недвижимости. Максимальное качество и эксклюзивность.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-2">
-                                            <strong class="text-gray-800">Что входит:</strong> Итальянская плитка, паркет,
-                                            авторская мебель, умный дом, сложные архитектурные решения, полная
-                                            автоматизация.
-                                        </p>
-
-                                        <p class="text-gray-600 text-sm mb-4">
-                                            <strong class="text-green-600">Ваша выгода:</strong> Персональный архитектор,
-                                            комплектация премиальными материалами, гарантия 5 лет на премиум-пакет (на остальные пакеты — 3 года).
-                                        </p>
-                                    </div>
-
-                                    <a href="/calculator"
-                                        class="block w-full text-center bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-lg hover:from-yellow-600 hover:to-orange-600 transition text-sm font-semibold mt-auto shadow-md">
-                                        Рассчитать для моей площади
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="swiper-pagination mt-8"></div>
-                    <div class="swiper-button-next" aria-label="Следующий формат ремонта"></div>
-                    <div class="swiper-button-prev" aria-label="Предыдущий формат ремонта"></div>
-                </div>
-
-                <!-- Desktop grid: все 4 карты сразу видны -->
-                <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-
-                    <!-- Card 1: Косметический ремонт -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
-                        <div class="relative">
-                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/cosmetic.png"
-                                alt="Косметический ремонт — быстрый ремонт квартиры по цене | Проект Квартира" title="Косметический ремонт — от 8 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
-                                width="640" height="360" decoding="async" loading="lazy">
-                            <div
-                                class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
-                                от 8 000 ₽/м²
-                            </div>
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow justify-between">
+                        <dl class="format-specs">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-800 mb-2">Косметический ремонт</h3>
-
-                                <div class="mb-3">
-                                    <span class="text-sm text-gray-500">Срок:</span>
-                                    <span class="text-sm font-semibold text-[#3F6A9B]">от 14 дней</span>
-                                </div>
-
-                                <p class="text-gray-600 text-sm mb-2">
-                                    <strong class="text-gray-800">Для кого:</strong> Если нужно обновить интерьер
-                                    перед заездом или для сдачи в аренду.
-                                </p>
-
-                                <p class="text-gray-600 text-sm mb-2">
-                                    <strong class="text-gray-800">Что входит:</strong> Демонтаж старых покрытий,
-                                    переклейка обоев, укладка ламината, покраска потолков, замена розеток.
-                                </p>
-
-                                <p class="text-gray-600 text-sm mb-4">
-                                    <strong class="text-green-600">Ваша выгода:</strong> Самый быстрый способ
-                                    превратить «бабушкин ремонт» в современное жилье без огромных вложений.
-                                </p>
+                                <dt>Для кого</dt>
+                                <dd><?= htmlspecialchars($card['audience']); ?></dd>
                             </div>
-
-                            <a href="/calculator"
-                                class="block w-full text-center bg-[#3F6A9B] text-white px-4 py-2 rounded-lg hover:bg-[#2d527a] transition text-sm font-semibold mt-auto">
-                                Рассчитать для моей площади
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Капитальный ремонт (Популярный) -->
-                    <div class="relative">
-                        <div
-                            class="absolute -top-8 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-t-lg text-xs font-bold z-20 shadow-md">
-                            Самый популярный
-                        </div>
-                        <div
-                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-orange-500 h-full flex flex-col">
-                            <div class="relative">
-                                <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/capital.png"
-                                    alt="Капитальный ремонт — полный ремонт квартиры с заменой коммуникаций | Проект Квартира" title="Капитальный ремонт — от 13 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
-                                    width="640" height="360" decoding="async" loading="lazy">
-                                <div
-                                    class="absolute top-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                                    от 13 000 ₽/м²
-                                </div>
-                            </div>
-                            <div class="p-4 flex flex-col flex-grow justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-gray-800 mb-2">Капитальный ремонт</h3>
-
-                                    <div class="mb-3">
-                                        <span class="text-sm text-gray-500">Срок:</span>
-                                        <span class="text-sm font-semibold text-orange-600">от 45 дней</span>
-                                    </div>
-
-                                    <p class="text-gray-600 text-sm mb-2">
-                                        <strong class="text-gray-800">Для кого:</strong> Для новостроек в бетоне или
-                                        «вторички» с изношенными коммуникациями.
-                                    </p>
-
-                                    <p class="text-gray-600 text-sm mb-2">
-                                        <strong class="text-gray-800">Что входит:</strong> Полная замена электрики и
-                                        сантехники, возведение перегородек, выравнивание стен по маякам, стяжка
-                                        пола,
-                                        чистовая отделка.
-                                    </p>
-
-                                    <p class="text-gray-600 text-sm mb-4">
-                                        <strong class="text-green-600">Ваша выгода:</strong> Полное обновление всех
-                                        инженерных систем. Забудете о проблемах с проводкой или трубами на ближайшие
-                                        20
-                                        лет.
-                                    </p>
-                                </div>
-
-                                <a href="/calculator"
-                                    class="block w-full text-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition text-sm font-semibold mt-auto">
-                                    Рассчитать для моей площади
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Дизайнерский ремонт -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-[#3F6A9B]/20 hover:border-[#3F6A9B] h-full flex flex-col">
-                        <div class="relative">
-                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/renovation-format/finish.png"
-                                alt="Дизайнерский ремонт — авторский ремонт с дизайн-проектом | Проект Квартира" title="Дизайнерский ремонт — от 18 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
-                                width="640" height="360" decoding="async" loading="lazy">
-                            <div
-                                class="absolute top-2 right-2 bg-[#3F6A9B] text-white px-3 py-1 rounded-full text-sm font-bold">
-                                от 18 000 ₽/м²
-                            </div>
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow justify-between">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-800 mb-2">Дизайнерский ремонт</h3>
-
-                                <div class="mb-3">
-                                    <span class="text-sm text-gray-500">Срок:</span>
-                                    <span class="text-sm font-semibold text-[#3F6A9B]">от 60 дней</span>
-                                </div>
-
-                                <p class="text-gray-600 text-sm mb-2">
-                                    <strong class="text-gray-800">Для кого:</strong> Для тех, кому важна уникальная
-                                    эстетика, перепланировка и сложные решения.
-                                </p>
-
-                                <p class="text-gray-600 text-sm mb-2">
-                                    <strong class="text-gray-800">Что входит:</strong> Работа по индивидуальному
-                                    дизайн-проекту, многоуровневое освещение, скрытые двери, теневые профили,
-                                    декоративная штукатурка.
-                                </p>
-
-                                <p class="text-gray-600 text-sm mb-4">
-                                    <strong class="text-green-600">Ваша выгода:</strong> Мы воплощаем в жизнь самые
-                                    сложные идеи. Авторский надзор и комплектация объекта материалами — на нас.
-                                </p>
+                                <dt>Что входит</dt>
+                                <dd><?= htmlspecialchars($card['includes']); ?></dd>
                             </div>
-
-                            <a href="/calculator"
-                                class="block w-full text-center bg-[#3F6A9B] text-white px-4 py-2 rounded-lg hover:bg-[#2d527a] transition text-sm font-semibold mt-auto">
-                                Рассчитать для моей площади
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Премиум и элитный ремонт -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
-                        <div class="relative">
-                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg"
-                                alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
-                                width="640" height="360" decoding="async" loading="lazy">
-                            <div
-                                class="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                                от 25 000 ₽/м²
-                            </div>
-                            <div class="absolute top-2 left-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                                PREMIUM
-                            </div>
-                        </div>
-                        <div class="p-4 flex flex-col flex-grow justify-between">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-800 mb-2">Премиум и элитный ремонт</h3>
-
-                                <div class="mb-3">
-                                    <span class="text-sm text-gray-500">Срок:</span>
-                                    <span class="text-sm font-semibold text-yellow-600">от 90 дней</span>
-                                </div>
-
-                                <p class="text-gray-600 text-sm mb-2">
-                                    <strong class="text-gray-800">Для кого:</strong> Для владельцев бизнес-класса
-                                    и премиум-недвижимости. Максимальное качество и эксклюзивность.
-                                </p>
-
-                                <p class="text-gray-600 text-sm mb-2">
-                                    <strong class="text-gray-800">Что входит:</strong> Итальянская плитка, паркет,
-                                    авторская мебель, умный дом, сложные архитектурные решения, полная
-                                    автоматизация.
-                                </p>
-
-                                <p class="text-gray-600 text-sm mb-4">
-                                    <strong class="text-green-600">Ваша выгода:</strong> Персональный архитектор,
-                                    комплектация премиальными материалами, гарантия 5 лет на премиум-пакет (на остальные пакеты — 3 года).
-                                </p>
+                                <dt>Ваша выгода</dt>
+                                <dd><?= htmlspecialchars($card['benefit']); ?></dd>
                             </div>
+                        </dl>
 
-                            <a href="/calculator"
-                                class="block w-full text-center bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-lg hover:from-yellow-600 hover:to-orange-600 transition text-sm font-semibold mt-auto shadow-md">
-                                Рассчитать для моей площади
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                        <a href="/calculator" class="text-link">Рассчитать для моей площади
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                focusable="false">
+                                <path d="M7 7h10v10"></path>
+                                <path d="M7 17 17 7"></path>
+                            </svg>
+                        </a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
 
-                <!-- CTA: Все форматы -->
-                <div class="text-center mt-10">
-                    <a href="/services/pod-klyuch"
-                        class="inline-flex items-center gap-2 bg-[#0F172A] text-white px-6 py-3 rounded-lg hover:bg-[#1e293b] transition text-sm font-semibold shadow-md">
-                        <i class="fas fa-th-large"></i>
-                        Все форматы и виды ремонта (71 услуга)
-                    </a>
-                </div>
-
-                <!-- Footer: Trigger доверия -->
-                <div
-                    class="bg-gradient-to-r from-[#3F6A9B]/10 to-orange-500/10 rounded-xl p-6 md:p-8 border border-[#3F6A9B]/30">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="flex-1">
-                            <h4 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">
-                                <i class="fas fa-question-circle text-[#3F6A9B] mr-2"></i>
-                                Не знаете, какой вид ремонта вам нужен?
-                            </h4>
-                            <p class="text-gray-600 text-sm md:text-base">
-                                Приедем, проверим состояние стен и инженерных систем и скажем честно: где можно
-                                сэкономить, а где — категорически нельзя.
-                            </p>
-                        </div>
-                        <button data-button-dialog
-                            class="shrink-0 bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 transition shadow-lg hover:shadow-xl flex items-center gap-2">
-                            <i class="fas fa-user-tie"></i>
-                            Вызвать инженера на бесплатную консультацию
-                        </button>
-                    </div>
-                </div>
-
+            <div class="format-foot">
+                <p class="format-note">
+                    Не знаете, какой формат нужен? Приедем, проверим состояние стен и инженерных систем и скажем
+                    честно: где можно сэкономить, а где — категорически нельзя.
+                    <button type="button" data-button-dialog class="text-link">Вызвать инженера на бесплатную
+                        консультацию</button>
+                </p>
+                <a href="/services/pod-klyuch" class="text-link">Все форматы и виды ремонта (71 услуга)
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </a>
             </div>
         </section>
 
         <!-- GEO: Районы обслуживания -->
-        <section class="py-16 bg-gray-50 reveal">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-12">
-                    <span class="section-number section-number-dark">05</span>
-                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт квартир в Москве и Московской области</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем по всей Москве и ближайшим городам Подмосковья. Бесплатный выезд инженера, предварительный расчёт в день обращения, детальная смета в 3 вариантах — за 24 часа после замера.</p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                    <?php
-                    $geoCities = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.', 'и другие...'];
-                    $geoLinks = [
-                        'Люберцы' => '/services/lyubertsy',
-                        'Одинцово' => '/services/odintsovo',
-                        'Подольск' => '/services/podolsk',
-                        'Мытищи' => '/services/mytishchi',
-                        'Химки' => '/services/khimki',
-                        'Лобня' => '/services/lobnya',
-                        'Солнечногорск' => '/services/solnechnogorsk',
-                        'Реутов' => '/services/reutov',
-                        'Зеленоград' => '/services/zelenograd',
-                        'Раменское' => '/services/ramenskoye',
-                        'Пушкино' => '/services/pushkino',
-                        'Видное' => '/services/vidnoye',
-                        'Балашиха' => '/services/balashikha',
-                        'Домодедово' => '/services/domodedovo',
-                        'Долгопрудный' => '/services/dolgoprudny',
-                        'Щербинка' => '/services/shcherbinka',
-                        'Звенигород' => '/services/zvenigorod',
-                        'Красногорск' => '/services/krasnogorsk',
-                        'Митино' => '/services/mitino',
-                    ];
-                    foreach ($geoCities as $g):
-                        $link = $geoLinks[$g] ?? null;
-                    ?>
-                    <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-orange-200 transition">
+        <section id="geo" class="geo-section section-shell reveal">
+            <span class="section-number">04</span>
+            <div class="section-topline">
+                <p class="eyebrow">04 / География работ</p>
+                <span class="eyebrow">Москва · Подмосковье</span>
+            </div>
+            <div class="head-row">
+                <h2>Ремонт квартир<br><span>в Москве и области.</span></h2>
+                <p>Бесплатный выезд инженера, предварительный расчёт в день обращения,<br>детальная смета в 3 вариантах — за 24 часа после замера.</p>
+            </div>
+
+            <?php
+            $geoCities = ['Люберцы','Одинцово','Подольск','Мытищи','Химки','Лобня','Солнечногорск','Реутов','Зеленоград','Раменское','Пушкино','Видное','Балашиха','Домодедово','Долгопрудный','Щербинка','Звенигород','Красногорск','Митино','Бутово','Академический','Ленинский пр.', 'и другие...'];
+            $geoLinks = [
+                'Люберцы' => '/services/lyubertsy',
+                'Одинцово' => '/services/odintsovo',
+                'Подольск' => '/services/podolsk',
+                'Мытищи' => '/services/mytishchi',
+                'Химки' => '/services/khimki',
+                'Лобня' => '/services/lobnya',
+                'Солнечногорск' => '/services/solnechnogorsk',
+                'Реутов' => '/services/reutov',
+                'Зеленоград' => '/services/zelenograd',
+                'Раменское' => '/services/ramenskoye',
+                'Пушкино' => '/services/pushkino',
+                'Видное' => '/services/vidnoye',
+                'Балашиха' => '/services/balashikha',
+                'Домодедово' => '/services/domodedovo',
+                'Долгопрудный' => '/services/dolgoprudny',
+                'Щербинка' => '/services/shcherbinka',
+                'Звенигород' => '/services/zvenigorod',
+                'Красногорск' => '/services/krasnogorsk',
+                'Митино' => '/services/mitino',
+            ];
+            ?>
+            <div class="geo-grid">
+                <?php foreach ($geoCities as $g):
+                    $link = $geoLinks[$g] ?? null;
+                ?>
+                    <div class="geo-chip">
                         <?php if ($link): ?>
-                            <a href="<?= $link ?>" class="text-sm font-medium text-gray-700 hover:text-orange-500"><?= $g ?></a>
+                            <a href="<?= htmlspecialchars($link); ?>" class="geo-chip-link"
+                                title="Ремонт квартир в <?= htmlspecialchars($g); ?>"><?= htmlspecialchars($g); ?></a>
                         <?php else: ?>
-                            <span class="text-sm font-medium text-gray-700"><?= $g ?></span>
+                            <span class="geo-chip-link"><?= htmlspecialchars($g); ?></span>
                         <?php endif; ?>
                     </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="text-center mt-8">
-                    <a href="/contact" class="text-orange-600 font-semibold hover:text-orange-700">Посмотреть контакты и схему проезда →</a>
-                </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="geo-foot">
+                <a href="/contact" class="text-link">Посмотреть контакты и схему проезда
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </a>
             </div>
         </section>
 
         <!-- 6 -->
-        <section class="md:py-16 reveal bg-gray-50">
+        <section id="portfolio" class="selected-work section-shell reveal">
+            <span class="section-number">05</span>
+            <div class="section-topline">
+                <p class="eyebrow">05 / Избранные проекты</p>
+                <a href="/portfolio" class="text-link">Смотреть все объекты
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                        focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="work-heading">
+                <h2>Места, где уже<br><span>живут.</span></h2>
+                <p>Пять проектов последних месяцев:<br>от студии до премиум-квартиры.</p>
+            </div>
+
+            <ul class="case-filter">
+                <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka">Ремонт квартир в новостройке <span aria-hidden="true">↗</span></a></li>
+                <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka">Ремонт во вторичке <span aria-hidden="true">↗</span></a></li>
+                <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio">Ремонт студии <span aria-hidden="true">↗</span></a></li>
+                <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room">Ремонт 1-комнатной <span aria-hidden="true">↗</span></a></li>
+                <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room">Ремонт 2-комнатной <span aria-hidden="true">↗</span></a></li>
+                <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room">Ремонт 3-комнатной <span aria-hidden="true">↗</span></a></li>
+            </ul>
+
+            <div class="featured-grid">
+                <?php foreach ($featuredProjects as $index => $project): ?>
+                    <?php
+                    $coverUrl = $project['cover']
+                        ? htmlspecialchars($site['baseUrl'] . '/' . $project['folder_image'] . '/' . $project['cover'])
+                        : '';
+                    $projectUrl = htmlspecialchars(Setting\Route\Functions\TheFunction::portfolioProjectUrl($project['slug']));
+                    $projectTitle = htmlspecialchars($project['title']);
+                    $projectType = htmlspecialchars($project['type'] ?? '');
+                    $projectSize = htmlspecialchars($project['size'] ?? '');
+                    $projectDuration = htmlspecialchars($project['duration'] ?? '');
+                    $projectPrice = htmlspecialchars($project['price'] ?? '');
+                    $projectSubtitle = !empty($project['subtitle']) ? htmlspecialchars($project['subtitle']) : $projectType . ' · под ключ';
+                    $projectNum = str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT);
+                    $captionParts = array_filter([$projectSize, $projectDuration], static fn($v) => $v !== '');
+                    ?>
+                    <article class="project-card">
+                        <a href="<?= $projectUrl ?>" class="project-card__link" title="<?= $projectTitle ?> — объект Проект Квартира">
+                            <div class="project-card__image">
+                                <?php if ($coverUrl): ?>
+                                    <img src="<?= $coverUrl ?>" alt="<?= $projectTitle ?>" title="<?= $projectTitle ?>"
+                                        width="1280" height="960" loading="lazy" decoding="async">
+                                <?php endif; ?>
+                                <span class="project-card__number"><?= $projectNum ?><?= $projectType !== '' ? ' — ' . $projectType : '' ?></span>
+                                <span class="project-card__arrow">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                        focusable="false">
+                                        <path d="M7 7h10v10"></path>
+                                        <path d="M7 17 17 7"></path>
+                                    </svg>
+                                </span>
+                                <?php if ($captionParts): ?>
+                                    <span class="project-card__caption"><?= implode(' · ', $captionParts) ?></span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="project-card__meta">
+                                <span><?= $projectType !== '' ? $projectType : 'Ремонт под ключ' ?></span>
+                                <span><?= $projectPrice !== '' ? $projectPrice : 'по запросу' ?></span>
+                            </div>
+                            <h3><?= $projectTitle ?></h3>
+                            <p><?= $projectSubtitle ?></p>
+                        </a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="format-foot">
+                <p class="format-note">Каждый объект — это фиксированная смета, ежедневные фотоотчёты и гарантия
+                    по договору. Покажем похожий проект под вашу планировку.</p>
+                <button type="button" data-button-dialog class="text-link">Обсудить свой проект
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <section id="directions" class="directions-section section-shell reveal">
             <span class="section-number">06</span>
-            <div class="container mx-auto px-4">
-                <div
-                    class="relative mx-auto max-w-[90%] md:max-w-[75%] flex flex-col md:flex-row items-start md:items-center justify-center mb-12">
-                    <div class="text-center">
-                        <span class="label-tag">Портфолио</span>
-                        <h2 class="section-heading">
-                            Наши последние работы
-                        </h2>
-                    </div>
-                    <a href="/portfolio"
-                        class="view-all-link block md:absolute right-0 text-blue-600 hover:text-blue-700 transition font-semibold flex items-center gap-2">
-                        Смотреть всё портфолио
-                        <i class="fas fa-arrow-right"></i>
+            <div class="section-topline">
+                <p class="eyebrow">06 / Направления</p>
+                <span class="eyebrow">Популярные виды работ и районы</span>
+            </div>
+            <div class="head-row">
+                <h2>Востребованные<br><span>направления.</span></h2>
+                <p>Быстрый переход к услугам и районам,<br>по которым чаще всего работаем.</p>
+            </div>
+
+            <div class="directions-grid">
+                <?php
+                $directions = [
+                    ['href' => '/services/pod-klyuch', 'label' => 'Ремонт под ключ', 'num' => '01'],
+                    ['href' => '/services/novostroyka', 'label' => 'Ремонт в новостройке', 'num' => '02'],
+                    ['href' => '/services/ontario', 'label' => 'ЖК Онтарио', 'num' => '03'],
+                    ['href' => '/services/mitino', 'label' => 'Ремонт в Митино', 'num' => '04'],
+                    ['href' => '/services/khimki', 'label' => 'Ремонт в Химках', 'num' => '05'],
+                    ['href' => '/services/odintsovo', 'label' => 'Ремонт в Одинцово', 'num' => '06'],
+                    ['href' => '/services/solnechnogorsk', 'label' => 'Ремонт в Солнечногорске', 'num' => '07'],
+                    ['href' => '/services/lyubertsy', 'label' => 'Ремонт в Люберцах', 'num' => '08'],
+                    ['href' => '/services/balashikha', 'label' => 'Ремонт в Балашихе', 'num' => '09'],
+                ];
+                ?>
+                <?php foreach ($directions as $dir): ?>
+                    <a href="<?= htmlspecialchars($site['baseUrl'] . $dir['href']); ?>" class="direction-link"
+                        title="<?= htmlspecialchars($dir['label']); ?> — Проект Квартира">
+                        <small><?= htmlspecialchars($dir['num']); ?></small>
+                        <span><?= htmlspecialchars($dir['label']); ?></span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                            focusable="false">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
                     </a>
-                </div>
-
-                <!-- list -->
-                <div class="container mx-auto">
-                    <div
-                        class="flex flex-wrap gap-3 md:gap-4 justify-center max-w-[95%] md:max-w-[90%] mx-auto text-sm md:text-xl">
-                        <!-- Button 1 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/novostroyka"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
-                            <i class="fas fa-building text-orange-600 text-sm md:text-base"></i>
-                            <span class="text-gray-800 font-medium">Ремонт квартир в новостройке</span>
-                            <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
-                        </a>
-
-                        <!-- Button 2 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/vtorichka"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
-                            <i class="fas fa-home text-orange-600 text-sm md:text-base"></i>
-                            <span class="text-gray-800 font-medium">Ремонт во вторичке</span>
-                            <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
-                        </a>
-
-                        <!-- Button 3 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/studio"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
-                            <i class="fas fa-couch text-orange-600 text-sm md:text-base"></i>
-                            <span class="text-gray-800 font-medium">Ремонт студии</span>
-                            <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
-                        </a>
-
-                        <!-- Button 4 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/1room"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
-                            <i class="fas fa-door-open text-orange-600 text-sm md:text-base"></i>
-                            <span class="text-gray-800 font-medium">Ремонт 1-комнатной</span>
-                            <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
-                        </a>
-
-                        <!-- Button 5 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/2room"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
-                            <i class="fas fa-bed text-orange-600 text-sm md:text-base"></i>
-                            <span class="text-gray-800 font-medium">Ремонт 2-комнатной</span>
-                            <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
-                        </a>
-
-                        <!-- Button 6 -->
-                        <a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/3room"
-                            class="flex items-center gap-2 md:gap-3 bg-white border border-gray-300 rounded-lg px-3 py-2 md:px-4 md:py-3 hover:bg-gray-50 transition shadow-sm w-full sm:w-auto justify-center w-fit">
-                            <i class="fas fa-house-user text-orange-600 text-sm md:text-base"></i>
-                            <span class="text-gray-800 font-medium">Ремонт 3-комнатной</span>
-                            <i class="fas fa-arrow-right text-orange-400 text-sm md:text-base"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Case cards -->
-                <div class="relative mx-auto mt-10 max-w-6xl">
-                    <!-- Swiper -->
-                    <div class="swiper swiper-case">
-                        <div class="swiper-wrapper">
-                            <?php foreach ($featuredProjects as $index => $project): ?>
-                                <?php
-                                $coverUrl = $project['cover']
-                                    ? htmlspecialchars($site['baseUrl'] . '/' . $project['folder_image'] . '/' . $project['cover'])
-                                    : '';
-                                $projectUrl = htmlspecialchars(Setting\Route\Functions\TheFunction::portfolioProjectUrl($project['slug']));
-                                $projectTitle = htmlspecialchars($project['title']);
-                                $projectType = htmlspecialchars($project['type'] ?? '');
-                                $projectSize = htmlspecialchars($project['size'] ?? '');
-                                $projectDuration = htmlspecialchars($project['duration'] ?? '');
-                                $projectPrice = htmlspecialchars($project['price'] ?? '');
-                                $projectSubtitle = !empty($project['subtitle']) ? htmlspecialchars($project['subtitle']) : $projectType . ' · под ключ';
-                                ?>
-                                <div class="swiper-slide">
-                                    <article
-                                        class="grid grid-cols-1 lg:grid-cols-12 bg-[#EDF1F6] rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-                                        <div class="lg:col-span-7 relative min-h-[280px] sm:min-h-[340px] lg:min-h-[480px] bg-gray-200">
-                                            <?php if ($coverUrl): ?>
-                                                <img data-src="<?= $coverUrl ?>"
-                                                    alt="<?= $projectTitle ?>"
-                                                    title="<?= $projectTitle ?>"
-                                                    class="lazy absolute inset-0 w-full h-full object-cover" width="1024" height="768"
-                                                    decoding="async" loading="lazy">
-                                            <?php endif; ?>
-                                        </div>
-
-                                        <div class="lg:col-span-5 bg-white p-7 sm:p-9 lg:p-10 flex flex-col justify-center">
-                                            <p class="text-sm font-semibold text-gray-500 mb-2">Новые проекты дизайна и ремонта под ключ</p>
-                                            <h3 class="text-2xl lg:text-[28px] leading-snug font-bold text-gray-900 mb-1">
-                                                <?= $projectTitle ?>
-                                            </h3>
-                                            <p class="text-sm text-gray-500 mb-6"><?= $projectSubtitle ?></p>
-
-                                            <dl class="text-[15px] mb-8">
-                                                <div class="flex items-baseline justify-between gap-4 py-3 border-t border-gray-100">
-                                                    <dt class="text-gray-500">Площадь объекта</dt>
-                                                    <dd class="font-semibold text-gray-900 text-right"><?= $projectSize ?></dd>
-                                                </div>
-                                                <?php if ($projectDuration !== ''): ?>
-                                                    <div class="flex items-baseline justify-between gap-4 py-3 border-t border-gray-100">
-                                                        <dt class="text-gray-500">Срок работ</dt>
-                                                        <dd class="font-semibold text-gray-900 text-right"><?= $projectDuration ?></dd>
-                                                    </div>
-                                                <?php endif; ?>
-                                                <?php if ($projectPrice !== ''): ?>
-                                                    <div class="flex items-baseline justify-between gap-4 py-3 border-t border-b border-gray-100">
-                                                        <dt class="text-gray-500">Стоимость работ</dt>
-                                                        <dd class="font-semibold text-gray-900 text-right"><?= $projectPrice ?></dd>
-                                                    </div>
-                                                <?php else: ?>
-                                                    <div class="flex items-baseline justify-between gap-4 py-3 border-t border-b border-gray-100">
-                                                        <dt class="text-gray-500">Стоимость работ</dt>
-                                                        <dd class="font-semibold text-gray-900 text-right">по запросу</dd>
-                                                    </div>
-                                                <?php endif; ?>
-                                            </dl>
-
-                                            <div class="flex flex-col gap-3">
-                                                <button data-button-dialog
-                                                    class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-blue-700 text-white text-sm font-bold tracking-wide hover:bg-blue-800 transition">
-                                                    ОБСУДИТЬ СВОЙ ПРОЕКТ
-                                                </button>
-                                                <a href="<?= $projectUrl ?>"
-                                                    class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-gray-300 text-gray-800 text-sm font-bold tracking-wide hover:border-blue-700 hover:text-blue-700 transition">
-                                                    ПОДРОБНЕЕ О ПРОЕКТЕ
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-
-                    <!-- Navigation -->
-                    <div class="flex items-center justify-between gap-4 mt-6">
-                        <div class="case-pagination text-sm font-semibold text-gray-400 tracking-widest" aria-hidden="true"></div>
-                        <div class="flex items-center gap-3">
-                            <button type="button" aria-label="Предыдущий проект"
-                                class="case-prev w-12 h-12 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-700 hover:border-blue-700 hover:text-blue-700 transition">
-                                <i class="fas fa-arrow-left"></i>
-                            </button>
-                            <button type="button" aria-label="Следующий проект"
-                                class="case-next w-12 h-12 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-700 hover:border-blue-700 hover:text-blue-700 transition">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        if (typeof Swiper === 'undefined') return;
-                        var el = document.querySelector('.swiper-case');
-                        if (!el) return;
-                        var slides = el.querySelectorAll('.swiper-slide').length;
-                        new Swiper(el, {
-                            slidesPerView: 1,
-                            spaceBetween: 24,
-                            speed: 700,
-                            loop: slides > 1,
-                            autoplay: { delay: 6000, disableOnInteraction: true },
-                            navigation: { nextEl: '.case-next', prevEl: '.case-prev' },
-                            pagination: { el: '.case-pagination', type: 'fraction' },
-                            keyboard: { enabled: true }
-                        });
-                    });
-                </script>
+                <?php endforeach; ?>
             </div>
         </section>
 
-        <section class="py-12 bg-white reveal">
-            <div class="container mx-auto px-4 text-center">
-                <span class="label-tag">Направления</span>
-                <h2 class="section-heading mb-6">Популярные виды работ и районы</h2>
-                <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-                    <a href="/services/ukladka-laminata" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Укладка ламината</a>
-                    <a href="/services/keramogranit-nazarovo" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Укладка керамогранита</a>
-                    <a href="/services/ontario" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">ЖК Онтарио</a>
-                    <a href="/services/mitino" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Митино</a>
-                    <a href="/services/khimki" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Химках</a>
-                    <a href="/services/odintsovo" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Одинцово</a>
-                    <a href="/services/solnechnogorsk" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Солнечногорске</a>
-                    <a href="/services/lyubertsy" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Люберцах</a>
-                    <a href="/services/balashikha" class="px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 transition shadow-sm">Ремонт в Балашихе</a>
-                </div>
+        <section id="process" class="process-section reveal">
+            <div class="process-photo">
+                <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/pages/main/hero/bg.webp"
+                    alt="Интерьер квартиры после ремонта — Проект Квартира" width="1672" height="941" loading="lazy"
+                    decoding="async">
             </div>
-        </section>
-
-        <!-- 8 -->
-        <section id="process" class="py-16 md:py-24 bg-blue-50 reveal">
-            <span class="section-number">07</span>
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-14">
-                    <span class="label-tag">Как мы работаем</span>
-                    <h2 class="section-heading mb-4">
-                        Ваш путь к идеальному ремонту:<br><strong class="text-orange-600">6 шагов</strong> до новоселья
-                    </h2>
-                    <p class="text-xl text-gray-600">
-                        Мы выстроили систему так, чтобы вы не тратили время на контроль и закупки
-                    </p>
-                </div>
-
-                <div class="relative grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    <div class="hidden md:block absolute w-full h-0.5 bg-gray-300 top-8 z-0"></div>
-
-                    <div class="text-center z-10 lift-hover">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            01
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Ваша заявка</h3>
-                        <p class="text-sm text-gray-600">
-                            Оставьте заявку на сайте или позвоните нам. Менеджер ответит на все вопросы и забронирует за
-                            вами время для бесплатного выезда инженера-сметчика.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10 lift-hover">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            02
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Профессиональный замер</h3>
-                        <p class="text-sm text-gray-600">
-                            Приезжаем со сверхточным лазерным оборудованием. Анализируем состояние стен, углов и
+            <div class="process-content section-shell">
+                <p class="eyebrow">Как мы работаем</p>
+                <h2>Ваш путь к идеальному ремонту:<br><span>6 шагов</span> до новоселья</h2>
+                <div class="process-steps">
+                    <details data-phase="0" open>
+                        <summary>
+                            <span>01</span>
+                            <h3>Ваша заявка</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5v14"></path>
+                            </svg>
+                        </summary>
+                        <p>Оставьте заявку на сайте или позвоните нам. Менеджер ответит на все вопросы и забронирует за
+                            вами время для бесплатного выезда инженера-сметчика.</p>
+                    </details>
+                    <details data-phase="1">
+                        <summary>
+                            <span>02</span>
+                            <h3>Профессиональный замер</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5v14"></path>
+                            </svg>
+                        </summary>
+                        <p>Приезжаем со сверхточным лазерным оборудованием. Анализируем состояние стен, углов и
                             инженерных коммуникаций. Через 24 часа вы получаете 3 варианта детальной сметы под ваш
-                            бюджет.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10 lift-hover">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            03
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Договор и фиксация цены</h3>
-                        <p class="text-sm text-gray-600">
-                            Подписываем официальный договор, где четко прописаны сроки и финальная стоимость. Цена
-                            фиксируется в договоре. Дополнительные работы — только после вашего согласования: сначала показываем причину и стоимость, начинаем только после подтверждения.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10 lift-hover">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            04
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
-                        <p class="text-sm text-gray-600">
-                            Закупку, доставку и подъём материалов берём на себя — вам не нужно ездить по магазинам. И наша собственная
-                            гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10 lift-hover">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            05
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Производство работ</h3>
-                        <p class="text-sm text-gray-600">
-                            Профильные бригады (электрики, сантехники, плиточники) приступают к делу. Вы получаете
-                            ежедневные фото- и видеоотчеты в MAX. Контролируйте ремонт из любой точки мира.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10 lift-hover">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg shadow-blue-600/20 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            06
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Сдача и гарантия</h3>
-                        <p class="text-sm text-gray-600">
-                            Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются по действующим нормам и технологическим картам.
-                            Получаете гарантийный сертификат на 3 года. Мы остаемся на связи и после ремонта.
-                        </p>
-                    </div>
+                            бюджет.</p>
+                    </details>
+                    <details data-phase="2">
+                        <summary>
+                            <span>03</span>
+                            <h3>Договор и фиксация цены</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5v14"></path>
+                            </svg>
+                        </summary>
+                        <p>Подписываем официальный договор, где четко прописаны сроки и финальная стоимость. Цена
+                            фиксируется в договоре. Дополнительные работы — только после вашего согласования: сначала показываем причину и стоимость, начинаем только после подтверждения.</p>
+                    </details>
+                    <details data-phase="3">
+                        <summary>
+                            <span>04</span>
+                            <h3>Закупка материалов</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5v14"></path>
+                            </svg>
+                        </summary>
+                        <p>Закупку, доставку и подъём материалов берём на себя — вам не нужно ездить по магазинам. Организуем
+                            доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.</p>
+                    </details>
+                    <details data-phase="4">
+                        <summary>
+                            <span>05</span>
+                            <h3>Производство работ</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5v14"></path>
+                            </svg>
+                        </summary>
+                        <p>Профильные бригады (электрики, сантехники, плиточники) приступают к делу. Вы получаете
+                            ежедневные фото- и видеоотчеты в MAX. Контролируйте ремонт из любой точки мира.</p>
+                    </details>
+                    <details data-phase="5">
+                        <summary>
+                            <span>06</span>
+                            <h3>Сдача и гарантия</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5v14"></path>
+                            </svg>
+                        </summary>
+                        <p>Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются по действующим нормам и технологическим картам. Получаете гарантийный сертификат на 3 года. Мы остаемся на связи и после ремонта.</p>
+                    </details>
                 </div>
             </div>
         </section>
 
         <!-- 9 -->
-        <section id="prices" class="py-16 md:py-24 bg-gray-50 reveal">
-            <span class="section-number">08</span>
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <span class="label-tag">Стоимость</span>
-                    <h2 class="section-heading mb-4">
-                        Прозрачная стоимость работ:<br>фиксируем смету и не меняем её до конца ремонта
-                    </h2>
-                    <p class="section-subtitle mx-auto">
-                        Выберите пакет услуг под ваши задачи. Итоговая сумма прописывается в договоре и не растет в
-                        процессе.
-                    </p>
+        <section id="prices" class="price-section section-shell reveal">
+            <span class="section-number">07</span>
+            <div class="section-topline">
+                <p class="eyebrow">07 / Стоимость</p>
+                <span class="eyebrow">Смета фиксируется в договоре</span>
+            </div>
+            <div class="head-row">
+                <h2>Прозрачная стоимость<br><span>без роста в процессе.</span></h2>
+                <p>Выберите пакет услуг под ваши задачи.<br>Итоговая сумма прописывается в договоре.</p>
+            </div>
+
+                <div class="price-grid">
+                    <article class="price-card-premium">
+                        <div>
+                            <h3 class="price-name">Эконом</h3>
+                            <div class="price-amount">от 8 000 ₽<span class="price-unit">/м²</span></div>
+                            <div class="price-meta">Косметический · от 14 дней · гарантия 3 года</div>
+                            <p class="price-desc">Идеально, чтобы освежить квартиру: замена обоев, ламината и покраска потолков.</p>
+                            <ul class="price-list">
+                                <li><i class="fas fa-check"></i>Демонтаж старых покрытий</li>
+                                <li><i class="fas fa-check"></i>Грунтовка и частичная шпаклевка стен</li>
+                                <li><i class="fas fa-check"></i>Поклейка обоев или покраска</li>
+                                <li><i class="fas fa-check"></i>Укладка ламината или линолеума</li>
+                                <li><i class="fas fa-check"></i>Монтаж плинтусов и розеток</li>
+                            </ul>
+                        </div>
+                        <button data-button-dialog class="price-btn">Выбрать пакет</button>
+                    </article>
+
+                    <article class="price-card-premium featured">
+                        <div>
+                            <span class="price-badge">Популярный выбор</span>
+                            <h3 class="price-name">Стандарт</h3>
+                            <div class="price-amount">от 13 000 ₽<span class="price-unit">/м²</span></div>
+                            <div class="price-meta">Капитальный · от 45 дней · гарантия 3 года</div>
+                            <p class="price-desc">Полное обновление инженерных систем и идеально ровные поверхности.</p>
+                            <ul class="price-list">
+                                <li><i class="fas fa-check"></i>Весь перечень из «Эконом»</li>
+                                <li><i class="fas fa-check"></i>Выравнивание стен по маякам</li>
+                                <li><i class="fas fa-check"></i>Разводка новой электрики и сантехники</li>
+                                <li><i class="fas fa-check"></i>Устройство стяжки пола</li>
+                                <li><i class="fas fa-check"></i>Укладка плитки в санузлах</li>
+                            </ul>
+                        </div>
+                        <button data-button-dialog class="price-btn">Выбрать пакет</button>
+                    </article>
+
+                    <article class="price-card-premium">
+                        <div>
+                            <h3 class="price-name">Дизайнерский</h3>
+                            <div class="price-amount">от 18 000 ₽<span class="price-unit">/м²</span></div>
+                            <div class="price-meta">Дизайнерский · от 60 дней · гарантия 3 года</div>
+                            <p class="price-desc">Приёмка каждого этапа по чек-листу и работа со сложными дизайнерскими решениями.</p>
+                            <ul class="price-list">
+                                <li><i class="fas fa-check"></i>Весь перечень из «Стандарт»</li>
+                                <li><i class="fas fa-check"></i>Монтаж многоуровневых потолков</li>
+                                <li><i class="fas fa-check"></i>Декоративная штукатурка и лепнина</li>
+                                <li><i class="fas fa-check"></i>Скрытые двери и трековое освещение</li>
+                                <li><i class="fas fa-check"></i>Тёплые полы и инсталляции</li>
+                            </ul>
+                        </div>
+                        <button data-button-dialog class="price-btn">Выбрать пакет</button>
+                    </article>
+
+                    <article class="price-card-premium">
+                        <div>
+                            <h3 class="price-name">Премиум</h3>
+                            <div class="price-amount">от 25 000 ₽<span class="price-unit">/м²</span></div>
+                            <div class="price-meta">С дизайн-проектом · от 90 дней · гарантия 3 года</div>
+                            <p class="price-desc">Авторский дизайн-проект, элитные материалы, умный дом и меблировка — под ключ.</p>
+                            <ul class="price-list">
+                                <li><i class="fas fa-check"></i>Весь перечень из «Дизайнерский»</li>
+                                <li><i class="fas fa-check"></i>Дизайн-проект в комплекте</li>
+                                <li><i class="fas fa-check"></i>Умный дом и климат-контроль</li>
+                                <li><i class="fas fa-check"></i>Меблировка и декорирование</li>
+                                <li><i class="fas fa-check"></i>Персональный архитектор</li>
+                            </ul>
+                        </div>
+                        <a href="/services/premium" class="price-btn">Подробнее о премиуме</a>
+                    </article>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div
-                        class="flex flex-col justify-between items-center bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-600 transition lift-hover">
-                        <div class="block">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Эконом (Косметический)</h3>
-                            <div class="text-3xl font-bold text-blue-600 mb-2">от 8 000 ₽/м²</div>
-                            <div class="text-sm text-gray-500 mb-4">Срок: от 14 дней · Гарантия: 3 года</div>
-                            <p class="text-gray-600 mb-4">Идеально, чтобы освежить квартиру: замена обоев, ламината и
-                                покраска потолков.</p>
-                            <p class="text-sm font-semibold text-gray-800 mb-2">Что входит:</p>
-                            <ul class="text-gray-600 space-y-2 mb-8 text-sm">
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Демонтаж старых покрытий</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Грунтовка и частичная шпаклевка стен
-                                </li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Поклейка обоев или покраска</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Укладка ламината/линолеума</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Монтаж плинтусов и розеток</li>
-                            </ul>
-                        </div>
-                        <button data-button-dialog
-                            class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition">
-                            Выбрать пакет
-                        </button>
-                    </div>
-
-                    <div
-                        class="flex flex-col justify-between items-center bg-blue-600 text-white rounded-xl p-8 hover:shadow-2xl transition-shadow duration-300 lift-hover">
-                        <div class="block">
-                            <div
-                                class="bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
-                                ПОПУЛЯРНЫЙ
+            <!-- Квиз встроен в секцию цен -->
+            <div class="price-quiz" id="quiz">
+                <div class="price-quiz-head">
+                    <p class="eyebrow">Смета за 24 часа</p>
+                    <h3>Не знаете, какой пакет выбрать?</h3>
+                    <p>Ответьте на 5 вопросов — пришлём 3 варианта сметы под ваш бюджет: Эконом, Оптимальный и Комфорт.</p>
+                </div>
+                <div class="price-quiz-form">
+                    <form action="/send/email" method="POST" data-form-id="quiz_glavnaya" class="max-w-5xl mx-auto">
+                        <div class="quiz-shell">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <select name="тип жилья"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
+                                    aria-label="Тип жилья">
+                                    <option value="" selected disabled>Тип жилья?</option>
+                                    <option value="Новостройка">Новостройка</option>
+                                    <option value="Вторичка">Вторичка</option>
+                                    <option value="Коттедж">Коттедж / Загородный дом</option>
+                                </select>
+                                <select name="площадь объекта"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
+                                    aria-label="Площадь объекта">
+                                    <option value="" selected disabled>Площадь?</option>
+                                    <?php for ($i = 20; $i <= 150; $i++) { ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?> м²</option>
+                                    <?php } ?>
+                                </select>
+                                <select name="Стиль ремонта"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
+                                    aria-label="Стиль ремонта">
+                                    <option value="" selected disabled>Стиль?</option>
+                                    <option value="Современный">Современный</option>
+                                    <option value="Классический">Классический</option>
+                                    <option value="Лофт">Лофт</option>
+                                    <option value="Скандинавский">Скандинавский</option>
+                                    <option value="Не определился">Ещё не определился</option>
+                                </select>
+                                <select name="Дата планировки"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
+                                    aria-label="Когда планируете начинать работы">
+                                    <option value="" selected disabled>Когда начать?</option>
+                                    <option value="Сейчас">В ближайшее время</option>
+                                    <option value="Через 1–2 мес">Через 1–2 месяца</option>
+                                    <option value="На будущее">Просто прицениваюсь</option>
+                                </select>
+                                <select name="Куда прислать расчет?"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition"
+                                    aria-label="Куда прислать расчет">
+                                    <option value="" selected disabled>Куда прислать?</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="Telegram">Telegram</option>
+                                    <option value="MAX">MAX</option>
+                                </select>
+                                <div class="relative">
+                                    <input type="tel" pattern="\+?[0-9\s\-\(\)]+" maxlength="15" data-type-phone
+                                        name="телефн" placeholder="(___) ___-__-__" aria-label="Телефон"
+                                        class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm transition" required>
+                                </div>
                             </div>
-                            <h3 class="text-2xl font-bold mb-4">Стандарт (Капитальный)</h3>
-                            <div class="text-3xl font-bold text-orange-300 mb-2">от 13 000 ₽/м²</div>
-                            <div class="text-sm text-blue-100 mb-4">Срок: от 45 дней · Гарантия: 3 года</div>
-                            <p class="mb-4">Полное обновление инженерных систем и идеально ровные поверхности.</p>
-                            <p class="text-sm font-semibold mb-2">Что входит:</p>
-                            <ul class="space-y-2 mb-8 text-sm">
-                                <li><i class="fas fa-check text-orange-300 mr-2"></i>Весь перечень из «Эконом»</li>
-                                <li><i class="fas fa-check text-orange-300 mr-2"></i>Выравнивание стен по маякам</li>
-                                <li><i class="fas fa-check text-orange-300 mr-2"></i>Разводка новой электрики и
-                                    сантехники
-                                </li>
-                                <li><i class="fas fa-check text-orange-300 mr-2"></i>Устройство стяжки пола</li>
-                                <li><i class="fas fa-check text-orange-300 mr-2"></i>Укладка плитки в санузлах</li>
-                            </ul>
+                            <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <label class="flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
+                                    <input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0">
+                                    <span>Согласен на обработку персональных данных</span>
+                                </label>
+                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
+                                <button type="submit"
+                                    class="cta-button bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl text-base font-bold shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all whitespace-nowrap">
+                                    Получить расчёт бесплатно
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-400 text-center mt-3">Ответим за 5 минут</p>
                         </div>
-                        <button data-button-dialog
-                            class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition font-semibold">
-                            Выбрать пакет
-                        </button>
-                    </div>
-
-                    <div
-                        class="flex flex-col justify-between items-center bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-600 transition lift-hover">
-                        <div class="block">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Премиум (Дизайнерский)</h3>
-                            <div class="text-3xl font-bold text-blue-600 mb-2">от 18 000 ₽/м²</div>
-                            <div class="text-sm text-gray-500 mb-4">Срок: от 60 дней · Гарантия: 3 года</div>
-                            <p class="text-gray-600 mb-4">Приёмка каждого этапа по чек-листу и работа со сложными дизайнерскими
-                                решениями.</p>
-                            <p class="text-sm font-semibold text-gray-800 mb-2">Что входит:</p>
-                            <ul class="text-gray-600 space-y-2 mb-8 text-sm">
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Весь перечень из «Стандарт»</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Монтаж многоуровневых потолков</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Декоративная штукатурка / Лепнина
-                                </li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Установка скрытых дверей и трекового
-                                    освещения</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Теплые полы и инсталляции</li>
-                            </ul>
-                        </div>
-                        <button data-button-dialog
-                            class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition">
-                            Выбрать пакет
-                        </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
 
         <!-- 10 -->
-        <section id="reviews" class="py-16 md:py-24 bg-white reveal">
-            <span class="section-number">09</span>
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-14">
-                    <span class="label-tag">Отзывы</span>
-                    <h2 class="section-heading mb-4">
+        <section id="reviews" class="reviews-section section-shell reveal">
+            <span class="section-number">08</span>
+            <div class="section-topline">
+                <p class="eyebrow">08 / Отзывы</p>
+                <span class="eyebrow">35 отзывов со ссылками на источники</span>
+            </div>
+            <div class="head-row">
+                    <h2>
                         Отзывы тех, кто уже переехал в новую квартиру
                     </h2>
+                    <p>
+                        Реальные истории: сроки, бюджеты и результат, который принимают. 35 отзывов со ссылками на источники
+                    </p>
                 </div>
 
-                <!-- Ручные отзывы -->
-                <div class="max-w-6xl mx-auto">
-                    <p class="text-sm text-gray-500 mb-6">35 отзывов со ссылками на источники</p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <!-- Отзыв 1 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 overflow-hidden flex-shrink-0">
-                                    <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/01.jpeg"
-                                        alt="Александр В." title="Александр В." width="48" height="48" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-800 text-sm">Александр В.</p>
-                                    <p class="text-xs text-gray-500">15 апр. 2026 г.</p>
-                                </div>
-                                <div class="ml-auto flex gap-0.5">
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                </div>
+            <!-- Ручные отзывы -->
+                <div class="reviews-grid">
+                        <article class="review-card">
+                            <div class="review-card-top">
+                                <span class="review-stars" aria-label="Оценка 5 из 5">
+<i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i>
+                                </span>
+                                <span class="review-index">01</span>
                             </div>
-                            <p class="text-sm text-gray-500 mb-1">ЖК «Сердце Столицы»</p>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                                «Главный страх был, что цена в процессе вырастет в два раза. Но ребята из Проект
+                            <p class="review-text">«Главный страх был, что цена в процессе вырастет в два раза. Но ребята из Проект
                                 квартира молодцы — как в смете прописали сумму, так она и осталась до конца. Делали
                                 ремонт в новостройке (64 м²). По срокам уложились день в день. Особенно порадовали
-                                ежедневные фото в MAX — не нужно было через всю Москву ездить проверять».
-                            </p>
-                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
-                        </div>
-
-                        <!-- Отзыв 2 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-pink-100 overflow-hidden flex-shrink-0">
-                                    <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/02.jpeg" alt="Мария" title="Мария"
-                                        width="48" height="48" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-800 text-sm">Анатолий</p>
-                                    <p class="text-xs text-gray-500">12 апр. 2026 г.</p>
-                                </div>
-                                <div class="ml-auto flex gap-0.5">
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                </div>
+                                ежедневные фото в MAX — не нужно было через всю Москву ездить проверять».</p>
+                            <div class="review-author">
+                                <strong>Александр В.</strong>
+                                <span>ЖК «Сердце Столицы»</span>
+                                <time datetime="2026-04-15">15 апр. 2026 г.</time>
                             </div>
-                            <p class="text-sm text-gray-500 mb-1">Вторичка на Профсоюзной</p>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                                «Нужно было капитально обновить старую сталинку. Переживала за трубы и проводку. Бригада
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-card-top">
+                                <span class="review-stars" aria-label="Оценка 5 из 5">
+<i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i>
+                                </span>
+                                <span class="review-index">02</span>
+                            </div>
+                            <p class="review-text">«Нужно было капитально обновить старую сталинку. Переживала за трубы и проводку. Бригада
                                 сработала очень чисто, сами договорились с УК об отключении стояков. Весь мусор вывозили
                                 сразу, соседи ни разу не пожаловались. Качество отделки — на высоте, стены идеально
-                                ровные под покраску».
-                            </p>
-                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
-                        </div>
-
-                        <!-- Отзыв 3 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                                    <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/03.jpeg" alt="Дмитрий" title="Дмитрий"
-                                        width="48" height="48" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-800 text-sm">Дмитрий</p>
-                                    <p class="text-xs text-gray-500">10 апр. 2026 г.</p>
-                                </div>
-                                <div class="ml-auto flex gap-0.5">
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star-half-alt text-yellow-400 text-xs"></i>
-                                </div>
+                                ровные под покраску».</p>
+                            <div class="review-author">
+                                <strong>Анатолий</strong>
+                                <span>Вторичка на Профсоюзной</span>
+                                <time datetime="2026-04-12">12 апр. 2026 г.</time>
                             </div>
-                            <p class="text-sm text-gray-500 mb-1">Студия 35 м²</p>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                                «Заказывал черновой ремонт в студии. Понравилось, что не навязывали лишнего. Инженер на
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-card-top">
+                                <span class="review-stars" aria-label="Оценка 4,5 из 5">
+<i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star-half-alt text-yellow-400 text-xs is-on"></i>
+                                </span>
+                                <span class="review-index">03</span>
+                            </div>
+                            <p class="review-text">«Заказывал черновой ремонт в студии. Понравилось, что не навязывали лишнего. Инженер на
                                 замере сразу подсказал, где можно сэкономить на материалах, а где лучше взять подороже.
-                                Сэкономил около 40 тысяч на закупках через их скидки в Петровиче. Рекомендую».
-                            </p>
-                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
-                        </div>
-
-                        <!-- Отзыв 4 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-green-100 overflow-hidden flex-shrink-0">
-                                    <img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/04.jpeg"
-                                        alt="Елена и Игорь" title="Елена и Игорь" width="48" height="48" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-800 text-sm">Елена</p>
-                                    <p class="text-xs text-gray-500">8 апр. 2026 г.</p>
-                                </div>
-                                <div class="ml-auto flex gap-0.5">
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                </div>
+                                Сэкономил около 40 тысяч на закупках через их скидки в Петровиче. Рекомендую».</p>
+                            <div class="review-author">
+                                <strong>Дмитрий</strong>
+                                <span>Студия 35 м²</span>
+                                <time datetime="2026-04-10">10 апр. 2026 г.</time>
                             </div>
-                            <p class="text-sm text-gray-500 mb-1">Дизайнерский ремонт 78 м²</p>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                                «Делали дизайнерский ремонт по нашему проекту. Было много сложных моментов с трековым
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-card-top">
+                                <span class="review-stars" aria-label="Оценка 5 из 5">
+<i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i>
+                                </span>
+                                <span class="review-index">04</span>
+                            </div>
+                            <p class="review-text">«Делали дизайнерский ремонт по нашему проекту. Было много сложных моментов с трековым
                                 освещением и скрытыми дверями. Мастера справились на 5+. Гарантию дали на 3 года, но,
-                                судя по качеству, она нам не пригодится. Спасибо!»
-                            </p>
-                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
-                        </div>
-
-                        <!-- Отзыв 5 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-orange-100 overflow-hidden flex-shrink-0">
-<img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/05.jpeg" alt="Сергей К." title="Сергей К."
-                                        width="48" height="48" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-800 text-sm">Оля</p>
-                                    <p class="text-xs text-gray-500">5 апр. 2026 г.</p>
-                                </div>
-                                <div class="ml-auto flex gap-0.5">
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star-half-alt text-yellow-400 text-xs"></i>
-                                </div>
+                                судя по качеству, она нам не пригодится. Спасибо!»</p>
+                            <div class="review-author">
+                                <strong>Елена</strong>
+                                <span>Дизайнерский ремонт 78 м²</span>
+                                <time datetime="2026-04-08">8 апр. 2026 г.</time>
                             </div>
-                            <p class="text-sm text-gray-500 mb-1">Капитальный ремонт 52 м²</p>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                                «Нормальная контора. Делают быстро, лишних денег не просят. Смета понятная, каждый
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-card-top">
+                                <span class="review-stars" aria-label="Оценка 4,5 из 5">
+<i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star-half-alt text-yellow-400 text-xs is-on"></i>
+                                </span>
+                                <span class="review-index">05</span>
+                            </div>
+                            <p class="review-text">«Нормальная контора. Делают быстро, лишних денег не просят. Смета понятная, каждый
                                 гвоздь прописан. Оплата была поэтапная — сделал этап, я проверил, заплатил. Для меня это
-                                было самым важным критерием доверия».
-                            </p>
-                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
-                        </div>
-
-                        <!-- Отзыв 6 -->
-                        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 lift-hover">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-purple-100 overflow-hidden flex-shrink-0">
-<img src="<?= $site['baseUrl'] ?>/public/assets/images/reviews/06.jpeg" alt="Ольга Николаевна" title="Ольга Николаевна"
-                                        width="48" height="48" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-800 text-sm">Ольга Николаевна</p>
-                                    <p class="text-xs text-gray-500">2 апр. 2026 г.</p>
-                                </div>
-                                <div class="ml-auto flex gap-0.5">
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
-                                </div>
+                                было самым важным критерием доверия».</p>
+                            <div class="review-author">
+                                <strong>Оля</strong>
+                                <span>Капитальный ремонт 52 м²</span>
+                                <time datetime="2026-04-05">5 апр. 2026 г.</time>
                             </div>
-                            <p class="text-sm text-gray-500 mb-1">Косметический ремонт 45 м²</p>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                                «Освежили мне квартиру за 2 недели (косметика). Обои поклеены стык в стык, ламинат не
-                                скрипит. Очень вежливые ребята, после себя оставили порядок. Приятно иметь дело с
-                                профессионалами».
-                            </p>
                             <p class="text-xs text-gray-500">Проверенный отзыв</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center items-center mt-4">
-                        <a href="<?= $site['baseUrl'] ?>/reviews"
-                            class="mx-auto px-10 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
-                            Читать все отзывы
-                        </a>
-                    </div>
-                </div>
+                        </article>
 
+                        <article class="review-card">
+                            <div class="review-card-top">
+                                <span class="review-stars" aria-label="Оценка 5 из 5">
+<i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i><i class="fas fa-star text-yellow-400 text-xs is-on"></i>
+                                </span>
+                                <span class="review-index">06</span>
+                            </div>
+                            <p class="review-text">«Освежили мне квартиру за 2 недели (косметика). Обои поклеены стык в стык, ламинат не
+                                скрипит. Очень вежливые ребята, после себя оставили порядок. Приятно иметь дело с
+                                профессионалами».</p>
+                            <div class="review-author">
+                                <strong>Ольга Николаевна</strong>
+                                <span>Косметический ремонт 45 м²</span>
+                                <time datetime="2026-04-02">2 апр. 2026 г.</time>
+                            </div>
+                            <p class="text-xs text-gray-500">Проверенный отзыв</p>
+                        </article>
+            </div>
+
+            <div class="reviews-foot">
+                <a href="<?= $site['baseUrl'] ?>/reviews" class="text-link">Читать все отзывы
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </a>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-16 md:py-24 bg-gray-50 reveal" itemscope itemtype="https://schema.org/FAQPage">
-            <span class="section-number">10</span>
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-14">
-                    <span class="label-tag">FAQ</span>
-                    <h2 class="section-heading mb-4">
+        <section id="faq" class="faq-section section-shell reveal" itemscope itemtype="https://schema.org/FAQPage">
+            <span class="section-number">09</span>
+            <div class="section-topline">
+                <p class="eyebrow">09 / Вопросы</p>
+                <span class="eyebrow">Сроки, цены и гарантии</span>
+            </div>
+            <div class="head-row">
+                    <h2>
                         Отвечаем на важные вопросы <strong class="text-orange-600">честно</strong> и <strong
                             class="text-orange-600">без воды</strong>
                     </h2>
-                    <p class="section-subtitle mx-auto">
+                    <p>
                         Разбираем технические и финансовые нюансы вашего будущего ремонта
                     </p>
                 </div>
 
-                <div class="max-w-3xl mx-auto space-y-4">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Какой срок выполнения ремонта?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
+                <div class="faq-grid">
+                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                        <summary>
+                            <span itemprop="name">Какой срок выполнения ремонта?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <div itemprop="text">
                                 <p class="mb-2">Всё зависит от площади и сложности:</p>
                                 <ul class="list-disc ml-5 space-y-1 mb-3">
@@ -1378,43 +931,34 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <p>Мы фиксируем дату сдачи в договоре. Если мы опоздаем хотя бы на день — мы выплачиваем вам неустойку за каждые сутки просрочки.</p>
                             </div>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Какая гарантия на работы?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
+                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                        <summary>
+                            <span itemprop="name">Какая гарантия на работы?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <span itemprop="text">Базовая гарантия — 3 года на все виды отделочных и инженерных работ. На премиум-пакет — 5 лет. Если в течение гарантийного срока что-то пойдёт не так — приедем и бесплатно устраним всё в течение 48 часов. Ответственность прописана в договоре.</span>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы с материалами заказчика?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, конечно. Мы можем работать с вашими материалами, но рекомендуем закупать их через нас. Благодаря собственному складу мы сможем поставить материалы дешевле. Всю логистику, проверку качества и подъем на этаж мы берем на себя.</span>
+                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                        <summary>
+                            <span itemprop="name">Работаете ли вы с материалами заказчика?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <span itemprop="text">Да, конечно. Мы можем работать с вашими материалами, но рекомендуем закупать их через нас. Благодаря собственному складу мы сможем поставить материалы дешевле. Всю логистику, проверку качества и подъем на этаж мы берём на себя.</span>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как происходит оплата?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
+                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                        <summary>
+                            <span itemprop="name">Как происходит оплата?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <div itemprop="text">
                                 <p class="mb-2">Оплата происходит строго поэтапно:</p>
                                 <ol class="list-decimal ml-5 space-y-1 mb-2">
@@ -1425,65 +969,76 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <p>Вы всегда видите, за что платите, и контролируете бюджет.</p>
                             </div>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Кто именно будет работать у меня в квартире?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
+                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                        <summary>
+                            <span itemprop="name">Кто именно будет работать у меня в квартире?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <span itemprop="text">У нас работают только узкопрофильные специалисты со стажем от 5 лет. Электрику делает электрик, плитку кладет плиточник — никаких «универсалов». Все специалисты проходят проверку перед допуском на объект, за работу каждого отвечает наша компания по договору.</span>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="border border-gray-200 rounded-xl overflow-hidden lift-hover" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Не будет ли проблем с соседями и Управляющей Компанией?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
+                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                        <summary>
+                            <span itemprop="name">Не будет ли проблем с соседями и Управляющей Компанией?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <span itemprop="text">Берём коммуникации с УК на себя. В Москве соблюдаем правила шумных работ (с перерывом 13:00–15:00, без работ в воскресенье и праздники — точный график подскажет инженер под ваш адрес; в области действуют свои правила). Вывозим мусор поэтапно, после сдачи делаем финальную уборку.</span>
                         </div>
+                    </details>
+            </div>
+        </section>
+
+        <!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
+        <section class="brand-section section-shell" aria-label="О бренде Проект Квартира — официальный сайт pkvartira.ru" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="alternateName" content="Проект Квартира">
+            <meta itemprop="alternateName" content="pkvartira.ru">
+            <meta itemprop="alternateName" content="pkvartira">
+            <meta itemprop="alternateName" content="ООО Проект Квартира">
+            <meta itemprop="url" content="<?= htmlspecialchars($site['baseUrl']) ?>">
+            <link itemprop="logo" href="<?= htmlspecialchars($site['baseUrl']) ?>/public/assets/images/logo/favicon/favicon.svg">
+
+            <div class="section-topline">
+                <p class="eyebrow">О бренде</p>
+                <span class="eyebrow">pkvartira.ru · Москва</span>
+            </div>
+
+            <div class="brand-grid">
+                <h2 itemprop="name">Проект Квартира —<br><span>официальный сайт.</span></h2>
+
+                <div class="brand-copy">
+                    <p><strong itemprop="brand">Проект Квартира</strong> — официальное название компании,
+                        <strong>Проект Квартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong>
+                        (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>,
+                        <strong>Proekt Kvartira</strong>).</p>
+                    <p>Нас находят по запросам: Проект Квартира официальный сайт, pkvartira.ru официальный сайт,
+                        Проект Квартира Москва, Проект Квартира отзывы, pkvartira отзывы, Проект Квартира ремонт,
+                        ремонт квартир, ООО Проект Квартира.</p>
+                    <p>Мы — ООО «Проект Квартира»: делаем ремонт квартир и домов под ключ в Москве и Подмосковье,
+                        гарантия 3 года, фиксированная смета. Забронируйте бесплатный замер — убедитесь, что выбрали
+                        профессионалов <strong>Проект Квартира</strong>.</p>
+
+                    <div class="brand-meta">
+                        Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/">pkvartira.ru</a> • ООО «Проект Квартира»
+                        <br>
+                        <span itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                            <span itemprop="name">Проект Квартира</span> |
+                            <span itemprop="alternateName">pkvartira.ru</span> |
+                            <span itemprop="alternateName">ООО Проект Квартира</span>
+                        </span>
+                        <br>
+                        ИНН 9719013990, ОГРН 1217700135058, адрес:
+                        <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">Москва, Варшавское ш., д. 28А</span></span>
+                        • Тел. <a href="tel:+74954731737" itemprop="telephone">+7 495 473-17-37</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
-        <section class="py-10 bg-white border-t border-gray-100" aria-label="О бренде Проект Квартира — официальный сайт pkvartira.ru" itemscope itemtype="https://schema.org/Organization">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center" itemprop="name">Проект Квартира — Проект Квартира (pkvartira.ru) — официальный сайт</h2>
-                <meta itemprop="alternateName" content="Проект Квартира">
-                <meta itemprop="alternateName" content="pkvartira.ru">
-                <meta itemprop="alternateName" content="pkvartira">
-                <meta itemprop="alternateName" content="ООО Проект Квартира">
-                <meta itemprop="url" content="<?= htmlspecialchars($site['baseUrl']) ?>">
-                <link itemprop="logo" href="<?= htmlspecialchars($site['baseUrl']) ?>/public/assets/images/logo/favicon/favicon.svg">
-                <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
-                    <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>Проект Квартира</strong> — сокращённое наименование и домен <strong>pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
-                    Нас находят по запросам: <em>Проект Квартира официальный сайт, Проект Квартира официальный сайт, pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, Проект Квартира отзывы, pkvartira отзывы, Проект Квартира ремонт, Проект Квартира ремонт квартир, pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
-                    Мы — ООО «Проект Квартира»: делаем ремонт квартир и домов под ключ в Москве и Подмосковье, гарантия 3 года, фиксированная смета.
-                    Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
-                </p>
-                <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">pkvartira.ru</a> • ООО «Проект Квартира»</p>
-                <p class="mt-3 text-xs text-gray-400 text-center">
-                    <span itemprop="brand" itemscope itemtype="https://schema.org/Brand">
-                        <span itemprop="name">Проект Квартира</span> |
-                        <span itemprop="alternateName">Проект Квартира</span> |
-                        <span itemprop="alternateName">pkvartira.ru</span> |
-                        <span itemprop="alternateName">ООО Проект Квартира</span>
-                    </span>
-                    — ИНН 9719013990, ОГРН 1217700135058, адрес: <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">Москва, Варшавское ш., д. 28А</span></span> • Тел. <a href="tel:+74954731737" class="text-gray-500 underline hover:text-orange-600" itemprop="telephone">+7 495 473-17-37</a>
-                </p>
-            </div>
-        </section>
         <!-- Brand FAQ для сниппетов по брендовым запросам -->
         <script type="application/ld+json">
         {
@@ -1515,25 +1070,25 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         </script>
 
         <!-- CTA Section -->
-        <section class="py-20 text-white reveal" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);">
+        <section class="fss-cta-band reveal" aria-labelledby="cta-title">
             <span class="section-number section-number-dark">11</span>
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Начните ремонт, который не захочется переделывать
+            <div class="container mx-auto px-4">
+                <span class="label-tag">Свободные даты на замер</span>
+                <h2 id="cta-title">
+                    Начните ремонт, который<br>не захочется переделывать
                 </h2>
-                <p class="text-xl mb-8" style="color: #cbd5e1;">
-                    Забронируйте бесплатный выезд инженера сегодня. Мы проведем замеры лазером, найдем все<br>«косяки»
-                    застройщика и составим смету с фиксированной стоимостью: допработы — только после вашего согласования.
+                <p>
+                    Забронируйте бесплатный выезд инженера сегодня. Сделаем замеры лазером, найдём все
+                    «косяки» застройщика и составим смету с фиксированной стоимостью: допработы — только после
+                    вашего согласования.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="tel:<?php echo $site['phone']; ?>"
-                        class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition">
-                        <i class="fas fa-phone mr-2"></i>
+                <div class="fss-cta-actions">
+                    <a href="tel:<?php echo $site['phone']; ?>" class="fss-btn-light">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
                         Вызвать инженера на замер
                     </a>
-                    <button data-button-dialog
-                        class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition">
-                        <i class="fas fa-comments mr-2"></i>
+                    <button type="button" data-button-dialog class="fss-btn-ghost">
+                        <i class="fas fa-comments" aria-hidden="true"></i>
                         Получить консультацию
                     </button>
                 </div>
@@ -1565,21 +1120,8 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         gtag('config', 'G-E9ZV484NQJ');
     </script>
 
-    <!-- Yandex.Metrika counter -->
-    <script>
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=108587554', 'ym');
-
-        ym(108587554, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
-    </script>
-<noscript>
-        <div><img src="https://mc.yandex.ru/watch/108587554" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
+    <!-- Yandex.Metrica counter — перенесён в components/head-includes.php (M-03),
+         чтобы счётчик работал на всех страницах сайта, а не только на главной. -->
 
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="IQF63+np/5nlOq39Ble4hg" async></script>
 

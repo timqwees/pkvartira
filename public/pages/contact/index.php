@@ -230,7 +230,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             конфиденциальности</a>
                                     </label>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-[#876b55] shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-[#876b55] shrink-0"><span>Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <button type="submit"
                                     class="w-full bg-[#876b55] text-white py-3 rounded-lg font-semibold hover:bg-[#6d5744] transition">

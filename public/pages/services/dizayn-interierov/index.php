@@ -3,6 +3,7 @@ use Setting\Route\Functions\TheFunction;
 require_once __DIR__ . '/../../../components/ai-background.php';
 $site = TheFunction::site();
 $title = 'Дизайн интерьеров — от 1 500 ₽/м²';
+$navMode = 'transparent'; // шапка поверх cinema-hero
 $bg_url = getAiBackground(4); // AI Background 4 для дизайна интерьеров
 $prices = [
     [
@@ -258,7 +259,7 @@ $prices = [
     <?php include_once './public/components/header.php'; ?>
 
 <!-- Main Content -->
-    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
+    <main class="flex flex-col">
 
         <!-- 1. hero section -->
         <?php

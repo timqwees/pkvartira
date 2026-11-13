@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт магазина под ключ. Витрины, зонирование, освещение, вентиляция. Цены от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="Ремонт магазина под ключ. Витрины, зонирование, освещение, вентиляция. Цены от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="noindex, follow">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/magazin'); ?>">
 
     <!-- Open Graph -->
@@ -82,7 +82,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                     <div class="mt-4 space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Стандарт</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Премиум</span><span class="font-bold text-[#111827]">от 15 000 ₽/м²</span></div>
-                    </div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%.</p>
+                </div>
                 </div>
             </div>
         </div>

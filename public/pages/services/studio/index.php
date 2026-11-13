@@ -1,8 +1,14 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартиры-студии — от 200 000 ₽';
-$bg_url = '/public/assets/images/portfolio-photos/studio/2_31sqm/01_gostinaya-kukhnya.jpg';
+
+$seoTitle       = 'Ремонт квартиры-студии под ключ в Москве — цена за м² | ' . ($site['name'] ?? 'Проект Квартира');
+$seoDescription = 'Ремонт квартиры-студии под ключ в Москве от 200 000 ₽. Фиксированная смета в договоре, гарантия 3 года. Дизайн-проект в подарок. Бесплатный замер и расчёт.';
+$canonicalUrl   = $site['baseUrl'] . '/services/studio';
+$ogTitle        = 'Ремонт квартиры-студии — от 200 000 ₽';
+$ogDescription  = 'Ремонт квартир-студий под ключ в Москве от 200 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.';
+$ogImage        = $site['baseUrl'] . '/public/assets/images/portfolio-photos/studio/2_31sqm/01_gostinaya-kukhnya.webp';
+
 $prices = [
     [
         'заголовок' => 'Косметический',
@@ -33,6 +39,76 @@ $prices = [
         'стиль' => 'classic'
     ]
 ];
+
+$svc = [
+    'heroH1'       => 'Ремонт квартиры-студии в Москве',
+    'heroSubtitle' => 'Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.',
+    'heroFormId'   => 'studio_hero',
+    'bg_url'       => '/public/assets/images/portfolio-photos/studio/2_31sqm/01_gostinaya-kukhnya.webp',
+
+    'short_answer' => 'Ремонт квартиры-студии под ключ в Москве стоит от 200 000 ₽ (25 м²). Включает демонтаж, электрику, сантехнику, чистовую отделку, двери, освещение, мебель и уборку. Сроки: косметический — 10–14 дней, капитальный — 21–35 дней. Фиксированная смета в договоре, гарантия 3 года. Бесплатный замер и расчёт за 24 часа.',
+
+    'prices'        => $prices,
+    'price_title'   => 'Сколько стоит ремонт квартиры-студии',
+        'price_subtitle'=> 'Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%. Стоимость фиксируем в договоре. Точную смету рассчитаем после бесплатного замера.',
+    'service_name'  => 'квартиры-студии',
+
+    'includes' => [
+        ['icon' => '<i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>', 'title' => 'Демонтаж',       'desc' => 'Подготовительные работы'],
+        ['icon' => '<i class="fa-solid fa-bolt" aria-hidden="true"></i>',               'title' => 'Электрика',      'desc' => 'Проводка и щит'],
+        ['icon' => '<i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>',       'title' => 'Сантехника',     'desc' => 'Разводка и установка'],
+        ['icon' => '<i class="fa-solid fa-paint-roller" aria-hidden="true"></i>',      'title' => 'Отделка',        'desc' => 'Стены, пол, потолок'],
+        ['icon' => '<i class="fa-solid fa-door-open" aria-hidden="true"></i>',         'title' => 'Двери',          'desc' => 'Монтаж и доборы'],
+        ['icon' => '<i class="fa-solid fa-lightbulb" aria-hidden="true"></i>',         'title' => 'Освещение',      'desc' => 'Светильники и выключатели'],
+        ['icon' => '<i class="fa-solid fa-couch" aria-hidden="true"></i>',             'title' => 'Мебель',         'desc' => 'Сборка и установка'],
+        ['icon' => '<i class="fa-solid fa-broom" aria-hidden="true"></i>',             'title' => 'Уборка',         'desc' => 'После работ'],
+    ],
+
+    'timeline' => [
+        ['label' => 'Косметический', 'value' => '10–14 дней', 'desc' => 'Обновление отделки без переделок инженерии'],
+        ['label' => 'Капитальный',   'value' => '21–35 дней', 'desc' => 'Полная замена электрики, сантехники, выравнивание'],
+        ['label' => 'Дизайнерский',  'value' => '35–45 дней', 'desc' => 'Сложные решения, авторский надзор, премиум-материалы'],
+    ],
+
+    'mistakes' => [
+        ['title' => 'Не зонируют кухню и спальную зону', 'desc' => 'Запахи готовки и шум в зоне сна. Правильно: барная стойка, разные напольные покрытия, подсветка, низкая перегородка.'],
+        ['title' => 'Игнорируют вентиляцию на кухне', 'desc' => 'Влажность и запахи заполняют всю студию. Мощный вытяжной + приточная вентиляция — обязательны.'],
+        ['title' => 'Не закладывают хранение (15–20% площади)', 'desc' => 'Вещи валяются открыто. Встроенные пеналы, кровать с ящиками, ниши в стенах — в проекте заранее.'],
+        ['title' => 'Покупают материалы без учёта малой площади', 'desc' => 'Хвосты материалов съедают 15–20% бюджета. Мы закупаем точно по смете со скидкой 10–15%.'],
+        ['title' => 'Начинают без дизайн-проекта', 'desc' => 'В студии каждый см важен. Ошибка в планировке — переделка всего. Проект окупается за 1 день.'],
+        ['title' => 'Подписывают договор без поэтапных сроков', 'desc' => 'Сроки «плывут». У нас каждый этап с дедлайном в договоре и штрафными санкциями.'],
+    ],
+
+    'portfolio' => (new \Functions())->getPortfolio('public/assets/images/portfolio-photos/studio'),
+
+        'faq' => [
+        ['q' => 'Как организовать зонирование в студии без перегородок?', 'a' => 'В студии зонирование делаем через: разные напольные покрытия (плитка в зоне кухни, ламинат в зоне сна), цветовые акценты на стенах, расстановку мебели (диван как перегородка), подвесные конструкции или разные уровни потолка. Перегородки не обязательны — визуальное разделение работает лучше.'],
+        ['q' => 'Где хранить вещи в студии, если нет кладовой?', 'a' => 'В студии хранилища выстраиваем вертикально и в мебели: кровать с выдвижными ящиками, пеналы до потолка, ниши в стенах под телевизор/книги, верхние ярусы кухонных гарнитуров, пьедестал под ванной. В проекте закладываем минимум 15–20% площади под хранение.'],
+        ['q' => 'Как отделить кухню от спальной зоны в студии?', 'a' => 'Разделение делаем через: барную стойку/остров, разную подсветку (рабочая над кухней, мягкая в зоне сна), разные материалы пола, низкую перегородку-стойку или шторку. Важно оставить проход не менее 90 см.'],
+        ['q' => 'Сколько стоит ремонт студии под ключ?', 'a' => 'От 200 000 ₽ за 25 м² (косметический), от 325 000 ₽ (капитальный). Точная стоимость зависит от метража, состояния стен и выбранных материалов. Точную смету даём после бесплатного замера.'],
+        ['q' => 'Сколько времени занимает ремонт студии?', 'a' => 'Косметический — 10–14 дней, капитальный — 21–35 дней. Точные сроки фиксируем в договоре после замера и согласования сметы.'],
+        ['q' => 'Что если смета вырастёт в процессе?', 'a' => 'Смета фиксируется в договоре до начала работ и не меняется. Если по ходу ремонта вы сами хотите добавить работы — считаем их отдельной позицией и согласовываем с вами до начала. Никаких доплат «по факту».'],
+    ],
+'price_rows' => [
+        ['label' => 'Косметический', 'price' => '8000'],
+        ['label' => 'Капитальный',   'price' => '13000'],
+        ['label' => 'Дизайнерский',  'price' => '18000'],
+    ],
+    'price_table_title' => 'Стоимость по метражу',
+
+    'ctaFormId'       => 'studio_cta',
+    'ctaFormTitle'    => 'Рассчитать стоимость ремонта',
+    'ctaFormSubtitle' => 'Бесплатный расчёт за 5 минут',
+    'ctaButtonText'   => 'Получить расчёт бесплатно',
+    'ctaExpandable'   => false,
+    'ctaSectionBadge' => 'Бесплатный расчёт',
+    'ctaSectionHeading' => 'Готовы рассчитать стоимость: ремонт квартиры-студии',
+    'ctaSectionText'    => 'Оставьте заявку — бесплатно приедем на замер и составим точную смету с фиксированной ценой.',
+    'ctaSectionBenefits' => ['Бесплатный выезд', 'Смета за 24 часа', 'Фиксированная цена', 'Гарантия 3 года'],
+
+    'show_process' => true,
+];
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -41,204 +117,91 @@ $prices = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description"
-        content="Ремонт квартиры-студии под ключ в Москве от 200 000 ₽. Фиксированная смета в договоре, гарантия 3 года. Дизайн-проект в подарок. Бесплатный замер и расчёт."><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <title><?= htmlspecialchars($seoTitle) ?></title>
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($seoDescription, 155)) ?>">
+    <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира') ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/studio'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
-    <meta property="og:description"
-        content="Ремонт квартир-студий под ключ в Москве от 200 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/studio'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-
-    <meta property="og:site_name"
-        content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($ogImage) ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира') ?> — Ремонт квартир под ключ">
     <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
-    <meta name="twitter:description"
-        content="Ремонт квартир-студий под ключ от 200 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($ogTitle) ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($ogDescription) ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($ogImage) ?>">
     <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)) ?>">
 
-    <!-- Дополнительные мета-теги -->
-
-
-    <!-- Структурированные данные (JSON-LD) -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "logo": {
-          "@type": "ImageObject",
-          "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          "width": 300,
-          "height": 300
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-          "contactType": "customer service",
-          "availableLanguage": ["Russian"],
-          "areaServed": "RU"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-          "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-        },
-        "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-      },
-      {
-        "@type": "WebSite",
-        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "publisher": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "WebPage",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($title . ' — ' . ($site['name'] ?? 'Проект Квартира'), JSON_UNESCAPED_UNICODE); ?>,
-        "description": "Ремонт квартир-студий под ключ в Москве. Фиксированные цены от 200 000 ₽, реальные сроки, гарантия 3 года.",
-        "isPartOf": {
-          "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "about": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "Service",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#service', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": "Ремонт квартир-студий под ключ",
-        "description": "Профессиональный ремонт квартир и домов под ключ в Москве",
-        "provider": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "serviceType": "Ремонтные услуги",
-        "areaServed": {
-          "@type": "City",
-          "name": "Москва"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Услуги по ремонту",
-          "itemListElement": [
-            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
-            {
-              "@type": "Offer",
-              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
-              "priceCurrency": "RUB",
-              "itemOffered": {
-                "@type": "Service",
-                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
-              }
-            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
-            <?php endforeach; ?>
-          ]
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "<?= $site['canonicalUrl'] ?>#service",
+      "name": "Ремонт квартир-студий под ключ",
+      "description": "Профессиональный ремонт квартир и домов под ключ в Москве",
+      "provider": { "@id": "<?= $site['baseUrl'] ?>#organization" },
+      "serviceType": "Ремонтные услуги",
+      "areaServed": { "@type": "City", "name": "Москва" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги по ремонту",
         "itemListElement": [
+          <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
           {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Услуги",
-            "item": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Ремонт квартиры-студии",
-            "item": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#faq', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Можно ли жить в квартире во время ремонта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "В большинстве случаев — да. Мы организуем работы поэтапно и соблюдаем чистоту. Уточним нюансы после замера."
+            "@type": "Offer",
+            "price": "<?= htmlspecialchars($__offer['цена_число'] ?? '') ?>",
+            "priceCurrency": "RUB",
+            "itemOffered": {
+              "@type": "Service",
+              "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE) ?>
             }
-          },
-          {
-            "@type": "Question",
-            "name": "Что если смета вырастет в процессе?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Смета фиксируется договором. Изменения возможны только по вашему согласованию при дополнительных работах."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Нужен ли дизайн-проект для капитального ремонта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Не обязательно. Но проект помогает точно рассчитать стоимость и избежать переделок. Мы можем сделать базовую планировку."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Как вы контролируете качество работ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и приемку работ по чек-листу."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Работаете ли вы по договору?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, работаем по официальному договору. В нем фиксируются сроки, стоимость и гарантия."
-            }
-          }
+          }<?= $__oi < count($prices) - 1 ? ',' : '' ?>
+          <?php endforeach; ?>
         ]
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "<?= $site['canonicalUrl'] ?>#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "<?= $site['baseUrl'] ?>/" },
+        { "@type": "ListItem", "position": 2, "name": "Услуги", "item": "<?= $site['baseUrl'] ?>/services" },
+        { "@type": "ListItem", "position": 3, "name": "Ремонт квартиры-студии", "item": "<?= $site['canonicalUrl'] ?>" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "<?= $site['canonicalUrl'] ?>#faq",
+      "mainEntity": [
+        <?php foreach ($svc['faq'] as $i => $faq): ?>
+        {
+          "@type": "Question",
+          "name": <?= json_encode($faq['q'], JSON_UNESCAPED_UNICODE) ?>,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": <?= json_encode($faq['a'], JSON_UNESCAPED_UNICODE) ?>
+          }
+        }<?= $i < count($svc['faq']) - 1 ? ',' : '' ?>
+        <?php endforeach; ?>
+      ]
+    }
+  ]
+}
+    </script>
 
     <?php include_once './public/components/head-includes.php'; ?>
 </head>
@@ -248,305 +211,39 @@ $prices = [
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
+    <main class="flex flex-col">
 
-                <!-- 1. hero section -->
-        <?php
-        $heroFormId = 'studio_hero';
-        $heroSubtitle = 'Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.';
-        include './public/components/hero-section.php';
-        ?>
+        <?php include './public/components/service-page-sections.php'; ?>
 
-<!-- 2. price section -->
-        <section id="price" class="reveal bg-white py-10 md:py-14">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
-                    Сколько стоит ремонт квартиры-студии
-                </h2>
-                <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость работ без учёта материалов, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
-                </p>
+<?php
+// J-01: кейс с фотографиями, площадью, сроками и итоговой стоимостью
+$caseData = [
+    'title'  => 'Студия, 24 м²',
+    'area'   => '24 м²',
+    'days'   => '28 дней',
+    'sum'    => '192 000 ₽',
+    'alt'    => 'Ремонт квартиры-студии 24 м² — выполненный объект',
+    'photos' => [
+        '/public/assets/images/portfolio-photos/studio/1_24sqm/1.jpg',
+        '/public/assets/images/portfolio-photos/studio/1_24sqm/3.jpg',
+        '/public/assets/images/portfolio-photos/studio/1_24sqm/4.jpg',
+        '/public/assets/images/portfolio-photos/studio/1_24sqm/2.webp',
+    ],
+    'note'   => 'Квартира-студия с новостройки: голые стены и один выход на юг. Сделали лёгкий, но полноценный ремонт — за счёт планировки, а не объёма работ.',
+    'bullets' => [
+        'Демонтаж и выравнивание стен, покраска в один тон',
+        'Замена электрики, розетки и светильники',
+        'Ламинат на тёплый пол по всей площади',
+        'Покраска потолка, установка плинтусов и двери',
+        'Финальная уборка',
+    ],
+];
 
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <?php foreach ($prices as $price): ?>
-                        <article
-                            class="bg-white <?= $price['стиль'] === 'рекомендуем' ? 'border-2 border-[#876b55] shadow-md' : 'border border-gray-200 shadow-sm' ?> rounded-2xl p-6"
-                            itemscope itemtype="https://schema.org/Service">
-                            <meta itemprop="name"
-                                content="<?= htmlspecialchars($price['заголовок']); ?> ремонт квартиры-студии">
-                            <?php if (isset($price['бейдж'])): ?>
-                                <div
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#fef8f3] text-[#6d5744] border border-orange-200">
-                                    <?= htmlspecialchars($price['бейдж']); ?>
-                                </div>
-                            <?php endif; ?>
-                            <div class="<?= isset($price['бейдж']) ? 'mt-3' : ''; ?> text-sm text-gray-600">
-                                <?= htmlspecialchars($price['заголовок']); ?>
-                            </div>
-                            <div class="mt-2 text-3xl font-bold text-gray-900" itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer">
-                                <span itemprop="price"
-                                    content="<?= htmlspecialchars($price['цена_число']); ?>"><?= htmlspecialchars($price['цена']); ?></span>
-                                <meta itemprop="priceCurrency" content="RUB">
-                                <meta itemprop="priceValidUntil" content="2026-12-31">
-                            </div>
-                            <div class="text-sm text-gray-600"><?= htmlspecialchars($price['подзаголовок']); ?></div>
-                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                                <?php foreach ($price['услуги'] as $услуга): ?>
-                                    <li class="flex gap-2"><i
-                                            class="fa-solid fa-check text-green-600 mt-0.5"></i><span><?= htmlspecialchars($услуга); ?></span>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                            <a href="tel:<?= $site['phone'] ?>"
-                                class="flex items-center justify-center mt-6 w-full <?= $price['стиль'] === 'рекомендуем' ? 'bg-[#876b55] hover:bg-[#6d5744] text-white' : 'border border-blue-700 text-blue-700 hover:bg-blue-50' ?> px-5 py-3 rounded-lg font-semibold transition"><?= htmlspecialchars($price['кнопка']); ?></a>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">посчитайте в калькуляторе</a>.</p>
-            </div>
-        </section>
-
-        <!-- 3. Что входит в стоимость ремонта -->
-        <section class="reveal bg-gray-50 py-10 md:py-14">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
-                    Что входит в пакет
-                </h2>
-
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-screwdriver-wrench"
-                                aria-hidden="true"></i></div>
-                        <div class="mt-2 font-semibold text-gray-900">Демонтаж</div>
-                        <div class="text-sm text-gray-600 mt-1">Подготовительные работы</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
-                        <div class="mt-2 font-semibold text-gray-900">Электрика</div>
-                        <div class="text-sm text-gray-600 mt-1">Проводка и щит</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i>
-                        </div>
-                        <div class="mt-2 font-semibold text-gray-900">Сантехника</div>
-                        <div class="text-sm text-gray-600 mt-1">Разводка и установка</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
-                        </div>
-                        <div class="mt-2 font-semibold text-gray-900">Отделка</div>
-                        <div class="text-sm text-gray-600 mt-1">Стены, пол, потолок</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-door-open" aria-hidden="true"></i>
-                        </div>
-                        <div class="mt-2 font-semibold text-gray-900">Двери</div>
-                        <div class="text-sm text-gray-600 mt-1">Монтаж и доборы</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
-                        </div>
-                        <div class="mt-2 font-semibold text-gray-900">Освещение</div>
-                        <div class="text-sm text-gray-600 mt-1">Светильники и выключатели</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
-                        <div class="mt-2 font-semibold text-gray-900">Мебель</div>
-                        <div class="text-sm text-gray-600 mt-1">Сборка и установка</div>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-4">
-                        <div class="text-[#6d5744] text-xl"><i class="fa-solid fa-broom" aria-hidden="true"></i></div>
-                        <div class="mt-2 font-semibold text-gray-900">Уборка</div>
-                        <div class="text-sm text-gray-600 mt-1">После работ</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Этапы работ -->
-        <section id="process" class="reveal py-16 bg-blue-50">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Ваш путь к идеальному ремонту:<br><span class="text-[#6d5744]">6 шагов</span> до новоселья
-                    </h2>
-                    <p class="text-xl text-gray-600">
-                        Мы выстроили систему так, чтобы вы не тратили время на контроль и закупки
-                    </p>
-                </div>
-
-                <div class="relative grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    <div class="hidden md:block absolute w-full h-0.5 bg-gray-300 top-8 z-0"></div>
-
-                    <div class="text-center z-10">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            01
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Ваша заявка</h3>
-                        <p class="text-sm text-gray-600">
-                            Оставьте заявку на сайте или позвоните нам. Менеджер ответит на все вопросы и забронирует за
-                            вами время для бесплатного выезда инженера-сметчика.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            02
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Профессиональный замер</h3>
-                        <p class="text-sm text-gray-600">
-                            Приезжаем со сверхточным лазерным оборудованием. Анализируем состояние стен, углов и
-                            инженерных коммуникаций. Через 24 часа вы получаете 3 варианта детальной сметы под ваш
-                            бюджет.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            03
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Договор и фиксация цены</h3>
-                        <p class="text-sm text-gray-600">
-                            Подписываем официальный договор, где четко прописаны сроки и финальная стоимость. Цена
-                            фиксируется в договоре. Дополнительные работы — только после вашего согласования: сначала показываем причину и стоимость, начинаем только после подтверждения.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            04
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Закупка материалов</h3>
-                        <p class="text-sm text-gray-600">
-                            Закупку, доставку и подъём материалов берём на себя — вам не нужно ездить по магазинам. И наша собственная
-                            гарантия.Организуем доставку, разгрузку и подъем. Вы получаете все отчеты в цифровом виде.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            05
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Производство работ</h3>
-                        <p class="text-sm text-gray-600">
-                            Профильные бригады (электрики, сантехники, плиточники) приступают к делу. Вы получаете
-                            ежедневные фото- и видеоотчеты в MAX. Контролируйте ремонт из любой точки мира.
-                        </p>
-                    </div>
-
-                    <div class="text-center z-10">
-                        <div
-                            class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                            06
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Сдача и гарантия</h3>
-                        <p class="text-sm text-gray-600">
-                            Ваша квартира в чистом виде и полностью готова для жизни. Все работы выполняются по действующим нормам и технологическим картам.
-                            Получаете гарантийный сертификат на 3 года. Мы остаемся на связи и после ремонта.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <?php
-        $priceRows = [
-            ['label' => 'Косметический', 'price' => '8000'],
-            ['label' => 'Капитальный', 'price' => '13000'],
-            ['label' => 'Дизайнерский', 'price' => '18000'],
-        ];
-        $priceTableTitle = 'Стоимость по метражу';
-        include './public/components/price-table.php';
-        ?>
-
-        <!-- 10. FAQ по этой услуге -->
-        <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">
-                    Отвечаем на главные вопросы
-                </h2>
-
-                <div class="max-w-3xl mx-auto space-y-4">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как организовать зонирование в студии без перегородок?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">В студии зонирование делаем через: разные напольные покрытия (плитка в зоне кухни, ламинат в зоне сна), цветовые акценты на стенах, расстановку мебели (диван как перегородка), подвесные конструкции или разные уровни потолка. Перегородки не обязательны — визуальное разделение работает лучше.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Где хранить вещи в студии, если нет кладовой?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">В студии хранилища выстраиваем вертикально и в мебели: кровать с выдвижными ящиками, пеналы до потолка, ниши в стенах под телевизор/книги, верхние ярусы кухонных гарнитуров, пьедестал под ванной. В проекте закладываем минимум 15–20% площади под хранение.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как отделить кухню от спальной зоны в студии?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Разделение делаем через: барную стойку/остров, разную подсветку (рабочая над кухней, мягкая в зоне сна), разные материалы пола, низкую перегородку-стойку или шторку. Важно оставить проход не менее 90 см.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит ремонт студии под ключ?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">От 200 000 ₽ за 25 м² (косметический), от 325 000 ₽ (капитальный). Точная стоимость зависит от метража, состояния стен и выбранных материалов. Точную смету даём после бесплатного замера.</span>
-                        </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                        <button
-                            class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает ремонт студии?</span>
-                            <i class="fas fa-chevron-down text-blue-600"></i>
-                        </button>
-                        <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
-                            itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Косметический — 10–14 дней, капитальный — 21–35 дней. Точные сроки фиксируем в договоре после замера и согласования сметы.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 11. Финальный CTA -->
-        <?php
-        $ctaFormId = 'studio_cta';
-        $ctaFormTitle = 'Рассчитать стоимость ремонта';
-        $ctaFormSubtitle = 'Бесплатный расчёт за 5 минут';
-        $ctaButtonText = 'Получить расчёт бесплатно';
-        $ctaExpandable = false;
-        include './public/components/cta-section.php';
-        ?>
-
+$caseTitle    = 'Наши объекты: студии';
+$caseSubtitle = 'Косметический пакет в однушке-студии: заменили покрытия, выровняли стены, обновили электрику.';
+$caseNote     = 'Ещё примеры работ — в <a href="/portfolio" class="text-[#6d5744] font-semibold underline">портфолио</a>.';
+include './public/components/case-study.php';
+?>
 
 
     </main>
@@ -561,7 +258,6 @@ $prices = [
     <!-- Service Page Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // FAQ Toggle functionality
             document.querySelectorAll('.faq-toggle').forEach(button => {
                 button.addEventListener('click', () => {
                     const content = button.nextElementSibling;

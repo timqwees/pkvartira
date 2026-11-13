@@ -106,7 +106,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     или для сравнения предложений подрядчиков в Москве в 2026 году.
                 </p>
                 <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                    <a href="/public/documents/smeta-remonta-obrazec.docx" download
+                    <a href="/documents/smeta-remonta-obrazec.docx" download
                         class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
                         <i class="fas fa-file-word"></i>
                         Скачать образец сметы (DOCX)

@@ -2,6 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт коммерческих помещений — под ключ';
+$navMode = 'transparent'; // шапка поверх cinema-hero
 $bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
 $prices = [
     [
@@ -248,7 +249,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <?php include_once './public/components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
+    <main class="flex flex-col">
 
                 <!-- 1. hero section -->
         <?php
@@ -264,7 +265,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     Сколько стоит ремонт коммерческих помещений
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость с черновыми материалами, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%. Стоимость фиксируем в договоре. Точную смету рассчитаем после бесплатного замера.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -574,13 +575,13 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Специализируемся на отделке коммерческой недвижимости. Учитываем специфику бизнеса, нормы СНиП, пожарную безопасность и санэпидемтребования.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-briefcase text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Офисы под ключ</h3><p class="text-gray-500 text-xs">Open space, кабинеты, переговорные, ресепшн</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-store text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Магазины и бутики</h3><p class="text-gray-500 text-xs">Торговые залы, витрины, примерочные, склад</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-utensils text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Кафе и рестораны</h3><p class="text-gray-500 text-xs">Залы, барные стойки, кухня, санузлы для посетителей</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-dumbbell text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Фитнес-центры</h3><p class="text-gray-500 text-xs">Залы, раздевалки, душевые, сауны, зона ресепшн</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-spa text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Салоны красоты</h3><p class="text-gray-500 text-xs">Парикмахерские, косметология, маникюр, зона ожидания</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tooth text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Стоматологии</h3><p class="text-gray-500 text-xs">Кабинеты, рентген, стерилизация, санузлы, зона ожидания</p></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-tablets text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Аптеки</h3><p class="text-gray-500 text-xs">Торговый зал, подсобные, хранение, зона приёма товара</p></div>
+                    <a href="/services/office" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-briefcase text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Офисы под ключ</h3><p class="text-gray-500 text-xs">Open space, кабинеты, переговорные, ресепшн</p></a>
+                    <a href="/services/magazin" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-store text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Магазины и бутики</h3><p class="text-gray-500 text-xs">Торговые залы, витрины, примерочные, склад</p></a>
+                    <a href="/services/kafe" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-utensils text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Кафе и рестораны</h3><p class="text-gray-500 text-xs">Залы, барные стойки, кухня, санузлы для посетителей</p></a>
+                    <a href="/services/fitness" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-dumbbell text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Фитнес-центры</h3><p class="text-gray-500 text-xs">Залы, раздевалки, душевые, сауны, зона ресепшн</p></a>
+                    <a href="/services/salon-krasoty" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-spa text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Салоны красоты</h3><p class="text-gray-500 text-xs">Парикмахерские, косметология, маникюр, зона ожидания</p></a>
+                    <a href="/services/stomatologiya" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-tooth text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Стоматологии</h3><p class="text-gray-500 text-xs">Кабинеты, рентген, стерилизация, санузлы, зона ожидания</p></a>
+                    <a href="/services/apteka" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md hover:border-[#876b55] transition"><i class="fas fa-tablets text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Аптеки</h3><p class="text-gray-500 text-xs">Торговый зал, подсобные, хранение, зона приёма товара</p></a>
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition"><i class="fas fa-child text-[#6d5744] text-2xl mb-2"></i><h3 class="font-heading font-bold mb-1">Детские центры</h3><p class="text-gray-500 text-xs">Игровые, учебные классы, санузлы, зона родителей</p></div>
                 </div>
             </div>

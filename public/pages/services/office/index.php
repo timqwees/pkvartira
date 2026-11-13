@@ -79,14 +79,39 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
                     <h3 class="text-lg font-bold text-[#111827]">Цены на ремонт офиса</h3>
-                    <p class="mt-2 text-sm text-[#6b7280]">Цены на ремонт офиса ниже квартирных за счёт: отсутствия мокрых зон (сантехника), типовых планировочных решений, больших площадей без сложной зонирования и более простых материалов отделки.</p>
                     <div class="mt-4 space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 5 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 10 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Дизайнерский</span><span class="font-bold text-[#111827]">от 15 000 ₽/м²</span></div>
                     </div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Итоговую стоимость считаем после замера.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#f9fafb]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Почему ремонт офиса дешевле ремонта квартиры</h2>
+            <p class="mt-3 text-center text-[#6b7280] max-w-3xl mx-auto">Три объективные причины. Никакого «удешевления» — просто меньше работ и проще решения.</p>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6">
+                    <span class="w-10 h-10 rounded-lg bg-[#f0e6da] text-[#876b55] flex items-center justify-center font-bold text-lg">1</span>
+                    <h3 class="mt-4 font-bold text-[#111827]">Нет мокрых зон</h3>
+                    <p class="mt-2 text-sm text-[#4b5563]">В квартире санузел — это трубы под плиткой, гидроизоляция, разводка по точкам. В офисе туалет один на этаж, и он не входит в зону ремонта. Работ по сантехнике и гидроизоляции в смете нет — отсюда и разница в цене.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <span class="w-10 h-10 rounded-lg bg-[#f0e6da] text-[#876b55] flex items-center justify-center font-bold text-lg">2</span>
+                    <h3 class="mt-4 font-bold text-[#111827]">Большие площади без зонирования</h3>
+                    <p class="mt-2 text-sm text-[#4b5563]">Open space — это ровная плоскость пола и одна стена между зонами. Не нужно подгонять ламинат и плитку под перепад уровней, делать пороги, ниши и разные рисунки отделки в каждой комнате.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <span class="w-10 h-10 rounded-lg bg-[#f0e6da] text-[#876b55] flex items-center justify-center font-bold text-lg">3</span>
+                    <h3 class="mt-4 font-bold text-[#111827]">Типовые решения вместо дизайна</h3>
+                    <p class="mt-2 text-sm text-[#4b5563]">Офису не нужны скрытые двери, многоуровневые потолки и декоративная штукатурка. Мы работаем типовыми решениями с понятным узлом — они дешевле в материале и быстрее в монтаже.</p>
+                </div>
+            </div>
+            <p class="mt-6 text-center text-sm text-[#4b5563]">При этом сохраняются те же стандарты: фиксированная смета в договоре, ежедневный фотоотчёт, приёмка этапов по чек-листу и гарантия 3 года на все работы.</p>
         </div>
     </section>
 

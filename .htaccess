@@ -10,6 +10,10 @@ RewriteRule ^public/llms-full\.txt$ /llms-full.txt [R=301,L]
 RewriteRule ^public/opensearch\.xml$ /opensearch.xml [R=301,L]
 RewriteRule ^public/robots\.php$ /robots.txt [R=301,L]
 
+# Документы .docx: файлы вынесены в /storage, отдаёт PHP-роут с X-Robots-Tag: noindex (N-06).
+# Абсолютный путь /index.php — чтобы попасть в корневой роутер, а не в public/index.php.
+RewriteRule ^public/documents/([a-z0-9-]+\.docx)$ /index.php?route=public/documents/$1 [QSA,L]
+
 # 0. Редирект с портом :443 на URL без порта (301)
 RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]
 RewriteRule ^(.*)$ https://%1pkvartira.ru/$1 [R=301,L]
@@ -61,6 +65,10 @@ FileETag MTime Size
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType font/woff "access plus 1 year"
 </IfModule>
+
+# Служебное хранилище (/storage) — прямой доступ закрыт.
+# Файлы оттуда отдаются только через PHP-роутер (setting/Route/routes.php).
+RewriteRule ^storage/ - [F,L]
 
 # RSS: всегда через PHP-роут (там файловый кэш rss.xml с TTL).
 # Без этого Apache отдал бы лежащий в корне статический rss.xml напрямую и навсегда протухший.

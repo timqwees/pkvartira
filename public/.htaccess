@@ -1,7 +1,16 @@
 RewriteEngine On
 RewriteBase /
 
-# Редирект robots.txt на динамический генератор
+# Канонизация служебных файлов и документов (N-06).
+# Файлы вынесены из public/ — иначе Apache отдавал их статикой без X-Robots-Tag,
+# и поисковики индексировали .docx (P-07…P-10). Теперь отдаёт PHP-роут.
+RewriteRule ^llms\.txt$ /llms.txt [R=301,L]
+RewriteRule ^llms-full\.txt$ /llms-full.txt [R=301,L]
+RewriteRule ^opensearch\.xml$ /opensearch.xml [R=301,L]
+RewriteRule ^robots\.php$ /robots.txt [R=301,L]
+RewriteRule ^documents/([a-z0-9-]+\.docx)$ /index.php?route=public/documents/$1 [QSA,L]
+
+# 0. Редирект robots.txt на динамический генератор
 RewriteRule ^robots\.txt$ robots.php [L]
 
 # Редирект sitemap на динамический генератор (все через PHP-роутер)

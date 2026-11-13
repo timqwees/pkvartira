@@ -44,27 +44,28 @@ echo "\n";
 // Без него ?utm_source=… и ?gclid=… считаются отдельными страницами-дублями.
 echo "Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid&fbclid&ref&from&source\n";
 echo "\n";
-echo "User-agent: *\n";
-echo "Disallow: /api/\n";
-echo "Disallow: /mcp/\n";
-echo "Disallow: /indexnow/\n";
-echo "Allow: /*?page=\n";
-echo "Allow: /portfolio?project=\n";
-echo "\n";
-echo "User-agent: Yandex\n";
-echo "Disallow: /api/\n";
-echo "Disallow: /mcp/\n";
-echo "Disallow: /indexnow/\n";
-echo "Allow: /*?page=\n";
-echo "Allow: /portfolio?project=\n";
-echo "\n";
-echo "User-agent: Googlebot\n";
-echo "Disallow: /api/\n";
-echo "Disallow: /mcp/\n";
-echo "Disallow: /indexnow/\n";
-echo "Allow: /*?page=\n";
-echo "Allow: /portfolio?project=\n";
-echo "\n";
+// Технические и служебные файлы — закрыты от индексации (N-06).
+// Сами файлы отдаются с X-Robots-Tag: noindex, follow (роуты в setting/Route/routes.php),
+// поэтому поисковик может их обойти и увидеть запрет индексации.
+$technicalDisallow = [
+    '/llms.txt',
+    '/llms-full.txt',
+    '/opensearch.xml',
+    '/public/documents/',
+    '/storage/',
+];
+foreach (['*', 'Yandex', 'Googlebot'] as $searchBot) {
+    echo "User-agent: {$searchBot}\n";
+    echo "Disallow: /api/\n";
+    echo "Disallow: /mcp/\n";
+    echo "Disallow: /indexnow/\n";
+    foreach ($technicalDisallow as $path) {
+        echo "Disallow: {$path}\n";
+    }
+    echo "Allow: /*?page=\n";
+    echo "Allow: /portfolio?project=\n";
+    echo "\n";
+}
 echo "User-agent: OAI-SearchBot\n";
 echo "Allow: /\n";
 echo "\n";

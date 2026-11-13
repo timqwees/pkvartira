@@ -1,0 +1,3336 @@
+/* ==========================================================================
+   PREMIUM THEME — «тёплый editorial-минимализм» (референс: ФСС)
+   Подключается после main.min.css и работает как слой поверх Tailwind:
+   перекрашивает легаси-утилиты и доводит компоненты до единого стиля.
+   Порядок в файле: токены → база → ритм секций → типографика → кнопки →
+   карточки → формы → компоненты главной → блог → услуги → футер → адаптив.
+   ========================================================================== */
+
+/* ------------------------------ 1. ТОКЕНЫ ------------------------------ */
+:root {
+    --pm-ink: #171310;
+    --pm-ink-soft: #44403c;
+    --pm-muted: #6f665e;
+    --pm-faint: #948b82;
+
+    --pm-paper: #f4f1ec;
+    --pm-paper-2: #ece7df;
+    --pm-white: #ffffff;
+
+    --pm-brand: #876b55;
+    --pm-brand-dark: #6d5744;
+    --pm-brand-deep: #554433;
+    --pm-brand-soft: #f0e6da;
+    --pm-tint: #f8f4ef;
+
+    --pm-line: #e4ddd2;
+    --pm-line-strong: #d3cfcb;
+
+    --pm-radius-sm: 14px;
+    --pm-radius: 22px;
+    --pm-radius-lg: 28px;
+
+    --pm-shell: 1240px;
+    --pm-gutter: clamp(20px, 4vw, 56px);
+    --pm-section: clamp(56px, 6.6vw, 112px);
+
+    --pm-shadow-sm: 0 2px 10px rgba(23, 19, 16, 0.05);
+    --pm-shadow: 0 14px 34px rgba(23, 19, 16, 0.08);
+    --pm-shadow-lg: 0 24px 60px rgba(23, 19, 16, 0.12);
+    --pm-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --font-display: 'Wix Madefor Display', 'DM Sans Variable', 'Inter', system-ui, -apple-system, sans-serif;
+    /* Все заголовки, которые наследуют --font-heading, тоже получают Wix */
+    --font-heading: 'Wix Madefor Display', 'DM Sans Variable', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@font-face {
+    font-family: 'Wix Madefor Display';
+    src: url('/public/assets/fonts/WixMadeforDisplay/WixMadeforDisplay-Variable.woff2') format('woff2-variations'),
+         url('/public/assets/fonts/WixMadeforDisplay/WixMadeforDisplay-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ------------------------------ 2. БАЗА ------------------------------ */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--pm-ink);
+    background: var(--pm-paper);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-heading,
+.section-heading,
+.hero-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.06;
+    color: var(--pm-ink);
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+::selection {
+    background: var(--pm-brand-soft);
+    color: var(--pm-brand-deep);
+}
+
+a {
+    text-underline-offset: 3px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:focus-visible {
+    outline: 2px solid var(--pm-brand);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ------------------------- 3. РИТМ И СЕТКА СЕКЦИЙ ------------------------- */
+main > section {
+    position: relative;
+}
+
+/* Единый вертикальный ритм: hero и первые секции не трогаем */
+main > section:not(#hero):not(.hero):not(:first-child) {
+    padding-block: var(--pm-section);
+}
+
+/* Тонкая редакционная линия между секциями (как section-topline у ФСС) */
+main > section:not(#hero):not(:first-child)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100% - 2 * var(--pm-gutter), var(--pm-shell));
+    height: 1px;
+    background: var(--pm-line);
+    pointer-events: none;
+    z-index: 1;
+}
+
+main > section > .container,
+main > section > .max-w-7xl,
+main > section > .max-w-6xl,
+main > section > .max-w-5xl {
+    width: min(100% - 2 * var(--pm-gutter), var(--pm-shell));
+    max-width: none;
+    margin-inline: auto;
+    padding-inline: 0;
+}
+
+/* Вертикальные отступы внутри секций не «слипаются» */
+main > section > .container > * + *,
+main > section > .max-w-7xl > * + * {
+    margin-top: 0;
+}
+
+/* Фоновые секции: тёплая бумага вместо холодного серого */
+main > section.bg-gray-50,
+main > section.bg-\[\#f0efed\],
+main .bg-gray-50 {
+    background-color: var(--pm-paper) !important;
+}
+
+main > section.bg-white {
+    background-color: var(--pm-white);
+}
+
+/* Полосатая альтернация: белая секция после бумажной остаётся белой */
+
+/* ------------------------- 4. ТИПОГРАФИКА ------------------------- */
+.label-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 8px 16px;
+    border: 1px solid var(--pm-line);
+    border-radius: 999px;
+    background: var(--pm-white);
+    color: var(--pm-brand-deep);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: var(--pm-shadow-sm);
+}
+
+.label-tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pm-brand);
+    flex: 0 0 auto;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(27px, 3.4vw, 46px);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+    color: var(--pm-ink);
+}
+
+.section-heading strong,
+.section-heading .text-orange-600,
+.section-heading .text-blue-600 {
+    font-weight: 600;
+    color: var(--pm-brand-dark);
+}
+
+.section-subtitle {
+    max-width: 680px;
+    margin-inline: auto;
+    font-size: clamp(15px, 1.15vw, 17px);
+    line-height: 1.7;
+    color: var(--pm-muted);
+}
+
+main .text-xl,
+main .text-lg {
+    line-height: 1.6;
+}
+
+main p.text-gray-600,
+main p.text-gray-500 {
+    color: var(--pm-muted);
+}
+
+/* Крупные «водяные» номера секций — деликатнее, чем раньше */
+main .section-number {
+    top: clamp(18px, 3vw, 44px);
+    right: clamp(16px, 4vw, 56px);
+    font-family: var(--font-display);
+    font-size: clamp(64px, 8vw, 128px);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    color: rgba(135, 107, 85, 0.08);
+}
+
+main .section-number-dark {
+    color: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------------------------- 5. КНОПКИ ---------------------------- */
+.cta-button,
+.btn-premium,
+.btn-premium-brand,
+[data-button-dialog],
+a[class*="bg-orange-500"],
+button[class*="bg-orange-500"],
+a[class*="bg-blue-600"],
+main a[class*="bg-\[\#876b55\]"],
+main button[class*="bg-\[\#876b55\]"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 14px 28px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: var(--pm-ink);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s var(--pm-ease),
+                color 0.25s var(--pm-ease),
+                transform 0.25s var(--pm-ease),
+                box-shadow 0.25s var(--pm-ease);
+}
+
+.cta-button:hover,
+.btn-premium:hover,
+.btn-premium-brand:hover,
+[data-button-dialog]:hover,
+a[class*="bg-orange-500"]:hover,
+button[class*="bg-orange-500"]:hover,
+a[class*="bg-blue-600"]:hover,
+main a[class*="bg-\[\#876b55\]"]:hover,
+main button[class*="bg-\[\#876b55\]"]:hover {
+    background: var(--pm-brand-dark);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(109, 87, 68, 0.28);
+}
+
+.cta-button:active,
+[data-button-dialog]:active {
+    transform: translateY(0);
+}
+
+/* Вторичная кнопка (светлая) */
+.btn-premium-outline,
+a[class*="border-2"][class*="border-white"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 13px 26px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.25s var(--pm-ease), color 0.25s var(--pm-ease);
+}
+
+.btn-premium-outline:hover,
+a[class*="border-2"][class*="border-white"]:hover {
+    background: #fff;
+    color: var(--pm-ink);
+}
+
+/* Текстовые ссылки-стрелки */
+main a.text-orange-600,
+main a.text-orange-500,
+main .text-orange-600 a {
+    color: var(--pm-brand-dark);
+}
+
+/* ---------------------------- 6. КАРТОЧКИ ---------------------------- */
+main .bg-white.rounded-xl,
+main .bg-white.rounded-2xl,
+main .bg-white.rounded-lg {
+    border-color: var(--pm-line);
+}
+
+main .rounded-2xl {
+    border-radius: var(--pm-radius-lg);
+}
+
+main .rounded-xl {
+    border-radius: var(--pm-radius);
+}
+
+main .shadow-sm {
+    box-shadow: var(--pm-shadow-sm);
+}
+
+main .shadow-lg,
+main .shadow-xl {
+    box-shadow: var(--pm-shadow);
+}
+
+main .hover\:shadow-xl:hover,
+main .hover\:shadow-lg:hover,
+main .lift-hover:hover {
+    box-shadow: var(--pm-shadow-lg);
+}
+
+/* Мягкий подъём карточек */
+.lift-hover {
+    transition: transform 0.35s var(--pm-ease), box-shadow 0.35s var(--pm-ease),
+                border-color 0.35s var(--pm-ease);
+}
+
+.lift-hover:hover {
+    transform: translateY(-4px);
+}
+
+/* Статистика */
+.counter-section .stat-card {
+    padding: 30px 22px;
+    border: 1px solid var(--pm-line);
+    border-radius: var(--pm-radius-lg);
+    background: var(--pm-white);
+    box-shadow: var(--pm-shadow-sm);
+}
+
+.counter-section .stat-card:hover {
+    border-color: var(--pm-brand);
+    box-shadow: var(--pm-shadow);
+}
+
+.stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: var(--pm-brand-soft);
+    color: var(--pm-brand-dark);
+    font-size: 17px;
+    opacity: 1;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 3.4vw, 52px);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    color: var(--pm-ink);
+}
+
+.stat-label {
+    margin-top: 8px;
+    color: var(--pm-muted);
+    font-size: 13.5px;
+    line-height: 1.45;
+    font-weight: 500;
+}
+
+/* ------------------------ 7. ЛЕГАСИ-ПАЛИТРА → БРЕНД ------------------------ */
+/* Синий и оранжевый старого дизайна приводим к тёплой бронзе и чернилам */
+main .bg-blue-600,
+main .bg-blue-700,
+main .bg-\[\#3F6A9B\],
+main .bg-\[\#2d527a\] {
+    background-color: var(--pm-ink) !important;
+}
+
+main .bg-\[\#ff7a21\],
+main .bg-orange-500,
+main .bg-orange-600 {
+    background-color: var(--pm-brand) !important;
+}
+
+main [class*="bg-[#f97316]"],
+main [class*="bg-[#ff7a21]"],
+main [class*="bg-[#2563eb]"] {
+    background-color: var(--pm-brand) !important;
+}
+
+main [class*="hover:bg-[#ea580c]"]:hover,
+main [class*="hover:bg-[#1d4ed8]"]:hover {
+    background-color: var(--pm-brand-dark) !important;
+}
+
+main .hover\:bg-orange-600:hover,
+main .hover\:bg-orange-500:hover {
+    background-color: var(--pm-brand-dark) !important;
+}
+
+main .bg-orange-50,
+main .bg-blue-50,
+main .bg-\[\#eff6ff\],
+main .bg-\[\#f5f6fb\] {
+    background-color: var(--pm-tint) !important;
+}
+
+main .bg-gray-100,
+main .bg-\[\#f9fafb\] {
+    background-color: var(--pm-paper) !important;
+}
+
+/* Холодные голубоватые подложки карточек → тёплая бумага */
+main [class*="bg-[#EDF1F6]"],
+main [class*="bg-[#edf1f6]"],
+main [class*="bg-[#f5f6fb]"],
+main [class*="bg-[#eff6ff]"] {
+    background-color: var(--pm-tint) !important;
+}
+
+main .bg-gray-200 {
+    background-color: var(--pm-paper-2) !important;
+}
+
+main .text-orange-600,
+main .text-orange-500,
+main .text-orange-400,
+main .text-orange-300,
+main .text-orange-700,
+main .text-\[\#f97316\],
+main .text-blue-600,
+main .text-blue-700,
+main .text-\[\#1f5ea8\],
+main .text-\[\#3F6A9B\],
+main .text-\[\#2563eb\] {
+    color: var(--pm-brand-dark) !important;
+}
+
+main .text-gray-900,
+main .text-\[\#111827\],
+main .text-\[\#1f2937\],
+main .text-\[\#2a2e3b\] {
+    color: var(--pm-ink) !important;
+}
+
+main .text-gray-800,
+main .text-gray-700,
+main .text-\[\#4b5563\],
+main .text-\[\#5c4a3a\] {
+    color: var(--pm-ink-soft) !important;
+}
+
+main .text-gray-600,
+main .text-gray-500,
+main .text-\[\#6b7280\],
+main .text-\[\#6d5744\],
+main .text-\[\#7a7f8c\] {
+    color: var(--pm-muted) !important;
+}
+
+main .text-gray-400,
+main .text-\[\#8a90a0\] {
+    color: var(--pm-faint) !important;
+}
+
+main .text-green-500,
+main .text-blue-100,
+main .text-orange-300 {
+    color: var(--pm-brand) !important;
+}
+
+main .border-gray-200,
+main .border-gray-300,
+main .border-\[\#e6e7ee\],
+main .border-\[\#e7e5e4\] {
+    border-color: var(--pm-line) !important;
+}
+
+main .border-gray-100 {
+    border-color: #efe9e0 !important;
+}
+
+main .border-\[\#3F6A9B\],
+main .border-\[\#3F6A9B\]\/20,
+main .border-\[\#1f5ea8\] {
+    border-color: var(--pm-line-strong) !important;
+}
+
+main .bg-gradient-to-r,
+main .bg-gradient-to-br,
+main .bg-gradient-to-b {
+    background-image: none !important;
+}
+
+/* ---------------------------- 8. ФОРМЫ ---------------------------- */
+main input[type="text"],
+main input[type="tel"],
+main input[type="email"],
+main input[type="number"],
+main select,
+main textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 18px;
+    border: 1px solid var(--pm-line-strong);
+    border-radius: var(--pm-radius-sm);
+    background: var(--pm-white);
+    color: var(--pm-ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    transition: border-color 0.2s var(--pm-ease), box-shadow 0.2s var(--pm-ease);
+}
+
+main input::placeholder,
+main textarea::placeholder {
+    color: var(--pm-faint);
+}
+
+main input:focus,
+main select:focus,
+main textarea:focus {
+    outline: none;
+    border-color: var(--pm-brand);
+    box-shadow: 0 0 0 4px rgba(135, 107, 85, 0.12);
+}
+
+main input[type="checkbox"] {
+    accent-color: var(--pm-brand);
+}
+
+/* ------------------- 9. ГЛАВНАЯ: КВИЗ И БЛОКИ ФОРМ ------------------- */
+main .quiz-shell {
+    padding: clamp(24px, 3vw, 40px);
+    border: 1px solid var(--pm-line);
+    border-radius: var(--pm-radius-lg);
+    background: var(--pm-white);
+    box-shadow: var(--pm-shadow);
+}
+
+main .quiz-shell .grid {
+    gap: 12px;
+}
+
+/* --------------------- 10. ПРОЦЕСС (6 ШАГОВ) — формат секции ФСС --------------------- */
+main .process-section {
+    color: #fff;
+    background: #292727;
+    position: relative;
+    overflow: hidden;
+}
+
+main .process-section .eyebrow {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+main .process-photo {
+    opacity: 0.16;
+    position: absolute;
+    inset: 0;
+}
+
+main .process-photo img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+main .process-content {
+    background: linear-gradient(90deg, rgba(23, 22, 21, 0.45), rgba(23, 22, 21, 0.7));
+    padding-block: 75px;
+    position: relative;
+}
+
+main .process-content h2 {
+    margin-block: 32px 65px;
+    font-size: clamp(34px, 4.2vw, 64px);
+    color: #fff;
+}
+
+main .process-content h2 span {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+main .process-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    display: grid;
+}
+
+main .process-steps details {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 18px;
+}
+
+main .process-steps summary {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 28px 8px;
+    display: grid;
+    cursor: pointer;
+    list-style: none;
+}
+
+main .process-steps summary::-webkit-details-marker {
+    display: none;
+}
+
+main .process-steps summary > span {
+    grid-column: 1 / -1;
+    color: var(--pm-brand-soft);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+}
+
+main .process-steps details {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+main .process-steps h3 {
+    letter-spacing: -0.03em;
+    font-size: 18px;
+    line-height: 1.1;
+    color: #fff;
+}
+
+main .process-steps summary > svg {
+    opacity: 0.6;
+}
+
+main .process-steps details[open] summary > svg {
+    transform: rotate(45deg);
+}
+
+main .process-steps details > p {
+    color: rgba(255, 255, 255, 0.72);
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* --------------------------- 11. ЦЕНЫ --------------------------- */
+.price-card-premium {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(26px, 3vw, 36px);
+    border: 1px solid var(--pm-line);
+    border-radius: var(--pm-radius-lg);
+    background: var(--pm-white);
+    box-shadow: var(--pm-shadow-sm);
+    transition: transform 0.35s var(--pm-ease), box-shadow 0.35s var(--pm-ease),
+                border-color 0.35s var(--pm-ease);
+}
+
+.price-card-premium:hover {
+    transform: translateY(-4px);
+    border-color: var(--pm-brand);
+    box-shadow: var(--pm-shadow);
+}
+
+.price-card-premium .price-name {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.55vw, 22px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.price-card-premium .price-amount {
+    margin-bottom: 6px;
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.15vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 1.05;
+    color: var(--pm-brand-dark);
+    white-space: nowrap;
+}
+
+.price-card-premium .price-unit {
+    margin-left: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.42em;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: inherit;
+    opacity: 0.75;
+    white-space: nowrap;
+}
+
+.price-card-premium .price-desc {
+    margin: 0 0 4px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--pm-muted);
+}
+
+.price-card-premium .price-meta {
+    margin-bottom: 18px;
+    color: var(--pm-faint);
+    font-size: 13px;
+}
+
+.price-card-premium .price-list {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 28px;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    color: var(--pm-ink-soft);
+}
+
+.price-card-premium .price-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
+}
+
+.price-card-premium .price-list i {
+    margin-top: 3px;
+    color: var(--pm-brand);
+    font-size: 12px;
+}
+
+.price-card-premium .price-btn {
+    width: 100%;
+}
+
+/* Ссылка-CTA в карточке пакета (премиум) — визуально как кнопка */
+.price-card-premium a.price-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: var(--pm-radius-lg);
+    background: var(--pm-brand);
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-decoration: none;
+    transition: background var(--pm-ease), transform var(--pm-ease);
+}
+
+.price-card-premium a.price-btn:hover {
+    background: var(--pm-brand-dark);
+    transform: translateY(-2px);
+}
+
+.price-card-premium.featured {
+    background: linear-gradient(160deg, #241d18 0%, var(--pm-ink) 55%, #2c221b 100%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: var(--pm-shadow-lg);
+    /* main.min.css оставляет scale(1.02) — из-за него карточка вылезает за сетку */
+    transform: none;
+}
+
+.price-card-premium.featured:hover {
+    transform: translateY(-4px);
+}
+
+.price-card-premium.featured .price-name,
+.price-card-premium.featured .price-amount {
+    color: #fff;
+}
+
+.price-card-premium.featured .price-meta,
+.price-card-premium.featured .price-list,
+.price-card-premium.featured .price-desc {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.price-card-premium.featured .price-list i {
+    color: var(--pm-brand-soft);
+}
+
+.price-card-premium .price-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-bottom: 16px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--pm-brand-soft);
+    color: var(--pm-brand-deep);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.price-card-premium.featured .price-badge {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+/* --------------------------- 12. FAQ + ШАПКА СЕКЦИИ (формат ФСС) --------------------------- */
+main .faq-section {
+    padding-block: clamp(56px, 6.6vw, 112px);
+}
+
+/* Шапка секции: линия сверху + два элемента в одну строку */
+main .section-topline {
+    border-top: 1px solid var(--pm-line);
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    display: flex;
+}
+
+/* Заголовок секции: большая типографика + поддерживающая строка */
+main .head-row {
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    padding-block: 25px 45px;
+    display: flex;
+}
+
+main .head-row h2 {
+    font-size: clamp(40px, 4.5vw, 70px);
+    font-weight: 450;
+    line-height: 1.1;
+}
+
+main .head-row h2 span {
+    color: var(--pm-faint);
+}
+
+main .head-row h2 strong {
+    color: var(--pm-brand-dark);
+    font-weight: 600;
+}
+
+main .head-row p {
+    color: var(--pm-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* FAQ: аккордеон — тонкие линии вместо карточек */
+main .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 40px;
+    display: grid;
+}
+
+main .faq-grid .faq-ex {
+    border: 0;
+    border-top: 1px solid var(--pm-line);
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+    box-shadow: none;
+    transition: none;
+}
+
+main .faq-grid .faq-ex summary {
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    list-style: none;
+    display: flex;
+    cursor: pointer;
+    position: static;
+    color: var(--pm-ink);
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    text-align: left;
+}
+
+main .faq-grid .faq-ex summary::-webkit-details-marker {
+    display: none;
+}
+
+main .faq-grid .faq-ex summary:hover {
+    color: var(--pm-brand-dark);
+}
+
+main .faq-mark {
+    flex-shrink: 0;
+    margin-left: auto;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s var(--pm-ease);
+}
+
+main .faq-mark:before,
+main .faq-mark:after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+}
+
+main .faq-mark:before {
+    left: 0;
+    top: 9.5px;
+    width: 20px;
+    height: 1.5px;
+}
+
+main .faq-mark:after {
+    left: 9.5px;
+    top: 0;
+    width: 1.5px;
+    height: 20px;
+}
+
+main .faq-ex[open] .faq-mark {
+    transform: rotate(45deg);
+}
+
+main .faq-content {
+    padding: 0 40px 24px 0;
+    color: var(--pm-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+main .faq-content p {
+    margin: 0;
+}
+
+main .faq-content ul,
+main .faq-content ol {
+    margin: 12px 0 0;
+    padding-left: 18px;
+}
+
+main .faq-content li + li {
+    margin-top: 6px;
+}
+
+main .faq-content a {
+    color: var(--pm-brand-dark);
+}
+
+/* ------------------- 13. ГЕО-ЧИПЫ И ТЕГИ-ССЫЛКИ ------------------- */
+main .geo-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 14px;
+    border: 1px solid var(--pm-line);
+    border-radius: 999px;
+    background: var(--pm-white);
+    color: var(--pm-ink-soft);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-align: center;
+    transition: border-color 0.2s var(--pm-ease), color 0.2s var(--pm-ease),
+                transform 0.2s var(--pm-ease);
+}
+
+main .geo-chip:hover {
+    border-color: var(--pm-brand);
+    color: var(--pm-brand-dark);
+    transform: translateY(-2px);
+}
+
+main .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    border: 1px solid var(--pm-line);
+    border-radius: 999px;
+    background: var(--pm-white);
+    color: var(--pm-ink-soft);
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: border-color 0.2s var(--pm-ease), color 0.2s var(--pm-ease);
+}
+
+main .tag-pill:hover {
+    border-color: var(--pm-brand);
+    color: var(--pm-brand-dark);
+}
+
+/* ------------------------- 14. ОТЗЫВЫ (формат секции ФСС) ------------------------- */
+main .reviews-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 46px 26px;
+    display: grid;
+}
+
+#reviews .review-card {
+    border-top: 1px solid var(--pm-line);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#reviews .review-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#reviews .review-card-top {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+}
+
+#reviews .review-stars {
+    display: flex;
+    gap: 3px;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--pm-line-strong);
+}
+
+#reviews .review-stars i {
+    font-style: normal;
+}
+
+#reviews .review-stars i.is-on {
+    color: var(--pm-brand);
+}
+
+#reviews .review-index {
+    color: var(--pm-muted);
+    letter-spacing: 0.12em;
+    font-size: 10px;
+}
+
+#reviews .review-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--pm-ink-soft);
+}
+
+#reviews .review-author {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#reviews .review-author strong {
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--pm-ink);
+}
+
+#reviews .review-author span {
+    color: var(--pm-muted);
+    font-size: 12px;
+}
+
+#reviews .review-author time {
+    color: var(--pm-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+/* Цифры доверия — формат ФСС: большая типографика + линия-разделитель */
+main .stats-fss {
+    border-top: 1px solid var(--pm-line);
+    margin-top: 56px;
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+main .stats-fss > div {
+    border-right: 1px solid var(--pm-line);
+    padding-inline: 34px;
+}
+
+main .stats-fss > div:first-child {
+    padding-left: 0;
+}
+
+main .stats-fss > div:last-child {
+    border: 0;
+}
+
+main .stats-fss dd {
+    margin: 0;
+    letter-spacing: -0.05em;
+    font-family: var(--font-display);
+    font-size: clamp(34px, 3.2vw, 50px);
+    line-height: 1;
+    color: var(--pm-ink);
+}
+
+main .stats-fss dt {
+    margin: 12px 0 0;
+    color: var(--pm-muted);
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 26ch;
+}
+
+/* --------------------- 15. CTA-ПОЛОСА (как у ФСС) --------------------- */
+.fss-cta-band {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(64px, 8vw, 120px) !important;
+    background: radial-gradient(120% 140% at 80% 0%, #3a2c22 0%, #241d18 45%, #171310 100%) !important;
+    color: #fff;
+    text-align: center;
+}
+
+.fss-cta-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 60% at 15% 100%, rgba(135, 107, 85, 0.35), transparent 70%);
+    pointer-events: none;
+}
+
+.fss-cta-band > *:not(.section-number) {
+    position: relative;
+    z-index: 1;
+}
+
+.fss-cta-band .label-tag {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    box-shadow: none;
+}
+
+.fss-cta-band .label-tag::before {
+    background: var(--pm-brand-soft);
+}
+
+.fss-cta-band h2 {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    color: #fff;
+    font-size: clamp(30px, 4vw, 54px);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+}
+
+.fss-cta-band p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.65;
+}
+
+.fss-cta-band .fss-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.fss-cta-band .fss-btn-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 14px 28px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: var(--pm-brand-soft);
+    color: var(--pm-brand-deep);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.25s var(--pm-ease), background 0.25s var(--pm-ease);
+}
+
+.fss-cta-band .fss-btn-light:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+.fss-cta-band .fss-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 13px 26px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.25s var(--pm-ease), color 0.25s var(--pm-ease);
+}
+
+.fss-cta-band .fss-btn-ghost:hover {
+    background: #fff;
+    color: var(--pm-ink);
+}
+
+/* --------------------- 16. БЛОГ: КАРТОЧКИ И СТАТЬЯ --------------------- */
+.blog-card {
+    overflow: hidden;
+    border: 1px solid var(--pm-line) !important;
+    border-radius: var(--pm-radius-lg) !important;
+    background: var(--pm-white);
+    box-shadow: var(--pm-shadow-sm) !important;
+    transition: transform 0.35s var(--pm-ease), box-shadow 0.35s var(--pm-ease),
+                border-color 0.35s var(--pm-ease);
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pm-brand) !important;
+    box-shadow: var(--pm-shadow) !important;
+}
+
+.blog-card-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 0;
+}
+
+.blog-card-bg {
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s var(--pm-ease);
+}
+
+.blog-card:hover .blog-card-bg {
+    transform: scale(1.04);
+}
+
+.blog-card-img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card-category {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pm-brand-deep);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.blog-card-body {
+    padding: clamp(22px, 2.4vw, 32px);
+}
+
+.blog-card-title {
+    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: clamp(19px, 1.7vw, 23px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--pm-ink);
+}
+
+.blog-card-title a:hover {
+    color: var(--pm-brand-dark);
+}
+
+.blog-card-text {
+    margin-bottom: 18px;
+    color: var(--pm-muted);
+    font-size: 14.5px;
+    line-height: 1.65;
+}
+
+.blog-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #f0ebe3;
+    color: var(--pm-faint);
+    font-size: 12.5px;
+}
+
+.blog-btn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--pm-brand-dark);
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.blog-btn-more:hover {
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    border: 1px solid var(--pm-line) !important;
+    border-radius: 999px !important;
+    background: var(--pm-white) !important;
+    color: var(--pm-ink-soft) !important;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s var(--pm-ease);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: var(--pm-brand) !important;
+    background: var(--pm-brand-soft) !important;
+    color: var(--pm-brand-deep) !important;
+}
+
+/* CTA внизу блога */
+.blog-cta {
+    padding-block: clamp(56px, 6vw, 96px);
+    background: var(--pm-tint);
+    border-top: 1px solid var(--pm-line);
+}
+
+.blog-cta .section-subtitle {
+    margin-top: 14px;
+}
+
+.blog-cta-checks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px 28px;
+    margin-top: 28px;
+    color: var(--pm-muted);
+    font-size: 14px;
+}
+
+.blog-cta-checks span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.blog-cta-checks i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--pm-brand-soft);
+    color: var(--pm-brand-dark);
+    font-size: 9px;
+}
+
+/* TL;DR — краткий ответ для AI Overviews */
+.tldr-box {
+    margin-top: 24px;
+    padding: 22px 26px;
+    border: 1px solid var(--pm-line);
+    border-left: 3px solid var(--pm-brand);
+    border-radius: 0 var(--pm-radius) var(--pm-radius) 0;
+    background: var(--pm-tint);
+}
+
+.tldr-label {
+    margin-bottom: 6px;
+    color: var(--pm-brand-deep);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.tldr-box p {
+    margin: 0;
+    color: var(--pm-ink-soft);
+    font-size: 15.5px;
+    line-height: 1.65;
+}
+
+/* Текст статьи */
+.article-body,
+.article-body p,
+.article-body li {
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: var(--pm-ink-soft);
+}
+
+.article-body h2 {
+    margin: 38px 0 14px;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    color: var(--pm-ink);
+}
+
+.article-body h3 {
+    margin: 28px 0 10px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--pm-ink);
+}
+
+.article-body ul,
+.article-body ol {
+    margin: 14px 0 20px;
+    padding-left: 22px;
+}
+
+.article-body li + li {
+    margin-top: 8px;
+}
+
+.article-body img {
+    border-radius: var(--pm-radius);
+}
+
+.article-body blockquote {
+    margin: 24px 0;
+    padding: 18px 22px;
+    border-left: 3px solid var(--pm-brand);
+    border-radius: 0 var(--pm-radius-sm) var(--pm-radius-sm) 0;
+    background: var(--pm-tint);
+}
+
+.article-body a {
+    color: var(--pm-brand-dark);
+}
+
+/* --------------------- 17. СТРАНИЦЫ УСЛУГ --------------------- */
+main section.bg-blue-50,
+main section[class*="bg-blue-50"] {
+    background-color: var(--pm-paper) !important;
+}
+
+main section .rounded-xl > .text-\[\#6d5744\],
+main section .text-\[\#6d5744\] {
+    color: var(--pm-brand) !important;
+}
+
+/* Хлебные крошки */
+.fss-bc-link,
+.fss-bc-current {
+    color: var(--pm-muted);
+    font-size: 13px;
+}
+
+.fss-bc-link:hover {
+    color: var(--pm-brand-dark);
+}
+
+/* Инфо-бейджи «что входит» */
+main .bg-\[\#fef8f3\] {
+    background-color: var(--pm-tint) !important;
+}
+
+/* --------------------------- 18. ШАПКА --------------------------- */
+header {
+    border-bottom-color: var(--pm-line) !important;
+}
+
+header nav > .header-row > a img,
+header .desktop-nav a {
+    transition: color 0.2s var(--pm-ease), opacity 0.2s var(--pm-ease);
+}
+
+header .desktop-nav > a,
+header .desktop-nav .drop > a {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--pm-ink-soft);
+}
+
+header .desktop-nav > a:hover,
+header .desktop-nav .drop > a:hover,
+header .desktop-nav .drop:hover > a {
+    color: var(--pm-brand-dark);
+}
+
+/* --------------------------- 19. ФУТЕР --------------------------- */
+footer.bg-\[\#0f172a\],
+footer {
+    background: var(--pm-ink) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+footer .container {
+    width: min(100% - 2 * var(--pm-gutter), var(--pm-shell));
+    max-width: none;
+    padding-inline: 0;
+}
+
+footer h4,
+footer .font-semibold {
+    letter-spacing: 0.12em;
+}
+
+footer a {
+    transition: color 0.2s var(--pm-ease);
+}
+
+footer .grid > div > .font-semibold {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+footer .grid > div > ul a {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 13px;
+}
+
+footer .grid > div > ul a:hover {
+    color: #fff;
+}
+
+/* ================= 20. ФОРМАТЫ РЕМОНТА (формат division у ФСС) ================= */
+/* Оболочка секций в духе ФСС: только внутренние поля, ширина — контейнерная */
+main .section-shell {
+    width: 100%;
+    max-width: var(--pm-shell);
+    margin-inline: auto;
+    padding-inline: var(--pm-gutter);
+}
+
+main .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pm-muted);
+}
+
+main .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding-block: 10px;
+    border-bottom: 1px solid currentColor;
+    color: var(--pm-ink);
+    font-size: 12px;
+    line-height: 1.4;
+    text-decoration: none;
+    background: none;
+    transition: color 0.25s var(--pm-ease);
+}
+
+main .text-link svg {
+    flex-shrink: 0;
+    transition: transform 0.4s var(--pm-ease);
+}
+
+main .text-link:hover {
+    color: var(--pm-brand-dark);
+}
+
+main .text-link:hover svg {
+    transform: translate(3px, -3px);
+}
+
+main .format-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 44px 26px;
+}
+
+main .format-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--pm-line);
+}
+
+main .format-media {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--pm-radius);
+    overflow: hidden;
+    background: var(--pm-paper-2);
+}
+
+main .format-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--pm-ease);
+}
+
+main .format-card:hover .format-media img {
+    transform: scale(1.045);
+}
+
+main .format-price {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--pm-ink);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    box-shadow: var(--pm-shadow-sm);
+}
+
+main .format-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 18px 12px;
+}
+
+main .format-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+main .format-index {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--pm-brand);
+}
+
+main .format-term {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pm-muted);
+    white-space: nowrap;
+}
+
+main .format-badge {
+    color: var(--pm-brand-dark);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+main .format-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(21px, 2vw, 29px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+main .format-card h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s var(--pm-ease);
+}
+
+main .format-card h3 a:hover {
+    color: var(--pm-brand-dark);
+}
+
+main .format-specs {
+    margin: 16px 0 0;
+    display: grid;
+    gap: 0;
+}
+
+main .format-specs > div {
+    padding-block: 12px;
+    border-top: 1px solid var(--pm-line);
+}
+
+main .format-specs > div:last-child {
+    border-bottom: 1px solid var(--pm-line);
+}
+
+main .format-specs dt {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pm-faint);
+}
+
+main .format-specs dd {
+    margin: 6px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--pm-muted);
+}
+
+main .format-card > .text-link {
+    margin-top: auto;
+    align-self: flex-start;
+    padding-top: 20px;
+}
+
+main .format-foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--pm-line);
+}
+
+main .format-note {
+    max-width: 520px;
+    margin: 0;
+    color: var(--pm-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+main .format-note .text-link {
+    margin-top: 8px;
+}
+
+/* ================= 20b. КВИЗ · ЦЕНЫ · ОТЗЫВЫ (сетки) ================= */
+main .quiz-section {
+    background: var(--pm-paper);
+}
+
+main .price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+main .reviews-foot {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 40px;
+}
+
+/* ================= 21. ГЕО (формат ФСС) ================= */main .geo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+}
+
+main .geo-chip-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+main .geo-foot {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 32px;
+}
+
+/* Фильтр категорий портфолио — тонкие линии, как в ФСС */
+main .case-filter {
+    list-style: none;
+    margin: 0 0 44px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 26px;
+}
+
+main .case-filter a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 14px;
+    border-top: 1px solid var(--pm-line);
+    color: var(--pm-ink-soft);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.25s var(--pm-ease);
+}
+
+main .case-filter a:hover {
+    color: var(--pm-brand-dark);
+}
+
+main .case-filter a span {
+    color: var(--pm-faint);
+}
+
+/* ================= 22. ПОРТФОЛИО (формат selected-work у ФСС) ================= */
+main .selected-work {
+    padding-block: var(--pm-section);
+}
+
+main .work-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    padding-block: 0 44px;
+}
+
+main .work-heading h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(40px, 4.5vw, 70px);
+    font-weight: 450;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    color: var(--pm-ink);
+    max-width: 20ch;
+}
+
+main .work-heading p {
+    margin: 0;
+    color: var(--pm-muted);
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: right;
+}
+
+main .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 52px 26px;
+}
+
+main .featured-grid .project-card:first-child {
+    grid-column: 1 / -1;
+}
+
+main .featured-grid .project-card:first-child .project-card__image {
+    aspect-ratio: 2.05;
+}
+
+main .project-card {
+    min-width: 0;
+}
+
+main .project-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+main .project-card__image {
+    position: relative;
+    aspect-ratio: 1.3;
+    border-radius: var(--pm-radius);
+    background: var(--pm-paper-2);
+    overflow: hidden;
+}
+
+main .project-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.25));
+}
+
+main .project-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--pm-ease);
+}
+
+main .project-card:hover .project-card__image img {
+    transform: scale(1.035);
+}
+
+main .project-card__number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(20, 19, 18, 0.42);
+    color: #fff;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    backdrop-filter: blur(16px);
+}
+
+main .project-card__arrow {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 55px;
+    height: 55px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px;
+    background: rgba(22, 22, 23, 0.6);
+    color: #fff;
+    backdrop-filter: blur(16px);
+    transition: background 0.4s var(--pm-ease), color 0.4s var(--pm-ease);
+}
+
+main .project-card:hover .project-card__arrow {
+    background: var(--pm-white);
+    color: var(--pm-ink);
+}
+
+main .project-card__caption {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+}
+
+main .project-card__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 18px;
+    color: var(--pm-muted);
+    font-size: 10px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+main .project-card h3 {
+    margin: 10px 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 38px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    color: var(--pm-ink);
+}
+
+main .project-card p {
+    margin: 10px 0 0;
+    max-width: 46ch;
+    color: var(--pm-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ================= 23. НАПРАВЛЕНИЯ (формат pluses у ФСС) ================= */
+main .directions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 34px 26px;
+}
+
+main .direction-link {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 16px;
+    padding-top: 18px;
+    border-top: 1px solid var(--pm-line);
+    color: var(--pm-ink);
+    text-decoration: none;
+    transition: color 0.25s var(--pm-ease);
+}
+
+main .direction-link span {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.3vw, 19px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+}
+
+main .direction-link small {
+    color: var(--pm-faint);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+main .direction-link svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    opacity: 0.5;
+    transition: transform 0.4s var(--pm-ease), opacity 0.25s var(--pm-ease);
+}
+
+main .direction-link:hover {
+    color: var(--pm-brand-dark);
+}
+
+main .direction-link:hover svg {
+    opacity: 1;
+    transform: translate(3px, -3px);
+}
+
+/* ================= 24. О БРЕНДЕ (формат about у ФСС) ================= */
+main .brand-section {
+    padding-block: var(--pm-section);
+}
+
+main .brand-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    padding-top: 26px;
+}
+
+main .brand-grid h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.2vw, 64px);
+    font-weight: 450;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    color: var(--pm-ink);
+}
+
+main .brand-grid h2 span {
+    color: var(--pm-faint);
+}
+
+main .brand-copy {
+    justify-self: end;
+    max-width: 480px;
+    padding-top: 6px;
+}
+
+main .brand-copy p {
+    margin: 0 0 16px;
+    color: var(--pm-muted);
+    font-size: 12.5px;
+    line-height: 1.7;
+}
+
+main .brand-copy p:first-of-type {
+    color: var(--pm-ink-soft);
+    font-size: 18px;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+main .brand-copy strong {
+    color: var(--pm-ink);
+    font-weight: 600;
+}
+
+main .brand-meta {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--pm-line);
+    color: var(--pm-faint);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+main .brand-meta a {
+    color: var(--pm-muted);
+    text-decoration: underline;
+}
+
+/* --------------------------- 19. АДАПТИВ --------------------------- */
+@media (max-width: 1024px) {
+    .blog-card-grid {
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --pm-section: clamp(44px, 9vw, 72px);
+    }
+
+    body {
+        font-size: 15.5px;
+    }
+
+    main .section-number {
+        font-size: 72px;
+        top: 14px;
+        right: 16px;
+    }
+
+    .label-tag {
+        margin-bottom: 14px;
+        padding: 7px 13px;
+        font-size: 10px;
+    }
+
+    .section-heading {
+        font-size: clamp(25px, 7vw, 34px);
+        line-height: 1.08;
+    }
+
+    .blog-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-card-bg {
+        min-height: 200px;
+    }
+
+    main .faq-toggle {
+        padding: 18px 20px;
+        font-size: 15.5px;
+    }
+
+    main .faq-content {
+        padding: 0 20px 20px;
+        font-size: 14.5px;
+    }
+
+    .cta-button,
+    [data-button-dialog],
+    .price-card-premium .price-btn {
+        width: 100%;
+    }
+}
+
+/* --------------------------- 20. АДАПТИВ: ФСС-ФОРМАТ СЕКЦИЙ --------------------------- */
+@media (max-width: 1100px) {
+    main .reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main .stats-fss {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 30px;
+    }
+
+    main .stats-fss > div:nth-child(2n) {
+        border-right: 0;
+    }
+
+    main .stats-fss > div:nth-child(3) {
+        padding-left: 0;
+    }
+
+    main .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main .format-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main .geo-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    main .directions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main .brand-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    main .brand-copy {
+        justify-self: start;
+        max-width: 640px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    main .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main .head-row {
+        display: block;
+        padding-block: 10px 30px;
+    }
+
+    main .head-row h2 {
+        font-size: 11vw;
+    }
+
+    main .head-row p {
+        margin-top: 20px;
+    }
+
+    main .work-heading {
+        display: block;
+    }
+
+    main .work-heading h2 {
+        font-size: 11vw;
+    }
+
+    main .work-heading p {
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    main .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    main .featured-grid .project-card:first-child {
+        grid-column: auto;
+    }
+
+    main .featured-grid .project-card:first-child .project-card__image {
+        aspect-ratio: 1.3;
+    }
+
+    main .geo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    main .case-filter {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main .price-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    main .price-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    main .stats-fss {
+        grid-template-columns: minmax(0, 1fr);
+        margin-top: 40px;
+    }
+
+    main .stats-fss > div {
+        border-right: 0;
+        border-bottom: 1px solid var(--pm-line);
+        padding: 0 0 20px;
+    }
+
+    main .stats-fss > div:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    main .format-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    main .format-foot {
+        display: block;
+    }
+
+    main .format-foot > * + * {
+        margin-top: 24px;
+    }
+
+    main .geo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main .directions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main .case-filter {
+        grid-template-columns: 1fr;
+        margin-bottom: 34px;
+    }
+
+    main .project-card h3 {
+        font-size: 24px;
+    }
+}
+
+/* Уважаем prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .lift-hover:hover,
+    .blog-card:hover,
+    .price-card-premium:hover {
+        transform: none;
+    }
+}
+
+/* ================= 25. HERO: вписан в первый экран ================= */
+main #hero.hero {
+    height: 100svh;
+    min-height: 0;
+    max-height: none;
+}
+
+/* Шапка фиксированная — контент hero начинаем ниже её высоты */
+main #hero .hero-content {
+    top: calc(var(--fss-header-h, 90px) + clamp(40px, 9vh, 120px));
+}
+
+@media (max-height: 780px) {
+    main #hero .hero-content {
+        top: calc(var(--fss-header-h, 90px) + 26px);
+    }
+
+    main #hero h1 {
+        font-size: clamp(40px, 6.4vw, 82px);
+    }
+
+    main #hero .hero-intro {
+        margin-top: 26px;
+    }
+
+    main #hero .hero-bottom {
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    main #hero .hero-content {
+        top: calc(var(--fss-header-h, 74px) + 40px);
+        left: 20px;
+        right: 20px;
+    }
+
+    main #hero h1 {
+        font-size: clamp(38px, 11vw, 58px);
+    }
+
+    main #hero .hero-intro {
+        margin-top: 24px;
+        gap: 24px;
+    }
+
+    main #hero .hero-bottom {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        bottom: 18px;
+        left: 20px;
+        right: 20px;
+    }
+
+    main #hero .hero-controls {
+        display: none;
+    }
+}
+
+/* ================= 26. КВИЗ ВНУТРИ СЕКЦИИ ЦЕН ================= */
+main .price-quiz {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--pm-line);
+    scroll-margin-top: calc(var(--fss-header-h, 90px) + 20px);
+}
+
+main .price-quiz-head h3 {
+    margin: 14px 0 12px;
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 450;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    color: var(--pm-ink);
+}
+
+main .price-quiz-head > p:last-child {
+    margin: 0;
+    max-width: 34ch;
+    color: var(--pm-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+main .price-quiz-form .quiz-shell {
+    padding: clamp(18px, 2vw, 26px);
+    box-shadow: none;
+    background: var(--pm-tint);
+}
+
+main .price-quiz-form select,
+main .price-quiz-form input[type="tel"] {
+    min-height: 48px;
+    border-radius: 10px !important;
+    border-color: var(--pm-line) !important;
+    background: var(--pm-white) !important;
+    font-size: 13px !important;
+}
+
+main .price-quiz-form select:focus,
+main .price-quiz-form input[type="tel"]:focus {
+    border-color: var(--pm-brand) !important;
+    box-shadow: 0 0 0 2px rgba(135, 107, 85, 0.16) !important;
+}
+
+main .price-quiz-form .cta-button {
+    min-height: 48px;
+    padding: 12px 24px;
+    font-size: 13px;
+}
+
+@media (max-width: 992px) {
+    main .price-quiz {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        margin-top: 48px;
+    }
+}
+
+/* Секции с собственной линией topline не дублируют разделитель */
+main > section:has(> .section-topline)::before {
+    display: none;
+}
+
+/* ================= 27. HERO: MOBILE (формат FSS: flex column, padding под шапку) ================= */
+@media (max-width: 767px) {
+    main #hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100svh;
+        max-height: none;
+        height: auto;
+        padding: calc(var(--fss-header-h, 74px) + 16px) 24px calc(104px + 16px);
+    }
+
+    main #hero .hero-content {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    main #hero .hero-intro {
+        margin-top: 22px;
+        display: block;
+        gap: 0;
+    }
+
+    main #hero .hero-intro p {
+        font-size: 13px;
+    }
+
+    main #hero .hero-intro .text-link {
+        margin-top: 14px;
+        padding-block: 6px;
+    }
+
+    main #hero h1 {
+        margin-top: 22px;
+        font-size: clamp(38px, 11vw, 58px);
+        line-height: 1.05;
+    }
+
+    main #hero .hero-bottom {
+        position: static;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        display: block;
+        margin-top: 26px;
+        gap: 14px;
+    }
+
+    main #hero .hero-project {
+        padding: 16px 56px 16px 16px;
+    }
+
+    main #hero .hero-project strong {
+        font-size: 16px;
+    }
+
+    main #hero .hero-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        padding: 0;
+        display: flex;
+    }
+
+    main #hero .hero-controls > .eyebrow {
+        text-align: right;
+        max-width: 110px;
+        font-size: 7px;
+    }
+
+    main #hero .cinema-pagination {
+        gap: 10px;
+    }
+
+    main #hero .cinema-pagination button {
+        gap: 8px;
+        font-size: 9px;
+    }
+
+    main #hero .cinema-pagination button[aria-pressed="true"] span {
+        width: 40px;
+    }
+
+    main #hero .cinema-pagination button span {
+        width: 15px;
+    }
+
+    main #hero .hero-cta {
+        display: none;
+    }
+}
+
+/* ================= 28. HERO: ЦЕНТР ИЛИ СТАТУС КИНЕМАТО (видимость на тёмном фоне) ================= */
+main .hero-project .eyebrow,
+main .hero-controls > .eyebrow,
+main [data-cinema-status] {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* ================= 29. ССЫЛКИ-КНОПКИ В ПОДВАЛЕ ФОРМАТОВ/ПОРТФОЛИО (text-link, не pill) ================= */
+main .format-foot .text-link,
+main .format-foot .text-link[data-button-dialog] {
+    min-height: 0 !important;
+    padding: 10px 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+/* ================= 30. HERO: ССЫЛКА «УЗНАТЬ О КОМПАНИИ» (hover — светлый цвет на тёмном фоне) ================= */
+main .hero-intro .text-link:hover,
+main #hero .hero-intro .text-link:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* ==========================================================================
+   31. САЙТВАЙД: ЛЕГАСИ-СЕКЦИИ → ФОРМАТ ФСС
+   Легаси-страницы (услуги, портфолио, блог, контакты и т.д.) написаны на
+   Tailwind-утилитах. Ниже — единый слой, который приводит их к тому же
+   editorial-виду, что и главная: крупные заголовки weight 450, hairline-
+   разделители, спокойные карточки, аккордеон на линиях.
+   ========================================================================== */
+
+/* ---------- 31.1 Заголовки легаси-секций ---------- */
+main h2[class*="text-2xl"],
+main h2[class*="text-3xl"],
+main h2[class*="text-4xl"],
+main h3[class*="text-2xl"],
+main h3[class*="text-3xl"] {
+    font-family: var(--font-display) !important;
+    font-size: clamp(28px, 3.4vw, 46px) !important;
+    font-weight: 450 !important;
+    line-height: 1.07 !important;
+    letter-spacing: -0.04em !important;
+    color: var(--pm-ink) !important;
+    text-align: left !important;
+    text-wrap: balance;
+}
+
+main section h2[class*="text-2xl"] + p,
+main section h2[class*="text-3xl"] + p {
+    max-width: 720px;
+    margin-top: 18px;
+    color: var(--pm-muted) !important;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Центрированные шапки легаси-секций → редакционная выключка влево */
+main > section > .container > .text-center:has(> h2),
+main > section > .max-w-7xl > .text-center:has(> h2),
+main > section > .max-w-6xl > .text-center:has(> h2),
+main > section > .max-w-5xl > .text-center:has(> h2) {
+    text-align: left;
+}
+
+main > section > .container > .text-center:has(> h2) > h2,
+main > section > .max-w-7xl > .text-center:has(> h2) > h2,
+main > section > .max-w-6xl > .text-center:has(> h2) > h2,
+main > section > .max-w-5xl > .text-center:has(> h2) > h2 {
+    text-align: left !important;
+}
+
+main > section > .container > .text-center:has(> h2) > p,
+main > section > .max-w-7xl > .text-center:has(> h2) > p,
+main > section > .max-w-6xl > .text-center:has(> h2) > p {
+    margin-inline: 0;
+    text-align: left;
+}
+
+/* ---------- 31.2 Аккордеон FAQ на легаси-разметке (button/i) ---------- */
+main section[itemscope][itemtype*="FAQPage"] .space-y-4 > div,
+main section[itemscope][itemtype*="FAQPage"] .space-y-4 > article {
+    border: 0 !important;
+    border-top: 1px solid var(--pm-line) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+}
+
+main section[itemscope][itemtype*="FAQPage"] .space-y-4 > div:last-child {
+    border-bottom: 1px solid var(--pm-line) !important;
+}
+
+main .faq-toggle {
+    align-items: center !important;
+    gap: 24px !important;
+    padding: 22px 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--pm-ink) !important;
+    font-family: var(--font-display) !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+    transition: color 0.25s var(--pm-ease) !important;
+}
+
+main .faq-toggle:hover,
+main .faq-toggle[aria-expanded="true"] {
+    background: transparent !important;
+    color: var(--pm-brand-dark) !important;
+}
+
+main .faq-toggle > span {
+    font-weight: inherit !important;
+    color: inherit !important;
+}
+
+main .faq-toggle i {
+    margin-left: auto;
+    flex: 0 0 auto;
+    color: var(--pm-brand) !important;
+    font-size: 13px !important;
+    transition: transform 0.35s var(--pm-ease);
+}
+
+main .faq-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+main .faq-content {
+    padding: 0 48px 24px 0 !important;
+    color: var(--pm-muted) !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+/* ---------- 31.3 Секция «Этапы» на легаси-разметке → тёмный ФСС-блок ---------- */
+main section#process {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: #292727 !important;
+}
+
+main section#process h2,
+main section#process h3 {
+    color: #fff !important;
+}
+
+main section#process h2 span {
+    color: var(--pm-brand-soft) !important;
+}
+
+main section#process p {
+    color: rgba(255, 255, 255, 0.68) !important;
+}
+
+main section#process .bg-blue-600,
+main section#process [class*="bg-blue-600"] {
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #fff !important;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+}
+
+main section#process .bg-gray-300,
+main section#process [class*="bg-gray-300"] {
+    background: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* ---------- 31.4 Карточки-плитки легаси ---------- */
+main .bg-white.border.rounded-xl,
+main .bg-white.border.rounded-2xl,
+main .bg-white.border.rounded-lg {
+    box-shadow: none;
+    transition: border-color 0.3s var(--pm-ease), transform 0.3s var(--pm-ease),
+                box-shadow 0.3s var(--pm-ease);
+}
+
+main .bg-white.border.rounded-xl:hover,
+main .bg-white.border.rounded-2xl:hover {
+    border-color: var(--pm-line-strong);
+    box-shadow: var(--pm-shadow-sm);
+}
+
+/* Иконки-кружки и бейджи легаси → брендовая мягкая подложка */
+main .bg-orange-100,
+main .bg-\[\#fef8f3\],
+main .bg-\[\#f0e6da\] {
+    background-color: var(--pm-brand-soft) !important;
+}
+
+/* ---------- 31.5 Мелкие утилитарные правки ---------- */
+main .rounded-3xl {
+    border-radius: var(--pm-radius-lg) !important;
+}
+
+main section[itemscope][itemtype*="FAQPage"] .space-y-4 > * + * {
+    margin-top: 0;
+}
+
+main .prose h2,
+main .prose h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+}
+
+/* ==========================================================================
+   32. САЙТВАЙД: КОНТРАСТ, ГРАДИЕНТЫ, ВЕРХ СТРАНИЦЫ
+   ========================================================================== */
+
+/* Тёмные фото-оверлеи (bg-gradient-to-t from-black) не убираем — на них держится
+   читаемость белых подписей поверх фотографий */
+main .bg-gradient-to-t {
+    background-image: linear-gradient(to top, rgba(23, 19, 16, 0.82), rgba(23, 19, 16, 0)) !important;
+}
+
+/* Тёмные градиентные CTA-секции старого дизайна → тёплые чернила */
+main > section[class*="bg-gradient-to"][class*="text-white"],
+main > section[class*="bg-gradient-to"][class*="text-white"] p {
+    color: #fff !important;
+}
+
+main > section[class*="bg-gradient-to"][class*="text-white"] {
+    background: linear-gradient(120deg, #3a2c22 0%, #241d18 46%, #171310 100%) !important;
+}
+
+/* Фильтры-пилюли портфолио/услуг: важнее утилит bg-blue-700/text-white */
+main .filter-btn,
+main button.filter-btn {
+    border: 1px solid var(--pm-line) !important;
+    border-radius: 999px !important;
+    background: var(--pm-white) !important;
+    color: var(--pm-ink-soft) !important;
+    box-shadow: none;
+}
+
+main .filter-btn:hover,
+main .filter-btn.active,
+main button.filter-btn:hover,
+main button.filter-btn.active {
+    border-color: var(--pm-brand) !important;
+    background: var(--pm-brand-soft) !important;
+    color: var(--pm-brand-deep) !important;
+}
+
+/* Даты и мета-подписи в отзывах были слишком бледными */
+main .review-date {
+    color: var(--pm-muted) !important;
+    font-size: 13px;
+}
+
+/* Верх страницы под фиксированной шапкой (если у страницы нет hero) */
+main {
+    padding-top: var(--fss-header-h, 90px);
+}
+
+main:has(#hero),
+main:has(> .hero) {
+    padding-top: 0;
+}
+
+/* ==========================================================================
+   33. САЙТВАЙД: ШАПКА ВНУТРЕННЕЙ СТРАНИЦЫ (h1 в первой секции)
+   ========================================================================== */
+
+main > section:first-child:not(#hero):not(.hero) {
+    padding-top: clamp(40px, 5vw, 76px);
+}
+
+main h1[class*="text-2xl"],
+main h1[class*="text-3xl"],
+main h1[class*="text-4xl"],
+main h1[class*="text-5xl"],
+main .hero-title {
+    font-family: var(--font-display) !important;
+    font-size: clamp(34px, 4.4vw, 62px) !important;
+    font-weight: 450 !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.045em !important;
+    color: var(--pm-ink) !important;
+    text-wrap: balance;
+}
+
+main h1[class*="text-4xl"] span[class*="text-blue-600"],
+main h1[class*="text-5xl"] span[class*="text-blue-600"] {
+    color: var(--pm-brand-dark) !important;
+}
+
+/* Первая секция с h1 = редакционная шапка страницы */
+main > section:first-child:not(#hero):not(.hero):not([class*="bg-[#1f2937]"]):not(.bg-cover):has(h1) {
+    background: var(--pm-paper) !important;
+    background-image: none !important;
+    padding-block: clamp(44px, 5.4vw, 84px) !important;
+    border-bottom: 1px solid var(--pm-line);
+}
+
+main > section:first-child:not(#hero):not(.hero):not([class*="bg-[#1f2937]"]):not(.bg-cover) > div {
+    position: relative;
+    z-index: 1;
+}
+
+main > section:first-child:not(#hero):not(.hero):not([class*="bg-[#1f2937]"]):not(.bg-cover) h1 + p,
+main > section:first-child:not(#hero):not(.hero):not([class*="bg-[#1f2937]"]):not(.bg-cover) .section-subtitle {
+    max-width: 720px;
+    color: var(--pm-muted) !important;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------- 33.1 Мобильные строки заголовок+кнопка не должны вылезать ---------- */
+@media (max-width: 640px) {
+    main .flex.items-center.justify-between {
+        flex-wrap: wrap;
+        row-gap: 14px;
+    }
+
+    main #reviewBtnWrap {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+}
+
+/* ---------- 33.2 Нумерация секций внутренних страниц (ритм главной) ---------- */
+main {
+    counter-reset: pm-section;
+}
+
+main > section:not(#hero):not(.hero):not([class*="bg-[#1f2937]"]):not(.bg-cover) {
+    counter-increment: pm-section;
+}
+
+main > section:not(#hero):not(.hero) > .container > h2[class*="text-2xl"]::before,
+main > section:not(#hero):not(.hero) > .container > h2[class*="text-3xl"]::before,
+main > section:not(#hero):not(.hero) > .max-w-7xl > h2[class*="text-2xl"]::before,
+main > section:not(#hero):not(.hero) > .max-w-6xl > h2[class*="text-2xl"]::before,
+main > section:not(#hero):not(.hero) > .max-w-6xl > h2[class*="text-3xl"]::before,
+main > section:not(#hero):not(.hero) > .max-w-5xl > h2[class*="text-2xl"]::before,
+main > section:not(#hero):not(.hero) > .container > .text-center > h2[class*="text-2xl"]::before,
+main > section:not(#hero):not(.hero) > .container > .text-center > h2[class*="text-3xl"]::before,
+main > section:not(#hero):not(.hero) > .max-w-7xl > .text-center > h2[class*="text-2xl"]::before,
+main > section:not(#hero):not(.hero) > .max-w-7xl > .text-center > h2[class*="text-3xl"]::before {
+    content: counter(pm-section, decimal-leading-zero);
+    display: block;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    color: var(--pm-brand);
+}
+
+@media (max-width: 640px) {
+    main > section:not(#hero):not(.hero) > .container > h2[class*="text-2xl"]::before,
+    main > section:not(#hero):not(.hero) > .container > h2[class*="text-3xl"]::before,
+    main > section:not(#hero):not(.hero) > .max-w-7xl > h2[class*="text-2xl"]::before,
+    main > section:not(#hero):not(.hero) > .max-w-6xl > h2[class*="text-2xl"]::before,
+    main > section:not(#hero):not(.hero) > .container > .text-center > h2[class*="text-2xl"]::before,
+    main > section:not(#hero):not(.hero) > .max-w-7xl > .text-center > h2[class*="text-2xl"]::before {
+        margin-bottom: 12px;
+    }
+}
+
+/* CTA-полосы и блоки с бейджем label-tag не нумеруем — как на главной */
+main > section:has(.label-tag) h2[class*="text-2xl"]::before,
+main > section:has(.label-tag) h2[class*="text-3xl"]::before {
+    content: none;
+}
+
+/* Подзаголовки в легаси-секциях выравниваем по крупному заголовку слева */
+main > section:has(h2[class*="text-2xl"]) > .container > p.text-center,
+main > section:has(h2[class*="text-3xl"]) > .container > p.text-center,
+main > section:has(h2[class*="text-2xl"]) > .max-w-7xl > p.text-center,
+main > section:has(h2[class*="text-2xl"]) > .max-w-6xl > p.text-center {
+    max-width: 720px;
+    margin-inline: 0;
+    text-align: left;
+}
+
+/* FAQ-список выравниваем по левому краю заголовка (как на главной) */
+main section[itemscope][itemtype*="FAQPage"] .max-w-3xl.mx-auto,
+main section[itemscope][itemtype*="FAQPage"] .max-w-4xl.mx-auto {
+    max-width: 900px;
+    margin-inline: 0;
+}
+
+/* ---------- 33.3 Цветовые акценты легаси: зелёный/фиолетовый/жёлтый → бренд ---------- */
+main .text-green-500,
+main .text-green-600,
+main .text-green-700,
+main .text-yellow-400,
+main .text-yellow-500,
+main .text-purple-500,
+main .text-purple-600,
+main .text-purple-700 {
+    color: var(--pm-brand) !important;
+}
+
+main .bg-green-100,
+main .bg-purple-100 {
+    background-color: var(--pm-brand-soft) !important;
+}
+
+main .bg-yellow-50 {
+    background-color: var(--pm-tint) !important;
+}
+
+main .text-red-400,
+main .text-red-500,
+main .text-red-600 {
+    color: #b4553f !important;
+}
+
+main .bg-red-50 {
+    background-color: #f8ece7 !important;
+}
+
+/* Счётчик секций не должен дублироваться в CTA-блоках с бейджем */
+main > section:has(.label-tag) h2[class*="text-2xl"]::before,
+main > section:has(.label-tag) h2[class*="text-3xl"]::before {
+    content: none !important;
+}
+
+/* ---------- 33.4 Hero: усиливаем затемнение на мобильном (читаемость h1 на светлых фото) ---------- */
+@media (max-width: 576px) {
+    main .hero-shade,
+    main #hero .hero-shade {
+        background:
+            linear-gradient(180deg,
+                rgba(23, 19, 16, 0.74) 0%,
+                rgba(23, 19, 16, 0.52) 30%,
+                rgba(23, 19, 16, 0.5) 60%,
+                rgba(23, 19, 16, 0.62) 78%,
+                rgba(23, 19, 16, 0.9) 100%) !important;
+    }
+}
+
+/* Номера секций не нужны у заголовков внутри карточек */
+main .rounded-xl h2[class*="text-2xl"]::before,
+main .rounded-xl h2[class*="text-3xl"]::before,
+main .rounded-2xl h2[class*="text-2xl"]::before,
+main .rounded-2xl h2[class*="text-3xl"]::before,
+main .price-card-premium h2::before {
+    content: none !important;
+}
+
+/* Вводный абзац шапки страницы — комфортная длина строки */
+main > section:first-child:not(#hero):not(.hero) > .container > p,
+main > section:first-child:not(#hero):not(.hero) > .max-w-7xl > p,
+main > section:first-child:not(#hero):not(.hero) > .max-w-6xl > p {
+    max-width: 760px;
+}
+
+/* ---------- 33.5 Этапы на легаси-разметке: editorial-колонки вместо «кружков в ряд» ---------- */
+main section#process .grid > .absolute {
+    display: none !important;
+}
+
+main section#process .grid > div:not(.absolute) {
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    padding-top: 20px;
+}
+
+main section#process .grid > div:not(.absolute) > .bg-blue-600,
+main section#process .grid > div:not(.absolute) > [class*="bg-blue-600"] {
+    width: 46px !important;
+    height: 46px !important;
+    margin: 0 0 18px !important;
+    font-size: 13px !important;
+}
+
+main section#process h3 {
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em;
+}
+
+main section#process p {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+}
+
+@media (min-width: 1024px) {
+    main section#process .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 40px 32px !important;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+    main section#process .grid {
+        gap: 32px 24px !important;
+    }
+
+    main section#process h3 {
+        font-size: 16px !important;
+    }
+}
+
+/* Номер секции на тёмных подложках — светлый */
+main section#process > .container > h2::before,
+main section#process > .max-w-7xl > h2::before,
+main > section[class*="text-white"] > .container > h2::before,
+main > section[class*="text-white"] > .max-w-7xl > h2::before,
+main > section[class*="bg-[#1f2937]"] > .container > h2::before,
+main > section[class*="bg-gray-900"] > .container > h2::before {
+    color: var(--pm-brand-soft) !important;
+}
+
+/* Отступ под фиксированной шапкой для страниц с утилитой pt-20 */
+main.pt-20 {
+    padding-top: var(--fss-header-h, 90px) !important;
+}
+
+/* ==========================================================================
+   34. HERO ЛЕГАСИ-СТРАНИЦ УСЛУГ → ПОЛНОЭКРАННОЕ ФОТО (как на главной)
+   ========================================================================== */
+main.pt-20:has(> section:first-child[class*="bg-[#1f2937]"]),
+main.pt-20:has(> section:first-child.bg-cover) {
+    padding-top: 0 !important;
+}
+
+main > section:first-child[class*="bg-[#1f2937]"],
+main > section:first-child.bg-cover {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    background-color: #171310 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    overflow: hidden;
+    isolation: isolate;
+    border-bottom: 0 !important;
+}
+
+/* Фото-слой: было 30% — делаем полноценным */
+main > section:first-child[class*="bg-[#1f2937]"] > .absolute {
+    opacity: 1 !important;
+    z-index: 0;
+}
+
+main > section:first-child.bg-cover > .absolute {
+    opacity: .5 !important;
+    z-index: 0;
+}
+
+/* Скрим: затемнение под шапкой и плотное — под текстом */
+main > section:first-child[class*="bg-[#1f2937]"]::after,
+main > section:first-child.bg-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+            rgba(12, 9, 7, .76) 0%,
+            rgba(12, 9, 7, .28) 26%,
+            rgba(12, 9, 7, .44) 58%,
+            rgba(12, 9, 7, .90) 100%);
+}
+
+/* Контент — по нижней линии, как cinema-hero главной */
+main > section:first-child[class*="bg-[#1f2937]"] > .relative,
+main > section:first-child.bg-cover > .relative {
+    position: relative;
+    z-index: 2;
+    padding-top: calc(var(--fss-header-h, 90px) + 40px) !important;
+    padding-bottom: clamp(44px, 9vh, 104px) !important;
+}
+
+main > section:first-child[class*="bg-[#1f2937]"] h1,
+main > section:first-child.bg-cover h1 {
+    font-family: var(--font-display) !important;
+    font-size: clamp(40px, 6.2vw, 92px) !important;
+    font-weight: 450 !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+    color: #fff !important;
+    text-wrap: balance;
+    margin-bottom: 0 !important;
+}
+
+main > section:first-child.bg-cover h1 strong {
+    color: var(--pm-brand-soft) !important;
+    font-weight: 450 !important;
+}
+
+main > section:first-child[class*="bg-[#1f2937]"] h1 + p,
+main > section:first-child.bg-cover h1 + p {
+    margin-top: clamp(18px, 2.6vh, 30px) !important;
+    margin-bottom: 0 !important;
+    max-width: 560px !important;
+    color: rgba(255, 255, 255, .76) !important;
+    font-size: clamp(15px, 1.25vw, 18px) !important;
+    line-height: 1.65 !important;
+}
+
+main > section:first-child[class*="bg-[#1f2937]"] h1 + p + div,
+main > section:first-child.bg-cover h1 + p + div {
+    margin-top: clamp(24px, 3.6vh, 40px) !important;
+}
+
+/* Бейджи «₽ / ✓» — светлее и крупнее, в строку как разлиновка */
+main > section:first-child[class*="bg-[#1f2937]"] h1 + p + div > div {
+    color: rgba(255, 255, 255, .82) !important;
+    font-size: 14px !important;
+    letter-spacing: -.01em;
+}
+
+main > section:first-child[class*="bg-[#1f2937]"] h1 + p + div > div > span {
+    width: 26px !important;
+    height: 26px !important;
+    background: rgba(255, 255, 255, .12) !important;
+    border: 1px solid rgba(255, 255, 255, .26);
+    font-size: 11px !important;
+}
+
+/* CTA на dlya-sdachi — pill-кнопки ФСС (как на главной: светлая + контурная) */
+main > section:first-child.bg-cover .grid {
+    grid-template-columns: 1fr !important;
+}
+
+main > section:first-child.bg-cover a[href^="tel:"],
+main > section:first-child.bg-cover button[data-button-dialog] {
+    border-radius: 999px !important;
+    padding: 17px 30px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: .02em !important;
+}
+
+main > section:first-child.bg-cover a[href^="tel:"] {
+    background: var(--pm-paper) !important;
+    border: 1px solid var(--pm-paper) !important;
+    color: var(--pm-ink) !important;
+}
+
+main > section:first-child.bg-cover a[href^="tel:"]:hover {
+    background: #fff !important;
+    border-color: #fff !important;
+}
+
+main > section:first-child.bg-cover button[data-button-dialog] {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, .55) !important;
+    color: #fff !important;
+}
+
+main > section:first-child.bg-cover button[data-button-dialog]:hover {
+    background: rgba(255, 255, 255, .12) !important;
+    color: #fff !important;
+}
+
+@media (max-width: 767px) {
+    main > section:first-child[class*="bg-[#1f2937]"] > .relative,
+    main > section:first-child.bg-cover > .relative {
+        padding-top: calc(var(--fss-header-h, 74px) + 26px) !important;
+        padding-bottom: 40px !important;
+    }
+
+    main > section:first-child[class*="bg-[#1f2937]"] h1,
+    main > section:first-child.bg-cover h1 {
+        font-size: clamp(34px, 10.5vw, 52px) !important;
+    }
+
+    main > section:first-child.bg-cover h1 br {
+        display: none;
+    }
+
+    main > section:first-child.bg-cover h1 strong {
+        display: block;
+        margin-top: 6px;
+    }
+}
+
+/* ==========================================================================
+   35. HERO УСЛУГ: длинные заголовки — соразмерный кегль (первый экран не ломается)
+   ========================================================================== */
+main #hero h1.hero-title--mid {
+    font-size: clamp(40px, 6.6vw, 96px) !important;
+}
+
+main #hero h1.hero-title--long {
+    font-size: clamp(34px, 4.9vw, 76px) !important;
+    line-height: 1.02 !important;
+    text-wrap: balance;
+}
+
+@media (max-width: 1100px) {
+    main #hero h1.hero-title--mid {
+        font-size: clamp(38px, 6.4vw, 78px) !important;
+    }
+
+    main #hero h1.hero-title--long {
+        font-size: clamp(32px, 5vw, 64px) !important;
+    }
+}
+
+@media (max-width: 767px) {
+    main #hero h1.hero-title--mid {
+        font-size: clamp(30px, 8.4vw, 44px) !important;
+    }
+
+    main #hero h1.hero-title--long {
+        font-size: clamp(26px, 7vw, 38px) !important;
+    }
+}
+
+/* ==========================================================================
+   36. ЗАЩИТА ОТ ПЕРЕПОЛНЕНИЯ ТЕКСТА (длинные слова в 2-колоночных карточках)
+   ========================================================================== */
+/* «Что входит»: на мобильном сетка 2 колонки — длинные слова («Подготовительные») вылезали */
+main section[aria-labelledby="includes-heading"] .grid > div,
+main section[aria-labelledby="timeline-heading"] .grid > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+main section[aria-labelledby="includes-heading"] .grid > div > div,
+main section[aria-labelledby="timeline-heading"] .grid > div > div {
+    overflow-wrap: anywhere;
+}

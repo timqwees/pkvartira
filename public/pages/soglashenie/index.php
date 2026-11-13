@@ -95,7 +95,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     выполняются с соблюдением требований Федерального закона № 152-ФЗ «О персональных данных».
                 </p>
                 <p class="text-gray-600 text-sm mb-4">Скачать полный текст согласия в формате DOCX</p>
-                <a href="/public/documents/soglasie-na-obrabotku-personalnyh-dannyh.docx"
+                <a href="/documents/soglasie-na-obrabotku-personalnyh-dannyh.docx"
                     class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:underline" download>
                     <i class="fas fa-file-word"></i>
                     Скачать согласие
@@ -125,7 +125,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     с момента получения запроса.
                 </p>
                 <p class="text-gray-600 text-sm mb-4">Скачать полный текст политики в формате DOCX</p>
-                <a href="/public/documents/politika-konfidencialnosti.docx"
+                <a href="/documents/politika-konfidencialnosti.docx"
                     class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:underline" download>
                     <i class="fas fa-file-word"></i>
                     Скачать политику

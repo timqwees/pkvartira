@@ -75,6 +75,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Капитальный — от 13 000 ₽/м²</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Дизайнерский — от 18 000 ₽/м²</li>
                     </ul>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%.</p>
                     <p class="mt-4 text-[#4b5563] leading-relaxed">Посчитайте свой метраж прямо сейчас: <a href="/calculator" class="text-[#6d5744] underline hover:text-[#5c4a3a]">калькулятор ремонта</a>, полные таблицы — на странице <a href="/prices" class="text-[#6d5744] underline hover:text-[#5c4a3a]">цен</a>.</p>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
@@ -86,6 +87,58 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                         <div class="flex gap-3 py-2"><span class="font-bold text-[#876b55]">4</span><span class="text-[#4b5563]">Смета в 3 вариантах за 24 часа, старт в удобную дату</span></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- F-04: ориентиры стоимости по метражу + чек-лист подготовки к ключам -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Ориентир по бюджету: сколько заложить на ремонт</h2>
+            <p class="mt-3 text-center text-[#6b7280] max-w-3xl mx-auto">Таблица для планирования, пока квартира ещё не получена. Итоговая сумма считается по факту замера.</p>
+
+            <div class="mt-8 overflow-x-auto">
+                <table class="w-full text-sm bg-white rounded-2xl border border-gray-200 overflow-hidden min-w-[520px]">
+                    <thead>
+                        <tr class="bg-[#f0e6da] text-[#554433]">
+                            <th class="px-4 py-3 text-left font-semibold">Площадь</th>
+                            <th class="px-4 py-3 text-right font-semibold">Косметический</th>
+                            <th class="px-4 py-3 text-right font-semibold">Капитальный</th>
+                            <th class="px-4 py-3 text-right font-semibold">Дизайнерский</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 font-medium">30 м²</td><td class="px-4 py-3 text-right">от 240 000 ₽</td><td class="px-4 py-3 text-right">от 390 000 ₽</td><td class="px-4 py-3 text-right">от 540 000 ₽</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 font-medium">40 м²</td><td class="px-4 py-3 text-right">от 320 000 ₽</td><td class="px-4 py-3 text-right">от 520 000 ₽</td><td class="px-4 py-3 text-right">от 720 000 ₽</td></tr>
+                        <tr><td class="px-4 py-3 font-medium">50 м²</td><td class="px-4 py-3 text-right">от 400 000 ₽</td><td class="px-4 py-3 text-right">от 650 000 ₽</td><td class="px-4 py-3 text-right">от 900 000 ₽</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 font-medium">60 м²</td><td class="px-4 py-3 text-right">от 480 000 ₽</td><td class="px-4 py-3 text-right">от 780 000 ₽</td><td class="px-4 py-3 text-right">от 1 080 000 ₽</td></tr>
+                        <tr><td class="px-4 py-3 font-medium">70 м²</td><td class="px-4 py-3 text-right">от 560 000 ₽</td><td class="px-4 py-3 text-right">от 910 000 ₽</td><td class="px-4 py-3 text-right">от 1 260 000 ₽</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 font-medium">80 м²</td><td class="px-4 py-3 text-right">от 640 000 ₽</td><td class="px-4 py-3 text-right">от 1 040 000 ₽</td><td class="px-4 py-3 text-right">от 1 440 000 ₽</td></tr>
+                        <tr><td class="px-4 py-3 font-medium">100 м²</td><td class="px-4 py-3 text-right">от 800 000 ₽</td><td class="px-4 py-3 text-right">от 1 300 000 ₽</td><td class="px-4 py-3 text-right">от 1 800 000 ₽</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 text-center text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%. Точный расчёт — после бесплатного замера.</p>
+
+            <h3 class="mt-12 text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Чек-лист подготовки к получению ключей</h3>
+            <p class="mt-3 text-center text-[#6b7280] max-w-3xl mx-auto">Пройдите этот список заранее — к дате передачи ключей вы будете знать, что делать с квартирой в первый же день.</p>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Заранее уточните дату передачи ключей и срок, на который объект будет закрыт на ремонт</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Закажите замер за 1–2 недели до передачи: инженер оценит состояние квартиры</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Проверьте, работает ли электричество и вода в квартире</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Согласуйте с застройщиком доступ и наличие электричества на площадке ремонта</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Сделайте фото состояния квартиры до начала работ — это база для фиксации объёмов</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Определите, какие вещи забираете в квартиру, а какие оставляете на складе у застройщика</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Проверьте доступ к мусорной площадке и возможность вывоза мусора</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">✓</span> Зафиксируйте в договоре дату начала работ и срок — ремонт к ключам идёт по графику</li>
+                </ul>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="/contact" class="inline-block px-6 py-3 rounded-lg bg-[#876b55] hover:bg-[#6d5744] text-white font-semibold transition">Записаться на замер до получения ключей</a>
             </div>
         </div>
     </section>

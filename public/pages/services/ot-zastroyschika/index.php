@@ -87,12 +87,43 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Дизайнерский</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
                     </div>
+                    <p class="mt-4 text-sm text-[#6b7280]">Цены указаны за работы, без учёта материалов. Итоговую стоимость считаем после замера.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="py-12 bg-[#f9fafb]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Почему 5 000 ₽/м² и 8 000 ₽/м² — это разные объёмы работ</h2>
+            <p class="mt-3 text-center text-[#6b7280] max-w-3xl mx-auto">Цена зависит не от адреса квартиры, а от того, что именно нужно сделать с базовой отделкой застройщика.</p>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-[#111827]">От 5 000 ₽/м² — обновление отделки</h3>
+                    <p class="mt-2 text-sm text-[#4b5563]">Берём то, что застройщик уже сделал, и освежаем покрытия: переклеиваем обои, красим потолки, меняем линолеум на ламинат, ставим розетки и светильники. Инженерия, стяжка и штукатурка остаются как есть — мы их не трогаем.</p>
+                    <p class="mt-3 text-sm font-semibold text-[#876b55]">Подходит, когда базовая отделка в хорошем состоянии и нужно просто освежить.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-[#111827]">От 8 000 ₽/м² — полная доработка</h3>
+                    <p class="mt-2 text-sm text-[#4b5563]">Дополнительно меняем покрытия, ставим нормальные двери и сантехнику, переделываем освещение, выравниваем стены и полы, доводим кухонный блок. Это уже полноценный ремонт под ключ с инженерией.</p>
+                    <p class="mt-3 text-sm font-semibold text-[#876b55]">Подходит, когда отделка застройщика не устраивает по качеству или планировке.</p>
+                </div>
+            </div>
+            <div class="mt-6 bg-white rounded-xl p-6">
+                <h3 class="text-lg font-bold text-[#111827]">Что входит в любой вариант</h3>
+                <ul class="mt-3 space-y-2">
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Демонтаж старых покрытий и вывоз мусора</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Замена электрики и освещения в зоне ремонта</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Фиксированная смета в договоре — без роста цены в процессе</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Ежедневный фотоотчёт и приёмка этапов по чек-листу</li>
+                    <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-[#876b55] mt-1">•</span> Гарантия 3 года на все выполненные работы</li>
+                </ul>
+                <p class="mt-4 text-sm text-[#6b7280]">Точный вариант определяем на замере: смотрим состояние базовой отделки и считаем смету по объёму работ.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12">
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Как мы работаем</h2>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -132,6 +163,11 @@ include './public/components/cta-form.php';
         </div>
     </section>
 </main>
+<?php
+$otdelkaClusterCurrent = 'ot-zastroyschika';
+include './public/components/otdelka-cluster.php';
+?>
+
     <section class="py-12 text-center bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>

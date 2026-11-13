@@ -1,0 +1,24 @@
+{
+  "name": "fss",
+  "version": "1.0.0",
+  "description": "ФАВОРИТ-СТРОЙ-СНАБ — быстровозводимые здания под ключ. PHP-проект на ядре Qwees_CorePro.",
+  "keywords": [
+    "php",
+    "fss",
+    "qweescore"
+  ],
+  "homepage": "https://github.com/timqwees/QweesCore#readme",
+  "bugs": {
+    "url": "https://github.com/timqwees/QweesCore/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timqwees/QweesCore.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "qwees:start": "php -S 0.0.0.0:80",
+    "indexnow": "php tools/indexnow.php"
+  }
+}
