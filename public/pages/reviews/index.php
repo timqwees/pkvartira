@@ -87,6 +87,20 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             'bestRating' => '5',
             'worstRating' => '1',
         ],
+        [
+            '@type' => 'Review',
+            '@id' => $site['baseUrl'] . '/reviews#reviews-list',
+            'reviewRating' => [
+                '@type' => 'Rating',
+                'ratingValue' => $avgRatingStr,
+                'bestRating' => '5',
+                'worstRating' => '1',
+            ],
+            'author' => ['@id' => $site['baseUrl'] . '#organization'],
+            'datePublished' => date('c'),
+            'reviewBody' => 'Агрегированные отзывы с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Всего ' . $totalReviews . ' отзывов.',
+            'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
+        ],
     ],
 ]);
 ?>
