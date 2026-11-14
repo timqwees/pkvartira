@@ -290,62 +290,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
 
-        <!-- Section 3: Как мы контролируем качество -->
-        <section class="py-16 bg-white reveal">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <!-- Section Header -->
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-blue-600 p-2.5 rounded-full w-10 h-10 flex items-center justify-center text-white">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-gray-800">Наш шоурум</h2>
-                    <div class="h-[0.5px] bg-gray-400 flex-1 ml-4"></div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Showroom Card 1 -->
-                    <div class="bg-gray-50 rounded-xl overflow-hidden">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/pages/about/quality-control/img.jpg') ?>"
-                                alt="Шоурум и офис Проект Квартира" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-info text-white text-sm"></i>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Шоурум и офис</h3>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                                Приезжайте к нам в шоурум.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Showroom Card 2 -->
-                    <!-- <div class="bg-gray-50 rounded-xl overflow-hidden">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/pages/about/quality-control/img.jpg') ?>"
-                                alt="Шоурум" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-sm"></i>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Шоурум и офис</h3>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                                Познакомьтесь с ним с продуманным тактовымнапам, по стоянием, инжинирингом и погр -
-                                качественные пьедие. Первичные риски работу на странице площадь темпарез 3.
-                            </p>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Документы и гарантии -->
+        <!-- Section 3: Документы и гарантии -->
         <section class="py-16 bg-gray-50 reveal">
             <div class="container mx-auto px-4 max-w-6xl">
                 <!-- Section Header -->
