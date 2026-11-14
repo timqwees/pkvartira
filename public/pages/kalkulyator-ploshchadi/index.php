@@ -1,5 +1,7 @@
 <?php
-$site = Setting\Route\Functions\TheFunction::site();
+// 301 редирект на основной калькулятор (каннибализация)
+header('Location: /calculator', true, 301);
+exit;
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Калькулятор площади комнаты онлайн — расчёт м² стен и пола',

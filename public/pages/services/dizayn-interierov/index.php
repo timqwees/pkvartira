@@ -73,10 +73,9 @@ $seo = TheFunction::seo([
 
         <!-- 1. hero section -->
         <?php
+        $heroH1 = 'Дизайн интерьеров';
         $heroFormId = 'dizajn_hero';
         $heroSubtitle = 'Создаём интерьеры, в которых хочется жить. От первого эскиза до финальной расстановки мебели — берём на себя весь процесс. Работаем с новостройками и вторичкой в Москве и МО.';
-        $heroCtaText = 'Заказать дизайн-проект';
-        $heroCtaAnchorText = 'Смотреть цены';
         include './public/components/hero-section.php';
         ?>
 

@@ -47,7 +47,7 @@ $seo = TheFunction::seo([
     <!-- Open Graph -->
     <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
     <meta property="og:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($seo['og']['title']); ?>">
     <meta property="og:description"
         content="Ремонт квартир в новостройке под ключ в Москве от 360 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
@@ -61,7 +61,7 @@ $seo = TheFunction::seo([
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
     <meta name="twitter:title"
-        content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
     <meta name="twitter:description"
         content="Ремонт квартир в новостройках под ключ от 360 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
@@ -84,6 +84,7 @@ $seo = TheFunction::seo([
 
                 <!-- 1. hero section -->
         <?php
+        $heroH1 = 'Ремонт квартир в новостройке';
         $heroFormId = 'novostroyka_hero';
         $heroSubtitle = 'С 2014 года делаем ремонт в новостройках Москвы. Работаем с бетоном, голыми стенами и стяжкой. Делаем разводку электрики и сантехники с нуля, учитываем усадку дома. Принимаем квартиру от застройщика и готовим под чистовую отделку.';
         include './public/components/hero-section.php';

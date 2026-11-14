@@ -47,7 +47,7 @@ $seo = TheFunction::seo([
     <!-- Open Graph -->
     <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
     <meta property="og:title"
-        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($seo['og']['title']); ?>">
     <meta property="og:description"
         content="Ремонт однокомнатных квартир под ключ от 296 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
@@ -61,7 +61,7 @@ $seo = TheFunction::seo([
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
     <meta name="twitter:title"
-        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
     <meta name="twitter:description"
         content="Ремонт однокомнатных квартир под ключ от 296 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">

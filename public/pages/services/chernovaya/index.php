@@ -35,7 +35,7 @@ $seo = TheFunction::seo([
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($seoTitle) ?></title>
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира') ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -72,11 +72,15 @@ $seo = TheFunction::seo([
     <!-- Main Content -->
     <main class="flex flex-col">
 
-        <?php include './public/components/service-page-sections.php'; ?>
-
-    </main>
-
-    <?php include_once './public/components/footer.php'; ?>
+        <?php
+        $svc = [
+            'heroH1' => 'Черновая отделка квартиры',
+            'heroSubtitle' => 'Черновая отделка под ключ: стяжка, штукатурка, шпаклёвка, разводка электрики и сантехники. Фиксированная смета, гарантия 3 года, бесплатный замер.',
+            'heroFormId' => 'chernovaya_hero',
+            'bg_url' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+        ];
+        include './public/components/service-page-sections.php';
+        ?>
 
     <!-- Local Scripts -->
     <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>

@@ -83,12 +83,18 @@ class Sitemap
 
     private function buildIndexXml(): string
     {
-        $today = date('Y-m-d');
+        // lastmod для индекса — реальное время изменения исходных файлов
+        $sourceMtime = filemtime(__FILE__);
+        $pagesFile = __DIR__ . '/../../../public/pages';
+        if (is_dir($pagesFile)) {
+            $sourceMtime = max($sourceMtime, filemtime($pagesFile));
+        }
+        $lastmod = date('Y-m-d', $sourceMtime);
 
         $sitemaps = [
-            ['loc' => '/sitemap-pages.xml', 'lastmod' => $today],
-            ['loc' => '/sitemap-services.xml', 'lastmod' => $today],
-            ['loc' => '/sitemap-blog.xml', 'lastmod' => $today],
+            ['loc' => '/sitemap-pages.xml', 'lastmod' => $lastmod],
+            ['loc' => '/sitemap-services.xml', 'lastmod' => $lastmod],
+            ['loc' => '/sitemap-blog.xml', 'lastmod' => $lastmod],
         ];
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
@@ -393,10 +399,20 @@ class Sitemap
             $articles = json_decode(file_get_contents($jsonPath), true);
             if (is_array($articles)) {
                 foreach ($articles as $art) {
-                    $lastmod = $art['updated_at'] ?? $art['created_at'] ?? date('Y-m-d');
-                    // Валидация даты: если strtotime вернул false — фолбэк на сегодня
-                    $lastmodTs = strtotime((string)$lastmod);
-                    $lastmod = $lastmodTs ? date('Y-m-d', $lastmodTs) : date('Y-m-d');
+                    $lastmod = null;
+                    // Используем только реальные даты — updated_at приоритетнее, затем created_at
+                    // Не фоллбекаем на сегодня — если даты нет, lastmod не выводим
+                    if (!empty($art['updated_at'])) {
+                        $lastmodTs = strtotime((string)$art['updated_at']);
+                        if ($lastmodTs) {
+                            $lastmod = date('Y-m-d', $lastmodTs);
+                        }
+                    } elseif (!empty($art['created_at'])) {
+                        $lastmodTs = strtotime((string)$art['created_at']);
+                        if ($lastmodTs) {
+                            $lastmod = date('Y-m-d', $lastmodTs);
+                        }
+                    }
                     // Каноника статей — короткие ЧПУ-слаги; фолбэк id на случай битой записи
                     $slug = !empty($art['slug']) ? (string) $art['slug'] : (string) ($art['id'] ?? '');
                     $xml .= $this->buildEntry('/blog/' . $slug, '0.6', 'weekly', $lastmod);

@@ -832,6 +832,35 @@ class TheFunction
         // Ранее truncate до 48 резал цену и гео-контекст на страницах районов/комнат.
         $opts['title'] = self::truncateSeo((string)$opts['title'], 55);
         $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
+
+        // === CANONICAL FIX для каннибализации ===
+        // Кластер "ремонт квартир под ключ" → канонический /services/pod-klyuch
+        $canonicalOverrideMap = [
+            '/services/novostroyka' => '/services/pod-klyuch',
+            '/services/vtorichka' => '/services/pod-klyuch',
+            '/services/pod-klyuch' => '/services/pod-klyuch', // self-ref
+            '/prices' => '/services/pod-klyuch',
+            '/services' => '/services/pod-klyuch', // общая страница услуг
+            '/blog/remont-pod-klyuch-2026' => '/services/pod-klyuch',
+            '/blog/kosmeticheskiy-remont-2026' => '/services/pod-klyuch',
+            '/blog/dizaynerskiy-remont-2026' => '/services/dizayn-interierov',
+            '/blog/remont-v-novostroyke-2026' => '/services/novostroyka',
+            '/blog/remont-vo-vtorichke-2026' => '/services/vtorichka',
+            '/blog/chistovaya-otdelka-2026' => '/services/chistovaya',
+            '/blog/chernovaya-otdelka-2026' => '/services/chernovaya',
+            '/blog/white-box-2026' => '/services/white-box',
+            '/blog/premium-remont-2026' => '/services/premium',
+            '/blog/dizayn-interera-2026' => '/services/dizayn-interierov',
+            '/smeta-obrazec' => '/smeta-obrazec', // self-ref
+            '/dogovor-obrazec' => '/dogovor-obrazec', // self-ref
+            '/kalkulyator-ploshchadi' => '/calculator', // 301 редирект в nginx
+        ];
+        $pathOnly = $site['path'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        if (isset($canonicalOverrideMap[$pathOnly])) {
+            $opts['canonical'] = $site['baseUrl'] . $canonicalOverrideMap[$pathOnly];
+        } else {
+            $opts['canonical'] = $site['baseUrl'] . $pathOnly; // self-referencing
+        }
         // Гарантируем бренд в description — если нет упоминания бренда, добавляем «Проект Квартира»
         if (stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'pkvartira') === false) {
             $brandSuffix = ' — Проект Квартира (Проект Квартира, pkvartira.ru)';
@@ -850,6 +879,10 @@ class TheFunction
         $pageUrl = $opts['url'];
         $pageTitle = $opts['title'];
         $pageDescription = $opts['description'];
+
+        // Canonical URL для JSON-LD (учитывает каннибализацию)
+        $canonicalUrl = $opts['canonical'];
+
         // Фильтруем пустые соцсети (например VK если не задан — не попадает в sameAs, чтобы не плодить битую ссылку)
         // GEO: sameAs связывает сущность компании везде — сайт, мессенджеры, Яндекс Карты (один и тот же бренд для AI-поиска)
         $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp'], $site['kartaAdress'] ?? '', 'https://yandex.ru/maps/org/proyekt_kvartira/'], fn($v) => is_string($v) && $v !== ''));
@@ -964,8 +997,8 @@ class TheFunction
                 ],
                 [
                     '@type' => $opts['pageType'] === 'BlogPosting' ? 'WebPage' : $opts['pageType'],
-                    '@id' => $pageUrl . '#webpage',
-                    'url' => $pageUrl,
+                    '@id' => $canonicalUrl . '#webpage',
+                    'url' => $canonicalUrl,
                     'name' => $pageTitle . ' — ' . $brand,
                     'description' => $pageDescription,
                     'isPartOf' => ['@id' => $site['baseUrl'] . '#website'],
@@ -987,8 +1020,8 @@ class TheFunction
             $reviewCount = 35;
             $jsonLd['@graph'][] = [
                 '@type' => 'Service',
-                '@id' => $pageUrl . '#service',
-                'url' => $pageUrl,
+                '@id' => $canonicalUrl . '#service',
+                'url' => $canonicalUrl,
                 'name' => $opts['title'],
                 'description' => $opts['description'],
                 'provider' => ['@id' => $site['baseUrl'] . '#organization'],
@@ -1027,8 +1060,8 @@ class TheFunction
             if (!$hasCustomBlogPosting) {
                 $blogPosting = [
                     '@type' => 'BlogPosting',
-                    '@id' => $pageUrl . '#article',
-                    'url' => $pageUrl,
+                    '@id' => $canonicalUrl . '#article',
+                    'url' => $canonicalUrl,
                     'headline' => $opts['title'],
                     'description' => $opts['description'],
                     'image' => [
@@ -1100,7 +1133,7 @@ class TheFunction
             }
             $jsonLd['@graph'][] = [
                 '@type' => 'BreadcrumbList',
-                '@id' => $pageUrl . '#breadcrumb',
+                '@id' => $canonicalUrl . '#breadcrumb',
                 'itemListElement' => $items,
             ];
         }
@@ -1111,9 +1144,9 @@ class TheFunction
         $mainPageType = $opts['pageType'] === 'BlogPosting' ? 'WebPage' : $opts['pageType'];
         if (!empty($opts['breadcrumbs']) || !empty($opts['speakable'])) {
             foreach ($jsonLd['@graph'] as $gi => $gn) {
-                if (($gn['@type'] ?? '') === $mainPageType && ($gn['@id'] ?? '') === $pageUrl . '#webpage') {
+                if (($gn['@type'] ?? '') === $mainPageType && ($gn['@id'] ?? '') === $canonicalUrl . '#webpage') {
                     if (!empty($opts['breadcrumbs'])) {
-                        $jsonLd['@graph'][$gi]['breadcrumb'] = ['@id' => $pageUrl . '#breadcrumb'];
+                        $jsonLd['@graph'][$gi]['breadcrumb'] = ['@id' => $canonicalUrl . '#breadcrumb'];
                     }
                     if (!empty($opts['speakable'])) {
                         $jsonLd['@graph'][$gi]['speakable'] = [
@@ -1141,7 +1174,7 @@ class TheFunction
         return [
             'title' => $opts['title'],
             'description' => $opts['description'],
-            'canonical' => $pageUrl,
+            'canonical' => $opts['canonical'],
             'keywords' => $opts['keywords'],
             'og' => [
                 'type' => $opts['type'],

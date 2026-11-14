@@ -72,7 +72,15 @@ $seo = TheFunction::seo([
     <!-- Main Content -->
     <main class="flex flex-col">
 
-        <?php include './public/components/service-page-sections.php'; ?>
+        <?php
+        $svc = [
+            'heroH1' => 'Ремонт квартиры-студии',
+            'heroSubtitle' => 'Компактное жильё — не повод для компромиссов. Сделаем ремонт студии под ключ: грамотная планировка, свет, эргономика, гарантия 3 года.',
+            'heroFormId' => 'studio_hero',
+            'bg_url' => '/public/assets/images/portfolio-photos/studio/1_24sqm/1.jpg',
+        ];
+        include './public/components/service-page-sections.php';
+        ?>
 
 <?php
 // J-01: кейс с фотографиями, площадью, сроками и итоговой стоимостью

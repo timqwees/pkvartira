@@ -47,7 +47,7 @@ $seo = TheFunction::seo([
     <!-- Open Graph -->
     <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
     <meta property="og:title"
-        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($seo['og']['title']); ?>">
     <meta property="og:description"
         content="Ремонт 4-комнатной квартиры под ключ в Москве: от 8 000 ₽/м². Реальные объекты 65–100 м², сроки 78–95 дней, фиксированная смета, гарантия 3 года.">
     <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
@@ -61,7 +61,7 @@ $seo = TheFunction::seo([
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
     <meta name="twitter:title"
-        content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+        content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
     <meta name="twitter:description"
         content="Ремонт четырехкомнатных квартир под ключ от 720 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
     <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
@@ -84,6 +84,7 @@ $seo = TheFunction::seo([
 
                 <!-- 1. hero section -->
         <?php
+        $heroH1 = 'Ремонт 4-комнатной квартиры';
         $heroFormId = '4room_hero';
         $heroSubtitle = 'Большая площадь — не значит переплата. Косметический ремонт от 8 000 ₽/м², капитальный от 13 000 ₽/м². Стоимость фиксируем в договоре, сроки — тоже.';
         include './public/components/hero-section.php';

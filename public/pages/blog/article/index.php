@@ -216,10 +216,16 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                                 <div
                                     class="flex flex-wrap justify-start sm:justify-end gap-x-3 gap-y-1 text-[12px] font-bold text-blue-700">
-                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#ремонтподключ</a>
-                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#дизайнинтерьера</a>
-                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#отделкастен</a>
-                                    <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#напольныепокрытия</a>
+                                    <?php if (!empty($articleData['tags'] ?? '')): ?>
+                                        <?php foreach (explode(',', $articleData['tags']) as $tag): ?>
+                                            <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#<?= htmlspecialchars(trim($tag)); ?></a>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#ремонтподключ</a>
+                                        <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#дизайнинтерьера</a>
+                                        <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#отделкастен</a>
+                                        <a class="hover:text-blue-800 transition" href="/blogs" rel="tag">#напольныепокрытия</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
