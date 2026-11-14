@@ -288,7 +288,6 @@ class Sitemap
             'stomatologiya',
             'apteka',
             'fitness',
-            'showroom',
             'salon-krasoty',
         ];
 
