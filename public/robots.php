@@ -23,6 +23,7 @@ require_once dirname(__DIR__) . '/setting/Route/Functions/SiteUrl.php';
 $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
 $rawHost = preg_replace('/:\\d+$/', '', (string)$rawHost) ?? '';
 $canonicalHosts = \Setting\Route\Functions\SiteUrl::CANONICAL_HOSTS;
+$isUpgrade = strtolower($rawHost) === 'upgrade.pkvartira.ru';
 $isProd = in_array(strtolower($rawHost), $canonicalHosts, true);
 if ($isProd) {
     $scheme = 'https';
@@ -35,6 +36,11 @@ if ($isProd) {
     $host = $rawHost ?: 'pkvartira.ru';
 }
 $baseUrl = $scheme . '://' . $host;
+
+// Если upgrade поддомен — закрываем от индексации
+if ($isUpgrade) {
+    header('X-Robots-Tag: noindex, nofollow');
+}
 
 // Content-Signal (IETF draft draft-romm-aipref-contentsignals): предпочтения
 // использования контента AI-системами. Политика сайта — полный допуск:

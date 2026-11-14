@@ -120,6 +120,8 @@ class TheFunction
     public static function site(): array
     {
         $baseUrl = SiteUrl::baseUrl();
+        $host = parse_url($baseUrl, PHP_URL_HOST);
+        $isUpgrade = $host === 'upgrade.pkvartira.ru';
         $pathOnly = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         if (!is_string($pathOnly) || $pathOnly === '') {
             $pathOnly = '/';
@@ -127,18 +129,57 @@ class TheFunction
         $canonicalUrl = $baseUrl . $pathOnly;
         $shareImageUrl = $baseUrl . '/public/assets/images/logo/favicon/web-app-manifest-512x512.png';
 
+        if ($isUpgrade) {
+            // Уникальные данные для upgrade.pkvartira.ru — предотвращаем канибализацию
+            return [
+                'baseUrl' => $baseUrl,
+                'path' => $pathOnly,
+                'canonicalUrl' => $canonicalUrl,
+                'shareImageUrl' => $shareImageUrl,
+                'name' => 'Проект Квартира — Тестовая среда',
+                'shortName' => 'PK Upgrade',
+                'brand' => 'Проект Квартира (Upgrade)',
+                'shortBrand' => 'PK Upgrade',
+                'legalName' => 'ООО "Проект Квартира"',
+                'alternateName' => ['Проект Квартира Upgrade', 'PK Upgrade', 'pkvartira upgrade', 'upgrade.pkvartira.ru', 'Проект Квартира тест', 'тестовая среда Проект Квартира'],
+                'slogan' => 'Тестовая среда: ремонт квартир под ключ в Москве',
+                'description' => 'Тестовая среда Проект Квартира (upgrade.pkvartira.ru) — стенд для проверки новой функциональности перед деплоем на продакшн. Не для коммерческого использования.',
+                'phone' => '+7 495 292-55-06',
+                'email' => 'upgrade@pkvartira.ru',
+                'address' => [
+                    'streetAddress' => 'ул. Варшавское ш., д. 28А',
+                    'addressLocality' => 'Москва',
+                    'addressRegion' => 'Москва',
+                    'postalCode' => '117105',
+                    'addressCountry' => 'RU'
+                ],
+                'geo' => [
+                    'latitude' => '55.682803',
+                    'longitude' => '37.617941'
+                ],
+                'openingHours' => 'Mo-Fr 09:00-22:00',
+                'priceRange' => '₽₽',
+                'kartaAdress' => 'https://yandex.ru/maps/213/moscow/house/varshavskoye_shosse_28a/Z04YcAZnQEEGQFtvfXp5c3RjZw==/?indoorLevel=1&ll=37.617940%2C55.682803&source=serp_navig&z=16.99',
+                'telegram' => 'https://t.me/pkvartira',
+                'whatsapp' => 'https://wa.me/74952925506',
+                'vk' => '',
+                'max' => '',
+                'phone8800' => '8 800 302-17-37',
+                'isUpgrade' => true,
+            ];
+        }
+
+        // Основной продакшн сайт
         return [
             'baseUrl' => $baseUrl,
             'path' => $pathOnly,
             'canonicalUrl' => $canonicalUrl,
             'shareImageUrl' => $shareImageUrl,
             'name' => 'Проект Квартира',
-            // Брендовые названия для SEO: «Проект Квартира» — основное, «Проект Квартира» — сокращённое/домен
             'shortName' => 'Проект Квартира',
             'brand' => 'Проект Квартира',
             'shortBrand' => 'Проект Квартира',
             'legalName' => 'ООО "Проект Квартира"',
-            // Расширенные брендовые варианты для быстрого нахождения по любым запросам
             'alternateName' => ['Проект Квартира', 'Проект Квартира', 'Проект Квартира', 'ПроектКвартира', 'Проект Квартира', 'пк квартира', 'Proekt Kvartira', 'proekt kvartira', 'PKVARTIRA', 'pkvartira', 'pkvartira.ru', 'ООО Проект Квартира', 'Проект Квартира Москва'],
             'slogan' => 'Ремонт квартир под ключ в Москве',
             'description' => 'Проект Квартира (Проект Квартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Официальный сайт',
@@ -163,6 +204,7 @@ class TheFunction
             'vk' => '', // VK сообщество pkvartira не найдено (404) — скрываем ссылку до появления валидного URL; укажите реальный адрес вида https://vk.com/clubXXXX или https://vk.com/pkvartira_ru
             'max' => '',
             'phone8800' => '8 800 302-17-37',
+            'isUpgrade' => false,
         ];
     }
 
