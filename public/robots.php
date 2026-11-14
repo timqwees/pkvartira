@@ -37,10 +37,9 @@ if ($isProd) {
 }
 $baseUrl = $scheme . '://' . $host;
 
-// Если upgrade поддомен — закрываем от индексации
-if ($isUpgrade) {
-    header('X-Robots-Tag: noindex, nofollow');
-}
+// upgrade.pkvartira.ru — легитимный второй сайт (multi-site strategy), открыт для индексации
+// Self-referencing canonical + уникальный контент + cross-linking предотвращают канибализацию
+
 
 // Content-Signal (IETF draft draft-romm-aipref-contentsignals): предпочтения
 // использования контента AI-системами. Политика сайта — полный допуск:
