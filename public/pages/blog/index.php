@@ -152,11 +152,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 $articles = array_slice($__blogJson, $offset, $show_articles);
 
                 $__seenCats = [];
-                $categoriyes = [];
+                $categories = [];
                 foreach ($__blogJson as $__item) {
                     if (!empty($__item['category']) && !in_array($__item['category'], $__seenCats)) {
                         $__seenCats[] = $__item['category'];
-                        $categoriyes[] = ['category' => $__item['category']];
+                        $categories[] = ['category' => $__item['category']];
                     }
                 }
 
@@ -167,11 +167,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <button data-filter="all"
                         class="filter-btn active">
                         Все статьи</button>
-                    <?php foreach ($categoriyes as $key): ?>
+                    <?php foreach ($categories as $key): ?>
                         <button data-filter="<?php echo $key['category']; ?>"
                             class="filter-btn">
                             <?php echo $key['category']; ?></button>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -261,7 +261,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             </div>
                                         </a>
                                     <?php endforeach; ?>
-                                <? endif; ?>
+                                <?php endif; ?>
                             </div>
                         </nav>
 
