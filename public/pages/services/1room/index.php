@@ -1,40 +1,35 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт 1-комнатной квартиры — цены за м² в Москве | от 8 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
-$prices = [
-    [
-        'заголовок' => 'Косметический',
-        'цена' => 'от 8 000 ₽',
-        'цена_число' => '8000',
-        'подзаголовок' => 'Итого для 37 м² - от 296 000 Р',
-        'услуги' => ['Обои или покраска стен', 'Замена напольного покрытия', 'Потолки — покраска или натяжка', 'Замена розеток или выключателей', 'Финальная уборка'],
-        'кнопка' => 'Заказать расчет',
-        'стиль' => 'classic'
-    ],
-    [
-        'заголовок' => 'Капитальный',
-        'цена' => 'от 13 000 ₽',
-        'цена_число' => '13000',
-        'подзаголовок' => 'Итого для 37 м² - от 520 000 Р',
-        'услуги' => ['Полная замена электрики', 'Полная замена сантехники', 'Стяжка полов и штукатурка стен', 'Чистовая отделка под ключ', 'Установка дверей и откосов', 'Финальная уборка'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'рекомендуем',
-        'бейдж' => 'Рекомендуем'
-    ],
-    [
-        'заголовок' => 'Дизайнерский',
-        'цена' => 'от 18 000 ₽',
-        'цена_число' => '18000',
-        'подзаголовок' => 'Итого для 37 м² - от 720 000 Р',
-        'услуги' => ['Дизайн-проект в подарок', 'Премиальные материалы', 'Сложные решения: ниши, подсветка', 'Авторский надзор архитектора', 'Все из пакета "Капитальный"', 'Финальная уборка'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'classic'
-    ]
-];
 
+$seo = TheFunction::seo([
+    'title' => 'Ремонт 1-комнатной квартиры — цены за м² в Москве | от 8 000 ₽',
+    'description' => 'Ремонт однокомнатной квартиры 30–40 м² под ключ: от 296 000 ₽, фиксированная смета в договоре, гарантия 3 года. Бесплатный замер в Москве и МО.',
+    'canonical' => '/services/1room',
+    'image' => '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg',
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Услуги',
+    'url' => '/services',
+  ),
+  2 => 
+  array (
+    'name' => '1room',
+    'url' => '/services/1room',
+  ),
+),
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -43,222 +38,41 @@ $prices = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ремонт однокомнатной квартиры под ключ в Москве — цена за м² | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт однокомнатной квартиры 30–40 м² под ключ: от 296 000 ₽, фиксированная смета в договоре, гарантия 3 года. Бесплатный замер в Москве и МО.',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/1room'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
     <meta property="og:title"
         content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
         content="Ремонт однокомнатных квартир под ключ от 296 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/1room'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
 
     <meta property="og:site_name"
         content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
     <meta name="twitter:title"
         content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="twitter:description"
         content="Ремонт однокомнатных квартир под ключ от 296 000 ₽. Фиксированные цены, реальные сроки, гарантия 3 года.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Дополнительные мета-теги -->
 
 
     <!-- Структурированные данные (JSON-LD) -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Service",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#service', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": "Ремонт квартир под ключ",
-        "description": "Профессиональный ремонт квартир и домов под ключ в Москве",
-        "provider": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "serviceType": "Ремонтные услуги",
-        "areaServed": {
-          "@type": "City",
-          "name": "Москва"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Услуги по ремонту",
-          "itemListElement": [
-            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
-            {
-              "@type": "Offer",
-              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
-              "priceCurrency": "RUB",
-              "itemOffered": {
-                "@type": "Service",
-                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
-              }
-            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
-            <?php endforeach; ?>
-          ]
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Услуги",
-            "item": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Ремонт 1-комнатной квартиры",
-            "item": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#faq', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Можно ли жить в квартире во время ремонта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "В большинстве случаев — да. Мы организуем работы поэтапно и соблюдаем чистоту. Уточним нюансы после замера."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Что если смета вырастет в процессе?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Смета фиксируется договором. Изменения возможны только по вашему согласованию при дополнительных работах."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Нужен ли дизайн-проект для капитального ремонта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Не обязательно. Но проект помогает точно рассчитать стоимость и избежать переделок. Мы можем сделать базовую планировку."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Как вы контролируете качество работ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и приемку работ по чек-листу."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Работаете ли вы по договору?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, работаем по официальному договору. В нем фиксируются сроки, стоимость и гарантия."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько стоит ремонт однокомнатной квартиры?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "От 296 000 ₽ за квартиру 37 м². Пакеты — от 8 000 ₽/м² (косметика), от 13 000 ₽/м² (капитальный), от 18 000 ₽/м² (дизайнерский). Точную стоимость даёт смета после бесплатного замера."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько стоит ремонт однушки под ключ в Москве?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Готовим смету в 3 вариантах за 24 часа после замера, цена фиксируется в договоре и не растёт. Ориентиры и состав пакетов — на странице цен."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько стоит ремонт однокомнатной квартиры с материалами?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Стоимость ремонта однокомнатной квартиры с материалами — от 8 000 ₽/м² (косметический с черновыми материалами), капитальный с материалами — от 13 000 ₽/м². Например, 37 м² — от 296 000 ₽."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Во сколько обойдется ремонт 1 комнатной квартиры?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ремонт 1 комнатной квартиры обойдётся от 280 000 ₽ (косметический 35 м²) до 585 000 ₽ (капитальный 45 м²). Точную цифру даёт смета после бесплатного замера."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько стоит черновой ремонт однокомнатной квартиры в Москве?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Черновой ремонт однокомнатной квартиры в Москве — от 8 000 ₽/м²: стяжка, штукатурка, электрика, сантехника."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Где посмотреть фото и дизайны ремонта однушек?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "В портфолио: фото до и после с площадью, сроком и стоимостью каждого проекта."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько длится ремонт однокомнатной квартиры?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Косметический — от 14 дней, капитальный — от 45 дней. Точный срок зависит от площади и состояния квартиры и фиксируется в договоре."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Какие есть идеи и примеры ремонта однушки 30–40 м²?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Смотрите реализованные проекты в портфолио и варианты планировок на странице ремонта под ключ."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Что входит в ремонт однушки под ключ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Полный цикл: демонтаж, электрика, сантехника, выравнивание, чистовая отделка, двери, освещение и финальная уборка. Полный состав — на странице ремонта под ключ."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 
 <body class="bg-white">

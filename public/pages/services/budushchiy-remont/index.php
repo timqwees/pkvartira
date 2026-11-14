@@ -1,52 +1,112 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартиры в будущем — узнайте цену заранее';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт квартиры в будущем — узнайте цену заранее',
+    'description' => 'Ремонт квартиры в новостройке под ключ от 8 000 ₽/м² в Москве. Узнайте стоимость ремонта уже сейчас, до получения ключей: план бюджета, смета за 24 часа, бесплатный замер. — Проект Квартира.',
+    'canonical' => '/services/budushchiy-remont',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Ремонт в будущем',
+    'url' => '/services/budushchiy-remont',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Планирование ремонта квартиры',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Когда лучше заказывать ремонт, если ключи будут через полгода?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Ориентир цены можно получить уже сейчас через калькулятор. Точную смету составим после бесплатного замера готовой квартиры — заявка ни к чему не обязывает.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Цена не вырастет, пока я жду ключи?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Точная стоимость фиксируется в договоре по смете после замера. Ориентир сейчас нужен, чтобы спланировать бюджет.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Что проверить при приёмке квартиры?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Геометрию стен, стяжку, окна, электрику и сантехнику. Подробно — в нашем чек-листе приёмки. Можем выехать на приёмку вместе с вами.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры в новостройке под ключ от 8 000 ₽/м² в Москве. Узнайте стоимость ремонта уже сейчас, до получения ключей: план бюджета, смета за 24 часа, бесплатный замер. — Проект Квартира.',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/budushchiy-remont'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры в новостройке под ключ от 8 000 ₽/м² в Москве. Узнайте стоимость ремонта уже сейчас, до получения ключей: план бюджета, смета за 24 часа, бесплатный замер. — Проект Квартира.', 155)); ?>">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/budushchiy-remont'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры в новостройке под ключ от 8 000 ₽/м² в Москве. Узнайте стоимость ремонта уже сейчас, до получения ключей: план бюджета, смета за 24 часа, бесплатный замер. — Проект Квартира.', 155)); ?>">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BreadcrumbList","itemListElement": [
-                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                {"@type": "ListItem","position": 2,"name": "Ремонт в будущем","item": "<?= $site['baseUrl']; ?>/services/budushchiy-remont"}
-            ]},
-            {"@type": "Service","name": "Планирование ремонта квартиры","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Когда лучше заказывать ремонт, если ключи будут через полгода?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир цены можно получить уже сейчас через калькулятор. Точную смету составим после бесплатного замера готовой квартиры — заявка ни к чему не обязывает."}}, {"@type": "Question", "name": "Цена не вырастет, пока я жду ключи?", "acceptedAnswer": {"@type": "Answer", "text": "Точная стоимость фиксируется в договоре по смете после замера. Ориентир сейчас нужен, чтобы спланировать бюджет."}}, {"@type": "Question", "name": "Что проверить при приёмке квартиры?", "acceptedAnswer": {"@type": "Answer", "text": "Геометрию стен, стяжку, окна, электрику и сантехнику. Подробно — в нашем чек-листе приёмки. Можем выехать на приёмку вместе с вами."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

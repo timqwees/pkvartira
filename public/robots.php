@@ -18,9 +18,12 @@ if (!headers_sent()) {
     header("Content-Security-Policy: upgrade-insecure-requests; frame-ancestors 'self'");
     header('Cache-Control: public, max-age=3600, must-revalidate');
 }
+// Канонический хост: whitelist вместо suffix-проверки (защита от evil-pkvartira.ru)
+require_once dirname(__DIR__) . '/setting/Route/Functions/SiteUrl.php';
 $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
-$rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
-$isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
+$rawHost = preg_replace('/:\\d+$/', '', (string)$rawHost) ?? '';
+$canonicalHosts = \Setting\Route\Functions\SiteUrl::CANONICAL_HOSTS;
+$isProd = in_array(strtolower($rawHost), $canonicalHosts, true);
 if ($isProd) {
     $scheme = 'https';
     $host = 'pkvartira.ru';
@@ -77,4 +80,14 @@ foreach (['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'anthropic-ai', 'PerplexityBot'
     echo "Allow: /\n";
     echo "\n";
 }
+// LLM/AGENT discovery (ai.txt / llms.txt / agents.json) — открыто для всех
+echo "User-agent: *\n";
+echo "Allow: /llms.txt\n";
+echo "Allow: /llms-full.txt\n";
+echo "Allow: /.well-known/agents.json\n";
+echo "Allow: /ai-plugin.json\n";
+echo "Allow: /openapi.yaml\n";
+echo "Allow: /.well-known/api-catalog\n";
+echo "Allow: /.well-known/agent-skills/index.json\n";
+echo "\n";
 echo "Sitemap: {$baseUrl}/sitemap.xml\n";

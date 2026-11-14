@@ -119,22 +119,7 @@ class TheFunction
     // siteInfo — главное зеркало https://pkvartira.ru (301 на него в .htaccess)
     public static function site(): array
     {
-        $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
-        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
-        $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
-        if ($isProd) {
-            // Продакшн: всегда https и без www (каноникал)
-            $scheme = 'https';
-            $host = 'pkvartira.ru';
-        } else {
-            // Локалка / дев: как пришло (http для 127.0.0.1, localhost)
-            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-            if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-                $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
-            }
-            $host = $rawHost ?: 'pkvartira.ru';
-        }
-        $baseUrl = $scheme . '://' . $host;
+        $baseUrl = SiteUrl::baseUrl();
         $pathOnly = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         if (!is_string($pathOnly) || $pathOnly === '') {
             $pathOnly = '/';
@@ -978,7 +963,7 @@ class TheFunction
                     ],
                 ],
                 [
-                    '@type' => $opts['pageType'],
+                    '@type' => $opts['pageType'] === 'BlogPosting' ? 'WebPage' : $opts['pageType'],
                     '@id' => $pageUrl . '#webpage',
                     'url' => $pageUrl,
                     'name' => $pageTitle . ' — ' . $brand,
@@ -1027,31 +1012,48 @@ class TheFunction
             ];
         }
 
-        // Add BlogPosting / Article schema if pageType is BlogPosting
+        // Add BlogPosting / Article schema if pageType is BlogPosting and no custom BlogPosting provided
         if ($opts['pageType'] === 'BlogPosting') {
-            $jsonLd['@graph'][] = [
-                '@type' => 'BlogPosting',
-                '@id' => $pageUrl . '#article',
-                'url' => $pageUrl,
-                'headline' => $opts['title'],
-                'description' => $opts['description'],
-                'image' => [
-                    '@type' => 'ImageObject',
-                    'url' => $opts['image'],
-                    'width' => 1200,
-                    'height' => 630,
-                    'caption' => $opts['title'],
-                ],
-                'datePublished' => $opts['datePublished'] ?? date('c'),
-                'dateModified' => $opts['dateModified'] ?? date('c'),
-                'author' => ['@id' => $site['baseUrl'] . '#organization'],
-                'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
-                'articleSection' => $opts['articleSection'] ?? 'Ремонт',
-                'keywords' => $opts['keywords'] ?? 'ремонт квартиры, дизайн интерьера',
-                'inLanguage' => 'ru-RU',
-                'wordCount' => $opts['wordCount'] ?? 0,
-                'speakable' => $opts['speakable'] ?? [],
-            ];
+            // Check if a custom BlogPosting is already provided in schema
+            $hasCustomBlogPosting = false;
+            if (!empty($opts['schema'])) {
+                foreach ($opts['schema'] as $schema) {
+                    if (is_array($schema) && isset($schema['@type']) && $schema['@type'] === 'BlogPosting') {
+                        $hasCustomBlogPosting = true;
+                        break;
+                    }
+                }
+            }
+            if (!$hasCustomBlogPosting) {
+                $blogPosting = [
+                    '@type' => 'BlogPosting',
+                    '@id' => $pageUrl . '#article',
+                    'url' => $pageUrl,
+                    'headline' => $opts['title'],
+                    'description' => $opts['description'],
+                    'image' => [
+                        '@type' => 'ImageObject',
+                        'url' => $opts['image'],
+                        'width' => 1200,
+                        'height' => 630,
+                        'caption' => $opts['title'],
+                    ],
+                    'author' => ['@id' => $site['baseUrl'] . '#organization'],
+                    'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
+                    'articleSection' => $opts['articleSection'] ?? 'Ремонт',
+                    'keywords' => $opts['keywords'] ?? 'ремонт квартиры, дизайн интерьера',
+                    'inLanguage' => 'ru-RU',
+                    'wordCount' => $opts['wordCount'] ?? 0,
+                    'speakable' => $opts['speakable'] ?? [],
+                ];
+                if (array_key_exists('datePublished', $opts) && $opts['datePublished'] !== null) {
+                    $blogPosting['datePublished'] = $opts['datePublished'];
+                }
+                if (array_key_exists('dateModified', $opts) && $opts['dateModified'] !== null) {
+                    $blogPosting['dateModified'] = $opts['dateModified'];
+                }
+                $jsonLd['@graph'][] = $blogPosting;
+            }
         }
 
         // Add Product schema if pageType is Product
@@ -1106,9 +1108,10 @@ class TheFunction
         // Связка основной ноды страницы ↔ BreadcrumbList.
         // Убирает warn enterno «WebPage: отсутствует breadcrumb».
         // Плюс SpeakableSpecification (AI-readiness: голосовые ассистенты и AI-цитирования).
+        $mainPageType = $opts['pageType'] === 'BlogPosting' ? 'WebPage' : $opts['pageType'];
         if (!empty($opts['breadcrumbs']) || !empty($opts['speakable'])) {
             foreach ($jsonLd['@graph'] as $gi => $gn) {
-                if (($gn['@type'] ?? '') === $opts['pageType'] && ($gn['@id'] ?? '') === $pageUrl . '#webpage') {
+                if (($gn['@type'] ?? '') === $mainPageType && ($gn['@id'] ?? '') === $pageUrl . '#webpage') {
                     if (!empty($opts['breadcrumbs'])) {
                         $jsonLd['@graph'][$gi]['breadcrumb'] = ['@id' => $pageUrl . '#breadcrumb'];
                     }
@@ -1187,8 +1190,8 @@ public static function articleSchema(array $article): array
     {
         $site = self::site();
         $slugOrId = (string) ($article['slug'] ?? $article['id'] ?? '');
-        $tsCreated = strtotime((string) ($article['created_at'] ?? '')) ?: time();
-        $tsModified = strtotime((string) ($article['updated_at'] ?? '')) ?: $tsCreated;
+        $tsCreated = strtotime((string) ($article['created_at'] ?? ''));
+        $tsModified = strtotime((string) ($article['updated_at'] ?? ''));
 
         $faq = [
             '@type' => 'FAQPage',
@@ -1218,37 +1221,7 @@ public static function articleSchema(array $article): array
             }
         }
 
-        // Фолбэк: стандартные FAQ для статьи о ремонте
-        if (empty($faq['mainEntity'])) {
-            $faq['mainEntity'] = [
-                [
-                    '@type' => 'Question',
-                    'name' => 'С чего начать ремонт квартиры?',
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text' => 'Начните с замера и составления сметы. Определите бюджет, выберите тип ремонта (косметический, капитальный, дизайнерский) и найдите надежного подрядчика. Бесплатный замер и смету в 3 вариантах даём за 24 часа.',
-                    ],
-                ],
-                [
-                    '@type' => 'Question',
-                    'name' => 'Сколько стоит ремонт квартиры в Москве в 2026?',
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text' => 'Косметический ремонт от 8 000 ₽/м², капитальный от 13 000 ₽/м², дизайнерский от 18 000 ₽/м². Точную стоимость рассчитает наш калькулятор после бесплатного замера инженера.',
-                    ],
-                ],
-                [
-                    '@type' => 'Question',
-                    'name' => 'Какая гарантия на ремонт под ключ?',
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text' => 'Даём официальную гарантию 3 года на все виды работ по договору. На премиум-ремонт — 5 лет. Если в течение срока проявится дефект — приедем и исправим бесплатно.',
-                    ],
-                ],
-            ];
-        }
-
-return [
+        $schema = [
             '@type' => 'BlogPosting',
             '@id' => $site['baseUrl'] . '/blog/' . $slugOrId . '#article',
             'url' => $site['baseUrl'] . '/blog/' . $slugOrId,
@@ -1261,8 +1234,6 @@ return [
                 'height' => 630,
                 'caption' => (string) ($article['title'] ?? ''),
             ],
-            'datePublished' => date('c', $tsCreated),
-            'dateModified' => date('c', $tsModified),
             'author' => ['@id' => $site['baseUrl'] . '#organization'],
             'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
             'isPartOf' => ['@id' => $site['baseUrl'] . '/blogs#blog'],
@@ -1275,8 +1246,22 @@ return [
                 '@type' => 'SpeakableSpecification',
                 'cssSelector' => ['.article-body [data-type="start"]', '.article-body section:first-of-type p:first-of-type']
             ],
-            'hasPart' => $faq,
         ];
+
+        // Only add dates when they are actually known (not fallback to current time)
+        if ($tsCreated) {
+            $schema['datePublished'] = date('c', $tsCreated);
+        }
+        if ($tsModified && $tsModified !== $tsCreated) {
+            $schema['dateModified'] = date('c', $tsModified);
+        }
+
+        // Only add FAQ when there are actual FAQ items (no generic fallback)
+        if (!empty($faq['mainEntity'])) {
+            $schema['hasPart'] = $faq;
+        }
+
+        return $schema;
     }
 
     public static function serviceSchema(array $service): array

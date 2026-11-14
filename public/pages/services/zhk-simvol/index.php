@@ -1,71 +1,113 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Дизайн и ремонт квартир в ЖК Символ — под ключ';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
-$caseProjects = TheFunction::featuredPortfolio(null, 1);
-$case = $caseProjects[0] ?? null;
-$caseCover = ($case && !empty($case['cover']))
-    ? $site['baseUrl'] . '/' . $case['folder_image'] . '/' . $case['cover']
-    : $site['baseUrl'] . $bg_url;
-$caseUrl = ($case && !empty($case['slug'])) ? TheFunction::portfolioProjectUrl($case['slug']) : $site['baseUrl'] . '/portfolio';
-$caseTitle = $case['title'] ?? 'Дизайн и ремонт квартиры под ключ';
-$caseSize = $case['size'] ?? '60 м²';
-$caseDuration = $case['duration'] ?? '';
-$casePrice = $case['price'] ?? '';
+
+$seo = TheFunction::seo([
+    'title' => 'Дизайн и ремонт квартир в ЖК Символ — под ключ',
+    'description' => 'Дизайн и ремонт квартир в ЖК Символ под ключ в Москве от 8 000 ₽/м². Знаем планировки и требования УК комплекса. Фиксированная смета, гарантия 3 года. Бесплатный замер.',
+    'canonical' => '/services/zhk-simvol',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Ремонт в ЖК Символ',
+    'url' => '/services/zhk-simvol',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Дизайн и ремонт квартир в ЖК Символ',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+    'description' => 'Дизайн и ремонт квартир в жилом комплексе Символ под ключ. Цены от 8 000 ₽/м².',
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько стоит ремонт квартиры в ЖК Символ?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Ремонт квартиры в ЖК Символ под ключ — от 8 000 ₽/м² косметический, от 13 000 ₽/м² капитальный, от 18 000 ₽/м² дизайнерский. Точную смету даём после бесплатного замера.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Делаете ли дизайн и ремонт квартиры в ЖК Символ под ключ?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да, делаем дизайн и ремонт квартир в ЖК Символ под ключ: знаем планировки корпусов и требования управляющей компании, берём на себя согласования, закупку и вывоз мусора.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько стоит дизайн проект квартиры в ЖК Символ?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Дизайн проект квартиры — от 1 200 ₽/м². При заказе ремонта под ключ делаем скидку на проект. Посчитайте свой метраж в калькуляторе на сайте.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн и ремонт квартир в ЖК Символ под ключ в Москве от 8 000 ₽/м². Знаем планировки и требования УК комплекса. Фиксированная смета, гарантия 3 года. Бесплатный замер.',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/zhk-simvol'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн и ремонт квартир в ЖК Символ под ключ в Москве от 8 000 ₽/м². Знаем планировки и требования УК комплекса. Фиксированная смета, гарантия 3 года. Бесплатный замер.', 155)); ?>">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/zhk-simvol'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн и ремонт квартир в ЖК Символ под ключ в Москве от 8 000 ₽/м². Знаем планировки и требования УК комплекса. Фиксированная смета, гарантия 3 года. Бесплатный замер.', 155)); ?>">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                    {"@type": "ListItem","position": 2,"name": "Ремонт в ЖК Символ","item": "<?= $site['baseUrl']; ?>/services/zhk-simvol"}
-                ]
-            },
-            {
-                "@type": "Service",
-                "name": "Дизайн и ремонт квартир в ЖК Символ",
-                "provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},
-                "areaServed": {"@type": "City","name": "Москва"},
-                "description": "Дизайн и ремонт квартир в жилом комплексе Символ под ключ. Цены от 8 000 ₽/м²."
-            }
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в ЖК Символ?", "acceptedAnswer": {"@type": "Answer", "text": "Ремонт квартиры в ЖК Символ под ключ — от 8 000 ₽/м² косметический, от 13 000 ₽/м² капитальный, от 18 000 ₽/м² дизайнерский. Точную смету даём после бесплатного замера."}}, {"@type": "Question", "name": "Делаете ли дизайн и ремонт квартиры в ЖК Символ под ключ?", "acceptedAnswer": {"@type": "Answer", "text": "Да, делаем дизайн и ремонт квартир в ЖК Символ под ключ: знаем планировки корпусов и требования управляющей компании, берём на себя согласования, закупку и вывоз мусора."}}, {"@type": "Question", "name": "Сколько стоит дизайн проект квартиры в ЖК Символ?", "acceptedAnswer": {"@type": "Answer", "text": "Дизайн проект квартиры — от 1 200 ₽/м². При заказе ремонта под ключ делаем скидку на проект. Посчитайте свой метраж в калькуляторе на сайте."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

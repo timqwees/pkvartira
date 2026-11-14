@@ -1,52 +1,112 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт шоу-рума под ключ — цены';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт шоу-рума под ключ — цены',
+    'description' => 'Ремонт шоу-рума под ключ в Москве. Дизайн под фирменный стиль, витрины, зонирование. Цены от 10 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/showroom',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Ремонт шоу-рума',
+    'url' => '/services/showroom',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Ремонт шоу-рума под ключ',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Можете ли вы разработать дизайн под наш фирменный стиль?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да,我们的设计师 создадут проект с учётом вашей фирменной стилистики, цветовой гаммы и корпоративного стиля.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Выполняете ли вы монтаж витрин?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да, монтируем витрины любой сложности, включая подсветку и декоративные элементы.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько времени занимает ремонт шоу-рума?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Сроки от 2 недель до 2 месяцев в зависимости от площади и сложности проекта.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт шоу-рума под ключ в Москве. Дизайн под фирменный стиль, витрины, зонирование. Цены от 10 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/showroom'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="Ремонт шоу-рума под ключ в Москве. Дизайн под фирменный стиль, витрины, зонирование. Цены от 10 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/showroom'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="Ремонт шоу-рума под ключ в Москве. Дизайн под фирменный стиль, витрины, зонирование. Цены от 10 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BreadcrumbList","itemListElement": [
-                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                {"@type": "ListItem","position": 2,"name": "Ремонт шоу-рума","item": "<?= $site['baseUrl']; ?>/services/showroom"}
-            ]},
-            {"@type": "Service","name": "Ремонт шоу-рума под ключ","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можете ли вы разработать дизайн под наш фирменный стиль?", "acceptedAnswer": {"@type": "Answer", "text": "Да,我们的设计师 создадут проект с учётом вашей фирменной стилистики, цветовой гаммы и корпоративного стиля."}}, {"@type": "Question", "name": "Выполняете ли вы монтаж витрин?", "acceptedAnswer": {"@type": "Answer", "text": "Да, монтируем витрины любой сложности, включая подсветку и декоративные элементы."}}, {"@type": "Question", "name": "Сколько времени занимает ремонт шоу-рума?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки от 2 недель до 2 месяцев в зависимости от площади и сложности проекта."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

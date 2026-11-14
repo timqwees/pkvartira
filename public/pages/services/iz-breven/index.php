@@ -1,52 +1,112 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт дома из бревна под ключ — цены';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт дома из бревна под ключ — цены',
+    'description' => 'Ремонт дома из бревна под ключ в Москве — цены от 10 000 ₽/м². Реставрация, обработка, утепление, отделка. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/iz-breven',
+    'image' => '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Ремонт дома из бревна',
+    'url' => '/services/iz-breven',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Ремонт дома из бревна',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Можно ли отреставрировать старый сруб?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да, выполняем полную реставрацию: замена повреждённых брёвен, конопатка швов, обработка дерева, обновление отделки.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Как защитить дерево от насекомых и гниения?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Используем антисептики глубокого проникновения. Обработка проводится каждые 3-5 лет для поддержания защиты.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько стоит ремонт дома из бревна?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Цены от 10 000 ₽/м². Реставрация старых срубов может стоить дороже. Рассчитаем смету после бесплатного замера.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт дома из бревна под ключ в Москве — цены от 10 000 ₽/м². Реставрация, обработка, утепление, отделка. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/iz-breven'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="Ремонт дома из бревна под ключ в Москве — цены от 10 000 ₽/м². Реставрация, обработка, утепление, отделка. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/iz-breven'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="Ремонт дома из бревна под ключ в Москве — цены от 10 000 ₽/м². Реставрация, обработка, утепление, отделка. Фиксированная смета, гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BreadcrumbList","itemListElement": [
-                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                {"@type": "ListItem","position": 2,"name": "Ремонт дома из бревна","item": "<?= $site['baseUrl']; ?>/services/iz-breven"}
-            ]},
-            {"@type": "Service","name": "Ремонт дома из бревна","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли отреставрировать старый сруб?", "acceptedAnswer": {"@type": "Answer", "text": "Да, выполняем полную реставрацию: замена повреждённых брёвен, конопатка швов, обработка дерева, обновление отделки."}}, {"@type": "Question", "name": "Как защитить дерево от насекомых и гниения?", "acceptedAnswer": {"@type": "Answer", "text": "Используем антисептики глубокого проникновения. Обработка проводится каждые 3-5 лет для поддержания защиты."}}, {"@type": "Question", "name": "Сколько стоит ремонт дома из бревна?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 10 000 ₽/м². Реставрация старых срубов может стоить дороже. Рассчитаем смету после бесплатного замера."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

@@ -1,104 +1,33 @@
 <?php
 use Setting\Route\Functions\TheFunction;
-require_once __DIR__ . '/../../../components/ai-background.php';
 $site = TheFunction::site();
-$title = 'Дизайн интерьеров — от 1 500 ₽/м²';
-$navMode = 'transparent'; // шапка поверх cinema-hero
-$bg_url = getAiBackground(4); // AI Background 4 для дизайна интерьеров
-$prices = [
-    [
-        'заголовок' => 'Пакет 1 — Консультация перед покупкой',
-        'цена' => '20 000 ₽',
-        'цена_число' => '20000',
-        'per_m2' => false,
-        'подзаголовок' => 'Фиксированная стоимость',
-        'услуги' => [
-            '2 часа консультации',
-            'Эскиз вариантов планировки (2–3 планировки, без замеров)',
-            'Рекомендации по стилям и отделочным материалам'
-        ],
-        'кнопка' => 'Заказать консультацию',
-        'стиль' => 'classic'
-    ],
-    [
-        'заголовок' => 'Пакет 2 — Эскизный дизайн-проект',
-        'цена' => 'от 1 500 ₽',
-        'цена_число' => '1500',
-        'per_m2' => true,
-        'подзаголовок' => 'Итого для 50 м² — от 75 000 ₽',
-        'услуги' => [
-            'Обмерный план',
-            'Планировочное решение',
-            'План демонтажа',
-            'План монтажа',
-            'План расстановки мебели',
-            'Концепт-борд и коллажи по стилям'
-        ],
-        'кнопка' => 'Заказать проект',
-        'стиль' => 'classic'
-    ],
-    [
-        'заголовок' => 'Пакет 3 — Стандартный дизайн-проект',
-        'цена' => 'от 2 200 ₽',
-        'цена_число' => '2200',
-        'per_m2' => true,
-        'подзаголовок' => 'Итого для 50 м² — от 110 000 ₽',
-        'услуги' => [
-            'Обмерный план',
-            'Планировочное решение',
-            'План демонтажа',
-            'План монтажа',
-            'План расстановки мебели',
-            'План раскладки напольных покрытий',
-            'Схема укладки теплого пола',
-            'План потолков',
-            'План расстановки светильников',
-            'План расстановки выключателей и схема включения',
-            'План расстановки розеток',
-            'План открывания дверей со спецификацией',
-            'Схема привязки сантехнического оборудования',
-            'Схема отделки помещений',
-            'Развертки стен санузлов',
-            'Концепт-борд и коллажи по стилям'
-        ],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'рекомендуем',
-        'бейдж' => 'Рекомендуем'
-    ],
-    [
-        'заголовок' => 'Пакет 4 — Авторский дизайн-проект квартиры',
-        'цена' => 'от 4 000 ₽',
-        'цена_число' => '4000',
-        'per_m2' => true,
-        'подзаголовок' => 'Итого для 50 м² — от 200 000 ₽',
-        'услуги' => [
-            'Обмерный план',
-            'Планировочное решение',
-            'План демонтажа',
-            'План монтажа',
-            'План расстановки мебели',
-            'План раскладки напольных покрытий',
-            'Схема укладки теплого пола',
-            'План потолков',
-            'План расстановки светильников',
-            'План расстановки выключателей и схема включения',
-            'План расстановки розеток',
-            'План открывания дверей со спецификацией',
-            'Схема привязки сантехнического оборудования',
-            'Схема отделки помещений',
-            'Развертки стен всех помещений',
-            'Концепт-борд и коллажи по стилям',
-            'Чертежи и эскизы предметов индивидуального изготовления',
-            'Фотореалистичная 3D визуализация (при необходимости) +600 ₽/кв м',
-            '3D визуализация',
-            'Спецификации'
-        ],
-        'примечание' => '3D визуализация +600 ₽/кв м. Спецификации включаются.',
-        'кнопка' => 'Обсудить проект',
-        'стиль' => 'premium'
-    ]
-];
+
+$seo = TheFunction::seo([
+    'title' => 'Дизайн интерьеров — от 1 500 ₽/м²',
+    'description' => 'Дизайн интерьеров в Москве от 1 500 ₽/м². Консультация перед покупкой квартиры — 20 000 ₽, эскизный проект от 1 500 ₽/м², стандартный от 2 200 ₽/м², авторский от 4 000 ₽/м². Чертежи, 3D, подбор материалов. — Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/dizayn-interierov',
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Услуги',
+    'url' => '/services',
+  ),
+  2 => 
+  array (
+    'name' => 'Dizayn interierov',
+    'url' => '/services/dizayn-interierov',
+  ),
+),
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -106,153 +35,34 @@ $prices = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Дизайн интерьеров в Москве от 1 500 ₽/м². Консультация перед покупкой квартиры — 20 000 ₽, эскизный проект от 1 500 ₽/м², стандартный от 2 200 ₽/м², авторский от 4 000 ₽/м². Чертежи, 3D, подбор материалов. — Проект Квартира (Проект Квартира).', 155)); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
     <meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dizayn-interierov'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars($title); ?>">
-    <meta property="og:description" content="Дизайн интерьеров в Москве от 1 500 ₽/м². Консультация перед покупкой — 20 000 ₽. Эскизный от 1 500 ₽/м², стандартный от 2 200 ₽/м², авторский от 4 000 ₽/м². Чертежи, 3D, подбор материалов.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dizayn-interierov'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars($title); ?>">
-    <meta name="twitter:description" content="Дизайн интерьера в Москве от 1 500 ₽/м². Консультация перед покупкой — 20 000 ₽. Эскизный от 1 500 ₽/м², стандартный от 2 200 ₽/м², авторский от 4 000 ₽/м². Чертежи, 3D, подбор материалов.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "logo": {
-          "@type": "ImageObject",
-          "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          "width": 300,
-          "height": 300
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-          "contactType": "customer service",
-          "availableLanguage": ["Russian"],
-          "areaServed": "RU"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>
-      },
-      {
-        "@type": "WebPage",
-        "@id": <?= json_encode($site['baseUrl'] . '/services/dizayn-interierov#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'] . '/services/dizayn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($title, JSON_UNESCAPED_UNICODE); ?>,
-        "isPartOf": {"@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
-        "primaryImageOfPage": {"@id": <?= json_encode($site['baseUrl'] . $bg_url, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
-        "datePublished": "2026-09-09T00:00:00+03:00",
-        "dateModified": "2026-09-09T00:00:00+03:00"
-      },
-      {
-        "@type": "Service",
-        "name": "Дизайн интерьеров в Москве",
-        "description": "Разработка дизайн-проекта интерьера квартир и домов в Москве. 4 пакета: консультация перед покупкой (20 000 ₽), эскизный проект (от 1 500 ₽/м²), стандартный проект (от 2 200 ₽/м²), авторский проект (от 4 000 ₽/м²). Чертежи, 3D-визуализация, подбор материалов и авторский надзор.",
-        "provider": {"@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>},
-        "areaServed": {"@type": "City", "name": "Москва"},
-        "offers": {
-          "@type": "AggregateOffer",
-          "lowPrice": "1500",
-          "highPrice": "4000",
-          "priceCurrency": "RUB",
-          "offerCount": "4"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "item": {"@id": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Главная"}},
-          {"@type": "ListItem", "position": 2, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Услуги"}},
-          {"@type": "ListItem", "position": 3, "item": {"@id": <?= json_encode($site['baseUrl'] . '/services/dizayn-interierov', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>, "name": "Дизайн интерьеров"}}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Сколько стоит дизайн проект квартиры?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Стоимость дизайн проекта квартиры — от 1 500 ₽/м² (эскизный), от 2 200 ₽/м² (стандартный) и от 4 000 ₽/м² (авторский). Например, 1-комнатная 37 м² — от 55 500 ₽. Точный расчёт — после бесплатной консультации или в калькуляторе на сайте."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько стоит дизайн интерьера?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Консультация перед покупкой квартиры — 20 000 ₽. Эскизный дизайн-проект — от 1 500 ₽/м², стандартный дизайн-проект — от 2 200 ₽/м², авторский дизайн-проект — от 4 000 ₽/м². Фотореалистичная 3D-визуализация — +600 ₽/м²."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Сколько времени занимает разработка дизайн-проекта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Эскизный дизайн-проект — 5–7 рабочих дней. Стандартный дизайн-проект — 10–15 рабочих дней. Сроки фиксируются в договоре."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Входит ли авторский надзор в стоимость?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Авторский надзор обсуждается отдельно. Дизайнер контролирует соответствие проекта на всех этапах ремонта и помогает бригаде с решениями."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Можно ли сделать дизайн-проект только для одной комнаты?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, мы разрабатываем проекты как для всей квартиры, так и для отдельных помещений: кухни, спальни, детской, ванной. Стоимость рассчитывается индивидуально."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Работаете ли вы с новостройками?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, у нас большой опыт работы с новостройками. Учитываем особенности планировок, несущие стены, инженерные коммуникации. Помогаем с планировкой с нуля."
-            }
-          }
-        ]
-      }
-    ]
-  }
-    </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 
 <body class="bg-white">

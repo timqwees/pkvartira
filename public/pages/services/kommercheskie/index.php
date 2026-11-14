@@ -1,41 +1,35 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт коммерческих помещений — под ключ';
-$navMode = 'transparent'; // шапка поверх cinema-hero
 $bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
-$prices = [
-    [
-        'заголовок' => 'Косметический',
-        'цена' => 'от 8 000 ₽',
-        'цена_число' => '8000',
-        'подзаголовок' => 'Итого для 45 м² - от 360 000 Р',
-        'услуги' => ['Обои или покраска стен', 'Замена напольного покрытия', 'Потолки — покраска или натяжка', 'Замена розеток или выключателей', 'Финальная уборка'],
-        'кнопка' => 'Заказать расчет',
-        'стиль' => 'classic'
-    ],
-    [
-        'заголовок' => 'Капитальный',
-        'цена' => 'от 13 000 ₽',
-        'цена_число' => '13000',
-        'подзаголовок' => 'Итого для 45 м² - от 585 000 Р',
-        'услуги' => ['Полная замена электрики', 'Полная замена сантехники', 'Стяжка полов и штукатурка стен', 'Чистовая отделка под ключ', 'Установка дверей и откосов', 'Финальная уборка'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'рекомендуем',
-        'бейдж' => 'Рекомендуем'
-    ],
-    [
-        'заголовок' => 'Дизайнерский',
-        'цена' => 'от 18 000 ₽',
-        'цена_число' => '18000',
-        'подзаголовок' => 'Итого для 45 м² - от 810 000 Р',
-        'услуги' => ['Дизайн-проект в подарок', 'Премиальные материалы', 'Сложные решения: ниши, подсветка', 'Авторский надзор архитектора', 'Все из пакета "Капитальный"', 'Финальная уборка'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'classic'
-    ]
-];
-$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/4room/standard');
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт коммерческих помещений — под ключ',
+    'description' => 'Ремонт коммерческих помещений в Москве. Офисы, магазины, кафе, рестораны, салоны красоты, стоматологии, аптеки, фитнес-центры, детские центры. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд. — Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/kommercheskie',
+    'image' => '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png',
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Услуги',
+    'url' => '/services',
+  ),
+  2 => 
+  array (
+    'name' => 'Kommercheskie',
+    'url' => '/services/kommercheskie',
+  ),
+),
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -43,205 +37,42 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт коммерческих помещений в Москве. Офисы, магазины, кафе, рестораны, салоны красоты, стоматологии, аптеки, фитнес-центры, детские центры. С соблюдением СНиП и пожарных норм. Смета в день обращения, гарантия 3 года. Бесплатный выезд. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/kommercheskie'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
     <meta property="og:title"
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta property="og:description"
         content="Ремонт коммерческих помещений под ключ. Прозрачная смета, фиксированные сроки, гарантия 3 года.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/kommercheskie'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
 
     <meta property="og:site_name"
         content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Коммерческий ремонт">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
     <meta name="twitter:title"
         content="<?= htmlspecialchars($title); ?> под ключ в Москве | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="twitter:description"
         content="Ремонт коммерческих помещений под ключ. Прозрачная смета, фиксированные сроки, гарантия 3 года.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Дополнительные мета-теги -->
 
 
     <!-- Структурированные данные (JSON-LD) -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "logo": {
-          "@type": "ImageObject",
-          "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          "width": 300,
-          "height": 300
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-          "contactType": "customer service",
-          "availableLanguage": ["Russian"],
-          "areaServed": "RU"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-          "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-        },
-        "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-      },
-      {
-        "@type": "WebSite",
-        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "publisher": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "WebPage",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($title . ' — ' . ($site['name'] ?? 'Проект Квартира'), JSON_UNESCAPED_UNICODE); ?>,
-        "description": "Ремонт коммерческих помещений и офисов под ключ. Фиксированные цены, реальные сроки, гарантия 3 года.",
-        "isPartOf": {
-          "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "about": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "Service",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#service', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": "Ремонт коммерческих помещений",
-        "description": "Профессиональный ремонт офисов, магазинов и коммерческих помещений в Москве и области",
-        "provider": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "serviceType": "Ремонтные услуги",
-        "areaServed": {
-          "@type": "City",
-          "name": "Москва"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Услуги по ремонту",
-          "itemListElement": [
-            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
-            {
-              "@type": "Offer",
-              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
-              "priceCurrency": "RUB",
-              "itemOffered": {
-                "@type": "Service",
-                "name": <?= json_encode(($__offer['заголовок'] ?? '') . ' ремонт', JSON_UNESCAPED_UNICODE); ?>
-              }
-            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
-            <?php endforeach; ?>
-          ]
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Услуги",
-            "item": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Ремонт коммерческих помещений",
-            "item": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#faq', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Можно ли работать в помещении во время ремонта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Частично — да: зонирование и график согласуем заранее. На грязных этапах доступ ограничиваем ради безопасности и сроков."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Что если смета вырастет в процессе?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Смета фиксируется договором. Изменения возможны только по вашему согласованию при дополнительных работах."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Нужен ли дизайн-проект для капитального ремонта?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Не обязательно. Но проект помогает точно рассчитать стоимость и избежать переделок. Мы можем сделать базовую планировку."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Как вы контролируете качество работ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и приемку работ по чек-листу."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Работаете ли вы по договору?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, работаем по официальному договору. В нем фиксируются сроки, стоимость и гарантия."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 
 <body class="bg-white">

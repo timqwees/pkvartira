@@ -1,40 +1,35 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартиры под сдачу — от 250 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
-$prices = [
-    [
-        'заголовок' => 'Для сдачи в аренду',
-        'цена' => 'от 8 000 ₽',
-        'цена_число' => '8000',
-        'подзаголовок' => 'Итого для 40 м² - от 320 000 Р',
-        'услуги' => ['Штукатурка стен', 'Бюджетный пол (ламинат/линолеум)', 'Простые потолки (покраска/побелка)', 'Базовая сантехника', 'Финальная уборка'],
-        'кнопка' => 'Заказать расчет',
-        'стиль' => 'classic'
-    ],
-    [
-        'заголовок' => 'Для продажи',
-        'цена' => 'от 13 000 ₽',
-        'цена_число' => '13000',
-        'подзаголовок' => 'Итого для 40 м² - от 520 000 Р',
-        'услуги' => ['Дизайн-проект в подарок', 'Премиальная отделка', 'Подсветка и декоративные элементы', 'Установка дверей и откосов', 'Финальная уборка'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'рекомендуем',
-        'бейдж' => 'Рекомендуем'
-    ],
-    [
-        'заголовок' => 'Под заселение (с мебелью)',
-        'цена' => 'от 18 000 ₽',
-        'цена_число' => '18000',
-        'подзаголовок' => 'Итого для 40 м² - от 720 000 Р',
-        'услуги' => ['Полный ремонт под ключ', 'Мебель и техника в комплекте', 'Авторский надзор', 'Все из пакета "Для продажи"', 'Умный дом (базовый)', 'Финальная уборка'],
-        'кнопка' => 'Получить расчет',
-        'стиль' => 'classic'
-    ]
-];
-$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/newbuilds');
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт квартиры под сдачу — от 250 000 ₽',
+    'description' => 'Ремонт квартиры под сдачу, для продажи и под заселение в Москве. С материалами и мебелью. Фиксированная смета, гарантия 3 года. Недорого и качественно. Бесплатный замер. — Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/dlya-sdachi',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'WebPage',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Услуги',
+    'url' => '/services',
+  ),
+  2 => 
+  array (
+    'name' => 'Dlya sdachi',
+    'url' => '/services/dlya-sdachi',
+  ),
+),
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -42,151 +37,34 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под сдачу, для продажи и под заселение в Москве. С материалами и мебелью. Фиксированная смета, гарантия 3 года. Недорого и качественно. Бесплатный замер. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="author" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/dlya-sdachi'); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars($title); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?>">
-    <meta property="og:description" content="Ремонт квартиры под сдачу, для продажи и под заселение в Москве. Фиксированная смета, гарантия 3 года. Бесплатный замер.">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/dlya-sdachi'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
     <meta property="og:image:alt" content="Ремонт для сдачи и продажи квартиры">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars($title); ?>">
-    <meta name="twitter:description" content="Ремонт квартиры под сдачу, для продажи и под заселение в Москве. Фиксированная смета, гарантия 3 года. Бесплатный замер.">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
 
     <!-- Структурированные данные (JSON-LD) -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "logo": {
-          "@type": "ImageObject",
-          "url": <?= json_encode($site['baseUrl'] . '/public/assets/images/logo/favicon/favicon.svg', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-          "width": 300,
-          "height": 300
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": <?= json_encode($site['phone'], JSON_UNESCAPED_UNICODE); ?>,
-          "contactType": "customer service",
-          "availableLanguage": ["Russian"],
-          "areaServed": "RU"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": <?= json_encode($site['address']['streetAddress'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressLocality": <?= json_encode($site['address']['addressLocality'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressRegion": <?= json_encode($site['address']['addressRegion'], JSON_UNESCAPED_UNICODE); ?>,
-          "postalCode": <?= json_encode($site['address']['postalCode'], JSON_UNESCAPED_UNICODE); ?>,
-          "addressCountry": <?= json_encode($site['address']['addressCountry'], JSON_UNESCAPED_UNICODE); ?>
-        },
-        "sameAs": <?= json_encode(array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp']])), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-      },
-      {
-        "@type": "WebSite",
-        "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['baseUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($site['name'], JSON_UNESCAPED_UNICODE); ?>,
-        "description": <?= json_encode($site['description'], JSON_UNESCAPED_UNICODE); ?>,
-        "publisher": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "WebPage",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "url": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": <?= json_encode($title . ' — ' . ($site['name'] ?? 'Проект Квартира'), JSON_UNESCAPED_UNICODE); ?>,
-        "description": "Ремонт квартиры под сдачу, для продажи и под заселение в Москве. Фиксированная смета, гарантия 3 года. Бесплатный замер.",
-        "isPartOf": {
-          "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "about": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "Service",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#service', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "name": "Ремонт квартиры для сдачи и продажи",
-        "description": "Профессиональный ремонт квартир для сдачи в аренду, продажи и заселения в Москве",
-        "provider": {
-          "@id": <?= json_encode($site['baseUrl'] . '#organization', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-        },
-        "serviceType": "Ремонтные услуги",
-        "areaServed": {
-          "@type": "City",
-          "name": "Москва"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Услуги по ремонту для сдачи",
-          "itemListElement": [
-            <?php foreach (($prices ?? []) as $__oi => $__offer): ?>
-            {
-              "@type": "Offer",
-              "price": "<?= htmlspecialchars($__offer['цена_число'] ?? ''); ?>",
-              "priceCurrency": "RUB",
-              "itemOffered": {
-                "@type": "Service",
-                "name": <?= json_encode($__offer['заголовок'] ?? '', JSON_UNESCAPED_UNICODE); ?>
-              }
-            }<?= $__oi < count($prices) - 1 ? ',' : ''; ?>
-            <?php endforeach; ?>
-          ]
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": <?= json_encode($site['canonicalUrl'] . '#breadcrumb', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": <?= json_encode($site['baseUrl'] . '/', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Услуги",
-            "item": <?= json_encode($site['baseUrl'] . '/services', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Ремонт для сдачи и продажи",
-            "item": <?= json_encode($site['canonicalUrl'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
-    <?php include_once './public/components/head-includes.php'; ?>
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 
 <body class="bg-white text-gray-900 font-body antialiased">

@@ -1,52 +1,112 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Смета на ремонт квартиры — онлайн-расчёт';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+
+$seo = TheFunction::seo([
+    'title' => 'Смета на ремонт квартиры — онлайн-расчёт',
+    'description' => 'Смета на ремонт квартиры — рассчитать онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера. Калькулятор ремонта онлайн. От компании Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/smeta',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Смета на ремонт',
+    'url' => '/services/smeta',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Смета на ремонт квартиры',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько стоит смета на ремонт?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Смета составляется бесплатно. Инженер приедет на замер и подготовит детальный расчёт без оплаты.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Как быстро вы готовите смету?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Меняется ли стоимость по смете?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Стоимость фиксируется в договоре. Изменения возможны только по вашему согласованию при дополнительных работах.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Смета на ремонт квартиры — рассчитать онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера. Калькулятор ремонта онлайн. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/smeta'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="Смета на ремонт квартиры — рассчитать онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера. Калькулятор ремонта онлайн. От компании Проект Квартира (Проект Квартира).">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/smeta'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="Смета на ремонт квартиры — рассчитать онлайн бесплатно. Точный расчёт за 30 минут, бесплатный выезд инженера. Калькулятор ремонта онлайн. От компании Проект Квартира (Проект Квартира).">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BreadcrumbList","itemListElement": [
-                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                {"@type": "ListItem","position": 2,"name": "Смета на ремонт","item": "<?= $site['baseUrl']; ?>/services/smeta"}
-            ]},
-            {"@type": "Service","name": "Смета на ремонт квартиры","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит смета на ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Смета составляется бесплатно. Инженер приедет на замер и подготовит детальный расчёт без оплаты."}}, {"@type": "Question", "name": "Как быстро вы готовите смету?", "acceptedAnswer": {"@type": "Answer", "text": "Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно."}}, {"@type": "Question", "name": "Меняется ли стоимость по смете?", "acceptedAnswer": {"@type": "Answer", "text": "Стоимость фиксируется в договоре. Изменения возможны только по вашему согласованию при дополнительных работах."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

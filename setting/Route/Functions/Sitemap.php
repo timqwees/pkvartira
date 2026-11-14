@@ -14,21 +14,7 @@ class Sitemap
 
     public function __construct()
     {
-        // Унифицировано с TheFunction::site() — главное зеркало https://pkvartira.ru
-        $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
-        $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
-        $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
-        if ($isProd) {
-            $scheme = 'https';
-            $host = 'pkvartira.ru';
-        } else {
-            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-            if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-                $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
-            }
-            $host = $rawHost ?: 'pkvartira.ru';
-        }
-        $this->baseUrl = $scheme . '://' . $host;
+        $this->baseUrl = SiteUrl::baseUrl();
         $this->cacheDir = sys_get_temp_dir() . '/pkvartira-sitemap/';
     }
 
@@ -437,14 +423,17 @@ class Sitemap
     private function buildEntry(string $loc, string $priority, string $changefreq, ?string $lastmod = null): string
     {
         $fullUrl = $this->baseUrl . $loc;
-        $lm = $lastmod ?? date('Y-m-d');
 
-        return "  <url>\n"
-             . "    <loc>" . $this->escape($fullUrl) . "</loc>\n"
-             . "    <lastmod>" . $lm . "</lastmod>\n"
-             . "    <changefreq>" . $changefreq . "</changefreq>\n"
-             . "    <priority>" . $priority . "</priority>\n"
+        $entry = "  <url>\n"
+             . "    <loc>" . $this->escape($fullUrl) . "</loc>\n";
+        if ($lastmod !== null) {
+            $entry .= "    <lastmod>" . $this->escape($lastmod) . "</lastmod>\n";
+        }
+        $entry .= "    <changefreq>" . $this->escape($changefreq) . "</changefreq>\n"
+             . "    <priority>" . $this->escape($priority) . "</priority>\n"
              . "  </url>\n";
+
+        return $entry;
     }
 
     private function escape(string $str): string

@@ -1,52 +1,112 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартир в брежневке — цены под ключ';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт квартир в брежневке — цены под ключ',
+    'description' => 'Ремонт квартир в брежневке под ключ в Москве. Панельные дома 60–80х годов, типовые планировки. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/brezhnevka',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Ремонт в брежневке',
+    'url' => '/services/brezhnevka',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Ремонт квартир в брежневке',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько стоит ремонт квартиры в брежневке?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от состояния панелей, объёма замены коммуникаций и выбранных материалов.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Нужна ли шумоизоляция при ремонте?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да, в брежневках стены тонкие, и шумоизоляция значительно повышает комфорт. Рекомендуем её при капитальном и дизайнерском ремонте.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Можно ли сделать перепланировку?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Возможность перепланировки зависит от типа стен. Мы проведём экспертизу и предложим оптимальные решения для увеличения полезного пространства.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в брежневке под ключ в Москве. Панельные дома 60–80х годов, типовые планировки. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/brezhnevka'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в брежневке под ключ в Москве. Панельные дома 60–80х годов, типовые планировки. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/brezhnevka'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в брежневке под ключ в Москве. Панельные дома 60–80х годов, типовые планировки. Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м². Гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BreadcrumbList","itemListElement": [
-                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                {"@type": "ListItem","position": 2,"name": "Ремонт в брежневке","item": "<?= $site['baseUrl']; ?>/services/brezhnevka"}
-            ]},
-            {"@type": "Service","name": "Ремонт квартир в брежневке","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ремонт квартиры в брежневке?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от состояния панелей, объёма замены коммуникаций и выбранных материалов."}}, {"@type": "Question", "name": "Нужна ли шумоизоляция при ремонте?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в брежневках стены тонкие, и шумоизоляция значительно повышает комфорт. Рекомендуем её при капитальном и дизайнерском ремонте."}}, {"@type": "Question", "name": "Можно ли сделать перепланировку?", "acceptedAnswer": {"@type": "Answer", "text": "Возможность перепланировки зависит от типа стен. Мы проведём экспертизу и предложим оптимальные решения для увеличения полезного пространства."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

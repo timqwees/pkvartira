@@ -1,52 +1,142 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт квартиры под ключ с дизайн проектом';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+
+$seo = TheFunction::seo([
+    'title' => 'Ремонт квартиры под ключ с дизайн проектом',
+    'description' => 'Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).',
+    'canonical' => '/services/premium',
+    'image' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+    'type' => 'website',
+    'pageType' => 'Service',
+    'breadcrumbs' => array (
+  0 => 
+  array (
+    'name' => 'Главная',
+    'url' => '/',
+  ),
+  1 => 
+  array (
+    'name' => 'Премиальный ремонт',
+    'url' => '/services/premium',
+  ),
+),
+    'schema' => array (
+  0 => 
+  array (
+    '@type' => 'Service',
+    'name' => 'Ремонт квартиры под ключ с дизайн проектом',
+    'provider' => 
+    array (
+      '@id' => '#organization',
+    ),
+    'areaServed' => 
+    array (
+      '@type' => 'City',
+      'name' => 'Москва',
+    ),
+  ),
+  1 => 
+  array (
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => 
+    array (
+      0 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Что входит в ремонт квартиры под ключ с дизайн проектом?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Авторский дизайн-проект, черновые работы, замена электрики и сантехники, чистовая отделка, умный дом, меблировка и финальная уборка. Цена фиксируется в договоре.',
+        ),
+      ),
+      1 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько стоит ремонт квартиры под ключ с дизайн проектом за м²?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'От 25 000 ₽/м² (премиум) и от 40 000 ₽/м² (люкс). Например, 1-комнатная 45 м² — от 1 125 000 ₽, 2-комнатная 60 м² — от 1 500 000 ₽. Точную смету даём после бесплатного замера.',
+        ),
+      ),
+      2 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Можно ли сделать ремонт по готовому дизайн проекту?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да, берём в работу готовые дизайн проекты: проверяем чертежи, считаем смету и выполняем ремонт под ключ. Также адаптируем готовые решения под вашу планировку.',
+        ),
+      ),
+      3 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Что входит в премиальный ремонт?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Премиальный ремонт включает элитные материалы, авторский дизайн, интеграцию «умного дома», меблировку, климат-контроль и полную комплектацию квартиры.',
+        ),
+      ),
+      4 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Сколько времени занимает премиальный ремонт?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Сроки зависят от площади и сложности проекта. В среднем от 2 до 6 месяцев. Точные сроки фиксируются в договоре.',
+        ),
+      ),
+      5 => 
+      array (
+        '@type' => 'Question',
+        'name' => 'Можно ли сделать премиальный ремонт в новостройке?',
+        'acceptedAnswer' => 
+        array (
+          '@type' => 'Answer',
+          'text' => 'Да, работаем с новостройками и вторичным жильём. Выполняем полный цикл от черновой отделки до меблировки.',
+        ),
+      ),
+    ),
+  ),
+),
+    'articleSection' => 'Ремонт',
+]);
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/premium'); ?>">
+    <title><?= htmlspecialchars($seo['title']); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
-    <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/premium'); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="<?= htmlspecialchars($seo['og']['type']); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($seo['og']['title']); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($seo['og']['description']); ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($seo['og']['url']); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($seo['og']['site_name']); ?>">
+    <meta property="og:locale" content="<?= htmlspecialchars($seo['og']['locale']); ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pkvartira">
-    <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартиры под ключ с дизайн проектом в Москве от 25 000 ₽/м². Авторский дизайн, элитные материалы, умный дом, меблировка. Смета за 24 часа, гарантия 3 года. — Проект Квартира (Проект Квартира).', 155)); ?>">
-    <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
-    <meta name="twitter:creator" content="@pkvartira">
-    <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
-    <?php include_once './public/components/head-includes.php'; ?>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BreadcrumbList","itemListElement": [
-                {"@type": "ListItem","position": 1,"name": "Главная","item": "<?= $site['baseUrl']; ?>/"},
-                {"@type": "ListItem","position": 2,"name": "Премиальный ремонт","item": "<?= $site['baseUrl']; ?>/services/premium"}
-            ]},
-            {"@type": "Service","name": "Ремонт квартиры под ключ с дизайн проектом","provider": {"@id": "<?= $site['baseUrl']; ?>#organization"},"areaServed": {"@type": "City","name": "Москва"}}
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в ремонт квартиры под ключ с дизайн проектом?", "acceptedAnswer": {"@type": "Answer", "text": "Авторский дизайн-проект, черновые работы, замена электрики и сантехники, чистовая отделка, умный дом, меблировка и финальная уборка. Цена фиксируется в договоре."}}, {"@type": "Question", "name": "Сколько стоит ремонт квартиры под ключ с дизайн проектом за м²?", "acceptedAnswer": {"@type": "Answer", "text": "От 25 000 ₽/м² (премиум) и от 40 000 ₽/м² (люкс). Например, 1-комнатная 45 м² — от 1 125 000 ₽, 2-комнатная 60 м² — от 1 500 000 ₽. Точную смету даём после бесплатного замера."}}, {"@type": "Question", "name": "Можно ли сделать ремонт по готовому дизайн проекту?", "acceptedAnswer": {"@type": "Answer", "text": "Да, берём в работу готовые дизайн проекты: проверяем чертежи, считаем смету и выполняем ремонт под ключ. Также адаптируем готовые решения под вашу планировку."}}, {"@type": "Question", "name": "Что входит в премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Премиальный ремонт включает элитные материалы, авторский дизайн, интеграцию «умного дома», меблировку, климат-контроль и полную комплектацию квартиры."}}, {"@type": "Question", "name": "Сколько времени занимает премиальный ремонт?", "acceptedAnswer": {"@type": "Answer", "text": "Сроки зависят от площади и сложности проекта. В среднем от 2 до 6 месяцев. Точные сроки фиксируются в договоре."}}, {"@type": "Question", "name": "Можно ли сделать премиальный ремонт в новостройке?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаем с новостройками и вторичным жильём. Выполняем полный цикл от черновой отделки до меблировки."}}]}
-    </script>
+    <meta name="twitter:site" content="<?= htmlspecialchars($seo['twitter']['site']); ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter']['title']); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter']['description']); ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($seo['twitter']['image']); ?>">
+    <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
+    <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
+    <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

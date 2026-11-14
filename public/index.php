@@ -896,104 +896,499 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="faq-section section-shell reveal" itemscope itemtype="https://schema.org/FAQPage">
+        <section id="faq" class="faq-section section-shell reveal" itemscope itemtype="https://schema.org/FAQPage" aria-labelledby="faq-heading">
             <span class="section-number">09</span>
             <div class="section-topline">
                 <p class="eyebrow">09 / Вопросы</p>
-                <span class="eyebrow">Сроки, цены и гарантии</span>
+                <span class="eyebrow">Сроки, цены, гарантии и процесс</span>
             </div>
             <div class="head-row">
-                    <h2>
+                    <h2 id="faq-heading">
                         Отвечаем на важные вопросы <strong class="text-orange-600">честно</strong> и <strong
                             class="text-orange-600">без воды</strong>
                     </h2>
                     <p>
-                        Разбираем технические и финансовые нюансы вашего будущего ремонта
+                        Разбираем технические, финансовые и организационные нюансы вашего будущего ремонта
                     </p>
                 </div>
 
-                <div class="faq-grid">
-                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                <div class="faq-categories">
+                    <nav class="faq-tabs" role="tablist" aria-label="Категории вопросов">
+                        <button role="tab" aria-selected="true" data-tab="all" class="faq-tab active">Все вопросы</button>
+                        <button role="tab" aria-selected="false" data-tab="price" class="faq-tab">Цены и оплата</button>
+                        <button role="tab" aria-selected="false" data-tab="terms" class="faq-tab">Сроки и этапы</button>
+                        <button role="tab" aria-selected="false" data-tab="guarantee" class="faq-tab">Гарантия и качество</button>
+                        <button role="tab" aria-selected="false" data-tab="process" class="faq-tab">Процесс и команда</button>
+                        <button role="tab" aria-selected="false" data-tab="legal" class="faq-tab">Документы и договор</button>
+                    </nav>
+                </div>
+
+                <div class="faq-grid" role="tabpanel">
+                    <!-- Цены и оплата -->
+                    <details class="faq-ex faq-item" data-category="price" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-1">
                         <summary>
-                            <span itemprop="name">Какой срок выполнения ремонта?</span>
+                            <span itemprop="name">Сколько стоит ремонт квартиры под ключ в Москве?</span>
                             <span class="faq-mark" aria-hidden="true"></span>
                         </summary>
                         <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <div itemprop="text">
-                                <p class="mb-2">Всё зависит от площади и сложности:</p>
-                                <ul class="list-disc ml-5 space-y-1 mb-3">
-                                    <li>Косметический ремонт — от 14 дней.</li>
-                                    <li>Капитальный ремонт — от 45 дней.</li>
-                                    <li>Дизайнерский ремонт — от 60 дней.</li>
-                                    <li>Премиум — от 90 дней.</li>
+                                <p class="mb-3"><strong>Ориентировочные цены за работы (без материалов):</strong></p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Косметический ремонт</strong> — от 8 000 ₽/м² (обновление отделки без переделок инженерии).</li>
+                                    <li><strong>Капитальный ремонт</strong> — от 13 000 ₽/м² (полная замена электрики, сантехники, стяжка, штукатурка, чистовая отделка).</li>
+                                    <li><strong>Дизайнерский ремонт</strong> — от 18 000 ₽/м² (сложные решения, авторский надзор, премиум-материалы).</li>
+                                    <li><strong>Премиум / Люкс</strong> — от 25 000 ₽/м² (авторский дизайн-проект, элитные материалы, умный дом, меблировка).</li>
                                 </ul>
-                                <p class="mb-2">Это стартовые сроки для небольших квартир. Фактический срок зависит от площади, состояния квартиры и объёма работ: например, косметический ремонт 53 м² у нас занял 72 дня. Средний срок для квартиры 50–60 м² — 45–70 дней.</p>
-                                <p>Мы фиксируем дату сдачи в договоре. Если мы опоздаем хотя бы на день — мы выплачиваем вам неустойку за каждые сутки просрочки.</p>
+                                <p class="mb-3"><strong>Примеры для типовых квартир (работы + материалы):</strong></p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Студия 25 м² — от 200 000 ₽ (косметический) до 450 000 ₽ (дизайнерский).</li>
+                                    <li>1-комнатная 37 м² — от 300 000 ₽ до 650 000 ₽.</                                    <li>2-комнатная 55 м² — от 440 000 ₽ до 1 000 000 ₽.</                                    <li>3-комнатная 70 м² — от 560 000 ₽ до 1 400 000 ₽.</                                    <li>4-комнатная 90 м² — от 720 000 ₽ до 1 800 000 ₽.
+                                </ul>
+                                <div class="mt-4 p-4 bg-gray-50 rounded-xl">
+                                    <p class="text-sm text-gray-700"><strong>Важно:</strong> Цены выше — ориентиры за работы. Материалы закупаем по вашей смете со скидкой 10–15%. Точную стоимость (работы + материалы) назваем после бесплатного замера — смету пришлём за 24 часа.</p>
+                                </div>
                             </div>
                         </div>
                     </details>
 
-                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                    <details class="faq-ex faq-item" data-category="price" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-2">
                         <summary>
-                            <span itemprop="name">Какая гарантия на работы?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </summary>
-                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Базовая гарантия — 3 года на все виды отделочных и инженерных работ. На премиум-пакет — 5 лет. Если в течение гарантийного срока что-то пойдёт не так — приедем и бесплатно устраним всё в течение 48 часов. Ответственность прописана в договоре.</span>
-                        </div>
-                    </details>
-
-                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
-                        <summary>
-                            <span itemprop="name">Работаете ли вы с материалами заказчика?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </summary>
-                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, конечно. Мы можем работать с вашими материалами, но рекомендуем закупать их через нас. Благодаря собственному складу мы сможем поставить материалы дешевле. Всю логистику, проверку качества и подъем на этаж мы берём на себя.</span>
-                        </div>
-                    </details>
-
-                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
-                        <summary>
-                            <span itemprop="name">Как происходит оплата?</span>
+                            <span itemprop="name">Есть ли скрытые платежи? Может ли смета вырасти?</span>
                             <span class="faq-mark" aria-hidden="true"></span>
                         </summary>
                         <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <div itemprop="text">
-                                <p class="mb-2">Оплата происходит строго поэтапно:</p>
-                                <ol class="list-decimal ml-5 space-y-1 mb-2">
-                                    <li>Мы выполняем определенный объем работ (например, черновую отделку).</li>
-                                    <li>Вы принимаете этап по акту.</li>
-                                    <li>Только после этого вы оплачиваете этот объем.</li>
-                                </ol>
-                                <p>Вы всегда видите, за что платите, и контролируете бюджет.</p>
+                                <p class="mb-3"><strong>Нет.</strong> Смета фиксируется в договоре до начала работ и не меняется в процессе.
+                                <p class="mb-3">Единственные основания для изменения стоимости:</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Вы сами попросили добавить работы, которых не было в смете (дополнительное соглашение с фиксированной ценой).</li>
+                                    <li>Обнаружены скрытые дефекты, которые невозможно было выявить без вскрытия (старая штукатурка с полостями, заложенные коммуникации). В этом случае мы останавливаемся, показываем, считаем, согласовываем с вами — и только потом продолжаем.</li>
+                                </ul>
+                                <div class="mt-3 p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
+                                    <p class="text-sm text-yellow-800"><strong>Важно:</strong> В нашем договоре прописано: любые изменения стоимости возможны только по вашему письменному согласию. Никаких «доплат» в чеке в конце работ.</p>
+                                </div>
                             </div>
                         </div>
                     </details>
 
-                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                    <details class="faq-ex faq-item" data-category="price" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-3">
                         <summary>
-                            <span itemprop="name">Кто именно будет работать у меня в квартире?</span>
+                            <span itemprop="name">Как формируется итоговая стоимость «под ключ»?</span>
                             <span class="faq-mark" aria-hidden="true"></span>
                         </summary>
                         <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <span itemprop="text">У нас работают только узкопрофильные специалисты со стажем от 5 лет. Электрику делает электрик, плитку кладет плиточник — никаких «универсалов». Все специалисты проходят проверку перед допуском на объект, за работу каждого отвечает наша компания по договору.</span>
+                            <div itemprop="text">
+                                <p class="mb-3">Итоговая сумма = <strong>Работы</strong> + <strong>Материалы</strong> + <strong>Логистика</strong>.</p>
+                                <div class="overflow-x-auto mb-4">
+                                    <table class="w-full text-sm border-collapse">
+                                        <thead>
+                                            <tr class="bg-gray-100">
+                                                <th class="px-4 py-3 text-left font-semibold">Статья</th>
+                                                <th class="px-4 py-3 text-left font-semibold">Что входит</th>
+                                                <th class="px-4 py-3 text-left font-semibold">Кто закупает</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr><td class="px-4 py-3 font-medium">Работы</td><td class="px-4 py-3">Все виды работ по пакету (см. выше)</td><td class="px-4 py-3 text-green-700">Мы (в стоимости работ)</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3 font-medium">Черновые материалы</td><td class="px-4 py-3">Цемент, песок, штукатурка, провода, трубы, гидроизоляция</td><td class="px-4 py-3 text-green-700">Мы (по смете со скидкой 10–15%)</td></tr>
+                                            <tr><td class="px-4 py-3 font-medium">Чистовые материалы</td><td class="px-4 py-3">Плитка, ламинат, обои, краска, сантехника, двери, светильники</td><td class="px-4 py-3 text-blue-700">Вы или мы (по вашей смете со скидкой)</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3 font-medium">Логистика</td><td class="px-4 py-3">Доставка, подъём, вывоз мусора, уборка</td><td class="px-4 py-3 text-green-700">Мы (в стоимости работ)</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="mb-2">Материалы закупаем по вашей смете — вы платите только за фактические объёмы без наценок. Остатки материалов — ваши.</p>
+                            </div>
                         </div>
                     </details>
 
-                    <details class="faq-ex" itemscope itemtype="https://schema.org/Question">
+                    <details class="faq-ex faq-item" data-category="price" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-4">
                         <summary>
-                            <span itemprop="name">Не будет ли проблем с соседями и Управляющей Компанией?</span>
+                            <span itemprop="name">Как происходит оплата? Можно ли платить частями?</span>
                             <span class="faq-mark" aria-hidden="true"></span>
                         </summary>
                         <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Берём коммуникации с УК на себя. В Москве соблюдаем правила шумных работ (с перерывом 13:00–15:00, без работ в воскресенье и праздники — точный график подскажет инженер под ваш адрес; в области действуют свои правила). Вывозим мусор поэтапно, после сдачи делаем финальную уборку.</span>
+                            <div itemprop="text">
+                                <p class="mb-3">Оплата <strong>поэтапная</strong> — после приёмки каждого этапа работ по акту.</p>
+                                <ol class="list-decimal ml-5 space-y-2 mb-4">
+                                    <li>Аванс 10% при подписании договора (фиксация дат, закупка материалов).</li>
+                                    <li>Оплата этапов: демонтаж → черновики → инженерия → чистовая отделка → сдача.</li>
+                                    <li>Каждый этап принимаете по акту, проверяете по чек-листу, платите только за выполненное.</li>
+                                </ol>
+                                <p class="mb-3"><strong>Способы оплаты:</strong> картой, СБП, безналичный расчёт (для юрлиц), наличные (по акту).</p>
+                                <div class="p-4 bg-red-50 border border-red-200 rounded-xl">
+                                    <p class="text-sm text-red-800"><strong>Важно:</strong> Не работаем по схеме «100% предоплата» или «100% после». Поэтапная оплата защищает обе стороны — вы платите за готовый результат, мы получаем оплату за выполненную работу.</p>
+                                </div>
+                            </div>
                         </div>
                     </details>
+
+                    <!-- Сроки и этапы -->
+                    <details class="faq-ex faq-item" data-category="terms" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-5">
+                        <summary>
+                            <span itemprop="name">Сколько времени занимает ремонт квартиры под ключ?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3">Сроки зависят от площади, пакета и состояния квартиры. Ориентировочные сроки для квартиры 50–60 м²:</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Косметический</strong> — 20–35 дней.</li>
+                                    <li><strong>Капитальный</strong> — 45–60 дней.</li>
+                                    <li><strong>Дизайнерский</strong> — 60–75 дней.</li>
+                                    <li><strong>Премиум</strong> — 90+ дней.</li>
+                                </ul>
+                                <div class="overflow-x-auto mb-4">
+                                    <table class="w-full text-sm border-collapse">
+                                        <thead>
+                                            <tr class="bg-gray-100">
+                                                <th class="px-4 py-3 text-left font-semibold">Этап</th>
+                                                <th class="px-4 py-3 text-left font-semibold">Что делаем</th>
+                                                <th class="px-4 py-3 text-right font-semibold">Срок, 60 м²</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr><td class="px-4 py-3">1. Демонтаж</td><td class="px-4 py-3">Снос, разбор, вывоз мусора</td><td class="px-4 py-3 text-right">3–5 дней</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3">2. Черновая подготовка</td><td class="px-4 py-3">Демонтаж покрытий, выравнивание стен</td><td class="px-4 py-3 text-right">5–8 дней</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-3">3. Инженерия (проект)</td><td class="px-4 py-3">Электрика, сантехника, вентиляция</td><td class="px-4 py-3 text-right">7–10 дней</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3">4. Стяжка и штукатурка</td><td class="px-4 py-3">Заливка, выравнивание по маякам</td><td class="px-4 py-3 text-right">10–14 дней</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-3">5. Черновые работы</td><td class="px-4 py-3">Розетки, сантехника, радиаторы</td><td class="px-4 py-3 text-right">7–10 дней</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3">6. Чистовая отделка</td><td class="px-4 py-3">Штукатурка, обои/покраска, полы, плитка</td><td class="px-4 py-3 text-right">10–14 дней</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3">7. Двери, плинтусы, свет</td><td class="px-4 py-3">Монтаж, электрика, аксессуары</td><td class="px-4 py-3 text-right">3–5 дней</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-3">8. Уборка и сдача</td><td class="px-4 py-3">Генеральная уборка, приёмка, гарантия</td><td class="px-4 py-3 text-right">1–2 дня</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="mb-3"><strong>Итого полный цикл на квартиру 60 м² — 45–75 дней</strong> без учёта технологических пауз на набор прочности стяжки и штукатурки. По стоимости работ — от 8 000 ₽/м² за косметический пакет, от 13 000 ₽/м² за капитальный. Смета с позициями и ценами 2027 года — в статье <a href="/blog/skolko-stoit-remont-v-novostroyke-2027" class="text-[#6d5744] font-semibold underline hover:text-[#5c4a3a]">«Сколько стоит ремонт в новостройке в 2027 году»</a>.</p>
+                                <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                                    <p class="text-sm text-blue-800"><strong>Важно:</strong> Сроки фиксируем в договоре. Если мы опаздываем — платим неустойку за каждый день просрочки (прописывается в договоре).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="terms" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-6">
+                        <summary>
+                            <span itemprop="name">Можно ли начать ремонт до получения ключей?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>Да, и это часто выгодно.</strong> Если квартира ещё не получена, мы можем:</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Подготовить смету и договор заранее (инженер замерит заранее по доступу застройщика).</li>
+                                    <li>Закупить и привезти материалы к дате получения ключей.</li>
+                                    <li>Начать демонтаж и черновые работы сразу после передачи ключей.</li>
+                                </ul>
+                                <p class="mb-3"><strong>Выгода:</strong> экономия 2–4 недели на старте. Если ремонт нужен к определённой дате, планировать нужно от неё назад: 60 м² под ключ — 46–68 дней, плюс 2–4 недели на очередь в сезон.</p>
+                                <div class="p-4 bg-green-50 border border-green-200 rounded-xl">
+                                    <p class="text-sm text-green-800"><strong>Чек-лист до получения ключей:</strong> договор с застройщиком → акт приёмки → доступ в квартиру → замер → смета → договор → старт.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="terms" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-7">
+                        <summary>
+                            <span itemprop="name">Можно ли делать ремонт поэтапно (сначала кухню, потом комнаты)?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>Да, но не рекомендуем.</strong> Поэтапный ремонт увеличивает сроки на 30–50% и стоимость на 15–20%.</p>
+                                <p class="mb-3"><strong>Почему:</strong></p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Бригада ждёт, пока вы соберётесь / закупите / решите.</li>
+                                    <li>Сантехника и электрика проходят по всей квартире — переделывать их по кускам дороже в 2–3 раза.</                                    <li>Сложнее гарантировать качество на стыках этапов.</li>
+                                </ul>
+                                <p class="mb-3"><strong>Если бюджет ограничен:</strong> лучше сделать капитальный ремонт всего сразу по оптимальному пакету, чем растягивать на годы. У нас есть пакет «Эконом» — только самое необходимое за разумные деньги.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Гарантия и качество -->
+                    <details class="faq-ex faq-item" data-category="guarantee" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-8">
+                        <summary>
+                            <span itemprop="name">Какая гарантия на работы? Что если что-то сломается?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Базовая гарантия</strong> — 3 года на все виды отделочных и инженерных работ.</li>
+                                    <li><strong>Премиум-пакет</strong> — 5 лет гарантии.</li>
+                                    <li>Если в течение гарантийного срока что-то пойдёт не так — приедем и бесплатно устраним всё в течение 48 часов.</li>
+                                    <li>Ответственность прописана в договоре и гарантийном сертификате.</li>
+                                </ul>
+                                <div class="mt-4 p-4 bg-green-50 border border-green-200 rounded-xl">
+                                    <p class="text-sm text-green-800"><strong>Что НЕ в гарантии:</strong> естественный износ материалов, повреждения от неправильной эксплуатации, форс-мажоры (пожар, наводнение, действия третьих лиц). Полный список — в договоре.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="guarantee" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-9">
+                        <summary>
+                            <span itemprop="name">Как вы контролируете качество на каждом этапе?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <ol class="list-decimal ml-5 space-y-2 mb-4">
+                                    <li><strong>Чек-листы приёмки</strong> — каждый этап принимается по чек-листу из 50+ пунктов (геометрия, влажность, натяжение проводки, герметичность соединений и т.д.).</li>
+                                    <li><strong>Фотоотчёты каждый день</strong> — в личном кабинете MAX вы видите фото/видео с объекта, комментарии прораба, % готовности этапа.</li>
+                                    <li><strong>Приёмка этапов</strong> — каждый этап принимается по чек-листу с фотоотчётом. Не приняли этап — не платите за него и не идём дальше.</li>
+                                    <li><strong>Финальная приёмка</strong> — чек-лист 100+ пунктов, акт приёмки этапа, гарантийный талон, инструкции по эксплуатации.</li>
+                                </ol>
+                                <p class="mt-3">Вы принимаете каждый этап по акту. Не приняли — не платите за него и не идём дальше.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="guarantee" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-10">
+                        <summary>
+                            <span itemprop="name">Что если после сдачи обнаружится дефект?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <ol class="list-decimal ml-5 space-y-2 mb-4">
+                                    <li>Пишете нам в чат/звоните — фиксируем обращение.</                                    <li>Инженер приезжает на осмотр в течение 24–48 часов (по Москве/МО).</li>
+                                    <li>Определяем: гарантийный случай или нет (фото/видео, замеры).</li>
+                                    <li>Если гарантийный — составляем акт, составляем план устранения, делаем в приоритетном порядке (в течение 48 часов для критичных, до 7 дней для косметических).</li>
+                                    <li>Подписываете акт выполненных гарантийных работ.</li>
+                                </ol>
+                                <p class="mt-3">Среднее время реакции — 4 часа. Среднее время устранения — 1.5 дня.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Процесс и команда -->
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-11">
+                        <summary>
+                            <span itemprop="name">Кто будет работать у меня в квартире? Свои люди или подрядчики?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>Только наши штатные бригады.</strong> Никаких «субподрядчиков» и «райдеров».</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>В штате: прорабы, электрики, сантехники, плиточники, штукатуры, маляры, штукатуры, плотники, мебельщики, уборщики.</                                    <li>Все проходят внутреннюю аттестацию, работают по нашим технологическим картам и чек-листам.</li>
+                                    <li>За работу каждого отвечает прораб и наша компания по договору.</li>
+                                    <li>Никаких «гастарбайтеров», студентов или случайных людей с Авито.</li>
+                                </ul>
+                                <div class="mt-3 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                                    <p class="text-sm text-blue-800"><strong>Можете проверить:</strong> на замере инженер покажет профили бригад, фото объектов, контакты прораба.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-12">
+                        <summary>
+                            <span itemprop="name">Как я буду узнавать о ходе работ, если не могу приезжать каждый день?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Приложение MAX</strong> — ежедневные фото/видео от прораба, % готовности этапа, комментарии.</li>
+                                    <li><strong>Еженедельные отчёты</strong> — PDF с фото, % готовности, потраченные материалы, план на неделю.</li>
+                                    <li><strong>Чат с прорабом</strong> — прямой контакт в Telegram/WhatsApp для оперативных вопросов.</li>
+                                    <li><strong>Еженедельные созвоны</strong> — 15 мин по звонку/видео: статус, план, вопросы.</li>
+                                </ul>
+                                <p class="mt-3">Вы видите всё в телефоне — не нужно ездить на объект каждый день.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-13">
+                        <summary>
+                            <span itemprop="name">Кто закупает материалы? Могу ли я купить сам?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>Рекомендуем закупать через нас.</strong> Почему:</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Скидка 10–15%</strong> у поставщиков (Леруа, Петрович, Спецстрой, локальные склады). Экономия 10–15% от стоимости материалов.</li>
+                                    <li><strong>Точный расчёт.</strong> Считаем материалы по вашей смете + 5–10% запас на подрезку и брак. Реже — подрядчик закупил дешевле, чем предполагалось, и не хватило.</li>
+                                    <li><strong>Логистика на нас.</strong> Закупка, доставка, подъём, хранение, возврат брака — на нас. Вы не ездите за материалами.</li>
+                                    <li><strong>Качество под контролем.</strong> Проверяем партии при приёмке, брак меняем за свой счёт.</li>
+                                </ul>
+                                <p class="mt-3"><strong>Можете купить сами</strong> — если хотите конкретный бренд/коллекцию. Мы дадим ведомость с точными объёмами и артикулами. Но: ответственность за сроки доставки, брак, недокупку — на вас.</p>
+                                <div class="mt-3 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+                                    <p class="text-sm text-gray-700"><strong>Совет:</strong> черновые материалы (цемент, песок, провода, трубы) — всегда закупаем мы. Чистовые (плитка, ламинат, сантехника, краска) — можете выбрать сами, мы закупим по вашей ведомости со скидкой.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Документы и договор -->
+                    <details class="faq-ex faq-item" data-category="legal" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-14">
+                        <summary>
+                            <span itemprop="name">Какой договор заключаете? Можно ли посмотреть образец?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3">Заключаем <strong>Договор подряда на выполнение строительно-монтажных работ</strong> (ст. 702 ГК РФ) с приложениями:</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Приложение 1:</strong> Смета (позиционная, с расшифровкой, ценами, итогами).</li>
+                                    <li><strong>Приложение 2:</strong> График работ (этапы, даты начала/окончания, неустойки).</li>
+                                    <li><strong>Приложение 3:</strong> Техническое задание и чек-листы приёмки.</li>
+                                    <li><strong>Приложение 4:</strong> Ведомость материалов (кто закупает, объёмы, цены).</li>
+                                    <li><strong>Приложение 5:</strong> Акт приёмки-передачи этапов и итоговый акт.</li>
+                                    <li><strong>Приложение 6:</strong> Гарантийный талон и инструкции по эксплуатации.
+                                </ul>
+                                <p class="mb-3">Образец договора пришлём на email или в чат после замер — изучите спокойно, проконсультируйтесь с юристом.</p>
+                                <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
+                                    <p class="text-sm text-yellow-800"><strong>Важно:</strong> В договоре прописаны: фиксированная цена, фиксированные сроки, неустойки за просрочку, порядок изменений объёмов/цен, порядок разрешения споров (претензионный досудебный + суд по месту нахождения подрядчика).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="legal" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-15">
+                        <summary>
+                            <span itemprop="name">Нужно ли согласовывать перепланировку? Поможете с проектом?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>Если не меняете несущие стены и не меняете назначение комнат</strong> — согласование не нужно (текущий ремонт).</p>
+                                <p class="mb-3"><strong>Нужно согласование (проект + Мосжилинспекция/МФЦ), если:</strong></p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Сносите/строите перегородки (меняется планировка).</li>
+                                    <li>Переносите санузел, расширяете проём, сносите несущую стену — нужно.</li>
+                                    <li>Объединяете кухню с гостиной — нужно.</                                </ul>
+                                <p class="mb-3"><strong>Мы помогаем:</strong> готовим проект перепланировки (СССР/СССР), согласовываем в Мосжилинспекции/МФЦ, получаем акт о завершении перепланировки, вносим изменения в ЕГРН. Стоимость проекта от 20 000 ₽, срок согласования 30–45 дней.</p>
+                                <div class="mt-4 p-4 bg-red-50 border border-red-200 rounded-xl">
+                                    <p class="text-sm text-red-800"><strong>Важно:</strong> не начинайте снос перегородок до получения разрешения — штраф до 50 000 ₽ и обязанность восстановить исходное состояние за свой счёт (ст. 7.22 КоАП РФ, ст. 29 ЖК РФ).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="legal" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-16">
+                        <summary>
+                            <span itemprop="name">Можно ли оплатить ремонт через ипотеку / маткапитал / рассрочку?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Ипотека на ремонт</strong> — да, работаем с банками-партнёрами (Сбер, Альфа, Тинькофф, ВТБ). Помогаем оформить: смету для банка, договор, акты этапов. Банк переводит деньги поэтапно по актам.</li>
+                                    <li><strong>Материнский капитал</strong> — можно направить на оплату работ (не материалов). Помогаем оформить пакет документов для ПФР/МФЦ.</li>
+                                    <li><strong>Рассрочка от нас</strong> — до 6 месяцев без процентов (первый взнос 30%, остальное равными частями по этапам). Оформляется доп. соглашением к договору.</li>
+                                </ul>
+                                <p class="mb-3">Подробнее обсудим на замере — инженер подскажет оптимальный вариант под вашу ситуацию.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Дополнительные полезные вопросы -->
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-17">
+                        <summary>
+                            <span itemprop="name">Можно ли жить в квартире во время ремонта?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>При капитальном ремонте — крайне не рекомендуем.</strong></p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Пыль, шум, грязь — вредны для здоровья (особенно детей и аллергиков).</li>
+                                    <li>Электричество и вода периодически отключаются.</li>
+                                    <li>Бригаде тесно — мешает двигаться, сроки сдвигаются.</li>
+                                    <li>Риск повредить уже сделанное (пройти по свежей штукатурке, задеть свежую плитку).</li>
+                                </ul>
+                                <p class="mb-3"><strong>Косметический ремонт</strong> — можно остаться, если работает 1 комната и есть где спать/помыться. Но всё равно — пыль и шум.</p>
+                                <div class="p-4 bg-green-50 border border-green-200 rounded-xl">
+                                    <p class="text-sm text-green-800"><strong>Совет:</strong> снимайте квартиру на время ремонта. Экономия на аренде не стоит здоровья и нервов. Мы поможем найти вариант рядом.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-18">
+                        <summary>
+                            <span itemprop="name">Что нужно подготовить к приезду инженера на замер?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3">Минимум — доступ в квартиру и 30 минут времени. Желательно подготовить:</p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Документы:</strong> паспорт, ДДУ/выписка ЕГРН, план БТИ/ПИК (если есть).</li>
+                                    <li><strong>Инструменты:</strong> рулетка 5м + лазерный дальномер, уровень 1м, фонарик, зажигалка/свеча (для вентиляции), индикаторная отвертка, мел/малярный скотч (отмечать дефекты), телефон с камерой.</li>
+                                    <li><strong>Шаблон акта:</strong> скачайте <a href="/smeta-obrazec" style="color:#2563eb;">бланк акта приемки</a> заранее, чтобы не писать от руки на коленке.</li>
+                                    <li><strong>Пожелания по планировке/стилю/бюджету</strong> (даже грубые: «хочу кухню-гостиную», «нужно 2 санузла»).</li>
+                                </ul>
+                                <p class="mb-3">Инженер будет 40–60 минут: замеряет лазером, фотофиксирует дефекты, задаёт вопросы про привычки/планы, записывает пожелания. Через 24 часа пришлём смету в 3 вариантах.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-19">
+                        <summary>
+                            <span itemprop="name">Что если на замер приедет не инженер, а менеджер/менеджер?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p class="mb-3"><strong>У нас выезжает только инженер-сметчик (5+ лет опыта).</strong></p>
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li>Менеджеры не умеют замерять, не видят технические риски (вентканалы, несущие стены, геометрия).</li>
+                                    <li>Инженер сразу видит: где нужна гидроизоляция, где стоят несущие стены, как проложить коммуникации без конфликтов.</                                    <li>Смета инженера — точная. Смета менеджера — «примерная», потом растёт.</li>
+                                </ul>
+                                <p class="mb-3">Наш инженер — ваш технический консультант. Он скажет, где можно сэкономить, а где экономить нельзя. Это бесплатно.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="faq-ex faq-item" data-category="process" itemscope itemtype="https://schema.org/Question" data-faq-id="faq-20">
+                        <summary>
+                            <span itemprop="name">Как вы относитесь к экологии и безопасности? Есть ли пыль/запахи?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <ul class="list-disc ml-5 space-y-2 mb-4">
+                                    <li><strong>Пыль:</strong> промышленные пылесосы (класс M/H) на каждом этапе, влажная уборка каждый день, запоры на дверях (пластик + зиппер).</li>
+                                    <li><strong>Запахи:</strong> используем низковольатильные краски/клеи (Эколейбл, М1), вентиляция принудительная. Запах исчезает за 3–5 дней после уборки.</li>
+                                    <li><strong>Отходы:</strong> сортируем (бетон/кирпич — на переработку, дерево — в брикеты, опасы — по договору с лицензированным подрядчиком). Вывозим в контейнерах, не в мусоропровод.</li>
+                                    <li><strong>Безопасность:</strong> щиты заземлены, РУЗ на каждой группе, ограждения на окнах/балконах (высота >2м), ОСХАРД карта на объекте.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-no-results hidden" role="status" aria-live="polite">
+                    <p class="text-center text-gray-500 py-8">По вашему запросу ничего не найдено. Попробуйте другую категорию.</p>
+                </div>
             </div>
-        </section>
 
-        <!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
+            <div class="faq-cta mt-10 text-center">
+                <p class="text-gray-600 mb-4 max-w-2xl mx-auto">Не нашли ответ? Напишите нам — инженер ответит за 15 минут в рабочее время.</p>
+                <div class="flex flex-wrap justify-center gap-3 mt-4">
+                    <a href="/contact" class="fss-btn-light">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        Задать вопрос инженеру
+                    </a>
+                    <a href="/calculator" class="fss-btn-ghost">
+                        <i class="fas fa-calculator" aria-hidden="true"></i>
+                        Быстрый расчёт стоимости
+                    </a>
+                </div>
+            </div>
+        </section>"""
+
+# Now write this to a temp file and use it for replacement
+with open('/tmp/new_faq_section.html', 'w', encoding='utf-8') as f:
+    f.write(new_faq_section)
+print("New FAQ section written to /tmp/new_faq_section.html")
+print(f"Length: {len(new_faq_section)} chars")
+PYEOF<!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
         <section class="brand-section section-shell" aria-label="О бренде Проект Квартира — официальный сайт pkvartira.ru" itemscope itemtype="https://schema.org/Organization">
             <meta itemprop="alternateName" content="Проект Квартира">
             <meta itemprop="alternateName" content="pkvartira.ru">
