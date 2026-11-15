@@ -56,10 +56,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <meta name="twitter:image" content="<?= htmlspecialchars($seo['og']['image']); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
-    <?php include_once '../../components/head-includes.php'; ?>
+    <?php include_once './public/components/head-includes.php'; ?>
 </head>
 <body class="bg-white">
-    <?php include_once '../../components/header.php'; ?>
+    <?php include_once './public/components/header.php'; ?>
     <main class="pt-20" style="padding-top:80px">
         <section class="py-16 bg-white reveal pillar-intro">
             <div class="container mx-auto px-4 max-w-6xl">
@@ -240,7 +240,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
     </main>
-    <?php include_once '../../components/footer.php'; ?>
+    <?php include_once './public/components/footer.php'; ?>
     <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
 </body>
 </html>

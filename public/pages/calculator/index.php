@@ -6,9 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | Проект Квартира</title>
+    <?php /* Страница-калькулятор с собственной «головой»: title/description различаем по хосту,
+            чтобы upgrade.pkvartira.ru не дублировал pkvartira.ru в выдаче. */ ?>
+    <title><?= htmlspecialchars(($site['isUpgrade'] ?? false)
+        ? 'Калькулятор ремонта: стоимость от прораба за 1 минуту | Проект Квартира'
+        : 'Калькулятор ремонта квартиры — расчёт стоимости онлайн | Проект Квартира'); ?></title>
     <meta name="description"
-        content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        content="<?= htmlspecialchars(($site['isUpgrade'] ?? false)
+            ? 'Посчитайте стоимость работ по площади и типу ремонта. Расчёт без наценок менеджеров — цены те же, что прораб называет на объекте.'
+            : 'Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно.'); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/calculator'); ?>">

@@ -13,6 +13,15 @@ final class SiteUrl
     private const KNOWN_SUBDOMAINS = ['upgrade.pkvartira.ru'];
     private const LOCAL_HOSTS = ['localhost', '127.0.0.1', '::1'];
 
+    /**
+     * Публичный доступ к whitelist канонических хостов.
+     * Нужен robots.php: раньше он обращался к приватной константе и падал с 500.
+     */
+    public static function canonicalHosts(): array
+    {
+        return self::CANONICAL_HOSTS;
+    }
+
     public static function baseUrl(?array $server = null): string
     {
         $server ??= $_SERVER;

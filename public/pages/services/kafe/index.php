@@ -195,7 +195,7 @@ include './public/components/cta-form.php';
             <div class="mt-4 flex flex-wrap justify-center gap-3">
                 <a href="/services/kommercheskie" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Коммерческие помещения</a>
                 <a href="/services/restoran" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ресторан</a>
-                <a href="/services/office" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Офис</a>
+                <a href="/services/kommercheskie" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Офис</a>
                 <a href="/services/magazin" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Магазин</a>
                 <a href="/services/salon-krasoty" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Салон красоты</a>
                 <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-[#876b55]">Ремонт под ключ</a>

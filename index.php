@@ -39,6 +39,12 @@
 	*/
 
 require_once __DIR__ . '/vendor/autoload.php';
+# Ошибки не попадают в HTML: иначе Warning/Notice (например «Undefined variable»)
+# рендерятся прямо в вёрстку страниц. Всё пишется в лог сервера.
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
+ini_set('log_errors', '1');
 # Output buffering + gzip fallback (если mod_deflate недоступен, сжимаем через PHP)
 if (!ob_get_level() && extension_loaded('zlib') && !ini_get('zlib.output_compression')) {
     ob_start('ob_gzhandler');

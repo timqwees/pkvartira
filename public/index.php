@@ -1,6 +1,12 @@
 <?php
 ini_set('max_execution_time', 300);
 ini_set('memory_limit', '512M');
+// Ошибки не должны попадать в HTML (иначе Warning'и вида «Undefined variable»
+// рендерятся прямо в вёрстку и ломают страницу). Всё пишем в лог сервера.
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
+ini_set('log_errors', '1');
 $site = Setting\Route\Functions\TheFunction::site();
 $featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio(null, 5);
 

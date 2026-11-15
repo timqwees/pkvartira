@@ -14,10 +14,11 @@ Routes::get('/about', 'on_About');
 //==================================================================================================//AUTHOR (страница автора блога — ссылки rel="author" из статей)
 Routes::get('/author', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/author/index.php", get_defined_vars()); });
 //==================================================================================================//OTHER
-Routes::get('/other', 'on_Other');
+// /other — демо-страница-заглушка («ЖК Пример Парк»), в выдаче не нужна
+Routes::get('/other', function() { Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/other/index.php', get_defined_vars(), 'noindex, follow'); });
 //==================================================================================================//REVIEWS
 Routes::get('/reviews', 'on_Reviews');
-Routes::get('/reviews/qr', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/reviews/qr.php", get_defined_vars()); });
+Routes::get('/reviews/qr', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/reviews/qr.php", get_defined_vars(), 'noindex, nofollow'); });
 //==================================================================================================//REVIEWS
 Routes::get('/portfolio', 'on_Portfolio');
 //==================================================================================================//SERVICE INDEX
@@ -52,6 +53,9 @@ Routes::get('/services/keramogranit-nazarovo', function() {
 Routes::get('/services/{name}', function($name) {
     $file = dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php";
     $vars = get_defined_vars();
+    // Узкие коммерческие страницы: в шаблоне стоит meta noindex — дублируем в X-Robots-Tag
+    $noindexSlugs = ['apteka', 'fitness', 'kafe', 'magazin', 'restoran', 'salon-krasoty', 'stomatologiya'];
+    $robots = in_array((string) $name, $noindexSlugs, true) ? 'noindex, follow' : null;
     // Данные для шаблонов услуг: $prices, $portfolio, $title, $seoTitle, $case*
     if (class_exists(\Setting\Route\Functions\ServiceData::class)) {
         $vars['prices'] = \Setting\Route\Functions\ServiceData::prices((string) $name);
@@ -62,7 +66,7 @@ Routes::get('/services/{name}', function($name) {
             : (\Setting\Route\Functions\TheFunction::site()['name'] ?? 'Проект Квартира');
         $vars = array_merge($vars, \Setting\Route\Functions\ServiceData::caseVars());
     }
-    Routes::auto_element($file, $vars);
+    Routes::auto_element($file, $vars, $robots);
 });
 //==================================================================================================//PRICES
 Routes::get('/prices', 'on_Prices');
@@ -75,6 +79,12 @@ Routes::get('/blog', function() {
 });
 //==================================================================================================//BLOG ARTICLE (короткое ЧПУ: /blog/{slug})
 Routes::get('/blog/{slug}', function ($slug) {
+    // Кириллица в слаге ломает sitemap/canonical (процент-кодировка) — 301 на ASCII-адрес
+    if (!\Setting\Route\Functions\Slug::isAscii((string) $slug)) {
+        $ascii = \Setting\Route\Functions\Slug::toAscii((string) $slug);
+        header('Location: /blog/' . $ascii, true, 301);
+        exit;
+    }
     Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/blog/article/index.php', ['slug' => $slug]);
 });
 //==================================================================================================//BLOG ARTICLE (короткое ЧПУ: /blog/{slug}; старые /blog/article/* отдают 404 — редиректов нет)
@@ -83,10 +93,11 @@ Routes::get('/calculator', 'on_Calculator');
 //==================================================================================================//AREA CALCULATOR (SEO)
 Routes::get('/kalkulyator-ploshchadi', 'on_AreaCalculator');
 //==================================================================================================//SEARCH (поиск по сайту: закрывает SearchAction в schema и opensearch.xml — раньше был 404)
-Routes::get('/search', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/search/index.php", get_defined_vars()); });
+Routes::get('/search', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/search/index.php", get_defined_vars(), 'noindex, follow'); });
 //==================================================================================================//LEGAL / CONSENT
-Routes::get('/soglashenie', 'on_Soglashenie');
-Routes::get('/privacy-policy', 'on_Soglashenie');
+// Юридические страницы: meta noindex — дублируем в заголовке, чтобы сигналы не расходились
+Routes::get('/soglashenie', function() { Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/soglashenie/index.php', get_defined_vars(), 'noindex, follow'); });
+Routes::get('/privacy-policy', function() { Routes::auto_element(dirname(__DIR__, 2) . '/public/pages/soglashenie/index.php', get_defined_vars(), 'noindex, follow'); });
 //==================================================================================================//SMETA SAMPLE (SEO)
 Routes::get('/smeta-obrazec', 'on_Smeta');
 //==================================================================================================//DOGOVOR TEMPLATE (SEO)
@@ -168,6 +179,12 @@ Routes::get('/.well-known/security.txt', function() {
 	header('Content-Type: text/plain; charset=utf-8');
 	readfile(dirname(__DIR__, 2) . '/public/.well-known/security.txt');
 });
+// /security.txt в корне — по RFC 9116 допустим, отдаём тот же файл (был 404)
+Routes::get('/security.txt', function() {
+	\Setting\Route\Functions\SecurityHeaders::sendSecurity();
+	header('Content-Type: text/plain; charset=utf-8');
+	readfile(dirname(__DIR__, 2) . '/public/.well-known/security.txt');
+});
 
 // .docx documents — noindex (N-06)
 // Файлы вынесены в /storage (вне публичной директории), иначе Apache отдавал их статикой
@@ -180,8 +197,10 @@ $__docxMap = [
     'smeta-remonta-obrazec' => 'smeta-remonta-obrazec.docx',
 ];
 Routes::get('/documents/{doc}', function ($doc) use ($__docxMap) {
-    $name = $__docxMap[$doc] ?? null;
-    if ($name === null) {
+    // Ссылки в вёрстке ведут с расширением (/documents/x.docx) — нормализуем
+    $key = preg_replace('/\.docx$/i', '', (string) $doc);
+    $name = $__docxMap[$key] ?? null;
+    if ($name === null || !is_file(dirname(__DIR__, 2) . '/storage/documents/' . $name)) {
         Routes::error_404('/documents/' . $doc);
         return;
     }

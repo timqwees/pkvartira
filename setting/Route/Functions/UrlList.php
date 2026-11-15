@@ -2,23 +2,18 @@
 
 namespace Setting\Route\Functions;
 
-use Setting\Route\Functions\Sitemap;
-
+/**
+ * Плоский текстовый список всех URL сайта (/pages).
+ * Источник — те же генераторы, что и у sitemap (Sitemap::allUrls()).
+ */
 class UrlList
 {
     public static function output(): void
     {
-        $xml = Sitemap::generate();
-        $simpleXml = simplexml_load_string($xml);
-
-        if ($simpleXml === false) {
-            return;
-        }
-
         header('Content-Type: text/plain; charset=utf-8');
 
-        foreach ($simpleXml->url as $url) {
-            echo (string) $url->loc . PHP_EOL;
+        foreach (Sitemap::allUrls() as $url) {
+            echo $url . PHP_EOL;
         }
     }
 }

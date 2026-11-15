@@ -22,7 +22,7 @@ if (!headers_sent()) {
 require_once dirname(__DIR__) . '/setting/Route/Functions/SiteUrl.php';
 $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
 $rawHost = preg_replace('/:\\d+$/', '', (string)$rawHost) ?? '';
-$canonicalHosts = \Setting\Route\Functions\SiteUrl::CANONICAL_HOSTS;
+$canonicalHosts = \Setting\Route\Functions\SiteUrl::canonicalHosts();
 $isUpgrade = strtolower($rawHost) === 'upgrade.pkvartira.ru';
 $isProd = in_array(strtolower($rawHost), $canonicalHosts, true);
 if ($isProd) {

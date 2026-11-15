@@ -18,6 +18,16 @@ class Sitemap
         $this->cacheDir = sys_get_temp_dir() . '/pkvartira-sitemap/';
     }
 
+    /**
+     * Ключ кэша привязан к хосту: два сайта (pkvartira.ru и upgrade.pkvartira.ru)
+     * работают из одного кода, и общий кэш отдавал sitemap чужого хоста
+     * (на pkvartira.ru были <loc>https://upgrade.pkvartira.ru/…</loc>).
+     */
+    private function hostKey(): string
+    {
+        return substr(md5($this->baseUrl), 0, 10) . '-';
+    }
+
     private function ensureCacheDirectory(): void
     {
         if (!is_dir($this->cacheDir)) {
@@ -33,7 +43,7 @@ class Sitemap
             'services' => 'services.xml',
             'blog' => 'blog.xml',
         ];
-        return $this->cacheDir . ($map[$type] ?? null);
+        return $this->cacheDir . $this->hostKey() . ($map[$type] ?? null);
     }
 
     private function isCacheFresh(string $cacheFile, float $sourceMtime): bool
@@ -58,6 +68,28 @@ class Sitemap
             return file_get_contents($path);
         }
         return null;
+    }
+
+    // ======================== PUBLIC: ВСЕ URL (для /pages) ========================
+
+    /**
+     * Плоский список всех URL из трёх под-карт.
+     * Нужен UrlList::output() — раньше он вызывал удалённый Sitemap::generate() и отдавал 500.
+     */
+    public static function allUrls(): array
+    {
+        $instance = new self();
+        $urls = [];
+
+        foreach ([$instance->buildPagesXml(), $instance->buildServicesXml(), $instance->buildBlogXml()] as $xml) {
+            if (preg_match_all('#<loc>(.*?)</loc>#s', $xml, $m)) {
+                foreach ($m[1] as $loc) {
+                    $urls[] = html_entity_decode((string) $loc, ENT_QUOTES | ENT_XML1, 'UTF-8');
+                }
+            }
+        }
+
+        return array_values(array_unique($urls));
     }
 
     // ======================== SITEMAP INDEX ========================
@@ -96,6 +128,12 @@ class Sitemap
             ['loc' => '/sitemap-services.xml', 'lastmod' => $lastmod],
             ['loc' => '/sitemap-blog.xml', 'lastmod' => $lastmod],
         ];
+
+        // upgrade.pkvartira.ru: статьи блога — копии статей основного сайта и отдают
+        // canonical на pkvartira.ru. Держать их в sitemap второго сайта смысла нет.
+        if (str_contains($this->baseUrl, 'upgrade.pkvartira.ru')) {
+            $sitemaps = array_values(array_filter($sitemaps, static fn(array $s): bool => $s['loc'] !== '/sitemap-blog.xml'));
+        }
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
@@ -189,6 +227,7 @@ class Sitemap
             ['/blogs', '0.9', 'daily'],
             ['/smeta-obrazec', '0.8', 'weekly'],
             ['/dogovor-obrazec', '0.8', 'weekly'],
+            ['/author', '0.4', 'monthly'],
             // N-07: /vakansii и дочерние страницы закрыты от индексации (noindex) — в sitemap их нет.
         ];
 

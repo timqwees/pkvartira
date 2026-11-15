@@ -488,8 +488,6 @@
                 request.open('POST', CT_URL, true);
                 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 request.send(post_data);
-
-                console.log('Calltouch request sent:', ct_data);
             }
         } catch (err) {
             console.error('Calltouch script error:', err);
