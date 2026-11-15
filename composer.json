@@ -19,5 +19,12 @@
       "Setting\\": "setting/"
     }
   },
-  "scripts": {}
+  "scripts": {
+    "lint": "find . -name '*.php' -not -path './vendor/*' -not -path './.git/*' -print0 | xargs -0 -n1 php -l",
+    "test": "php tests/seo_regression_test.php",
+    "qa": [
+      "@lint",
+      "@test"
+    ]
+  }
 }

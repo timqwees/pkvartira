@@ -307,10 +307,43 @@ public/pages/blog/data/articles.json (26 articles)
 
 ---
 
+## ✅ FINAL VERIFICATION (executed, November 2026)
+
+| # | Check | Command | Result |
+|---|-------|---------|--------|
+| 1 | SEO regression suite (main + upgrade host) | `php tests/seo_regression_test.php` | `All SEO regression checks passed.` (exit 0) |
+| 2 | PHP syntax lint (all project `.php`, excluding vendor) | `find . -name '*.php' -not -path './vendor/*' -print0 \| xargs -0 -n1 php -l` | 185 files, 0 syntax errors |
+| 3 | Secrets / credentials scan | static grep (password\|secret\|token\|api_key\|db_* ...) | 0 matches |
+| 4 | composer.json QA gate | `composer run qa` → `lint` + `test` | lint clean, `All SEO regression checks passed.` |
+| 5 | Upgrade DNS/domain whitelist | `SiteUrl::KNOWN_SUBDOMAINS`, `TheFunction::site()['isUpgrade']` | `https://upgrade.pkvartira.ru` returned for the upgrade host; canonical self-referencing |
+| 6 | Cannibalization | `website` / `upgrade.pkvartira.ru` SEO surfaces | canonical self-ref per host; unique `title`/`description` per route via `upgradeSeoOverride()`; sitemap+IndexNow state keyed per host; separate JSON-LD Organization |
+
+### Deployment readiness checklist (already done in code)
+
+- [x] upgrade.pkvartira.ru registered in `SiteUrl::KNOWN_SUBDOMAINS` → `https://upgrade.pkvartira.ru`
+- [x] `TheFunction::site()` isUpgrade branch (name, phone, email `pro@pkvartira.ru`, telegram `@pkvartira_pro`)
+- [x] `upgradeSeoOverride()` — unique title/description on ~30 routes (no duplicate SERP copy)
+- [x] `robots.php` + `/upgrade/robots.txt` route — `noindex, nofollow` only for the test-stand path; main upgrade pages open for indexing
+- [x] `public/upgrade/robots.txt` + nginx route `/upgrade/robots.txt` (X-Robots-Tag noindex)
+- [x] Sitemap cache keyed per host (`md5(baseUrl)`); `sitemapIndex` per host
+- [x] IndexNow batched (10k/POST) + per-host sent-state file (`pkvartira-indexnow-state-upgrade.pkvartira.ru.json`)
+- [x] `robots.php` outputs `Sitemap: https://upgrade.pkvartira.ru/sitemap.xml` (host-aware)
+
+### Remaining manual steps before the upgrade subdomain is live
+
+1. DNS `A upgrade.pkvartira.ru → <server IP>`
+2. nginx `server_name upgrade.pkvartira.ru; root = repo public/;` + Let's Encrypt SSL
+3. Deploy: `git pull` on the server + `composer install` (vendor is gitignored) + `php -l`
+4. `cron */30 * * * * curl -s -o /dev/null https://upgrade.pkvartira.ru/indexnow` (IndexNow auto-push)
+5. Yandex Webmaster: add `YANDEX_VERIFICATION` to `.env`; verify the site; enable "Переобходим страницы"
+
+---
+
 ## 🎯 NEXT ACTIONS
 
 1. **Immediate (This Week)**
    - [ ] Provide Yandex Webmaster verification token (add to `.env` as `YANDEX_VERIFICATION`)
+   - [ ] Add DNS + nginx site + SSL for `upgrade.pkvartira.ru` (deploy step above)
    - [ ] Deploy to staging for QA
    - [ ] QA checklist: all 37 pages render, no JS errors, forms work
 
