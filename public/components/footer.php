@@ -62,7 +62,7 @@
                     <li><a href="/contact" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Контакты компании">Контакты</a></li>
                     <li><a href="/smeta-obrazec" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Образец сметы на ремонт">Смета на ремонт: образец</a></li>
                     <li><a href="/dogovor-obrazec" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Шаблон договора на ремонт">Договор на ремонт: шаблон</a></li>
-                    <li><a href="/kalkulyator-ploshchadi" class="text-gray-400 hover:text-[#876b55] transition text-sm" title="Калькулятор площади квартиры">Калькулятор площади м²</a></li>
+                </ul>
             </div>
 
             <div>

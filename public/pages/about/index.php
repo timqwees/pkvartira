@@ -352,7 +352,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
                 </div>
             </div>
-            </div>
         </section>
 
         <!-- <section class="py-10 bg-white border-t border-gray-200">

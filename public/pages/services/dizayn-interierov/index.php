@@ -138,11 +138,6 @@ $seo = TheFunction::seo([
                 <p class="mt-8 text-center text-sm text-[#6b7280]">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#6d5744] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#6d5744] underline">посчитайте в калькуляторе</a>.</p>
             </div>
         </section>
-</article>
-                </div>
-                <p class="mt-8 text-center text-sm text-[#6b7280]">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#6d5744] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#6d5744] underline">посчитайте в калькуляторе</a>.</p>
-            </div>
-        </section>
 
         <!-- 3. Что входит в дизайн-проект -->
         <section class="reveal bg-[#fafafa] py-14 md:py-20">
@@ -159,7 +154,7 @@ $seo = TheFunction::seo([
                 <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="card-premium hover-lift">
                         <div class="icon-wrap"><i class="fa-solid fa-pencil-ruler"></i></div>
-                        <h3 class="title">Замер и обмер</div>
+                        <h3 class="title">Замер и обмер</h3>
                         <p class="desc">Точные размеры всех помещений</p>
                     </div>
                     <div class="card-premium hover-lift">
@@ -337,7 +332,6 @@ $seo = TheFunction::seo([
                         Все проекты в портфолио <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
-                </div>
             </div>
         </section>
 
@@ -443,9 +437,6 @@ $seo = TheFunction::seo([
                     </div>
                 </div>
             </div>
-        </section>
-
-    </main>
         </section>
 
     </main>

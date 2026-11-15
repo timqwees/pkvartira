@@ -11,6 +11,8 @@ Routes::get('/stocks', 'on_Stocks');
 Routes::get('/contact', 'on_Contact');
 //==================================================================================================//ABOUT
 Routes::get('/about', 'on_About');
+//==================================================================================================//AUTHOR (страница автора блога — ссылки rel="author" из статей)
+Routes::get('/author', function() { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/author/index.php", get_defined_vars()); });
 //==================================================================================================//OTHER
 Routes::get('/other', 'on_Other');
 //==================================================================================================//REVIEWS
@@ -47,7 +49,21 @@ Routes::get('/services/ukladka-laminata', function() {
 Routes::get('/services/keramogranit-nazarovo', function() {
     Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/keramogranit-nazarovo/index.php", get_defined_vars(), 'noindex, follow');
 });
-Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php", get_defined_vars()); });
+Routes::get('/services/{name}', function($name) {
+    $file = dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php";
+    $vars = get_defined_vars();
+    // Данные для шаблонов услуг: $prices, $portfolio, $title, $seoTitle, $case*
+    if (class_exists(\Setting\Route\Functions\ServiceData::class)) {
+        $vars['prices'] = \Setting\Route\Functions\ServiceData::prices((string) $name);
+        $vars['portfolio'] = \Setting\Route\Functions\ServiceData::portfolio((string) $name);
+        $vars['title'] = \Setting\Route\Functions\ServiceData::title((string) $name);
+        $vars['seoTitle'] = $vars['title'] !== ''
+            ? $vars['title'] . ' — Проект Квартира'
+            : (\Setting\Route\Functions\TheFunction::site()['name'] ?? 'Проект Квартира');
+        $vars = array_merge($vars, \Setting\Route\Functions\ServiceData::caseVars());
+    }
+    Routes::auto_element($file, $vars);
+});
 //==================================================================================================//PRICES
 Routes::get('/prices', 'on_Prices');
 //==================================================================================================//BLOG
