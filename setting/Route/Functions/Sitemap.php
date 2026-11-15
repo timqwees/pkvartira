@@ -175,6 +175,7 @@ class Sitemap
     private function buildPagesXml(): string
     {
         // /soglashenie имеет noindex,follow — не должен быть в sitemap (Submitted URL marked 'noindex')
+        // /kalkulyator-ploshchadi 301 редиректит на /calculator — не в sitemap
         $pages = [
             ['/', '1.0', 'daily'],
             ['/about', '0.8', 'weekly'],
@@ -184,7 +185,6 @@ class Sitemap
             ['/stocks', '0.7', 'weekly'],
             ['/contact', '0.6', 'monthly'],
             ['/calculator', '0.8', 'weekly'],
-            ['/kalkulyator-ploshchadi', '0.8', 'weekly'],
             ['/services', '0.9', 'weekly'],
             ['/blogs', '0.9', 'daily'],
             ['/smeta-obrazec', '0.8', 'weekly'],
@@ -295,6 +295,8 @@ class Sitemap
             'apteka',
             'fitness',
             'salon-krasoty',
+            'showroom',
+            'office',
         ];
 
         $dir = __DIR__ . '/../../../public/pages/services';

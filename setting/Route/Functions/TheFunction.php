@@ -880,14 +880,17 @@ class TheFunction
         $opts['title'] = self::truncateSeo((string)$opts['title'], 55);
         $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
 
-        // === CANONICAL FIX для каннибализации ===
-        // Кластер "ремонт квартир под ключ" → канонический /services/pod-klyuch
+                // === CANONICAL FIX для каннибализации ===
+        // Кластер "ремонт квартир под ключ" -> канонический /services/pod-klyuch
         $canonicalOverrideMap = [
+            // Основной кластер "ремонт под ключ"
             '/services/novostroyka' => '/services/pod-klyuch',
             '/services/vtorichka' => '/services/pod-klyuch',
             '/services/pod-klyuch' => '/services/pod-klyuch', // self-ref
             '/prices' => '/services/pod-klyuch',
             '/services' => '/services/pod-klyuch', // общая страница услуг
+
+            // Блог-статьи с коммерческим интентом -> соответствующие сервисы
             '/blog/remont-pod-klyuch-2026' => '/services/pod-klyuch',
             '/blog/kosmeticheskiy-remont-2026' => '/services/pod-klyuch',
             '/blog/dizaynerskiy-remont-2026' => '/services/dizayn-interierov',
@@ -898,10 +901,103 @@ class TheFunction
             '/blog/white-box-2026' => '/services/white-box',
             '/blog/premium-remont-2026' => '/services/premium',
             '/blog/dizayn-interera-2026' => '/services/dizayn-interierov',
-            '/smeta-obrazec' => '/smeta-obrazec', // self-ref
-            '/dogovor-obrazec' => '/dogovor-obrazec', // self-ref
-            '/kalkulyator-ploshchadi' => '/calculator', // 301 редирект в nginx
-        ];
+
+            // Самореференциальные
+            '/smeta-obrazec' => '/smeta-obrazec',
+            '/dogovor-obrazec' => '/dogovor-obrazec',
+            '/kalkulyator-ploshchadi' => '/calculator', // 301 редирект
+
+            // District pages (21 pages) -- 95% дубликат контента -> канонические на /services/pod-klyuch
+            '/services/akademicheskaya' => '/services/pod-klyuch',
+            '/services/balashikha' => '/services/pod-klyuch',
+            '/services/dolgoprudny' => '/services/pod-klyuch',
+            '/services/domodedovo' => '/services/pod-klyuch',
+            '/services/khimki' => '/services/pod-klyuch',
+            '/services/krasnogorsk' => '/services/pod-klyuch',
+            '/services/leninsky-prospekt' => '/services/pod-klyuch',
+            '/services/lobnya' => '/services/pod-klyuch',
+            '/services/lyubertsy' => '/services/pod-klyuch',
+            '/services/mitino' => '/services/pod-klyuch',
+            '/services/mytishchi' => '/services/pod-klyuch',
+            '/services/odintsovo' => '/services/pod-klyuch',
+            '/services/podolsk' => '/services/pod-klyuch',
+            '/services/pushkino' => '/services/pod-klyuch',
+            '/services/ramenskoye' => '/services/pod-klyuch',
+            '/services/reutov' => '/services/pod-klyuch',
+            '/services/shcherbinka' => '/services/pod-klyuch',
+            '/services/solnechnogorsk' => '/services/pod-klyuch',
+            '/services/vidnoye' => '/services/pod-klyuch',
+            '/services/zelenograd' => '/services/pod-klyuch',
+            '/services/zvenigorod' => '/services/pod-klyuch',
+
+            // Коммерческие узкие страницы без уникального контента
+            '/services/ukladka-laminata' => '/services/chernovaya',
+            '/services/keramogranit-nazarovo' => '/services/chernovaya',
+            '/services/kafe' => '/services/kommercheskie',
+            '/services/restoran' => '/services/kommercheskie',
+            '/services/magazin' => '/services/kommercheskie',
+            '/services/stomatologiya' => '/services/kommercheskie',
+            '/services/apteka' => '/services/kommercheskie',
+            '/services/fitness' => '/services/kommercheskie',
+            '/services/salon-krasoty' => '/services/kommercheskie',
+
+            // Дома/коттеджи/типы домов
+            '/services/karkasny' => '/services/doma',
+            '/services/iz-breven' => '/services/doma',
+            '/services/iz-brusa' => '/services/doma',
+            '/services/kirpich' => '/services/doma',
+            '/services/monolit' => '/services/doma',
+            '/services/panelny' => '/services/doma',
+            '/services/stalinka' => '/services/vtorichka',
+            '/services/brezhnevka' => '/services/vtorichka',
+            '/services/hrushchevka' => '/services/vtorichka',
+
+            // Евро-форматы
+            '/services/evro-dvushka' => '/services/2room',
+            '/services/evro-treshka' => '/services/3room',
+
+            // Разные форматы/пакеты -> основные сервисы
+            '/services/budushchiy-remont' => '/services/pod-klyuch',
+            '/services/business' => '/services/kommercheskie',
+            '/services/komfort' => '/services/pod-klyuch',
+            '/services/econom' => '/services/pod-klyuch',
+            '/services/premium' => '/services/premium',
+            '/services/white-box' => '/services/white-box',
+            '/services/chernovaya' => '/services/chernovaya',
+            '/services/chistovaya' => '/services/chistovaya',
+            '/services/dizayn-interierov' => '/services/dizayn-interierov',
+            '/services/doma' => '/services/doma',
+            '/services/kommercheskie' => '/services/kommercheskie',
+            '/services/dlya-sdachi' => '/services/pod-klyuch',
+            '/services/dlya-prodazhi' => '/services/pod-klyuch',
+            '/services/dlya-zhizni' => '/services/pod-klyuch',
+            '/services/pod-zaselenie' => '/services/pod-klyuch',
+            '/services/ot-zastroyschika' => '/services/novostroyka',
+            '/services/bez-otdelki' => '/services/chernovaya',
+            '/services/predchistovaya' => '/services/chistovaya',
+            '/services/smeta' => '/smeta-obrazec',
+            '/services/zhk-simvol' => '/services/novostroyka',
+            '/services/zhk-template' => '/services/novostroyka',
+            '/services/ontario' => '/services/novostroyka',
+            '/services/not-zastroyschika' => '/services/novostroyka',
+
+            // Самореференциальные основные сервисы
+            '/services/premium' => '/services/premium',
+            '/services/white-box' => '/services/white-box',
+            '/services/chernovaya' => '/services/chernovaya',
+            '/services/chistovaya' => '/services/chistovaya',
+            '/services/dizayn-interierov' => '/services/dizayn-interierov',
+            '/services/doma' => '/services/doma',
+            '/services/kommercheskie' => '/services/kommercheskie',
+            '/services/dlya-sdachi' => '/services/pod-klyuch',
+            '/services/dlya-prodazhi' => '/services/pod-klyuch',
+            '/services/dlya-zhizni' => '/services/pod-klyuch',
+            '/services/pod-zaselenie' => '/services/pod-klyuch',
+            '/services/ot-zastroyschika' => '/services/novostroyka',
+            '/services/bez-otdelki' => '/services/chernovaya',
+            '/services/predchistovaya' => '/services/chistovaya',
+            '/services/smeta' => '/smeta-obrazec',
+        ];;
         $pathOnly = $site['path'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         if (isset($canonicalOverrideMap[$pathOnly])) {
             $opts['canonical'] = $site['baseUrl'] . $canonicalOverrideMap[$pathOnly];
