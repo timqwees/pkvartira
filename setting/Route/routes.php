@@ -276,12 +276,32 @@ Routes::get('/upgrade/robots.txt', function() {
 
 // IndexNow авто-пуш: ручной POST /indexnow + автоматический GET /indexnow (по mtime)
 $indexNowKey = '769e1df8217a98f76286a4d39b571085';
-$indexNowStateFile = sys_get_temp_dir() . '/pkvartira-indexnow-state.json';
 $indexNowHost = parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST);
+// Состояние «что уже отправлено» — отдельно для каждого домена.
+// Раньше файл был общим: отправка со upgrade помечала URL отправленными и для pkvartira.ru.
+$indexNowStateFile = sys_get_temp_dir() . '/pkvartira-indexnow-state-' . preg_replace('/[^a-z0-9.-]/i', '_', $indexNowHost) . '.json';
 $indexNowKeyLocation = "https://{$indexNowHost}/{$indexNowKey}.txt";
+// Токен необязателен: если задан в окружении — /indexnow требует ?token=…
+$indexNowToken = getenv('INDEXNOW_TOKEN') ?: '';
+
+// Индексируемые ли URL: не отправляем в IndexNow то, что закрыто noindex,
+// отдаёт 301 или (на втором домене) canonical на основной сайт.
+function indexNowIsIndexable(string $route, string $host): bool {
+    static $blocked = ['/search', '/soglashenie', '/other', '/kalkulyator-ploshchadi', '/pages'];
+    if (in_array($route, $blocked, true)) return false;
+    if (str_starts_with($route, '/vakansii')) return false;      // noindex
+    if (str_starts_with($route, '/services/')) {
+        $slug = substr($route, strlen('/services/'));
+        $noindex = ['apteka', 'fitness', 'kafe', 'magazin', 'restoran', 'salon-krasoty', 'stomatologiya', 'ukladka-laminata', 'keramogranit-nazarovo'];
+        if (in_array($slug, $noindex, true)) return false;
+    }
+    // upgrade: статьи блога — копии статей pkvartira.ru и отдают canonical на основной домен
+    if (str_contains($host, 'upgrade.') && (str_starts_with($route, '/blog') || str_starts_with($route, '/blogs'))) return false;
+    return true;
+}
 
 // Функция: собрать все публичные URL проекта с их mtime
-function indexNowCollectUrls(): array {
+function indexNowCollectUrls(string $host): array {
     $root = dirname(__DIR__, 2);
     $urls = [];
 
@@ -373,35 +393,88 @@ function indexNowCollectUrls(): array {
         }
     }
 
+    // Отбрасываем неиндексируемые адреса: 301, noindex, кросс-доменные canonical
+    foreach (array_keys($urls) as $route) {
+        if (!indexNowIsIndexable((string) $route, $host)) {
+            unset($urls[$route]);
+        }
+    }
+
     return $urls;
 }
 
 // Функция: отправить URLs в IndexNow
-function indexNowSend(array $urls, string $key, string $keyLocation): array {
-    $results = [];
-    $ch = curl_init();
-    curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
-    foreach ($urls as $url) {
-        $fullUrl = "https://api.indexnow.org/indexnow?url=" . urlencode($url) . "&key=" . $key . "&keyLocation=" . urlencode($keyLocation);
-        curl_setopt($ch, CURLOPT_URL, $fullUrl);
-        $resp = curl_exec($ch);
-        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $results[] = ['url' => $url, 'status' => $code];
-        // throttle чтобы не получить 429
-        usleep(100000);
+/**
+ * Отправка пачкой. IndexNow допускает до 10 000 URL в одном POST —
+ * по одному URL на запрос это 30+ секунд и риск 429 вместо 1 секунды.
+ * Возвращаем по каждому URL статус: 200/202 — принято, 403 — ключ не найден,
+ * 422 — URL не принадлежит хосту.
+ */
+function indexNowSend(array $urls, string $key, string $keyLocation, string $host): array {
+    $urls = array_values(array_unique($urls));
+    if (!$urls) {
+        return [];
     }
-    curl_close($ch);
+
+    $payload = json_encode([
+        'host' => $host,
+        'key' => $key,
+        'keyLocation' => $keyLocation,
+        'urlList' => array_slice($urls, 0, 10000),
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+    $endpoints = [
+        'https://api.indexnow.org/indexnow', // общий шлюз: Bing, Yandex, Seznam, Naver
+        'https://www.bing.com/indexnow',
+        'https://yandex.com/indexnow',
+    ];
+
+    $codes = [];
+    foreach ($endpoints as $endpoint) {
+        $ch = curl_init($endpoint);
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $payload,
+            CURLOPT_HTTPHEADER => ['Content-Type: application/json; charset=utf-8'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 15,
+        ]);
+        curl_exec($ch);
+        $codes[$endpoint] = ['status' => (int) curl_getinfo($ch, CURLINFO_HTTP_CODE), 'error' => curl_error($ch)];
+        curl_close($ch);
+    }
+
+    // Итоговый статус URL = лучший ответ среди шлюзов (2xx считается успехом)
+    $best = 0;
+    foreach ($codes as $c) {
+        if ($c['status'] >= 200 && $c['status'] < 300) { $best = $c['status']; break; }
+        if ($c['status'] > $best) { $best = $c['status']; }
+    }
+
+    $results = [];
+    foreach ($urls as $url) {
+        $results[] = ['url' => $url, 'status' => $best, 'endpoints' => $codes];
+    }
     return $results;
 }
 
 // GET /indexnow — автоматическая проверка по mtime (HTML для браузеров, JSON для API)
-Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $indexNowKeyLocation) {
+Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $indexNowKeyLocation, $indexNowHost, $indexNowToken) {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity();
+
+    // Защита от злоупотребления: массовые пинги со стороны могут выглядеть как спам.
+    // Токен задаётся в окружении (INDEXNOW_TOKEN); если не задан — работает без него.
+    if ($indexNowToken !== '' && ($_GET['token'] ?? '') !== $indexNowToken) {
+        http_response_code(403);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['ok' => false, 'error' => 'forbidden'], JSON_UNESCAPED_UNICODE);
+        return;
+    }
     
     $accept = $_SERVER['HTTP_ACCEPT'] ?? '';
     $wantsHtml = strpos($accept, 'text/html') !== false || (isset($_GET['format']) && $_GET['format'] === 'html');
     
-    $allUrls = indexNowCollectUrls();
+    $allUrls = indexNowCollectUrls($indexNowHost);
     if (!$allUrls) {
         $response = ['ok' => true, 'message' => 'Нет URL для проверки', 'sent' => []];
         if ($wantsHtml) {
@@ -460,7 +533,7 @@ Routes::get('/indexnow', function() use ($indexNowKey, $indexNowStateFile, $inde
         return;
     }
 
-    $results = indexNowSend(array_column($toSend, 'url'), $indexNowKey, $indexNowKeyLocation);
+    $results = indexNowSend(array_column($toSend, 'url'), $indexNowKey, $indexNowKeyLocation, $indexNowHost);
 
     foreach ($results as $i => $r) {
         if ($r['status'] >= 200 && $r['status'] < 300) {
