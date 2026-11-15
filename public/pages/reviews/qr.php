@@ -60,7 +60,7 @@ $title = 'QR-коды для отзывов — ПКвартира';
                 <div class="hint">2 отзыва</div>
             </div>
             <div class="qr-card">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://pkvartira.ru/reviews') ?>" alt="Сайт" loading="lazy">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode($site['baseUrl'] . '/reviews') ?>" alt="Сайт" loading="lazy">
                 <div class="platform">Сайт</div>
                 <div class="hint">35 отзывов</div>
             </div>

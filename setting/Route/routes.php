@@ -295,8 +295,6 @@ function indexNowIsIndexable(string $route, string $host): bool {
         $noindex = ['apteka', 'fitness', 'kafe', 'magazin', 'restoran', 'salon-krasoty', 'stomatologiya', 'ukladka-laminata', 'keramogranit-nazarovo'];
         if (in_array($slug, $noindex, true)) return false;
     }
-    // upgrade: статьи блога — копии статей pkvartira.ru и отдают canonical на основной домен
-    if (str_contains($host, 'upgrade.') && (str_starts_with($route, '/blog') || str_starts_with($route, '/blogs'))) return false;
     return true;
 }
 

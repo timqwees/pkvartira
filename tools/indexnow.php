@@ -63,17 +63,15 @@ function collectUrls(string $host): array
         }
     }
 
-    // Блог: на upgrade статьи отдают canonical на pkvartira.ru — отправлять их бессмысленно
-    if (!str_contains($host, 'upgrade.')) {
-        $articlesFile = $root . '/public/pages/blog/data/articles.json';
-        if (is_file($articlesFile)) {
-            $articles = json_decode((string) file_get_contents($articlesFile), true) ?: [];
-            $urls[] = '/blogs';
-            foreach ($articles as $art) {
-                $slug = $art['slug'] ?? '';
-                if ($slug !== '') {
-                    $urls[] = '/blog/' . $slug;
-                }
+    // Блог: на обоих доменах canonical self-referencing — отправляем статьи обоим
+    $articlesFile = $root . '/public/pages/blog/data/articles.json';
+    if (is_file($articlesFile)) {
+        $articles = json_decode((string) file_get_contents($articlesFile), true) ?: [];
+        $urls[] = '/blogs';
+        foreach ($articles as $art) {
+            $slug = $art['slug'] ?? '';
+            if ($slug !== '') {
+                $urls[] = '/blog/' . $slug;
             }
         }
     }
@@ -99,9 +97,6 @@ function isIndexable(string $route, string $host): bool
         if (in_array($slug, $noindex, true)) {
             return false;
         }
-    }
-    if (str_contains($host, 'upgrade.') && (str_starts_with($route, '/blog') || str_starts_with($route, '/blogs'))) {
-        return false;
     }
 
     return true;

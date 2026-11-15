@@ -1451,7 +1451,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Где официальный сайт Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира (Проект Квартира) — https://pkvartira.ru. Единственное официальное зеркало — pkvartira.ru. Проверяйте домен, чтобы не попасть к мошенникам."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира — <?= htmlspecialchars($site['baseUrl']) ?>. Проверяйте домен в адресной строке, чтобы не попасть к мошенникам."}
             },
             {
               "@type": "Question",
@@ -1466,7 +1466,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Как найти отзывы о Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира (Проект Квартира) — на странице https://pkvartira.ru/reviews, а также на Яндекс Картах и 2ГИС. Ищите по запросам: Проект Квартира отзывы, Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира — на странице <?= htmlspecialchars($site['baseUrl']) ?>/reviews, а также на Яндекс Картах и 2ГИС. Ищите по запросам: Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
             }
           ]
         }

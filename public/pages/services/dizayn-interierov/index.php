@@ -261,7 +261,7 @@ $seo = TheFunction::seo([
                     <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
                         itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="relative h-48 bg-gray-100">
-                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_32new/11.png"
+                            <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/portfolio-photos/newbuilds/1_32new/11.png') ?>"
                                 alt="Новостройка 32 м² — дизайн-проект"
                                 class="w-full h-full object-cover"
                                 width="600" height="400" loading="lazy">
@@ -284,7 +284,7 @@ $seo = TheFunction::seo([
                     <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
                         itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="relative h-48 bg-gray-100">
-                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_62new/11.jpeg"
+                            <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/portfolio-photos/newbuilds/1_62new/11.jpeg') ?>"
                                 alt="Новостройка 62 м² — дизайн-проект"
                                 class="w-full h-full object-cover"
                                 width="600" height="400" loading="lazy">
@@ -307,7 +307,7 @@ $seo = TheFunction::seo([
                     <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
                         itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="relative h-48 bg-gray-100">
-                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg"
+                            <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg') ?>"
                                 alt="Капитальный ремонт новостройка 86 м² — дизайн-проект"
                                 class="w-full h-full object-cover"
                                 width="600" height="400" loading="lazy">

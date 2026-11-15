@@ -1125,29 +1125,26 @@ class TheFunction
             '/services/smeta' => '/smeta-obrazec',
         ];;
         $pathOnly = $site['path'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-        if (isset($canonicalOverrideMap[$pathOnly])) {
-            $opts['canonical'] = $site['baseUrl'] . $canonicalOverrideMap[$pathOnly];
-        } else {
-            $opts['canonical'] = $site['baseUrl'] . $pathOnly; // self-referencing
-        }
 
-        // === upgrade.pkvartira.ru: не дублировать pkvartira.ru ===
-        // Один код на два домена: без этого слоя оба сайта отдавали одинаковые title/description
-        // (93 из 104 страниц совпадали) — прямой источник каннибализации в выдаче.
         if (!empty($site['isUpgrade'])) {
-            // Статьи блога и список блога — те же тексты, что на основном сайте:
-            // canonical на pkvartira.ru, чтобы не плодить дубли между доменами.
-            if ($pathOnly === '/blogs' || str_starts_with((string) $pathOnly, '/blog/')) {
-                // Цепочку canonical'ов не строим: сразу конечный адрес на основном домене
-                $mainTarget = $canonicalOverrideMap[$pathOnly] ?? $pathOnly;
-                $opts['canonical'] = 'https://pkvartira.ru' . $mainTarget;
-            }
-            // Уникальные коммерческие title/description (позиционирование: прораб напрямую)
+            // === upgrade.pkvartira.ru ===
+            // Все canonical — только на upgrade. Ни одна страница второго сайта не отдаёт
+            // вес pkvartira.ru и не перенаправляет canonical на другую страницу внутри сайта:
+            // максимум собственных страниц в индексе.
+            $opts['canonical'] = $site['baseUrl'] . $pathOnly;
+
+            // Уникальные коммерческие title/description (позиционирование: прораб напрямую),
+            // чтобы два домена не конкурировали одинаковыми заголовками.
             $upgradeOverride = self::upgradeSeoOverride((string) $pathOnly);
             if ($upgradeOverride !== null) {
                 $opts['title'] = $upgradeOverride['title'];
                 $opts['description'] = $upgradeOverride['description'];
             }
+        } elseif (isset($canonicalOverrideMap[$pathOnly])) {
+            // Основной сайт: схема против внутренней каннибализации (как была)
+            $opts['canonical'] = $site['baseUrl'] . $canonicalOverrideMap[$pathOnly];
+        } else {
+            $opts['canonical'] = $site['baseUrl'] . $pathOnly; // self-referencing
         }
         // Гарантируем бренд в description — если нет упоминания бренда, добавляем «Проект Квартира»
         if (stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'pkvartira') === false) {

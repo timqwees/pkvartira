@@ -129,12 +129,6 @@ class Sitemap
             ['loc' => '/sitemap-blog.xml', 'lastmod' => $lastmod],
         ];
 
-        // upgrade.pkvartira.ru: статьи блога — копии статей основного сайта и отдают
-        // canonical на pkvartira.ru. Держать их в sitemap второго сайта смысла нет.
-        if (str_contains($this->baseUrl, 'upgrade.pkvartira.ru')) {
-            $sitemaps = array_values(array_filter($sitemaps, static fn(array $s): bool => $s['loc'] !== '/sitemap-blog.xml'));
-        }
-
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 

@@ -15,7 +15,8 @@
 Раньше был один запрос на каждый URL: 55 адресов = 36 секунд. Сейчас 114 адресов = 2,4 секунды.
 
 Не отправляются намеренно: `noindex`-страницы, 301-редиректы (`/kalkulyator-ploshchadi`), `/search`,
-`/soglashenie`, `/other`, вакансии, а на upgrade — ещё и статьи блога (их canonical указывает на pkvartira.ru).
+`/soglashenie`, `/other`, вакансии. Блог отправляется на обоих доменах: canonical у каждой страницы
+self-referencing на своём хосте.
 
 ## Проверка
 
@@ -34,6 +35,11 @@ curl -s https://upgrade.pkvartira.ru/indexnow | jq '.checked, .sent_count'
 **422** — URL не принадлежит хосту, **429** — слишком часто.
 
 Защита от злоупотребления: если задать `INDEXNOW_TOKEN` в окружении, эндпоинт требует `?token=…`.
+
+## Canonical
+
+Все страницы upgrade.pkvartira.ru отдают **self-referencing canonical на upgrade** и ничего не
+перенаправляют на pkvartira.ru — каждая страница второго сайта самостоятельно борется за выдачу.
 
 ## Честно о сроках: «мгновенно» не бывает
 
