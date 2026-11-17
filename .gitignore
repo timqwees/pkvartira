@@ -40,3 +40,8 @@ storage/uploads/
 # Ignore migration artefacts (if any)
 /setting/schema/*.bak
 /setting/schema/*.tmp
+
+# Local SQLite DB (generated)
+storage/database/*.sqlite
+storage/database/*.sqlite-journal
+storage/database/*.db

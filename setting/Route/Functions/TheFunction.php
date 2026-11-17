@@ -32,7 +32,13 @@ class TheFunction
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
-    # Страница акций || Stocks page
+    # Страница автора || Author page
+    public function on_Author($path = '/public/pages/author/index.php')
+    {
+        Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
+    }
+
+    # Страница акции || Stocks page
     public function on_Stocks($path = '/public/pages/stocks/index.php')
     {
 

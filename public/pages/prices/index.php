@@ -145,7 +145,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="text-start flex flex-wrap gap-3">
                             <a href="tel:<?= $site['phone']; ?>"
                                 class="cta-button relative bg-orange-500 text-white px-6 md:px-8 py-3 rounded-xl text-lg w-full max-w-xs md:w-auto">
-                                <span class="drop-shadow-lg font-sans">Расчитать Стоимость</span>
+                                <span class="drop-shadow-lg font-sans">Рассчитать Стоимость</span>
                             </a>
                             <a href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/files/price-list.pdf') ?>" download
                                 class="bg-white text-gray-700 px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-100 transition border border-gray-300 inline-flex items-center gap-2">

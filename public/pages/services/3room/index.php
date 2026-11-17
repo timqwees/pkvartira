@@ -483,7 +483,7 @@ if (is_readable($euroAbout)) {
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как правильно поэтапить капитальный ремонт трёхкомнатной квартиры?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Как правильно спланировать этапы капитального ремонта трёхкомнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
