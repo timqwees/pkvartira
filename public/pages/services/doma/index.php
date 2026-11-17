@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Ремонт домов и коттеджей — от 8 000 ₽/м²';
+$title = 'Ремонт домов и коттеджей — проект 3 240 000 ₽, от 8 000 ₽/м²';
 $bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
 $prices = [
     [
@@ -252,7 +252,7 @@ $prices = [
                 <!-- 1. hero section -->
         <?php
         $heroFormId = 'doma_hero';
-        $heroSubtitle = 'Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.';
+        $heroSubtitle = 'Проект дома 180 м² — от 3 240 000 ₽. Зафиксируем стоимость в договоре. Работаем с гарантией. Составим смету под ваш бюджет.';
         include './public/components/hero-section.php';
         ?>
 
@@ -303,6 +303,30 @@ $prices = [
                     <?php endforeach; ?>
                 </div>
                 <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">цен на ремонт</a> или <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">посчитайте в калькуляторе</a>.</p>
+            </div>
+        </section>
+
+        <!-- 2.5. Капитальный ремонт квартиры — блок для кластера -->
+        <section class="py-16 bg-white reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Капитальный ремонт квартиры под ключ</h2>
+                        <p class="text-gray-600 mb-6">Полная замена инженерных систем, стяжка, штукатурка, чистовая отделка. Фиксированная смета, гарантия 3 года.</p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Замена электрики и сантехники</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Стяжка и штукатурка по маякам</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Чистовая отделка под ключ</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Установка дверей и окон</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <a href="/services/pod-klyuch" class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                            Капитальный ремонт →
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 

@@ -255,7 +255,7 @@ if (is_readable($euroAbout)) {
 
     <!-- Main Content -->
     <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
-
+        <h1 class="sr-only">Ремонт трёхкомнатной квартиры под ключ в Москве</h1>
                 <!-- 1. hero section -->
         <?php
         $heroFormId = '3room_hero';

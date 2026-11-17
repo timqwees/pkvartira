@@ -1,5 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
+header('Location: /services/3room', true, 301);
+exit;
 $site = TheFunction::site();
 $title = 'Ремонт 4-комнатной квартиры — от 720 000 ₽';
 $bg_url = '/public/assets/images/portfolio-photos/3room/standard/3_112sqm/2.jpg';

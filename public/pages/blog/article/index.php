@@ -184,6 +184,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         'remont-v-brezhnevke' => [['/services/remont-brezhnevka', 'Ремонт в брежневке'], ['/services/shumoizolyatsiya-brezhnevka', 'Шумоизоляция в брежневке'], ['/calculator', 'Калькулятор ремонта']],
                         'remont-v-stalince' => [['/services/remont-stalinka', 'Ремонт в сталинке'], ['/services/restavraciya-lepni', 'Реставрация лепнины и паркета'], ['/calculator', 'Калькулятор ремонта']],
                         'dizayn-proekt-kvartiry' => [['/services/dizayn-proekt', 'Дизайн-проект квартиры'], ['/services/avtorskiy-nadzor', 'Авторский надзор'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-v-novostroyke-v-2027' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/priemka-kvartiry-zastroyshchik', 'Приёмка у застройщика'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-v-novostroyke-s-nulya' => [['/services/novostroyka', 'Ремонт в новостройке'], ['/services/dizayn-proekt', 'Дизайн-проект'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-vo-vtorichke-chto-menyat' => [['/services/remont-vtorichka', 'Ремонт вторички'], ['/services/zamena-elektroprovodki-kvartira', 'Замена электропроводки'], ['/calculator', 'Калькулятор ремонта']],
+                        'pochemu-smeta-rastet' => [['/services/smeta', 'Смета на ремонт'], ['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']],
+                        'vesennyj-remont-2027-aprel' => [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта'], ['/author', 'Об авторе']],
                     ];
                     $__serviceLinks = $__serviceMap[$slug] ?? [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']];
 

@@ -75,7 +75,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Капитальный — от 13 000 ₽/м²</li>
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Дизайнерский — от 18 000 ₽/м²</li>
                     </ul>
-                    <p class="mt-4 text-[#4b5563] leading-relaxed">Посчитайте свой метраж прямо сейчас: <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">калькулятор ремонта</a>, полные таблицы — на странице <a href="/prices" class="text-orange-600 underline hover:text-orange-700">цен</a>.</p>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed">Посчитайте свой метраж прямо сейчас: <a href="/calculator" class="text-orange-600 underline hover:text-orange-700">калькулятор ремонта</a>, полные таблицы — на странице <a                 <a href="/services/bez-otdelki" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Без отделки</a>
+                <a href="/services/chernovaya" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Черновая отделка</a>
+                <a href="/services/chistovaya" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Чистовая отделка</a>
+                <a href="/services/ot-zastroyschika" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Отделка от застройщика</a>
+                <a href="/services/predchistovaya" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Предчистовая отделка</a>
+                <a href="/services/white-box" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">White box</a>
+                href="/prices" class="text-orange-600 underline hover:text-orange-700">цен</a>.</p>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
                     <h3 class="text-lg font-bold text-[#111827]">Как спланировать ремонт заранее</h3>

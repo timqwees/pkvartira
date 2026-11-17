@@ -631,6 +631,30 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
             </div>
         </section>
 
+        <!-- 10.5. С чего начать ремонт вторички — блок со ссылками на этапы -->
+        <section class="py-16 bg-white reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">С чего начать ремонт вторички</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">1. Аудит состояния</h3>
+                        <p class="text-sm text-gray-600 mb-4">Проверяем электрику, сантехнику, окна, двери, пол. Составляем список обязательной замены.</p>
+                        <a href="/services/zamena-elektroprovodki-kvartira" class="text-sm font-semibold text-orange-600 hover:underline">Замена электропроводки →</a>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">2. Смета и сроки</h3>
+                        <p class="text-sm text-gray-600 mb-4">Детальная смета с фиксированной ценой. Никаких скрытых платежей в процессе.</p>
+                        <a href="/services/smeta" class="text-sm font-semibold text-orange-600 hover:underline">Смета на ремонт →</a>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">3. Этапы работ</h3>
+                        <p class="text-sm text-gray-600 mb-4">Черновые, чистовые, финишная приёмка. Каждый этап фиксируется в договоре.</p>
+                        <a href="/services/pod-klyuch" class="text-sm font-semibold text-orange-600 hover:underline">Этапы ремонта →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 11. Финальный CTA -->
         <?php
         $ctaFormId = 'vtorichka_cta';
