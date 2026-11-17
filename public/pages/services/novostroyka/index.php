@@ -423,6 +423,13 @@ $seo = TheFunction::seo([
         include './public/components/price-table.php';
         ?>
 
+        <?php
+        /* N-12: ссылки на все 7 страниц с типами отделки в новостройке */
+        $otdelkaClusterTitle = 'С каким состоянием квартиры вы получили ключи?';
+        $otdelkaClusterCurrent = '';
+        include './public/components/otdelka-cluster.php';
+        ?>
+
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container mx-auto px-4">

@@ -106,7 +106,7 @@ $seo = TheFunction::seo([
                     Сколько стоит ремонт 1-комнатной квартиры в Москве
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость ремонта однокомнатной квартиры с материалами — от 8 000 ₽/м². Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Стоимость работ — от 8 000 ₽/м², без учёта материалов, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -393,7 +393,35 @@ $seo = TheFunction::seo([
         include './public/components/cta-section.php';
         ?>
 
-
+        <?php
+        // J-01: кейс с фотографиями, площадью, сроками и итоговой стоимостью
+        $caseData = [
+            'title'  => 'Однокомнатная квартира, 35 м²',
+            'area'   => '35 м²',
+            'days'   => '38 дней',
+            'sum'    => '455 000 ₽',
+            'alt'    => 'Ремонт однокомнатной квартиры 35 м² — выполненный объект',
+            'img'    => '/public/assets/images/portfolio-photos/1room/standard/1_35sqm/1.png',
+            'photos' => [
+                '/public/assets/images/portfolio-photos/1room/standard/1_35sqm/1.png',
+                '/public/assets/images/portfolio-photos/1room/standard/1_35sqm/2.png',
+                '/public/assets/images/portfolio-photos/1room/standard/1_35sqm/1.webp',
+                '/public/assets/images/portfolio-photos/1room/standard/1_35sqm/2.webp',
+            ],
+            'note'   => 'Квартира в панельном доме: заменили инженерию, выровняли стены, сделали ниши под хранение и обновили санузел — без перепланировки и согласований.',
+            'bullets' => [
+                'Замена электрики и разводки сантехники',
+                'Выравнивание и покраска стен, шпаклёвка под покраску',
+                'Ниши под хранение в коридоре и спальне',
+                'Плитка и сантехника в санузле',
+                'Ламинат, двери, плинтусы, финальная уборка',
+            ],
+        ];
+        $caseTitle    = 'Наши объекты: однокомнатные квартиры';
+        $caseSubtitle = 'Капитальный пакет в однушке 35 м²: инженерия, стены, санузел и хранение — за 38 дней.';
+        $caseNote     = 'Ещё примеры работ — в <a href="/portfolio" class="text-[#6d5744] font-semibold underline">портфолио</a>.';
+        include './public/components/case-study.php';
+        ?>
 
     </main>
 

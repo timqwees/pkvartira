@@ -87,6 +87,9 @@ $seo = TheFunction::seo([
             'heroSubtitle' => 'Черновая отделка под ключ: стяжка, штукатурка, шпаклёвка, разводка электрики и сантехники. Фиксированная смета, гарантия 3 года, бесплатный замер.',
             'heroFormId' => 'chernovaya_hero',
             'bg_url' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+            // N-17: взаимные ссылки кластера отделки в новостройке
+            'otdelka_cluster' => true,
+            'otdelka_cluster_current' => 'chernovaya',
         ];
         include './public/components/service-page-sections.php';
         ?>

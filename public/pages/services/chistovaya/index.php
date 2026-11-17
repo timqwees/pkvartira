@@ -87,6 +87,9 @@ $seo = TheFunction::seo([
             'heroSubtitle' => 'Полная чистовая отделка под ключ: стены, потолки, полы, сантехника, электрика. Работаем по договору с фиксированной ценой и гарантией 3 года.',
             'heroFormId' => 'chistovaya_hero',
             'bg_url' => '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg',
+            // N-17: взаимные ссылки кластера отделки в новостройке
+            'otdelka_cluster' => true,
+            'otdelka_cluster_current' => 'chistovaya',
         ];
         include './public/components/service-page-sections.php';
         ?>

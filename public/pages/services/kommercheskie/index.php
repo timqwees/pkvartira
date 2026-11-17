@@ -139,6 +139,38 @@ $seo = TheFunction::seo([
             </div>
         </section>
 
+        <!-- N-03: почему ремонт офиса дешевле квартирного -->
+        <section class="reveal bg-gray-50 py-10 md:py-14" aria-labelledby="office-price-why">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 id="office-price-why" class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
+                    Почему ремонт офиса дешевле квартирного
+                </h2>
+                <p class="mt-3 text-center text-gray-600 max-w-3xl mx-auto">
+                    Офисная цена за м² ниже не из-за «экономной» отделки, а из-за состава работ. Разница — в трёх вещах.
+                </p>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border border-gray-200 rounded-xl p-5">
+                        <div class="text-sm font-bold text-[#6d5744]">01</div>
+                        <h3 class="mt-1 text-lg font-semibold text-gray-900">Меньше объём «сырых» работ</h3>
+                        <p class="mt-2 text-sm text-gray-600">В офисах реже меняют стяжку, выравнивают стены по всей площади и переносят мокрые зоны. Часто достаточно косметики поверх существующей подготовки.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-5">
+                        <div class="text-sm font-bold text-[#6d5744]">02</div>
+                        <h3 class="mt-1 text-lg font-semibold text-gray-900">Нет мокрых зон</h3>
+                        <p class="mt-2 text-sm text-gray-600">В квартире санузел — это гидроизоляция, плитка, разводка и вентиляция. В офисе санузлы, как правило, уже есть в здании, и вы их не переделываете.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-5">
+                        <div class="text-sm font-bold text-[#6d5744]">03</div>
+                        <h3 class="mt-1 text-lg font-semibold text-gray-900">Типовые решения</h3>
+                        <p class="mt-2 text-sm text-gray-600">Open space, переговорные и кабинеты делаются по повторяемым узлам — меньше индивидуальных решений, ниже трудозатраты на м².</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-center text-sm text-gray-600">
+                    При этом нормы СНиП и пожарной безопасности соблюдаем полностью — экономия только за счёт состава работ.
+                </p>
+            </div>
+        </section>
+
         <!-- 3. Что входит в стоимость ремонта -->
         <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">

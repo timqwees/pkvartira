@@ -32,7 +32,8 @@ if (is_file(__DIR__ . '/public' . $uri) && !preg_match('#\.(?:php|phtml|phar)$#i
 // Mirrors: RewriteRule ^(.*)$ index.php?route=$1
 $_GET['route'] = $uri;
 
-chdir(__DIR__);
+// Корень проекта (router лежит в tools/), иначе require 'index.php' ищет файл в tools/
+chdir(dirname(__DIR__));
 require 'index.php';
 
 exit(0);

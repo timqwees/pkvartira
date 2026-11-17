@@ -106,7 +106,7 @@ $seo = TheFunction::seo([
                     Сколько стоит ремонт вторички
                 </h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">
-                    Стоимость с черновыми материалами, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
+                    Стоимость работ без учёта материалов, цену фиксируем в договоре. Выберите подходящий пакет. Точную стоимость рассчитаем после замера и составления сметы.
                 </p>
 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -470,6 +470,45 @@ $seo = TheFunction::seo([
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- J-05: блок «С чего начать» со ссылками на этапы ремонта -->
+        <section class="reveal bg-white py-10 md:py-14" aria-labelledby="vtorichka-start-heading">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 id="vtorichka-start-heading" class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
+                    С чего начать ремонт во вторичке
+                </h2>
+                <p class="mt-3 text-center text-gray-600 max-w-3xl mx-auto">
+                    Пять шагов, которые снимают 80% сюрпризов: от диагностики инженерии до фиксированной сметы.
+                </p>
+                <ol class="mt-8 grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                        <div class="text-sm font-bold text-[#6d5744]">01</div>
+                        <div class="mt-1 font-semibold text-gray-900">Диагностика</div>
+                        <p class="mt-1 text-sm text-gray-600">Проверяем электрику, стояки, вентиляцию и несущие конструкции. По итогам — список обязательных замен.</p>
+                    </li>
+                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                        <div class="text-sm font-bold text-[#6d5744]">02</div>
+                        <div class="mt-1 font-semibold text-gray-900">Планировка</div>
+                        <p class="mt-1 text-sm text-gray-600">Решаем, что меняем без согласования, а где нужен проект. <a href="/services/evro-dvushka" class="text-[#6d5744] underline">Варианты планировок</a>.</p>
+                    </li>
+                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                        <div class="text-sm font-bold text-[#6d5744]">03</div>
+                        <div class="mt-1 font-semibold text-gray-900">Смета</div>
+                        <p class="mt-1 text-sm text-gray-600">Считаем работы по ГЭСН и фиксируем сумму в договоре. <a href="/smeta-obrazec" class="text-[#6d5744] underline">Образец сметы</a>.</p>
+                    </li>
+                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                        <div class="text-sm font-bold text-[#6d5744]">04</div>
+                        <div class="mt-1 font-semibold text-gray-900">Инженерия</div>
+                        <p class="mt-1 text-sm text-gray-600">Меняем то, что нельзя сделать потом: проводка, трубы, стяжка, гидроизоляция.</p>
+                    </li>
+                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                        <div class="text-sm font-bold text-[#6d5744]">05</div>
+                        <div class="mt-1 font-semibold text-gray-900">Отделка</div>
+                        <p class="mt-1 text-sm text-gray-600">Стены, полы, потолки, двери. <a href="/calculator" class="text-[#6d5744] underline">Рассчитайте стоимость</a> заранее.</p>
+                    </li>
+                </ol>
             </div>
         </section>
 

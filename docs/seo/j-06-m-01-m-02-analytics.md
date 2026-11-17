@@ -21,7 +21,7 @@
 | 7 | сколько стоит ремонт в новостройке 2027 | /blog/skolko-stoit-remont-v-novostroyke-2027 | инфо |
 | 8 | ремонт квартир цена за м2 | /blog/skolko-stoit-remont-kvartiry-2026 | инфо |
 | 9 | перепланировка кухни гостиной что можно без согласования | /blog/pereplanirovka-kuhni-gostinoy | инфо |
-| 10 | ремонт офиса цены | /services/office | коммерческий |
+| 10 | ремонт офиса цены | /services/kommercheskie | коммерческий |
 
 ### Как снимать
 
