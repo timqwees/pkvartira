@@ -170,7 +170,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <button data-filter="<?php echo $key['category']; ?>"
                             class="filter-btn">
                             <?php echo $key['category']; ?></button>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -260,7 +260,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                             </div>
                                         </a>
                                     <?php endforeach; ?>
-                                <? endif; ?>
+                                <?php endif; ?>
                             </div>
                         </nav>
 

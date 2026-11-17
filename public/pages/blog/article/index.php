@@ -168,6 +168,22 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         'skolko-stoit-remont-kvartiry-2026' => [['/prices', 'Цены на ремонт'], ['/calculator', 'Калькулятор ремонта'], ['/author', 'Об авторе']],
                         'shumoizolyatsiya-kvartiry-panelny-dom' => [['/services/panelny', 'Ремонт в панельном доме'], ['/author', 'Об авторе']],
                         'smeta-na-remont-kvartiry-primer' => [['/services/smeta', 'Смета на ремонт'], ['/prices', 'Цены на ремонт'], ['/author', 'Об авторе']],
+                        'remont-vannoy-komnatny' => [['/services/vannaya', 'Ремонт ванной'], ['/services/santekhnika', 'Замена сантехники'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-kuhni-2026-tseny' => [['/services/kuhnya', 'Ремонт кухни'], ['/services/mebel-kuhnya', 'Кухонный гарнитур'], ['/calculator', 'Калькулятор ремонта']],
+                        'ukladka-plitki-vannaya-kukhnya' => [['/services/plitka', 'Укладка плитки'], ['/services/vannaya', 'Ремонт ванной'], ['/calculator', 'Калькулятор ремонта']],
+                        'teplyy-pol-kvartira-2026' => [['/services/teplyy-pol', 'Тёплый пол'], ['/services/teplyy-pol-vannaya', 'Тёплый пол в ванной'], ['/calculator', 'Калькулятор ремонта']],
+                        'potolki-natjazhnye-vs-shtukaturka' => [['/services/potolok-natjazhnyj', 'Натяжные потолки'], ['/services/shpaklyovka-potolka', 'Штукатурка потолка'], ['/calculator', 'Калькулятор ремонта']],
+                        'zamena-elektroprovodki-kvartira' => [['/services/elektrika', 'Замена электропроводки'], ['/services/elektroshetok', 'Распределительный щит'], ['/calculator', 'Калькулятор ремонта']],
+                        'vyravnivanie-sten-pola' => [['/services/shtukaturka', 'Штукатурка стен'], ['/services/styazhka-pola', 'Стяжка пола'], ['/calculator', 'Калькулятор ремонта']],
+                        'okna-dveri-v-remonte' => [['/services/okna-pvh', 'Окна ПВХ'], ['/services/dveri', 'Двери межкомнатные и входные'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-balkona-loggii' => [['/services/balkon', 'Ремонт балкона'], ['/services/loggia', 'Ремонт лоджии'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-pered-prodazhey-kvartiry' => [['/services/remont-pered-prodazhey', 'Ремонт перед продажей'], ['/services/kosmeticheskiy-remont', 'Косметический ремонт'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-kvartiry-pod-arendu' => [['/services/remont-pod-arendu', 'Ремонт под аренду'], ['/services/kosmeticheskiy-remont', 'Косметический ремонт'], ['/calculator', 'Калькулятор ремонта']],
+                        'eko-remont-kvartiry' => [['/services/eko-remont', 'Эко-ремонт квартиры'], ['/services/zdorovyy-remont', 'Здоровый ремонт'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-v-khrushchevke' => [['/services/remont-khrushchevka', 'Ремонт в хрущевке'], ['/services/pereplanirovka-khrushchevka', 'Перепланировка хрущевки'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-v-brezhnevke' => [['/services/remont-brezhnevka', 'Ремонт в брежневке'], ['/services/shumoizolyatsiya-brezhnevka', 'Шумоизоляция в брежневке'], ['/calculator', 'Калькулятор ремонта']],
+                        'remont-v-stalince' => [['/services/remont-stalinka', 'Ремонт в сталинке'], ['/services/restavraciya-lepni', 'Реставрация лепнины и паркета'], ['/calculator', 'Калькулятор ремонта']],
+                        'dizayn-proekt-kvartiry' => [['/services/dizayn-proekt', 'Дизайн-проект квартиры'], ['/services/avtorskiy-nadzor', 'Авторский надзор'], ['/calculator', 'Калькулятор ремонта']],
                     ];
                     $__serviceLinks = $__serviceMap[$slug] ?? [['/services/pod-klyuch', 'Ремонт под ключ'], ['/calculator', 'Калькулятор ремонта']];
 
