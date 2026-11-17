@@ -330,6 +330,30 @@ $prices = [
             </div>
         </section>
 
+        <!-- N-16. Кейс коттеджа 180 м² -->
+        <section class="py-16 bg-white reveal">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Кейс: Коттедж 180 м², 45 дней, 3 240 000 ₽</h2>
+                        <p class="text-gray-600 mb-6">Загородный дом в Подмосковье. Полный цикл ремонта под ключ: демонтаж, замена инженерии, стяжка, штукатурка, чистовая отделка, установка дверей и окон, финальная уборка.</p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Площадь 180 м², 2 этажа</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Срок 45 дней</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Бюджет 3 240 000 ₽ — фиксировано в договоре</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Гарантия 3 года на все работы</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <a href="/services/pod-klyuch" class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                            Подобный ремонт →
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 3. Что входит в стоимость ремонта -->
         <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">

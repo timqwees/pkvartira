@@ -537,6 +537,30 @@ $prices = [
             </div>
         </section>
 
+        <!-- J-01. Кейс до/после студия -->
+        <section class="py-16 bg-white reveal">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Кейс: Студия 31 м², до/после, 21 день</h2>
+                        <p class="text-gray-600 mb-6">Косметический ремонт студии в новостройке. Демонтаж старых покрытий, шпаклёвка стен, покраска, укладка ламината, установка плинтусов, розеток, финальная уборка.</p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Площадь 31 м²</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Срок 21 день</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Бюджет 248 000 ₽ — фиксировано</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Гарантия 3 года</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <a href="/services/pod-klyuch" class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                            Подобный ремонт →
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 11. Финальный CTA -->
         <?php
         $ctaFormId = 'studio_cta';

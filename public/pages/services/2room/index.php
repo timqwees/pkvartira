@@ -540,7 +540,31 @@ $prices = [
         <!-- 10b. Возвратные ссылки на хабы (RangeRank Loop) -->
         <?php include './public/components/hub-links.php'; ?>
 
-        <!-- 11. Финальный CTA -->
+        <!-- J-01. Кейс до/после двухкомнатной -->
+        <section class="py-16 bg-white reveal">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Кейс: Двухкомнатная 56 м², до/после, 35 дней</h2>
+                        <p class="text-gray-600 mb-6">Капитальный ремонт в новостройке. Замена всей электрики на медную, новая сантехника, стяжка 50 мм, штукатурка по маякам, плитка, ламинат, межкомнатные двери.</p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Площадь 56 м², 2-комнатная</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Срок 35 дней</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Бюджет 728 000 ₽ — фиксировано</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Гарантия 3 года</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <a href="/services/pod-klyuch" class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                            Подобный ремонт →
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Финальный CTA -->
         <?php
         $ctaFormId = '2room_cta';
         $ctaFormTitle = 'Рассчитать стоимость ремонта';

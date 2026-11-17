@@ -10,7 +10,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в Пушкино под ключ. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. Бесплатный замер в Пушкино. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Ремонт квартир в Пушкино под ключ. Бесплатный замер в Пушкино. Ремонт квартир в новостройках и вторичном фонде. Цены от 8 000 ₽/м². Косметический, капитальный, дизайнерский ремонт. Фиксированная смета, гарантия 3 года. Бесплатный замер в Пушкино. — Проект Квартира (Проект Квартира).',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/pushkino'); ?>">
 
     <!-- Open Graph -->
@@ -150,6 +150,32 @@ include './public/components/cta-form.php';
             </div>
         </div>
     </section>
+
+
+
+        <!-- J-02._CASE.Кейс района Пушкино -->
+        <section class="py-16 bg-white reveal">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Кейс: ЖК Пушкинский, 51 м², 34 дней, 408 000 ₽</h2>
+                        <p class="text-gray-600 mb-6">Ремонт однокомнатной квартиры в Пушкино. Демонтаж, штукатурка, покраска, укладка ламината.</p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Площадь 51 м²</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Срок 34 дней</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Бюджет 408 000 ₽ — фиксировано</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Гарантия 3 года</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <a href="/services/pod-klyuch" class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                            Подобный ремонт →
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Финальный CTA -->
         <?php

@@ -221,3 +221,23 @@ require_once __DIR__ . '/ai-background.php';
     }
 })();
 </script>
+
+<!-- M-01. Яндекс.Метрика — код счётчика (замените XXXXXXXX на реальный номер счётчика) -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(XXXXXXX, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika -->
+
+<!-- M-01. Яндекс.Вебмастер — мета-тег подтвершения права на сайт (замените XXXXXX на реальный код) -->
+<meta name="yandex-verification" content="XXXXXXXX" />
