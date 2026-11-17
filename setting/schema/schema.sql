@@ -11,5 +11,5 @@ CREATE TABLE IF NOT EXISTS article (
 );
 
 -- INDEX
-CREATE INDEX IF NOT EXISTS article_created_at ON article (created_at DESC),
-CREATE INDEX IF NOT EXISTS article_updated_at ON article (updated_at DESC)
+CREATE INDEX IF NOT EXISTS article_created_at ON article (created_at DESC);
+CREATE INDEX IF NOT EXISTS article_updated_at ON article (updated_at DESC);
