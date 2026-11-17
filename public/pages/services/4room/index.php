@@ -478,74 +478,60 @@ $prices = [
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли жить в квартире во время
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько комнат оптимально оставить в 4-комнатной квартире при перепланировке?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Во время ремонта жить в квартире будет неудобно. Работы идут активно —
-                                будет шумно и пыльно. Лучше на это время перебраться в другое место.</span>
+                            <span itemprop="text">В 4-комнатной квартире (90–110 м²) можно объединить две маленькие комнаты в одну гостиную-кухню, оставив 3 изолированные спальни. Это сохраняет ликвидность и удобство для большой семьи. Любая перепланировка требует проекта и согласования в МЖИ.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Что если смета вырастет в
-                                процессе?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Нужно ли согласовывать объединение санузлов в 4-комнатной квартире?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Смета фиксируется договором. Изменения возможны только по вашему
-                                согласованию при
-                                дополнительных работах.</span>
+                            <span itemprop="text">Да, объединение санузлов или перенос мокрых зон требует проекта и согласования в Мосжилинспекции. Без проекта — штраф и обязательство вернуть всё обратно. Мы помогаем с проектом и техзаключением.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Нужен ли дизайн-проект для
-                                капитального
-                                ремонта?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько стоит капитальный ремонт 4-комнатной квартиры под ключ?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Не обязательно. Но проект помогает точно рассчитать стоимость и
-                                избежать переделок. Мы можем
-                                сделать базовую планировку.</span>
+                            <span itemprop="text">От 13 000 ₽/м² за работы. Для 90 м² — от 1 170 000 ₽, для 110 м² — от 1 430 000 ₽. Цена зависит от состояния стен, объёма электрики и сантехники, выбранных материалов. Точная смета — после бесплатного замера.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Как вы контролируете качество
-                                работ?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Можно ли démontировать стену между кухней и комнатой в 4-комнатной квартире?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Прораб и инженер технадзора контролируют этапы, ведем фотоотчеты и
-                                приемку работ по
-                                чек-листу.</span>
+                            <span itemprop="text">Только если стена ненесущая и у вас есть техзаключение от автора дома. В plupart домах стены между кухней и комнатой — несущие, сносить их запрещено. Можно сделать проём с усилением металлом — только по проекту.</span>
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-xl overflow-hidden" itemscope itemprop="mainEntity"
                         itemtype="https://schema.org/Question">
                         <button
                             class="w-full flex items-start justify-between p-4 bg-gray-50 hover:bg-gray-100 transition faq-toggle">
-                            <span class="font-semibold text-gray-800" itemprop="name">Работаете ли вы по
-                                договору?</span>
+                            <span class="font-semibold text-gray-800" itemprop="name">Сколько времени занимает ремонт 4-комнатной квартиры?</span>
                             <i class="fas fa-chevron-down text-blue-600"></i>
                         </button>
                         <div class="hidden p-4 text-gray-600 faq-content" itemscope itemprop="acceptedAnswer"
                             itemtype="https://schema.org/Answer">
-                            <span itemprop="text">Да, работаем по официальному договору. В нем фиксируются сроки,
-                                стоимость и гарантия.</span>
+                            <span itemprop="text">Капитальный ремонт 90–110 м² — 8–12 недель. Дизайнерский ремонт с авторским надзором — 10–14 недель. Срок фиксируем в договоре с учетом просушки стяжки и времени доставки материалов.</span>
                         </div>
                     </div>
                 </div>

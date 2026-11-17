@@ -148,6 +148,43 @@ include './public/components/cta-form.php';
     </section>
 
         <!-- Финальный CTA -->
+
+        <!-- 1.5. Ориентиры стоимости по метражу и чек-лист подготовки к ключам -->
+        <section class="py-16 bg-[#f9fafb] reveal">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8">Ориентиры стоимости ремонта в новостройке 2027</h2>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:560px;">
+                        <thead>
+                            <tr style="background:#0f172a;color:#fff;">
+                                <th style="padding:10px;text-align:left;border-radius:8px 0 0 0;">Тип ремонта</th>
+                                <th style="padding:10px;text-align:center;">₽/м² (работы)</th>
+                                <th style="padding:10px;text-align:center;background:#f97316;">₽/м² (с материалами)</th>
+                                <th style="padding:10px;text-align:center;border-radius:0 8px 0 0;">Итого 60 м²</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:#fff;"><td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Косметический</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;background:#fff7ed;font-weight:700;">от 8 000</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;">от 18 000</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;">от 1 080 000 ₽</td></tr>
+                            <tr style="background:#f9fafb;"><td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Капитальный</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;background:#fff7ed;font-weight:700;">от 13 000</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;">от 35 000</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;">от 2 100 000 ₽</td></tr>
+                            <tr style="background:#fff;"><td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;">Дизайнерский</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;background:#fff7ed;font-weight:700;">от 18 000</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;">от 60 000</td><td style="padding:8px 10px;border:1px solid #e5e7eb;text-align:center;">от 3 600 000 ₽</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-6 text-sm text-gray-600 text-center">Цены ориентировочные. Точную смету составим после бесплатного замера готовой квартиры.</p>
+
+                <h3 class="text-xl font-bold text-gray-900 mt-12 mb-4">Чек-лист подготовки к получению ключей</h3>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-2 max-w-2xl mx-auto">
+                    <li>Запишитесь на бесплатный замер до получения ключей — оценка объёма работ и черновик сметы</li>
+                    <li>Проверьте геометрию стен, пола и потолка (перепад не более 2 мм на метр)</li>
+                    <li>Проверьте окна, входную дверь, электрику и сантехнику при приёмке у застройщика</li>
+                    <li>Зафиксируйте все дефекты в акте приёмки — это основание для требований к застройщику</li>
+                    <li>Определите тип ремонта (косметический / капитальный / дизайнерский) и утвердите бюджет</li>
+                    <li>Заключите договор с фиксированной ценой и гарантией 3 года</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Финальный CTA -->
         <?php
         $ctaFormId = 'budushchiy_bottom_cta';
         $ctaFormTitle = 'Получить ориентир стоимости';
