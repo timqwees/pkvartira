@@ -85,10 +85,10 @@ foreach (['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'anthropic-ai', 'PerplexityBot'
     echo "Allow: /\n";
     echo "\n";
 }
-// LLM/AGENT discovery (ai.txt / llms.txt / agents.json) — открыто для всех
+// LLM/AGENT discovery (ai.txt / agents.json) — открыто для всех.
+// /llms.txt и /llms-full.txt остаются закрытыми (N-06): это служебные файлы,
+// их содержимое дублирует страницы сайта.
 echo "User-agent: *\n";
-echo "Allow: /llms.txt\n";
-echo "Allow: /llms-full.txt\n";
 echo "Allow: /.well-known/agents.json\n";
 echo "Allow: /ai-plugin.json\n";
 echo "Allow: /openapi.yaml\n";

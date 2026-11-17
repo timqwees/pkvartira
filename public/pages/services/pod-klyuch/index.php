@@ -358,15 +358,19 @@ $seo = TheFunction::seo([
         </section>
 
         <?php
-        $priceRows = [
-            ['label' => 'Косметический', 'price' => '8000'],
-            ['label' => 'Капитальный', 'price' => '13000'],
-            ['label' => 'Дизайнерский', 'price' => '18000'],
-        ];
-        $priceTableTitle = 'Стоимость ремонта под ключ по метражу';
-        include './public/components/price-table.php';
+        // N-11: цены и таблицы живут на /prices; здесь — состав работ и этапы.
+        // Дублирующая таблица цен удалена, оставлена только навигация к прайсу.
         ?>
-        <p class="text-center text-sm text-gray-500 mt-4">Полный прайс по всем видам работ — на странице <a href="/prices" class="text-[#6d5744] underline hover:text-[#5c4a3a]">Цены на ремонт</a>.</p>
+        <div class="max-w-3xl mx-auto mt-10 rounded-2xl border border-gray-200 bg-white p-6 text-center">
+            <p class="text-gray-700">
+                Стоимость по метражу и полный прайс по всем видам работ — на странице
+                <a href="/prices" class="text-[#6d5744] font-semibold underline hover:text-[#5c4a3a]">«Цены на ремонт»</a>.
+                Здесь — состав работ, этапы и порядок приёмки.
+            </p>
+            <a href="/prices"
+                class="inline-flex items-center justify-center mt-4 bg-[#876b55] hover:bg-[#6d5744] text-white px-6 py-3 rounded-lg font-semibold transition">Смотреть
+                цены и таблицы</a>
+        </div>
 
         <!-- 10. FAQ по этой услуге -->
         <section class="reveal py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/FAQPage">

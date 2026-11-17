@@ -1,393 +1,86 @@
-# SEO Plan Implementation Status Report
+# SEO-план ноябрь 2026 — март 2027: статус выполнения
 
-**Project:** pkvartira.ru  
-**Date:** November 2026  
-**Plan:** SEO Plan November 2026 – March 2027
+**Проект:** pkvartira.ru (ООО «Проект Квартира»)
+**Дата сверки:** 17 ноября 2026
+**Источник плана:** `План_SEO_ноябрь_2026_март_2027_с_помесячным_прогнозом.xlsx`
 
----
-
-## ✅ COMPLETED TASKS (37/41)
-
-### November 2026 (N-01 to N-17)
-| ID | Task | Status | Details |
-|----|------|--------|---------|
-| N-01 | Price formatting on studio, novostroyka, 3room | ✅ DONE | `price_subtitle` updated with "Цены указаны за работы, без учёта материалов" |
-| N-02 | Premium price consistency | ✅ VERIFIED | 25k on `/services/premium` and `/prices` - consistent |
-| N-03 | Office price difference explanation | ✅ EXISTS | Section "Почему ремонт офиса дешевле" with 3 reasons |
-| N-04 | Отделка от застройщика price explanation | ✅ EXISTS | Section "Почему 5 000 и 8 000" with two columns |
-| N-05 | Trust signals on homepage | ✅ ENHANCED | Counters (35 reviews, 21 articles, 3 estimate options, 3y warranty) + trust note |
-| N-06 | Technical files noindex | ✅ DONE | `/llms.txt`, `/llms-full.txt`, `/opensearch.xml`, `.docx` files in `/storage/` + `X-Robots-Tag: noindex` headers |
-| N-07 | Vacancies noindex | ✅ DONE | `/vakansii` + 10 child pages: `noindex, follow` meta + `X-Robots-Tag`, removed from sitemap |
-| N-08 | Laminate/keramogranit pages | ✅ DONE | Excluded from sitemap + `noindex, follow` meta tags on both pages |
-| N-09 | 3room H1 | ✅ EXISTS | `heroH1` = "Ремонт трёхкомнатной квартиры под ключ в Москве" |
-| N-10 | Unique FAQs | ✅ UPDATED | Studio (zoning/storage), 1room (layout/niches), 2room (zoning/nursery), 3room (stages/bathrooms), Doma (utilities/heating) |
-| N-11 | Split /prices and /services/pod-klyuch | ✅ DONE | `/prices` has price table, `/services/pod-klyuch` has empty `price_rows` |
-| N-12 | Novostroyka cluster links | ✅ DONE | `otdelka-cluster` component with 7 pages + current page highlight |
-| N-13 | Econom page update | ✅ DONE | Title/H1/description updated for "Недорогой ремонт квартиры под ключ в Москве" |
-| N-14 | 4room page | ✅ EXISTS | Already has 3 real projects (65/75/100 m²) with prices/timelines |
-| N-15 | Case study: bez-otdelki + predchistovaya | ✅ DONE | `case-study` component with 86m²/60d/1.118M case |
-| N-16 | Case study: Doma page | ✅ DONE | Cottage 180m²/45d/3.24M case |
-| N-17 | Novostroyka cross-links | ✅ DONE | `otdelka-cluster` component with 7 pages + current highlight |
-
-### December 2026 (D-01 to D-05)
-| ID | Task | Status | Details |
-|----|------|--------|---------|
-| D-01 | Update acceptance article | ✅ DONE | 2026-2027, renovation section, act requirements block |
-| D-02 | Link to renovation page | ✅ DONE | Added in "Нашли дефекты — что делать дальше" section |
-| D-03 | Article "Cost of renovation in new building 2027" | ✅ CREATED | Article 22 with 2027 prices, 3 packages, real cases |
-| D-04 | Kitchen-living replanning article | ✅ ENHANCED | Added "without approval" section + "allowed/project/forbidden" table |
-| D-05 | "Renovation from scratch: step-by-step plan" | ✅ CREATED | Article 23 with 8 stages, budget table, FAQ |
-
-### January 2027 (J-01 to J-06)
-| ID | Task | Status | Details |
-|----|------|--------|---------|
-| J-01 | Cases on studio/1-room pages | ✅ CREATED | Studio (24m²/28d/192k) + 1-room (35m²/38d/455k) with before/after photos |
-| J-02 | District pages audit | ✅ CREATED | Audit document with 21 pages, 94.8% similarity, 0 local photos/cases |
-| J-03 | District pages decision | ✅ AUDIT DONE | Keep all 21 pages, add local content blocks + cases |
-| J-04 | Article "Renovation in secondary housing" | ✅ CREATED | Article 24 with 6 systems, 3 budget scenarios, FAQ |
-| J-05 | "Where to start" block on vtorichka | ✅ ADDED | 5-step block with links to stages/smeta/calculator |
-| J-06 | Baseline positions for 10 queries | ⏳ MANUAL | Needs SEO tool access |
-
-### February 2027 (F-01 to F-05)
-| ID | Task | Status | Details |
-|----|------|--------|---------|
-| F-01 | Project cost 3.24M on doma page | ✅ DONE | Title + hero subtitle updated with 3.24M |
-| F-02 | Commercial repair restructure | ✅ DONE | 8 narrow pages noindex + removed from sitemap |
-| F-03 | Article "Why estimate grows" | ✅ CREATED | Article 25 with 5 reasons, math example, 4 rules |
-| F-04 | Cost benchmarks + checklist on budushchiy-remont | ✅ ADDED | Table 30-100m² + 8-item checklist |
-| F-05 | "Capital repair apartment" block | ✅ ADDED | On 3room + pod-klyuch pages |
-
-### March 2027 (M-01 to M-04)
-| ID | Task | Status | Details |
-|----|------|--------|---------|
-| M-03 | Yandex Metrica + Webmaster | ⚠️ PARTIAL | Metrica on all pages via head-includes; Webmaster needs token |
-| M-01 | Re-measure 10 queries | ⏳ MANUAL | Scheduled Jan 2027 |
-| M-02 | Organic leads data | ⏳ MANUAL | Needs Metrica access |
-| M-04 | April seasonal article | ✅ CREATED | Article 26: "Renovation & sale in spring" |
-
-### Technical Infrastructure
-| Item | Status | Details |
-|------|--------|---------|
-| upgrade.pkvartira.ru robots.txt | ✅ CREATED | `/public/upgrade/robots.txt` + route `/upgrade/robots.txt` with `noindex, nofollow` |
-| upgrade.pkvartira.ru noindex | ✅ ROUTE | Route added with `noindex, nofollow` header |
-| Yandex Metrica on all pages | ✅ DONE | Counter moved to `head-includes.php` |
-| Yandex Webmaster verification | ⚠️ READY | Meta tag in `head-includes.php` reads `YANDEX_VERIFICATION` env var |
-| Sitemap exclusions | ✅ DONE | 8 commercial + 2 service pages excluded |
-| robots.txt updates | ✅ DONE | Technical files + vacancies + laminate/keramogranit disallowed |
+Легенда: ✅ выполнено · 🟡 частично · ⛔ требует внешнего доступа (не код)
 
 ---
 
-## ⏳ PENDING / REQUIRES MANUAL WORK
+## Ноябрь 2026 — N-01…N-17 (17/17)
 
-| Task | Blocker | Owner | Deadline |
-|------|---------|-------|----------|
-| J-03: Implement district page local content | Need real portfolio objects per district | Content team | Jan 2027 |
-| J-03: District page redirect decisions | Business decision on 21 pages | Management | Jan 2027 |
-| J-06: Baseline position measurement | SEO tool access (Serpstat/Topvisor) | SEO specialist | Jan 2027 |
-| M-03: Yandex Webmaster verification | Need verification token | DevOps | Dec 2026 |
-| M-01: Position re-measurement | SEO tool access | SEO specialist | Mar 2027 |
-| M-02: Organic leads data export | Metrica API access | Analyst | Mar 2027 |
-| M-03: Yandex Webmaster verification | Need verification token | DevOps | Dec 2026 |
+| ID | Задача | Статус | Где смотреть |
+|----|--------|--------|--------------|
+| N-01 | Единая формулировка цен (работы без материалов) | ✅ | `studio`, `novostroyka`, `3room` — блок «Стоимость», фраза «за работы, без учёта материалов, скидка 10–15%» |
+| N-02 | Премиум 25 000 ₽/м² на `/services/premium` и `/prices` | ✅ | обе страницы |
+| N-03 | Почему офисы дешевле квартир | ✅ | `/services/kommercheskie`, блок «Почему ремонт офиса дешевле квартирного» (отдельной страницы `/services/office` нет — направление свёрнуто в обзорную) |
+| N-04 | Разница 5 000 / 8 000 ₽/м² на отделке от застройщика | ✅ | `/services/ot-zastroyschika` |
+| N-05 | Числовые trust-сигналы на главной | ✅ | `public/index.php`: 35 отзывов со ссылками на источники, 21 статья, 3 варианта сметы, гарантия 3 года |
+| N-06 | noindex для `/llms.txt`, `/llms-full.txt`, `/opensearch.xml`, документов | ✅ | файлы в `/storage`, роуты с `X-Robots-Tag: noindex, follow`, `robots.php` |
+| N-07 | noindex для `/vakansii` и дочерних | ✅ | `public/pages/vakansii/*`, исключены из sitemap и `llms.txt` |
+| N-08 | Убрать ламинат и керамогранит из sitemap + noindex | ✅ | `ukladka-laminata`, `keramogranit-nazarovo` |
+| N-09 | H1 «Ремонт трёхкомнатной квартиры под ключ в Москве» | ✅ | `/services/3room` |
+| N-10 | Уникальные FAQ по типам жилья | ✅ | studio — зонирование/хранение; 1room — планировка/ниши; 2room — зонирование/детская; 3room — этапы/санузлы; doma — инженерия/отопление |
+| N-11 | Разделить `/prices` и `/services/pod-klyuch` | ✅ | таблицы цен только на `/prices`; на `/services/pod-klyuch` состав работ, этапы и ссылка на прайс (дублирующая таблица удалена) |
+| N-12 | Новостройка → 7 страниц типов отделки | ✅ | `components/otdelka-cluster.php` на `/services/novostroyka` |
+| N-13 | `/services/econom` под «недорогой ремонт под ключ» | ✅ | title/description/H1 |
+| N-14 | `/services/4room` под реальные проекты | ✅ | объекты 65–100 м² со сроками и стоимостью |
+| N-15 | Кейс «Новостройка 86 м², 60 дней, 1 118 000 ₽» | ✅ | `bez-otdelki`, `predchistovaya` |
+| N-16 | Кейс «Коттедж 180 м², 45 дней, 3 240 000 ₽» | ✅ | `/services/doma` |
+| N-17 | Взаимные ссылки внутри кластера отделки | ✅ | блок кластера на всех 7 страницах + на новостройке |
 
----
+## Декабрь 2026 — D-01…D-05 (5/5)
 
-## 📁 FILES CREATED / MODIFIED
+| ID | Задача | Статус | Где смотреть |
+|----|--------|--------|--------------|
+| D-01 | Обновить статью о приёмке (год, реновация, требования к акту) | ✅ | `blog/article/content/16.php` |
+| D-02 | Переход из статьи на ремонт в новостройке | ✅ | там же, блок «Нашли дефекты» |
+| D-03 | Статья «Сколько стоит ремонт в новостройке в 2027» | ✅ | `content/22.php` |
+| D-04 | Кухня-гостиная: таблица «допустимо / нужен проект / запрещено» | ✅ | `content/7.php` |
+| D-05 | Статья «Ремонт в новостройке с нуля: пошаговый план» | ✅ | `content/23.php` |
 
-### New Files Created
-```
-public/upgrade/robots.txt                          # Upgrade subdomain robots.txt
-public/components/case-study.php                   # Reusable case study component
-public/components/district-local.php               # District page local content block
-public/components/otdelka-cluster.php              # Novostroyka cluster links
-public/components/otdelka-cluster.php              # (referenced above)
-public/pages/blog/article/content/22.php           # D-03: Cost in 2027 article
-public/pages/blog/article/content/23.php           # D-05: Step-by-step plan article
-public/pages/blog/article/content/24.php           # J-04: Secondary housing article
-public/pages/blog/article/content/25.php           # F-03: Why estimate grows article
-public/pages/blog/article/content/26.php           # M-04: Spring season article
-public/pages/blog/article/content/7.php            # D-04 enhanced (updated)
-public/pages/blog/article/content/16.php           # D-01/D-02 updated
-public/pages/blog/article/content/24.php           # J-04: Secondary housing article
-public/pages/blog/article/content/25.php           # F-03: Why estimate grows
-public/pages/blog/article/content/26.php           # M-04: Spring season article
-public/pages/blog/data/articles.json               # Updated with 4 new articles
-public/upgrade/robots.txt                          # Upgrade subdomain robots.txt
-public/upgrade/robots.txt                          # (referenced above)
-docs/seo/j-02-audit-regions.md                     # J-02 audit document
-docs/seo/j-06-m-01-m-02-analytics.md              # Analytics plan
-docs/seo/j-02-audit-regions.md                     # (referenced above)
-```
+## Январь 2027 — J-01…J-06 (5/6)
 
-### Modified Files
-```
-public/index.php                                   # N-05 trust signals enhanced
-public/pages/services/econom/index.php             # N-13: Updated for target query
-public/pages/services/studio/index.php             # N-10: Unique FAQ
-public/pages/services/1room/index.php              # N-10: Unique FAQ
-public/pages/services/2room/index.php              # N-10: Unique FAQ
-public/pages/services/3room/index.php              # N-10: Unique FAQ + F-05 block
-public/pages/services/doma/index.php               # N-10: Unique FAQ + F-01
-public/pages/services/vtorichka/index.php          # J-05: "Where to start" block
-public/pages/services/budushchiy-remont/index.php  # F-04: Cost table + checklist
-public/pages/services/3room/index.php              # F-05: Capital repair block
-public/pages/services/novostroyka/index.php        # N-12: otdelka_cluster_current set
-public/pages/services/bez-otdelki/index.php        # N-15: case-study include
-public/pages/services/predchistovaya/index.php     # N-15: case-study include
-public/pages/services/doma/index.php               # N-16: case-study include
-public/pages/services/3room/index.php              # F-05: Capital repair block
-public/pages/services/pod-klyuch/index.php         # N-11: price_rows = []
-public/pages/services/1room/index.php              # N-10 + J-01: FAQ + case study
-public/pages/services/studio/index.php             # N-10 + J-01: FAQ + case study
-public/pages/services/3room/index.php              # N-10 + F-05
-public/pages/services/doma/index.php               # N-10 + F-01
-public/pages/services/budushchiy-remont/index.php  # F-04: table + checklist
-public/pages/services/office/index.php             # N-03 + F-05
-public/pages/services/ot-zastroyschika/index.php   # N-04 + F-05
-public/pages/services/kommercheskie/index.php      # F-02: links to narrow pages
-public/pages/services/ukladka-laminata/index.php   # N-08: noindex meta
-public/pages/services/keramogranit-nazarovo/index.php # N-08: noindex meta
-public/pages/services/vtorichka/index.php          # J-05: "Where to start" block
-public/pages/services/chernovaya/index.php         # N-12: otdelka_cluster_current
-public/pages/services/chistovaya/index.php         # N-12: otdelka_cluster_current
-public/pages/services/predchistovaya/index.php     # N-12 + N-15: cluster + case
-public/pages/services/bez-otdelki/index.php        # N-12 + N-15: cluster + case
-public/pages/services/pod-zaselenie/index.php      # N-12: otdelka_cluster_current
-public/pages/services/novostroyka/index.php        # N-12: otdelka_cluster_current
-public/pages/services/ukladka-laminata/index.php   # N-08: noindex meta
-public/pages/services/keramogranit-nazarovo/index.php # N-08: noindex meta
-public/pages/services/vakansii/index.php           # N-07: noindex meta
-public/pages/services/vakansii/detail.php          # N-07: noindex meta
-public/pages/services/1room/index.php              # N-10 + J-01
-public/pages/services/studio/index.php             # N-10 + J-01
-public/pages/services/3room/index.php              # N-10 + F-05
-public/pages/services/doma/index.php               # N-10 + F-01
-public/pages/services/vtorichka/index.php          # J-05
-public/pages/services/budushchiy-remont/index.php  # F-04
-public/pages/services/3room/index.php              # N-10 + F-05
-public/pages/services/doma/index.php               # N-10 + F-01
-public/pages/services/novostroyka/index.php        # N-12
-public/pages/services/kommercheskie/index.php      # F-02: links to narrow pages
-public/pages/services/ukladka-laminata/index.php   # N-08 noindex
-public/pages/services/keramogranit-nazarovo/index.php # N-08 noindex
-public/pages/services/vakansii/index.php           # N-07 noindex
-public/pages/services/vakansii/detail.php          # N-07 noindex
-public/index.php                                   # N-05 trust signals
-public/components/head-includes.php                # M-03: Metrica + Webmaster verification
-public/components/hero-section.php                 # N-09: heroH1 support
-public/components/service-page-sections.php        # N-10/11/12/15/16/17
-public/components/case-study.php                   # N-15/16/J-01
-public/components/district-local.php               # J-03: district local content
-public/components/otdelka-cluster.php              # N-12/17: cluster links
-public/components/hero-section.php                 # N-09: heroH1
-public/components/price-table.php                  # N-11: price table note
-public/components/service-page-sections.php        # N-10/11/12/15/16/17
-public/components/hero-section.php                 # N-09
-public/components/case-study.php                   # N-15/16/J-01
-public/components/otdelka-cluster.php              # N-12/17
-public/components/district-local.php               # J-03
-public/components/price-table.php                  # N-11
-public/components/hub-links.php                    # N-12/17
-public/components/cta-section.php                  # Various
-public/components/cta-form.php                     # Various
-public/components/head-includes.php                # M-03: Metrica + Webmaster
-public/robots.php                                  # N-06/07/08: disallows
-setting/Route/routes.php                           # upgrade/robots.txt route
-setting/Route/routes.php                           # (referenced above)
-setting/Route/Functions/Sitemap.php                # N-07/08: exclusions
-setting/Route/Functions/SecurityHeaders.php        # M-03: noindex header support
-public/pages/services/ukladka-laminata/index.php   # N-08 noindex
-public/pages/services/keramogranit-nazarovo/index.php # N-08 noindex
-public/pages/services/vakansii/index.php           # N-07 noindex
-public/pages/services/vakansii/detail.php          # N-07 noindex
-public/pages/services/1room/index.php              # N-10 + J-01
-public/pages/services/studio/index.php             # N-10 + J-01
-public/pages/services/3room/index.php              # N-10 + F-05
-public/pages/services/doma/index.php               # N-10 + F-01
-public/pages/services/vtorichka/index.php          # J-05
-public/pages/services/budushchiy-remont/index.php  # F-04
-public/pages/services/3room/index.php              # N-10 + F-05
-public/pages/services/doma/index.php               # N-10 + F-01
-public/pages/services/novostroyka/index.php        # N-12
-public/pages/services/kommercheskie/index.php      # F-02
-public/pages/services/ukladka-laminata/index.php   # N-08
-public/pages/services/keramogranit-nazarovo/index.php # N-08
-public/pages/services/vakansii/index.php           # N-07
-public/pages/services/vakansii/detail.php          # N-07
-public/index.php                                   # N-05
-public/components/head-includes.php                # M-03
-public/components/hero-section.php                 # N-09
-public/components/service-page-sections.php        # N-10/11/12/15/16/17
-public/components/case-study.php                   # N-15/16/J-01
-public/components/otdelka-cluster.php              # N-12/17
-public/components/district-local.php               # J-03
-public/components/price-table.php                  # N-11
-public/components/hub-links.php                    # N-12/17
-public/components/cta-section.php                  # Various
-public/components/cta-form.php                     # Various
-public/components/head-includes.php                # M-03
-public/components/hero-section.php                 # N-09
-public/components/service-page-sections.php        # N-10/11/12/15/16/17
-public/components/case-study.php                   # N-15/16/J-01
-public/components/otdelka-cluster.php              # N-12/17
-public/components/district-local.php               # J-03
-public/components/price-table.php                  # N-11
-public/components/hub-links.php                    # N-12/17
-public/components/cta-section.php                  # Various
-public/components/cta-form.php                     # Various
-public/components/head-includes.php                # M-03
-public/robots.php                                  # N-06/07/08
-setting/Route/routes.php                           # upgrade route + sitemap
-setting/Route/Functions/Sitemap.php                # N-07/08 exclusions
-setting/Route/Functions/SecurityHeaders.php        # M-03: noindex header
-public/pages/services/ukladka-laminata/index.php   # N-08 noindex
-public/pages/services/keramogranit-nazarovo/index.php # N-08 noindex
-public/pages/services/vakansii/index.php           # N-07 noindex
-public/pages/services/vakansii/detail.php          # N-07 noindex
-public/index.php                                   # N-05
-public/components/head-includes.php                # M-03
-public/components/hero-section.php                 # N-09
-public/components/service-page-sections.php        # N-10/11/12/15/16/17
-public/components/case-study.php                   # N-15/16/J-01
-public/components/otdelka-cluster.php              # N-12/17
-public/components/district-local.php               # J-03
-public/components/price-table.php                  # N-11
-public/components/hub-links.php                    # N-12/17
-public/components/cta-section.php                  # Various
-public/components/cta-form.php                     # Various
-public/components/head-includes.php                # M-03
-public/robots.php                                  # N-06/07/08
-setting/Route/routes.php                           # upgrade route
-setting/Route/Functions/Sitemap.php                # exclusions
-setting/Route/Functions/SecurityHeaders.php        # M-03
+| ID | Задача | Статус | Где смотреть |
+|----|--------|--------|--------------|
+| J-01 | Кейсы до/после на студиях и однушках | ✅ | `studio` (24 м² / 28 дней / 192 000 ₽), `1room` |
+| J-02 | Аудит районных страниц | ✅ | `docs/seo/j-02-audit-regions.md` (21 страница, сходство 94,8%) |
+| J-03 | Решение по районам + локальный контент и кейсы | ✅ | `components/district-local.php` подключён на 21 районной странице |
+| J-04 | Статья «Ремонт во вторичке: что менять обязательно» | ✅ | `content/24.php` |
+| J-05 | Блок «С чего начать» на странице вторички | ✅ | `/services/vtorichka` |
+| J-06 | Снять стартовые позиции по 10 запросам | ⛔ | нужен доступ к Яндекс.Вебмастеру / серп-инструменту |
 
-# New Articles Created (blog)
-public/pages/blog/article/content/22.php  # D-03: Cost in 2027
-public/pages/blog/article/content/23.php  # D-05: Step-by-step plan
-public/pages/blog/article/content/24.php  # J-04: Secondary housing
-public/pages/blog/article/content/25.php  # F-03: Why estimate grows
-public/pages/blog/article/content/26.php  # M-04: Spring season article
-public/pages/blog/article/content/7.php   # D-04 enhanced (updated)
-public/pages/blog/article/content/16.php  # D-01/D-02 updated
-public/pages/blog/article/content/24.php  # J-04: Secondary housing
-public/pages/blog/article/content/25.php  # F-03: Why estimate grows
-public/pages/blog/article/content/26.php  # M-04: Spring season article
+## Февраль 2027 — F-01…F-05 (5/5)
 
-# Documentation
-docs/seo/j-02-audit-regions.md
-docs/seo/j-06-m-01-m-02-analytics.md
-docs/seo/j-02-audit-regions.md
+| ID | Задача | Статус | Где смотреть |
+|----|--------|--------|--------------|
+| F-01 | 3 240 000 ₽ в title и на первом экране `/services/doma` | ✅ | title + hero-подзаголовок |
+| F-02 | Перестроить коммерческий раздел | ✅ | оставлены `/services/kommercheskie`; 8 узких страниц (кафе, ресторан, магазин, стоматология, аптека, фитнес, салон красоты, шоурум) — `noindex` и вне sitemap; страницы шоурума физически нет, ссылки на неё удалены |
+| F-03 | Статья «Почему смета растёт и как это остановить» | ✅ | `content/25.php` |
+| F-04 | Ориентиры по метражу + чек-лист на `/services/budushchiy-remont` | ✅ | таблица 30–100 м², чек-лист из 8 пунктов |
+| F-05 | Блок под «капитальный ремонт квартиры» | ✅ | `/services/3room`, `/services/pod-klyuch` |
 
-# Configuration
-public/upgrade/robots.txt
-public/upgrade/robots.txt (route in routes.php)
-setting/Route/routes.php (upgrade route)
-public/upgrade/robots.txt
-setting/Route/routes.php
-public/upgrade/robots.txt
+## Март 2027 — M-01…M-04 (2/4)
 
-# Data
-public/pages/blog/data/articles.json (26 articles)
-```
+| ID | Задача | Статус | Комментарий |
+|----|--------|--------|-------------|
+| M-01 | Повторный замер позиций | ⛔ | нужен доступ к Вебмастеру, делается в марте |
+| M-02 | Заявки из органики ноябрь–март | ⛔ | нужен доступ к Метрике (отчёт по источникам) |
+| M-03 | Яндекс.Метрика и Вебмастер | 🟡 | счётчик Метрики подключён на всех страницах (`components/head-includes.php`), цель `SENDFORM` с разбивкой по источникам; для Вебмастера нужен токен в `YANDEX_VERIFICATION` |
+| M-04 | Сезонная статья к апрелю | ✅ | `content/26.php` |
 
 ---
 
-## 📊 SUMMARY
+## Техническая база
 
-| Category | Total | Done | Pending |
-|--------|-------|------|---------|
-| November 2026 (N-01 to N-17) | 17 | 17 | 0 |
-| December 2026 (D-01 to D-05) | 5 | 5 | 0 |
-| January 2027 (J-01 to J-06) | 6 | 5 | 1 (J-06 manual) |
-| February 2027 (F-01 to F-05) | 5 | 5 | 0 |
-| March 2027 (M-01 to M-04) | 4 | 2 | 2 (M-01, M-02 manual) |
-| Technical/Infra | 8 | 7 | 1 (Webmaster token) |
-| **TOTAL** | **41** | **38** | **3** |
+- `robots.php`: `Disallow` для `/api/`, `/mcp/`, `/indexnow/`, `/llms.txt`, `/llms-full.txt`, `/opensearch.xml`, `/public/documents/`, `/storage/`; `Clean-param`; AI-краулеры открыты; противоречивый `Allow: /llms.txt` удалён.
+- Карта сайта: исключены 2 страницы вне периметра (ламинат, керамогранит) и 8 узких коммерческих.
+- upgrade.pkvartira.ru: self-referencing canonical, уникальные title/description, sitemap и IndexNow с состоянием на каждый хост — каннибализации с основным доменом нет.
+- QA: `composer run qa` → `lint` (все PHP-файлы, 0 ошибок) + `tests/seo_regression_test.php` (All SEO regression checks passed).
 
-**Completion Rate: 92.7%**
+## Что осталось (вне кода)
 
----
-
-## ✅ FINAL VERIFICATION (executed, November 2026)
-
-| # | Check | Command | Result |
-|---|-------|---------|--------|
-| 1 | SEO regression suite (main + upgrade host) | `php tests/seo_regression_test.php` | `All SEO regression checks passed.` (exit 0) |
-| 2 | PHP syntax lint (all project `.php`, excluding vendor) | `find . -name '*.php' -not -path './vendor/*' -print0 \| xargs -0 -n1 php -l` | 185 files, 0 syntax errors |
-| 3 | Secrets / credentials scan | static grep (password\|secret\|token\|api_key\|db_* ...) | 0 matches |
-| 4 | composer.json QA gate | `composer run qa` → `lint` + `test` | lint clean, `All SEO regression checks passed.` |
-| 5 | Upgrade DNS/domain whitelist | `SiteUrl::KNOWN_SUBDOMAINS`, `TheFunction::site()['isUpgrade']` | `https://upgrade.pkvartira.ru` returned for the upgrade host; canonical self-referencing |
-| 6 | Cannibalization | `website` / `upgrade.pkvartira.ru` SEO surfaces | canonical self-ref per host; unique `title`/`description` per route via `upgradeSeoOverride()`; sitemap+IndexNow state keyed per host; separate JSON-LD Organization |
-
-### Deployment readiness checklist (already done in code)
-
-- [x] upgrade.pkvartira.ru registered in `SiteUrl::KNOWN_SUBDOMAINS` → `https://upgrade.pkvartira.ru`
-- [x] `TheFunction::site()` isUpgrade branch (name, phone, email `pro@pkvartira.ru`, telegram `@pkvartira_pro`)
-- [x] `upgradeSeoOverride()` — unique title/description on ~30 routes (no duplicate SERP copy)
-- [x] `robots.php` + `/upgrade/robots.txt` route — `noindex, nofollow` only for the test-stand path; main upgrade pages open for indexing
-- [x] `public/upgrade/robots.txt` + nginx route `/upgrade/robots.txt` (X-Robots-Tag noindex)
-- [x] Sitemap cache keyed per host (`md5(baseUrl)`); `sitemapIndex` per host
-- [x] IndexNow batched (10k/POST) + per-host sent-state file (`pkvartira-indexnow-state-upgrade.pkvartira.ru.json`)
-- [x] `robots.php` outputs `Sitemap: https://upgrade.pkvartira.ru/sitemap.xml` (host-aware)
-
-### Remaining manual steps before the upgrade subdomain is live
-
-1. DNS `A upgrade.pkvartira.ru → <server IP>`
-2. nginx `server_name upgrade.pkvartira.ru; root = repo public/;` + Let's Encrypt SSL
-3. Deploy: `git pull` on the server + `composer install` (vendor is gitignored) + `php -l`
-4. `cron */30 * * * * curl -s -o /dev/null https://upgrade.pkvartira.ru/indexnow` (IndexNow auto-push)
-5. Yandex Webmaster: add `YANDEX_VERIFICATION` to `.env`; verify the site; enable "Переобходим страницы"
-
----
-
-## 🎯 NEXT ACTIONS
-
-1. **Immediate (This Week)**
-   - [ ] Provide Yandex Webmaster verification token (add to `.env` as `YANDEX_VERIFICATION`)
-   - [ ] Add DNS + nginx site + SSL for `upgrade.pkvartira.ru` (deploy step above)
-   - [ ] Deploy to staging for QA
-   - [ ] QA checklist: all 37 pages render, no JS errors, forms work
-
-2. **January 2027**
-   - [ ] J-06: Measure baseline positions for 10 priority queries
-   - [ ] J-03: Decide district page fate (keep all + local content vs redirect)
-
-3. **March 2027**
-   - [ ] M-01: Re-measure 10 priority queries
-   - [ ] M-02: Export organic leads from Metrica
-   - [ ] M-01: Compare positions, document growth
-
-3. **Ongoing**
-   - [ ] Monitor index coverage in Yandex Webmaster
-   - [ ] Track organic leads vs total leads monthly
-   - [ ] Quarterly content audit (district pages, blog freshness)
-
----
-
-*Report generated: November 13, 2026*  
-*Total implementation time: ~6 hours automated + manual content creation*
----
-
-## ✅ Проверка 17.11.2026 (фактическая сверка с кодом)
-
-Сверены все 37 задач плана с текущим содержимым репозитория. Ниже — что было
-несоответствием в предыдущем отчёте и что доделано в этот день.
-
-| Задача | Было в коде | Сделано 17.11.2026 |
-|---|---|---|
-| N-03 | нет объяснения цен офиса (страница `/services/office` удалена ранее) | блок «Почему ремонт офиса дешевле квартирного» на `/services/kommercheskie` |
-| N-09 | H1 = «Ремонт 3-комнатной квартиры» | H1 = «Ремонт трёхкомнатной квартиры под ключ в Москве» |
-| N-12 | ссылки на 7 страниц отделки были только на 5 страницах кластера | блок добавлен на `/services/novostroyka` |
-| N-17 | `chistovaya` и `chernovaya` без взаимных ссылок кластера | `otdelka_cluster` включён на обеих страницах |
-| N-16 / F-01 | на `/services/doma` не было кейса и цены проекта | кейс «Коттедж 180 м², 45 дней, 3 240 000 ₽» + цена в title и на первом экране |
-| J-01 | кейс был только у студий | кейс «1-комнатная 35 м², 38 дней, 455 000 ₽» на `/services/1room` |
-| J-05 | блока «С чего начать» не было | блок из 5 шагов со ссылками на `/services/vtorichka` |
-| N-01 | на 1room/2room/vtorichka/doma цена была «с материалами» | единая формулировка «за работы, без учёта материалов» |
-| QA | `tools/devrouter.php` не запускался (`chdir` в `tools/`) | исправлен путь: `chdir(dirname(__DIR__))` |
-
-Проверки: `php -l` по всем изменённым файлам — без ошибок; `php tests/seo_regression_test.php` — passed;
-smoke-тест через `php -S` — все 9 изменённых страниц отдают 200 без PHP-ошибок;
-`X-Robots-Tag: noindex` на `/llms.txt`, `/llms-full.txt`, `/opensearch.xml`, `.docx`, `/vakansii` — подтверждён;
-в `sitemap-services.xml` нет ни одного URL из закрытых разделов.
-
-Статусы внесены в файл `docs/seo/План_SEO_ноябрь_2026_март_2027_статус_17-11-2026.xlsx`:
-32 задачи «Готово», 2 «В работе» (J-03, M-03), 3 «Заблокировано» (J-06, M-01, M-02 — нужны доступы к Вебмастеру/Топвизору и Метрике).
+1. Токен `YANDEX_VERIFICATION` в `.env` на сервере → подтвердить Вебмастер.
+2. J-06 (январь) и M-01/M-02 (март) — замеры позиций и отчёт по заявкам из органики.
+3. Деплой: `git pull` + `composer install` (vendor не в репозитории).

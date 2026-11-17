@@ -91,6 +91,59 @@ $seo = TheFunction::seo([
         include './public/components/service-page-sections.php';
         ?>
 
+        <!-- 2. Цены -->
+        <section id="price" class="reveal bg-white py-10 md:py-14">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
+                    Стоимость ремонта студии под ключ
+                </h2>
+                <p class="mt-2 text-gray-600 max-w-3xl">
+                    Цены указаны за работы, без учёта материалов. Материалы закупаем по вашей смете со скидкой 10–15%
+                    у поставщиков. Стоимость фиксируем в договоре, точную сумму называем после бесплатного замера.
+                </p>
+
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <?php
+                    $studioPrices = [
+                        [
+                            'title' => 'Косметический',
+                            'price' => 'от 8 000 ₽/м²',
+                            'term' => '21–28 дней',
+                            'items' => ['Стены и потолки: шпаклёвка, покраска', 'Замена покрытия пола', 'Косметика электрики', 'Двери, плинтусы, уборка'],
+                        ],
+                        [
+                            'title' => 'Капитальный',
+                            'price' => 'от 13 000 ₽/м²',
+                            'term' => '28–35 дней',
+                            'items' => ['Полная замена электрики и сантехники', 'Стяжка и выравнивание стен', 'Плитка в санузле', 'Чистовая отделка под ключ'],
+                        ],
+                        [
+                            'title' => 'Дизайнерский',
+                            'price' => 'от 18 000 ₽/м²',
+                            'term' => '35–45 дней',
+                            'items' => ['Дизайн-проект и авторский надзор', 'Сложные решения по свету и зонированию', 'Встроенная мебель и хранение', 'Премиальные материалы'],
+                        ],
+                    ];
+                    foreach ($studioPrices as $sp): ?>
+                        <article class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                            <div class="text-sm text-gray-600"><?= htmlspecialchars($sp['title']); ?> ремонт</div>
+                            <div class="mt-2 text-3xl font-bold text-gray-900"><?= htmlspecialchars($sp['price']); ?></div>
+                            <div class="text-sm text-gray-600">Срок: <?= htmlspecialchars($sp['term']); ?></div>
+                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                                <?php foreach ($sp['items'] as $item): ?>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-green-600 mt-0.5"></i><span><?= htmlspecialchars($item); ?></span></li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <a href="/contact"
+                                class="flex items-center justify-center mt-6 w-full border border-blue-700 text-blue-700 hover:bg-blue-50 px-5 py-3 rounded-lg font-semibold transition">Рассчитать
+                                студию</a>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+                <p class="mt-6 text-center text-sm text-gray-600">Все расценки — на странице <a href="/prices" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">цен на ремонт</a> или <a href="/calculator" class="text-[#6d5744] font-semibold hover:text-[#5c4a3a] underline">посчитайте в калькуляторе</a>.</p>
+            </div>
+        </section>
+
 <?php
 // J-01: кейс с фотографиями, площадью, сроками и итоговой стоимостью
 $caseData = [

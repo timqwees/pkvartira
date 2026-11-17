@@ -257,6 +257,12 @@ include './public/components/case-study.php';
         $ctaSectionHeading = 'Готовы рассчитать стоимость: ремонт новостройки без отделки';
         $ctaSectionText = 'Оставьте заявку — бесплатно приедем на замер и составим точную смету с фиксированной ценой.';
         $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 24 часа', 'Фиксированная цена', 'Гарантия 3 года'];
+
+        // N-17: взаимные ссылки кластера «отделка в новостройке»
+        $otdelkaClusterTitle = 'Другие типы отделки в новостройке';
+        $otdelkaClusterCurrent = 'bez-otdelki';
+        include './public/components/otdelka-cluster.php';
+
         include './public/components/cta-section.php';
         ?>
 </main>

@@ -171,6 +171,13 @@ $seo = TheFunction::seo([
             </div>
         </section>
 
+        <?php
+        // N-12 / N-17: ссылки на 7 страниц кластера «отделка в новостройке»
+        $otdelkaClusterTitle = 'Типы отделки в новостройке';
+        $otdelkaClusterCurrent = 'novostroyka';
+        include './public/components/otdelka-cluster.php';
+        ?>
+
         <!-- 3. Что входит в стоимость ремонта -->
         <section class="reveal bg-gray-50 py-10 md:py-14">
             <div class="max-w-7xl mx-auto px-4">

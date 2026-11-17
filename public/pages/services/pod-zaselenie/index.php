@@ -222,6 +222,12 @@ include './public/components/otdelka-cluster.php';
         $ctaSectionHeading = 'Готовы рассчитать стоимость: ремонт квартиры под заселение';
         $ctaSectionText = 'Оставьте заявку — бесплатно приедем на замер и составим точную смету с фиксированной ценой.';
         $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 24 часа', 'Фиксированная цена', 'Гарантия 3 года'];
+
+        // N-17: взаимные ссылки кластера «отделка в новостройке»
+        $otdelkaClusterTitle = 'Другие типы отделки в новостройке';
+        $otdelkaClusterCurrent = 'pod-zaselenie';
+        include './public/components/otdelka-cluster.php';
+
         include './public/components/cta-section.php';
         ?>
 </main>
