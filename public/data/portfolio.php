@@ -134,7 +134,7 @@ $portfolio = [
     ],
     [
         'type' => $portfolio_types['new'],
-        'title' => 'Капитальный ремонт, новостройка',
+        'title' => 'Капитальный ремонт, новостройка 86 м²',
         'folder_image' => 'public/assets/images/portfolio-photos/newbuilds/1_86sqm',
         'size' => '86 м²',
         'category' => 'Под ключ',
@@ -148,9 +148,9 @@ $portfolio = [
     ],
     [
         'type' => $portfolio_types['studio'],
-        'title' => 'Капитальный ремонт, студия',
+        'title' => 'Капитальный ремонт, студия, 32,85 м² (по плану)',
         'folder_image' => 'public/assets/images/portfolio-photos/studio/2_31sqm',
-        'size' => '31 м²',
+        'size' => '32,85 м²',
         'category' => 'Под ключ',
     ],
     [

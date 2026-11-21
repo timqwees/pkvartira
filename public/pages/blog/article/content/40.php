@@ -146,7 +146,7 @@
     <ul>
         <li><a href="/services/novostroyka" rel="nofollow">Ремонт в новостройке</a> — под ключ, этапы, цены</li>
         <li><a href="/services/priemka-kvartiry-zastroyshchik" rel="nofollow">Приёмка квартиры у застройщика</a> — чек-лист из 30 пунктов</li>
-        <li><a href="/services/dizayn-proekt" rel="nofollow">Дизайн-проект квартиры</a> — планировка и сметы</li>
+        <li><a href="/services/dizayn-interierov" rel="nofollow">Дизайн-проект квартиры</a> — планировка и сметы</li>
         <li><a href="/author" rel="nofollow">Об авторе компании</a> — опыт и гарантии</li>
     </ul>
 </div>

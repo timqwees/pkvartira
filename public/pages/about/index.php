@@ -1,6 +1,10 @@
 <?php
 $site = Setting\Route\Functions\TheFunction::site();
 
+// Количество отзывов — из того же набора, что и страница /reviews (отзывы.yml)
+require_once dirname(__DIR__, 3) . '/setting/Route/Functions/ReviewsParser.php';
+$reviewsTotal = count((new Setting\Route\Functions\ReviewsParser())->getReviews());
+
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир в Москве под ключ — договор, смета, гарантия',
     'description' => 'Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве. ООО «Проект Квартира». Фиксированная смета, гарантия 3 года по договору. Замер бесплатно.',
@@ -75,7 +79,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 </div>
 
                 <!-- GEO Entity: стабильное описание компании для AI-поиска -->
-                <p class="text-[15px] leading-[24px] text-[#4b5563] max-w-4xl mb-8">Проект Квартира (Проект Квартира, ООО «Проект Квартира», ИНН 9719013990) — ремонт квартир и домов под ключ в Москве и Московской области. Клиент получает бесплатный замер, смету в 3 вариантах за 24 часа, договор с фиксированной стоимостью, ежедневные фотоотчёты и гарантию 3 года. Все 35 отзывов публикуем со ссылками на источники.</p>
+                <p class="text-[15px] leading-[24px] text-[#4b5563] max-w-4xl mb-8">Проект Квартира (Проект Квартира, ООО «Проект Квартира», ИНН 9719013990) — ремонт квартир и домов под ключ в Москве и Московской области. Клиент получает бесплатный замер, смету в 3 вариантах за 24 часа, договор с фиксированной стоимостью, ежедневные фотоотчёты и гарантию 3 года. Все <?= (int)$reviewsTotal ?> отзывов публикуем с указанием площадки-источника, автора и даты.</p>
 
                 <div class="flex flex-col gap-4 md:gap-8">
 
@@ -224,7 +228,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Владимир Соболев</h3>
-                            <p class="text-xs text-gray-500">Руководитель сметно-договорного отдела</p>
+                            <p class="text-xs text-gray-500">Руководитель сметно-договорного отдела, совмещает руководство проектами</p>
                         </div>
 
                         <!-- Team Member 3 -->
@@ -234,7 +238,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                     class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <h3 class="font-semibold text-gray-800 text-sm">Семён Серебренников</h3>
-                            <p class="text-xs text-gray-500">Главный инженер</p>
+                            <p class="text-xs text-gray-500">Главный инженер, совмещает функции сметчика и замерщика</p>
                         </div>
 
                         <!-- Team Member 4 -->
@@ -298,11 +302,29 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div class="bg-blue-600 p-2.5 rounded-full w-10 h-10 flex items-center justify-center text-white">
                         <i class="fas fa-atom"></i>
                     </div>
+                    <h2 class="text-3xl font-bold text-gray-800">Как мы работаем на объекте</h2>
+                    <div class="h-[0.5px] bg-gray-400 flex-1 ml-4"></div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
-
-
+                    <div class="bg-[#F8F8FB] rounded-lg p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user-gear text-blue-600"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-800">Бригада узких специалистов — стаж от 5 лет</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">Профильные этапы выполняют узкие специалисты: электрику делает электрик, сантехнику — сантехник, плитку кладёт плиточник. Каждый отвечает за свой вид работ и проходит проверку перед допуском на объект.</p>
+                    </div>
+                    <div class="bg-[#F8F8FB] rounded-lg p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clipboard-check text-blue-600"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-800">Мастер-универсал — опыт от 3 лет</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">Мастер-универсал координирует весь цикл ремонта: график этапов, закупку и доставку материалов, приёмку работ узких специалистов и фотоотчёты. Он не заменяет узких специалистов, а связывает их работу в единый график и отвечает за результат перед заказчиком.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -325,48 +347,50 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-file-signature text-orange-600"></i>
                                 </div>
-                                <span class="text-sm text-gray-700">Честный текст договора</span>
+                                <a href="/dogovor-obrazec" class="text-sm text-gray-700 hover:text-blue-600 underline decoration-gray-300 hover:decoration-blue-600 underline-offset-2">Договор подряда</a>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-file-invoice text-orange-600"></i>
                                 </div>
-                                <span class="text-sm text-gray-700">Договор и смета</span>
+                                <a href="/smeta-obrazec" class="text-sm text-gray-700 hover:text-blue-600 underline decoration-gray-300 hover:decoration-blue-600 underline-offset-2">Смета</a>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-building text-orange-600"></i>
                                 </div>
-                                <span class="text-sm text-gray-700">Заявление об учете и актах</span>
+                                <span class="text-sm text-gray-700">Реквизиты: ИНН 9719013990, ОГРН 1217700135058</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
+                                    <i class="fas fa-shield-alt text-orange-600"></i>
                                 </div>
-                                <span class="text-sm text-gray-700">ИНН / ОГРН</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="check-icon">
-                                    <i class="fas fa-check-circle text-orange-600"></i>
-                                </div>
-                                <span class="text-sm text-gray-700">Гарантийные обязательства</span>
+                                <span class="text-sm text-gray-700">Гарантийные обязательства — 3 года по договору</span>
                             </div>
                         </div>
 
-                        <button
-                            class="mt-6 bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50 transition inline-flex items-center gap-2">
-                            Приложить к договору
-                            <i class="fas fa-chevron-right text-xs"></i>
-                        </button>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="/dogovor-obrazec"
+                                class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50 transition inline-flex items-center gap-2">
+                                Образец договора
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </a>
+                            <a href="/smeta-obrazec"
+                                class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50 transition inline-flex items-center gap-2">
+                                Образец сметы
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Documents Images -->
-                    <div class="flex justify-center items-center">
-                        <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/pages/about/contract.jpg') ?>" alt="Документы и договор"
+                    <!-- Documents Images: декоративная иллюстрация, не реальный документ -->
+                    <figure class="flex flex-col justify-center items-center">
+                        <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/pages/about/contract.jpg') ?>" alt="Иллюстрация: документы и договор (декоративное изображение)"
                             class="w-full max-w-md rounded-lg shadow-lg">
-                    </div>
+                        <figcaption class="text-xs text-gray-500 mt-3 text-center max-w-md">Иллюстрация. Реальные образцы договора и сметы — по ссылкам выше.</figcaption>
+                    </figure>
                 </div>
             </div>
             </div>
@@ -423,8 +447,8 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
                         <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-trophy text-orange-600 text-2xl"></i></div>
-                        <h3 class="text-xl font-heading font-bold mb-3">Отзывы со ссылками на источники</h3>
-                        <p class="text-gray-600">Работаем по договору: фиксированная смета, поэтапная оплата, гарантия 3 года. Каждый объект ведём открыто: фотоотчёты, смета в договоре. Отзывы — только со ссылками на источники.</p>
+                        <h3 class="text-xl font-heading font-bold mb-3">Отзывы с указанием источников</h3>
+                        <p class="text-gray-600">Работаем по договору: фиксированная смета, поэтапная оплата, гарантия 3 года. Каждый объект ведём открыто: фотоотчёты, смета в договоре. Отзывы — с указанием площадки-источника, автора и даты.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
                         <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-file-signature text-orange-600 text-2xl"></i></div>

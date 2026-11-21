@@ -131,6 +131,16 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         </div>
     </section>
 
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Образец сметы: как читать цифры</h2>
+            <div class="mt-6 max-w-3xl mx-auto bg-[#f9fafb] rounded-xl p-6 border border-gray-200">
+                <p class="text-[#4b5563] leading-relaxed">В <a href="/smeta-obrazec" class="text-orange-600 underline hover:text-orange-700">образце сметы</a> для квартиры 50 м² показано 9 строк на 272 300 ₽; итого по полной смете 370 400 ₽ (16 строк в DOCX). Разница 98 100 ₽ — семь строк, не вошедших в экранный фрагмент: вынос мусора, грунтовка, подрозетники и розетки, монтаж сантехники, покраска/обои, плинтусы и наличники, финальная уборка.</p>
+                <p class="mt-3 text-[#4b5563] leading-relaxed">370 400 ₽ за работы на 50 м² — это 7 408 ₽/м². <strong>Это пример сокращённого состава по устаревшим расценкам образца, он не сопоставим с текущим тарифом капитального ремонта от 13 000 ₽/м².</strong> Актуальная смета составляется после замера по действующим расценкам и фиксируется в договоре.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="py-12">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="max-w-lg mx-auto">

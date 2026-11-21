@@ -10,13 +10,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="Ремонт новостройки с предчистовой отделкой в Москве. Штукатурка, стяжка, коммуникации — поверх чистовая отделка. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="Ремонт новостройки с предчистовой отделкой (white box) в Москве. Штукатурка, стяжка, разводка коммуникаций — единая цена от 8 000 ₽/м²; поверх — чистовая отделка. Гарантия 3 года. От компании Проект Квартира (Проект Квартира)."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/predchistovaya'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="Ремонт новостройки с предчистовой отделкой в Москве. Штукатурка, стяжка, коммуникации — поверх чистовая отделка. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
+    <meta property="og:description" content="Ремонт новостройки с предчистовой отделкой (white box) в Москве. Штукатурка, стяжка, разводка коммуникаций — единая цена от 8 000 ₽/м²; поверх — чистовая отделка. Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/predchistovaya'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
@@ -26,7 +26,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="Ремонт новостройки с предчистовой отделкой в Москве. Штукатурка, стяжка, коммуникации — поверх чистовая отделка. Цена от 8 000 ₽/м². Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
+    <meta name="twitter:description" content="Ремонт новостройки с предчистовой отделкой (white box) в Москве. Штукатурка, стяжка, разводка коммуникаций — единая цена от 8 000 ₽/м²; поверх — чистовая отделка. Гарантия 3 года. От компании Проект Квартира (Проект Квартира).">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
@@ -45,7 +45,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     </script>
 
     <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в предчистовую отделку застройщика?", "acceptedAnswer": {"@type": "Answer", "text": "Штукатурка стен, стяжка пола, разводка электрики и сантехники до точек. Это базовая подготовка для чистовой отделки."}}, {"@type": "Question", "name": "Что нужно делать после предчистовой отделки?", "acceptedAnswer": {"@type": "Answer", "text": "Чистовая отделка: покраска или обои, укладка плитки и ламината, установка дверей, монтаж сантехники и розеток."}}, {"@type": "Question", "name": "Сколько стоит чистовая отделка поверх предчистовой?", "acceptedAnswer": {"@type": "Answer", "text": "Цены от 8 000 ₽/м². Точная стоимость зависит от выбранных материалов и объёма работ. Рассчитаем смету после бесплатного замера."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что входит в предчистовую отделку застройщика?", "acceptedAnswer": {"@type": "Answer", "text": "Штукатурка стен, стяжка пола, разводка электрики и сантехники до точек. Это базовая подготовка для чистовой отделки."}}, {"@type": "Question", "name": "Что нужно делать после предчистовой отделки?", "acceptedAnswer": {"@type": "Answer", "text": "Чистовая отделка: покраска или обои, укладка плитки и ламината, установка дверей, монтаж сантехники и розеток."}}, {"@type": "Question", "name": "Сколько стоит чистовая отделка поверх предчистовой?", "acceptedAnswer": {"@type": "Answer", "text": "Косметический — от 8 000 ₽/м², капитальный — от 13 000 ₽/м², дизайнерский — от 18 000 ₽/м² (работы). Точная стоимость зависит от выбранных материалов и объёма работ. Рассчитаем смету после бесплатного замера."}}, {"@type": "Question", "name": "Предчистовая и white box — это одно и то же?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Предчистовая отделка и white box (вайт бокс) — один формат: стяжка + штукатурка + разводка. Цена одна — от 8 000 ₽/м² за работы; различаться может только комплектация (объём разводки, толщина стяжки), что уточняется в смете."}}]}
     </script>
 </head>
 <body class="bg-white">
@@ -55,7 +55,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
         <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
         <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
             <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Ремонт новостройки с предчистовой отделкой</h1>
-            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Предчистовая отделка — штукатурка, стяжка, разведённые коммуникации. Поверх неё выполняем чистовую отделку. Цена от 8 000 ₽/м². Гарантия 3 года.</p>
+            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Предчистовая отделка (white box) — штукатурка, стяжка, разведённые коммуникации. Поверх неё выполняем чистовую отделку. Единая цена от 8 000 ₽/м². Гарантия 3 года.</p>
             <div class="mt-6 flex flex-wrap gap-4">
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> от 8 000 ₽/м²</div>
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
@@ -70,6 +70,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                 <div>
                     <h2 class="text-2xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Что такое предчистовая отделка</h2>
                     <p class="mt-4 text-[#4b5563] leading-relaxed">Предчистовая отделка — это этап подготовки новостройки, на котором застройщик выполняет базовые работы: оштукатуривание стен, стяжку пола, разводку инженерных коммуникаций (электрика, сантехника, отопление).</p>
+                    <p class="mt-4 text-[#4b5563] leading-relaxed"><strong>Предчистовая отделка и white box (вайт бокс) — один и тот же формат</strong>: стяжка + штукатурка + разводка. Цена одна — от 8 000 ₽/м² за работы; итог зависит от комплектации (объём разводки, толщина стяжки, площадь стен и пола) и фиксируется в смете после замера.</p>
                     <p class="mt-4 text-[#4b5563] leading-relaxed">После предчистовой отделки стены выровнены и готовы к покраске или оклейке обоями, пол — к укладке финишного покрытия. Остаётся только чистовая отделка: обои, покраска, плитка, ламинат, установка дверей и сантехники.</p>
                     <ul class="mt-4 space-y-2">
                         <li class="flex items-start gap-2 text-[#4b5563]"><span class="text-orange-500 mt-1">•</span> Штукатурка стен по маякам — выравнивание под чистовую отделку</li>
@@ -79,8 +80,12 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                     </ul>
                 </div>
                 <div class="bg-[#f9fafb] rounded-xl p-6">
-                    <h3 class="text-lg font-bold text-[#111827]">Цены на чистовую отделку поверх предчистовой</h3>
+                    <h3 class="text-lg font-bold text-[#111827]">Цены: предчистовая = white box</h3>
                     <div class="mt-4 space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Предчистовая (white box): стяжка + штукатурка + разводка</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
+                    </div>
+                    <h4 class="mt-5 text-sm font-bold text-[#111827]">Чистовая отделка поверх предчистовой</h4>
+                    <div class="mt-2 space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Косметический</span><span class="font-bold text-[#111827]">от 8 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200"><span class="text-[#4b5563]">Капитальный</span><span class="font-bold text-[#111827]">от 13 000 ₽/м²</span></div>
                         <div class="flex justify-between items-center py-2"><span class="text-[#4b5563]">Дизайнерский</span><span class="font-bold text-[#111827]">от 18 000 ₽/м²</span></div>
@@ -125,11 +130,11 @@ include './public/components/cta-form.php';
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в предчистовую отделку застройщика?</summary><p class="mt-2 text-sm text-[#6b7280]">Штукатурка стен, стяжка пола, разводка электрики и сантехники до точек. Это базовая подготовка для чистовой отделки.</p></details>
                 <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что нужно делать после предчистовой отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Чистовая отделка: покраска или обои, укладка плитки и ламината, установка дверей, монтаж сантехники и розеток.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит чистовая отделка поверх предчистовой?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от выбранных материалов и объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит чистовая отделка поверх предчистовой?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический — от 8 000 ₽/м², капитальный — от 13 000 ₽/м², дизайнерский — от 18 000 ₽/м² (работы). Точная стоимость зависит от выбранных материалов и объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
+                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Предчистовая и white box — это одно и то же?</summary><p class="mt-2 text-sm text-[#6b7280]">Да. Предчистовая отделка и white box (вайт бокс) — один формат: стяжка + штукатурка + разводка. Цена одна — от 8 000 ₽/м² за работы; различаться может только комплектация (объём разводки, толщина стяжки), что уточняется в смете.</p></details>
             </div>
         </div>
     </section>
-</main>
     <section class="py-12 text-center bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
             <h3 class="text-xl font-bold text-[#111827]" style="font-family:var(--font-heading)">Другие услуги</h3>
@@ -142,13 +147,12 @@ include './public/components/cta-form.php';
                 <a href="/services/white-box" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">White box</a>
                 <a href="/services/ot-zastroyschika" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">От застройщика</a>
                 <a href="/services/novostroyka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт новостроек</a>
-                <a                 <a href="/services/bez-otdelki" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Без отделки</a>
                 <a href="/services/budushchiy-remont" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт к дате ключей</a>
                 <a href="/services/chernovaya" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Черновая отделка</a>
                 <a href="/services/chistovaya" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Чистовая отделка</a>
                 <a href="/services/ot-zastroyschika" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Отделка от застройщика</a>
                 <a href="/services/white-box" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">White box</a>
-                href="/services/vtorichka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Вторичное жильё</a>
+                <a href="/services/vtorichka" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Вторичное жильё</a>
                 <a href="/services/studio" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт студий</a>
                 <a href="/services/pod-klyuch" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Ремонт под ключ</a>
                 <a href="/prices" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm text-[#4b5563] hover:border-orange-500">Цены</a>
@@ -164,12 +168,12 @@ include './public/components/cta-form.php';
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="flex flex-col md:flex-row items-center gap-8">
                     <div class="md:w-1/2">
-                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Кейс: Новостройка 86 м², 60 дней, 1 118 000 ₽</h2>
-                        <p class="text-gray-600 mb-6">Квартира в новой Москве, сдача 2026. Полный цикл: от приёмки у застройщика до финальной уборки. Предчистовая отделка, штукатурка, электрика, сантехника, плитка, ламинат, двери.</p>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Кейс: капитальный ремонт новостройки 86 м² — 60 дней, 1 118 000 ₽</h2>
+                        <p class="text-gray-600 mb-6">Квартира в новой Москве, сдача 2026. Полный цикл: от приёмки у застройщика до финальной уборки. Предчистовая отделка, штукатурка, электрика, сантехника, плитка, ламинат, двери. Единая категория объекта — капитальный ремонт.</p>
                         <ul class="space-y-3 text-sm text-gray-600 mb-6">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Площадь 86 м², 2-комнатная</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Срок 60 дней</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Бюджет 1 118 000 ₽ — фиксировано в договоре</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Бюджет 1 118 000 ₽ — только работы по тарифу 13 000 ₽/м², зафиксировано в договоре</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-600"></i>Гарантия 3 года на все работы</li>
                         </ul>
                     </div>

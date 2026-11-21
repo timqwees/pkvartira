@@ -144,8 +144,8 @@
 <div data-type="box" data-color="muted">
     <h3>Полезные материалы и услуги по теме</h3>
     <ul>
-        <li><a href="/services/dizayn-proekt" rel="nofollow">Дизайн-проект квартиры</a> — цены, этапы, пакеты</li>
-        <li><a href="/services/avtorskiy-nadzor" rel="nofollow">Авторский надзор</a> — выход дизайнера на объект</li>
+        <li><a href="/services/dizayn-interierov" rel="nofollow">Дизайн-проект квартиры</a> — цены, этапы, пакеты</li>
+        <li><a href="/services/dizayn-interierov" rel="nofollow">Авторский надзор</a> — выход дизайнера на объект</li>
         <li><a href="/author" rel="nofollow">Об авторе компании</a> — опыт и гарантии</li>
     </ul>
 </div>

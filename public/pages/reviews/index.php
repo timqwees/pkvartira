@@ -32,6 +32,15 @@ foreach ($sourceCounts as $k => $v) {
     if (!isset($orderedSources[$k])) $orderedSources[$k] = $v;
 }
 
+/** Счётчик отзывов с правильным склонением — считается из одного набора карточек */
+function reviewsCountLabel(int $n): string {
+    $n10 = $n % 10; $n100 = $n % 100;
+    if ($n10 === 1 && $n100 !== 11) $word = 'отзыв';
+    elseif ($n10 >= 2 && $n10 <= 4 && ($n100 < 12 || $n100 > 14)) $word = 'отзыва';
+    else $word = 'отзывов';
+    return $n . ' ' . $word;
+}
+
 function formatRuDate(string $iso): string {
     if ($iso === '') return '';
     $ts = strtotime($iso);
@@ -184,11 +193,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </button>
                             <div id="reviewDropdown" class="hidden absolute right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50" style="min-width:380px">
                                 <div class="px-4 pb-2 pt-2 text-xs tracking-wider font-bold text-gray-400 uppercase">Выберите площадку</div>
-                                <a href="https://2gis.ru/moscow/firm/70000001114907613/tab/reviews" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('2GIS', '28') ?> 2ГИС <span class="ml-auto text-xs text-gray-400">17 отзывов</span></a>
-                                <a href="https://yandex.ru/profile/90420725359" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Яндекс Карты', '28') ?> Яндекс Карты <span class="ml-auto text-xs text-gray-400">4 отзыва</span></a>
-                                <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Авито', '28') ?> Авито <span class="ml-auto text-xs text-gray-400">2 отзыва</span></a>
-                                <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('YouDo', '28') ?> YouDo <span class="ml-auto text-xs text-gray-400">3 отзыва</span></a>
-                                <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру <span class="ml-auto text-xs text-gray-400">10 отзывов</span></a>
+                                <a href="https://2gis.ru/moscow/firm/70000001114907613/tab/reviews" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('2GIS', '28') ?> 2ГИС <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['2GIS'] ?? 0)) ?></span></a>
+                                <a href="https://yandex.ru/profile/90420725359" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Яндекс Карты', '28') ?> Яндекс Карты <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['Яндекс Карты'] ?? 0)) ?></span></a>
+                                <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Авито', '28') ?> Авито <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['Авито'] ?? 0)) ?></span></a>
+                                <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('YouDo', '28') ?> YouDo <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['YouDo'] ?? 0)) ?></span></a>
+                                <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['Профи.ру'] ?? 0)) ?></span></a>
                             </div>
                         </div>
                     </div>
@@ -207,6 +216,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <?php endforeach; ?>
                         </div>
                     </div>
+
+                    <!-- Пояснение об источниках: прямых ссылок на отдельные отзывы нет -->
+                    <p class="text-[13px] text-gray-500 mb-6 max-w-3xl">Отзывы собраны с площадок 2ГИС, Яндекс Карты, YouDo, Авито и Профи.ру. Ссылки в карточках ведут на профили компании: прямые ссылки на отдельные отзывы не сохранены, поэтому источник требует подтверждения. Каждый отзыв можно найти на площадке по имени автора и дате, указанным в карточке.</p>
 
                     <!-- Grid -->
                     <div id="reviewsGrid">
@@ -260,7 +272,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <?php endif; ?>
 
                                 <div class="flex items-center justify-between pt-1">
-                                    <span class="review-source-link"><a href="<?= htmlspecialchars($sourceUrl) ?>" target="_blank" rel="noopener">в <?= htmlspecialchars($source) ?> <i class="fas fa-external-link-alt text-[9px] ml-0.5"></i></a></span>
+                                    <span class="review-source-link">Источник: <?= htmlspecialchars($source) ?><?= $date !== '' ? ' · ' . htmlspecialchars($date) : '' ?><?php if ($sourceUrl !== ''): ?> · <a href="<?= htmlspecialchars($sourceUrl) ?>" target="_blank" rel="noopener" title="Прямая ссылка на отзыв не сохранена. Найдите отзыв на площадке «<?= htmlspecialchars($source) ?>» по автору «<?= htmlspecialchars($r['name']) ?>»<?= $date !== '' ? ' и дате ' . htmlspecialchars($date) : '' ?>.">профиль компании <i class="fas fa-external-link-alt text-[9px] ml-0.5"></i></a><?php else: ?> · источник требует подтверждения<?php endif; ?></span>
                                     <button type="button" class="text-[13px] font-medium text-gray-400 hover:text-gray-700 transition more-btn hidden">Показать полностью</button>
                                 </div>
                             </article>
@@ -355,7 +367,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </div>
                         <div class="flex flex-wrap gap-2 mt-6">
                             <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-award text-yellow-400 text-xs"></i> Договор и гарантия 3 года</span>
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-star text-yellow-400 text-xs"></i> 5.0 · <?= $totalReviews ?> отзывов</span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)"><i class="fas fa-star text-yellow-400 text-xs"></i> <?= $avgRatingStr ?> · <?= reviewsCountLabel($totalReviews) ?></span>
                             <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.75)">Оплата по этапам</span>
 
                         </div>

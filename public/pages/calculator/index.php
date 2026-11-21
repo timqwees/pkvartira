@@ -8,7 +8,7 @@
 
     <title>Калькулятор ремонта квартиры — расчёт стоимости онлайн | Проект Квартира</title>
     <meta name="description"
-        content="Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        content="Калькулятор ремонта квартиры: заявка на расчёт стоимости под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Точную смету пришлём после замера."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/calculator'); ?>">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Калькулятор ремонта квартиры — рассчитать стоимость онлайн">
     <meta property="og:description"
-        content="Бесплатный онлайн-калькулятор ремонта квартиры. Рассчитайте стоимость ремонта под ключ за 1 минуту.">
+        content="Бесплатный онлайн-калькулятор ремонта квартиры. Заявка на расчёт стоимости под ключ — точную смету пришлём после замера.">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/calculator'); ?>">
     <meta property="og:image"
         content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
@@ -31,7 +31,7 @@
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="Калькулятор ремонта квартиры — рассчитать стоимость онлайн">
     <meta name="twitter:description"
-        content="Бесплатный онлайн-калькулятор ремонта квартиры. Рассчитайте стоимость ремонта под ключ за 1 минуту.">
+        content="Бесплатный онлайн-калькулятор ремонта квартиры. Заявка на расчёт стоимости под ключ — точную смету пришлём после замера.">
     <meta name="twitter:image"
         content="<?= htmlspecialchars($site['shareImageUrl']); ?>">
     <meta name="twitter:creator" content="@pkvartira">
@@ -96,7 +96,7 @@
                 "@id": <?= json_encode($site['baseUrl'] . '/calculator/#webpage', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                 "url": <?= json_encode($site['baseUrl'] . '/calculator', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>,
                 "name": "Калькулятор ремонта квартиры — рассчитать стоимость онлайн | <?= htmlspecialchars($site['name']); ?>",
-                "description": "Бесплатный онлайн-калькулятор ремонта квартиры. Рассчитайте стоимость ремонта под ключ за 1 минуту. Точный расчёт с учётом площади, типа ремонта и дополнительных опций.",
+                "description": "Бесплатный онлайн-калькулятор ремонта квартиры. Заявка на расчёт стоимости под ключ с учётом площади, типа ремонта и дополнительных опций. Точную смету пришлём после замера.",
                 "isPartOf": {
                     "@id": <?= json_encode($site['baseUrl'] . '#website', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
                 },
@@ -156,7 +156,7 @@
           "name": "Сколько стоит ремонт квартиры в Москве?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м², дизайнерский — от 18 000 ₽/м². Точную стоимость рассчитает наш калькулятор по площади и типу ремонта."
+            "text": "Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м², дизайнерский — от 18 000 ₽/м². Ориентировочную стоимость можно рассчитать в нашем калькуляторе по площади и типу ремонта. Точную смету составим после замера."
           }
         },
         {
@@ -164,7 +164,7 @@
           "name": "Можно ли рассчитать стоимость ремонта онлайн?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Да — на нашем сайте есть бесплатный калькулятор ремонта квартиры. Укажите площадь, тип ремонта и этапы — получите примерную смету за 1 минуту."
+            "text": "Да — на нашем сайте есть бесплатный калькулятор ремонта квартиры. Укажите площадь, тип ремонта и этапы и оставьте заявку на расчёт — точную смету пришлём после замера."
           }
         },
         {
@@ -193,8 +193,8 @@
                     <div class="px-6 pt-6 pb-4">
                         <h1 class="text-[24px] md:text-[28px] font-extrabold text-[#2a2e3b]">Калькулятор ремонта
                             квартиры</h1>
-                        <p class="mt-1 text-[13px] text-[#7a7f8c]">Рассчитайте стоимость ремонта квартиры за <span
-                                class="font-bold">1 минуту</span></p>
+                        <p class="mt-1 text-[13px] text-[#7a7f8c]">Заполните заявку на расчёт за <span
+                                class="font-bold">1 минуту</span> — точную смету пришлём после замера</p>
                         <p class="mt-3 flex items-center gap-2 text-[13px] text-[#4b5563] bg-[#fff7ed] border border-[#fed7aa] rounded-lg px-3 py-2">
                             <i class="fa-solid fa-ruler-combined text-[#f97316]"></i>
                             <span>Не знаете площадь квартиры? Посчитайте её за 10 секунд в нашем
@@ -281,16 +281,16 @@
                                         <option value="Сдана с черновой отделкой">Сдана с черновой отделкой</option>
                                         <option value="Сдана с предчистовой отделкой (White box)">Сдана с предчистовой
                                             отделкой (White box)</option>
-                                        <option value="Незнаю (сложно сказать)">Незнаю (сложно сказать)</option>
+                                        <option value="Не знаю (сложно сказать)">Не знаю (сложно сказать)</option>
                                     </select>
                                 </div>
                                 <hr>
-                                <!-- 4. Наполненное покрытие -->
+                                <!-- 4. Напольное покрытие -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 items-center">
-                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">4. Выберите наполненное
+                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">4. Выберите напольное
                                         покрытие
                                     </div>
-                                    <select name="Выберите наполненное покрытие"
+                                    <select name="Выберите напольное покрытие"
                                         class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
                                         aria-label="Напольное покрытие">
                                         <option value="">Выберите</option>
@@ -306,9 +306,9 @@
                                 <hr>
                                 <!-- 5. Покрытие потолка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 items-center">
-                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">5. Какой нуже потолок?
+                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">5. Какой нужен потолок?
                                     </div>
-                                    <select name="Какой нуже потолок?"
+                                    <select name="Какой нужен потолок?"
                                         class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
                                         aria-label="Тип потолка (новостройка)">
                                         <option value="">Выберите</option>
@@ -365,9 +365,9 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы2"
-                                                value="Производство кухонного гарнтира"
+                                                value="Производство кухонного гарнитура"
                                                 class="accent-orange-500 w-4 h-4">
-                                            <span class="text-[12px]">Производство кухонного гарнтира</span>
+                                            <span class="text-[12px]">Производство кухонного гарнитура</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
@@ -427,15 +427,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-[#6b7280]">Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <!-- Кнопка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 pt-2">
                                     <div></div>
-                                    <button
-                                        class="w-full h-[48px] rounded-md bg-[#ff7a21] text-white text-[14px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] hover:bg-[#e86a15] transition">
-                                        Заказать расчет
-                                    </button>
+                                    <div>
+                                        <p class="mb-2 text-[12px] text-[#7a7f8c]">Точную смету пришлём после замера, ответ в течение 5 минут</p>
+                                        <button
+                                            class="w-full h-[48px] rounded-md bg-[#ff7a21] text-white text-[14px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] hover:bg-[#e86a15] transition">
+                                            Заявка на расчёт
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -498,11 +501,11 @@
                                         <option value="Жилое состояние">Жилое состояние</option>
                                         <option value="Плохое состояние">Плохое состояние</option>
                                         <option value="Очень плохое состояние">Очень плохое состояние</option>
-                                        <option value="Незнаю (сложно сказать)">Незнаю (сложно сказать)</option>
+                                        <option value="Не знаю (сложно сказать)">Не знаю (сложно сказать)</option>
                                     </select>
                                 </div>
                                 <hr>
-                                <!-- 4. Наполненное покрытие -->
+                                <!-- 4. Напольное покрытие -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 items-center">
                                     <div class="text-[13px] font-extrabold text-[#2a2e3b]">4. Какой тип вашего дома?
                                     </div>
@@ -517,12 +520,12 @@
                                     </select>
                                 </div>
                                 <hr>
-                                <!-- 5. Наполненое покрытие -->
+                                <!-- 5. Напольное покрытие -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 items-center">
-                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">5. Выберите Наполненое
+                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">5. Выберите напольное
                                         покрытие
                                     </div>
-                                    <select name="Наполненное покрытие"
+                                    <select name="Напольное покрытие"
                                         class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
                                         aria-label="Напольное покрытие (вторичка)">
                                         <option value="">Выберите</option>
@@ -536,9 +539,9 @@
                                 <hr>
                                 <!-- 6. Покрытие потолка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 items-center">
-                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">6. Какой нуже потолок?
+                                    <div class="text-[13px] font-extrabold text-[#2a2e3b]">6. Какой нужен потолок?
                                     </div>
-                                    <select name="Какой нуже потолок?"
+                                    <select name="Какой нужен потолок?"
                                         class="w-full px-3 py-2.5 rounded-md border border-[#e6e7ee] bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-orange-500"
                                         aria-label="Тип потолка (вторичка)">
                                         <option value="">Выберите</option>
@@ -551,7 +554,7 @@
                                 <hr>
                                 <!-- 7. Инженерные сети -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 items-start">
-                                    <div class="text-[13px] font-extrabold text-[#2a2e3b] md:pt-1">7. Включитьв расчет
+                                    <div class="text-[13px] font-extrabold text-[#2a2e3b] md:pt-1">7. Включить в расчёт
                                         следующие работы?</div>
                                     <div class="grid grid-cols-2 gap-2">
                                         <label
@@ -589,9 +592,9 @@
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
                                             <input type="checkbox" name="Дополнительные работы2"
-                                                value="Производство кухонного гарнтира"
+                                                value="Производство кухонного гарнитура"
                                                 class="accent-orange-500 w-4 h-4">
-                                            <span class="text-[12px]">Производство кухонного гарнтира</span>
+                                            <span class="text-[12px]">Производство кухонного гарнитура</span>
                                         </label>
                                         <label
                                             class="flex items-center gap-2 bg-white border border-[#e6e7ee] rounded-md p-2 cursor-pointer">
@@ -631,15 +634,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-white">Согласен на обработку персональных данных</span></label>
+                                <label class="flex items-start gap-2 text-xs text-[#6b7280] cursor-pointer mb-3"><input type="checkbox" required class="mt-0.5 accent-orange-500 shrink-0"><span class="text-[#6b7280]">Согласен на обработку персональных данных</span></label>
                                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
                                 <!-- Кнопка -->
                                 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-4 pt-2">
                                     <div></div>
-                                    <button
-                                        class="w-full h-[48px] rounded-md bg-[#ff7a21] text-white text-[14px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] hover:bg-[#e86a15] transition">
-                                        Заказать расчет
-                                    </button>
+                                    <div>
+                                        <p class="mb-2 text-[12px] text-[#7a7f8c]">Точную смету пришлём после замера, ответ в течение 5 минут</p>
+                                        <button
+                                            class="w-full h-[48px] rounded-md bg-[#ff7a21] text-white text-[14px] font-extrabold shadow-[0_4px_0_rgba(0,0,0,0.12)] hover:bg-[#e86a15] transition">
+                                            Заявка на расчёт
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -744,10 +750,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('value_range').textContent = '60';
-            document.getElementById('RangeSize').addEventListener('input', (event) => {
-                document.getElementById('value_range').textContent = event.target.value;
-            });
+            const rangeSize = document.getElementById('RangeSize');
+            if (rangeSize) {
+                document.getElementById('value_range').textContent = '60';
+                rangeSize.addEventListener('input', (event) => {
+                    document.getElementById('value_range').textContent = event.target.value;
+                });
+            }
 
             document.getElementById('value_range_2').textContent = '60';
             document.getElementById('RangeSize2').addEventListener('input', (event) => {

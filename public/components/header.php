@@ -161,7 +161,7 @@
                         <div class="flex flex-col pr-4"><span class="drop-title">Виды ремонта</span>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch" title="Ремонт квартир под ключ в Москве"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Ремонт
                                     квартир под ключ </a></li>
-                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium" title="Дизайнерский ремонт квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Дизайнерский
+                            <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium" title="Премиум ремонт квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Премиум
                                     ремонт </a></li>
                             <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya" title="Чистовая отделка квартир"><i class="fas fa-chevron-right drop-submenu-arrow"></i>Чистовая
                                     отделка </a></li>
@@ -289,7 +289,7 @@
                     <li class="text-xs font-bold text-gray-400 uppercase tracking-wider px-4 py-2">Виды ремонта</li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/pod-klyuch">Ремонт квартир под
                             ключ</a></li>
-                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium">Дизайнерский ремонт</a></li>
+                    <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/premium">Премиум ремонт</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chistovaya">Чистовая отделка</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/chernovaya">Черновая отделка</a></li>
                     <li><a href="<?= htmlspecialchars($site['baseUrl']) ?>/services/white-box">White Box</a></li>

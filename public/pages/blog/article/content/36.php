@@ -153,8 +153,8 @@
 <div data-type="box" data-color="muted">
     <h3>Полезные материалы и услуги по теме</h3>
     <ul>
-        <li><a href="/services/remont-brezhnevka" rel="nofollow">Ремонт в брежневке</a> — этапы, цены, специфика</li>
-        <li><a href="/services/shumoizolyatsiya-brezhnevka" rel="nofollow">Шумоизоляция в брежневке</a> — стены, потолок, пол</li>
+        <li><a href="/services/brezhnevka" rel="nofollow">Ремонт в брежневке</a> — этапы, цены, специфика</li>
+        <li><a href="/services/brezhnevka" rel="nofollow">Шумоизоляция в брежневке</a> — стены, потолок, пол</li>
         <li><a href="/author" rel="nofollow">Об авторе компании</a> — опыт и гарантии</li>
     </ul>
 </div>

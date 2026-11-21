@@ -37,7 +37,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     'name' => 'Отличается ли цена на ремонт в новостройке и вторичке?',
                     'acceptedAnswer' => [
                         '@type' => 'Answer',
-                        'text' => 'Ремонт в новостройке обычно дешевле на 15-20%, так как не требуется демонтаж и выравнивание. Вторичка требует больше подготовительных работ.',
+                        'text' => 'В новостройке обычно не нужен демонтаж старой отделки и замена инженерии, но черновые работы (штукатурка, стяжка) выполняются в полном объёме. Экономия — за счёт отсутствия демонтажа и замены коммуникаций, а не за счёт пропуска выравнивания.',
                     ],
                 ],
                 [
@@ -222,6 +222,43 @@ include './public/components/cta-form.php';
                                 000 ₽/м²</font>
                         </div>
                     </div>
+                    <!-- Премиум ремонт -->
+                    <div class="break-all bg-gray-50 rounded-xl p-6 text-start hover:shadow-lg transition">
+                        <div class="text-xl font-bold text-black mb-2">Премиум ремонт</div>
+                        <div class="text-xl text-black font-normal">от <font class="font-bold text-blue-600 text-2xl">25
+                                000 ₽/м²</font>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Состав пакетов: дизайнерский и премиум — разные услуги -->
+                <div class="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-bold text-gray-900 mb-2">Дизайнерский — от 18 000 ₽/м²</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Ремонт по дизайн-проекту: полный цикл черновых и чистовых работ, замена электрики и сантехники, сложные решения (ниши, подсветка, нестандартные покрытия). Дизайн-проект оплачивается отдельно — от 110 000 ₽ за 50 м² (<a href="/services/dizayn-interierov" class="text-orange-600 underline hover:text-orange-700">пакеты дизайн-проекта</a>).</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-bold text-gray-900 mb-2">Премиум — от 25 000 ₽/м²</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Авторский дизайн-проект включён в стоимость работ, элитные материалы, интеграция «умного дома», меблировка и полная комплектация квартиры. Подробнее — на странице <a href="/services/premium" class="text-orange-600 underline hover:text-orange-700">премиум-ремонта</a>.</p>
+                    </div>
+                </div>
+                <p class="max-w-5xl mx-auto mt-4 text-sm text-gray-500 text-center">Дизайнерский (18 000 ₽/м²) и премиум (25 000 ₽/м²) — разные пакеты, не синонимы. Все цены указаны за работы; материалы считаются отдельно.</p>
+
+                <!-- Что входит в базовую косметику и чем отличается пакет от 5 000 ₽/м² -->
+                <div class="max-w-5xl mx-auto mt-8 bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-bold text-gray-900 mb-3">Что входит в косметический ремонт от 8 000 ₽/м² (работы)</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600">
+                        <li>• Демонтаж старых обоев и напольного покрытия</li>
+                        <li>• Грунтовка и шпаклёвка стен под обои или покраску</li>
+                        <li>• Поклейка обоев или покраска стен</li>
+                        <li>• Укладка ламината или линолеума по готовому основанию</li>
+                        <li>• Монтаж плинтусов</li>
+                        <li>• Замена розеток и выключателей (без замены проводки)</li>
+                        <li>• Установка светильников</li>
+                        <li>• Финальная уборка</li>
+                    </ul>
+                    <p class="mt-3 text-sm text-gray-500">Не входят: стяжка, штукатурка, полная замена электрики и сантехники — это капитальный ремонт от 13 000 ₽/м².</p>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed"><strong>Про пакет «от 5 000 ₽/м² с материалами»</strong> (страницы «Эконом» и «Новостройки»): это ограниченный пакет — сокращённый перечень косметических работ с недорогими материалами, а не ремонт «под ключ» в полном объёме. Часть работ базового пакета, перечисленного выше, в него не входит; точный состав фиксируется в смете до начала работ. Сравнивайте пакеты по перечню работ, а не только по цене за м².</p>
                 </div>
             </div>
         </section>
@@ -306,7 +343,7 @@ include './public/components/cta-form.php';
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
                     Стоимость ремонта по метражу
                 </h2>
-                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Ориентировочная цена под ключ для типовых площадей. Точную смету даст <a href="/calculator" class="text-orange-600 underline hover:text-orange-700 font-semibold">калькулятор за 1 минуту</a>.</p>
+                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Ориентировочная цена под ключ для типовых площадей. Точную смету составим после замера — <a href="/calculator" class="text-orange-600 underline hover:text-orange-700 font-semibold">оставьте заявку на расчёт в калькуляторе</a>.</p>
                 <div class="max-w-4xl mx-auto bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
                     <table class="w-full text-sm">
                         <thead class="bg-blue-100 text-gray-800">
@@ -517,8 +554,9 @@ include './public/components/cta-form.php';
                             <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
                         </button>
                         <div class="px-6 pb-4 text-gray-600 hidden faq-content">
-                            Ремонт в новостройке обычно дешевле на 15-20%, так как не требуется демонтаж и выравнивание.
-                            Вторичка требует больше подготовительных работ.
+                            В новостройке обычно не нужен демонтаж старой отделки и замена инженерии, но черновые работы
+                            (штукатурка, стяжка) выполняются в полном объёме. Экономия — за счёт отсутствия демонтажа и
+                            замены коммуникаций, а не за счёт пропуска выравнивания.
                         </div>
                     </div>
                     <!-- FAQ 3 -->

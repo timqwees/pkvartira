@@ -1,7 +1,13 @@
 <?php
 use Setting\Route\Functions\TheFunction;
+use Setting\Route\Functions\ReviewsParser;
+require_once dirname(__DIR__, 3) . '/setting/Route/Functions/ReviewsParser.php';
 $site = TheFunction::site();
 $title = 'QR-коды для отзывов — ПКвартира';
+// Счётчики — из того же набора отзывов, что и страница /reviews (отзывы.yml)
+$qrParser = new ReviewsParser();
+$qrSourceCounts = $qrParser->getSourceCounts();
+$qrTotal = count($qrParser->getReviews());
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -37,32 +43,32 @@ $title = 'QR-коды для отзывов — ПКвартира';
             <div class="qr-card">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://2gis.ru/moscow/firm/70000001114907613/tab/reviews') ?>" alt="2ГИС" loading="lazy">
                 <div class="platform">2ГИС</div>
-                <div class="hint">17 отзывов</div>
+                <div class="hint">Отзывов: <?= (int)($qrSourceCounts['2GIS'] ?? 0) ?></div>
             </div>
             <div class="qr-card">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://yandex.ru/profile/90420725359') ?>" alt="Яндекс Карты" loading="lazy">
                 <div class="platform">Яндекс Карты</div>
-                <div class="hint">4 отзыва</div>
+                <div class="hint">Отзывов: <?= (int)($qrSourceCounts['Яндекс Карты'] ?? 0) ?></div>
             </div>
             <div class="qr-card">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://profi.ru/profile/SuchkovNO2/') ?>" alt="Профи.ру" loading="lazy">
                 <div class="platform">Профи.ру</div>
-                <div class="hint">13 отзывов</div>
+                <div class="hint">Отзывов: <?= (int)($qrSourceCounts['Профи.ру'] ?? 0) ?></div>
             </div>
             <div class="qr-card">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://youdo.com/u14181521') ?>" alt="YouDo" loading="lazy">
                 <div class="platform">YouDo</div>
-                <div class="hint">3 отзыва</div>
+                <div class="hint">Отзывов: <?= (int)($qrSourceCounts['YouDo'] ?? 0) ?></div>
             </div>
             <div class="qr-card">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60') ?>" alt="Авито" loading="lazy">
                 <div class="platform">Авито</div>
-                <div class="hint">2 отзыва</div>
+                <div class="hint">Отзывов: <?= (int)($qrSourceCounts['Авито'] ?? 0) ?></div>
             </div>
             <div class="qr-card">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://pkvartira.ru/reviews') ?>" alt="Сайт" loading="lazy">
                 <div class="platform">Сайт</div>
-                <div class="hint">35 отзывов</div>
+                <div class="hint">Отзывов: <?= $qrTotal ?></div>
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 <?php
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
-$title = 'Недорогой ремонт квартиры под ключ в Москве — от 5 000 ₽/м²';
+$title = 'Недорогой ремонт квартиры в Москве — от 5 000 ₽/м² (эконом-пакет)';
 $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
 ?>
 <!DOCTYPE html>
@@ -10,13 +10,13 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 55)); ?> | <?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?></title>
-    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры под ключ в Москве от 5 000 ₽/м². Эконом-класс: качественная отделка, надёжные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира.',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры в Москве от 5 000 ₽/м² (эконом-пакет, сокращённый состав). Эконом-класс: качественная отделка, надёжные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира.',155)); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/services/econom'); ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры под ключ в Москве от 5 000 ₽/м². Эконом-класс: качественная отделка, надёжные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира.', 155)); ?>">
+    <meta property="og:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры в Москве от 5 000 ₽/м² (эконом-пакет, сокращённый состав). Эконом-класс: качественная отделка, надёжные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира.', 155)); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($site['baseUrl'] . '/services/econom'); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta property="og:site_name" content="<?= htmlspecialchars($site['name'] ?? 'Проект Квартира'); ?> — Ремонт квартир под ключ">
@@ -26,7 +26,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pkvartira">
     <meta name="twitter:title" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo($title, 60)); ?> | Проект Квартира">
-    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры под ключ в Москве от 5 000 ₽/м². Эконом-класс: качественная отделка, надёжные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира.', 155)); ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars(\Setting\Route\Functions\TheFunction::truncateSeo('Недорогой ремонт квартиры в Москве от 5 000 ₽/м² (эконом-пакет, сокращённый состав). Эконом-класс: качественная отделка, надёжные материалы, фиксированная смета, гарантия 3 года. — Проект Квартира.', 155)); ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($site['baseUrl'] . $bg_url); ?>">
     <meta name="twitter:creator" content="@pkvartira">
     <meta name="twitter:domain" content="<?= htmlspecialchars(parse_url($site['baseUrl'], PHP_URL_HOST)); ?>">
@@ -54,8 +54,8 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
     <section class="relative bg-[#1f2937] text-white">
         <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
         <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
-            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Недорогой ремонт квартиры под ключ в Москве</h1>
-            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Эконом-ремонт квартиры под ключ по доступной цене: качественная отделка, надёжные материалы, фиксированная смета и гарантия 3 года. Замер бесплатный.</p>
+            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Недорогой ремонт квартиры в Москве</h1>
+            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Эконом-ремонт квартиры по доступной цене (ограниченный пакет, не полный «под ключ»): качественная отделка, надёжные материалы, фиксированная смета и гарантия 3 года. Замер бесплатный.</p>
             <div class="mt-6 flex flex-wrap gap-4">
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">₽</span> от 5 000 ₽/м²</div>
                 <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>

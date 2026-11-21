@@ -348,7 +348,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                             <div class="text-gray-600">капитальный — от 780 000 ₽</div>
                         </div>
                     </div>
-                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Посчитайте в калькуляторе за 1 минуту</a> или смотрите <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">все цены на ремонт</a>.</p>
+                    <p class="mt-4 text-sm text-gray-600">Нужна точная цифра под вашу планировку? <a href="/calculator" class="text-orange-600 font-semibold hover:text-orange-700 underline">Оставьте заявку на расчёт в калькуляторе</a> или смотрите <a href="/prices" class="text-orange-600 font-semibold hover:text-orange-700 underline">все цены на ремонт</a>.</p>
                 </div>
             </div>
         </section>
@@ -745,12 +745,12 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                     <a href="/services/predchistovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт квартиры с предчистовой отделкой">
                         <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">3</span>Предчистовая отделка</h3>
                         <p class="text-gray-600 text-sm mb-3">Стены оштукатурены, стяжка залита, электрика и сантехника разведена. Остаются финишные покрытия, двери, сантехника, освещение.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 10 000 ₽/м² под ключ</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 8 000 ₽/м² (предчистовая / white box)</p>
                     </a>
                     <a href="/services/chistovaya" class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-300 transition" title="Ремонт с чистовой отделкой от застройщика">
                         <h3 class="text-lg font-heading font-bold mb-3 flex items-center gap-2"><span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-sm">4</span>Чистовая отделка от застройщика</h3>
                         <p class="text-gray-600 text-sm mb-3">Косметический ремонт: замена напольных покрытий, переклейка обоев, обновление сантехники и фурнитуры. Бюджетное преображение без перепланировок.</p>
-                        <p class="text-orange-600 font-semibold text-sm">От 5 000 ₽/м² — косметика, с материалами</p>
+                        <p class="text-orange-600 font-semibold text-sm">От 5 000 ₽/м² — косметика (ограниченный пакет, с материалами)</p>
                     </a>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">

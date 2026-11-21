@@ -42,6 +42,39 @@ Routes::get('/services/dizajn-interierov', function () {
     header('Location: /services/dizayn-interierov', true, 301);
     exit;
 });
+// Аудит #34-37: несуществующие услуги из статей блога → 301 на ближайшую действующую услугу
+Routes::get('/services/dizayn-proekt', function () {
+    header('Location: /services/dizayn-interierov', true, 301);
+    exit;
+});
+Routes::get('/services/avtorskiy-nadzor', function () {
+    header('Location: /services/dizayn-interierov', true, 301);
+    exit;
+});
+Routes::get('/services/remont-khrushchevka', function () {
+    header('Location: /services/hrushchevka', true, 301);
+    exit;
+});
+Routes::get('/services/pereplanirovka-khrushchevka', function () {
+    header('Location: /services/hrushchevka', true, 301);
+    exit;
+});
+Routes::get('/services/remont-brezhnevka', function () {
+    header('Location: /services/brezhnevka', true, 301);
+    exit;
+});
+Routes::get('/services/shumoizolyatsiya-brezhnevka', function () {
+    header('Location: /services/brezhnevka', true, 301);
+    exit;
+});
+Routes::get('/services/remont-stalinka', function () {
+    header('Location: /services/stalinka', true, 301);
+    exit;
+});
+Routes::get('/services/restavraciya-lepni', function () {
+    header('Location: /services/stalinka', true, 301);
+    exit;
+});
 // Страницы вне периметра / не по региону — noindex
 Routes::get('/services/ukladka-laminata', function() {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
@@ -50,6 +83,107 @@ Routes::get('/services/ukladka-laminata', function() {
 Routes::get('/services/keramogranit-nazarovo', function() {
     \Setting\Route\Functions\SecurityHeaders::sendSecurity('noindex, follow');
     Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/keramogranit-nazarovo/index.php", get_defined_vars());
+});
+// 301: несуществующие узкие услуги из перелинковки блога -> действующие страницы (аудит #34-37, расширено)
+Routes::get('/services/vannaya', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/santekhnika', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/kuhnya', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/mebel-kuhnya', function () {
+    header('Location: /services/komfort', true, 301);
+    exit;
+});
+Routes::get('/services/plitka', function () {
+    header('Location: /services/keramogranit-nazarovo', true, 301);
+    exit;
+});
+Routes::get('/services/teplyy-pol', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
+});
+Routes::get('/services/teplyy-pol-vannaya', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
+});
+Routes::get('/services/potolok-natjazhnyj', function () {
+    header('Location: /services/chistovaya', true, 301);
+    exit;
+});
+Routes::get('/services/shpaklyovka-potolka', function () {
+    header('Location: /services/chistovaya', true, 301);
+    exit;
+});
+Routes::get('/services/elektrika', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
+});
+Routes::get('/services/elektroshetok', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
+});
+Routes::get('/services/shtukaturka', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
+});
+Routes::get('/services/styazhka-pola', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
+});
+Routes::get('/services/okna-pvh', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/dveri', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/balkon', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/loggia', function () {
+    header('Location: /services/pod-klyuch', true, 301);
+    exit;
+});
+Routes::get('/services/remont-pered-prodazhey', function () {
+    header('Location: /services/dlya-prodazhi', true, 301);
+    exit;
+});
+Routes::get('/services/kosmeticheskiy-remont', function () {
+    header('Location: /services/econom', true, 301);
+    exit;
+});
+Routes::get('/services/remont-pod-arendu', function () {
+    header('Location: /services/dlya-sdachi', true, 301);
+    exit;
+});
+Routes::get('/services/eko-remont', function () {
+    header('Location: /services/komfort', true, 301);
+    exit;
+});
+Routes::get('/services/zdorovyy-remont', function () {
+    header('Location: /services/komfort', true, 301);
+    exit;
+});
+Routes::get('/services/priemka-kvartiry-zastroyshchik', function () {
+    header('Location: /services/novostroyka', true, 301);
+    exit;
+});
+Routes::get('/services/remont-vtorichka', function () {
+    header('Location: /services/vtorichka', true, 301);
+    exit;
+});
+Routes::get('/services/zamena-elektroprovodki-kvartira', function () {
+    header('Location: /services/chernovaya', true, 301);
+    exit;
 });
 Routes::get('/services/{name}', function($name) { Routes::auto_element(dirname(__DIR__, 2) . "/public/pages/services/{$name}/index.php", get_defined_vars()); });
 //==================================================================================================//PRICES

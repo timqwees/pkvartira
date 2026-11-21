@@ -78,7 +78,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <!-- Address -->
                         <div class="mb-8">
                             <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                                <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>Наш адрес
+                                <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>Адрес офиса
                             </h2>
                             <p class="text-gray-700 text-lg mb-2">
                                 <?= htmlspecialchars($site['address']['addressLocality']); ?>,
@@ -110,6 +110,9 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 class="cta-button bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
                                 Позвонить нам
                             </a>
+                            <p class="text-sm text-gray-500 mt-4">
+                                Все номера компании маршрутизируются на единую линию приёма заявок. Номера в старых печатных материалах (PDF-прайс, документы) могут отличаться от номера на сайте — их маршрутизацию нужно проверить контрольным звонком.
+                            </p>
                         </div>
 
                         <!-- Messengers -->
@@ -144,9 +147,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <p class="text-gray-700 mb-2"><strong>ООО "Проект Квартира"</strong></p>
                                 <p class="text-gray-600 mb-2">ИНН: 9719013990</p>
                                 <p class="text-gray-600 mb-2">ОГРН: 1217700135058</p>
-                                <p class="text-gray-600">Юридический адрес:
+                                <p class="text-gray-600 mb-2">Юридический адрес:
                                     <?= $site['address']['addressLocality']
                                         . ', ' . $site['address']['streetAddress'] ?>
+                                </p>
+                                <p class="text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-sm mt-3">
+                                    <i class="fas fa-exclamation-triangle mr-1"></i>Реквизиты уточняются: юридический адрес может отличаться от адреса офиса. Перед подписанием договора запросите актуальную карточку предприятия.
                                 </p>
                             </div>
                         </div>
@@ -158,19 +164,19 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </h2>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев — руководитель проектов" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
+                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев — руководитель сметно-договорного отдела" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
                                     <div class="min-w-0">
                                         <div class="font-semibold text-gray-900 text-sm">Владимир Соболев</div>
-                                        <div class="text-xs text-gray-500">Руководитель проектов</div>
+                                        <div class="text-xs text-gray-500">Руководитель сметно-договорного отдела, совмещает руководство проектами</div>
                                         <a href="tel:+74954731737" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-37 доб. 1</a><br>
                                         <a href="mailto:m1@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m1@pkvartira.ru</a>
                                     </div>
                                 </div>
                                 <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников — сметчик" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
+                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников — главный инженер" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
                                     <div class="min-w-0">
                                         <div class="font-semibold text-gray-900 text-sm">Семён Серебренников</div>
-                                        <div class="text-xs text-gray-500">Сметчик / замер</div>
+                                        <div class="text-xs text-gray-500">Главный инженер, совмещает функции сметчика и замерщика</div>
                                         <a href="tel:+74954731738" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-38</a><br>
                                         <a href="mailto:m2@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m2@pkvartira.ru</a>
                                     </div>

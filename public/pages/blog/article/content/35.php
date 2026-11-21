@@ -148,8 +148,8 @@
 <div data-type="box" data-color="muted">
     <h3>Полезные материалы и услуги по теме</h3>
     <ul>
-        <li><a href="/services/remont-khrushchevka" rel="nofollow">Ремонт в хрущевке</a> — этапы, цены, специфика</li>
-        <li><a href="/services/pereplanirovka-khrushchevka" rel="nofollow">Перепланировка хрущевки</a> — что можно, а что запрещено</li>
+        <li><a href="/services/hrushchevka" rel="nofollow">Ремонт в хрущевке</a> — этапы, цены, специфика</li>
+        <li><a href="/services/hrushchevka" rel="nofollow">Перепланировка хрущевки</a> — что можно, а что запрещено</li>
         <li><a href="/author" rel="nofollow">Об авторе компании</a> — опыт и гарантии</li>
     </ul>
 </div>

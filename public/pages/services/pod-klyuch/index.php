@@ -263,7 +263,7 @@ $portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-pho
                 <p class="text-sm text-gray-600 mb-3">Также может быть интересен:</p>
                 <div class="flex flex-wrap gap-4">
                     <a href="/calculator" class="inline-flex items-center gap-2 text-sm font-medium text-orange-600 hover:text-orange-700 hover:underline bg-orange-50 px-4 py-2 rounded-lg transition">
-                        Калькулятор ремонта квартиры — расчёл стоимости за 1 минуту
+                        Калькулятор ремонта квартиры — заявка на расчёт стоимости
                     </a>
                     <a href="/prices" class="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-orange-600 hover:underline bg-gray-50 px-4 py-2 rounded-lg transition">
                         Цены на ремонт — полный прайс

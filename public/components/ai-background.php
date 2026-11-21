@@ -7,10 +7,10 @@
 function getAiBackground(int $index = 1): string
 {
     $images = [
-        1 => '/public/assets/images/ai_background/11.png',
-        2 => '/public/assets/images/ai_background/21.png',
-        3 => '/public/assets/images/ai_background/31.png',
-        4 => '/public/assets/images/ai_background/41.png',
+        1 => '/public/assets/images/ai_background/11.webp',
+        2 => '/public/assets/images/ai_background/21.webp',
+        3 => '/public/assets/images/ai_background/31.webp',
+        4 => '/public/assets/images/ai_background/41.webp',
     ];
     $index = max(1, min(4, $index));
     return $images[$index];
@@ -31,9 +31,9 @@ function getAllAiBackgrounds(): array
 {
     $site = (new Setting\Route\Functions\TheFunction())->site();
     return [
-        ['id' => 1, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/11.png', 'name' => 'AI Background 1'],
-        ['id' => 2, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/21.png', 'name' => 'AI Background 2'],
-        ['id' => 3, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/31.png', 'name' => 'AI Background 3'],
-        ['id' => 4, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/41.png', 'name' => 'AI Background 4'],
+        ['id' => 1, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/11.webp', 'name' => 'AI Background 1'],
+        ['id' => 2, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/21.webp', 'name' => 'AI Background 2'],
+        ['id' => 3, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/31.webp', 'name' => 'AI Background 3'],
+        ['id' => 4, 'url' => $site['baseUrl'] . '/public/assets/images/ai_background/41.webp', 'name' => 'AI Background 4'],
     ];
 }

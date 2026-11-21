@@ -150,8 +150,8 @@
 <div data-type="box" data-color="muted">
     <h3>Полезные материалы и услуги по теме</h3>
     <ul>
-        <li><a href="/services/remont-stalinka" rel="nofollow">Ремонт в сталинке</a> — этапы, цены, реставрация</li>
-        <li><a href="/services/restavraciya-lepni" rel="nofollow">Реставрация лепнины и паркета</a> — сохранение исторического облика</li>
+        <li><a href="/services/stalinka" rel="nofollow">Ремонт в сталинке</a> — этапы, цены, реставрация</li>
+        <li><a href="/services/stalinka" rel="nofollow">Реставрация лепнины и паркета</a> — сохранение исторического облика</li>
         <li><a href="/author" rel="nofollow">Об авторе компании</a> — опыт и гарантии</li>
     </ul>
 </div>
