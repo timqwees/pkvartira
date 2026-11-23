@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как быстро можно сделать ремонт под заселение?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт — от 2 недель, капитальный — до 4 недель. Сроки фиксируются в договоре.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Подходит ли ремонт под заселение для аренды?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы специализируемся на подготовке квартир для сдачи в аренду. Оптимизируем стоимость под бюджет арендатора.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в косметический ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Покраска или обои, замена напольного покрытия, потолки, розетки, финальная уборка. Готовность к заселению.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как быстро можно сделать ремонт под заселение?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт — от 2 недель, капитальный — до 4 недель. Сроки фиксируются в договоре.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Подходит ли ремонт под заселение для аренды?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы специализируемся на подготовке квартир для сдачи в аренду. Оптимизируем стоимость под бюджет арендатора.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в косметический ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Покраска или обои, замена напольного покрытия, потолки, розетки, финальная уборка. Готовность к заселению.</p></details>
             </div>
         </div>
     </section>

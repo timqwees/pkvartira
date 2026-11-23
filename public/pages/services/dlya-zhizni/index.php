@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие материалы безопасны для семьи?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем экологичные материалы с сертификатами безопасности: латексные краски, обои на бумаге, напольные покрытия класса Е1.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли жить в квартире во время ремонта?</summary><p class="mt-2 text-sm text-[#6b7280]">Во время активных работ лучше переехать. Шум и пыль делают проживание неудобным. После завершения — заселяйтесь сразу.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт для семьи?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 13 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие материалы безопасны для семьи?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем экологичные материалы с сертификатами безопасности: латексные краски, обои на бумаге, напольные покрытия класса Е1.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли жить в квартире во время ремонта?</summary><p class="mt-2 text-sm text-[#6b7280]">Во время активных работ лучше переехать. Шум и пыль делают проживание неудобным. После завершения — заселяйтесь сразу.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт для семьи?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 13 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
             </div>
         </div>
     </section>

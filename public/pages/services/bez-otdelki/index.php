@@ -124,9 +124,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что такое новостройка без отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Это квартира со голыми стенами, без штукатурки, стяжки и коммуникаций. Самый дешёвый вариант входа, но требует полного цикла ремонтных работ.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает полный цикл?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и сложности. В среднем 6–10 недель. Точные сроки фиксируем в договоре.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Выгоднее ли брать квартиру без отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, квартиры без отделки дешевле. Но полный цикл ремонта обойдётся дороже, чем чистовая поверх предчистовой. Сравним цены на замере.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что такое новостройка без отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Это квартира со голыми стенами, без штукатурки, стяжки и коммуникаций. Самый дешёвый вариант входа, но требует полного цикла ремонтных работ.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает полный цикл?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и сложности. В среднем 6–10 недель. Точные сроки фиксируем в договоре.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Выгоднее ли брать квартиру без отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, квартиры без отделки дешевле. Но полный цикл ремонта обойдётся дороже, чем чистовая поверх предчистовой. Сравним цены на замере.</p></details>
             </div>
         </div>
     </section>

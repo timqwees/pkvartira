@@ -122,9 +122,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в панельном доме?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от объёма работ по шумоизоляции, замены коммуникаций и отделочных материалов.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Обязательна ли шумоизоляция?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, в панельных домах шумоизоляция значительно повышает уровень комфорта. Мы рекомендуем её при любом типе ремонта, особенно капитальном.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли заменить коммуникации?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы полностью заменяем водоснабжение, электрику и канализацию. Это особенно важно в старых панельных домах, где коммуникации изношены.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в панельном доме?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от объёма работ по шумоизоляции, замены коммуникаций и отделочных материалов.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Обязательна ли шумоизоляция?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, в панельных домах шумоизоляция значительно повышает уровень комфорта. Мы рекомендуем её при любом типе ремонта, особенно капитальном.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли заменить коммуникации?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы полностью заменяем водоснабжение, электрику и канализацию. Это особенно важно в старых панельных домах, где коммуникации изношены.</p></details>
             </div>
         </div>
     </section>

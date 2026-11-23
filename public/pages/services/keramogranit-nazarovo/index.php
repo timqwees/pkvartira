@@ -123,9 +123,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Вопросы об укладке керамогранита</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит укладка керамогранита за квадратный метр?</summary><p class="mt-2 text-sm text-[#6b7280]">Цена работы от 1 200 ₽/м² на пол, от 1 400 ₽/м² на стены. С материалом от 2 500 ₽/м².</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой керамогранит лучше для пола?</summary><p class="mt-2 text-sm text-[#6b7280]">Для пола рекомендуем керамогранит толщиной от 8 мм, класс износостойкости PEI 4-5.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько сохнет керамогранит после укладки?</summary><p class="mt-2 text-sm text-[#6b7280]">Ходить можно через 24 часа, полная нагрузка через 5-7 дней.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит укладка керамогранита за квадратный метр?</summary><p class="mt-2 text-sm text-[#6b7280]">Цена работы от 1 200 ₽/м² на пол, от 1 400 ₽/м² на стены. С материалом от 2 500 ₽/м².</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой керамогранит лучше для пола?</summary><p class="mt-2 text-sm text-[#6b7280]">Для пола рекомендуем керамогранит толщиной от 8 мм, класс износостойкости PEI 4-5.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько сохнет керамогранит после укладки?</summary><p class="mt-2 text-sm text-[#6b7280]">Ходить можно через 24 часа, полная нагрузка через 5-7 дней.</p></details>
             </div>
         </div>
     </section>

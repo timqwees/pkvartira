@@ -125,9 +125,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Стоит ли брать квартиру с отделкой от застройщика?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, если планируете доработать. Отделка от застройщика — это база, которую можно улучшить под свой вкус. Обойдётся дешевле, чем ремонт с нуля.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что можно улучшить в отделке от застройщика?</summary><p class="mt-2 text-sm text-[#6b7280]">Почти всё: замена полов, переклейка обоев, установка качественных дверей, улучшение освещения, замена сантехники.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит доработка отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Стоит ли брать квартиру с отделкой от застройщика?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, если планируете доработать. Отделка от застройщика — это база, которую можно улучшить под свой вкус. Обойдётся дешевле, чем ремонт с нуля.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что можно улучшить в отделке от застройщика?</summary><p class="mt-2 text-sm text-[#6b7280]">Почти всё: замена полов, переклейка обоев, установка качественных дверей, улучшение освещения, замена сантехники.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит доработка отделки?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
             </div>
         </div>
     </section>

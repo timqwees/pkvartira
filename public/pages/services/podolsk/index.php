@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Работаете ли вы в Подольске?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выезжаем на объекты в Подольске и в ближайших районах. Выезд бесплатный.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в Подольске?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ и материалов. Рассчитаем смету после бесплатного замера.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли ремонт под ключ с материалами?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем по схеме под ключ: от закупки материалов до финальной уборки. Вам останется только завезти мебель.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Работаете ли вы в Подольске?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выезжаем на объекты в Подольске и в ближайших районах. Выезд бесплатный.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в Подольске?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ и материалов. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли ремонт под ключ с материалами?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем по схеме под ключ: от закупки материалов до финальной уборки. Вам останется только завезти мебель.</p></details>
             </div>
         </div>
     </section>

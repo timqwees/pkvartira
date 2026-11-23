@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужна ли обработка дерева?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, антисептическая обработка обязательна. Она защищает дерево от гниения, насекомых и возгорания. Рекомендуем обновлять каждые 3-5 лет.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какое утепление лучше для брусового дома?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем минеральную вату или экструдированный пенополистирол. Выбор зависит от конструкции стен и климатических условий.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт дома из бруса?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужна ли обработка дерева?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, антисептическая обработка обязательна. Она защищает дерево от гниения, насекомых и возгорания. Рекомендуем обновлять каждые 3-5 лет.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какое утепление лучше для брусового дома?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем минеральную вату или экструдированный пенополистирол. Выбор зависит от конструкции стен и климатических условий.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт дома из бруса?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ. Рассчитаем смету после бесплатного замера.</p></details>
             </div>
         </div>
     </section>

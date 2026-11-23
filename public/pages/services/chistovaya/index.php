@@ -125,9 +125,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в чистовую отделку?</summary><p class="mt-2 text-sm text-[#6b7280]">Покраска/обои, плиточные работы, укладка ламината, установка дверей, монтаж плинтусов, розеток, освещения, установка сантехники.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько занимает чистовая отделка?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от объёма работ и площади. В среднем 2–6 недель. Точные сроки фиксируем в договоре.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли выбрать свои материалы?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем с материалами заказчика или поможем подобрать оптимальные варианты под ваш бюджет.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в чистовую отделку?</summary><p class="mt-2 text-sm text-[#6b7280]">Покраска/обои, плиточные работы, укладка ламината, установка дверей, монтаж плинтусов, розеток, освещения, установка сантехники.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько занимает чистовая отделка?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от объёма работ и площади. В среднем 2–6 недель. Точные сроки фиксируем в договоре.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли выбрать свои материалы?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем с материалами заказчика или поможем подобрать оптимальные варианты под ваш бюджет.</p></details>
             </div>
         </div>
     </section>

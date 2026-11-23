@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли утеплять каркасный дом?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, утепление — обязательный этап. Без него дом будет холодным и некомфортным. Используем минеральную вату и пенополистирол.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт каркасного дома?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и объёма работ. Внутренняя отделка — от 3 недель, полный цикл — от 2 месяцев.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие инженерные системы устанавливаете?</summary><p class="mt-2 text-sm text-[#6b7280]">Электрика, водоснабжение, канализация, отопление, вентиляция, кондиционирование. Полный спектр инженерных систем.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли утеплять каркасный дом?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, утепление — обязательный этап. Без него дом будет холодным и некомфортным. Используем минеральную вату и пенополистирол.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт каркасного дома?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и объёма работ. Внутренняя отделка — от 3 недель, полный цикл — от 2 месяцев.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие инженерные системы устанавливаете?</summary><p class="mt-2 text-sm text-[#6b7280]">Электрика, водоснабжение, канализация, отопление, вентиляция, кондиционирование. Полный спектр инженерных систем.</p></details>
             </div>
         </div>
     </section>

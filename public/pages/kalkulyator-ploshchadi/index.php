@@ -406,7 +406,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         <section class="container mx-auto px-4 max-w-5xl reveal">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Частые вопросы</h2>
             <div class="space-y-4">
-                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
+                <details open class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Как посчитать площадь комнаты в квадратных метрах?
                         <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
@@ -416,7 +416,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         Для сложной формы разбейте помещение на прямоугольники и сложите их площади.
                     </p>
                 </details>
-                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
+                <details open class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Как рассчитать площадь стен для обоев?
                         <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
@@ -426,7 +426,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         S = (длина + ширина) × 2 × высота − окна − двери. Калькулятор выше делает этот расчёт автоматически.
                     </p>
                 </details>
-                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
+                <details open class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Сколько стоит ремонт одного квадратного метра?
                         <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>
@@ -436,7 +436,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         дизайнерский — от 18 000 ₽/м². Точную смету с выездом на замер мы составляем бесплатно.
                     </p>
                 </details>
-                <details class="faq group bg-white rounded-xl border border-gray-200 p-5">
+                <details open class="faq group bg-white rounded-xl border border-gray-200 p-5">
                     <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
                         Зачем знать точную площадь перед ремонтом?
                         <i class="fas fa-chevron-down text-gray-400 chev transition-transform"></i>

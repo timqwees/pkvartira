@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Выезжаете в Солнечногорск?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем по всему Солнечногорскому району. Выезд бесплатный.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в Солнечногорске?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость после замера.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли дизайн-проект?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, разрабатываем дизайн-проект под ваш бюджет и пожелания.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Выезжаете в Солнечногорск?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем по всему Солнечногорскому району. Выезд бесплатный.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в Солнечногорске?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость после замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Делаете ли дизайн-проект?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, разрабатываем дизайн-проект под ваш бюджет и пожелания.</p></details>
             </div>
         </div>
     </section>

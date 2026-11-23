@@ -122,9 +122,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в брежневке?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от состояния панелей, объёма замены коммуникаций и выбранных материалов.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужна ли шумоизоляция при ремонте?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, в брежневках стены тонкие, и шумоизоляция значительно повышает комфорт. Рекомендуем её при капитальном и дизайнерском ремонте.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать перепланировку?</summary><p class="mt-2 text-sm text-[#6b7280]">Возможность перепланировки зависит от типа стен. Мы проведём экспертизу и предложим оптимальные решения для увеличения полезного пространства.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт квартиры в брежневке?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт от 8 000 ₽/м², капитальный — от 13 000 ₽/м². Стоимость зависит от состояния панелей, объёма замены коммуникаций и выбранных материалов.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужна ли шумоизоляция при ремонте?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, в брежневках стены тонкие, и шумоизоляция значительно повышает комфорт. Рекомендуем её при капитальном и дизайнерском ремонте.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать перепланировку?</summary><p class="mt-2 text-sm text-[#6b7280]">Возможность перепланировки зависит от типа стен. Мы проведём экспертизу и предложим оптимальные решения для увеличения полезного пространства.</p></details>
             </div>
         </div>
     </section>

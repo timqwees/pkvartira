@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Чем бизнес класс отличается от эконом?</summary><p class="mt-2 text-sm text-[#6b7280]">Бизнес класс предполагает более качественные материалы, индивидуальный дизайн, полную замену инженерных систем и авторский надзор.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт бизнес класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 13 000 ₽/м². Точная стоимость зависит от объёма работ и выбранных материалов. Рассчитаем смету после бесплатного замера.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Входит ли дизайн-проект в стоимость?</summary><p class="mt-2 text-sm text-[#6b7280]">Базовая планировка входит. Полный дизайн-проект разрабатывается отдельно и оплачивается по договарённой стоимости.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Чем бизнес класс отличается от эконом?</summary><p class="mt-2 text-sm text-[#6b7280]">Бизнес класс предполагает более качественные материалы, индивидуальный дизайн, полную замену инженерных систем и авторский надзор.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт бизнес класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 13 000 ₽/м². Точная стоимость зависит от объёма работ и выбранных материалов. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Входит ли дизайн-проект в стоимость?</summary><p class="mt-2 text-sm text-[#6b7280]">Базовая планировка входит. Полный дизайн-проект разрабатывается отдельно и оплачивается по договарённой стоимости.</p></details>
             </div>
         </div>
     </section>

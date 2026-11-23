@@ -123,9 +123,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Чем евродвушка отличается от обычной двушки?</summary><p class="mt-2 text-sm text-[#6b7280]">В евродвушке кухня и гостиная объединены в одно пространство, а спальня остаётся изолированной. Это создаёт эффект квартиры-студии с отдельной спальней.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт евродвушки?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ, материалов и сложности зонирования. Рассчитаем смету после бесплатного замера.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как зонировать кухню-гостиную?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем барные стойки, разные уровни пола и потолка, декоративные перегородки, контрастные материалы отделки. Всё индивидуально по проекту дизайнера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Чем евродвушка отличается от обычной двушки?</summary><p class="mt-2 text-sm text-[#6b7280]">В евродвушке кухня и гостиная объединены в одно пространство, а спальня остаётся изолированной. Это создаёт эффект квартиры-студии с отдельной спальней.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт евродвушки?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 8 000 ₽/м². Точная стоимость зависит от объёма работ, материалов и сложности зонирования. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как зонировать кухню-гостиную?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем барные стойки, разные уровни пола и потолка, декоративные перегородки, контрастные материалы отделки. Всё индивидуально по проекту дизайнера.</p></details>
             </div>
         </div>
     </section>

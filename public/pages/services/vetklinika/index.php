@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Выполняете ли вы гидроизоляцию в ветклинике?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выполняем полную гидроизоляцию полов и стен с использованием специальных составов для медицинских учреждений.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Помогаете ли вы с согласованием с Роспотребнадзором?</summary><p class="mt-2 text-sm text-[#6b7280]">Да,我们提供 полное сопровождение по согласованию с контролирующими органами.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт ветклиники?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки от 3 недель до 3 месяцев в зависимости от площади и объёма работ.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Выполняете ли вы гидроизоляцию в ветклинике?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выполняем полную гидроизоляцию полов и стен с использованием специальных составов для медицинских учреждений.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Помогаете ли вы с согласованием с Роспотребнадзором?</summary><p class="mt-2 text-sm text-[#6b7280]">Да,我们提供 полное сопровождение по согласованию с контролирующими органами.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт ветклиники?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки от 3 недель до 3 месяцев в зависимости от площади и объёма работ.</p></details>
             </div>
         </div>
     </section>

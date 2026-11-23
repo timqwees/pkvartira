@@ -132,9 +132,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие сроки ремонта в ЖК Онтарио?</summary><p class="mt-2 text-sm text-[#6b7280]">От 2 недель для косметического до 3 месяцев для дизайнерского ремонта.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли согласовывать перепланировку?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, если планируете изменение стен. Мы помогаем с согласованием.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать ремонт с материалами?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем с материалами заказчика и с полным обеспечением. Все варианты обсуждаются индивидуально.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие сроки ремонта в ЖК Онтарио?</summary><p class="mt-2 text-sm text-[#6b7280]">От 2 недель для косметического до 3 месяцев для дизайнерского ремонта.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли согласовывать перепланировку?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, если планируете изменение стен. Мы помогаем с согласованием.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать ремонт с материалами?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, работаем с материалами заказчика и с полным обеспечением. Все варианты обсуждаются индивидуально.</p></details>
             </div>
         </div>
     </section>

@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в ремонт комфорт класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Замена электрики и сантехники, стяжка полов, штукатурка стен, чистовая отделка, установка дверей и откосов, финальная уборка.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Чем комфорт отличается от эконом?</summary><p class="mt-2 text-sm text-[#6b7280]">Комфорт класс использует более качественные материалы, включает полную замену инженерных систем и более широкий выбор отделки.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и объёма работ. В среднем от 3 до 8 недель. Точные сроки фиксируются в договоре.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в ремонт комфорт класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Замена электрики и сантехники, стяжка полов, штукатурка стен, чистовая отделка, установка дверей и откосов, финальная уборка.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Чем комфорт отличается от эконом?</summary><p class="mt-2 text-sm text-[#6b7280]">Комфорт класс использует более качественные материалы, включает полную замену инженерных систем и более широкий выбор отделки.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Сроки зависят от площади и объёма работ. В среднем от 3 до 8 недель. Точные сроки фиксируются в договоре.</p></details>
             </div>
         </div>
     </section>

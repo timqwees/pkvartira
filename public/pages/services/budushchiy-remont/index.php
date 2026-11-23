@@ -127,9 +127,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Когда лучше заказывать ремонт, если ключи будут через полгода?</summary><p class="mt-2 text-sm text-[#6b7280]">Ориентир цены можно получить уже сейчас через калькулятор. Точную смету составим после бесплатного замера готовой квартиры — заявка ни к чему не обязывает.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Цена не вырастет, пока я жду ключи?</summary><p class="mt-2 text-sm text-[#6b7280]">Точная стоимость фиксируется в договоре по смете после замера. Ориентир сейчас нужен, чтобы спланировать бюджет.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что проверить при приёмке квартиры?</summary><p class="mt-2 text-sm text-[#6b7280]">Геометрию стен, стяжку, окна, электрику и сантехнику. Подробно — в нашем чек-листе приёмки. Можем выехать на приёмку вместе с вами.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Когда лучше заказывать ремонт, если ключи будут через полгода?</summary><p class="mt-2 text-sm text-[#6b7280]">Ориентир цены можно получить уже сейчас через калькулятор. Точную смету составим после бесплатного замера готовой квартиры — заявка ни к чему не обязывает.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Цена не вырастет, пока я жду ключи?</summary><p class="mt-2 text-sm text-[#6b7280]">Точная стоимость фиксируется в договоре по смете после замера. Ориентир сейчас нужен, чтобы спланировать бюджет.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что проверить при приёмке квартиры?</summary><p class="mt-2 text-sm text-[#6b7280]">Геометрию стен, стяжку, окна, электрику и сантехнику. Подробно — в нашем чек-листе приёмки. Можем выехать на приёмку вместе с вами.</p></details>
             </div>
         </div>
     </section>

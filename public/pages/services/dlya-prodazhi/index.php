@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт перед продажей?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт — от 2 недель, капитальный — до 3 недель. Сроки фиксируются в договоре.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Окупится ли ремонт перед продажей?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, качественный косметический ремонт повышает ликвидность квартиры и может увеличить стоимость продажи на 10-15%.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой ремонт лучше сделать перед продажей?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический: покраска стен, замена напольного покрытия, обновление сантехники. Этого достаточно для повышения привлекательности.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько времени занимает ремонт перед продажей?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт — от 2 недель, капитальный — до 3 недель. Сроки фиксируются в договоре.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Окупится ли ремонт перед продажей?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, качественный косметический ремонт повышает ликвидность квартиры и может увеличить стоимость продажи на 10-15%.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой ремонт лучше сделать перед продажей?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический: покраска стен, замена напольного покрытия, обновление сантехники. Этого достаточно для повышения привлекательности.</p></details>
             </div>
         </div>
     </section>

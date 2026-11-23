@@ -162,9 +162,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит смета на ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Смета составляется бесплатно. Инженер приедет на замер и подготовит детальный расчёт без оплаты.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как быстро вы готовите смету?</summary><p class="mt-2 text-sm text-[#6b7280]">Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Меняется ли стоимость по смете?</summary><p class="mt-2 text-sm text-[#6b7280]">Стоимость фиксируется в договоре. Изменения возможны только по вашему согласованию при дополнительных работах.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит смета на ремонт?</summary><p class="mt-2 text-sm text-[#6b7280]">Смета составляется бесплатно. Инженер приедет на замер и подготовит детальный расчёт без оплаты.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как быстро вы готовите смету?</summary><p class="mt-2 text-sm text-[#6b7280]">Точная смета готова за 30 минут после замера. Онлайн-калькулятор даёт предварительный расчёт мгновенно.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Меняется ли стоимость по смете?</summary><p class="mt-2 text-sm text-[#6b7280]">Стоимость фиксируется в договоре. Изменения возможны только по вашему согласованию при дополнительных работах.</p></details>
             </div>
         </div>
     </section>

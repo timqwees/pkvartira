@@ -123,9 +123,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Вопросы об укладке ламината</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит укладка ламината за квадратный метр?</summary><p class="mt-2 text-sm text-[#6b7280]">Работа от 350 ₽/м², с фанерой от 600 ₽/м², с материалом от 1 200 ₽/м².</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли укладывать фанеру под ламинат?</summary><p class="mt-2 text-sm text-[#6b7280]">Фанера нужна для выравнивания основания. На идеально ровный пол можно укладывать без неё.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой ламинат лучше выбрать?</summary><p class="mt-2 text-sm text-[#6b7280]">Для квартиры рекомендуем 32-33 класс толщиной 8-12 мм. Поможем с выбором.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит укладка ламината за квадратный метр?</summary><p class="mt-2 text-sm text-[#6b7280]">Работа от 350 ₽/м², с фанерой от 600 ₽/м², с материалом от 1 200 ₽/м².</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Нужно ли укладывать фанеру под ламинат?</summary><p class="mt-2 text-sm text-[#6b7280]">Фанера нужна для выравнивания основания. На идеально ровный пол можно укладывать без неё.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какой ламинат лучше выбрать?</summary><p class="mt-2 text-sm text-[#6b7280]">Для квартиры рекомендуем 32-33 класс толщиной 8-12 мм. Поможем с выбором.</p></details>
             </div>
         </div>
     </section>

@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли отреставрировать старый сруб?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выполняем полную реставрацию: замена повреждённых брёвен, конопатка швов, обработка дерева, обновление отделки.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как защитить дерево от насекомых и гниения?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем антисептики глубокого проникновения. Обработка проводится каждые 3-5 лет для поддержания защиты.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт дома из бревна?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 10 000 ₽/м². Реставрация старых срубов может стоить дороже. Рассчитаем смету после бесплатного замера.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли отреставрировать старый сруб?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, выполняем полную реставрацию: замена повреждённых брёвен, конопатка швов, обработка дерева, обновление отделки.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Как защитить дерево от насекомых и гниения?</summary><p class="mt-2 text-sm text-[#6b7280]">Используем антисептики глубокого проникновения. Обработка проводится каждые 3-5 лет для поддержания защиты.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Сколько стоит ремонт дома из бревна?</summary><p class="mt-2 text-sm text-[#6b7280]">Цены от 10 000 ₽/м². Реставрация старых срубов может стоить дороже. Рассчитаем смету после бесплатного замера.</p></details>
             </div>
         </div>
     </section>

@@ -121,9 +121,9 @@ include './public/components/cta-form.php';
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-xl font-bold text-[#111827] text-center" style="font-family:var(--font-heading)">Часто задаваемые вопросы</h2>
             <div class="mt-6 max-w-3xl mx-auto space-y-3">
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в ремонт эконом класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт: покраска или обои, замена напольного покрытия, потолки, розетки, финальная уборка. Капитальный включает замену электрики и сантехники.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать качественный ремонт недорого?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы оптимизируем процессы и используем надёжные материалы по доступной цене. Прозрачная смета без скрытых платежей.</p></details>
-                <details class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие материалы используете для эконом ремонта?</summary><p class="mt-2 text-sm text-[#6b7280]">Надёжные материалы от проверенных поставщиков: Леруа Мерлен, Петрович, Castillo. Гарантия на все работы 3 года.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Что входит в ремонт эконом класса?</summary><p class="mt-2 text-sm text-[#6b7280]">Косметический ремонт: покраска или обои, замена напольного покрытия, потолки, розетки, финальная уборка. Капитальный включает замену электрики и сантехники.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Можно ли сделать качественный ремонт недорого?</summary><p class="mt-2 text-sm text-[#6b7280]">Да, мы оптимизируем процессы и используем надёжные материалы по доступной цене. Прозрачная смета без скрытых платежей.</p></details>
+                <details open class="bg-white rounded-xl p-4"><summary class="font-semibold text-[#111827] cursor-pointer">Какие материалы используете для эконом ремонта?</summary><p class="mt-2 text-sm text-[#6b7280]">Надёжные материалы от проверенных поставщиков: Леруа Мерлен, Петрович, Castillo. Гарантия на все работы 3 года.</p></details>
             </div>
         </div>
     </section>
