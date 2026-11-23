@@ -134,13 +134,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> <?= $__reviewsTotal ?> отзывов со ссылками</span>
                             <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> смету под ваш бюджет</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
                         </div>
 
                         <!-- <div class="flex items-center flex-wrap gap-2 mb-3">
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> смету под ваш бюджет</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
                         </div> -->
                     </div>
