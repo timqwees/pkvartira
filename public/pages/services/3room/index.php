@@ -559,6 +559,12 @@ if (is_readable($euroAbout)) {
 
 
 
+
+    <!-- Квиз: Начнём с вашей квартиры -->
+    <?php
+    $quizId = 'service_quiz';
+    include './public/components/flat-quiz.php';
+    ?>
     </main>
 
     <?php include_once './public/components/footer.php'; ?>

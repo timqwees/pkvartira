@@ -1143,6 +1143,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             </div>
         </section>
 
+        <!-- Квиз: Начнём с вашей квартиры -->
+        <?php
+        $quizId = 'main_quiz';
+        include './public/components/flat-quiz.php';
+        ?>
+
         <!-- 10 -->
         <section id="reviews" class="py-16 md:py-24 bg-white reveal">
             <span class="section-number">09</span>

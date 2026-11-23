@@ -149,6 +149,12 @@ $seo = TheFunction::seo([
             </div>
         </div>
     </section>
+
+<!-- Квиз: Начнём с вашей квартиры -->
+<?php
+$quizId = 'service_quiz';
+include './public/components/flat-quiz.php';
+?>
 </main>
 <?php include_once dirname(__DIR__, 3) . '/public/components/footer.php'; ?>
 <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>

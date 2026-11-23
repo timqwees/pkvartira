@@ -171,6 +171,12 @@ include './public/components/cta-form.php';
         $ctaSectionBenefits = ['Бесплатный выезд', 'Смета за 24 часа', 'Фиксированная цена', 'Гарантия 3 года'];
         include './public/components/cta-section.php';
         ?>
+
+<!-- Квиз: Начнём с вашей квартиры -->
+<?php
+$quizId = 'service_quiz';
+include './public/components/flat-quiz.php';
+?>
 </main>
 <?php include_once './public/components/footer.php'; ?>
 <script src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/scripts/components/reveal.min.js') ?>" defer></script>
