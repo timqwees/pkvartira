@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт домов и коттеджей — проект 3 240 000 ₽, от 8 000 ₽/м²';
-$bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/3.webp';
 $prices = [
     [
         'заголовок' => 'Косметический',

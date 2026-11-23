@@ -4,7 +4,7 @@ use Setting\Route\Functions\ReviewsParser;
 require_once dirname(__DIR__, 3) . '/setting/Route/Functions/ReviewsParser.php';
 
 $site = TheFunction::site();
-$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/3room/standard');
+$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/real');
 $euroAbout = 'public/assets/images/portfolio-photos/cottage/2_euro_230sqm/about.json';
 if (is_readable($euroAbout)) {
     $euro = json_decode((string) file_get_contents($euroAbout), true);

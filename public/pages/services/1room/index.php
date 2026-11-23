@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт 1-комнатной квартиры — цены за м² в Москве | от 8 000 ₽';
-$bg_url = '/public/assets/images/portfolio-photos/1room/standard/2_37sqm/2.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp';
 $prices = [
     [
         'заголовок' => 'Косметический',

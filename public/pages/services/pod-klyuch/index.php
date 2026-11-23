@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт квартир под ключ — от 8 000 ₽/м²';
-$bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/ЖК_Бизнес-квартал_Бограда_111_44_81_м_Кр/3.webp';
 $prices = [
     [
         'заголовок' => 'Косметический',
@@ -33,7 +33,7 @@ $prices = [
         'стиль' => 'classic'
     ]
 ];
-$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/cottage');
+$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/real');
 ?>
 <!DOCTYPE html>
 <html lang="ru">

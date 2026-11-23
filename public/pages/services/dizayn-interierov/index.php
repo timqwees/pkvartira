@@ -439,7 +439,7 @@ $prices = [
                     <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
                         itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="relative h-48 bg-gray-100">
-                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_32new/11.png"
+                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/real/ЖК_Бизнес-квартал_Бограда_111_44_81_м_Кр/2.webp"
                                 alt="Новостройка 32 м² — дизайн-проект"
                                 class="w-full h-full object-cover"
                                 width="600" height="400" loading="lazy">
@@ -462,7 +462,7 @@ $prices = [
                     <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
                         itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="relative h-48 bg-gray-100">
-                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_62new/11.jpeg"
+                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/real/ЖК_Грин_Парк_41_1_м_Красноярск/2.webp"
                                 alt="Новостройка 62 м² — дизайн-проект"
                                 class="w-full h-full object-cover"
                                 width="600" height="400" loading="lazy">
@@ -485,7 +485,7 @@ $prices = [
                     <article class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
                         itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="relative h-48 bg-gray-100">
-                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg"
+                            <img src="https://pkvartira.ru/public/assets/images/portfolio-photos/real/ЖК_Бизнес-квартал_Бограда_111_44_81_м_Кр/3.webp"
                                 alt="Капитальный ремонт новостройка 86 м² — дизайн-проект"
                                 class="w-full h-full object-cover"
                                 width="600" height="400" loading="lazy">

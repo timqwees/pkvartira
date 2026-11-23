@@ -112,13 +112,13 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
                     <label class="fq-opt">
                         <input type="radio" name="Тип жилья" value="Новостройка">
                         <span class="fq-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.8 9L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                        <img src="<?= $__base; ?>/public/assets/images/portfolio-photos/studio/2_31sqm/1.webp" alt="" width="52" height="52" loading="lazy" class="fq-thumb">
+                        <img src="<?= $__base; ?>/public/assets/images/portfolio-photos/real/Балтийская_77_35_м_Барнаул/1.webp" alt="" width="52" height="52" loading="lazy" class="fq-thumb">
                         <span class="text-sm font-semibold text-gray-800">Новостройка<br><span class="block text-xs font-normal text-gray-400">Иллюстрация жилого интерьера</span></span>
                     </label>
                     <label class="fq-opt">
                         <input type="radio" name="Тип жилья" value="Вторичное жильё">
                         <span class="fq-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.8 9L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                        <img src="<?= $__base; ?>/public/assets/images/portfolio-photos/secondary/1_80sqm/02.webp" alt="" width="52" height="52" loading="lazy" class="fq-thumb">
+                        <img src="<?= $__base; ?>/public/assets/images/portfolio-photos/real/ЖК_Витязь_65_м_Иркутск/1.webp" alt="" width="52" height="52" loading="lazy" class="fq-thumb">
                         <span class="text-sm font-semibold text-gray-800">Вторичное жильё<br><span class="block text-xs font-normal text-gray-400">Иллюстрация комнаты</span></span>
                     </label>
                     <label class="fq-opt">
@@ -138,7 +138,7 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
                         <label for="fq-area" class="block text-sm font-semibold text-gray-700 mb-1">Площадь, м²</label>
                         <input id="fq-area" type="number" min="1" max="500" step="1" name="Площадь" placeholder="Например, 85" class="fq-input" inputmode="numeric">
                     </div>
-                    <img src="<?= $__base; ?>/public/assets/images/portfolio-photos/newbuilds/1_32new/1.webp" alt="" width="72" height="72" loading="lazy" class="fq-thumb !w-[72px] !h-[72px] hidden sm:block">
+                    <img src="<?= $__base; ?>/public/assets/images/portfolio-photos/real/ЖК_Бизнес-квартал_Бограда_111_44_81_м_Кр/1.webp" alt="" width="72" height="72" loading="lazy" class="fq-thumb !w-[72px] !h-[72px] hidden sm:block">
                 </div>
                 <p class="text-sm text-gray-500 mb-5">Укажите площадь по полу. Объёмы отдельных работ рассчитаем после замера.</p>
 

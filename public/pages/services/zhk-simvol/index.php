@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Дизайн и ремонт квартир в ЖК Символ — под ключ';
-$bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/ЖК_Бизнес-квартал_Бограда_111_44_81_м_Кр/3.webp';
 $caseProjects = TheFunction::featuredPortfolio(null, 1);
 $case = $caseProjects[0] ?? null;
 $caseCover = ($case && !empty($case['cover']))

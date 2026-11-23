@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт дома из бревна под ключ — цены';
-$bg_url = '/public/assets/images/portfolio-photos/cottage/1_180sqm/1.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/3.webp';
 ?>
 <!DOCTYPE html>
 <html lang="ru">

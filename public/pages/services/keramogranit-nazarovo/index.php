@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Укладка керамогранита — цена за м²';
-$bg_url = '/public/assets/images/portfolio-photos/3room/standard/2_60sqm/6.webp';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp';
 ?>
 <!DOCTYPE html>
 <html lang="ru">

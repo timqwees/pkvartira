@@ -448,7 +448,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <div
                                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
                                 <div class="relative">
-                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg"
+                                    <img data-src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp"
                                         alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира — Проект Квартира" title="Премиум и элитный ремонт — от 25 000 ₽/м² | Проект Квартира" class="lazy w-full h-36 md:h-40 object-cover"
                                         width="640" height="360" decoding="async" loading="lazy">
                                     <div
@@ -649,7 +649,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div
                         class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-yellow-400/30 hover:border-yellow-500 h-full flex flex-col">
                         <div class="relative">
-                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg"
+                            <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp"
                                 alt="Премиум и элитный ремонт — роскошь и эксклюзивность квартиры | Проект Квартира" title="Премиум и элитный ремонт — от 25 000 ₽/м²" class="w-full h-36 md:h-40 object-cover"
                                 width="640" height="360" decoding="async" loading="lazy">
                             <div

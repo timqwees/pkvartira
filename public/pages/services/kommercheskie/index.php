@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт коммерческих помещений — под ключ';
-$bg_url = '/public/assets/images/portfolio-photos/4room/standard/1_65sqm/1.png';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp';
 $prices = [
     [
         'заголовок' => 'Косметический',
@@ -33,7 +33,7 @@ $prices = [
         'стиль' => 'classic'
     ]
 ];
-$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/4room/standard');
+$portfolio = (new Functions())->getPortfolio('public/assets/images/portfolio-photos/real');
 ?>
 <!DOCTYPE html>
 <html lang="ru">

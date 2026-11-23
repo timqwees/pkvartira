@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт 2-комнатной квартиры — от 400 000 ₽';
-$bg_url = '/public/assets/images/portfolio-photos/2room/standard/1_55sqm/3.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp';
 $prices = [
     [
         'заголовок' => 'Косметический',

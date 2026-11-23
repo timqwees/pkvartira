@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт квартир в Зеленограде — от 8 000 ₽/м²';
-$bg_url = '/public/assets/images/portfolio-photos/secondary/1_80sqm/04.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp';
 ?>
 <!DOCTYPE html>
 <html lang="ru">

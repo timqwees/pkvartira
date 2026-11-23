@@ -117,7 +117,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
         <!-- 1. hero section -->
         <section
-            class="reveal bg-center bg-cover bg-no-repeat relative z-10 py-20" style="background-image: url(/public/assets/images/portfolio-photos/cottage/1_180sqm/2.jpg);">
+            class="reveal bg-center bg-cover bg-no-repeat relative z-10 py-20" style="background-image: url(/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/1.webp);">
             <div class="absolute blur-xl z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-white/50">
             </div>
             <div class="relative z-10 container mx-auto px-4">
@@ -273,7 +273,7 @@ include './public/components/cta-form.php';
 
                     <!-- студия -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/studio/2_31sqm/03_gostinaya-kukhnya.webp"
+                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/real/Балтийская_77_35_м_Барнаул/2.webp"
                             alt="Студия" title="Ремонт студии — от 200 000 ₽" class="w-full h-40 object-cover">
                         <div class="p-5">
                             <div class="flex items-center justify-between mb-2">
@@ -289,7 +289,7 @@ include './public/components/cta-form.php';
 
                     <!-- 1-комнатная -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/1room/standard/3_43sqm/1.webp"
+                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/real/ЖК_Ключевская_Ключевская_83_30_47_м_Крас/1.webp"
                             alt="1 комнатная" title="Ремонт 1-комнатной квартиры — от 296 000 ₽" class="w-full h-40 object-cover">
                         <div class="p-5">
                             <div class="flex items-center justify-between mb-2">
@@ -305,7 +305,7 @@ include './public/components/cta-form.php';
 
                     <!-- 2-комнатная -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/2room/standard/3_49sqm/1.png"
+                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/real/Алексеева_25_52_9_м_Красноярск/1.webp"
                             alt="2 комнатная" title="Ремонт 2-комнатной квартиры — от 400 000 ₽" class="w-full h-40 object-cover">
                         <div class="p-5">
                             <div class="flex items-center justify-between mb-2">
@@ -320,7 +320,7 @@ include './public/components/cta-form.php';
 
                     <!-- 3-комнатная -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/3room/standard/2_60sqm/1.webp"
+                        <img src="<?= htmlspecialchars($site['baseUrl']); ?>/public/assets/images/portfolio-photos/real/Яковлева_1А_66_м_Красноярск/2.webp"
                             alt="3 комнатная" title="Ремонт 3-комнатной квартиры — от 560 000 ₽" class="w-full h-40 object-cover">
                         <div class="p-5">
                             <div class="flex items-center justify-between mb-2">

@@ -2,7 +2,7 @@
 use Setting\Route\Functions\TheFunction;
 $site = TheFunction::site();
 $title = 'Ремонт евротрешки — цены под ключ';
-$bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+$bg_url = '/public/assets/images/portfolio-photos/real/ЖК_Бизнес-квартал_Бограда_111_44_81_м_Кр/3.webp';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
