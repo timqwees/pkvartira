@@ -228,7 +228,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         <section class="py-16 bg-orange-50 reveal">
             <div class="container mx-auto px-4 max-w-6xl text-center">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">Хотите точный расчёт для своей квартиры?</h2>
-                <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Получите бесплатную консультацию и смету в 3 вариантах от команды Проект Квартира. Приедем на замер, ответим на все вопросы.</p>
+                <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Получите бесплатную консультацию и смету от команды Проект Квартира. Приедем на замер, ответим на все вопросы.</p>
                 <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
                     <a href="/calculator" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-orange-500 text-white font-extrabold hover:bg-orange-600 transition">
                         Рассчитать стоимость

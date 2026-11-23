@@ -2,6 +2,26 @@
 $site = Setting\Route\Functions\TheFunction::site();
 $featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio(null, 5);
 
+// Отзывы для рейтинга и schema (звёзды в SERP)
+require_once dirname(__DIR__) . '/setting/Route/Functions/ReviewsParser.php';
+$__reviewsParser = new Setting\Route\Functions\ReviewsParser();
+$__reviews = $__reviewsParser->getReviews();
+$__reviewsTotal = count($__reviews);
+$__avgRating = $__reviewsTotal > 0
+    ? number_format(round(array_sum(array_map(fn($r) => (int)($r['rating'] ?? 5), $__reviews)) / $__reviewsTotal, 1), 1, '.', '')
+    : '5.0';
+$__topReviews = array_values(array_filter($__reviews, fn($r) => (int)($r['rating'] ?? 5) >= 5));
+$__schemaReviews = [];
+foreach (array_slice($__topReviews, 0, 3) as $r) {
+    $__schemaReviews[] = [
+        '@type' => 'Review',
+        'author' => ['@type' => 'Person', 'name' => (string)($r['name'] ?? 'Клиент')],
+        'datePublished' => (string)($r['date'] ?? ''),
+        'reviewRating' => ['@type' => 'Rating', 'ratingValue' => (string)($r['rating'] ?? 5), 'bestRating' => '5'],
+        'reviewBody' => mb_substr(trim((string)($r['text'] ?? '')), 0, 400),
+    ];
+}
+
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8000 ₽/м²',
     'description' => 'Проект Квартира (pkvartira.ru) — официальный сайт. Ремонт под ключ в Москве: цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.',
@@ -14,6 +34,19 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
     ],
     'speakable' => ['#ai-short-answer', '.hero-subtitle'],
+    'schema' => array_merge([
+        [
+            '@type' => 'AggregateRating',
+            'itemReviewed' => [
+                '@type' => 'LocalBusiness',
+                'name' => $site['name'],
+            ],
+            'ratingValue' => $__avgRating,
+            'reviewCount' => (string)$__reviewsTotal,
+            'bestRating' => '5',
+            'worstRating' => '1',
+        ],
+    ], $__schemaReviews),
 ]);
 ?>
 <!DOCTYPE html>
@@ -86,8 +119,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                              - <strong class="text-orange-300">неустойка</strong> за просрочку по договору
                         </h1>
                         <p class="z-10 hero-subtitle text-2xl mb-8 text-white max-w-3xl">
-                            Приедем на замер в день обращения. Составим смету в <strong class="text-orange-500">3&nbsp;вариантах
-                            </strong> под ваш бюджет за 24 часа. Начнём в
+                            Приедем на замер в день обращения. Составим <strong class="text-orange-500">смету под ваш бюджет</strong> за 24 часа. Начнём в
                             ближайшие <strong class="text-orange-500">дни</strong> — точную дату зафиксируем в договоре
                         </p>
                         <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (Проект Квартира) — <span class="text-orange-300">pkvartira.ru</span> • ООО «Проект Квартира»</p>
@@ -98,17 +130,17 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <i class="fa-solid fa-calculator"></i>
                                 <span>Рассчитать ремонт за <span class="text-orange-500"> 60 секунд</span></span>
                             </button>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 35 отзывов со ссылками</span>
-                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> 35 отзывов со ссылками</span>
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> <?= $__reviewsTotal ?> отзывов со ссылками</span>
+                            <span class="hero-stat"><i class="fa-solid fa-star text-yellow-400"></i> <?= $__reviewsTotal ?> отзывов со ссылками</span>
                             <span class="hero-stat"><i class="fa-solid fa-shield-halved"></i> Гарантия 3 года</span>
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
+                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> смету под ваш бюджет</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
                         </div>
 
                         <!-- <div class="flex items-center flex-wrap gap-2 mb-3">
                             <span class="hero-stat"><i class="fa-solid fa-ruler-combined"></i> Замер + смета бесплатно</span>
-                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> 3 варианта под ваш бюджет</span>
+                            <span class="hero-stat"><i class="fa-solid fa-file-word"></i> смету под ваш бюджет</span>
                             <span class="hero-stat"><i class="fa-solid fa-file-circle-check"></i> Цена в договоре без сюрпризов</span>
                         </div> -->
                     </div>
@@ -132,11 +164,10 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <!-- title -->
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Рассчитайте стоимость вашего ремонта<br>и получите <span class="text-orange-600">3
-                            варианта</span> сметы под ваш бюджет
+                        Рассчитайте стоимость вашего ремонта<br>и получите <span class="text-orange-600">смету</span> под ваш бюджет
                     </h2>
                     <p class="text-gray-600 text-sm md:text-base">
-                        Ответьте на 5 простых вопросов, чтобы мы подготовили для вас 3 варианта сметы: Эконом — только необходимое, Оптимальный — лучшее соотношение цены и результата, Комфорт — материалы и решения классом выше
+                        Ответьте на 5 простых вопросов — подготовим детальную смету под вашу задачу
                     </p>
                 </div>
 
@@ -705,7 +736,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <div class="text-center mb-12">
                     <span class="section-number section-number-dark">05</span>
                     <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Ремонт квартир в Москве и Московской области</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем по всей Москве и ближайшим городам Подмосковья. Бесплатный выезд инженера, предварительный расчёт в день обращения, детальная смета в 3 вариантах — за 24 часа после замера.</p>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Работаем по всей Москве и ближайшим городам Подмосковья. Бесплатный выезд инженера, предварительный расчёт в день обращения, детальная смета — за 24 часа после замера.</p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     <?php
@@ -992,7 +1023,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Профессиональный замер</h3>
                         <p class="text-sm text-gray-600">
                             Приезжаем со сверхточным лазерным оборудованием. Анализируем состояние стен, углов и
-                            инженерных коммуникаций. Через 24 часа вы получаете 3 варианта детальной сметы под ваш
+                            инженерных коммуникаций. Через 24 часа вы получаете детальную смету под ваш
                             бюджет.
                         </p>
                     </div>
@@ -1162,7 +1193,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                 <!-- Ручные отзывы -->
                 <div class="max-w-6xl mx-auto">
-                    <p class="text-sm text-gray-500 mb-6">35 отзывов со ссылками на источники</p>
+                    <p class="text-sm text-gray-500 mb-6"><?= $__reviewsTotal ?> отзывов со ссылками на источники</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Отзыв 1 -->

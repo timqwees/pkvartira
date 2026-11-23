@@ -455,7 +455,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                 <h2 class="text-2xl md:text-3xl font-bold mb-3">Знаете площадь? Получите точную смету</h2>
                 <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
                     Приедем на замер в день обращения, проверим ваши расчёты лазерным дальномером
-                    и составим 3 варианта сметы под ваш бюджет. Бесплатно и без обязательств.
+                    и составим смету под ваш бюджет. Бесплатно и без обязательств.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
                     <a href="/calculator"

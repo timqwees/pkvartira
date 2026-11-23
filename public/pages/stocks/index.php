@@ -151,7 +151,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-gray-900 mb-2">Бесплатный замер и расчёт</h2>
-                            <p class="text-gray-600 mb-4">Инженер приедет в день обращения, замерит объект и подготовит 3 варианта сметы под ваш бюджет. Бесплатно.</p>
+                            <p class="text-gray-600 mb-4">Инженер приедет в день обращения, замерит объект и подготовит смету под ваш бюджет. Бесплатно.</p>
                             <a href="/calculator" class="text-blue-600 font-semibold hover:underline">Заказать замер <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>

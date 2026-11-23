@@ -89,7 +89,7 @@ $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
                         <div class="flex gap-3 py-2 border-b border-gray-200"><span class="font-bold text-orange-500">1</span><span class="text-[#4b5563]">Ориентир сейчас: калькулятор и <a href="/services/smeta" class="text-orange-600 underline hover:text-orange-700">пример сметы</a></span></div>
                         <div class="flex gap-3 py-2 border-b border-gray-200"><span class="font-bold text-orange-500">2</span><span class="text-[#4b5563]">Приёмка квартиры: на что смотреть у застройщика — <a href="/blog/priemka-kvartiry-zastroyshchik" class="text-orange-600 underline hover:text-orange-700">чек-лист</a></span></div>
                         <div class="flex gap-3 py-2 border-b border-gray-200"><span class="font-bold text-orange-500">3</span><span class="text-[#4b5563]">Замер готовой квартиры — бесплатно</span></div>
-                        <div class="flex gap-3 py-2"><span class="font-bold text-orange-500">4</span><span class="text-[#4b5563]">Смета в 3 вариантах за 24 часа, старт в удобную дату</span></div>
+                        <div class="flex gap-3 py-2"><span class="font-bold text-orange-500">4</span><span class="text-[#4b5563]">Смета за 24 часа, старт в удобную дату</span></div>
                     </div>
                 </div>
             </div>

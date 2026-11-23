@@ -354,7 +354,7 @@
     <div class="w-fit min-w-0 max-w-full">
     <div class="flex items-start justify-between gap-4 px-6 py-4 border-b border-gray-100 min-w-0">
         <div class="flex flex-col gap-2 min-w-0">
-            <div class="text-lg md:text-xl font-bold text-gray-900">Получить 3 варианта сметы</div>
+            <div class="text-lg md:text-xl font-bold text-gray-900">Получить смету</div>
             <p class="text-2sm text-gray-600">Укажите ваше имя и номер телефона - расскажем о стоимости ремонта
             </p>
         </div>

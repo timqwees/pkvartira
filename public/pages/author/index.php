@@ -1,9 +1,10 @@
 <?php
 $site = Setting\Route\Functions\TheFunction::site();
+$__authorReviewsTotal = count((new Setting\Route\Functions\ReviewsParser())->getReviews());
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Елена — основатель Проект Квартира, эксперт по ремонту',
-    'description' => 'Елена — основатель и CEO Проект Квартира. 10+ лет опыта в ремонте квартир под ключ в Москве. Экспертиза: сметы, выбор материалов, управление проектами, контроль качества. 35 отзывов клиентов.',
+    'description' => 'Елена — основатель и CEO Проект Квартира. 10+ лет опыта в ремонте квартир под ключ в Москве. Экспертиза: сметы, выбор материалов, управление проектами, контроль качества. ' . $__authorReviewsTotal . ' отзывов клиентов.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/author',
     'type' => 'profile',
@@ -165,7 +166,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <p class="font-semibold text-gray-900">— Александр В., ЖК «Сердце Столицы»</p>
                     <div class="mt-4 flex justify-center gap-2">
                         <a href="/reviews" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
-                            Все 35 отзывов
+                            Все <?= $__authorReviewsTotal ?> отзывов
                         </a>
                     </div>
                 </div>
@@ -175,7 +176,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         <section class="py-16 bg-orange-50 reveal">
             <div class="container mx-auto px-4 max-w-4xl text-center">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-[#1f2937] mb-4">Нужен экспертный взгляд на ваш ремонт?</h2>
-                <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Получите бесплатную консультацию и расчёт стоимости от команды Проект Квартира. Приедем на замер, составим смету в 3 вариантах и ответим на все вопросы.</p>
+                <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Получите бесплатную консультацию и расчёт стоимости от команды Проект Квартира. Приедем на замер, составим смету и ответим на все вопросы.</p>
                 <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
                     <a href="/calculator" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-orange-500 text-white font-extrabold hover:bg-orange-600 transition">
                         Рассчитать стоимость

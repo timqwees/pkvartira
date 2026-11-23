@@ -23,7 +23,7 @@ $avgRating = $totalReviews > 0
     ? round(array_sum(array_map(fn($r) => (int)($r['rating'] ?? 5), $reviews)) / $totalReviews, 1)
     : 5.0;
 $avgRatingStr = number_format($avgRating, 1, '.', '');
-$sourceOrder = ['2GIS', 'Яндекс Карты', 'YouDo', 'Авито', 'Профи.ру'];
+$sourceOrder = ['2GIS', 'Яндекс Карты', 'YouDo', 'Авито', 'Профи.ру', 'Отзовик'];
 $orderedSources = [];
 foreach ($sourceOrder as $s) {
     if (isset($sourceCounts[$s])) $orderedSources[$s] = $sourceCounts[$s];
@@ -60,6 +60,7 @@ function sourceIcon(string $source, string $size = '20'): string {
         'YouDo' => 'youdo.svg',
         'Авито' => 'avito.svg',
         'Профи.ру' => 'profi.svg',
+        'Отзовик' => 'otzovik.svg',
     ];
     if (isset($map[$source])) {
         $src = '/public/assets/images/icons/reviews/' . $map[$source];
@@ -75,7 +76,7 @@ if (!in_array($filterParam, $validFilters, true)) $filterParam = 'all';
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Отзывы Проект Квартира — ' . $totalReviews . ' реальных отзывов, рейтинг ' . $avgRatingStr,
-    'description' => 'Все отзывы о Проект Квартира (Проект Квартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
+    'description' => 'Все отзывы о Проект Квартира (Проект Квартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито, Профи.ру и Отзовика. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/reviews',
     'type' => 'website',
@@ -198,6 +199,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Авито', '28') ?> Авито <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['Авито'] ?? 0)) ?></span></a>
                                 <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('YouDo', '28') ?> YouDo <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['YouDo'] ?? 0)) ?></span></a>
                                 <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['Профи.ру'] ?? 0)) ?></span></a>
+                                <a href="https://otzovik.com/reviews/kompaniya_po_remontu_kvartir_proekt_kvartira_russia_moscow/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Отзовик', '28') ?> Отзовик <span class="ml-auto text-xs text-gray-400"><?= reviewsCountLabel((int)($sourceCounts['Отзовик'] ?? 0)) ?></span></a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +220,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     </div>
 
                     <!-- Пояснение об источниках: прямых ссылок на отдельные отзывы нет -->
-                    <p class="text-[13px] text-gray-500 mb-6 max-w-3xl">Отзывы собраны с площадок 2ГИС, Яндекс Карты, YouDo, Авито и Профи.ру. Ссылки в карточках ведут на профили компании: прямые ссылки на отдельные отзывы не сохранены, поэтому источник требует подтверждения. Каждый отзыв можно найти на площадке по имени автора и дате, указанным в карточке.</p>
+                    <p class="text-[13px] text-gray-500 mb-6 max-w-3xl">Отзывы собраны с площадок 2ГИС, Яндекс Карты, YouDo, Авито, Профи.ру и Отзовик. Ссылки в карточках ведут на профили компании: прямые ссылки на отдельные отзывы не сохранены, поэтому источник требует подтверждения. Каждый отзыв можно найти на площадке по имени автора и дате, указанным в карточке.</p>
 
                     <!-- Grid -->
                     <div id="reviewsGrid">
@@ -398,6 +400,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Авито', '32') ?> Авито</a>
             <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('YouDo', '32') ?> YouDo</a>
             <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Профи.ру', '32') ?> Профи.ру</a>
+            <a href="https://otzovik.com/reviews/kompaniya_po_remontu_kvartir_proekt_kvartira_russia_moscow/" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Отзовик', '32') ?> Отзовик</a>
         </div>
     </div>
 

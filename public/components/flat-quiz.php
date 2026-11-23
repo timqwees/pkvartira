@@ -14,10 +14,10 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
 ?>
 <section id="quiz" class="py-16 md:py-24 bg-gray-50 reveal <?= htmlspecialchars($quizClass, ENT_QUOTES, 'UTF-8'); ?>" aria-labelledby="quiz-title">
 <style>
-.fq-card { background:#fff; border:1px solid #e5e7eb; border-radius:24px; box-shadow:0 24px 60px -24px rgba(15,23,42,.18); }
-.fq-opt { position:relative; display:flex; gap:.75rem; align-items:flex-start; padding:.9rem 1rem; border:1px solid #e5e7eb; border-radius:16px; cursor:pointer; transition:border-color .18s ease, box-shadow .18s ease, background-color .18s ease; background:#fff; }
-.fq-opt:hover { border-color:#fdba74; box-shadow:0 6px 18px -10px rgba(249,115,22,.35); }
-.fq-opt:has(input:checked) { border-color:#f97316; background:#fff7ed; box-shadow:0 8px 22px -12px rgba(249,115,22,.45); }
+.fq-card { background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%); border:1px solid #e5e7eb; border-radius:28px; box-shadow:0 30px 70px -28px rgba(249,115,22,.25), 0 12px 30px -18px rgba(15,23,42,.12); }
+.fq-opt { position:relative; display:flex; gap:.75rem; align-items:flex-start; padding:1rem 1.1rem; border:1px solid #e5e7eb; border-radius:18px; cursor:pointer; transition:transform .2s cubic-bezier(.2,.8,.4,1), border-color .18s ease, box-shadow .2s ease, background-color .18s ease; background:#fff; }
+.fq-opt:hover { border-color:#fdba74; box-shadow:0 10px 24px -12px rgba(249,115,22,.4); transform:translateY(-2px); }
+.fq-opt:has(input:checked) { border-color:#f97316; background:linear-gradient(135deg,#fff7ed 0%,#ffffff 100%); box-shadow:0 12px 28px -12px rgba(249,115,22,.5); transform:translateY(-2px); }
 .fq-opt:has(input:focus-visible) { outline:2px solid #f97316; outline-offset:2px; }
 .fq-opt input[type=radio]{ position:absolute; opacity:0; width:1px; height:1px; }
 .fq-opt .fq-check { flex:0 0 auto; width:20px; height:20px; border-radius:50%; border:2px solid #cbd5e1; display:inline-flex; align-items:center; justify-content:center; margin-top:1px; transition:all .18s ease; }
@@ -30,14 +30,14 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
 @keyframes fqIn { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform:none;} }
 @media (prefers-reduced-motion: reduce){ .fq-anim{animation:none} .fq-opt{transition:none} }
 .fq-btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:14px; font-weight:700; padding:.9rem 1.5rem; transition:all .18s ease; cursor:pointer; border:1px solid transparent; }
-.fq-btn-primary { background:#f97316; color:#fff; }
-.fq-btn-primary:hover:not(:disabled){ background:#ea580c; }
-.fq-btn-primary:disabled { background:#fed7aa; color:#9a3412; cursor:not-allowed; }
+.fq-btn-primary { background:linear-gradient(135deg,#f97316 0%,#ea580c 100%); color:#fff; box-shadow:0 8px 22px -10px rgba(249,115,22,.5); }
+.fq-btn-primary:hover:not(:disabled){ background:linear-gradient(135deg,#ea580c 0%,#c2410c 100%); transform:translateY(-1px); box-shadow:0 12px 28px -10px rgba(249,115,22,.6); }
+.fq-btn-primary:disabled { background:#fed7aa; color:#9a3412; box-shadow:none; cursor:not-allowed; }
 .fq-btn-ghost { background:#fff; color:#334155; border-color:#e2e8f0; }
 .fq-btn-ghost:hover{ background:#f8fafc; }
 .fq-progress-dot { width:34px; height:34px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; background:#eef2f7; color:#64748b; transition:all .2s ease; }
+.fq-progress-dot.is-current { background:linear-gradient(135deg,#f97316 0%,#ea580c 100%); color:#fff; box-shadow:0 0 0 6px rgba(249,115,22,.15); transform:scale(1.08); }
 .fq-progress-dot.is-done { background:#dcfce7; color:#16a34a; }
-.fq-progress-dot.is-current { background:#f97316; color:#fff; box-shadow:0 0 0 4px rgba(249,115,22,.15); }
 .fq-input { width:100%; border:1px solid #e5e7eb; border-radius:14px; padding:.95rem 1.1rem; font-size:1rem; color:#0f172a; background:#fff; transition:border-color .18s ease, box-shadow .18s ease; }
 .fq-input:focus { outline:none; border-color:#f97316; box-shadow:0 0 0 4px rgba(249,115,22,.12); }
 .fq-thumb { width:52px; height:52px; border-radius:12px; object-fit:cover; flex:0 0 auto; border:1px solid #e5e7eb; }
@@ -58,7 +58,7 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
             </p>
 
             <div class="mt-8 flex items-center gap-4">
-                <img src="<?= $__base; ?>/public/assets/images/about/team/1.jpg" alt="Специалист по обсуждению ремонта" width="64" height="64" loading="lazy" class="w-16 h-16 rounded-2xl object-cover border border-gray-200">
+                <img src="<?= $__base; ?>/public/assets/images/about/team/1.jpg" alt="Специалист по обсуждению ремонта" width="64" height="64" loading="eager" class="w-16 h-16 rounded-2xl object-cover border border-gray-200 shadow-md">
                 <div>
                     <div class="font-bold text-gray-900">Менеджер проектов</div>
                     <div class="text-sm text-gray-500">Подберёт состав работ и ответит на вопросы</div>
@@ -96,7 +96,7 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
                 <div class="text-xs font-semibold text-gray-400" data-fq-counter>Вопрос 1 из 4</div>
             </div>
             <div class="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden mb-6">
-                <div class="h-full bg-orange-500 rounded-full transition-all duration-300" data-fq-bar style="width:25%"></div>
+                <div class="h-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-full transition-all duration-500 ease-out shadow-[0_0_8px_rgba(249,115,22,.4)]" data-fq-bar style="width:25%"></div>
             </div>
 
             <!-- Step 1 -->
@@ -287,7 +287,18 @@ $__base = htmlspecialchars((string) ($site['baseUrl'] ?? ''), ENT_QUOTES, 'UTF-8
     }
 
     form.addEventListener('change', function (e) {
-        if (e.target.matches('input[type=radio]')) refresh();
+        if (e.target.matches('input[type=radio]')) {
+            refresh();
+            // Автопереход после выбора (шаги 1 и 3, а на шаге 2 — если площадь уже указана)
+            if (current === 1 || current === 3) {
+                setTimeout(function () { if (canContinue()) setStep(current + 1); }, 320);
+            } else if (current === 2 && e.target.name === 'Дизайн-проект') {
+                var area = form.querySelector('#fq-area');
+                if (area && area.value.trim()) {
+                    setTimeout(function () { if (canContinue()) setStep(current + 1); }, 320);
+                }
+            }
+        }
     });
     form.addEventListener('input', function (e) {
         if (e.target.id === 'fq-area') refresh();

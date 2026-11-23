@@ -115,29 +115,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </p>
                         </div>
 
-                        <!-- Messengers -->
-                        <div class="mb-8">
-                            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                                <i class="fas fa-comment-dots text-blue-600 mr-3"></i>Мессенджеры
-                            </h2>
-                            <div class="flex space-x-4 mb-3">
-                                <a href="<?= $site['telegram']; ?>"
-                                    class="text-blue-500 hover:text-blue-700 text-4xl" aria-label="Написать в Telegram" rel="nofollow noopener noreferrer" target="_blank"><i
-                                        class="fab fa-telegram"></i></a>
-                                <a href="<?= $site['whatsapp']; ?>"
-                                    class="text-green-500 hover:text-green-700 text-4xl" aria-label="Написать в WhatsApp" rel="nofollow noopener noreferrer" target="_blank"><i
-                                        class="fab fa-whatsapp"></i></a>
-                                <?php if (!empty($site['max'])): ?>
-                                <a href="<?= $site['max'] ?>"
-                                    class="flex items-center text-gray-600 hover:text-blue-600 transition" aria-label="Написать в MAX">
-                                    <img class="h-9 w-9" src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/icons/MAX.svg') ?>" alt="Logo Max" title="MAX — мессенджер">
-                                </a>
-                                <?php endif; ?>
-                            </div>
-                            <a href="mailto:<?php echo $site['email']; ?>"
-                                class="text-blue-600 hover:underline">Написать нам</a>
-                        </div>
-
                         <!-- Company Details -->
                         <div>
                             <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
@@ -148,42 +125,11 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                 <p class="text-gray-600 mb-2">ИНН: 9719013990</p>
                                 <p class="text-gray-600 mb-2">ОГРН: 1217700135058</p>
                                 <p class="text-gray-600 mb-2">Юридический адрес:
-                                    <?= $site['address']['addressLocality']
-                                        . ', ' . $site['address']['streetAddress'] ?>
-                                </p>
-                                <p class="text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-sm mt-3">
-                                    <i class="fas fa-exclamation-triangle mr-1"></i>Реквизиты уточняются: юридический адрес может отличаться от адреса офиса. Перед подписанием договора запросите актуальную карточку предприятия.
+                                    Московская область, г.о. Ленинский, г. Видное, ул. Олимпийская, д. 6, помещение 46
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Менеджеры (требование чек-листа: отдельные контакты менеджеров) -->
-                        <div class="mt-8">
-                            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                                <i class="fas fa-users text-blue-600 mr-3"></i>Менеджеры проектов
-                            </h2>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/1.jpg') ?>" alt="Владимир Соболев — руководитель сметно-договорного отдела" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
-                                    <div class="min-w-0">
-                                        <div class="font-semibold text-gray-900 text-sm">Владимир Соболев</div>
-                                        <div class="text-xs text-gray-500">Руководитель сметно-договорного отдела, совмещает руководство проектами</div>
-                                        <a href="tel:+74954731737" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-37 доб. 1</a><br>
-                                        <a href="mailto:m1@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m1@pkvartira.ru</a>
-                                    </div>
-                                </div>
-                                <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-                                    <img src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/about/team/2.jpg') ?>" alt="Семён Серебренников — главный инженер" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy">
-                                    <div class="min-w-0">
-                                        <div class="font-semibold text-gray-900 text-sm">Семён Серебренников</div>
-                                        <div class="text-xs text-gray-500">Главный инженер, совмещает функции сметчика и замерщика</div>
-                                        <a href="tel:+74954731738" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-38</a><br>
-                                        <a href="mailto:m2@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m2@pkvartira.ru</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--<p class="text-xs text-gray-500 mt-2">Звоните напрямую — ответим за 5 минут. Бесплатная линия <a href="tel:88003021737" class="text-blue-600 hover:underline">8 800 302-17-37</a></p>-->
-                        </div>
                     </div>
 
                     <!-- Right Column -->
