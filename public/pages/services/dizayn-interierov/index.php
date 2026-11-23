@@ -525,10 +525,6 @@ $prices = [
                         <div class="mt-1 text-sm text-gray-600">Отзывов со ссылками на источники</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3</div>
-                        <div class="mt-1 text-sm text-gray-600">Варианта сметы под бюджет</div>
-                    </div>
-                    <div>
                         <div class="text-3xl md:text-4xl font-extrabold text-orange-600">3 года</div>
                         <div class="mt-1 text-sm text-gray-600">Гарантии на все работы</div>
                     </div>

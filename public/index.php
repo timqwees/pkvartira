@@ -261,11 +261,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                         <div class="stat-number"><span class="counter" data-target="21" data-suffix=""></span></div>
                         <div class="stat-label">Статья в блоге с честными ценами</div>
                     </div>
-                    <div class="stat-card reveal reveal-delay-2">
-                        <div class="stat-icon"><i class="fa-regular fa-file-word"></i></div>
-                        <div class="stat-number"><span class="counter" data-target="3" data-suffix=""></span></div>
-                        <div class="stat-label">Варианта сметы под ваш бюджет</div>
-                    </div>
                     <div class="stat-card reveal reveal-delay-3">
                         <div class="stat-icon"><i class="fa-regular fa-handshake"></i></div>
                         <div class="stat-number"><span class="counter" data-target="3" data-suffix=" года"></span></div>
