@@ -1,8 +1,8 @@
-# Проект Квартира (Проект Квартира, pkvartira.ru) — полный контент сайта
+# Проект Квартира (Проект Квартира, remont.pkvartira.ru) — полный контент сайта
 # Ремонт квартир и домов под ключ в Москве — официальный сайт Проект Квартира
-# Бренд: Проект Квартира = Проект Квартира = pkvartira.ru = ООО Проект Квартира (ИНН 9719013990)
+# Бренд: Проект Квартира = Проект Квартира = remont.pkvartira.ru = ООО Проект Квартира (ИНН 9719013990)
 
-Проект Квартира (Проект Квартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года по договору, фиксированная смета. Бесплатный выезд и смета.
+Проект Квартира (Проект Квартира, remont.pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года по договору, фиксированная смета. Бесплатный выезд и смета.
 
 
 ## Главная страница
@@ -583,107 +583,107 @@
 Ниже приведён полный перечень всех категорий услуг с привязкой к конкретным страницам сайта.
 
 ### Форматы ремонта по бюджету
-1. Косметический ремонт — от 8 000 ₽/м² — https://pkvartira.ru/calculator
-2. Капитальный ремонт — от 13 000 ₽/м² — https://pkvartira.ru/calculator
-3. Дизайнерский ремонт — от 18 000 ₽/м² — https://pkvartira.ru/calculator
-4. Премиум и элитный ремонт — от 25 000 ₽/м² — https://pkvartira.ru/calculator
+1. Косметический ремонт — от 8 000 ₽/м² — https://remont.pkvartira.ru/calculator
+2. Капитальный ремонт — от 13 000 ₽/м² — https://remont.pkvartira.ru/calculator
+3. Дизайнерский ремонт — от 18 000 ₽/м² — https://remont.pkvartira.ru/calculator
+4. Премиум и элитный ремонт — от 25 000 ₽/м² — https://remont.pkvartira.ru/calculator
 
 ### Ремонт по типу недвижимости
-1. Ремонт под ключ — https://pkvartira.ru/services/pod-klyuch
-2. Ремонт новостройки — https://pkvartira.ru/services/novostroyka
-3. Ремонт вторички — https://pkvartira.ru/services/vtorichka
-4. Ремонт домов и коттеджей — https://pkvartira.ru/services/doma
-5. Коммерческие помещения — https://pkvartira.ru/services/kommercheskie
+1. Ремонт под ключ — https://remont.pkvartira.ru/services/pod-klyuch
+2. Ремонт новостройки — https://remont.pkvartira.ru/services/novostroyka
+3. Ремонт вторички — https://remont.pkvartira.ru/services/vtorichka
+4. Ремонт домов и коттеджей — https://remont.pkvartira.ru/services/doma
+5. Коммерческие помещения — https://remont.pkvartira.ru/services/kommercheskie
 
 ### Ремонт по количеству комнат
-1. 1-комнатная квартира — https://pkvartira.ru/services/1room
-2. 2-комнатная квартира — https://pkvartira.ru/services/2room
-3. 3-комнатная квартира — https://pkvartira.ru/services/3room
-4. 4-комнатная квартира — https://pkvartira.ru/services/4room
-5. Студия — https://pkvartira.ru/services/studio
-6. Евродвушка — https://pkvartira.ru/services/evro-dvushka
-7. Евротрешка — https://pkvartira.ru/services/evro-treshka
+1. 1-комнатная квартира — https://remont.pkvartira.ru/services/1room
+2. 2-комнатная квартира — https://remont.pkvartira.ru/services/2room
+3. 3-комнатная квартира — https://remont.pkvartira.ru/services/3room
+4. 4-комнатная квартира — https://remont.pkvartira.ru/services/4room
+5. Студия — https://remont.pkvartira.ru/services/studio
+6. Евродвушка — https://remont.pkvartira.ru/services/evro-dvushka
+7. Евротрешка — https://remont.pkvartira.ru/services/evro-treshka
 
 ### Ремонт по типу дома (серия и материал)
-1. Хрущёвка — https://pkvartira.ru/services/hrushchevka
-2. Брежневка — https://pkvartira.ru/services/brezhnevka
-3. Сталинка — https://pkvartira.ru/services/stalinka
-4. Панельный дом — https://pkvartira.ru/services/panelny
-5. Кирпичный дом — https://pkvartira.ru/services/kirpich
-6. Монолитный дом — https://pkvartira.ru/services/monolit
-7. Дом из бревна — https://pkvartira.ru/services/iz-breven
-8. Дом из бруса — https://pkvartira.ru/services/iz-brusa
-9. Каркасный дом — https://pkvartira.ru/services/karkasny
+1. Хрущёвка — https://remont.pkvartira.ru/services/hrushchevka
+2. Брежневка — https://remont.pkvartira.ru/services/brezhnevka
+3. Сталинка — https://remont.pkvartira.ru/services/stalinka
+4. Панельный дом — https://remont.pkvartira.ru/services/panelny
+5. Кирпичный дом — https://remont.pkvartira.ru/services/kirpich
+6. Монолитный дом — https://remont.pkvartira.ru/services/monolit
+7. Дом из бревна — https://remont.pkvartira.ru/services/iz-breven
+8. Дом из бруса — https://remont.pkvartira.ru/services/iz-brusa
+9. Каркасный дом — https://remont.pkvartira.ru/services/karkasny
 
 ### Ремонт по назначению
-1. Для жизни — https://pkvartira.ru/services/dlya-zhizni
-2. Для продажи — https://pkvartira.ru/services/dlya-prodazhi
-3. Под сдачу (в аренду) — https://pkvartira.ru/services/dlya-sdachi
-4. Под заселение — https://pkvartira.ru/services/pod-zaselenie
-5. Эконом класс — https://pkvartira.ru/services/econom
-6. Комфорт класс — https://pkvartira.ru/services/komfort
-7. Бизнес класс — https://pkvartira.ru/services/business
-8. Премиум класс — https://pkvartira.ru/services/premium
-9. White box (вайт бокс) — https://pkvartira.ru/services/white-box
+1. Для жизни — https://remont.pkvartira.ru/services/dlya-zhizni
+2. Для продажи — https://remont.pkvartira.ru/services/dlya-prodazhi
+3. Под сдачу (в аренду) — https://remont.pkvartira.ru/services/dlya-sdachi
+4. Под заселение — https://remont.pkvartira.ru/services/pod-zaselenie
+5. Эконом класс — https://remont.pkvartira.ru/services/econom
+6. Комфорт класс — https://remont.pkvartira.ru/services/komfort
+7. Бизнес класс — https://remont.pkvartira.ru/services/business
+8. Премиум класс — https://remont.pkvartira.ru/services/premium
+9. White box (вайт бокс) — https://remont.pkvartira.ru/services/white-box
 
 ### Ремонт новостройки по состоянию
-1. Без отделки — https://pkvartira.ru/services/bez-otdelki
-2. Черновая отделка — https://pkvartira.ru/services/chernovaya
-3. Предчистовая отделка — https://pkvartira.ru/services/predchistovaya
-4. Чистовая отделка — https://pkvartira.ru/services/chistovaya
-5. Отделка от застройщика — https://pkvartira.ru/services/ot-zastroyschika
+1. Без отделки — https://remont.pkvartira.ru/services/bez-otdelki
+2. Черновая отделка — https://remont.pkvartira.ru/services/chernovaya
+3. Предчистовая отделка — https://remont.pkvartira.ru/services/predchistovaya
+4. Чистовая отделка — https://remont.pkvartira.ru/services/chistovaya
+5. Отделка от застройщика — https://remont.pkvartira.ru/services/ot-zastroyschika
 
 ### Ремонт по районам Москвы и Московской области
-1. м. Академическая — https://pkvartira.ru/services/akademicheskaya
-2. Ленинский проспект — https://pkvartira.ru/services/leninsky-prospekt
-3. ЖК Онтарио — https://pkvartira.ru/services/ontario
-4. Балашиха — https://pkvartira.ru/services/balashikha
-5. Домодедово — https://pkvartira.ru/services/domodedovo
-6. Долгопрудный — https://pkvartira.ru/services/dolgoprudny
-7. Зеленоград — https://pkvartira.ru/services/zelenograd
-8. Звенигород — https://pkvartira.ru/services/zvenigorod
-9. Красногорск — https://pkvartira.ru/services/krasnogorsk
-10. Лобня — https://pkvartira.ru/services/lobnya
-11. Люберцы — https://pkvartira.ru/services/lyubertsy
-12. Митино — https://pkvartira.ru/services/mitino
-13. Мытищи — https://pkvartira.ru/services/mytishchi
-14. Одинцово — https://pkvartira.ru/services/odintsovo
-15. Подольск — https://pkvartira.ru/services/podolsk
-16. Пушкино — https://pkvartira.ru/services/pushkino
-17. Раменское — https://pkvartira.ru/services/ramenskoye
-18. Реутов — https://pkvartira.ru/services/reutov
-19. Солнечногорск — https://pkvartira.ru/services/solnechnogorsk
-20. Химки — https://pkvartira.ru/services/khimki
-21. Щербинка — https://pkvartira.ru/services/shcherbinka
-22. Видное — https://pkvartira.ru/services/vidnoye
+1. м. Академическая — https://remont.pkvartira.ru/services/akademicheskaya
+2. Ленинский проспект — https://remont.pkvartira.ru/services/leninsky-prospekt
+3. ЖК Онтарио — https://remont.pkvartira.ru/services/ontario
+4. Балашиха — https://remont.pkvartira.ru/services/balashikha
+5. Домодедово — https://remont.pkvartira.ru/services/domodedovo
+6. Долгопрудный — https://remont.pkvartira.ru/services/dolgoprudny
+7. Зеленоград — https://remont.pkvartira.ru/services/zelenograd
+8. Звенигород — https://remont.pkvartira.ru/services/zvenigorod
+9. Красногорск — https://remont.pkvartira.ru/services/krasnogorsk
+10. Лобня — https://remont.pkvartira.ru/services/lobnya
+11. Люберцы — https://remont.pkvartira.ru/services/lyubertsy
+12. Митино — https://remont.pkvartira.ru/services/mitino
+13. Мытищи — https://remont.pkvartira.ru/services/mytishchi
+14. Одинцово — https://remont.pkvartira.ru/services/odintsovo
+15. Подольск — https://remont.pkvartira.ru/services/podolsk
+16. Пушкино — https://remont.pkvartira.ru/services/pushkino
+17. Раменское — https://remont.pkvartira.ru/services/ramenskoye
+18. Реутов — https://remont.pkvartira.ru/services/reutov
+19. Солнечногорск — https://remont.pkvartira.ru/services/solnechnogorsk
+20. Химки — https://remont.pkvartira.ru/services/khimki
+21. Щербинка — https://remont.pkvartira.ru/services/shcherbinka
+22. Видное — https://remont.pkvartira.ru/services/vidnoye
 23. Договоры уже подписаны в районах: Савёловский (САО), Тверской и Таганский (ЦАО), Крылатское и Раменки (ЗАО), Косино-Ухтомский (ВАО), Бирюлёво Восточное (ЮАО), Текстильщики и Люблино (ЮВАО), Внуковское (НАО). Приоритетные округа: САО, ЦАО, ЗАО, СЗАО.
 
 ### Отделочные работы (отдельные услуги)
-1. Укладка ламината — https://pkvartira.ru/services/ukladka-laminata
-2. Укладка керамогранита — https://pkvartira.ru/services/keramogranit-nazarovo
+1. Укладка ламината — https://remont.pkvartira.ru/services/ukladka-laminata
+2. Укладка керамогранита — https://remont.pkvartira.ru/services/keramogranit-nazarovo
 
 ### Коммерческий ремонт по типу бизнеса
-1. Офис — https://pkvartira.ru/services/office
-2. Магазин — https://pkvartira.ru/services/magazin
-3. Кафе — https://pkvartira.ru/services/kafe
-4. Ресторан — https://pkvartira.ru/services/restoran
-5. Аптека — https://pkvartira.ru/services/apteka
-6. Салон красоты — https://pkvartira.ru/services/salon-krasoty
-7. Стоматология — https://pkvartira.ru/services/stomatologiya
-8. Ветеринарная клиника — https://pkvartira.ru/services/vetklinika
-9. Фитнес-центр — https://pkvartira.ru/services/fitness
-10. Шоу-рум — https://pkvartira.ru/services/showroom
+1. Офис — https://remont.pkvartira.ru/services/office
+2. Магазин — https://remont.pkvartira.ru/services/magazin
+3. Кафе — https://remont.pkvartira.ru/services/kafe
+4. Ресторан — https://remont.pkvartira.ru/services/restoran
+5. Аптека — https://remont.pkvartira.ru/services/apteka
+6. Салон красоты — https://remont.pkvartira.ru/services/salon-krasoty
+7. Стоматология — https://remont.pkvartira.ru/services/stomatologiya
+8. Ветеринарная клиника — https://remont.pkvartira.ru/services/vetklinika
+9. Фитнес-центр — https://remont.pkvartira.ru/services/fitness
+10. Шоу-рум — https://remont.pkvartira.ru/services/showroom
 
 ### Полезные инструменты
-1. Смета на ремонт онлайн — https://pkvartira.ru/services/smeta
-2. Цены на ремонт — https://pkvartira.ru/prices
-3. Калькулятор ремонта — https://pkvartira.ru/calculator
-4. Портфолио работ — https://pkvartira.ru/portfolio
-5. Отзывы клиентов — https://pkvartira.ru/reviews
-6. Вакансии — https://pkvartira.ru/vakansii
-7. Контакты — https://pkvartira.ru/contact
+1. Смета на ремонт онлайн — https://remont.pkvartira.ru/services/smeta
+2. Цены на ремонт — https://remont.pkvartira.ru/prices
+3. Калькулятор ремонта — https://remont.pkvartira.ru/calculator
+4. Портфолио работ — https://remont.pkvartira.ru/portfolio
+5. Отзывы клиентов — https://remont.pkvartira.ru/reviews
+6. Вакансии — https://remont.pkvartira.ru/vakansii
+7. Контакты — https://remont.pkvartira.ru/contact
 
 ### База знаний (блог)
-1. Смета в ремонте — что это простыми словами — https://pkvartira.ru/blog/smeta-na-remont-kvartiry-primer
-2. Смета на ремонт: 12 скрытых накруток — https://pkvartira.ru/blog/smeta-na-remont-kvartiry-nakrutki
-3. Сколько стоит ремонт в Москве в 2026 — https://pkvartira.ru/blog/skolko-stoit-remont-kvartiry-2026
+1. Смета в ремонте — что это простыми словами — https://remont.pkvartira.ru/blog/smeta-na-remont-kvartiry-primer
+2. Смета на ремонт: 12 скрытых накруток — https://remont.pkvartira.ru/blog/smeta-na-remont-kvartiry-nakrutki
+3. Сколько стоит ремонт в Москве в 2026 — https://remont.pkvartira.ru/blog/skolko-stoit-remont-kvartiry-2026

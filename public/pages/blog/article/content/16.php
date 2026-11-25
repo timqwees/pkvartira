@@ -195,7 +195,7 @@
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Где взять бланк акта?</span>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <span itemprop="text">В разделе договор/акты на remont.pkvartira.ru или напишите нам в Telegram.</span>
+                <span itemprop="text">В разделе договор/акты на remont.remont.pkvartira.ru или напишите нам в Telegram.</span>
             </div>
         </div>
     </div>

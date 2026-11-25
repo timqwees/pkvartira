@@ -2,18 +2,18 @@
   "schema_version": "v1",
   "name_for_model": "pkvartira",
   "name_for_human": "Проект Квартира (Проект Квартира)",
-  "description_for_model": "Проект Квартира (Проект Квартира, remont.pkvartira.ru) — ремонт квартир и домов под ключ в Москве. Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года. 21 статья в блоге о ремонте, сметы, материалы, цены 2026.",
+  "description_for_model": "Проект Квартира (Проект Квартира, remont.remont.pkvartira.ru) — ремонт квартир и домов под ключ в Москве. Цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года. 21 статья в блоге о ремонте, сметы, материалы, цены 2026.",
   "description_for_human": "Ремонт квартир под ключ в Москве — цены, калькулятор, портфолио, блог.",
   "auth": { "type": "none" },
   "api": {
     "type": "openapi",
-    "url": "https://remont.pkvartira.ru/openapi.yaml"
+    "url": "https://remont.remont.pkvartira.ru/openapi.yaml"
   },
-  "llms_txt": "https://remont.pkvartira.ru/llms.txt",
-  "llms_full": "https://remont.pkvartira.ru/llms-full.txt",
-  "logo_url": "https://remont.pkvartira.ru/public/assets/images/logo/favicon/favicon-96x96.png",
-  "contact_email": "info@remont.pkvartira.ru",
-  "legal_info_url": "https://remont.pkvartira.ru/soglashenie",
+  "llms_txt": "https://remont.remont.pkvartira.ru/llms.txt",
+  "llms_full": "https://remont.remont.pkvartira.ru/llms-full.txt",
+  "logo_url": "https://remont.remont.pkvartira.ru/public/assets/images/logo/favicon/favicon-96x96.png",
+  "contact_email": "info@remont.remont.pkvartira.ru",
+  "legal_info_url": "https://remont.remont.pkvartira.ru/soglashenie",
   "functions": [
     {
       "name": "search_articles",

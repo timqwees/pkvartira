@@ -4,11 +4,11 @@
 //   php tools/indexnow.php                — отправить все страницы услуг + главные
 //   php tools/indexnow.php urls.txt       — отправить URL из файла (по одному на строке)
 //
-// Требуется: файл ключа в корне сайта (https://remont.pkvartira.ru/<key>.txt),
+// Требуется: файл ключа в корне сайта (https://remont.remont.pkvartira.ru/<key>.txt),
 // ключ ниже должен совпадать с именем файла.
 
 const INDEXNOW_KEY = '769e1df8217a98f76286a4d39b571085';
-const INDEXNOW_HOST = 'remont.pkvartira.ru';
+const INDEXNOW_HOST = 'remont.remont.pkvartira.ru';
 const INDEXNOW_ENDPOINTS = [
     'https://www.bing.com/indexnow',
     'https://yandex.com/indexnow',
@@ -16,7 +16,7 @@ const INDEXNOW_ENDPOINTS = [
 
 function collectServiceUrls(): array
 {
-    $urls = ['https://remont.pkvartira.ru/'];
+    $urls = ['https://remont.remont.pkvartira.ru/'];
     $dir = dirname(__DIR__) . '/public/pages';
     foreach (new DirectoryIterator($dir) as $section) {
         if ($section->isDot() || !$section->isDir()) {
@@ -29,13 +29,13 @@ function collectServiceUrls(): array
                     continue;
                 }
                 if (is_file($page->getPathname() . '/index.php')) {
-                    $urls[] = 'https://remont.pkvartira.ru/services/' . $page->getFilename();
+                    $urls[] = 'https://remont.remont.pkvartira.ru/services/' . $page->getFilename();
                 }
             }
             continue;
         }
         if (is_file($sectionPath . '/index.php')) {
-            $urls[] = 'https://remont.pkvartira.ru/' . $section->getFilename();
+            $urls[] = 'https://remont.remont.pkvartira.ru/' . $section->getFilename();
         }
     }
     sort($urls);
@@ -52,7 +52,7 @@ if (isset($argv[1]) && is_file($argv[1])) {
 $payload = json_encode([
     'host' => INDEXNOW_HOST,
     'key' => INDEXNOW_KEY,
-    'keyLocation' => 'https://remont.pkvartira.ru/' . INDEXNOW_KEY . '.txt',
+    'keyLocation' => 'https://remont.remont.pkvartira.ru/' . INDEXNOW_KEY . '.txt',
     'urlList' => $urls,
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
@@ -72,4 +72,4 @@ foreach (INDEXNOW_ENDPOINTS as $endpoint) {
     curl_close($ch);
     echo $endpoint . ' -> HTTP ' . $code . ($err ? " ($err)" : '') . PHP_EOL;
 }
-echo "OK: 202 = принято. Проверьте файл ключа: https://remont.pkvartira.ru/" . INDEXNOW_KEY . ".txt" . PHP_EOL;
+echo "OK: 202 = принято. Проверьте файл ключа: https://remont.remont.pkvartira.ru/" . INDEXNOW_KEY . ".txt" . PHP_EOL;

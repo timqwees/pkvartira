@@ -24,8 +24,8 @@ foreach (array_slice($__topReviews, 0, 3) as $r) {
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8000 ₽/м²',
-    'description' => 'Проект Квартира (remont.pkvartira.ru) — официальный сайт. Ремонт под ключ в Москве: цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.',
-    'keywords' => 'Проект Квартира, Проект Квартира, pkvartira, remont.pkvartira.ru, Проект Квартира официальный сайт, Проект Квартира официальный сайт, remont.pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, Проект Квартира отзывы, Проект Квартира ремонт, Проект Квартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проект квартира, Проект Квартира',
+    'description' => 'Проект Квартира (remont.remont.pkvartira.ru) — официальный сайт. Ремонт под ключ в Москве: цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.',
+    'keywords' => 'Проект Квартира, Проект Квартира, pkvartira, remont.remont.pkvartira.ru, Проект Квартира официальный сайт, Проект Квартира официальный сайт, remont.remont.pkvartira.ru официальный сайт, Проект Квартира Москва, ООО Проект Квартира, Проект Квартира отзывы, Проект Квартира отзывы, Проект Квартира ремонт, Проект Квартира ремонт квартир, ремонт квартир Москва Проект Квартира, ПроектКвартира, проект квартира, Проект Квартира',
     'image' => $site['baseUrl'] . '/public/assets/images/pages/main/hero/og-home-1200x630.jpg',
     'url' => $site['canonicalUrl'],
     'type' => 'website',
@@ -122,7 +122,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             Приедем на замер в день обращения. Составим <strong class="text-orange-500">смету под ваш бюджет</strong> за 24 часа. Начнём в
                             ближайшие <strong class="text-orange-500">дни</strong> — точную дату зафиксируем в договоре
                         </p>
-                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (Проект Квартира) — <span class="text-orange-300">remont.pkvartira.ru</span> • ООО «Проект Квартира»</p>
+                        <p class="text-sm text-white/80 mb-4">Ремонт квартир под ключ от компании <strong class="text-white">Проект Квартира</strong> (Проект Квартира) — <span class="text-orange-300">remont.remont.pkvartira.ru</span> • ООО «Проект Квартира»</p>
 
                         <div class="flex items-center flex-wrap gap-3 mb-6">
                             <button data-button-dialog
@@ -1486,27 +1486,27 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         </section>
 
         <!-- SEO Бренд-блок: «Проект Квартира» (для брендовых запросов) -->
-        <section class="py-10 bg-white border-t border-gray-100" aria-label="О бренде Проект Квартира — официальный сайт remont.pkvartira.ru" itemscope itemtype="https://schema.org/Organization">
+        <section class="py-10 bg-white border-t border-gray-100" aria-label="О бренде Проект Квартира — официальный сайт remont.remont.pkvartira.ru" itemscope itemtype="https://schema.org/Organization">
             <div class="container mx-auto px-4 max-w-5xl">
-                <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center" itemprop="name">Проект Квартира — Проект Квартира (remont.pkvartira.ru) — официальный сайт</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center" itemprop="name">Проект Квартира — Проект Квартира (remont.remont.pkvartira.ru) — официальный сайт</h2>
                 <meta itemprop="alternateName" content="Проект Квартира">
-                <meta itemprop="alternateName" content="remont.pkvartira.ru">
+                <meta itemprop="alternateName" content="remont.remont.pkvartira.ru">
                 <meta itemprop="alternateName" content="pkvartira">
                 <meta itemprop="alternateName" content="ООО Проект Квартира">
                 <meta itemprop="url" content="<?= htmlspecialchars($site['baseUrl']) ?>">
                 <link itemprop="logo" href="<?= htmlspecialchars($site['baseUrl']) ?>/public/assets/images/logo/favicon/favicon.svg">
                 <p class="mt-3 text-sm md:text-base text-gray-600 leading-relaxed text-center">
-                    <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>Проект Квартира</strong> — сокращённое наименование и домен <strong>remont.pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
-                    Нас находят по запросам: <em>Проект Квартира официальный сайт, Проект Квартира официальный сайт, remont.pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, Проект Квартира отзывы, pkvartira отзывы, Проект Квартира ремонт, Проект Квартира ремонт квартир, remont.pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
+                    <strong itemprop="brand">Проект Квартира</strong> — официальное название компании, <strong>Проект Квартира</strong> — сокращённое наименование и домен <strong>remont.remont.pkvartira.ru</strong> (также ищут как <strong>pkvartira</strong>, <strong>ПроектКвартира</strong>, <strong>Proekt Kvartira</strong>).
+                    Нас находят по запросам: <em>Проект Квартира официальный сайт, Проект Квартира официальный сайт, remont.remont.pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, Проект Квартира отзывы, pkvartira отзывы, Проект Квартира ремонт, Проект Квартира ремонт квартир, remont.remont.pkvartira.ru ремонт квартир, ООО Проект Квартира, ПроектКвартира</em>.
                     Мы — ООО «Проект Квартира»: делаем ремонт квартир и домов под ключ в Москве и Подмосковье, гарантия 3 года, фиксированная смета.
                     Забронируйте бесплатный замер — убедитесь, что выбрали профессионалов <strong>Проект Квартира</strong>.
                 </p>
-                <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">remont.pkvartira.ru</a> • ООО «Проект Квартира»</p>
+                <p class="mt-2 text-xs text-gray-500 text-center">Официальный сайт — <a href="<?= htmlspecialchars($site['baseUrl']) ?>/" class="text-orange-600 underline hover:text-orange-700">remont.remont.pkvartira.ru</a> • ООО «Проект Квартира»</p>
                 <p class="mt-3 text-xs text-gray-400 text-center">
                     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand">
                         <span itemprop="name">Проект Квартира</span> |
                         <span itemprop="alternateName">Проект Квартира</span> |
-                        <span itemprop="alternateName">remont.pkvartira.ru</span> |
+                        <span itemprop="alternateName">remont.remont.pkvartira.ru</span> |
                         <span itemprop="alternateName">ООО Проект Квартира</span>
                     </span>
                     — ИНН 9719013990, ОГРН 1217700135058, адрес: <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">Москва, Варшавское ш., д. 28А</span></span> • Тел. <a href="tel:+74954731737" class="text-gray-500 underline hover:text-orange-600" itemprop="telephone">+7 495 473-17-37</a>
@@ -1522,22 +1522,22 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Где официальный сайт Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира — https://remont.pkvartira.ru. Единственное официальное зеркало — remont.pkvartira.ru. Проверяйте домен, чтобы не попасть к мошенникам."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Официальный сайт компании Проект Квартира — https://remont.remont.pkvartira.ru. Единственное официальное зеркало — remont.remont.pkvartira.ru. Проверяйте домен, чтобы не попасть к мошенникам."}
             },
             {
               "@type": "Question",
               "name": "Как правильно называется компания: Проект Квартира или Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Официальное название — Проект Квартира (ООО «Проект Квартира»). Сокращённо — Проект Квартира, латиницей — pkvartira, домен — remont.pkvartira.ru, транслитом — Proekt Kvartira. Все варианты относятся к одной компании."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Официальное название — Проект Квартира (ООО «Проект Квартира»). Сокращённо — Проект Квартира, латиницей — pkvartira, домен — remont.remont.pkvartira.ru, транслитом — Proekt Kvartira. Все варианты относятся к одной компании."}
             },
             {
               "@type": "Question",
-              "name": "Что такое Проект Квартира (remont.pkvartira.ru)?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Проект Квартира — бренд ООО «Проект Квартира» (ОГРН 1217700135058), официальный сайт remont.pkvartira.ru. Ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета."}
+              "name": "Что такое Проект Квартира (remont.remont.pkvartira.ru)?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Проект Квартира — бренд ООО «Проект Квартира» (ОГРН 1217700135058), официальный сайт remont.remont.pkvartira.ru. Ремонт квартир и домов под ключ в Москве и Подмосковье. Гарантия 3 года, фиксированная смета."}
             },
             {
               "@type": "Question",
               "name": "Как найти отзывы о Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира — на странице https://remont.pkvartira.ru/reviews, а также на Яндекс Картах и 2ГИС. Ищите по запросам: Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира — на странице https://remont.remont.pkvartira.ru/reviews, а также на Яндекс Картах и 2ГИС. Ищите по запросам: Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
             }
           ]
         }

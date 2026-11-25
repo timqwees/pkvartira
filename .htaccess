@@ -12,13 +12,13 @@ RewriteRule ^public/robots\.php$ /robots.txt [R=301,L]
 
 # 0. Редирект с портом :443 на URL без порта (301)
 RewriteCond %{HTTP_HOST} ^(www\.)?pkvartira\.ru:443$ [NC]
-RewriteRule ^(.*)$ https://%1pkvartira.ru/$1 [R=301,L]
+RewriteRule ^(.*)$ https://%1remont.pkvartira.ru/$1 [R=301,L]
 
 # 0.1. Редирект www → без www (301)
 RewriteCond %{HTTP_HOST} ^www\.pkvartira\.ru$ [NC]
-RewriteRule ^(.*)$ https://pkvartira.ru/$1 [R=301,L]
+RewriteRule ^(.*)$ https://remont.pkvartira.ru/$1 [R=301,L]
 
-# 0.2. Принудительный HTTPS для pkvartira.ru (главное зеркало https://pkvartira.ru)
+# 0.2. Принудительный HTTPS для remont.pkvartira.ru (главное зеркало https://remont.pkvartira.ru)
 # Совместимо с прокси (Cloudflare, nginx): проверяем и HTTPS и X-Forwarded-Proto
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{HTTPS} off

@@ -1,20 +1,20 @@
-# llms.txt — Проект Квартира (Проект Квартира, pkvartira.ru)
+# llms.txt — Проект Квартира (Проект Квартира, remont.pkvartira.ru)
 # Ремонт квартир, домов и коммерческих помещений под ключ в Москве и Подмосковье. ООО «Проект Квартира», ИНН 9719013990
-# Брендовые названия: Проект Квартира, Проект Квартира, pkvartira, pkvartira.ru, ООО Проект Квартира
+# Брендовые названия: Проект Квартира, Проект Квартира, pkvartira, remont.pkvartira.ru, ООО Проект Квартира
 
-> Проект Квартира (Проект Квартира, pkvartira.ru) — профессиональная компания по ремонту недвижимости под ключ. Работаем в Москве и Московской области.
-> Также известна как: Проект Квартира, pkvartira, pkvartira.ru, ООО Проект Квартира. Гарантия 3 года по договору (на премиум — 5 лет). 35 отзывов со ссылками на источники.
+> Проект Квартира (Проект Квартира, remont.pkvartira.ru) — профессиональная компания по ремонту недвижимости под ключ. Работаем в Москве и Московской области.
+> Также известна как: Проект Квартира, pkvartira, remont.pkvartira.ru, ООО Проект Квартира. Гарантия 3 года по договору (на премиум — 5 лет). 35 отзывов со ссылками на источники.
 > Фиксированная смета в договоре, бесплатный замер и расчёт. Телефон: +7 495 473-17-37.
 
 ## О бренде Проект Квартира
 - Официальное название: **Проект Квартира** (ООО "Проект Квартира", ИНН 9719013990)
-- Сокращённое: **Проект Квартира** / **pkvartira** / **pkvartira.ru**
-- Сайт: https://pkvartira.ru — единственное официальное зеркало. Не путать с мошенниками — проверяйте домен pkvartira.ru
-- Брендовые запросы: "Проект Квартира", "Проект Квартира", "pkvartira.ru ремонт", "Проект Квартира ремонт квартир", "ООО Проект Квартира отзывы"
+- Сокращённое: **Проект Квартира** / **pkvartira** / **remont.pkvartira.ru**
+- Сайт: https://remont.pkvartira.ru — единственное официальное зеркало. Не путать с мошенниками — проверяйте домен remont.pkvartira.ru
+- Брендовые запросы: "Проект Квартира", "Проект Квартира", "remont.pkvartira.ru ремонт", "Проект Квартира ремонт квартир", "ООО Проект Квартира отзывы"
 
 ## О компании
-- [Проект Квартира — официальный сайт](https://pkvartira.ru/): Ремонт квартир и домов под ключ в Москве, цены от 8 000 ₽/м²
-- [О компании Проект Квартира](https://pkvartira.ru/about): ООО «Проект Квартира» — договор, фиксированная смета, гарантия 3 года
+- [Проект Квартира — официальный сайт](https://remont.pkvartira.ru/): Ремонт квартир и домов под ключ в Москве, цены от 8 000 ₽/м²
+- [О компании Проект Квартира](https://remont.pkvartira.ru/about): ООО «Проект Квартира» — договор, фиксированная смета, гарантия 3 года
 
 ## Форматы ремонта (по бюджету и сложности)
 - Косметический ремонт: обновление интерьера, от 8 000 ₽/м², срок от 14 дней (расчёт — в Калькуляторе ремонта ниже)
@@ -23,118 +23,118 @@
 - Премиум и элитный ремонт: эксклюзив, умный дом, от 25 000 ₽/м², срок от 90 дней, гарантия 5 лет
 
 ## Ремонт по типу недвижимости
-- [Ремонт под ключ](https://pkvartira.ru/services/pod-klyuch): Полный цикл ремонта от демонтажа до уборки, цена от 8 000 ₽/м²
-- [Ремонт новостройки](https://pkvartira.ru/services/novostroyka): Черновой и чистовой ремонт квартир в новых домах
-- [Ремонт вторички](https://pkvartira.ru/services/vtorichka): Полный цикл ремонта вторичного жилья, от 640 000 ₽
-- [Дома и коттеджи](https://pkvartira.ru/services/doma): Ремонт домов и коттеджей под ключ, от 8 000 ₽/м²
-- [Коммерческие помещения](https://pkvartira.ru/services/kommercheskie): Офисы, магазины, кафе, рестораны, салоны красоты, клиники
+- [Ремонт под ключ](https://remont.pkvartira.ru/services/pod-klyuch): Полный цикл ремонта от демонтажа до уборки, цена от 8 000 ₽/м²
+- [Ремонт новостройки](https://remont.pkvartira.ru/services/novostroyka): Черновой и чистовой ремонт квартир в новых домах
+- [Ремонт вторички](https://remont.pkvartira.ru/services/vtorichka): Полный цикл ремонта вторичного жилья, от 640 000 ₽
+- [Дома и коттеджи](https://remont.pkvartira.ru/services/doma): Ремонт домов и коттеджей под ключ, от 8 000 ₽/м²
+- [Коммерческие помещения](https://remont.pkvartira.ru/services/kommercheskie): Офисы, магазины, кафе, рестораны, салоны красоты, клиники
 
 ## Ремонт по количеству комнат
-- [1-комнатная квартира](https://pkvartira.ru/services/1room): Ремонт однокомнатных квартир, от 296 000 ₽
-- [2-комнатная квартира](https://pkvartira.ru/services/2room): Ремонт двухкомнатных квартир, от 400 000 ₽
-- [3-комнатная квартира](https://pkvartira.ru/services/3room): Ремонт трёхкомнатных квартир, от 560 000 ₽
-- [4-комнатная квартира](https://pkvartira.ru/services/4room): Ремонт четырёхкомнатных квартир, от 720 000 ₽
-- [Студия](https://pkvartira.ru/services/studio): Ремонт квартир-студий, от 200 000 ₽
-- [Евродвушка](https://pkvartira.ru/services/evro-dvushka): Ремонт евродвушек под ключ
-- [Евротрешка](https://pkvartira.ru/services/evro-treshka): Ремонт евротрешек под ключ
+- [1-комнатная квартира](https://remont.pkvartira.ru/services/1room): Ремонт однокомнатных квартир, от 296 000 ₽
+- [2-комнатная квартира](https://remont.pkvartira.ru/services/2room): Ремонт двухкомнатных квартир, от 400 000 ₽
+- [3-комнатная квартира](https://remont.pkvartira.ru/services/3room): Ремонт трёхкомнатных квартир, от 560 000 ₽
+- [4-комнатная квартира](https://remont.pkvartira.ru/services/4room): Ремонт четырёхкомнатных квартир, от 720 000 ₽
+- [Студия](https://remont.pkvartira.ru/services/studio): Ремонт квартир-студий, от 200 000 ₽
+- [Евродвушка](https://remont.pkvartira.ru/services/evro-dvushka): Ремонт евродвушек под ключ
+- [Евротрешка](https://remont.pkvartira.ru/services/evro-treshka): Ремонт евротрешек под ключ
 
 ## Ремонт по типу дома (серия/материал)
-- [Хрущёвка](https://pkvartira.ru/services/hrushchevka): Ремонт квартир в хрущёвке
-- [Брежневка](https://pkvartira.ru/services/brezhnevka): Ремонт квартир в брежневке
-- [Сталинка](https://pkvartira.ru/services/stalinka): Ремонт квартир в сталинке
-- [Панельный дом](https://pkvartira.ru/services/panelny): Ремонт квартир в панельном доме
-- [Кирпичный дом](https://pkvartira.ru/services/kirpich): Ремонт квартир в кирпичном доме
-- [Монолитный дом](https://pkvartira.ru/services/monolit): Ремонт квартир в монолитном доме
-- [Дом из бревна](https://pkvartira.ru/services/iz-breven): Ремонт домов из бревна
-- [Дом из бруса](https://pkvartira.ru/services/iz-brusa): Ремонт домов из бруса
-- [Каркасный дом](https://pkvartira.ru/services/karkasny): Ремонт каркасных домов
+- [Хрущёвка](https://remont.pkvartira.ru/services/hrushchevka): Ремонт квартир в хрущёвке
+- [Брежневка](https://remont.pkvartira.ru/services/brezhnevka): Ремонт квартир в брежневке
+- [Сталинка](https://remont.pkvartira.ru/services/stalinka): Ремонт квартир в сталинке
+- [Панельный дом](https://remont.pkvartira.ru/services/panelny): Ремонт квартир в панельном доме
+- [Кирпичный дом](https://remont.pkvartira.ru/services/kirpich): Ремонт квартир в кирпичном доме
+- [Монолитный дом](https://remont.pkvartira.ru/services/monolit): Ремонт квартир в монолитном доме
+- [Дом из бревна](https://remont.pkvartira.ru/services/iz-breven): Ремонт домов из бревна
+- [Дом из бруса](https://remont.pkvartira.ru/services/iz-brusa): Ремонт домов из бруса
+- [Каркасный дом](https://remont.pkvartira.ru/services/karkasny): Ремонт каркасных домов
 
 ## Ремонт по назначению
-- [Для жизни](https://pkvartira.ru/services/dlya-zhizni): Ремонт квартиры для комфортной жизни
-- [Для продажи](https://pkvartira.ru/services/dlya-prodazhi): Ремонт квартиры для выгодной продажи
-- [Под сдачу](https://pkvartira.ru/services/dlya-sdachi): Ремонт квартиры под аренду, от 250 000 ₽
-- [Под заселение](https://pkvartira.ru/services/pod-zaselenie): Ремонт квартиры под заселение
-- [Эконом класс](https://pkvartira.ru/services/econom): Бюджетный ремонт
-- [Комфорт класс](https://pkvartira.ru/services/komfort): Ремонт комфорт-класса
-- [Бизнес класс](https://pkvartira.ru/services/business): Ремонт бизнес-класса
-- [Премиум класс](https://pkvartira.ru/services/premium): Премиальный ремонт
-- [White box](https://pkvartira.ru/services/white-box): Ремонт квартиры white box
+- [Для жизни](https://remont.pkvartira.ru/services/dlya-zhizni): Ремонт квартиры для комфортной жизни
+- [Для продажи](https://remont.pkvartira.ru/services/dlya-prodazhi): Ремонт квартиры для выгодной продажи
+- [Под сдачу](https://remont.pkvartira.ru/services/dlya-sdachi): Ремонт квартиры под аренду, от 250 000 ₽
+- [Под заселение](https://remont.pkvartira.ru/services/pod-zaselenie): Ремонт квартиры под заселение
+- [Эконом класс](https://remont.pkvartira.ru/services/econom): Бюджетный ремонт
+- [Комфорт класс](https://remont.pkvartira.ru/services/komfort): Ремонт комфорт-класса
+- [Бизнес класс](https://remont.pkvartira.ru/services/business): Ремонт бизнес-класса
+- [Премиум класс](https://remont.pkvartira.ru/services/premium): Премиальный ремонт
+- [White box](https://remont.pkvartira.ru/services/white-box): Ремонт квартиры white box
 
 ## Ремонт новостройки (по состоянию)
-- [Без отделки](https://pkvartira.ru/services/bez-otdelki): Ремонт новостройки без отделки
-- [Черновая отделка](https://pkvartira.ru/services/chernovaya): Ремонт новостройки с черновой отделкой
-- [Предчистовая отделка](https://pkvartira.ru/services/predchistovaya): Ремонт новостройки с предчистовой отделкой
-- [Чистовая отделка](https://pkvartira.ru/services/chistovaya): Ремонт новостройки с чистовой отделкой
-- [Отделка от застройщика](https://pkvartira.ru/services/ot-zastroyschika): Ремонт новостройки с отделкой от застройщика
+- [Без отделки](https://remont.pkvartira.ru/services/bez-otdelki): Ремонт новостройки без отделки
+- [Черновая отделка](https://remont.pkvartira.ru/services/chernovaya): Ремонт новостройки с черновой отделкой
+- [Предчистовая отделка](https://remont.pkvartira.ru/services/predchistovaya): Ремонт новостройки с предчистовой отделкой
+- [Чистовая отделка](https://remont.pkvartira.ru/services/chistovaya): Ремонт новостройки с чистовой отделкой
+- [Отделка от застройщика](https://remont.pkvartira.ru/services/ot-zastroyschika): Ремонт новостройки с отделкой от застройщика
 
 ## Ремонт по районам Москвы и районам Подмосковья
-- [м. Академическая](https://pkvartira.ru/services/akademicheskaya): Ремонт квартир у м. Академическая
-- [Ленинский проспект](https://pkvartira.ru/services/leninsky-prospekt): Ремонт квартир на Ленинском проспекте
-- [ЖК Онтарио](https://pkvartira.ru/services/ontario): Ремонт квартир в ЖК Онтарио
-- [Балашиха](https://pkvartira.ru/services/balashikha): Ремонт квартир в Балашихе
-- [Домодедово](https://pkvartira.ru/services/domodedovo): Ремонт квартир в Домодедово
-- [Долгопрудный](https://pkvartira.ru/services/dolgoprudny): Ремонт квартир в Долгопрудном
-- [Зеленоград](https://pkvartira.ru/services/zelenograd): Ремонт квартир в Зеленограде
-- [Звенигород](https://pkvartira.ru/services/zvenigorod): Ремонт квартир в Звенигороде
-- [Красногорск](https://pkvartira.ru/services/krasnogorsk): Ремонт квартир в Красногорске
-- [Лобня](https://pkvartira.ru/services/lobnya): Ремонт квартир в Лобне
-- [Люберцы](https://pkvartira.ru/services/lyubertsy): Ремонт квартир в Люберцах
-- [Митино](https://pkvartira.ru/services/mitino): Ремонт квартир в Митино
-- [Мытищи](https://pkvartira.ru/services/mytishchi): Ремонт квартир в Мытищах
-- [Одинцово](https://pkvartira.ru/services/odintsovo): Ремонт квартир в Одинцово
-- [Подольск](https://pkvartira.ru/services/podolsk): Ремонт квартир в Подольске
-- [Пушкино](https://pkvartira.ru/services/pushkino): Ремонт квартир в Пушкино
-- [Раменское](https://pkvartira.ru/services/ramenskoye): Ремонт квартир в Раменском
-- [Реутов](https://pkvartira.ru/services/reutov): Ремонт квартир в Реутове
-- [Солнечногорск](https://pkvartira.ru/services/solnechnogorsk): Ремонт квартир в Солнечногорске
-- [Химки](https://pkvartira.ru/services/khimki): Ремонт квартир в Химках
-- [Щербинка](https://pkvartira.ru/services/shcherbinka): Ремонт квартир в Щербинке
-- [Видное](https://pkvartira.ru/services/vidnoye): Ремонт квартир в Видном
+- [м. Академическая](https://remont.pkvartira.ru/services/akademicheskaya): Ремонт квартир у м. Академическая
+- [Ленинский проспект](https://remont.pkvartira.ru/services/leninsky-prospekt): Ремонт квартир на Ленинском проспекте
+- [ЖК Онтарио](https://remont.pkvartira.ru/services/ontario): Ремонт квартир в ЖК Онтарио
+- [Балашиха](https://remont.pkvartira.ru/services/balashikha): Ремонт квартир в Балашихе
+- [Домодедово](https://remont.pkvartira.ru/services/domodedovo): Ремонт квартир в Домодедово
+- [Долгопрудный](https://remont.pkvartira.ru/services/dolgoprudny): Ремонт квартир в Долгопрудном
+- [Зеленоград](https://remont.pkvartira.ru/services/zelenograd): Ремонт квартир в Зеленограде
+- [Звенигород](https://remont.pkvartira.ru/services/zvenigorod): Ремонт квартир в Звенигороде
+- [Красногорск](https://remont.pkvartira.ru/services/krasnogorsk): Ремонт квартир в Красногорске
+- [Лобня](https://remont.pkvartira.ru/services/lobnya): Ремонт квартир в Лобне
+- [Люберцы](https://remont.pkvartira.ru/services/lyubertsy): Ремонт квартир в Люберцах
+- [Митино](https://remont.pkvartira.ru/services/mitino): Ремонт квартир в Митино
+- [Мытищи](https://remont.pkvartira.ru/services/mytishchi): Ремонт квартир в Мытищах
+- [Одинцово](https://remont.pkvartira.ru/services/odintsovo): Ремонт квартир в Одинцово
+- [Подольск](https://remont.pkvartira.ru/services/podolsk): Ремонт квартир в Подольске
+- [Пушкино](https://remont.pkvartira.ru/services/pushkino): Ремонт квартир в Пушкино
+- [Раменское](https://remont.pkvartira.ru/services/ramenskoye): Ремонт квартир в Раменском
+- [Реутов](https://remont.pkvartira.ru/services/reutov): Ремонт квартир в Реутове
+- [Солнечногорск](https://remont.pkvartira.ru/services/solnechnogorsk): Ремонт квартир в Солнечногорске
+- [Химки](https://remont.pkvartira.ru/services/khimki): Ремонт квартир в Химках
+- [Щербинка](https://remont.pkvartira.ru/services/shcherbinka): Ремонт квартир в Щербинке
+- [Видное](https://remont.pkvartira.ru/services/vidnoye): Ремонт квартир в Видном
 - Договоры уже подписаны в районах: Савёловский (САО), Тверской и Таганский (ЦАО), Крылатское и Раменки (ЗАО), Косино-Ухтомский (ВАО), Бирюлёво Восточное (ЮАО), Текстильщики и Люблино (ЮВАО), Внуковское (НАО). Приоритетные округа: САО, ЦАО, ЗАО, СЗАО.
 
 ## Отделочные работы (отдельные услуги)
-- [Укладка ламината](https://pkvartira.ru/services/ukladka-laminata): Укладка ламината в Москве, цена за м² с работой и фанерой
-- [Укладка керамогранита](https://pkvartira.ru/services/keramogranit-nazarovo): Укладка керамогранита, цена за м², работа в Москве и Назарово
+- [Укладка ламината](https://remont.pkvartira.ru/services/ukladka-laminata): Укладка ламината в Москве, цена за м² с работой и фанерой
+- [Укладка керамогранита](https://remont.pkvartira.ru/services/keramogranit-nazarovo): Укладка керамогранита, цена за м², работа в Москве и Назарово
 
 ## Коммерческий ремонт (по типу бизнеса)
-- [Офис](https://pkvartira.ru/services/office): Ремонт офиса под ключ
-- [Магазин](https://pkvartira.ru/services/magazin): Ремонт магазина под ключ
-- [Кафе](https://pkvartira.ru/services/kafe): Ремонт кафе под ключ
-- [Ресторан](https://pkvartira.ru/services/restoran): Ремонт ресторана под ключ
-- [Аптека](https://pkvartira.ru/services/apteka): Ремонт аптеки под ключ
-- [Салон красоты](https://pkvartira.ru/services/salon-krasoty): Ремонт салона красоты под ключ
-- [Стоматология](https://pkvartira.ru/services/stomatologiya): Ремонт стоматологии под ключ
-- [Ветеринарная клиника](https://pkvartira.ru/services/vetklinika): Ремонт ветеринарной клиники под ключ
-- [Фитнес-центр](https://pkvartira.ru/services/fitness): Ремонт фитнес-центра под ключ
-- [Шоу-рум](https://pkvartira.ru/services/showroom): Ремонт шоу-рума под ключ
+- [Офис](https://remont.pkvartira.ru/services/office): Ремонт офиса под ключ
+- [Магазин](https://remont.pkvartira.ru/services/magazin): Ремонт магазина под ключ
+- [Кафе](https://remont.pkvartira.ru/services/kafe): Ремонт кафе под ключ
+- [Ресторан](https://remont.pkvartira.ru/services/restoran): Ремонт ресторана под ключ
+- [Аптека](https://remont.pkvartira.ru/services/apteka): Ремонт аптеки под ключ
+- [Салон красоты](https://remont.pkvartira.ru/services/salon-krasoty): Ремонт салона красоты под ключ
+- [Стоматология](https://remont.pkvartira.ru/services/stomatologiya): Ремонт стоматологии под ключ
+- [Ветеринарная клиника](https://remont.pkvartira.ru/services/vetklinika): Ремонт ветеринарной клиники под ключ
+- [Фитнес-центр](https://remont.pkvartira.ru/services/fitness): Ремонт фитнес-центра под ключ
+- [Шоу-рум](https://remont.pkvartira.ru/services/showroom): Ремонт шоу-рума под ключ
 
 ## Полезные инструменты
-- [Смета на ремонт](https://pkvartira.ru/services/smeta): Рассчитать смету на ремонт квартиры онлайн бесплатно
-- [Цены на ремонт](https://pkvartira.ru/prices): Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², дизайнерский от 18 000 ₽/м²
-- [Калькулятор ремонта](https://pkvartira.ru/calculator): Рассчитайте стоимость ремонта онлайн
-- [Ремонт в будущем](https://pkvartira.ru/services/budushchiy-remont): Ждёте ключи? Узнайте стоимость ремонта уже сейчас и спланируйте бюджет
-- [Портфолио](https://pkvartira.ru/portfolio): Фото до и после ремонта, реальные проекты
-- [Отзывы клиентов](https://pkvartira.ru/reviews): Реальные отзывы владельцев квартир после ремонта
-- [Вакансии](https://pkvartira.ru/vakansii): Работа в Проект Квартира — маляр, плиточник, сантехник, электрик и другие, выплаты каждую неделю
-- [Контакты](https://pkvartira.ru/contact): Телефон +7 495 473-17-37, Москва, ул. Варшавское ш., д. 28А
-- [Все услуги](https://pkvartira.ru/services): Все виды ремонта — квартиры, дома, коммерческие помещения, новостройки и вторичка
-- [Блог о ремонте](https://pkvartira.ru/blogs): Статьи о ремонте квартир — сметы, цены, выбор материалов, лайфхаки
-- [Акции и скидки](https://pkvartira.ru/stocks): Акции на ремонт квартир, скидки и спецпредложения
-- [Калькулятор площади](https://pkvartira.ru/kalkulyator-ploshchadi): Расчёт площади и ориентировочной стоимости ремонта
-- [Образец сметы](https://pkvartira.ru/smeta-obrazec): Образец сметы на ремонт квартиры — что должно быть внутри
-- [Образец договора](https://pkvartira.ru/dogovor-obrazec): Образец договора на ремонт — фиксированная цена и гарантия
+- [Смета на ремонт](https://remont.pkvartira.ru/services/smeta): Рассчитать смету на ремонт квартиры онлайн бесплатно
+- [Цены на ремонт](https://remont.pkvartira.ru/prices): Косметический от 8 000 ₽/м², капитальный от 13 000 ₽/м², дизайнерский от 18 000 ₽/м²
+- [Калькулятор ремонта](https://remont.pkvartira.ru/calculator): Рассчитайте стоимость ремонта онлайн
+- [Ремонт в будущем](https://remont.pkvartira.ru/services/budushchiy-remont): Ждёте ключи? Узнайте стоимость ремонта уже сейчас и спланируйте бюджет
+- [Портфолио](https://remont.pkvartira.ru/portfolio): Фото до и после ремонта, реальные проекты
+- [Отзывы клиентов](https://remont.pkvartira.ru/reviews): Реальные отзывы владельцев квартир после ремонта
+- [Вакансии](https://remont.pkvartira.ru/vakansii): Работа в Проект Квартира — маляр, плиточник, сантехник, электрик и другие, выплаты каждую неделю
+- [Контакты](https://remont.pkvartira.ru/contact): Телефон +7 495 473-17-37, Москва, ул. Варшавское ш., д. 28А
+- [Все услуги](https://remont.pkvartira.ru/services): Все виды ремонта — квартиры, дома, коммерческие помещения, новостройки и вторичка
+- [Блог о ремонте](https://remont.pkvartira.ru/blogs): Статьи о ремонте квартир — сметы, цены, выбор материалов, лайфхаки
+- [Акции и скидки](https://remont.pkvartira.ru/stocks): Акции на ремонт квартир, скидки и спецпредложения
+- [Калькулятор площади](https://remont.pkvartira.ru/kalkulyator-ploshchadi): Расчёт площади и ориентировочной стоимости ремонта
+- [Образец сметы](https://remont.pkvartira.ru/smeta-obrazec): Образец сметы на ремонт квартиры — что должно быть внутри
+- [Образец договора](https://remont.pkvartira.ru/dogovor-obrazec): Образец договора на ремонт — фиксированная цена и гарантия
 
 ## Вакансии (работа в Проект Квартира)
-- [Маляр](https://pkvartira.ru/vakansii/malyar): Вакансия маляра в Москве, выплаты каждую неделю
-- [Плиточник](https://pkvartira.ru/vakansii/plitochnik): Вакансия плиточника в Москве, выплаты каждую неделю
-- [Сантехник](https://pkvartira.ru/vakansii/santehnik): Вакансия сантехника в Москве, выплаты каждую неделю
-- [Электрик](https://pkvartira.ru/vakansii/elektrik): Вакансия электрика в Москве, выплаты каждую неделю
-- [Штукатур](https://pkvartira.ru/vakansii/shtukatur): Вакансия штукатура в Москве, выплаты каждую неделю
-- [Плотник](https://pkvartira.ru/vakansii/plotnik): Вакансия плотника в Москве, выплаты каждую неделю
-- [Каменщик](https://pkvartira.ru/vakansii/kamenshchik): Вакансия каменщика в Москве, выплаты каждую неделю
-- [Мастер-универсал](https://pkvartira.ru/vakansii/master-universal): Вакансия мастера-универсала в Москве, выплаты каждую неделю
-- [Замерщик-сметчик](https://pkvartira.ru/vakansii/prorab-inzhenir): Вакансия замерщика-сметчика, доход от 300 000 ₽
-- [Прораб](https://pkvartira.ru/vakansii/prorab): Вакансия прораба — до 10% от сметы + % с материалов, выплаты раз в месяц по актам
+- [Маляр](https://remont.pkvartira.ru/vakansii/malyar): Вакансия маляра в Москве, выплаты каждую неделю
+- [Плиточник](https://remont.pkvartira.ru/vakansii/plitochnik): Вакансия плиточника в Москве, выплаты каждую неделю
+- [Сантехник](https://remont.pkvartira.ru/vakansii/santehnik): Вакансия сантехника в Москве, выплаты каждую неделю
+- [Электрик](https://remont.pkvartira.ru/vakansii/elektrik): Вакансия электрика в Москве, выплаты каждую неделю
+- [Штукатур](https://remont.pkvartira.ru/vakansii/shtukatur): Вакансия штукатура в Москве, выплаты каждую неделю
+- [Плотник](https://remont.pkvartira.ru/vakansii/plotnik): Вакансия плотника в Москве, выплаты каждую неделю
+- [Каменщик](https://remont.pkvartira.ru/vakansii/kamenshchik): Вакансия каменщика в Москве, выплаты каждую неделю
+- [Мастер-универсал](https://remont.pkvartira.ru/vakansii/master-universal): Вакансия мастера-универсала в Москве, выплаты каждую неделю
+- [Замерщик-сметчик](https://remont.pkvartira.ru/vakansii/prorab-inzhenir): Вакансия замерщика-сметчика, доход от 300 000 ₽
+- [Прораб](https://remont.pkvartira.ru/vakansii/prorab): Вакансия прораба — до 10% от сметы + % с материалов, выплаты раз в месяц по актам
 
 ## Основные преимущества
 - ООО «Проект Квартира» (ИНН 9719013990, ОГРН 1217700135058) — работаем по договору
@@ -148,32 +148,32 @@
 - Проект Квартира (Проект Квартира, ООО «Проект Квартира») — ремонт квартир и домов под ключ в Москве и области. Один подрядчик от замера до сдачи: фотоотчёт каждый день, оплата по этапам, смета без роста цены.
 - Клиент получает: бесплатный замер, смету в 3 вариантах за 24 часа, официальный договор с фиксированной стоимостью, ежедневные фотоотчёты, поэтапную оплату без 100% предоплаты, гарантию 3 года.
 - Доказательства: 35 отзывов со ссылками на источники (раздел Отзывы), портфолио до/после, образцы сметы и договора, 21 статья с честными ценами.
-- Контакты: +7 495 473-17-37, info@pkvartira.ru, Москва, Варшавское ш., 28А. Официальные профили: https://t.me/pkvartira, https://yandex.ru/maps/org/proyekt_kvartira/
+- Контакты: +7 495 473-17-37, info@remont.pkvartira.ru, Москва, Варшавское ш., 28А. Официальные профили: https://t.me/pkvartira, https://yandex.ru/maps/org/proyekt_kvartira/
 
 ## Сколько стоит ремонт в Москве в 2026 (ориентиры)
 - Косметический — от 8 000 ₽/м²; капитальный — от 13 000 ₽/м²; дизайнерский — от 18 000 ₽/м².
 - Студия — от 200 000 ₽; 1-комнатная — от 296 000 ₽; 2-комнатная — от 400 000 ₽; 3-комнатная — от 560 000 ₽.
-- Фактическая стоимость зависит от площади, состояния квартиры, типа ремонта и материалов — точная цифра только по смете после бесплатного замера: https://pkvartira.ru/calculator
+- Фактическая стоимость зависит от площади, состояния квартиры, типа ремонта и материалов — точная цифра только по смете после бесплатного замера: https://remont.pkvartira.ru/calculator
 
 ## База знаний (блог)
-- [Смета в ремонте — что это простыми словами](https://pkvartira.ru/blog/smeta-na-remont-kvartiry-primer): состав сметы, пример на 60 м², проверка за 10 минут
-- [Смета на ремонт: 12 скрытых накруток](https://pkvartira.ru/blog/smeta-na-remont-kvartiry-nakrutki): как читать смету и не переплатить
-- [Сколько стоит ремонт в Москве в 2026](https://pkvartira.ru/blog/skolko-stoit-remont-kvartiry-2026): цены за м² и таблица по площадям
-- [С чего начать ремонт квартиры в 2026](https://pkvartira.ru/blog/remont-kvartiry-s-chego-nachat): пошаговый план и советы экспертов
-- [Ремонт под ключ в 2026: почему профессионалы вытесняют самостоятельный ремонт](https://pkvartira.ru/blog/remont-pod-klyuch-2026): спрос вырос на 40%
-- [Косметический ремонт 2026: как обновить квартиру без капитальных вложений](https://pkvartira.ru/blog/kosmeticheskiy-remont-2026): за 2 недели до 500 000 ₽
-- [Умный дом в 2026: что реально нужно](https://pkvartira.ru/blog/umnyy-dom-2026): IoT-устройства, которые упростят жизнь
-- [Рабочее место дома: как адаптировать квартиру под удалённую работу](https://pkvartira.ru/blog/rabochee-mesto-doma): эргономичный home office
-- [Цвета и материалы 2026: тренды, которые не устареют через год](https://pkvartira.ru/blog/tsveta-materialy-2026): тёплые нейтральные, натуральные фактуры
-- [Перепланировка 2026: объединение кухни-гостиной и мастер-спальни](https://pkvartira.ru/blog/pereplanirovka-kuhni-gostinoy): законное объединение, согласование
-- [Ремонт в новостройке 2026: с чего начать и на чём сэкономить](https://pkvartira.ru/blog/remont-novostroyki-2026): приёмка, усадка, черновая отделка
-- [Энергоэффективный ремонт: как сэкономить на отоплении и электричестве](https://pkvartira.ru/blog/energoeffektivnyy-remont): утепление, рекуперация, умное отопление
-- [Дизайнерский ремонт: почему спрос растёт быстрее бюджетного](https://pkvartira.ru/blog/dizaynerskiy-remont): архитектурный подход, премиум-материалы
-- [Ремонт кухни 2026: тренды, планировка, бюджет](https://pkvartira.ru/blog/remont-kuhni-2026): эргономика, встроенная техника
-- [Тренды дизайна интерьера 2026](https://pkvartira.ru/blog/trendy-dizayna-interera-2026): бетон, дерево, природный камень, терракота
-- [Бюджет на ремонт в 2026: как спланировать расходы и не переплатить](https://pkvartira.ru/blog/byudzhet-remont-2026): пошаговый план, выбор подрядчика
-- [Как посчитать квадратные метры комнаты](https://pkvartira.ru/blog/kak-poschitat-kvadratnye-metry): формулы, примеры, калькулятор
-- [Сколько длится ремонт комнаты в 2026](https://pkvartira.ru/blog/skolko-dlitsya-remont-komnaty): точные сроки по этапам
-- [Приёмка квартиры у застройщика в Москве 2026](https://pkvartira.ru/blog/priemka-kvartiry-zastroyshchik): чек-лист из 30 пунктов
-- [Смета на ремонт квартиры 2026: как читать и 12 скрытых накруток](https://pkvartira.ru/blog/smeta-na-remont-kvartiry-nakrutki): пример сметы на 60 м²
-- [Сколько стоит ремонт квартиры в Москве в 2026](https://pkvartira.ru/blog/skolko-stoit-remont-kvartiry-2026): цены за м² и таблица по площадям
+- [Смета в ремонте — что это простыми словами](https://remont.pkvartira.ru/blog/smeta-na-remont-kvartiry-primer): состав сметы, пример на 60 м², проверка за 10 минут
+- [Смета на ремонт: 12 скрытых накруток](https://remont.pkvartira.ru/blog/smeta-na-remont-kvartiry-nakrutki): как читать смету и не переплатить
+- [Сколько стоит ремонт в Москве в 2026](https://remont.pkvartira.ru/blog/skolko-stoit-remont-kvartiry-2026): цены за м² и таблица по площадям
+- [С чего начать ремонт квартиры в 2026](https://remont.pkvartira.ru/blog/remont-kvartiry-s-chego-nachat): пошаговый план и советы экспертов
+- [Ремонт под ключ в 2026: почему профессионалы вытесняют самостоятельный ремонт](https://remont.pkvartira.ru/blog/remont-pod-klyuch-2026): спрос вырос на 40%
+- [Косметический ремонт 2026: как обновить квартиру без капитальных вложений](https://remont.pkvartira.ru/blog/kosmeticheskiy-remont-2026): за 2 недели до 500 000 ₽
+- [Умный дом в 2026: что реально нужно](https://remont.pkvartira.ru/blog/umnyy-dom-2026): IoT-устройства, которые упростят жизнь
+- [Рабочее место дома: как адаптировать квартиру под удалённую работу](https://remont.pkvartira.ru/blog/rabochee-mesto-doma): эргономичный home office
+- [Цвета и материалы 2026: тренды, которые не устареют через год](https://remont.pkvartira.ru/blog/tsveta-materialy-2026): тёплые нейтральные, натуральные фактуры
+- [Перепланировка 2026: объединение кухни-гостиной и мастер-спальни](https://remont.pkvartira.ru/blog/pereplanirovka-kuhni-gostinoy): законное объединение, согласование
+- [Ремонт в новостройке 2026: с чего начать и на чём сэкономить](https://remont.pkvartira.ru/blog/remont-novostroyki-2026): приёмка, усадка, черновая отделка
+- [Энергоэффективный ремонт: как сэкономить на отоплении и электричестве](https://remont.pkvartira.ru/blog/energoeffektivnyy-remont): утепление, рекуперация, умное отопление
+- [Дизайнерский ремонт: почему спрос растёт быстрее бюджетного](https://remont.pkvartira.ru/blog/dizaynerskiy-remont): архитектурный подход, премиум-материалы
+- [Ремонт кухни 2026: тренды, планировка, бюджет](https://remont.pkvartira.ru/blog/remont-kuhni-2026): эргономика, встроенная техника
+- [Тренды дизайна интерьера 2026](https://remont.pkvartira.ru/blog/trendy-dizayna-interera-2026): бетон, дерево, природный камень, терракота
+- [Бюджет на ремонт в 2026: как спланировать расходы и не переплатить](https://remont.pkvartira.ru/blog/byudzhet-remont-2026): пошаговый план, выбор подрядчика
+- [Как посчитать квадратные метры комнаты](https://remont.pkvartira.ru/blog/kak-poschitat-kvadratnye-metry): формулы, примеры, калькулятор
+- [Сколько длится ремонт комнаты в 2026](https://remont.pkvartira.ru/blog/skolko-dlitsya-remont-komnaty): точные сроки по этапам
+- [Приёмка квартиры у застройщика в Москве 2026](https://remont.pkvartira.ru/blog/priemka-kvartiry-zastroyshchik): чек-лист из 30 пунктов
+- [Смета на ремонт квартиры 2026: как читать и 12 скрытых накруток](https://remont.pkvartira.ru/blog/smeta-na-remont-kvartiry-nakrutki): пример сметы на 60 м²
+- [Сколько стоит ремонт квартиры в Москве в 2026](https://remont.pkvartira.ru/blog/skolko-stoit-remont-kvartiry-2026): цены за м² и таблица по площадям
