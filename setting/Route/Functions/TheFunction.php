@@ -130,27 +130,22 @@ class TheFunction
         $shareImageUrl = $baseUrl . '/public/assets/images/logo/favicon/web-app-manifest-512x512.png';
 
         if ($isUpgrade) {
-            // === upgrade.pkvartira.ru — СТРАТЕГИЧЕСКИЙ ВТОРОЙ САЙТ (Multi-site strategy) ===
-            // Цель: захват дополнительного SERP-пространства под брендовыми и коммерческими запросами
-            // Позиционирование: "Прямой доступ к прорабам / Прозрачные цены / Без менеджеров"
-            // Целевые запросы: "ремонт квартир прораб", "прямой подрядчик", "смета без наценок", "ремонт под ключ от прораба"
-            // Каноническая стратегия: self-referencing canonical, уникальный контент, cross-linking на главную
-            
+            // Уникальные данные для upgrade.pkvartira.ru — предотвращаем канибализацию
             return [
                 'baseUrl' => $baseUrl,
                 'path' => $pathOnly,
                 'canonicalUrl' => $canonicalUrl,
                 'shareImageUrl' => $shareImageUrl,
-                'name' => 'Проект Квартира — Прямой доступ к прорабам',
-                'shortName' => 'Проект Квартира Pro',
-                'brand' => 'Проект Квартира (Прямой доступ)',
-                'shortBrand' => 'PK Pro',
+                'name' => 'Проект Квартира — Тестовая среда',
+                'shortName' => 'PK Upgrade',
+                'brand' => 'Проект Квартира (Upgrade)',
+                'shortBrand' => 'PK Upgrade',
                 'legalName' => 'ООО "Проект Квартира"',
-                'alternateName' => ['Проект Квартира Pro', 'Проект Квартира Прямой', 'Прямой доступ к прорабам', 'Проект Квартира без посредников', 'upgrade.pkvartira.ru', 'pkvartira pro', 'PK Pro'],
-                'slogan' => 'Ремонт квартир под ключ — напрямую от прораба, без наценок менеджеров',
-                'description' => 'Проект Квартира (upgrade.pkvartira.ru) — официальный второй сайт для прямого найма прорабов и бригад. Прозрачные цены, смета без скрытых наценок, ежедневные фотоотчёты, гарантия 3 года. Работаете с прорабом лично, без менеджеров-посредников.',
+                'alternateName' => ['Проект Квартира Upgrade', 'PK Upgrade', 'pkvartira upgrade', 'upgrade.pkvartira.ru', 'Проект Квартира тест', 'тестовая среда Проект Квартира'],
+                'slogan' => 'Тестовая среда: ремонт квартир под ключ в Москве',
+                'description' => 'Тестовая среда Проект Квартира (upgrade.pkvartira.ru) — стенд для проверки новой функциональности перед деплоем на продакшн. Не для коммерческого использования.',
                 'phone' => '+7 495 292-55-06',
-                'email' => 'pro@pkvartira.ru',
+                'email' => 'upgrade@pkvartira.ru',
                 'address' => [
                     'streetAddress' => 'ул. Варшавское ш., д. 28А',
                     'addressLocality' => 'Москва',
@@ -165,7 +160,7 @@ class TheFunction
                 'openingHours' => 'Mo-Fr 09:00-22:00',
                 'priceRange' => '₽₽',
                 'kartaAdress' => 'https://yandex.ru/maps/213/moscow/house/varshavskoye_shosse_28a/Z04YcAZnQEEGQFtvfXp5c3RjZw==/?indoorLevel=1&ll=37.617940%2C55.682803&source=serp_navig&z=16.99',
-                'telegram' => 'https://t.me/pkvartira_pro',
+                'telegram' => 'https://t.me/pkvartira',
                 'whatsapp' => 'https://wa.me/74952925506',
                 'vk' => '',
                 'max' => '',

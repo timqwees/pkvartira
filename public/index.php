@@ -32,7 +32,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($seo['title']); ?> | Проект Квартира</title>
-    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>"><meta name="robots" content="<?= (parse_url($_SERVER['HTTP_HOST'] ?? '', PHP_URL_HOST) === 'upgrade.pkvartira.ru') ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' ?>">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($seo['canonical']); ?>">
@@ -169,10 +169,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <div>
                         <dd><span class="counter" data-target="21">0</span></dd>
                         <dt>Статья в блоге с честными ценами</dt>
-                    </div>
-                    <div>
-                        <dd><span class="counter" data-target="3">0</span></dd>
-                        <dt>Варианта сметы под ваш бюджет</dt>
                     </div>
                     <div>
                         <dd><span class="counter" data-target="3" data-suffix=" года">0</span></dd>

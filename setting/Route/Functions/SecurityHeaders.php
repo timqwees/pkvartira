@@ -26,6 +26,11 @@ final class SecurityHeaders
         if (headers_sent()) {
             return;
         }
+        // upgrade.pkvartira.ru — тестовый стенд, полностью закрыт от индексации
+        $host = strtolower(preg_replace('/:\\d+$/', '', (string)($_SERVER['HTTP_HOST'] ?? '')));
+        if ($host === 'upgrade.pkvartira.ru') {
+            $robots = 'noindex, nofollow';
+        }
         // HSTS имеет смысл только на HTTPS; за прокси (nginx/cloudflare) смотрим X-Forwarded-Proto
         if (self::isHttps()) {
             header('Strict-Transport-Security: max-age=63072000; includeSubDomains; preload', true);
