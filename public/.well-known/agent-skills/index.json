@@ -3,14 +3,14 @@
     {
       "id": "site-search",
       "name": "Site search",
-      "description": "Поиск по сайту pkvartira.ru: услуги, статьи блога, цены, вакансии",
-      "url": "https://pkvartira.ru/.well-known/agent-skills/site-search/SKILL.md"
+      "description": "Поиск по сайту remont.pkvartira.ru: услуги, статьи блога, цены, вакансии",
+      "url": "https://remont.pkvartira.ru/.well-known/agent-skills/site-search/SKILL.md"
     },
     {
       "id": "price-lookup",
       "name": "Price lookup",
       "description": "Актуальные цены на ремонт квартир: прайс и онлайн-калькулятор",
-      "url": "https://pkvartira.ru/.well-known/agent-skills/price-lookup/SKILL.md"
+      "url": "https://remont.pkvartira.ru/.well-known/agent-skills/price-lookup/SKILL.md"
     }
   ]
 }

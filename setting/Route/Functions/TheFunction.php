@@ -122,23 +122,23 @@ class TheFunction
         Routes::auto_element(dirname(__DIR__, 3) . $path, get_defined_vars());
     }
 
-    // siteInfo — главное зеркало https://pkvartira.ru (301 на него в .htaccess)
+    // siteInfo — главное зеркало https://remont.pkvartira.ru (301 на него в .htaccess)
     public static function site(): array
     {
-        $rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+        $rawHost = $_SERVER['HTTP_HOST'] ?? 'remont.pkvartira.ru';
         $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
-        $isProd = str_ends_with(strtolower($rawHost), 'pkvartira.ru');
+        $isProd = str_ends_with(strtolower($rawHost), 'remont.pkvartira.ru');
         if ($isProd) {
             // Продакшн: всегда https и без www (каноникал)
             $scheme = 'https';
-            $host = 'pkvartira.ru';
+            $host = 'remont.pkvartira.ru';
         } else {
             // Локалка / дев: как пришло (http для 127.0.0.1, localhost)
             $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
             if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
                 $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
             }
-            $host = $rawHost ?: 'pkvartira.ru';
+            $host = $rawHost ?: 'remont.pkvartira.ru';
         }
         $baseUrl = $scheme . '://' . $host;
         $pathOnly = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
@@ -160,11 +160,11 @@ class TheFunction
             'shortBrand' => 'Проект Квартира',
             'legalName' => 'ООО "Проект Квартира"',
             // Расширенные брендовые варианты для быстрого нахождения по любым запросам
-            'alternateName' => ['Проект Квартира', 'Проект Квартира', 'Проект Квартира', 'ПроектКвартира', 'Проект Квартира', 'пк квартира', 'Proekt Kvartira', 'proekt kvartira', 'PKVARTIRA', 'pkvartira', 'pkvartira.ru', 'ООО Проект Квартира', 'Проект Квартира Москва'],
+            'alternateName' => ['Проект Квартира', 'Проект Квартира', 'Проект Квартира', 'ПроектКвартира', 'Проект Квартира', 'пк квартира', 'Proekt Kvartira', 'proekt kvartira', 'PKVARTIRA', 'pkvartira', 'remont.pkvartira.ru', 'ООО Проект Квартира', 'Проект Квартира Москва'],
             'slogan' => 'Ремонт квартир под ключ в Москве',
-            'description' => 'Проект Квартира (Проект Квартира, pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Официальный сайт',
+            'description' => 'Проект Квартира (Проект Квартира, remont.pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Официальный сайт',
             'phone' => '+7 495 473-17-37',
-            'email' => 'info@pkvartira.ru',
+            'email' => 'info@remont.pkvartira.ru',
             'address' => [
                 'streetAddress' => 'ул. Варшавское ш., д. 28А',
                 'addressLocality' => 'Москва',
@@ -181,7 +181,7 @@ class TheFunction
             'kartaAdress' => 'https://yandex.ru/maps/213/moscow/house/varshavskoye_shosse_28a/Z04YcAZnQEEGQFtvfXp5c3RjZw==/?indoorLevel=1&ll=37.617940%2C55.682803&source=serp_navig&z=16.99',
             'telegram' => 'https://t.me/pkvartira',
             'whatsapp' => 'https://wa.me/74954731737',
-            'vk' => '', // VK сообщество pkvartira не найдено (404) — скрываем ссылку до появления валидного URL; укажите реальный адрес вида https://vk.com/clubXXXX или https://vk.com/pkvartira_ru
+            'vk' => '', // VK сообщество pkvartira не найдено (404) — скрываем ссылку до появления валидного URL; укажите реальный адрес вида https://vk.com/clubXXXX или https://vk.com/remont_pkvartira_ru
             'max' => '',
             'phone8800' => '8 800 302-17-37',
         ];
@@ -408,7 +408,7 @@ class TheFunction
         $referrerHostMail = $referrer !== '' ? ((string)(parse_url($referrer, PHP_URL_HOST) ?: $referrer)) : '';
 
         $message = '<div style="font-family:Arial,sans-serif;max-width:640px;color:#0f172a">';
-        $message .= '<div style="background:#0f172a;color:#fff;padding:14px 16px;border-radius:10px 10px 0 0;font-weight:700">📞 Новая заявка — pkvartira.ru ' . ($hasPaid ? '<span style="background:#ef4444;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">РЕКЛАМА</span>' : '<span style="background:#22c55e;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">ОРГАНИКА</span>') . '</div>';
+        $message .= '<div style="background:#0f172a;color:#fff;padding:14px 16px;border-radius:10px 10px 0 0;font-weight:700">📞 Новая заявка — remont.pkvartira.ru ' . ($hasPaid ? '<span style="background:#ef4444;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">РЕКЛАМА</span>' : '<span style="background:#22c55e;padding:2px 8px;border-radius:99px;font-size:11px;margin-left:8px">ОРГАНИКА</span>') . '</div>';
         $message .= '<div style="border:1px solid #e2e8f0;border-top:0;padding:14px 16px;border-radius:0 0 10px 10px;background:#fff">';
         $message .= '<div style="margin-bottom:12px"><span style="color:#64748b">📍</span> <strong>' . htmlspecialchars(self::toStr($source) ?: '—', ENT_QUOTES, 'UTF-8') . '</strong> <span style="color:#94a3b8">•</span> <span style="color:#64748b">Форма:</span> ' . htmlspecialchars(self::toStr($formId) ?: '—', ENT_QUOTES, 'UTF-8') . '</div>';
 
@@ -449,7 +449,7 @@ class TheFunction
         $message .= '</div></div>';
         $success = false;
         try {
-            $result = (new MailController())->onMail('info@pkvartira.ru', 'Заявление с сайта', $message);
+            $result = (new MailController())->onMail('info@remont.pkvartira.ru', 'Заявление с сайта', $message);
             $success = $result;
         } catch (Exception $e) {
             error_log('Mail Error: ' . $e->getMessage());
@@ -666,12 +666,12 @@ class TheFunction
             // внутренний переход с того же хоста — считаем прямым, не рефералом
             $landingHost = $landingDisplay !== '' ? (parse_url($landingDisplay, PHP_URL_HOST) ?: '') : '';
             if ($landingHost !== '' && $refHost === $landingHost) {
-                $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landingDisplay ?: $source ?: 'pkvartira.ru');
+                $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landingDisplay ?: $source ?: 'remont.pkvartira.ru');
             } else {
                 $sourceDesc = 'Органика/Реферал: ' . $refHost . ' | ' . ($landingDisplay ?: $source);
             }
         } else {
-            $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landingDisplay ?: $source ?: 'pkvartira.ru');
+            $sourceDesc = 'Прямой заход / Органика (без меток) | ' . ($landingDisplay ?: $source ?: 'remont.pkvartira.ru');
         }
 
         $webhookUrl = 'https://b24-383l4m.bitrix24.ru/rest/1/chhw3puiokfsraz1/crm.deal.add.json';
@@ -855,7 +855,7 @@ class TheFunction
         $opts['description'] = self::truncateSeo((string)$opts['description'], 155);
         // Гарантируем бренд в description — если нет упоминания бренда, добавляем «Проект Квартира»
         if (stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'Проект Квартира') === false && stripos($opts['description'], 'pkvartira') === false) {
-            $brandSuffix = ' — Проект Квартира (Проект Квартира, pkvartira.ru)';
+            $brandSuffix = ' — Проект Квартира (Проект Квартира, remont.pkvartira.ru)';
             $withBrand = $opts['description'] . $brandSuffix;
             $opts['description'] = self::truncateSeo($withBrand, 155);
         }
@@ -876,7 +876,7 @@ class TheFunction
         $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp'], $site['kartaAdress'] ?? '', 'https://yandex.ru/maps/org/proyekt_kvartira/'], fn($v) => is_string($v) && $v !== ''));
         $brand = $site['brand'] ?? $site['name'];
         $shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'Проект Квартира';
-        $alternateName = $site['alternateName'] ?? [$brand, $shortBrand, 'pkvartira.ru'];
+        $alternateName = $site['alternateName'] ?? [$brand, $shortBrand, 'remont.pkvartira.ru'];
 
         $jsonLd = [
             '@context' => 'https://schema.org',
@@ -922,7 +922,7 @@ class TheFunction
                     '@type' => 'HomeAndConstructionBusiness',
                     '@id' => $site['baseUrl'] . '#localbusiness',
                     'name' => $brand,
-                    'alternateName' => [$shortBrand, 'pkvartira.ru', 'pkvartira', 'Проект Квартира официальный сайт'],
+                    'alternateName' => [$shortBrand, 'remont.pkvartira.ru', 'pkvartira', 'Проект Квартира официальный сайт'],
                     'url' => $site['baseUrl'],
                     'description' => $site['description'],
                     'telephone' => $site['phone'],

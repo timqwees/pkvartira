@@ -66,7 +66,7 @@ $qrTotal = count($qrParser->getReviews());
                 <div class="hint">Отзывов: <?= (int)($qrSourceCounts['Авито'] ?? 0) ?></div>
             </div>
             <div class="qr-card">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://pkvartira.ru/reviews') ?>" alt="Сайт" loading="lazy">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?= urlencode('https://remont.pkvartira.ru/reviews') ?>" alt="Сайт" loading="lazy">
                 <div class="platform">Сайт</div>
                 <div class="hint">Отзывов: <?= $qrTotal ?></div>
             </div>
