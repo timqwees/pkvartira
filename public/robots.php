@@ -20,20 +20,20 @@ if (!headers_sent()) {
 }
 // Канонический хост: whitelist вместо suffix-проверки (защита от evil-pkvartira.ru)
 require_once dirname(__DIR__) . '/setting/Route/Functions/SiteUrl.php';
-$rawHost = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
+$rawHost = $_SERVER['HTTP_HOST'] ?? 'remont.pkvartira.ru';
 $rawHost = preg_replace('/:\\d+$/', '', (string)$rawHost) ?? '';
 $canonicalHosts = \Setting\Route\Functions\SiteUrl::canonicalHosts();
 $isUpgrade = strtolower($rawHost) === 'upgrade.pkvartira.ru';
 $isProd = in_array(strtolower($rawHost), $canonicalHosts, true);
 if ($isProd) {
     $scheme = 'https';
-    $host = 'pkvartira.ru';
+    $host = 'remont.pkvartira.ru';
 } else {
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
     if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
         $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
     }
-    $host = $rawHost ?: 'pkvartira.ru';
+    $host = $rawHost ?: 'remont.pkvartira.ru';
 }
 $baseUrl = $scheme . '://' . $host;
 
@@ -45,7 +45,7 @@ if ($isUpgrade) {
     echo "\n";
     echo "# This subdomain is for internal testing only.\n";
     echo "# No content here should be indexed by search engines.\n";
-    echo "# See: https://pkvartira.ru for the production site.\n";
+    echo "# See: https://remont.pkvartira.ru for the production site.\n";
     exit;
 }
 // Content-Signal (IETF draft draft-romm-aipref-contentsignals): предпочтения

@@ -9,8 +9,8 @@ namespace Setting\Route\Functions;
  */
 final class SiteUrl
 {
-    private const CANONICAL_HOSTS = ['pkvartira.ru', 'www.pkvartira.ru'];
-    private const KNOWN_SUBDOMAINS = ['upgrade.pkvartira.ru'];
+    private const CANONICAL_HOSTS = ['remont.pkvartira.ru', 'www.remont.pkvartira.ru', 'pkvartira.ru', 'www.pkvartira.ru'];
+    private const KNOWN_SUBDOMAINS = ['upgrade.pkvartira.ru', 'remont.pkvartira.ru'];
     private const LOCAL_HOSTS = ['localhost', '127.0.0.1', '::1'];
 
     /**
@@ -28,14 +28,14 @@ final class SiteUrl
         $authority = strtolower(trim((string)($server['HTTP_HOST'] ?? '')));
 
         if (!preg_match('/^(?:\[([0-9a-f:]+)\]|([a-z0-9.-]+))(?::([0-9]{1,5}))?$/i', $authority, $matches)) {
-            return 'https://pkvartira.ru';
+            return 'https://remont.pkvartira.ru';
         }
 
         $host = strtolower($matches[1] !== '' ? $matches[1] : $matches[2]);
         $port = isset($matches[3]) && $matches[3] !== '' ? (int)$matches[3] : null;
 
         if (in_array($host, self::CANONICAL_HOSTS, true)) {
-            return 'https://pkvartira.ru';
+            return 'https://remont.pkvartira.ru';
         }
 
         if (in_array($host, self::KNOWN_SUBDOMAINS, true)) {
@@ -48,7 +48,7 @@ final class SiteUrl
             || str_ends_with($host, '.local');
 
         if (!$isLocal) {
-            return 'https://pkvartira.ru';
+            return 'https://remont.pkvartira.ru';
         }
 
         $forwardedProto = strtolower(trim((string)($server['HTTP_X_FORWARDED_PROTO'] ?? '')));

@@ -626,7 +626,7 @@ $__navMode = $navMode ?? (($__navHome || $__navServicePage) ? 'transparent' : 's
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
                 <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2" title="Главная страница"><img width="145" height="48" class="h-12"
-                        src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира — ремонт квартир под ключ в Москве pkvartira.ru"></a>
+                        src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира — ремонт квартир под ключ в Москве remont.pkvartira.ru"></a>
             </div><button class="mobile-menu-close p-2" aria-label="Закрыть меню"><i
                     class="fas fa-times text-2xl text-gray-800"></i></button>
         </div>

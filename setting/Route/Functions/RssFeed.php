@@ -179,7 +179,7 @@ final class RssFeed
         } catch (\Throwable $e) {
             // fallback ниже
         }
-        return 'https://pkvartira.ru';
+        return 'https://remont.pkvartira.ru';
     }
 
     private static function pubDate(string $date): string

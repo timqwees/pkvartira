@@ -12,7 +12,7 @@
  *   - Static files under public/ (css/js/img/module) are served as-is.
  *   - Every other request is dispatched through the framework front controller
  *     (project root index.php), which reads $_GET['route'] exactly like Apache
- *     did. Works for both pkvartira.ru and upgrade.pkvartira.ru (use Host: header).
+ *     did. Works for both remont.pkvartira.ru and upgrade.pkvartira.ru (use Host: header).
  *
  * Note: local PHP built-in server does not run Apache .htaccess rewrites, so this
  * small router replaces them for QA/dogfooding. Requires a populated SQLite DB

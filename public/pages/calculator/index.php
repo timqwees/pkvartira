@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php /* Страница-калькулятор с собственной «головой»: title/description различаем по хосту,
-            чтобы upgrade.pkvartira.ru не дублировал pkvartira.ru в выдаче. */ ?>
+            чтобы upgrade.pkvartira.ru не дублировал remont.pkvartira.ru в выдаче. */ ?>
     <title><?= htmlspecialchars(($site['isUpgrade'] ?? false)
         ? 'Калькулятор ремонта: стоимость от прораба за 1 минуту | Проект Квартира'
         : 'Калькулятор ремонта квартиры — расчёт стоимости онлайн | Проект Квартира'); ?></title>

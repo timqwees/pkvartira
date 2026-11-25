@@ -19,9 +19,9 @@ class Sitemap
     }
 
     /**
-     * Ключ кэша привязан к хосту: два сайта (pkvartira.ru и upgrade.pkvartira.ru)
+     * Ключ кэша привязан к хосту: два сайта (remont.pkvartira.ru и upgrade.pkvartira.ru)
      * работают из одного кода, и общий кэш отдавал sitemap чужого хоста
-     * (на pkvartira.ru были <loc>https://upgrade.pkvartira.ru/…</loc>).
+     * (на remont.pkvartira.ru были <loc>https://upgrade.pkvartira.ru/…</loc>).
      */
     private function hostKey(): string
     {

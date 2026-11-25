@@ -4,7 +4,7 @@
  *
  * ВАЖНО: проект выкатывается на upgrade.pkvartira.ru (второй сайт), поэтому
  * по умолчанию хост = upgrade.pkvartira.ru. Для основного сайта явно:
- *   php tools/indexnow.php --host=pkvartira.ru
+ *   php tools/indexnow.php --host=remont.pkvartira.ru
  *
  * Использование:
  *   php tools/indexnow.php                          # все индексируемые URL текущего сайта

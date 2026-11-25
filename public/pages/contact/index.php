@@ -172,7 +172,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                         <div class="font-semibold text-gray-900 text-sm">Владимир Соболев</div>
                                         <div class="text-xs text-gray-500">Руководитель проектов</div>
                                         <a href="tel:+74954731737" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-37 доб. 1</a><br>
-                                        <a href="mailto:m1@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m1@pkvartira.ru</a>
+                                        <a href="mailto:m1@remont.pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m1@remont.pkvartira.ru</a>
                                     </div>
                                 </div>
                                 <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
@@ -181,7 +181,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                                         <div class="font-semibold text-gray-900 text-sm">Семён Серебренников</div>
                                         <div class="text-xs text-gray-500">Сметчик / замер</div>
                                         <a href="tel:+74954731738" class="text-sm font-medium text-blue-600 hover:underline">+7 495 473-17-38</a><br>
-                                        <a href="mailto:m2@pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m2@pkvartira.ru</a>
+                                        <a href="mailto:m2@remont.pkvartira.ru" class="text-xs text-gray-600 hover:text-blue-600">m2@remont.pkvartira.ru</a>
                                     </div>
                                 </div>
                             </div>
