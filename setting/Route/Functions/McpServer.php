@@ -61,7 +61,7 @@ final class McpServer
         return [
             [
                 'name' => 'site-search',
-                'description' => 'Поиск по сайту remont.pkvartira.ru: услуги, статьи блога, цены, вакансии',
+                'description' => 'Поиск по сайту pkvartira.ru: услуги, статьи блога, цены, вакансии',
                 'inputSchema' => [
                     'type' => 'object',
                     'properties' => ['q' => ['type' => 'string', 'description' => 'Поисковый запрос']],
@@ -92,7 +92,7 @@ final class McpServer
             if ($results === []) {
                 $text = "По запросу «{$q}» ничего не найдено. Телефон: +7 495 473-17-37.";
             } else {
-                $lines = ["Результаты поиска «{$q}» (remont.pkvartira.ru):"];
+                $lines = ["Результаты поиска «{$q}» (pkvartira.ru):"];
                 foreach ($results as $i => $r) {
                     $lines[] = ($i + 1) . '. ' . $r['title'] . ' — ' . $r['url']
                         . (!empty($r['snippet']) ? ' — ' . $r['snippet'] : '');
@@ -109,8 +109,8 @@ final class McpServer
                 . "- Капитальный ремонт — от 13 000 ₽/м²\n"
                 . "- Дизайнерский ремонт — от 18 000 ₽/м²\n"
                 . "Замер и смета бесплатно, гарантия 3 года.\n"
-                . "Прайс: https://remont.pkvartira.ru/prices\n"
-                . "Калькулятор: https://remont.pkvartira.ru/calculator";
+                . "Прайс: https://pkvartira.ru/prices\n"
+                . "Калькулятор: https://pkvartira.ru/calculator";
             self::result($id, ['content' => [['type' => 'text', 'text' => $text]]]);
             return;
         }

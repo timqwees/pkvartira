@@ -278,7 +278,7 @@ Routes::get('/upgrade/robots.txt', function() {
 $indexNowKey = '769e1df8217a98f76286a4d39b571085';
 $indexNowHost = parse_url((new Setting\Route\Functions\TheFunction())->site()['baseUrl'], PHP_URL_HOST);
 // Состояние «что уже отправлено» — отдельно для каждого домена.
-// Раньше файл был общим: отправка со upgrade помечала URL отправленными и для remont.pkvartira.ru.
+// Раньше файл был общим: отправка со upgrade помечала URL отправленными и для pkvartira.ru.
 $indexNowStateFile = sys_get_temp_dir() . '/pkvartira-indexnow-state-' . preg_replace('/[^a-z0-9.-]/i', '_', $indexNowHost) . '.json';
 $indexNowKeyLocation = "https://{$indexNowHost}/{$indexNowKey}.txt";
 // Токен необязателен: если задан в окружении — /indexnow требует ?token=…

@@ -15,7 +15,7 @@ $__ogAlt = htmlspecialchars(
     'UTF-8'
 );
 // hreflang должен указывать на каноникал текущей страницы, а не на главную
-$__canonicalForHreflang = isset($seo['canonical']) ? $seo['canonical'] : ($site['canonicalUrl'] ?? $site['baseUrl'] ?? 'https://remont.pkvartira.ru');
+$__canonicalForHreflang = isset($seo['canonical']) ? $seo['canonical'] : ($site['canonicalUrl'] ?? $site['baseUrl'] ?? 'https://pkvartira.ru');
 $__hreflangHref = htmlspecialchars((string) $__canonicalForHreflang, ENT_QUOTES, 'UTF-8');
 
 // AI Backgrounds helper

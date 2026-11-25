@@ -18,7 +18,7 @@ class YmlFeed
     public function __construct()
     {
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-        $host = $_SERVER['HTTP_HOST'] ?? 'remont.pkvartira.ru';
+        $host = $_SERVER['HTTP_HOST'] ?? 'pkvartira.ru';
         $this->baseUrl = $scheme . '://' . $host;
         $this->siteName = 'Проект Квартира';
         $this->shortName = 'Проект Квартира';

@@ -22,12 +22,12 @@ function schemaGraph(array $seo): array
 }
 
 $_SERVER = [
-    'HTTP_HOST' => 'remont.pkvartira.ru',
+    'HTTP_HOST' => 'pkvartira.ru',
     'REQUEST_URI' => '/blog/seo-test',
     'HTTPS' => 'on',
 ];
 
-$pageUrl = 'https://remont.pkvartira.ru/blog/seo-test';
+$pageUrl = 'https://pkvartira.ru/blog/seo-test';
 $customArticle = [
     '@type' => 'BlogPosting',
     '@id' => $pageUrl . '#article',
