@@ -14,7 +14,7 @@
     <meta name="description"
         content="<?= htmlspecialchars(($site['isUpgrade'] ?? false)
             ? 'Посчитайте стоимость работ по площади и типу ремонта. Расчёт без наценок менеджеров — цены те же, что прораб называет на объекте.'
-            : 'Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно.'); ?>"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+            : 'Калькулятор ремонта квартиры: рассчитайте стоимость под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно.'); ?>"><meta name="robots" content="<?= (strtolower($_SERVER["HTTP_HOST"] ?? "") === "upgrade.pkvartira.ru") ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" ?>">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="content-language" content="ru">
     <link rel="canonical" href="<?= htmlspecialchars($site['baseUrl'] . '/calculator'); ?>">
