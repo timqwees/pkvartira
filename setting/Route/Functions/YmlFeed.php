@@ -23,7 +23,7 @@ class YmlFeed
         $this->siteName = 'Проект Квартира';
         $this->shortName = 'Проект Квартира';
         $this->sitePhone = '+7 495 473-17-37';
-        $this->siteEmail = 'info@remont.pkvartira.ru';
+        $this->siteEmail = 'info@pkvartira.ru';
 
         $this->services = [
             'studio' => [

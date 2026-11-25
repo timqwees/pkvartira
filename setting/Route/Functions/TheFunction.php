@@ -145,7 +145,7 @@ class TheFunction
                 'slogan' => 'Тестовая среда: ремонт квартир под ключ в Москве',
                 'description' => 'Тестовая среда Проект Квартира (upgrade.pkvartira.ru) — стенд для проверки новой функциональности перед деплоем на продакшн. Не для коммерческого использования.',
                 'phone' => '+7 495 292-55-06',
-                'email' => 'upgrade@remont.pkvartira.ru',
+                'email' => 'upgrade@pkvartira.ru',
                 'address' => [
                     'streetAddress' => 'ул. Варшавское ш., д. 28А',
                     'addressLocality' => 'Москва',
@@ -184,7 +184,7 @@ class TheFunction
             'slogan' => 'Ремонт квартир под ключ в Москве',
             'description' => 'Проект Квартира (Проект Квартира, remont.pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Официальный сайт. Гарантия 3 года, фиксированная смета, бесплатный замер.',
             'phone' => '+7 495 473-17-37',
-            'email' => 'info@remont.pkvartira.ru',
+            'email' => 'info@pkvartira.ru',
             'address' => [
                 'streetAddress' => 'ул. Варшавское ш., д. 28А',
                 'addressLocality' => 'Москва',
@@ -470,7 +470,7 @@ class TheFunction
         $message .= '</div></div>';
         $success = false;
         try {
-            $result = (new MailController())->onMail('info@remont.pkvartira.ru', 'Заявление с сайта', $message);
+            $result = (new MailController())->onMail('info@pkvartira.ru', 'Заявление с сайта', $message);
             $success = $result;
         } catch (Exception $e) {
             error_log('Mail Error: ' . $e->getMessage());
