@@ -107,6 +107,8 @@ $seo = TheFunction::seo([
     <meta name="twitter:creator" content="<?= htmlspecialchars($seo['twitter']['creator']); ?>">
     <meta name="twitter:domain" content="<?= htmlspecialchars($seo['twitter']['domain']); ?>">
     <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
+
+    <?php include_once './public/components/head-includes.php'; ?>
 </head>
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>

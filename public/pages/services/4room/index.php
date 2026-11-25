@@ -82,6 +82,8 @@ $seo = TheFunction::seo([
 
     <!-- Структурированные данные (JSON-LD) -->
     <script type="application/ld+json"><?= $seo['jsonLd']; ?></script>
+
+    <?php include_once './public/components/head-includes.php'; ?>
 </head>
 
 <body class="bg-white">
