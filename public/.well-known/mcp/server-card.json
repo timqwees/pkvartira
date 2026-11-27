@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "transports": {
     "streamable-http": {
-      "url": "https://remont.remont.pkvartira.ru/mcp"
+      "url": "https://remont.pkvartira.ru/mcp"
     }
   },
   "capabilities": {

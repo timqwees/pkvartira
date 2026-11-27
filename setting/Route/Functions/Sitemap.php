@@ -14,19 +14,19 @@ class Sitemap
 
     public function __construct()
     {
-        // Унифицировано с TheFunction::site() — главное зеркало https://remont.remont.pkvartira.ru
-        $rawHost = $_SERVER['HTTP_HOST'] ?? 'remont.remont.pkvartira.ru';
+        // Унифицировано с TheFunction::site() — главное зеркало https://remont.pkvartira.ru
+        $rawHost = $_SERVER['HTTP_HOST'] ?? 'remont.pkvartira.ru';
         $rawHost = preg_replace('/:\d+$/', '', (string)$rawHost) ?? '';
-        $isProd = str_ends_with(strtolower($rawHost), 'remont.remont.pkvartira.ru');
+        $isProd = str_ends_with(strtolower($rawHost), 'remont.pkvartira.ru');
         if ($isProd) {
             $scheme = 'https';
-            $host = 'remont.remont.pkvartira.ru';
+            $host = 'remont.pkvartira.ru';
         } else {
             $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
             if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
                 $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https' : $scheme;
             }
-            $host = $rawHost ?: 'remont.remont.pkvartira.ru';
+            $host = $rawHost ?: 'remont.pkvartira.ru';
         }
         $this->baseUrl = $scheme . '://' . $host;
         $this->cacheDir = sys_get_temp_dir() . '/pkvartira-sitemap/';

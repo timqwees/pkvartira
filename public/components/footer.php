@@ -12,12 +12,12 @@
 
             <div class="space-y-4">
                 <a href="/" rel="publisher" class="inline-block">
-                    <img width="145" height="48" class="h-12" src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира (Проект Квартира) — remont.remont.pkvartira.ru" title="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве">
+                    <img width="145" height="48" class="h-12" src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full_white.svg') ?>" alt="Проект Квартира (Проект Квартира) — remont.pkvartira.ru" title="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве">
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    <strong class="text-white font-semibold">Проект Квартира</strong> (Проект Квартира, remont.remont.pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
+                    <strong class="text-white font-semibold">Проект Квартира</strong> (Проект Квартира, remont.pkvartira.ru) — профессиональный ремонт квартир и домов под ключ в Москве. Гарантия 3 года, фиксированная смета, ежедневные фотоотчёты.
                 </p>
-                <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, remont.remont.pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира</p>
+                <p class="text-gray-500 text-xs leading-relaxed">Ищите нас как: <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, <strong class="text-gray-400 font-medium">Проект Квартира</strong> официальный сайт, remont.pkvartira.ru официальный сайт, Проект Квартира Москва, Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира</p>
                 <div class="flex items-center gap-3 pt-2">
                     <?php if (!empty($site['vk'])): ?>
                     <a href="<?= $site['vk'] ?>" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-colors" aria-label="Мы в VK" rel="external nofollow noopener noreferrer" target="_blank">
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('a[href^="http"]').forEach(function(a){
     try{
       var host = new URL(a.href).hostname;
-      if(host && !host.includes('remont.remont.pkvartira.ru') && !host.includes(window.location.hostname)){
+      if(host && !host.includes('remont.pkvartira.ru') && !host.includes(window.location.hostname)){
         if(!a.rel.includes('nofollow')) a.rel = (a.rel ? a.rel+' ' : '') + 'nofollow noopener noreferrer';
         if(!a.target) a.target = '_blank';
       }

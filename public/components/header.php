@@ -151,7 +151,7 @@
     <nav class="mx-auto px-6 py-4 lg:py-0">
         <div class="header-row flex justify-between items-center">
             <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2" title="Главная страница Проект Квартира — ремонт квартир под ключ в Москве"><img width="152" height="50" class="h-[50px] translate-y-0.5"
-                    src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве remont.remont.pkvartira.ru"></a>
+                    src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве remont.pkvartira.ru"></a>
             <!-- Desktop Navigation -->
             <div class="desktop-nav hidden lg:flex items-center space-x-8">
                 <!-- Главная --><a href="/" class="nav-hide-xl py-6 text-gray-600 hover:text-orange-500 transition font-medium" title="Главная страница">Главная</a>
@@ -268,7 +268,7 @@
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
                 <!-- logo name --><a href="/" rel="publisher" class="flex items-center space-x-2" title="Главная страница"><img width="145" height="48" class="h-12"
-                        src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве remont.remont.pkvartira.ru"></a>
+                        src="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/images/logo/full.svg') ?>" alt="Проект Квартира (Проект Квартира) — ремонт квартир под ключ в Москве remont.pkvartira.ru"></a>
             </div><button class="mobile-menu-close p-2" aria-label="Закрыть меню"><i
                     class="fas fa-times text-2xl text-gray-800"></i></button>
         </div>

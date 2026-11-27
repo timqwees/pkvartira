@@ -35,9 +35,9 @@ class TurboFeed
             $this->baseUrl = rtrim($configuredBaseUrl, '/');
         } else {
             $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-            $host = $_SERVER['HTTP_HOST'] ?? 'remont.remont.pkvartira.ru';
+            $host = $_SERVER['HTTP_HOST'] ?? 'remont.pkvartira.ru';
             $host = preg_replace('/[^a-zA-Z0-9\.\-:]/', '', $host) ?? '';
-            if (empty($host)) $host = 'remont.remont.pkvartira.ru';
+            if (empty($host)) $host = 'remont.pkvartira.ru';
             $this->baseUrl = $scheme . '://' . $host;
         }
         $this->siteName = 'Проект Квартира';
