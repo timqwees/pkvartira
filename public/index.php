@@ -114,7 +114,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <span class="hero-word">В срок.</span>
                 </h1>
                 <div class="hero-intro">
-                    <p>Приедем на замер в день обращения. Составим смету в 3 варианта под ваш бюджет за 24 часа.</p>
+                    <p>Приедем на замер в день обращения. Составим смету за 24 часа под ваш бюджет.</p>
                     <a class="text-link" href="#counters" data-goal="hero_about" title="Узнать о компании">Узнать о компании <span>&#8595;</span></a>
                 </div>
             </div>
