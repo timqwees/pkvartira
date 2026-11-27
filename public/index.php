@@ -607,72 +607,16 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                 <div class="price-grid">
                     <article class="price-card-premium">
-                        <div>
-                            <h3 class="price-name">Эконом</h3>
-                            <div class="price-amount">от 8 000 ₽<span class="price-unit">/м²</span></div>
-                            <div class="price-meta">Косметический · от 14 дней · гарантия 3 года</div>
-                            <p class="price-desc">Идеально, чтобы освежить квартиру: замена обоев, ламината и покраска потолков.</p>
-                            <ul class="price-list">
-                                <li><i class="fas fa-check"></i>Демонтаж старых покрытий</li>
-                                <li><i class="fas fa-check"></i>Грунтовка и частичная шпаклевка стен</li>
-                                <li><i class="fas fa-check"></i>Поклейка обоев или покраска</li>
-                                <li><i class="fas fa-check"></i>Укладка ламината или линолеума</li>
-                                <li><i class="fas fa-check"></i>Монтаж плинтусов и розеток</li>
-                            </ul>
-                        </div>
-                        <button data-button-dialog class="price-btn">Выбрать пакет</button>
+                        <h3 class="price-name">Эконом</h3>
                     </article>
-
-                    <article class="price-card-premium featured">
-                        <div>
-                            <span class="price-badge">Популярный выбор</span>
-                            <h3 class="price-name">Стандарт</h3>
-                            <div class="price-amount">от 13 000 ₽<span class="price-unit">/м²</span></div>
-                            <div class="price-meta">Капитальный · от 45 дней · гарантия 3 года</div>
-                            <p class="price-desc">Полное обновление инженерных систем и идеально ровные поверхности.</p>
-                            <ul class="price-list">
-                                <li><i class="fas fa-check"></i>Весь перечень из «Эконом»</li>
-                                <li><i class="fas fa-check"></i>Выравнивание стен по маякам</li>
-                                <li><i class="fas fa-check"></i>Разводка новой электрики и сантехники</li>
-                                <li><i class="fas fa-check"></i>Устройство стяжки пола</li>
-                                <li><i class="fas fa-check"></i>Укладка плитки в санузлах</li>
-                            </ul>
-                        </div>
-                        <button data-button-dialog class="price-btn">Выбрать пакет</button>
-                    </article>
-
                     <article class="price-card-premium">
-                        <div>
-                            <h3 class="price-name">Дизайнерский</h3>
-                            <div class="price-amount">от 18 000 ₽<span class="price-unit">/м²</span></div>
-                            <div class="price-meta">Дизайнерский · от 60 дней · гарантия 3 года</div>
-                            <p class="price-desc">Приёмка каждого этапа по чек-листу и работа со сложными дизайнерскими решениями.</p>
-                            <ul class="price-list">
-                                <li><i class="fas fa-check"></i>Весь перечень из «Стандарт»</li>
-                                <li><i class="fas fa-check"></i>Монтаж многоуровневых потолков</li>
-                                <li><i class="fas fa-check"></i>Декоративная штукатурка и лепнина</li>
-                                <li><i class="fas fa-check"></i>Скрытые двери и трековое освещение</li>
-                                <li><i class="fas fa-check"></i>Тёплые полы и инсталляции</li>
-                            </ul>
-                        </div>
-                        <button data-button-dialog class="price-btn">Выбрать пакет</button>
+                        <h3 class="price-name">Стандарт</h3>
                     </article>
-
                     <article class="price-card-premium">
-                        <div>
-                            <h3 class="price-name">Премиум</h3>
-                            <div class="price-amount">от 25 000 ₽<span class="price-unit">/м²</span></div>
-                            <div class="price-meta">С дизайн-проектом · от 90 дней · гарантия 3 года</div>
-                            <p class="price-desc">Авторский дизайн-проект, элитные материалы, умный дом и меблировка — под ключ.</p>
-                            <ul class="price-list">
-                                <li><i class="fas fa-check"></i>Весь перечень из «Дизайнерский»</li>
-                                <li><i class="fas fa-check"></i>Дизайн-проект в комплекте</li>
-                                <li><i class="fas fa-check"></i>Умный дом и климат-контроль</li>
-                                <li><i class="fas fa-check"></i>Меблировка и декорирование</li>
-                                <li><i class="fas fa-check"></i>Персональный архитектор</li>
-                            </ul>
-                        </div>
-                        <a href="/services/premium" class="price-btn">Подробнее о премиуме</a>
+                        <h3 class="price-name">Дизайнерский</h3>
+                    </article>
+                    <article class="price-card-premium">
+                        <h3 class="price-name">Премиум</h3>
                     </article>
                 </div>
 
