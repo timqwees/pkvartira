@@ -116,27 +116,36 @@ if ($__yandexVerification !== '') : ?>
 <!-- Premium theme (FSS-inspired) — слой поверх Tailwind: палитра, типографика, компоненты -->
 <link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/premium-theme.css') ?>">
 
-<!-- Анимация букв заголовка главной: при наведении цветLetters плавно меняется.
+<!-- Заголовок главной: крупный жирный капс, плотные строки, подсветка каждой буквы отдельно.
      Стили и JS вынесены сюда, чтобы не ломать поток в <body>. -->
 <style>
-    #hero-title .hero-word { display: block; cursor: default; }
-    #hero-title .hero-word .letter {
-        display: inline-block;
-        color: inherit;
-        transition: color .35s ease, transform .35s ease;
+    main #hero h1#hero-title {
+        font-family: 'Wix Madefor Display', var(--font-heading);
+        font-weight: 900;
+        font-size: clamp(64px, 10.2vw, 168px);
+        line-height: .82;
+        letter-spacing: -.055em;
+        text-transform: uppercase;
+        text-wrap: nowrap;
+        margin-top: 24px;
     }
-    #hero-title .hero-word:hover .letter { color: #f97316; transform: translateY(-2px); }
-    #hero-title .hero-word .letter:nth-child(1) { transition-delay: 0s; }
-    #hero-title .hero-word .letter:nth-child(2) { transition-delay: .04s; }
-    #hero-title .hero-word .letter:nth-child(3) { transition-delay: .08s; }
-    #hero-title .hero-word .letter:nth-child(4) { transition-delay: .12s; }
-    #hero-title .hero-word .letter:nth-child(5) { transition-delay: .16s; }
-    #hero-title .hero-word .letter:nth-child(6) { transition-delay: .20s; }
-    #hero-title .hero-word .letter:nth-child(7) { transition-delay: .24s; }
-    #hero-title .hero-word .letter:nth-child(8) { transition-delay: .28s; }
+    main #hero h1#hero-title .hero-word { display: block; cursor: default; }
+    main #hero h1#hero-title .letter {
+        display: inline-block;
+        white-space: pre;
+        color: #fff;
+        transition: color .3s ease, transform .3s ease;
+    }
+    main #hero h1#hero-title .letter:hover { color: #f97316; transform: translateY(-2px); }
+    @media (max-height: 780px) {
+        main #hero h1#hero-title { font-size: clamp(56px, 8vw, 110px); line-height: .84; }
+    }
+    @media (max-width: 576px) {
+        main #hero h1#hero-title { font-size: clamp(48px, 13vw, 76px); line-height: .86; }
+    }
     @media (prefers-reduced-motion: reduce) {
-        #hero-title .hero-word .letter { transition: none; }
-        #hero-title .hero-word:hover .letter { transform: none; }
+        main #hero h1#hero-title .letter { transition: none; }
+        main #hero h1#hero-title .letter:hover { transform: none; }
     }
 </style>
 <script defer>
