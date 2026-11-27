@@ -192,13 +192,23 @@
 
     <?php include_once './public/components/header.php'; ?>
 
-    <main class="pt-20 bg-[#f3f4fb]">
+    <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
+
+        <!-- 1. Hero section -->
+        <?php
+        $heroH1 = 'Калькулятор ремонта квартиры';
+        $heroFormId = 'calculator_hero';
+        $heroSubtitle = 'Рассчитайте стоимость ремонта под ключ в Москве за 1 минуту. Учитывает площадь, тип ремонта, материалы. Результат сразу, бесплатно.';
+        $bg_url = '/public/assets/images/portfolio-photos/newbuilds/1_86sqm/1.jpg';
+        include './public/components/hero-section.php';
+        ?>
+
         <section class="reveal py-10" id="calculator">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="bg-white rounded-2xl border border-[#e6e7ee] shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
                     <div class="px-6 pt-6 pb-4">
-                        <h1 class="text-[24px] md:text-[28px] font-extrabold text-[#2a2e3b]">Калькулятор ремонта
-                            квартиры</h1>
+                        <h2 class="text-[24px] md:text-[28px] font-extrabold text-[#2a2e3b]">Калькулятор ремонта
+                            квартиры</h2>
                         <p class="mt-1 text-[13px] text-[#7a7f8c]">Рассчитайте стоимость ремонта квартиры за <span
                                 class="font-bold">1 минуту</span></p>
                         <p class="mt-3 flex items-center gap-2 text-[13px] text-[#4b5563] bg-[#fff7ed] border border-[#fed7aa] rounded-lg px-3 py-2">

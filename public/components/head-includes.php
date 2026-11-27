@@ -116,6 +116,46 @@ if ($__yandexVerification !== '') : ?>
 <!-- Premium theme (FSS-inspired) — слой поверх Tailwind: палитра, типографика, компоненты -->
 <link rel="stylesheet" href="<?= \Setting\Route\Functions\TheFunction::asset('/public/assets/styles/premium-theme.css') ?>">
 
+<!-- Анимация букв заголовка главной: при наведении цветLetters плавно меняется.
+     Стили и JS вынесены сюда, чтобы не ломать поток в <body>. -->
+<style>
+    #hero-title .hero-word { display: block; cursor: default; }
+    #hero-title .hero-word .letter {
+        display: inline-block;
+        color: inherit;
+        transition: color .35s ease, transform .35s ease;
+    }
+    #hero-title .hero-word:hover .letter { color: #f97316; transform: translateY(-2px); }
+    #hero-title .hero-word .letter:nth-child(1) { transition-delay: 0s; }
+    #hero-title .hero-word .letter:nth-child(2) { transition-delay: .04s; }
+    #hero-title .hero-word .letter:nth-child(3) { transition-delay: .08s; }
+    #hero-title .hero-word .letter:nth-child(4) { transition-delay: .12s; }
+    #hero-title .hero-word .letter:nth-child(5) { transition-delay: .16s; }
+    #hero-title .hero-word .letter:nth-child(6) { transition-delay: .20s; }
+    #hero-title .hero-word .letter:nth-child(7) { transition-delay: .24s; }
+    #hero-title .hero-word .letter:nth-child(8) { transition-delay: .28s; }
+    @media (prefers-reduced-motion: reduce) {
+        #hero-title .hero-word .letter { transition: none; }
+        #hero-title .hero-word:hover .letter { transform: none; }
+    }
+</style>
+<script defer>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('#hero-title .hero-word').forEach(function (word) {
+        var text = word.textContent.trim();
+        if (!text || word.dataset.lettersReady) return;
+        word.textContent = '';
+        for (var i = 0; i < text.length; i++) {
+            var letter = document.createElement('span');
+            letter.className = 'letter';
+            letter.textContent = text[i];
+            word.appendChild(letter);
+        }
+        word.dataset.lettersReady = '1';
+    });
+});
+</script>
+
 <!-- Yandex.Metrica counter (M-03) — на ВСЕХ страницах сайта.
      Раньше счётчик стоял только в public/index.php, из-за чего цели SENDFORM/FORM_START
      не срабатывали на внутренних страницах и нельзя было оценить вклад органики (M-02). -->

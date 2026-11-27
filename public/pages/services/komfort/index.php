@@ -113,18 +113,12 @@ $seo = TheFunction::seo([
 <body class="bg-white">
 <?php include_once './public/components/header.php'; ?>
 <main class="pt-20" style="padding-top:80px">
-    <section class="relative bg-[#1f2937] text-white">
-        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('<?= $bg_url; ?>')"></div>
-        <div class="relative container mx-auto px-4 max-w-6xl py-14 md:py-20">
-            <h1 class="text-[28px] md:text-[40px] font-extrabold leading-tight" style="font-family:var(--font-heading)">Ремонт квартиры комфорт класса</h1>
-            <p class="mt-4 text-[17px] text-gray-300 max-w-2xl">Оптимальное соотношение цены и качества для ремонта квартиры в Москве. Качественные материалы, современная отделка, гарантия 3 года.</p>
-            <div class="mt-6 flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">₽</span> от 10 000 ₽/м²</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Гарантия 3 года</div>
-                <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-5 h-5 rounded-full bg-[#876b55] flex items-center justify-center text-[10px]">✓</span> Замер бесплатно</div>
-            </div>
-        </div>
-    </section>
+        <?php
+        $heroH1 = 'Ремонт квартиры комфорт класса';
+        $heroFormId = 'komfort_hero';
+        $heroSubtitle = 'Оптимальное соотношение цены и качества для ремонта квартиры в Москве. Качественные материалы, современная отделка, гарантия 3 года.';
+        include './public/components/hero-section.php';
+        ?>
 
     <section class="py-12">
         <div class="container mx-auto px-4 max-w-6xl">

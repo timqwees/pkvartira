@@ -76,25 +76,12 @@ $seo = TheFunction::seo([
     <main class="pt-20 flex flex-col gap-0" style="padding-top:80px">
 
         <!-- 1. Hero section -->
-        <section class="relative text-white py-12 md:py-32 bg-cover bg-center bg-no-repeat" style="background-image: url(<?= htmlspecialchars($bg_url); ?>);">
-            <div class="absolute z-0 top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-            <div class="relative z-10 container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-                    <div class="max-w-3xl">
-                        <h1 class="text-3xl md:text-5xl font-heading font-bold mb-6 text-white leading-tight">
-                            Ремонт квартиры<br>
-                            <strong class="text-[#876b55]">под сдачу или продажу</strong><br>
-                            в Москве
-                        </h1>
-                        <p class="text-xl mb-8 text-white max-w-2xl">Сделайте квартиру ликвидной: бюджетный ремонт для сдачи или премиальный — для продажи. Фиксированная смета и гарантия 3 года.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="tel:<?= $site['phone']; ?>" class="bg-[#876b55] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#6d5744] transition text-lg"><i class="fas fa-phone mr-2"></i>Вызвать инженера</a>
-                            <button data-button-dialog class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition"><i class="fas fa-calculator mr-2"></i>Расчёт сметы</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <?php
+        $heroH1 = 'Ремонт квартиры под сдачу или продажу в Москве';
+        $heroFormId = 'dlya-sdachi_hero';
+        $heroSubtitle = 'Сделайте квартиру ликвидной: бюджетный ремонт для сдачи или премиальный — для продажи. Фиксированная смета и гарантия 3 года.';
+        include './public/components/hero-section.php';
+        ?>
 
         <!-- 2. Price section -->
         <section id="price" class="reveal bg-white py-10 md:py-14">
