@@ -199,7 +199,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     'num' => '01',
                     'href' => '/services/pod-klyuch',
                     'title' => 'Косметический ремонт',
-                    'price' => 'от 8 000 ₽/м²',
                     'term' => 'от 14 дней',
                     'badge' => '',
                     'img' => '/public/assets/images/pages/main/renovation-format/cosmetic.webp',
@@ -212,7 +211,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     'num' => '02',
                     'href' => '/services/pod-klyuch',
                     'title' => 'Капитальный ремонт',
-                    'price' => 'от 13 000 ₽/м²',
                     'term' => 'от 45 дней',
                     'badge' => 'Самый популярный',
                     'img' => '/public/assets/images/pages/main/renovation-format/capital.webp',
@@ -225,7 +223,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     'num' => '03',
                     'href' => '/services/pod-klyuch',
                     'title' => 'Дизайнерский ремонт',
-                    'price' => 'от 18 000 ₽/м²',
                     'term' => 'от 60 дней',
                     'badge' => '',
                     'img' => '/public/assets/images/pages/main/renovation-format/finish.webp',
@@ -238,7 +235,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     'num' => '04',
                     'href' => '/services/pod-klyuch',
                     'title' => 'Премиум и элитный ремонт',
-                    'price' => 'от 25 000 ₽/м²',
                     'term' => 'от 90 дней',
                     'badge' => 'Premium',
                     'img' => '/public/assets/images/portfolio-photos/cottage/1_180sqm/2.webp',
@@ -258,7 +254,6 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             <img src="<?= htmlspecialchars($site['baseUrl'] . $card['img']); ?>"
                                 alt="<?= htmlspecialchars($card['alt']); ?>" width="640" height="480" loading="lazy"
                                 decoding="async">
-                            <span class="format-price"><?= htmlspecialchars($card['price']); ?></span>
                         </a>
 
                         <div class="format-label">
@@ -273,7 +268,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
                         <h3>
                             <a href="<?= htmlspecialchars($site['baseUrl'] . $card['href']); ?>"
-                                title="<?= htmlspecialchars($card['title'] . ' — ' . $card['price']); ?>"><?= htmlspecialchars($card['title']); ?></a>
+                                title="<?= htmlspecialchars($card['title']); ?>"><?= htmlspecialchars($card['title']); ?></a>
                         </h3>
 
                         <dl class="format-specs">
