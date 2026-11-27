@@ -1165,7 +1165,17 @@ class TheFunction
 
         // Фильтруем пустые соцсети (например VK если не задан — не попадает в sameAs, чтобы не плодить битую ссылку)
         // GEO: sameAs связывает сущность компании везде — сайт, мессенджеры, Яндекс Карты (один и тот же бренд для AI-поиска)
-        $sameAs = array_values(array_filter([$site['vk'], $site['telegram'], $site['whatsapp'], $site['kartaAdress'] ?? '', 'https://yandex.ru/maps/org/proyekt_kvartira/'], fn($v) => is_string($v) && $v !== ''));
+        $sameAs = array_values(array_filter([
+            $site['vk'], $site['telegram'], $site['whatsapp'],
+            $site['kartaAdress'] ?? '',
+            'https://yandex.ru/maps/org/proyekt_kvartira/',
+            'https://2gis.ru/moscow/firm/70000001114907613',
+            'https://yandex.ru/profile/90420725359',
+            'https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60',
+            'https://youdo.com/u14181521',
+            'https://profi.ru/profile/SuchkovNO2/',
+            'https://otzovik.com/reviews/kompaniya_po_remontu_kvartir_proekt_kvartira_russia_moscow/',
+        ], fn($v) => is_string($v) && $v !== ''));
         $brand = $site['brand'] ?? $site['name'];
         $shortBrand = $site['shortBrand'] ?? $site['shortName'] ?? 'Проект Квартира';
         $alternateName = $site['alternateName'] ?? [$brand, $shortBrand, 'pkvartira.ru'];
@@ -1296,8 +1306,7 @@ class TheFunction
 
         // Add Service schema if pageType is Service
         if ($opts['pageType'] === 'Service') {
-            $ratingValue = 4.9;
-            $reviewCount = 35;
+            [$reviewCount, $ratingValue] = self::reviewsStats();
             $jsonLd['@graph'][] = [
                 '@type' => 'Service',
                 '@id' => $canonicalUrl . '#service',
@@ -1577,11 +1586,30 @@ public static function articleSchema(array $article): array
         return $schema;
     }
 
+    /**
+     * Единый источник правды по отзывам для schema.org (E-E-A-T).
+     * @return array{0:int,1:string} [количество, средняя оценка]
+     */
+    private static function reviewsStats(): array
+    {
+        static $stats = null;
+        if ($stats !== null) {
+            return $stats;
+        }
+        require_once __DIR__ . '/ReviewsParser.php';
+        $reviews = (new ReviewsParser())->getReviews();
+        $count = count($reviews);
+        $avg = $count > 0
+            ? array_sum(array_map(static fn($r) => (int)($r['rating'] ?? 5), $reviews)) / $count
+            : 5.0;
+        $stats = [$count, number_format(round($avg, 1), 1, '.', '.')];
+        return $stats;
+    }
+
     public static function serviceSchema(array $service): array
     {
         $site = self::site();
-        $ratingValue = 4.9;
-        $reviewCount = 35;
+        [$reviewCount, $ratingValue] = self::reviewsStats();
         return [
             '@type' => 'Service',
             '@id' => $site['baseUrl'] . '/services/' . $service['slug'] . '#service',

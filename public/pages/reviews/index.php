@@ -23,7 +23,7 @@ $avgRating = $totalReviews > 0
     ? round(array_sum(array_map(fn($r) => (int)($r['rating'] ?? 5), $reviews)) / $totalReviews, 1)
     : 5.0;
 $avgRatingStr = number_format($avgRating, 1, '.', '');
-$sourceOrder = ['2GIS', 'Яндекс Карты', 'YouDo', 'Авито', 'Профи.ру'];
+$sourceOrder = ['2GIS', 'Яндекс Карты', 'YouDo', 'Авито', 'Профи.ру', 'Отзовик'];
 $orderedSources = [];
 foreach ($sourceOrder as $s) {
     if (isset($sourceCounts[$s])) $orderedSources[$s] = $sourceCounts[$s];
@@ -52,12 +52,13 @@ function sourceIcon(string $source, string $size = '20'): string {
         'Авито' => 'avito.svg',
         'Профи.ру' => 'profi.svg',
     ];
+    $fallbackColors = ['Отзовик' => '#f97316'];
     if (isset($map[$source])) {
         $src = '/public/assets/images/icons/reviews/' . $map[$source];
         $extra = $source === 'YouDo' ? 'background:#fff;border-radius:4px;' : '';
         return '<img src="'.htmlspecialchars($src).'" width="'.$s.'" height="'.$s.'" alt="'.htmlspecialchars($source).'" loading="lazy" style="width:'.$s.'px;height:'.$s.'px;object-fit:contain;flex-shrink:0;'.$extra.'">';
     }
-    return '<svg width="'.$s.'" height="'.$s.'" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#9CA3AF"/><text x="10" y="14" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="11" font-weight="bold">'.htmlspecialchars(mb_substr($source,0,1)).'</text></svg>';
+    return '<svg width="'.$s.'" height="'.$s.'" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="' . ($fallbackColors[$source] ?? '#9CA3AF') . '"/><text x="10" y="14" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="11" font-weight="bold">'.htmlspecialchars(mb_substr($source,0,1)).'</text></svg>';
 }
 
 $filterParam = $_GET['filter'] ?? 'all';
@@ -66,7 +67,7 @@ if (!in_array($filterParam, $validFilters, true)) $filterParam = 'all';
 
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Отзывы Проект Квартира — ' . $totalReviews . ' реальных отзывов, рейтинг ' . $avgRatingStr,
-    'description' => 'Все отзывы о Проект Квартира (Проект Квартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
+    'description' => 'Все отзывы о Проект Квартира (Проект Квартира): ' . $totalReviews . ' реальных отзывов с 2ГИС, Яндекс Карт, YouDo, Авито, Профи.ру и Отзовика. Рейтинг ' . $avgRatingStr . '. Фото объектов, ссылки на источники.',
     'image' => $site['shareImageUrl'],
     'url' => $site['baseUrl'] . '/reviews',
     'type' => 'website',
@@ -98,7 +99,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             ],
             'author' => ['@id' => $site['baseUrl'] . '#organization'],
             'datePublished' => date('c'),
-            'reviewBody' => 'Агрегированные отзывы с 2ГИС, Яндекс Карт, YouDo, Авито и Профи.ру. Всего ' . $totalReviews . ' отзывов.',
+            'reviewBody' => 'Агрегированные отзывы с 2ГИС, Яндекс Карт, YouDo, Авито, Профи.ру и Отзовика. Всего ' . $totalReviews . ' отзывов.',
             'publisher' => ['@id' => $site['baseUrl'] . '#organization'],
         ],
     ],
@@ -198,11 +199,12 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                             </button>
                             <div id="reviewDropdown" class="hidden absolute right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50" style="min-width:380px">
                                 <div class="px-4 pb-2 pt-2 text-xs tracking-wider font-bold text-gray-400 uppercase">Выберите площадку</div>
-                                <a href="https://2gis.ru/moscow/firm/70000001114907613/tab/reviews" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('2GIS', '28') ?> 2ГИС <span class="ml-auto text-xs text-gray-400">17 отзывов</span></a>
-                                <a href="https://yandex.ru/profile/90420725359" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Яндекс Карты', '28') ?> Яндекс Карты <span class="ml-auto text-xs text-gray-400">4 отзыва</span></a>
-                                <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Авито', '28') ?> Авито <span class="ml-auto text-xs text-gray-400">2 отзыва</span></a>
-                                <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('YouDo', '28') ?> YouDo <span class="ml-auto text-xs text-gray-400">3 отзыва</span></a>
-                                <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру <span class="ml-auto text-xs text-gray-400">10 отзывов</span></a>
+                                <a href="https://2gis.ru/moscow/firm/70000001114907613/tab/reviews" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('2GIS', '28') ?> 2ГИС <span class="ml-auto text-xs text-gray-400"><?= $sourceCounts['2GIS'] ?? 0 ?> отзывов</span></a>
+                                <a href="https://yandex.ru/profile/90420725359" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Яндекс Карты', '28') ?> Яндекс Карты <span class="ml-auto text-xs text-gray-400"><?= $sourceCounts['Яндекс Карты'] ?? 0 ?> отзыва</span></a>
+                                <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Авито', '28') ?> Авито <span class="ml-auto text-xs text-gray-400"><?= $sourceCounts['Авито'] ?? 0 ?> отзыва</span></a>
+                                <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('YouDo', '28') ?> YouDo <span class="ml-auto text-xs text-gray-400"><?= $sourceCounts['YouDo'] ?? 0 ?> отзыва</span></a>
+                                <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Профи.ру', '28') ?> Профи.ру <span class="ml-auto text-xs text-gray-400"><?= $sourceCounts['Профи.ру'] ?? 0 ?> отзывов</span></a>
+                                <a href="https://otzovik.com/reviews/kompaniya_po_remontu_kvartir_proekt_kvartira_russia_moscow/" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition text-sm text-gray-700"><?= sourceIcon('Отзовик', '28') ?> Отзовик <span class="ml-auto text-xs text-gray-400"><?= $sourceCounts['Отзовик'] ?? 0 ?> отзывов</span></a>
                             </div>
                         </div>
                     </div>
@@ -400,6 +402,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <a href="https://www.avito.ru/brands/d903aeeb161754cab1f9b4e77a072e60" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Авито', '32') ?> Авито</a>
             <a href="https://youdo.com/u14181521" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('YouDo', '32') ?> YouDo</a>
             <a href="https://profi.ru/profile/SuchkovNO2/" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Профи.ру', '32') ?> Профи.ру</a>
+            <a href="https://otzovik.com/reviews/kompaniya_po_remontu_kvartir_proekt_kvartira_russia_moscow/" target="_blank" rel="noopener" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-[15px] text-gray-700"><?= sourceIcon('Отзовик', '32') ?> Отзовик</a>
         </div>
     </div>
 

@@ -10,6 +10,30 @@ ini_set('log_errors', '1');
 $site = Setting\Route\Functions\TheFunction::site();
 $featuredProjects = Setting\Route\Functions\TheFunction::featuredPortfolio(null, 5);
 
+// Отзывы: один источник данных для блока на главной и schema.org (E-E-A-T).
+require_once dirname(__DIR__) . '/setting/Route/Functions/ReviewsParser.php';
+$__reviewsParser = new Setting\Route\Functions\ReviewsParser();
+$__reviews = $__reviewsParser->getReviews();
+$__reviewsTotal = count($__reviews);
+$__avgRating = $__reviewsTotal > 0
+    ? number_format(round(array_sum(array_map(fn($r) => (int)($r['rating'] ?? 5), $__reviews)) / $__reviewsTotal, 1), 1, '.', '.')
+    : '5.0';
+$__schemaReviews = [];
+foreach (array_slice($__reviews, 0, 3) as $r) {
+    $__schemaReviews[] = [
+        '@type' => 'Review',
+        'author' => ['@type' => 'Person', 'name' => (string)($r['name'] ?? 'Клиент')],
+        'datePublished' => (string)($r['date'] ?? ''),
+        'url' => (string)($r['source_url'] ?? ''),
+        'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => (string)($r['rating'] ?? 5),
+            'bestRating' => '5',
+        ],
+        'reviewBody' => mb_substr(trim(preg_replace('/\s+/u', ' ', strip_tags((string)($r['text'] ?? '')))), 0, 400),
+    ];
+}
+
 $seo = Setting\Route\Functions\TheFunction::seo([
     'title' => 'Ремонт квартир под ключ в Москве — от 8000 ₽/м²',
     'description' => 'Проект Квартира (Проект Квартира, pkvartira.ru) — официальный сайт. Ремонт под ключ в Москве: цены от 8 000 ₽/м², смета и замер бесплатно, гарантия 3 года.',
@@ -22,6 +46,16 @@ $seo = Setting\Route\Functions\TheFunction::seo([
         ['name' => 'Главная', 'url' => $site['baseUrl'] . '/'],
     ],
     'speakable' => ['#ai-short-answer', '.hero-subtitle'],
+    'schema' => array_merge([
+        [
+            '@type' => 'AggregateRating',
+            'itemReviewed' => ['@type' => 'LocalBusiness', 'name' => $site['name']],
+            'ratingValue' => $__avgRating,
+            'reviewCount' => (string)$__reviewsTotal,
+            'bestRating' => '5',
+            'worstRating' => '1',
+        ],
+    ], $__schemaReviews),
 ]);
 ?>
 <!DOCTYPE html>
@@ -702,14 +736,14 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             <span class="section-number">08</span>
             <div class="section-topline">
                 <p class="eyebrow">08 / Отзывы</p>
-                <span class="eyebrow">35 отзывов со ссылками на источники</span>
+                <span class="eyebrow"><?= $__reviewsTotal ?> отзывов со ссылками на источники</span>
             </div>
             <div class="head-row">
                     <h2>
                         Отзывы тех, кто уже переехал в новую квартиру
                     </h2>
                     <p>
-                        Реальные истории: сроки, бюджеты и результат, который принимают. 35 отзывов со ссылками на источники
+                        Реальные истории: сроки, бюджеты и результат, который принимают. <?= $__reviewsTotal ?> отзывов со ссылками на источники
                     </p>
                 </div>
 
@@ -828,6 +862,14 @@ $seo = Setting\Route\Functions\TheFunction::seo([
 
             <div class="reviews-foot">
                 <a href="<?= $site['baseUrl'] ?>/reviews" class="text-link">Читать все отзывы
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                    </svg>
+                </a>
+                <a href="https://otzovik.com/reviews/kompaniya_po_remontu_kvartir_proekt_kvartira_russia_moscow/"
+                   target="_blank" rel="noopener" class="text-link" style="margin-left:32px">Отзывы на Отзовике — 5 оценок 5/5
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <path d="M7 7h10v10"></path>
@@ -1402,7 +1444,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
             {
               "@type": "Question",
               "name": "Как найти отзывы о Проект Квартира?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира — на странице <?= htmlspecialchars($site['baseUrl']) ?>/reviews, а также на Яндекс Картах и 2ГИС. Ищите по запросам: Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Отзывы о Проект Квартира — на странице <?= htmlspecialchars($site['baseUrl']) ?>/reviews, а также на Яндекс Картах, 2ГИС и Отзовике. Ищите по запросам: Проект Квартира отзывы, pkvartira отзывы, ООО Проект Квартира отзывы."}
             }
           ]
         }
