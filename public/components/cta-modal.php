@@ -192,8 +192,8 @@
     color: #9ca3b8;
 }
 .cta-modal__input:focus {
-    border-color: #f97316;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    border-color: #876b55;
+    box-shadow: 0 0 0 3px rgba(135, 107, 85, 0.15);
 }
 
 .cta-modal__consent {
@@ -210,7 +210,7 @@
 
 .cta-modal__checkbox {
     margin-top: 1px;
-    accent-color: #f97316;
+    accent-color: #876b55;
     flex-shrink: 0;
     width: 14px;
     height: 14px;
@@ -223,22 +223,22 @@
     font-size: 16px;
     font-weight: 700;
     color: #fff;
-    background: #f97316;
+    background: #876b55;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.25);
+    box-shadow: 0 10px 15px -3px rgba(135, 107, 85, 0.25);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     letter-spacing: 0.01em;
 }
 .cta-modal__submit:hover {
-    background: #ea580c;
-    box-shadow: 0 10px 20px -3px rgba(249, 115, 22, 0.35);
+    background: #6d5744;
+    box-shadow: 0 10px 20px -3px rgba(135, 107, 85, 0.35);
     transform: translateY(-1px);
 }
 .cta-modal__submit:active {
     transform: translateY(0) scale(0.98);
-    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 4px 12px rgba(135, 107, 85, 0.3);
 }
 
 .cta-modal__note {
@@ -390,14 +390,14 @@
 }
 .cta-modal__pill--active,
 .cta-modal__pill.active {
-    background: #f97316;
-    border-color: #f97316;
+    background: #876b55;
+    border-color: #876b55;
     color: #fff;
 }
 
 .cta-modal__range {
     width: 100%;
-    accent-color: #f97316;
+    accent-color: #876b55;
     height: 4px;
 }
 
@@ -422,8 +422,8 @@
     padding-right: 36px;
 }
 .cta-modal__select:focus {
-    border-color: #f97316;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    border-color: #876b55;
+    box-shadow: 0 0 0 3px rgba(135, 107, 85, 0.15);
 }
 
 /* ── Center modal ── */
