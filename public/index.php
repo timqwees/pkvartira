@@ -108,7 +108,7 @@ $seo = Setting\Route\Functions\TheFunction::seo([
                     <span class="live-dot" aria-hidden="true"></span>
                     Ремонт квартир · Под ключ · Москва
                 </p>
-                <h1 id="hero-title">
+                <h1 id="hero-title" class="hero-home-title">
                     <span class="hero-word">Точно.</span>
                     <span class="hero-word">Чисто.</span>
                     <span class="hero-word">В срок.</span>

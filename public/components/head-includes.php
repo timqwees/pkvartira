@@ -126,8 +126,14 @@ if ($__yandexVerification !== '') : ?>
         line-height: .82;
         letter-spacing: -.055em;
         text-transform: uppercase;
-        text-wrap: nowrap;
         margin-top: 24px;
+    }
+    /* Главная: три коротких слова — каждые на своей строке. */
+    main #hero h1#hero-title.hero-home-title { text-wrap: nowrap; }
+    /* Услуги: длинные заголовки переносятся по словам внутри баннера. */
+    main #hero h1#hero-title.hero-service-title {
+        white-space: normal;
+        overflow-wrap: break-word;
     }
     main #hero h1#hero-title .hero-word { display: block; cursor: default; }
     main #hero h1#hero-title .letter {

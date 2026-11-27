@@ -84,7 +84,8 @@ $heroProjects = [
             <span class="live-dot" aria-hidden="true"></span>
             Ремонт квартир · Под ключ · Москва и МО
         </p>
-        <h1 id="hero-title"<?= $heroTitleClass !== '' ? ' class="' . $heroTitleClass . '"' : ''; ?>>
+        <?php $heroTitleClasses = array_filter(['hero-service-title', $heroTitleClass]); ?>
+        <h1 id="hero-title"<?= $heroTitleClasses !== [] ? ' class="' . implode(' ', $heroTitleClasses) . '"' : ''; ?>>
             <span><?= htmlspecialchars($heroLine1); ?></span>
         </h1>
         <div class="hero-intro">
